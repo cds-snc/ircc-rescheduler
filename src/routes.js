@@ -32,4 +32,11 @@ export default [
       loader: () => import('./ConfirmationPage'), // required
     }),
   },
+  {
+    path: '/graphql',
+    exact: true,
+    component: asyncComponent({
+      loader: () => import('./GraphQLPage'), // required
+    }),
+  },
 ]
