@@ -1,22 +1,35 @@
-import React from 'react';
+import React from 'react'
 
-import { asyncComponent } from '@jaredpalmer/after';
+import { asyncComponent } from '@jaredpalmer/after'
 
 export default [
   {
     path: '/',
     exact: true,
     component: asyncComponent({
-      loader: () => import('./Home'), // required
+      loader: () => import('./HomePage'), // required
       Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
     }),
   },
   {
-    path: '/about',
+    path: '/calendar',
     exact: true,
     component: asyncComponent({
-      loader: () => import('./About'), // required
-      Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
+      loader: () => import('./CalendarPage'), // required
     }),
   },
-];
+  {
+    path: '/availability',
+    exact: true,
+    component: asyncComponent({
+      loader: () => import('./AvailabilityPage'), // required
+    }),
+  },
+  {
+    path: '/confirmation',
+    exact: true,
+    component: asyncComponent({
+      loader: () => import('./ConfirmationPage'), // required
+    }),
+  },
+]
