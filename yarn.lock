@@ -17,6 +17,16 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@cdssnc/gcui@^0.0.16":
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/@cdssnc/gcui/-/gcui-0.0.16.tgz#b3f5f072dc7c25314a184623e8d6525d4aacb340"
+  dependencies:
+    emotion "^9.0.2"
+    enzyme-adapter-react-16 "^1.1.1"
+    react "^16.2.0"
+    react-dom "^16.2.0"
+    react-emotion "^9.0.2"
+
 "@emotion/is-prop-valid@^0.5.2":
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.5.2.tgz#4f47717c2bcce8759e11997520e6bcb14326f54a"
@@ -2371,7 +2381,7 @@ emotion-utils@^9.1.0:
   version "9.1.0"
   resolved "https://registry.yarnpkg.com/emotion-utils/-/emotion-utils-9.1.0.tgz#7484dbf18f3b1dc1de68559d1ff35a74caa998dc"
 
-emotion@^9.1.1:
+emotion@^9.0.2, emotion@^9.1.1:
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/emotion/-/emotion-9.1.1.tgz#ee9dd8d5553954ceea9cd0e62402e0afd6802890"
   dependencies:
@@ -6139,7 +6149,7 @@ react-dev-utils@^4.0.0:
     strip-ansi "3.0.1"
     text-table "0.2.0"
 
-"react-dom@^15 || ^16", react-dom@^16.3.1:
+"react-dom@^15 || ^16", react-dom@^16.2.0, react-dom@^16.3.1:
   version "16.3.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.1.tgz#6a3c90a4fb62f915bdbcf6204422d93a7d4ca573"
   dependencies:
@@ -6148,7 +6158,7 @@ react-dev-utils@^4.0.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react-emotion@^9.1.1:
+react-emotion@^9.0.2, react-emotion@^9.1.1:
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/react-emotion/-/react-emotion-9.1.1.tgz#0b92fc9f5e5984cf35c3abf3f4ef2430bb57f3d9"
   dependencies:
@@ -6233,7 +6243,7 @@ react-test-renderer@^16.0.0-0:
     prop-types "^15.6.0"
     react-is "^16.3.1"
 
-"react@^15 || ^16", react@^16.3.1:
+"react@^15 || ^16", react@^16.2.0, react@^16.3.1:
   version "16.3.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.3.1.tgz#4a2da433d471251c69b6033ada30e2ed1202cfd8"
   dependencies:

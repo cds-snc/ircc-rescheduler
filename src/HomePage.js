@@ -4,6 +4,8 @@ import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { mediaQuery, theme } from './styles'
 import AlphaBanner from './AlphaBanner'
+import FederalBanner from './FederalBanner'
+import Footer from './Footer'
 
 injectGlobal`
 
@@ -28,6 +30,7 @@ class HomePage extends React.Component {
     return (
       <div>
       <AlphaBanner />
+      <FederalBanner />
         <h1>Register</h1>
         <p>
           Enter last name and UCI number{' '}
@@ -37,6 +40,7 @@ class HomePage extends React.Component {
         </p>
         <br />
         <NavLink to="/calendar">Calendar →</NavLink>
+        <Footer />
       </div>
     )
   }
