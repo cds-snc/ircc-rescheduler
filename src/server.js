@@ -7,6 +7,7 @@ import routes from './routes'
 import createApolloClient from './utils/createApolloClient'
 import Document from './Document'
 import path from 'path'
+import { renderStylesToString } from 'emotion-server'
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
   path.join(process.cwd(), 'build', 'assets.json'))
@@ -26,7 +27,7 @@ server
       const App = <ApolloProvider client={client}>{node}</ApolloProvider>
       return getDataFromTree(App).then(() => {
         const initialApolloState = client.extract()
-        const html = renderToString(App)
+        const html = renderStylesToString(renderToString(App))
         return { html, initialApolloState }
       })
     }
@@ -41,6 +42,7 @@ server
       })
       res.send(html)
     } catch (error) {
+      console.log(error.message)
       res.json(error)
     }
   })
