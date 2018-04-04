@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { mediaQuery, theme } from './styles'
+import AlphaBanner from './AlphaBanner'
 
 injectGlobal`
 
@@ -26,6 +27,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
+      <AlphaBanner />
         <h1>Register</h1>
         <p>
           Enter last name and UCI number{' '}
