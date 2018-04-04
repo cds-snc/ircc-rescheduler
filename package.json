@@ -10,6 +10,7 @@
     "dbg": "node --inspect-brk node_modules/jest/bin/jest.js"
   },
   "dependencies": {
+    "@cdssnc/gcui": "^0.0.16",
     "@jaredpalmer/after": "latest",
     "apollo-cache-inmemory": "^1.1.12",
     "apollo-client": "^2.2.8",
