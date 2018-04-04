@@ -1,5 +1,26 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { injectGlobal } from 'emotion'
+import { css } from 'react-emotion'
+import { mediaQuery, theme } from './styles'
+
+injectGlobal`
+
+html, body {
+    padding: 0;
+		margin: 0;
+		background: ${theme.colour.white};
+		height: 100%;
+    font-family: ${theme.weight.l}, sans serif;
+    font-size: ${theme.font.md};
+
+    ${mediaQuery.small(css`
+      font-size: ${theme.font.xs};
+    `)};
+
+	}
+
+`
 
 class HomePage extends React.Component {
   render() {
