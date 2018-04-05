@@ -7,7 +7,8 @@ export default [
     path: '/',
     exact: true,
     component: asyncComponent({
-      loader: () => import('./HomePage'), // required
+      loader: () => import('./HomePage'),
+      // eslint-disable-next-line react/display-name
       Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
     }),
   },
@@ -15,28 +16,28 @@ export default [
     path: '/calendar',
     exact: true,
     component: asyncComponent({
-      loader: () => import('./CalendarPage'), // required
+      loader: () => import('./CalendarPage'),
     }),
   },
   {
     path: '/availability',
     exact: true,
     component: asyncComponent({
-      loader: () => import('./AvailabilityPage'), // required
+      loader: () => import('./AvailabilityPage'),
     }),
   },
   {
     path: '/confirmation',
     exact: true,
     component: asyncComponent({
-      loader: () => import('./ConfirmationPage'), // required
+      loader: () => import('./ConfirmationPage'),
     }),
   },
   {
     path: '/graphql',
     exact: true,
     component: asyncComponent({
-      loader: () => import('./GraphQLPage'), // required
+      loader: () => import('./GraphQLPage'),
     }),
   },
 ]
