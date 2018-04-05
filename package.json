@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "razzle start",
     "build": "razzle build",
-    "test": "node_modules/jest/bin/jest.js",
+    "dev": "razzle start",
+    "dbg": "node --inspect-brk node_modules/jest/bin/jest.js",
+    "lint": "node_modules/eslint/bin/eslint.js src test",
     "start": "NODE_ENV=production node build/server.js",
-    "dbg": "node --inspect-brk node_modules/jest/bin/jest.js"
+    "test": "node_modules/jest/bin/jest.js"
   },
   "dependencies": {
     "@cdssnc/gcui": "^0.0.16",
