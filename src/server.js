@@ -6,13 +6,20 @@ import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import routes from './routes'
 import createApolloClient from './utils/createApolloClient'
 import Document from './Document'
+import path from 'path'
 
-const assets = require(process.env.RAZZLE_ASSETS_MANIFEST)
+const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
+  path.join(process.cwd(), 'build', 'assets.json'))
 
 const server = express()
+
 server
   .disable('x-powered-by')
-  .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
+  .use(
+    express.static(
+      process.env.RAZZLE_PUBLIC_DIR || path.join(process.cwd(), 'public'),
+    ),
+  )
   .get('/*', async (req, res) => {
     const client = createApolloClient({ ssrMode: true })
     const customRenderer = node => {
