@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "razzle start",
     "build": "razzle build",
-    "test": "jest",
+    "test": "node_modules/jest/bin/jest.js",
     "start": "NODE_ENV=production node build/server.js",
     "dbg": "node --inspect-brk node_modules/jest/bin/jest.js"
   },
