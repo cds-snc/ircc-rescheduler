@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { mediaQuery, theme } from './styles'
+import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
@@ -14,28 +15,41 @@ html, body {
 		margin: 0;
 		background: ${theme.colour.white};
 		height: 100%;
-    font-family: ${theme.weight.l}, sans serif;
+    font-family: ${theme.weight.l};
     font-size: ${theme.font.md};
 
     ${mediaQuery.small(css`
       font-size: ${theme.font.xs};
     `)};
-
 	}
 
+h1 {
+  font-size: ${theme.font.lg2};
+  font-family: ${theme.weight.b};
+}
+
+.content {
+  padding: 0 0 ${theme.spacing.xxxl} ${theme.spacing.xxxl};
+}
 `
 
 class HomePage extends React.Component {
   render() {
     return (
       <div>
-        <AlphaBanner />
+        <AlphaBanner>
+          {' '}
+          <span>This is an internal service</span>{' '}
+        </AlphaBanner>
         <FederalBanner />
         <main role="main">
-          <section>
-            <header>Reschedule your Canadian Citizenship appointment</header>
-          </section>
-          <section>
+          <PageHeader>
+            <h1>
+              Reschedule your Canadian <br /> Citizenship appointment
+            </h1>
+          </PageHeader>
+
+          <section className="content">
             <h1>Register</h1>
 
             <form>
