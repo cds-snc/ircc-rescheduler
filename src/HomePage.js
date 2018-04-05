@@ -29,17 +29,66 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-      <AlphaBanner />
-      <FederalBanner />
-        <h1>Register</h1>
-        <p>
-          Enter last name and UCI number{' '}
-          <span role="img" aria-label="writing hand emoji">
-            ✍️
-          </span>
-        </p>
-        <br />
-        <NavLink to="/calendar">Calendar →</NavLink>
+        <AlphaBanner />
+        <FederalBanner />
+        <main role="main">
+          <section>
+            <header>Reschedule your Canadian Citizenship appointment</header>
+          </section>
+          <section>
+            <h1>Register</h1>
+
+            <form>
+              <h2>
+                <label htmlFor="last-name" id="last-name-label">
+                  Last name
+                </label>
+              </h2>
+              <input type="text" name="last-name" id="last-name" />
+
+              <h2>
+                <label htmlFor="uci-number" id="uci-number-label">
+                  UCI number
+                </label>{' '}
+                (eg A123456)
+              </h2>
+
+              <p id="uci-number-details">
+                The number is at the top of the email we sent you
+              </p>
+              <input
+                type="text"
+                name="uci-number"
+                id="uci-number"
+                aria-labelledby="uci-number-label uci-number-details"
+              />
+
+              <h2>
+                <label htmlFor="reason" id="reason-label">
+                  Reason for rescheduling
+                </label>
+              </h2>
+              <input type="text" name="reason" id="reason" />
+
+              <h2>
+                <label htmlFor="explanation" id="explanation-label">
+                  Tell us why you can’t attend your appointment
+                </label>
+              </h2>
+              <p id="explanation-details">
+                If you’re not sure that you can reschedule, read the guidelines
+                for scheduling.
+              </p>
+              <input
+                type="text"
+                name="explanation"
+                id="explanation"
+                aria-labelledby="explanation-label explanation-details"
+              />
+            </form>
+            <NavLink to="/calendar">Next →</NavLink>
+          </section>
+        </main>
         <Footer />
       </div>
     )

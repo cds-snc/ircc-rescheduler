@@ -5,18 +5,25 @@ class ConfirmationPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Confirmation</h1>
-        <p>
-          This is the confirmation page{' '}
-          <span
-            role="img"
-            aria-label="envelope with downwards arrow above emoji"
-          >
-            📩
-          </span>
-        </p>
-        <br />
-        <NavLink to="/">← Start over</NavLink>
+        <main role="main">
+          <section>
+            <header>Reschedule your Canadian Citizenship appointment</header>
+          </section>
+          <section>
+            <h1>Thank you! Your request has been received.</h1>
+            <p>We’ve sent you a confirmation email.</p>
+
+            <h2>What happens next?</h2>
+            <p>
+              Your local immigration office will send you a new appointment, or
+              email you to ask for more information.
+            </p>
+
+            <h2>If you have any questions, please contact:</h2>
+            <p>upto4monthsresponsetime@gc.ca</p>
+            <p>(905) 823-8113</p>
+          </section>
+        </main>
       </div>
     )
   }
