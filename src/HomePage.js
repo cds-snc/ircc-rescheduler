@@ -23,9 +23,9 @@ html, body {
     `)};
 	}
 
-h1 {
-  font-size: ${theme.font.lg2};
-  font-family: ${theme.weight.b};
+.title {
+    font-size: ${theme.font.lg2};
+    font-family: ${theme.weight.b};
 }
 
 .content {
@@ -44,13 +44,13 @@ class HomePage extends React.Component {
         <FederalBanner />
         <main role="main">
           <PageHeader>
-            <h1>
+            <h1 className="title">
               Reschedule your Canadian <br /> Citizenship appointment
             </h1>
           </PageHeader>
 
           <section className="content">
-            <h1>Register</h1>
+            <h2>Register</h2>
 
             <form>
               <h2>
