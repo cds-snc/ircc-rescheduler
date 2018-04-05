@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
@@ -38,6 +39,9 @@ class GraphQLPage extends React.Component {
       </div>
     )
   }
+}
+GraphQLPage.propTypes = {
+  data: PropTypes.any.isRequired,
 }
 
 export default graphql(QUERY)(GraphQLPage)

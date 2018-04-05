@@ -86,6 +86,8 @@ export const theme = {
   },
 }
 
+/* eslint-disable security/detect-object-injection */
+
 export const mediaQuery = Object.keys(breakpoints).reduce(
   (accumulator, label) => {
     let prefix = typeof breakpoints[label] === 'string' ? '' : 'max-width:'
@@ -100,6 +102,8 @@ export const mediaQuery = Object.keys(breakpoints).reduce(
   },
   {},
 )
+
+/* eslint-enable security/detect-object-injection */
 
 export const H1 = styled.h1`
   font-size: ${theme.font.lg2};
