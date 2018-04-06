@@ -34,10 +34,9 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run:
-          command: |
-              yarn build
-              yarn test
+      - run: yarn build
+      - run: yarn test
+      - run: yarn lint
 
   deploy:
     docker:
