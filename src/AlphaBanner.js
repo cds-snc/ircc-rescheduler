@@ -2,14 +2,13 @@ import React from 'react'
 import { css } from 'react-emotion'
 import { theme, roundedEdges, mediaQuery } from './styles'
 
-
 const banner = css`
-  background-color: ${theme.colour.grey};
+  background-color: ${theme.colour.black};
   color: ${theme.colour.white};
-  padding-left: ${theme.spacing.xxxl}px;
-  padding-right: ${theme.spacing.xxxl}px;
+  padding-left: ${theme.spacing.xxxl};
+  padding-right: ${theme.spacing.xxxl};
   padding-top: 12px;
-  padding-bottom: ${theme.spacing.sm}px;
+  padding-bottom: ${theme.spacing.sm};
 `
 
 const alpha = css`
@@ -20,38 +19,25 @@ const alpha = css`
 const statusBar = css`
   text-transform: uppercase;
   line-height: 2;
-  color: white;
+  color: ${theme.colour.black};
   position: relative;
   display: inline-block;
   font-size: ${theme.font.xs};
   bottom: 2px;
-  padding: 2px ${theme.spacing.md}px;
-  margin-right: ${theme.spacing.md}px;
-  background-color: ${theme.colour.blueAlpha};
+  padding: 2px ${theme.spacing.md};
+  margin-right: ${theme.spacing.md};
+  background-color: ${theme.colour.white};
   ${roundedEdges};
   ${mediaQuery.small(css`
     font-size: 10px;
   `)};
 `
 
-const link = css`
-  color: ${theme.colour.white};
-  padding: 0;
-`
-
-const AlphaBanner = () => (
+const AlphaBanner = ({ children }) => (
   <div className={banner}>
     <p className={alpha}>
-      <span className={statusBar}>
-        Alpha
-      </span>
-      This is an internal service.{' '}
-      <a
-        className={link}
-        href="mailto:paul.craig@cds-snc.ca?subject=Hey,%20I%20love%20your%20app!"
-      >
-        To provide feedback, email us
-      </a>.
+      <span className={statusBar}>Alpha</span>
+      {children}
     </p>
   </div>
 )
