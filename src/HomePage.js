@@ -34,9 +34,7 @@ class HomePage extends React.Component {
         <FederalBanner />
         <main role="main">
           <PageHeader>
-            <H1>
-              Reschedule your Canadian Citizenship appointment
-            </H1>
+            <H1>Reschedule your Canadian Citizenship appointment</H1>
           </PageHeader>
 
           <Content>
@@ -93,7 +91,7 @@ class HomePage extends React.Component {
             <NavLink to="/calendar">Next →</NavLink>
           </Content>
         </main>
-        <Footer hasTopBar={true} backGround="black" />
+        <Footer topBarBackground="black" />
       </div>
     )
   }
