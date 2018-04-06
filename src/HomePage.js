@@ -29,7 +29,7 @@ class HomePage extends React.Component {
       <div>
         <AlphaBanner>
           {' '}
-          <span>This is an internal service</span>{' '}
+          <span>This is a new service we are constantly improving.</span>{' '}
         </AlphaBanner>
         <FederalBanner />
         <main role="main">
@@ -38,12 +38,10 @@ class HomePage extends React.Component {
           </PageHeader>
 
           <Content>
-            <H2>Register</H2>
-
             <form>
               <H2>
                 <label htmlFor="last-name" id="last-name-label">
-                  Last name
+                  Full name
                 </label>
               </H2>
               <input type="text" name="last-name" id="last-name" />

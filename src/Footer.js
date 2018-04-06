@@ -4,6 +4,14 @@ import { WordMark } from '@cdssnc/gcui'
 import styled, { css } from 'react-emotion'
 import { theme } from './styles'
 
+const Circle = styled.span`
+  font-size: 8px;
+  padding-left: ${theme.spacing.lg};
+  padding-right: ${theme.spacing.lg};
+  position: relative;
+  bottom: 2px;
+`
+
 const footer = css`
   background-color: ${theme.colour.white};
   padding: ${theme.spacing.xl} ${theme.spacing.xxxl};
@@ -18,7 +26,7 @@ const Link = styled.a`
   font-size: ${theme.font.sm};
 `
 
-const TopBar = styled.div(
+const TopBar = styled.hr(
   {
     height: '0.4em',
     border: 'none',
@@ -30,9 +38,20 @@ const Footer = ({ topBarBackground }) => (
   <section>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
-      <Link href="https://www.canada.ca/en/transparency/privacy.html">
-        Privacy
-      </Link>
+      <div>
+        <Link href="https://www.canada.ca/en/transparency/privacy.html">
+          Privacy
+        </Link>
+
+        <Circle> &#9679; </Circle>
+
+        <Link href="#">Terms and Conditions</Link>
+
+        <Circle> &#9679; </Circle>
+
+        <Link href="#">Contact</Link>
+      </div>
+
       <WordMark
         width="8.375em"
         height="2em"
