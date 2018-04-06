@@ -4,12 +4,12 @@ import { css } from 'react-emotion'
 import { theme, mediaQuery } from './styles'
 
 const container = css`
-  padding: ${theme.spacing.lg}px ${theme.spacing.xxxl}px ${theme.spacing.md}px
-    ${theme.spacing.xxxl}px;
+  padding: ${theme.spacing.lg} ${theme.spacing.xxxl} ${theme.spacing.md}
+    ${theme.spacing.xxxl};
   display: flex;
   width: auto;
   justify-content: space-between;
-  background-color: ${theme.colour.black};
+  background-color: ${theme.colour.white};
   ${mediaQuery.medium(css`
     display: block;
   `)};
@@ -21,8 +21,8 @@ const FederalBanner = () => (
       <GoCSignature
         width="250px"
         height="24px"
-        flag={theme.colour.white}
-        text={theme.colour.white}
+        flag={theme.colour.black}
+        text={theme.colour.black}
       />
     </div>
   </section>
