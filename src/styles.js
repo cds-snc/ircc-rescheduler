@@ -1,4 +1,5 @@
 import { css } from 'react-emotion'
+import styled from 'react-emotion'
 
 export const fontFace = css`
   @import url(https://fontlibrary.org/face/hk-grotesk);
@@ -82,8 +83,6 @@ export const theme = {
     xl: '2em',
     xxl: '3em',
     xxxl: '4em',
-
-    lgXl: '2.75em',
   },
 }
 
@@ -101,3 +100,17 @@ export const mediaQuery = Object.keys(breakpoints).reduce(
   },
   {},
 )
+
+export const H1 = styled.h1`
+  font-size: ${theme.font.lg2};
+  font-family: ${theme.weight.b};
+`
+
+export const H2 = styled.h2`
+  font-size: ${theme.font.lg};
+  font-family: ${theme.weight.b};
+`
+
+export const Content = styled.section`
+  padding: 0 0 ${theme.spacing.xxxl} ${theme.spacing.xxxl};
+`
