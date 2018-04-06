@@ -9,4 +9,5 @@ FROM gcr.io/distroless/nodejs
 COPY --from=build-env /app /app
 ENV NODE_ENV production
 WORKDIR /app
+EXPOSE 3004
 CMD ["build/server.js"]
