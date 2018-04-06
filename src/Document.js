@@ -8,6 +8,7 @@ class Document extends React.Component {
   }
 
   render() {
+    // eslint-disable-next-line react/prop-types
     const { helmet, assets, data, initialApolloState } = this.props
     // get attributes from React Helmet
     const htmlAttrs = helmet.htmlAttributes.toComponent()

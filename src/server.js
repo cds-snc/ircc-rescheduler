@@ -9,6 +9,7 @@ import Document from './Document'
 import path from 'path'
 import { renderStylesToString } from 'emotion-server'
 
+// eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
   path.join(process.cwd(), 'build', 'assets.json'))
 
@@ -42,7 +43,6 @@ server
       })
       res.send(html)
     } catch (error) {
-      console.log(error.message)
       res.json(error)
     }
   })

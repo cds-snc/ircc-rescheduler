@@ -1,5 +1,4 @@
-import { css } from 'react-emotion'
-import styled from 'react-emotion'
+import styled, { css } from 'react-emotion'
 
 export const fontFace = css`
   @import url(https://fontlibrary.org/face/hk-grotesk);
@@ -86,6 +85,8 @@ export const theme = {
   },
 }
 
+/* eslint-disable security/detect-object-injection */
+
 export const mediaQuery = Object.keys(breakpoints).reduce(
   (accumulator, label) => {
     let prefix = typeof breakpoints[label] === 'string' ? '' : 'max-width:'
@@ -100,6 +101,8 @@ export const mediaQuery = Object.keys(breakpoints).reduce(
   },
   {},
 )
+
+/* eslint-enable security/detect-object-injection */
 
 export const H1 = styled.h1`
   font-size: ${theme.font.lg2};

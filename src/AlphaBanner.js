@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
 import { theme, roundedEdges, mediaQuery } from './styles'
 
@@ -41,5 +42,8 @@ const AlphaBanner = ({ children }) => (
     </p>
   </div>
 )
+AlphaBanner.propTypes = {
+  children: PropTypes.any.isRequired,
+}
 
 export default AlphaBanner
