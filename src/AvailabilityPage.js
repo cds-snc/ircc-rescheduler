@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Button from './forms/Button'
 
 class AvailabilityPage extends React.Component {
   render() {
@@ -47,8 +48,13 @@ class AvailabilityPage extends React.Component {
             </form>
           </section>
 
-          <NavLink to="/calendar">← Back</NavLink>
-          <NavLink to="/confirmation">Send request →</NavLink>
+          <NavLink to="/calendar">
+              <br />
+            <Button>← Back</Button>
+          </NavLink>
+          <NavLink to="/confirmation">
+            <Button>Send request →</Button>
+          </NavLink>
         </main>
       </div>
     )

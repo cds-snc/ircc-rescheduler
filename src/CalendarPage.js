@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Button from './forms/Button'
 
 class CalendarPage extends React.Component {
   render() {
@@ -28,8 +29,13 @@ class CalendarPage extends React.Component {
               </strong>
             </p>
 
-            <NavLink to="/">← Back</NavLink>
-            <NavLink to="/availability">Next →</NavLink>
+            <NavLink to="/">
+              <br />
+              <Button>← Back</Button>
+            </NavLink>
+            <NavLink to="/availability">
+              <Button>Next →</Button>
+            </NavLink>
           </section>
         </main>
       </div>

@@ -5,6 +5,7 @@ import { css } from 'react-emotion'
 import { mediaQuery, theme } from './styles'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
+import Button from './forms/Button'
 import Footer from './Footer'
 
 injectGlobal`
@@ -86,7 +87,10 @@ class HomePage extends React.Component {
                 aria-labelledby="explanation-label explanation-details"
               />
             </form>
-            <NavLink to="/calendar">Next →</NavLink>
+            <NavLink to="/calendar">
+              <br />
+              <Button>Next</Button>
+            </NavLink>
           </section>
         </main>
         <Footer />
