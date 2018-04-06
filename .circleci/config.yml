@@ -54,28 +54,16 @@ jobs:
               docker push "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:latest"
           name: "Deploy IRCC Docker Image"
     working_directory: ~/repo
+
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - build
       - deploy:
-         filters:
-           branches:
-             only:
-              - add_deploy
-         requires:
-           - build
-         name: "Build and Deploy IRCC Docker Image"
-
-    working_directory: ~/repo
-workflows:
-  version: 2
-  build_and_deploy:
-   jobs:
-     - build
-     - deploy:
-        filters:
-          branches:
-            only:
-              - master
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master
