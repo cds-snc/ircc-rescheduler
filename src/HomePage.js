@@ -2,14 +2,13 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
-import { mediaQuery, theme } from './styles'
+import { mediaQuery, theme, H1, H2, Content } from './styles'
 import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
 
 injectGlobal`
-
 html, body {
     padding: 0;
 		margin: 0;
@@ -22,15 +21,6 @@ html, body {
       font-size: ${theme.font.xs};
     `)};
 	}
-
-.title {
-    font-size: ${theme.font.lg2};
-    font-family: ${theme.weight.b};
-}
-
-.content {
-  padding: 0 0 ${theme.spacing.xxxl} ${theme.spacing.xxxl};
-}
 `
 
 class HomePage extends React.Component {
@@ -44,28 +34,28 @@ class HomePage extends React.Component {
         <FederalBanner />
         <main role="main">
           <PageHeader>
-            <h1 className="title">
-              Reschedule your Canadian <br /> Citizenship appointment
-            </h1>
+            <H1>
+              Reschedule your Canadian Citizenship appointment
+            </H1>
           </PageHeader>
 
-          <section className="content">
-            <h2>Register</h2>
+          <Content>
+            <H2>Register</H2>
 
             <form>
-              <h2>
+              <H2>
                 <label htmlFor="last-name" id="last-name-label">
                   Last name
                 </label>
-              </h2>
+              </H2>
               <input type="text" name="last-name" id="last-name" />
 
-              <h2>
+              <H2>
                 <label htmlFor="uci-number" id="uci-number-label">
                   UCI number
                 </label>{' '}
                 (eg A123456)
-              </h2>
+              </H2>
 
               <p id="uci-number-details">
                 The number is at the top of the email we sent you
@@ -77,18 +67,18 @@ class HomePage extends React.Component {
                 aria-labelledby="uci-number-label uci-number-details"
               />
 
-              <h2>
+              <H2>
                 <label htmlFor="reason" id="reason-label">
                   Reason for rescheduling
                 </label>
-              </h2>
+              </H2>
               <input type="text" name="reason" id="reason" />
 
-              <h2>
+              <H2>
                 <label htmlFor="explanation" id="explanation-label">
                   Tell us why you can’t attend your appointment
                 </label>
-              </h2>
+              </H2>
               <p id="explanation-details">
                 If you’re not sure that you can reschedule, read the guidelines
                 for scheduling.
@@ -101,9 +91,9 @@ class HomePage extends React.Component {
               />
             </form>
             <NavLink to="/calendar">Next →</NavLink>
-          </section>
+          </Content>
         </main>
-        <Footer />
+        <Footer hasTopBar={true} backGround="black" />
       </div>
     )
   }

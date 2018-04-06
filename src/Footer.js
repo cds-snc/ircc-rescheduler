@@ -17,21 +17,24 @@ const Link = styled.a`
   font-size: ${theme.font.sm};
 `
 
-const topBar = css`
-  background: black;
-  height: 0.4em;
-`
+const TopBar = styled.div(
+  {
+    height: '0.4em',
+    border: 'none',
+  },
+  props => ({ background: props.background }),
+)
 
-const Footer = () => (
+const Footer = ({ hasTopBar, backGround }) => (
   <section>
-    <div className={topBar} />
+    {hasTopBar ? <TopBar background={backGround} /> : ''}
     <footer className={footer}>
       <Link href="https://www.canada.ca/en/transparency/privacy.html">
         Privacy
       </Link>
       <WordMark
-        width="134px"
-        height="32px"
+        width="8.375em"
+        height="2em"
         flag={theme.colour.black}
         text={theme.colour.black}
       />
