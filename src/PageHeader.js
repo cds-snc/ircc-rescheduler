@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
-import { theme, roundedEdges, mediaQuery } from './styles'
+import { theme } from './styles'
 
 const banner = css`
   background-color: ${theme.colour.greyLight};
@@ -13,5 +14,8 @@ const PageHeader = ({ children }) => (
     <span>{children}</span>
   </section>
 )
+PageHeader.propTypes = {
+  children: PropTypes.any.isRequired,
+}
 
 export default PageHeader

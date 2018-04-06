@@ -1,5 +1,4 @@
-import { css } from 'react-emotion'
-import styled from 'react-emotion'
+import styled, { css } from 'react-emotion'
 
 export const fontFace = css`
   @import url(https://fontlibrary.org/face/hk-grotesk);

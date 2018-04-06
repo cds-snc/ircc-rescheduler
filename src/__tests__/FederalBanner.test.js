@@ -1,10 +1,10 @@
 import { shallow } from 'enzyme'
-import AlphaBanner from '../FederalBanner'
+import FederalBanner from '../FederalBanner'
 import React from 'react'
 
 describe('<FederalBanner />', () => {
   it('renders', () => {
-    const federalBanner = shallow(<federalBanner />)
+    const federalBanner = shallow(<FederalBanner />)
     expect(federalBanner.find('svg')).toBeTruthy()
   })
 })
