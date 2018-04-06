@@ -25,9 +25,9 @@ const TopBar = styled.div(
   props => ({ background: props.background }),
 )
 
-const Footer = ({ hasTopBar, backGround }) => (
+const Footer = ({ topBarBackground }) => (
   <section>
-    {hasTopBar ? <TopBar background={backGround} /> : ''}
+    {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
       <Link href="https://www.canada.ca/en/transparency/privacy.html">
         Privacy
