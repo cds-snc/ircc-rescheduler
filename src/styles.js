@@ -65,6 +65,7 @@ export const theme = {
     bi: 'HKGroteskSemiBoldItalic, sans serif',
   },
   font: {
+    xxs: '0.2em',
     xs: '0.5em',
     sm: '0.75em',
     base: '1em',
@@ -114,6 +115,33 @@ export const H2 = styled.h2`
   font-family: ${theme.weight.b};
 `
 
+export const H3 = styled.h3`
+  font-size: ${theme.font.md};
+  font-family: ${theme.weight.b};
+`
+
 export const Content = styled.section`
   padding: 0 0 ${theme.spacing.xxxl} ${theme.spacing.xxxl};
+  width: 65%;
+`
+
+export const Bold = styled.strong`
+  font-family: ${theme.weight.b};
+`
+
+export const Calendar = styled.div`
+  height: 30em;
+  width: 60em;
+  background: ${theme.colour.grayLight};
+`
+
+export const Circle = styled.div`
+  width: 0.2em;
+  height: 0.2em;
+  border-radius: 50px;
+  font-size: 20px;
+  color: #fff;
+  line-height: 100px;
+  text-align: center;
+  background: #000;
 `

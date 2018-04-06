@@ -1,26 +1,35 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { H1, Content, Bold, Calendar } from './styles'
+import PageHeader from './PageHeader'
+import AlphaBanner from './AlphaBanner'
+import FederalBanner from './FederalBanner'
+import Footer from './Footer'
 
 class CalendarPage extends React.Component {
   render() {
     return (
       <div>
-        <main role="main">
-          <section>
-            <header>Reschedule your Canadian Citizenship appointment</header>
-          </section>
-          <section>
-            <h1>Calendar</h1>
+        <AlphaBanner>
+          {' '}
+          <span>This is a new service we are constantly improving.</span>{' '}
+        </AlphaBanner>
 
-            <h2>
+        <FederalBanner />
+        <main role="main">
+          <PageHeader>
+            <H1>Reschedule your Canadian Citizenship appointment</H1>
+          </PageHeader>
+          <Content>
+            <p>
               Use the calendar to{' '}
-              <strong>
+              <Bold>
                 select all the days you’re AVAILABLE between May and June 2018
-              </strong>{' '}
+              </Bold>{' '}
               so we can schedule your new appointment.
-            </h2>
+            </p>
             {/* what is "help"??? */}
-            <div>Calendar</div>
+            <Calendar />
             <p>
               <strong>
                 Remember: make sure to stay available on all of the days you
@@ -30,7 +39,8 @@ class CalendarPage extends React.Component {
 
             <NavLink to="/">← Back</NavLink>
             <NavLink to="/availability">Next →</NavLink>
-          </section>
+          </Content>
+          <Footer topBarBackground="black" />
         </main>
       </div>
     )
