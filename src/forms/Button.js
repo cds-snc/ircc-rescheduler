@@ -51,11 +51,7 @@ const Button = ({ disabled = false, children }) => (
 
 /* validation to make sure only one child is passed in */
 Button.propTypes = {
-<<<<<<< HEAD
-  children: PropTypes.string.isRequired,
-=======
   children: PropTypes.element.isRequired,
->>>>>>> 38b163d... NavLinks to Buttons
   disabled: PropTypes.any,
 }
 
