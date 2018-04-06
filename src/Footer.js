@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { WordMark } from '@cdssnc/gcui'
 import styled, { css } from 'react-emotion'
 import { theme } from './styles'
@@ -41,5 +42,8 @@ const Footer = ({ topBarBackground }) => (
     </footer>
   </section>
 )
+Footer.propTypes = {
+  topBarBackground: PropTypes.string,
+}
 
 export default Footer
