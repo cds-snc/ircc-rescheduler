@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import { H1, Content, Bold, Calendar } from './styles'
+import { H1, Content, Bold } from './styles'
 import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
+import Calendar from './Calendar'
 
-class CalendarPage extends React.Component {
+class CalendarPage extends Component {
   render() {
     return (
       <div>
@@ -28,7 +29,6 @@ class CalendarPage extends React.Component {
               </Bold>{' '}
               so we can schedule your new appointment.
             </p>
-            {/* what is "help"??? */}
             <Calendar />
             <p>
               <strong>
@@ -38,7 +38,7 @@ class CalendarPage extends React.Component {
             </p>
 
             <NavLink to="/">← Back</NavLink>
-            <NavLink to="/availability">Next →</NavLink>
+            <NavLink to="/confirmation">Next →</NavLink>
           </Content>
           <Footer topBarBackground="black" />
         </main>
