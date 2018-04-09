@@ -43,7 +43,7 @@ server
       })
       res.send(html)
     } catch (error) {
-      res.json(error)
+      res.json({ error: error.message })
     }
   })
 
