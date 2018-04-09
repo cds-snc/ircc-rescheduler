@@ -5,6 +5,7 @@ import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
+import Button from './forms/Button'
 
 class CalendarPage extends React.Component {
   render() {
@@ -36,9 +37,13 @@ class CalendarPage extends React.Component {
                 select
               </strong>
             </p>
-
-            <NavLink to="/">← Back</NavLink>
-            <NavLink to="/availability">Next →</NavLink>
+            <NavLink to="/">
+              <br />
+              <Button>Review ></Button>
+            </NavLink>
+            <NavLink to="/confirmation">
+              Cancel
+            </NavLink>
           </Content>
           <Footer topBarBackground="black" />
         </main>
