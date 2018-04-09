@@ -1,8 +1,15 @@
 {
   "presets": [
     "razzle/babel",
-   ],
-   "plugins": [
-    "emotion"
-   ]
+    [
+      "env",
+      {
+        "useBuiltins": true,
+        "targets": {
+          "browsers": ["ie 11"]
+        }
+      }
+    ]
+  ],
+  "plugins": ["emotion"]
 }
