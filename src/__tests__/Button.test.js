@@ -1,7 +1,6 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import Button from '../forms/Button'
-import { render } from 'react-dom'
 
 describe('<Button>', () => {
   it('Renders and tests disable function', () => {
