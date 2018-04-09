@@ -8,7 +8,7 @@ const button = css`
   font-size: ${theme.font.md};
   font-family: ${theme.weight.s};
   color: ${theme.colour.white};
-  background-color: ${theme.colour.blue};
+  background-color: ${theme.colour.gray};
   border: 5px solid transparent;
   outline: 0;
   padding: ${theme.spacing.sm}px ${theme.spacing.xl}px;
