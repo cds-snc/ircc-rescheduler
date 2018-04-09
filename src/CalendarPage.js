@@ -5,6 +5,7 @@ import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
+import Button from './forms/Button'
 import Calendar from './Calendar'
 
 class CalendarPage extends Component {
@@ -37,8 +38,13 @@ class CalendarPage extends Component {
               </strong>
             </p>
 
-            <NavLink to="/">← Back</NavLink>
-            <NavLink to="/confirmation">Next →</NavLink>
+            <NavLink to="/confirmation">
+              <Button>Review →</Button>
+            </NavLink>
+            <NavLink to="/">
+              Cancel
+            </NavLink>
+
           </Content>
           <Footer topBarBackground="black" />
         </main>
