@@ -87,11 +87,10 @@ class HomePage extends React.Component {
                 aria-labelledby="explanation-label explanation-details"
               />
             </form>
-            
-              <NavLink to="/calendar">
-                <Button disabled={true}>Next →</Button>
-              </NavLink>
-            
+
+            <NavLink to="/calendar">
+              <Button>Next →</Button>
+            </NavLink>
           </Content>
         </main>
         <Footer topBarBackground="black" />
