@@ -7,6 +7,7 @@ import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
+import Button from './forms/Button'
 
 injectGlobal`
 html, body {
@@ -86,7 +87,9 @@ class HomePage extends React.Component {
                 aria-labelledby="explanation-label explanation-details"
               />
             </form>
-            <NavLink to="/calendar">Next →</NavLink>
+            <Button>
+              <NavLink to="/calendar">Next →</NavLink>
+            </Button>
           </Content>
         </main>
         <Footer topBarBackground="black" />
