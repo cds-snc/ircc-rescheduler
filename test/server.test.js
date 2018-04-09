@@ -19,11 +19,6 @@ describe('Server Side Rendering', () => {
     )
   })
 
-  it('renders availability information at /availability', async () => {
-    let response = await request(server).get('/availability')
-    expect(response.text).toMatch(/When is the <strong>most convenient time/)
-  })
-
   it('renders a reassuring confirmation message at /confirmation', async () => {
     let response = await request(server).get('/confirmation')
     expect(response.text).toMatch(/confirmation/)
