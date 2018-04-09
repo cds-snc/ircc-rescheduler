@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DayPicker, { DateUtils } from 'react-day-picker'
-import {injectGlobal} from 'emotion'
+import { injectGlobal } from 'emotion'
 
 injectGlobal`
 /* DayPicker styles */
@@ -239,16 +239,14 @@ export default class Calendar extends Component {
   }
   render() {
     return (
-      <div>
-        <DayPicker
-          numberOfMonths={2}
-          disabledDays={[{ daysOfWeek: [0, 6] }]}
-          pagedNavigation
-          fixedWeeks
-          selectedDays={this.state.selectedDays}
-          onDayClick={this.handleDayClick}
-        />
-      </div>
+      <DayPicker
+        numberOfMonths={2}
+        disabledDays={[{ daysOfWeek: [0, 6] }]}
+        pagedNavigation
+        fixedWeeks
+        selectedDays={this.state.selectedDays}
+        onDayClick={this.handleDayClick}
+      />
     )
   }
 }
