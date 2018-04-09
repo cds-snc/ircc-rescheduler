@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
-import { theme, roundedEdges, mediaQuery } from '../styles'
+import { theme, roundedEdges, mediaQuery, incrementColor } from '../styles'
 
 const button = css`
   margin-right: ${theme.spacing.xxxl};
@@ -27,7 +27,7 @@ const button = css`
   &:hover,
   &:active,
   &:focus {
-    background-color: ${theme.colour.blueDark};
+    background-color: ${incrementColor(theme.colour.gray, 20)};
   }
 
   &:active,
@@ -39,7 +39,7 @@ const button = css`
   &:disabled {
     &:hover {
       cursor: not-allowed;
-      background-color: ${theme.colour.blue};
+      background-color: ${incrementColor(theme.colour.gray, 30)};
     }
   }
 `
