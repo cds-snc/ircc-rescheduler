@@ -4,7 +4,11 @@ import Button from '../forms/Button'
 
 describe('<Button>', () => {
   it('Renders and tests disable function', () => {
-    const button = shallow(<Button>Next</Button>)
-    expect(button).toBeTruthy()
+    const buttonDisabled = shallow(<Button disabled={true}>Next</Button>)
+    expect(buttonDisabled.props().disabled).toBeTruthy()
+
+    const buttonDefault = shallow(<Button >Next</Button>)
+    expect(buttonDefault.props().disabled).toBeFalsy();
+    
   })
 })

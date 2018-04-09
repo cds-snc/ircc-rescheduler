@@ -89,7 +89,7 @@ class HomePage extends React.Component {
             </form>
             
               <NavLink to="/calendar">
-                <Button>Next →</Button>
+                <Button disabled={true}>Next →</Button>
               </NavLink>
             
           </Content>
