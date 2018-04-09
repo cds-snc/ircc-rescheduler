@@ -37,11 +37,10 @@ class CalendarPage extends React.Component {
                 select
               </strong>
             </p>
-            <NavLink to="/">
-              <br />
-              <Button>Review ></Button>
-            </NavLink>
             <NavLink to="/confirmation">
+              <Button>Review →</Button>
+            </NavLink>
+            <NavLink to="/">
               Cancel
             </NavLink>
           </Content>

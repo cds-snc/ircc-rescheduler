@@ -4,6 +4,7 @@ import { css } from 'react-emotion'
 import { theme, roundedEdges, mediaQuery } from '../styles'
 
 const button = css`
+  margin-right: ${theme.spacing.xxxl};
   font-size: ${theme.font.md};
   font-family: ${theme.weight.s};
   color: ${theme.colour.white};
@@ -51,7 +52,7 @@ const Button = ({ disabled = false, children }) => (
 
 /* validation to make sure only one child is passed in */
 Button.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.string.isRequired,
   disabled: PropTypes.any,
 }
 
