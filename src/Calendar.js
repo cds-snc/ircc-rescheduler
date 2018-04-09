@@ -241,7 +241,7 @@ export default class Calendar extends Component {
     return (
       <DayPicker
         numberOfMonths={2}
-        disabledDays={[{ daysOfWeek: [0, 6] }]}
+        disabledDays={[{ daysOfWeek: [0, 1, 3, 4, 6] }]}
         pagedNavigation
         fixedWeeks
         selectedDays={this.state.selectedDays}
