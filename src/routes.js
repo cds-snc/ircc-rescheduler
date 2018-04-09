@@ -20,13 +20,6 @@ export default [
     }),
   },
   {
-    path: '/availability',
-    exact: true,
-    component: asyncComponent({
-      loader: () => import('./AvailabilityPage'),
-    }),
-  },
-  {
     path: '/confirmation',
     exact: true,
     component: asyncComponent({
