@@ -8,6 +8,7 @@ import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
 import Button from './forms/Button'
+import { Form, Field } from 'react-final-form'
 
 injectGlobal`
 html, body {
@@ -79,6 +80,20 @@ textarea {
 
 `
 
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
+
+const onSubmit = async values => {
+  await sleep(300)
+  let errors = {}
+  if (!values['last-name']) {
+    errors['last-name'] = 'Last name is required'
+  }
+  if (errors) {
+    return errors
+  }
+  window.alert(JSON.stringify(values, 0, 2))
+}
+
 class HomePage extends React.Component {
   render() {
     return (
@@ -92,104 +107,116 @@ class HomePage extends React.Component {
           <PageHeader>
             <H1>Request a new Canadian Citizenship test date</H1>
           </PageHeader>
-
           <Content>
-            <form>
-              <H2>
-                <label htmlFor="last-name" id="last-name-label">
-                  Full name
-                </label>
-              </H2>
-              <p id="name-details">
-                This is the full name you used on your citizenship application.
-              </p>
-              <input type="text" name="last-name" id="last-name" />
-              <H2>
-                <label htmlFor="uci-number" id="uci-number-label">
-                  UCI number
-                </label>{' '}
-                (A123456)
-              </H2>
-              <p id="uci-number-details">
-                This number is at the top of the email we sent you.
-              </p>
-              <input
-                type="text"
-                name="uci-number"
-                id="uci-number"
-                aria-labelledby="uci-number-label uci-number-details"
-              />
-              <H2>
-                <label htmlFor="reason" id="reason-label">
-                  Reason for rescheduling
-                </label>
-              </H2>
-              <p id="reason-details">
-                {' '}
-                If you’re not sure if you can reschedule,{' '}
-                <TextLink href="#">
-                  read the guidelines for rescheduling.
-                </TextLink>{' '}
-              </p>
+            <Form
+              onSubmit={onSubmit}
+              render={({
+                handleSubmit,
+                submitError,
+                submitting,
+                pristine,
+                values,
+              }) => (
+                <form onSubmit={handleSubmit}>
+                  <pre>{JSON.stringify(values, 0, 2)}</pre>
+                  {submitError && <div className="error">{submitError}</div>}
 
-              <ul>
-                <li>
-                  <input type="radio" name="reason-travel" id="reason-travel" />{' '}
-                  <label htmlFor="reason-travel" id="travel-label">
-                    <span /> Travel
-                  </label>
-                </li>
+                  <Field name="last-name">
+                    {({ input, meta }) => (
+                      <div>
+                        <H2>
+                          <label htmlFor="last-name" id="last-name-label">
+                            Full name
+                          </label>
+                        </H2>
+                        <p id="last-name-details">
+                          This is the full name you used on your citizenship
+                          application.
+                        </p>
+                        <input
+                          {...input}
+                          id="last-name"
+                          type="text"
+                          placeholder="Full name"
+                          aria-labelledby="last-name-label last-name-details"
+                        />
+                        {(meta.error || meta.submitError) && (
+                          <span>{meta.error || meta.submitError}</span>
+                        )}
+                      </div>
+                    )}
+                  </Field>
 
-                <li>
-                  <input
-                    type="radio"
-                    name="reason-medical"
-                    id="reason-medical"
-                  />{' '}
-                  <label htmlFor="reason-medical" id="medical-label">
-                    <span /> Medical
-                  </label>
-                </li>
+                  <div>
+                    <H2>
+                      <label htmlFor="uci-number" id="uci-number-label">
+                        UCI number
+                      </label>{' '}
+                      (A123456)
+                    </H2>
+                    <p id="uci-number-details">
+                      This number is at the top of the email we sent you
+                    </p>
+                    <Field
+                      name="uci-number"
+                      id="uci-number"
+                      component="input"
+                      type="text"
+                      placeholder="UCI number"
+                      aria-labelledby="uci-number-label uci-number-details"
+                    />
+                  </div>
 
-                <li>
-                  <input type="radio" name="reason-work" id="reason-work" />{' '}
-                  <label htmlFor="reason-work" id="work-label">
-                    <span /> Work or school
-                  </label>
-                </li>
+                  <div>
+                    <H2>
+                      <label htmlFor="reason" id="reason-label">
+                        Reason for rescheduling
+                      </label>
+                    </H2>
+                    <p id="reason-details">
+                      {' '}
+                      If you’re not sure if you can reschedule,{' '}
+                      <TextLink href="#">
+                        read the guidelines for rescheduling.
+                      </TextLink>{' '}
+                    </p>
 
-                <li>
-                  <input type="radio" name="reason-family" id="reason-family" />{' '}
-                  <label htmlFor="reason-family" id="family-label">
-                    <span /> Family
-                  </label>
-                </li>
+                    <Field
+                      name="reason"
+                      id="reason"
+                      component="input"
+                      type="text"
+                      placeholder="reason"
+                    />
+                  </div>
 
-                <li>
-                  <input type="radio" name="reason-other" id="reason-other" />{' '}
-                  <label htmlFor="reason-other" id="other-label">
-                    <span /> Other
-                  </label>
-                </li>
-              </ul>
-              <H2>
-                <label
-                  className="explanation-header"
-                  htmlFor="explanation"
-                  id="explanation-label"
-                >
-                  Briefly tell us why you cant attend your test
-                </label>
-              </H2>
+                  <div>
+                    <H2>
+                      <label
+                        className="explanation-header"
+                        htmlFor="explanation"
+                        id="explanation-label"
+                      >
+                        Briefly tell us why you can’t attend your test
+                      </label>
+                    </H2>
+                    <p id="explanation-details">
+                      If you’re not sure that you can reschedule, read the
+                      guidelines for scheduling.
+                    </p>
+                    <Field
+                      name="explanation"
+                      id="explanation"
+                      component="textarea"
+                      aria-labelledby="explanation-label explanation-details"
+                    />
+                  </div>
 
-              <textarea
-                name="explanation"
-                id="explanation"
-                className="explanation-input"
-                aria-labelledby="explanation-label explanation-details"
-              />
-            </form>
-            <br />
+                  <Button disabled={submitting || pristine}>Next →</Button>
+                </form>
+              )}
+            />
+
             <NavLink to="/calendar">
               <Button>Next →</Button>
             </NavLink>
