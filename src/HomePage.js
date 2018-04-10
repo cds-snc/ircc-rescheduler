@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
-import { mediaQuery, theme, H1, H2, Content } from './styles'
+import { mediaQuery, theme, H1, H2, Content, TextLink } from './styles'
 import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
@@ -73,7 +73,7 @@ textarea {
   width: 60%;
   height: 15em;
   border: solid 0.2em black;
-  margin-top: ${theme.spacing.md}; 
+  margin-top: ${theme.spacing.md};
   resize: none;
 }
 
@@ -126,8 +126,8 @@ class HomePage extends React.Component {
               </H2>
               <p id="reason-details">
                 {' '}
-                If you’re not sure if you can reschedule, read the guidelines
-                for rescheduling.{' '}
+                If you’re not sure if you can reschedule,{' '}
+                <TextLink>read the guidelines for rescheduling.</TextLink>{' '}
               </p>
 
               <ul>

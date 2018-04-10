@@ -176,3 +176,7 @@ export const Circle = styled.div`
   text-align: center;
   background: #000;
 `
+
+export const TextLink = styled.a`
+  text-decoration: underline;
+`
