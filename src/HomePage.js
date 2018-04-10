@@ -22,6 +22,60 @@ html, body {
       font-size: ${theme.font.xs};
     `)};
 	}
+
+#name-details, #uci-number-details,
+#explanation-details, #reason-details {
+    margin-top: ${theme.spacing.xs};
+}
+
+ul {
+  padding-left: 0em;
+  list-style: none;
+}
+
+input[type="text"] {
+    border: solid 0.2em black;
+    width: 50%;
+    height: 2em;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+    color: ${theme.font.black};
+    font-family: ${theme.weight.m};
+    font-size: ${theme.font.md};
+
+}
+input[type="radio"] + label span {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: ${theme.spacing.sm};
+    margin-bottom: ${theme.spacing.sm};
+    border-radius: 50%;
+}
+
+input[type="radio"] + label span {
+  background: url('https://cdn.rawgit.com/nmakuch/60034bd0d4b98c57dd90776b9816731f/raw/4dd00e085a17b996d8a7b6e9ffde14f02e7aae0a/empty.svg');
+  margin-top: ${theme.spacing.sm};
+}
+
+input[type="radio"]:checked + label span{
+  background: url('https://cdn.rawgit.com/nmakuch/e3cd68811dbc645d5c93e2b1626ddb2e/raw/6a1cd0e9541615fd3316063487bd6d702ad88a5d/checked.svg');
+}
+
+textarea {
+  width: 60%;
+  height: 15em;
+  border: solid 0.2em black;
+  resize: none;
+}
+
 `
 
 class HomePage extends React.Component {
@@ -35,7 +89,7 @@ class HomePage extends React.Component {
         <FederalBanner />
         <main role="main">
           <PageHeader>
-            <H1>Reschedule your Canadian Citizenship appointment</H1>
+            <H1>Request a new Canadian Citizenship test date</H1>
           </PageHeader>
 
           <Content>
@@ -45,17 +99,18 @@ class HomePage extends React.Component {
                   Full name
                 </label>
               </H2>
+              <p id="name-details">
+                This is the full name you used on your citizenship application.
+              </p>
               <input type="text" name="last-name" id="last-name" />
-
               <H2>
                 <label htmlFor="uci-number" id="uci-number-label">
                   UCI number
                 </label>{' '}
-                (eg A123456)
+                (A123456)
               </H2>
-
               <p id="uci-number-details">
-                The number is at the top of the email we sent you
+                This number is at the top of the email we sent you.
               </p>
               <input
                 type="text"
@@ -63,14 +118,57 @@ class HomePage extends React.Component {
                 id="uci-number"
                 aria-labelledby="uci-number-label uci-number-details"
               />
-
               <H2>
                 <label htmlFor="reason" id="reason-label">
                   Reason for rescheduling
                 </label>
               </H2>
-              <input type="text" name="reason" id="reason" />
+              <p id="reason-details">
+                {' '}
+                If you’re not sure if you can reschedule, read the guidelines
+                for rescheduling.{' '}
+              </p>
 
+              <ul>
+                <li>
+                  <input type="radio" name="reason-travel" id="reason-travel" />{' '}
+                  <label htmlFor="reason-travel" id="travel-label">
+                    <span /> Travel
+                  </label>
+                </li>
+
+                <li>
+                  <input
+                    type="radio"
+                    name="reason-medical"
+                    id="reason-medical"
+                  />{' '}
+                  <label htmlFor="reason-medical" id="medical-label">
+                    <span /> Medical
+                  </label>
+                </li>
+
+                <li>
+                  <input type="radio" name="reason-work" id="reason-work" />{' '}
+                  <label htmlFor="reason-work" id="work-label">
+                    <span /> Work or school
+                  </label>
+                </li>
+
+                <li>
+                  <input type="radio" name="reason-family" id="reason-family" />{' '}
+                  <label htmlFor="reason-family" id="family-label">
+                    <span /> Family
+                  </label>
+                </li>
+
+                <li>
+                  <input type="radio" name="reason-other" id="reason-other" />{' '}
+                  <label htmlFor="reason-other" id="other-label">
+                    <span /> Other
+                  </label>
+                </li>
+              </ul>
               <H2>
                 <label htmlFor="explanation" id="explanation-label">
                   Tell us why you can’t attend your appointment
@@ -80,10 +178,10 @@ class HomePage extends React.Component {
                 If you’re not sure that you can reschedule, read the guidelines
                 for scheduling.
               </p>
-              <input
-                type="text"
+              <textarea
                 name="explanation"
                 id="explanation"
+                className="explanation-input"
                 aria-labelledby="explanation-label explanation-details"
               />
             </form>

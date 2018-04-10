@@ -16,7 +16,7 @@ class ConfirmationPage extends React.Component {
         <FederalBanner />
         <main role="main">
           <PageHeader>
-            <H1>Reschedule your Canadian Citizenship appointment</H1>
+            <H1>Request a new Canadian Citizenship test date</H1>
           </PageHeader>
           <Content>
             <H1>Thank you! Your request has been received.</H1>
