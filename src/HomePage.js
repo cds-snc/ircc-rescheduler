@@ -73,6 +73,7 @@ textarea {
   width: 60%;
   height: 15em;
   border: solid 0.2em black;
+  margin-top: ${theme.spacing.md}; 
   resize: none;
 }
 
@@ -170,14 +171,15 @@ class HomePage extends React.Component {
                 </li>
               </ul>
               <H2>
-                <label htmlFor="explanation" id="explanation-label">
-                  Tell us why you can’t attend your appointment
+                <label
+                  className="explanation-header"
+                  htmlFor="explanation"
+                  id="explanation-label"
+                >
+                  Briefly tell us why you cant attend your test
                 </label>
               </H2>
-              <p id="explanation-details">
-                If you’re not sure that you can reschedule, read the guidelines
-                for scheduling.
-              </p>
+
               <textarea
                 name="explanation"
                 id="explanation"
