@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { mediaQuery, theme, H1, H2, Content, TextLink } from './styles'
@@ -7,77 +6,96 @@ import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
+import TextInput from './forms/TextInput'
+import FieldSet from './forms/FieldSet'
+import { Radio } from './forms/MultipleChoice'
 import Button from './forms/Button'
+import { Form, Field } from 'react-final-form'
 
 injectGlobal`
-html, body {
+  html, body {
     padding: 0;
-		margin: 0;
-		background: ${theme.colour.white};
-		height: 100%;
+    margin: 0;
+    background: ${theme.colour.white};
+    height: 100%;
     font-family: ${theme.weight.l};
     font-size: ${theme.font.md};
 
     ${mediaQuery.small(css`
       font-size: ${theme.font.xs};
     `)};
-	}
+  }
 
-#name-details, #uci-number-details,
-#explanation-details, #reason-details {
-    margin-top: ${theme.spacing.xs};
-}
+  form {
+    > div {
+      margin-bottom: ${theme.spacing.xl};
+    }
 
-ul {
-  padding-left: 0em;
-  list-style: none;
-}
+    legend > h2 {
+      margin-top: 0 !important;
+    }
 
-input[type="text"] {
-    border: solid 0.2em black;
-    width: 50%;
-    height: 2em;
-}
+    h2 + p,
+    legend + p {
+      margin-top: 0;
+    }
 
-input[type="radio"] {
-    display: none;
-}
+    .form-error {
+      color: red;
+    }
+  }
 
-input[type="radio"] + label {
-    color: ${theme.font.black};
-    font-family: ${theme.weight.m};
-    font-size: ${theme.font.md};
+  textarea {
+    height: 10em;
+    resize: none;
+    width: 550px;
+    margin-top: ${theme.spacing.sm};
 
-}
-input[type="radio"] + label span {
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    vertical-align: middle;
-    cursor: pointer;
-    margin-right: ${theme.spacing.sm};
-    margin-bottom: ${theme.spacing.sm};
-    border-radius: 50%;
-}
+    /* cribbed from TextInput */
+    font-size: ${theme.font.lg};
+    border: 3px solid ${theme.colour.grey}};
+    outline: 0;
+    padding: ${theme.spacing.xs};
 
-input[type="radio"] + label span {
-  background: url('https://cdn.rawgit.com/nmakuch/60034bd0d4b98c57dd90776b9816731f/raw/4dd00e085a17b996d8a7b6e9ffde14f02e7aae0a/empty.svg');
-  margin-top: ${theme.spacing.sm};
-}
-
-input[type="radio"]:checked + label span{
-  background: url('https://cdn.rawgit.com/nmakuch/e3cd68811dbc645d5c93e2b1626ddb2e/raw/6a1cd0e9541615fd3316063487bd6d702ad88a5d/checked.svg');
-}
-
-textarea {
-  width: 60%;
-  height: 15em;
-  border: solid 0.2em black;
-  margin-top: ${theme.spacing.md};
-  resize: none;
-}
-
+    &:focus {
+      outline: 3px solid ${theme.colour.focus};
+      outline-offset: 0px;
+    }
+  }
 `
+
+const validate = values => {
+  const errors = {}
+  if (!values.fullName) {
+    errors.fullName =
+      'You need to tell us your full name so we can confirm your identity.'
+  }
+  if (!values.uciNumber) {
+    errors.uciNumber =
+      'You need to tell us your paper file number so we can confirm your identity.'
+  }
+  if (!values.reason) {
+    errors.reason =
+      'Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.'
+  }
+  if (!values.explanation) {
+    errors.explanation =
+      'Please tell us a bit more about why you need to reschedule your test.'
+  }
+  return errors
+}
+
+const validationField = ({ touched, errors, attr }) => {
+  /* eslint-disable security/detect-object-injection */
+  if (touched[attr] && errors[attr]) {
+    return (
+      <p className={`form-error ${attr}-error`}>
+        <strong>{errors[attr]}</strong>
+      </p>
+    )
+  }
+  /* eslint-enable security/detect-object-injection */
+}
 
 class HomePage extends React.Component {
   render() {
@@ -92,107 +110,147 @@ class HomePage extends React.Component {
           <PageHeader>
             <H1>Request a new Canadian Citizenship test date</H1>
           </PageHeader>
-
           <Content>
-            <form>
-              <H2>
-                <label htmlFor="last-name" id="last-name-label">
-                  Full name
-                </label>
-              </H2>
-              <p id="name-details">
-                This is the full name you used on your citizenship application.
-              </p>
-              <input type="text" name="last-name" id="last-name" />
-              <H2>
-                <label htmlFor="uci-number" id="uci-number-label">
-                  UCI number
-                </label>{' '}
-                (A123456)
-              </H2>
-              <p id="uci-number-details">
-                This number is at the top of the email we sent you.
-              </p>
-              <input
-                type="text"
-                name="uci-number"
-                id="uci-number"
-                aria-labelledby="uci-number-label uci-number-details"
-              />
-              <H2>
-                <label htmlFor="reason" id="reason-label">
-                  Reason for rescheduling
-                </label>
-              </H2>
-              <p id="reason-details">
-                {' '}
-                If you’re not sure if you can reschedule,{' '}
-                <TextLink href="#">
-                  read the guidelines for rescheduling.
-                </TextLink>{' '}
-              </p>
-
-              <ul>
-                <li>
-                  <input type="radio" name="reason-travel" id="reason-travel" />{' '}
-                  <label htmlFor="reason-travel" id="travel-label">
-                    <span /> Travel
-                  </label>
-                </li>
-
-                <li>
-                  <input
-                    type="radio"
-                    name="reason-medical"
-                    id="reason-medical"
-                  />{' '}
-                  <label htmlFor="reason-medical" id="medical-label">
-                    <span /> Medical
-                  </label>
-                </li>
-
-                <li>
-                  <input type="radio" name="reason-work" id="reason-work" />{' '}
-                  <label htmlFor="reason-work" id="work-label">
-                    <span /> Work or school
-                  </label>
-                </li>
-
-                <li>
-                  <input type="radio" name="reason-family" id="reason-family" />{' '}
-                  <label htmlFor="reason-family" id="family-label">
-                    <span /> Family
-                  </label>
-                </li>
-
-                <li>
-                  <input type="radio" name="reason-other" id="reason-other" />{' '}
-                  <label htmlFor="reason-other" id="other-label">
-                    <span /> Other
-                  </label>
-                </li>
-              </ul>
-              <H2>
-                <label
-                  className="explanation-header"
-                  htmlFor="explanation"
-                  id="explanation-label"
+            <Form
+              onSubmit={async values => {}}
+              validate={validate}
+              render={({
+                handleSubmit,
+                submitError,
+                submitting,
+                pristine,
+                values,
+                errors,
+                touched,
+              }) => (
+                <form
+                  onSubmit={event => {
+                    handleSubmit(event).then(() => {
+                      // eslint-disable-next-line react/prop-types
+                      this.props.history.push('/calendar')
+                    })
+                  }}
                 >
-                  Briefly tell us why you cant attend your test
-                </label>
-              </H2>
+                  {submitError && <div className="error">{submitError}</div>}
+                  <div>
+                    <TextInput
+                      name="fullName"
+                      id="fullName"
+                      labelledby="fullName-label fullName-details fullName-error"
+                    >
+                      <H2>
+                        <label htmlFor="fullName" id="fullName-label">
+                          Full name
+                        </label>
+                      </H2>
 
-              <textarea
-                name="explanation"
-                id="explanation"
-                className="explanation-input"
-                aria-labelledby="explanation-label explanation-details"
-              />
-            </form>
-            <br />
-            <NavLink to="/calendar">
-              <Button>Next →</Button>
-            </NavLink>
+                      <p id="fullName-details">
+                        This is the full name you used on your citizenship
+                        application.
+                      </p>
+                      {validationField({ touched, errors, attr: 'fullName' })}
+                    </TextInput>
+                  </div>
+                  <div>
+                    <TextInput
+                      name="uciNumber"
+                      id="uciNumber"
+                      labelledby="uciNumber-label uciNumber-details uciNumber-error"
+                    >
+                      <H2>
+                        <label htmlFor="uciNumber" id="uciNumber-label">
+                          UCI number
+                        </label>{' '}
+                        (A123456)
+                      </H2>
+                      <p id="uciNumber-details">
+                        This number is at the top of the email we sent you
+                      </p>
+                      {validationField({ touched, errors, attr: 'uciNumber' })}
+                    </TextInput>
+                  </div>
+                  <div>
+                    <FieldSet legendHidden={false}>
+                      <legend>
+                        <H2>Reason for rescheduling</H2>
+                      </legend>
+                      <p id="reason-details">
+                        {' '}
+                        If you’re not sure if you can reschedule,{' '}
+                        <TextLink href="#">
+                          read the guidelines for rescheduling.
+                        </TextLink>{' '}
+                      </p>
+                      {validationField({ touched, errors, attr: 'reason' })}
+                      <Radio
+                        label={<span>Travel</span>}
+                        value="travel"
+                        name="reason"
+                        id="reason-0"
+                      />
+                      <Radio
+                        label={<span>Medical</span>}
+                        value="medical"
+                        name="reason"
+                        id="reason-1"
+                      />
+                      <Radio
+                        label={<span>Work or School</span>}
+                        value="workOrSchool"
+                        name="reason"
+                        id="reason-2"
+                      />
+                      <Radio
+                        label={<span>Family</span>}
+                        value="family"
+                        name="reason"
+                        id="reason-3"
+                      />
+                      <Radio
+                        label={<span>Other</span>}
+                        value="other"
+                        name="reason"
+                        id="reason-4"
+                      />
+                    </FieldSet>
+                  </div>
+                  <div>
+                    <H2>
+                      <label
+                        className="explanation-header"
+                        htmlFor="explanation"
+                        id="explanation-label"
+                      >
+                        Briefly tell us why you can’t attend your test
+                      </label>
+                    </H2>
+                    {validationField({ touched, errors, attr: 'explanation' })}
+                    <Field
+                      name="explanation"
+                      id="explanation"
+                      component="textarea"
+                      aria-labelledby="explanation-label explanation-error"
+                    />
+                  </div>
+                  {/*
+                      Button is disabled if:
+                      - form has not been touched (ie, pristine)
+                      - form has been submitted (and is waiting)
+                      - the number of values entries is less than the total number of fields
+                    */}
+                  <Button
+                    disabled={
+                      pristine ||
+                      submitting ||
+                      Object.values(values).filter(v => v !== undefined)
+                        .length < Object.keys(touched).length
+                    }
+                  >
+                    Next →
+                  </Button>
+                </form>
+              )}
+            />
           </Content>
         </main>
         <Footer topBarBackground="black" />
