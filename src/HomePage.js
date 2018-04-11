@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { mediaQuery, theme, H1, H2, Content, TextLink } from './styles'
@@ -40,11 +39,10 @@ injectGlobal`
     legend + p {
       margin-top: 0;
     }
-  }
 
-  ul {
-    padding-left: 0em;
-    list-style: none;
+    .form-error {
+      color: red;
+    }
   }
 
   textarea {
@@ -66,8 +64,32 @@ injectGlobal`
   }
 `
 
-const onSubmit = async values => {
-  window.alert(JSON.stringify(values, 0, 2))
+const validate = values => {
+  const errors = {}
+  if (!values.fullName) {
+    errors.fullName = 'Please enter your name'
+  }
+  if (!values.uciNumber) {
+    errors.uciNumber = 'Please enter your UCI Number'
+  }
+  if (!values.reason) {
+    errors.reason = 'Please select a reason you cannot attend'
+  }
+  if (!values.explanation) {
+    errors.explanation =
+      'Please write a short explanation about why you can’t attend'
+  }
+  return errors
+}
+
+const validationField = ({ touched, errors, attr }) => {
+  if (touched[attr] && errors[attr]) {
+    return (
+      <p className={`form-error ${attr}-error`}>
+        <strong>{errors[attr]}</strong>
+      </p>
+    )
+  }
 }
 
 class HomePage extends React.Component {
@@ -85,40 +107,49 @@ class HomePage extends React.Component {
           </PageHeader>
           <Content>
             <Form
-              onSubmit={onSubmit}
+              onSubmit={async values => {}}
+              validate={validate}
               render={({
                 handleSubmit,
                 submitError,
                 submitting,
                 pristine,
                 values,
+                errors,
+                touched,
               }) => (
-                <form onSubmit={handleSubmit}>
+                <form
+                  onSubmit={event => {
+                    handleSubmit(event).then(() => {
+                      this.props.history.push('/calendar')
+                    })
+                  }}
+                >
                   {submitError && <div className="error">{submitError}</div>}
-
                   <div>
                     <TextInput
                       name="fullName"
                       id="fullName"
-                      labelledby="fullName-label fullName-details"
+                      labelledby="fullName-label fullName-details fullName-error"
                     >
                       <H2>
                         <label htmlFor="fullName" id="fullName-label">
                           Full name
                         </label>
                       </H2>
+
                       <p id="fullName-details">
                         This is the full name you used on your citizenship
                         application.
                       </p>
+                      {validationField({ touched, errors, attr: 'fullName' })}
                     </TextInput>
                   </div>
-
                   <div>
                     <TextInput
                       name="uciNumber"
                       id="uciNumber"
-                      labelledby="uciNumber-label uciNumber-details"
+                      labelledby="uciNumber-label uciNumber-details uciNumber-error"
                     >
                       <H2>
                         <label htmlFor="uciNumber" id="uciNumber-label">
@@ -129,9 +160,9 @@ class HomePage extends React.Component {
                       <p id="uciNumber-details">
                         This number is at the top of the email we sent you
                       </p>
+                      {validationField({ touched, errors, attr: 'uciNumber' })}
                     </TextInput>
                   </div>
-
                   <div>
                     <FieldSet legendHidden={false}>
                       <legend>
@@ -144,6 +175,7 @@ class HomePage extends React.Component {
                           read the guidelines for rescheduling.
                         </TextLink>{' '}
                       </p>
+                      {validationField({ touched, errors, attr: 'reason' })}
                       <Radio
                         label={<span>Travel</span>}
                         value="travel"
@@ -176,7 +208,6 @@ class HomePage extends React.Component {
                       />
                     </FieldSet>
                   </div>
-
                   <div>
                     <H2>
                       <label
@@ -187,22 +218,33 @@ class HomePage extends React.Component {
                         Briefly tell us why you can’t attend your test
                       </label>
                     </H2>
+                    {validationField({ touched, errors, attr: 'explanation' })}
                     <Field
                       name="explanation"
                       id="explanation"
                       component="textarea"
-                      aria-labelledby="explanation-label"
+                      aria-labelledby="explanation-label explanation-error"
                     />
                   </div>
-
-                  <Button disabled={submitting || pristine}>Next →</Button>
+                  {/*
+                      Button is disabled if:
+                      - form has not been touched (ie, pristine)
+                      - form has been submitted (and is waiting)
+                      - the number of values entries is less than the total number of fields
+                    */}
+                  <Button
+                    disabled={
+                      pristine ||
+                      submitting ||
+                      Object.values(values).filter(v => v !== undefined)
+                        .length < Object.keys(touched).length
+                    }
+                  >
+                    Next →
+                  </Button>
                 </form>
               )}
             />
-
-            <NavLink to="/calendar">
-              <Button>Next →</Button>
-            </NavLink>
           </Content>
         </main>
         <Footer topBarBackground="black" />
