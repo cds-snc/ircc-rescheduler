@@ -66,17 +66,7 @@ injectGlobal`
   }
 `
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-
 const onSubmit = async values => {
-  await sleep(300)
-  let errors = {}
-  if (!values['last-name']) {
-    errors['last-name'] = 'Last name is required'
-  }
-  if (errors) {
-    return errors
-  }
   window.alert(JSON.stringify(values, 0, 2))
 }
 
@@ -108,16 +98,16 @@ class HomePage extends React.Component {
 
                   <div>
                     <TextInput
-                      name="last-name"
-                      id="last-name"
-                      labelledby="last-name-label last-name-details"
+                      name="fullName"
+                      id="fullName"
+                      labelledby="fullName-label fullName-details"
                     >
                       <H2>
-                        <label htmlFor="last-name" id="last-name-label">
+                        <label htmlFor="fullName" id="fullName-label">
                           Full name
                         </label>
                       </H2>
-                      <p id="last-name-details">
+                      <p id="fullName-details">
                         This is the full name you used on your citizenship
                         application.
                       </p>
@@ -126,17 +116,17 @@ class HomePage extends React.Component {
 
                   <div>
                     <TextInput
-                      name="uci-number"
-                      id="uci-number"
-                      labelledby="uci-number-label uci-number-details"
+                      name="uciNumber"
+                      id="uciNumber"
+                      labelledby="uciNumber-label uciNumber-details"
                     >
                       <H2>
-                        <label htmlFor="uci-number" id="uci-number-label">
+                        <label htmlFor="uciNumber" id="uciNumber-label">
                           UCI number
                         </label>{' '}
                         (A123456)
                       </H2>
-                      <p id="uci-number-details">
+                      <p id="uciNumber-details">
                         This number is at the top of the email we sent you
                       </p>
                     </TextInput>
