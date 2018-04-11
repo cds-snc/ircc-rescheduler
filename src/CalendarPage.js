@@ -20,7 +20,7 @@ class CalendarPage extends Component {
         <FederalBanner />
         <main role="main">
           <PageHeader>
-            <H1>Reschedule your Canadian Citizenship appointment</H1>
+            <H1>Request a new Canadian Citizenship test date</H1>
           </PageHeader>
           <Content>
             <p>
@@ -41,10 +41,7 @@ class CalendarPage extends Component {
             <NavLink to="/confirmation">
               <Button>Review →</Button>
             </NavLink>
-            <NavLink to="/">
-              Cancel
-            </NavLink>
-
+            <NavLink to="/">Cancel</NavLink>
           </Content>
           <Footer topBarBackground="black" />
         </main>
