@@ -7,49 +7,63 @@ import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
+import TextInput from './forms/TextInput'
 import FieldSet from './forms/FieldSet'
 import { Radio } from './forms/MultipleChoice'
 import Button from './forms/Button'
 import { Form, Field } from 'react-final-form'
 
 injectGlobal`
-html, body {
+  html, body {
     padding: 0;
-		margin: 0;
-		background: ${theme.colour.white};
-		height: 100%;
+    margin: 0;
+    background: ${theme.colour.white};
+    height: 100%;
     font-family: ${theme.weight.l};
     font-size: ${theme.font.md};
 
     ${mediaQuery.small(css`
       font-size: ${theme.font.xs};
     `)};
-	}
+  }
 
-#name-details, #uci-number-details,
-#explanation-details, #reason-details {
-    margin-top: ${theme.spacing.xs};
-}
+  form {
+    > div {
+      margin-bottom: ${theme.spacing.xl};
+    }
 
-ul {
-  padding-left: 0em;
-  list-style: none;
-}
+    legend > h2 {
+      margin-top: 0 !important;
+    }
 
-input[type="text"] {
-    border: solid 0.2em black;
-    width: 50%;
-    height: 2em;
-}
+    h2 + p,
+    legend + p {
+      margin-top: 0;
+    }
+  }
 
-textarea {
-  width: 60%;
-  height: 15em;
-  border: solid 0.2em black;
-  margin-top: ${theme.spacing.md};
-  resize: none;
-}
+  ul {
+    padding-left: 0em;
+    list-style: none;
+  }
 
+  textarea {
+    height: 10em;
+    resize: none;
+    width: 550px;
+    margin-top: ${theme.spacing.sm};
+
+    /* cribbed from TextInput */
+    font-size: ${theme.font.lg};
+    border: 3px solid ${theme.colour.grey}};
+    outline: 0;
+    padding: ${theme.spacing.xs};
+
+    &:focus {
+      outline: 3px solid ${theme.colour.focus};
+      outline-offset: 0px;
+    }
+  }
 `
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
@@ -90,53 +104,42 @@ class HomePage extends React.Component {
                 values,
               }) => (
                 <form onSubmit={handleSubmit}>
-                  <pre>{JSON.stringify(values, 0, 2)}</pre>
                   {submitError && <div className="error">{submitError}</div>}
 
-                  <Field name="last-name">
-                    {({ input, meta }) => (
-                      <div>
-                        <H2>
-                          <label htmlFor="last-name" id="last-name-label">
-                            Full name
-                          </label>
-                        </H2>
-                        <p id="last-name-details">
-                          This is the full name you used on your citizenship
-                          application.
-                        </p>
-                        <input
-                          {...input}
-                          id="last-name"
-                          type="text"
-                          placeholder="Full name"
-                          aria-labelledby="last-name-label last-name-details"
-                        />
-                        {(meta.error || meta.submitError) && (
-                          <span>{meta.error || meta.submitError}</span>
-                        )}
-                      </div>
-                    )}
-                  </Field>
+                  <div>
+                    <TextInput
+                      name="last-name"
+                      id="last-name"
+                      labelledby="last-name-label last-name-details"
+                    >
+                      <H2>
+                        <label htmlFor="last-name" id="last-name-label">
+                          Full name
+                        </label>
+                      </H2>
+                      <p id="last-name-details">
+                        This is the full name you used on your citizenship
+                        application.
+                      </p>
+                    </TextInput>
+                  </div>
 
                   <div>
-                    <H2>
-                      <label htmlFor="uci-number" id="uci-number-label">
-                        UCI number
-                      </label>{' '}
-                      (A123456)
-                    </H2>
-                    <p id="uci-number-details">
-                      This number is at the top of the email we sent you
-                    </p>
-                    <Field
+                    <TextInput
                       name="uci-number"
                       id="uci-number"
-                      component="input"
-                      type="text"
-                      placeholder="UCI number"
-                      aria-labelledby="uci-number-label uci-number-details"
-                    />
+                      labelledby="uci-number-label uci-number-details"
+                    >
+                      <H2>
+                        <label htmlFor="uci-number" id="uci-number-label">
+                          UCI number
+                        </label>{' '}
+                        (A123456)
+                      </H2>
+                      <p id="uci-number-details">
+                        This number is at the top of the email we sent you
+                      </p>
+                    </TextInput>
                   </div>
 
                   <div>
@@ -194,15 +197,11 @@ class HomePage extends React.Component {
                         Briefly tell us why you can’t attend your test
                       </label>
                     </H2>
-                    <p id="explanation-details">
-                      If you’re not sure that you can reschedule, read the
-                      guidelines for scheduling.
-                    </p>
                     <Field
                       name="explanation"
                       id="explanation"
                       component="textarea"
-                      aria-labelledby="explanation-label explanation-details"
+                      aria-labelledby="explanation-label"
                     />
                   </div>
 
