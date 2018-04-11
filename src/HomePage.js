@@ -7,6 +7,8 @@ import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
+import FieldSet from './forms/FieldSet'
+import { Radio } from './forms/MultipleChoice'
 import Button from './forms/Button'
 import { Form, Field } from 'react-final-form'
 
@@ -38,36 +40,6 @@ input[type="text"] {
     border: solid 0.2em black;
     width: 50%;
     height: 2em;
-}
-
-input[type="radio"] {
-    display: none;
-}
-
-input[type="radio"] + label {
-    color: ${theme.font.black};
-    font-family: ${theme.weight.m};
-    font-size: ${theme.font.md};
-
-}
-input[type="radio"] + label span {
-    display: inline-block;
-    width: 22px;
-    height: 22px;
-    vertical-align: middle;
-    cursor: pointer;
-    margin-right: ${theme.spacing.sm};
-    margin-bottom: ${theme.spacing.sm};
-    border-radius: 50%;
-}
-
-input[type="radio"] + label span {
-  background: url('https://cdn.rawgit.com/nmakuch/60034bd0d4b98c57dd90776b9816731f/raw/4dd00e085a17b996d8a7b6e9ffde14f02e7aae0a/empty.svg');
-  margin-top: ${theme.spacing.sm};
-}
-
-input[type="radio"]:checked + label span{
-  background: url('https://cdn.rawgit.com/nmakuch/e3cd68811dbc645d5c93e2b1626ddb2e/raw/6a1cd0e9541615fd3316063487bd6d702ad88a5d/checked.svg');
 }
 
 textarea {
@@ -168,26 +140,48 @@ class HomePage extends React.Component {
                   </div>
 
                   <div>
-                    <H2>
-                      <label htmlFor="reason" id="reason-label">
-                        Reason for rescheduling
-                      </label>
-                    </H2>
-                    <p id="reason-details">
-                      {' '}
-                      If you’re not sure if you can reschedule,{' '}
-                      <TextLink href="#">
-                        read the guidelines for rescheduling.
-                      </TextLink>{' '}
-                    </p>
-
-                    <Field
-                      name="reason"
-                      id="reason"
-                      component="input"
-                      type="text"
-                      placeholder="reason"
-                    />
+                    <FieldSet legendHidden={false}>
+                      <legend>
+                        <H2>Reason for rescheduling</H2>
+                      </legend>
+                      <p id="reason-details">
+                        {' '}
+                        If you’re not sure if you can reschedule,{' '}
+                        <TextLink href="#">
+                          read the guidelines for rescheduling.
+                        </TextLink>{' '}
+                      </p>
+                      <Radio
+                        label={<span>Travel</span>}
+                        value="travel"
+                        name="reason"
+                        id="reason-0"
+                      />
+                      <Radio
+                        label={<span>Medical</span>}
+                        value="medical"
+                        name="reason"
+                        id="reason-1"
+                      />
+                      <Radio
+                        label={<span>Work or School</span>}
+                        value="workOrSchool"
+                        name="reason"
+                        id="reason-2"
+                      />
+                      <Radio
+                        label={<span>Family</span>}
+                        value="family"
+                        name="reason"
+                        id="reason-3"
+                      />
+                      <Radio
+                        label={<span>Other</span>}
+                        value="other"
+                        name="reason"
+                        id="reason-4"
+                      />
+                    </FieldSet>
                   </div>
 
                   <div>
