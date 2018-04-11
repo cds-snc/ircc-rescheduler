@@ -131,6 +131,7 @@ const govuk_label_pseudo_elements = css`
 const cds_multiple_choice = css`
   padding: 0 0 0 ${theme.spacing.xl};
   margin-bottom: ${theme.spacing.sm};
+  font-family: ${theme.weight.m};
 
   input {
     width: 24px;
