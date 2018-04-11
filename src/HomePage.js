@@ -127,7 +127,9 @@ class HomePage extends React.Component {
               <p id="reason-details">
                 {' '}
                 If you’re not sure if you can reschedule,{' '}
-                <TextLink>read the guidelines for rescheduling.</TextLink>{' '}
+                <TextLink href="#">
+                  read the guidelines for rescheduling.
+                </TextLink>{' '}
               </p>
 
               <ul>

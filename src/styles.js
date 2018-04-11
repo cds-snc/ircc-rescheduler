@@ -179,4 +179,5 @@ export const Circle = styled.div`
 
 export const TextLink = styled.a`
   text-decoration: underline;
+  color: ${theme.colour.black};
 `
