@@ -1,0 +1,82 @@
+{
+  "This is a new service we are constantly improving.": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        34
+      ]
+    ]
+  },
+  "Reschedule your Canadian Citizenship appointment": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        39
+      ]
+    ]
+  },
+  "Full name": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        46
+      ]
+    ]
+  },
+  "UCI number": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        55
+      ]
+    ]
+  },
+  "(eg A123456)": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        59
+      ]
+    ]
+  },
+  "The number is at the top of the email we sent you": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        63
+      ]
+    ]
+  },
+  "Reason for rescheduling": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        74
+      ]
+    ]
+  },
+  "Tell us why you can’t attend your appointment": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        81
+      ]
+    ]
+  },
+  "If you’re not sure that you can reschedule, read the guidelines for scheduling.": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        85
+      ]
+    ]
+  },
+  "Next →": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        96
+      ]
+    ]
+  }
+}

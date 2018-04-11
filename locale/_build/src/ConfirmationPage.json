@@ -1,0 +1,58 @@
+{
+  "This is a new service we are constantly improving.": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        15
+      ]
+    ]
+  },
+  "Reschedule your Canadian Citizenship appointment": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        20
+      ]
+    ]
+  },
+  "Thank you! Your request has been received.": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        23
+      ]
+    ]
+  },
+  "We’ve sent you a confirmation email.": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        24
+      ]
+    ]
+  },
+  "What happens next?": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        26
+      ]
+    ]
+  },
+  "Your local immigration office will send you a new appointment, or email you to ask for more information.": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        27
+      ]
+    ]
+  },
+  "If you have any questions, please contact:": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        32
+      ]
+    ]
+  }
+}

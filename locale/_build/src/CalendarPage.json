@@ -1,0 +1,66 @@
+{
+  "This is a new service we are constantly improving.": {
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        19
+      ]
+    ]
+  },
+  "Reschedule your Canadian Citizenship appointment": {
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        26
+      ]
+    ]
+  },
+  "Use the calendar to": {
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        30
+      ]
+    ]
+  },
+  "select all the days you’re AVAILABLE between May and June 2018": {
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        32
+      ]
+    ]
+  },
+  "so we can schedule your new appointment.": {
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        34
+      ]
+    ]
+  },
+  "Remember: make sure to stay available on all of the days you select": {
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        39
+      ]
+    ]
+  },
+  "Review →": {
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        44
+      ]
+    ]
+  },
+  "Cancel": {
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        46
+      ]
+    ]
+  }
+}
