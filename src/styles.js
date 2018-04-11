@@ -1,6 +1,6 @@
 import styled, { css } from 'react-emotion'
 
-/*This function is usually for hover events and such 
+/*This function is usually for hover events and such
   col: is the color in hex
   amt: is how much you want to darken or lighten, 20 is a good start.
 */
@@ -100,7 +100,7 @@ export const theme = {
     sm: '0.75em',
     base: '1em',
     md: '1em',
-    lg: '1.5em',
+    lg: '1.2em',
     lg2: '2em',
     xl: '3em',
   },
@@ -143,6 +143,7 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   font-size: ${theme.font.lg};
   font-family: ${theme.weight.b};
+  margin-bottom: 0em;
 `
 
 export const H3 = styled.h3`
@@ -174,4 +175,9 @@ export const Circle = styled.div`
   line-height: 100px;
   text-align: center;
   background: #000;
+`
+
+export const TextLink = styled.a`
+  text-decoration: underline;
+  color: ${theme.colour.black};
 `
