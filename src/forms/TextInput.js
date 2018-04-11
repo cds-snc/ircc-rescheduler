@@ -2,16 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Field } from 'react-final-form'
 import { css } from 'react-emotion'
-import { theme, roundedEdges, mediaQuery } from '../styles'
+import { theme, mediaQuery } from '../styles'
 
 const text_input = css`
-  font-size: ${theme.font.md};
-  border: 3px solid ${theme.colour.grey}};
+  font-size: ${theme.font.lg};
+  border: 3px solid ${theme.colour.black}};
   outline: 0;
-  padding: ${theme.spacing.sm}px;
-  width: 300px;
-  margin-bottom: ${theme.spacing.xl}px;
-  ${roundedEdges};
+  padding: ${theme.spacing.xs};
+  width: 400px;
 
   &:focus {
     outline: 3px solid ${theme.colour.focus};
