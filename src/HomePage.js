@@ -67,17 +67,20 @@ injectGlobal`
 const validate = values => {
   const errors = {}
   if (!values.fullName) {
-    errors.fullName = 'Please enter your name'
+    errors.fullName =
+      'You need to tell us your full name so we can confirm your identity.'
   }
   if (!values.uciNumber) {
-    errors.uciNumber = 'Please enter your UCI Number'
+    errors.uciNumber =
+      'You need to tell us your paper file number so we can confirm your identity.'
   }
   if (!values.reason) {
-    errors.reason = 'Please select a reason you cannot attend'
+    errors.reason =
+      'Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.'
   }
   if (!values.explanation) {
     errors.explanation =
-      'Please write a short explanation about why you can’t attend'
+      'Please tell us a bit more about why you need to reschedule your test.'
   }
   return errors
 }
