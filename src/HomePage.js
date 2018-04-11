@@ -83,6 +83,7 @@ const validate = values => {
 }
 
 const validationField = ({ touched, errors, attr }) => {
+  /* eslint-disable security/detect-object-injection */
   if (touched[attr] && errors[attr]) {
     return (
       <p className={`form-error ${attr}-error`}>
@@ -90,6 +91,7 @@ const validationField = ({ touched, errors, attr }) => {
       </p>
     )
   }
+  /* eslint-enable security/detect-object-injection */
 }
 
 class HomePage extends React.Component {
@@ -121,6 +123,7 @@ class HomePage extends React.Component {
                 <form
                   onSubmit={event => {
                     handleSubmit(event).then(() => {
+                      // eslint-disable-next-line react/prop-types
                       this.props.history.push('/calendar')
                     })
                   }}
