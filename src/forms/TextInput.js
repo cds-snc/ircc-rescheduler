@@ -19,7 +19,13 @@ const text_input = css`
     width: 100%;
   `)};
 `
-
+const text_area = css`
+  height: 10em;
+  resize: none;
+  width: 550px;
+  margin-top: ${theme.spacing.sm};
+  ${text_input};
+`
 const TextInput = ({
   name,
   id,
@@ -78,7 +84,6 @@ const TextArea = ({
   <div>
     {children}
     <textarea
-      type="text"
       name={name}
       id={id}
       aria-labelledby={labelledby}
@@ -86,7 +91,7 @@ const TextArea = ({
       onBlur={onBlur}
       onChange={onChange}
       onFocus={onFocus}
-      className={text_input}
+      className={text_area}
     />
   </div>
 )
