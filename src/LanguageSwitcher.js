@@ -1,34 +1,34 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
-import gql from 'graphql-tag'
+import { GET_LANGUAGE_QUERY, CHANGE_LANGUAGE_MUTATION } from './queries'
+import styled from 'react-emotion'
 
-const GET_LANGUAGE_QUERY = gql`
-  query GetLanguage {
-    language @client
+const A = styled('a')`
+  text-decoration: underline;
+  &:visited {
+    color: #7834bc;
+  }
+  &:hover {
+    cursor: pointer;
   }
 `
-const CHANGE_LANGUAGE_MUTATION = gql`
-  mutation switchLanguage {
-    switchLanguage @client
-  }
-`
+
 export const LanguageSwitcher = () => (
   <Query query={GET_LANGUAGE_QUERY}>
     {({ data: { language } }) => (
       <Mutation mutation={CHANGE_LANGUAGE_MUTATION}>
         {switchLanguage => (
           <div>
-            <a
+            <A
               onClick={() => {
                 switchLanguage({ variables: { language: 'fr' } })
               }}
             >
-						{language === 'en' ? 'French' : 'English'}
-            </a>
+              {language === 'en' ? 'French' : 'English'}
+            </A>
           </div>
         )}
       </Mutation>
     )}
   </Query>
 )
-

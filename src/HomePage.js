@@ -5,7 +5,6 @@ import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { mediaQuery, theme, H1, H2, Content, TextLink } from './styles'
 import PageHeader from './PageHeader'
-import { LanguageSwitcher } from './LanguageSwitcher'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
@@ -94,7 +93,6 @@ class HomePage extends React.Component {
           </span>{' '}
         </AlphaBanner>
         <FederalBanner />
-        <LanguageSwitcher />
         <main role="main">
           <PageHeader>
             <H1>
