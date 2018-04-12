@@ -178,6 +178,7 @@ const radio = css`
     height: 22px;
     top: 2px;
     left: 0;
+    background-color: ${theme.colour.white};
   }
 
   input[type='radio'] + label::after {
@@ -261,6 +262,7 @@ const checkbox = css`
     height: 22px;
     top: 2px;
     left: 0;
+    background-color: ${theme.colour.white};
     ${roundedEdges};
   }
 
