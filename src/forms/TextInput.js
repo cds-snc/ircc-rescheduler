@@ -65,4 +65,38 @@ TextInputAdapter.propTypes = {
   input: PropTypes.object.isRequired,
 }
 
-export { TextInput, TextInputAdapter }
+const TextArea = ({
+  name,
+  id,
+  labelledby,
+  value,
+  children,
+  onBlur,
+  onChange,
+  onFocus,
+}) => (
+  <div>
+    {children}
+    <textarea
+      type="text"
+      name={name}
+      id={id}
+      aria-labelledby={labelledby}
+      value={value}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+      className={text_input}
+    />
+  </div>
+)
+
+TextArea.propTypes = TextInput.propTypes
+
+const TextAreaAdapter = ({ input, ...rest }) => (
+  <TextArea {...input} {...rest} />
+)
+
+TextAreaAdapter.propTypes = TextInputAdapter.propTypes
+
+export { TextInput, TextInputAdapter, TextArea, TextAreaAdapter }
