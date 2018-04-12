@@ -51,7 +51,7 @@ class ConfirmationPage extends React.Component {
             </H2>
             <p>
               <Trans>
-                Within two weeks, your local Immigration office will send you a
+                Within six weeks, your local Immigration office will send you a
                 new appointment, or email you to ask for more information.
               </Trans>
             </p>
