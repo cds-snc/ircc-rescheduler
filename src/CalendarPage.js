@@ -37,8 +37,8 @@ class CalendarPage extends Component {
               <Trans>
                 Citizenship Tests are scheduled on <Bold>Tuesdays</Bold> and{' '}
                 <Bold>Fridays</Bold>. Use the calendar to select{' '}
-                <Bold>at least four days you’re available</Bold> in May and
-                June.
+                <Bold>at least four days you’re available</Bold> in June and
+                July.
               </Trans>
             </CalHeader>
             <Calendar />
