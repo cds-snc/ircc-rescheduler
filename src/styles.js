@@ -152,7 +152,7 @@ export const H3 = styled.h3`
 `
 
 export const Content = styled.section`
-  padding: 0 0 ${theme.spacing.xxxl} ${theme.spacing.xxxl};
+  padding: ${theme.spacing.xl} 0 ${theme.spacing.xxxl} ${theme.spacing.xxxl};
   width: 65%;
 `
 
