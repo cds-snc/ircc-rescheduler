@@ -6,9 +6,9 @@ import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
-import TextInput from './forms/TextInput'
+import { TextInputAdapter } from './forms/TextInput'
 import FieldSet from './forms/FieldSet'
-import { Radio } from './forms/MultipleChoice'
+import { RadioAdapter } from './forms/MultipleChoice'
 import Button from './forms/Button'
 import { Form, Field } from 'react-final-form'
 
@@ -133,7 +133,8 @@ class HomePage extends React.Component {
                 >
                   {submitError && <div className="error">{submitError}</div>}
                   <div>
-                    <TextInput
+                    <Field
+                      component={TextInputAdapter}
                       name="fullName"
                       id="fullName"
                       labelledby="fullName-label fullName-details fullName-error"
@@ -149,10 +150,11 @@ class HomePage extends React.Component {
                         application.
                       </p>
                       {validationField({ touched, errors, attr: 'fullName' })}
-                    </TextInput>
+                    </Field>
                   </div>
                   <div>
-                    <TextInput
+                    <Field
+                      component={TextInputAdapter}
                       name="uciNumber"
                       id="uciNumber"
                       labelledby="uciNumber-label uciNumber-details uciNumber-error"
@@ -167,7 +169,7 @@ class HomePage extends React.Component {
                         This number is at the top of the email we sent you
                       </p>
                       {validationField({ touched, errors, attr: 'uciNumber' })}
-                    </TextInput>
+                    </Field>
                   </div>
                   <div>
                     <FieldSet legendHidden={false}>
@@ -182,31 +184,41 @@ class HomePage extends React.Component {
                         </TextLink>{' '}
                       </p>
                       {validationField({ touched, errors, attr: 'reason' })}
-                      <Radio
+                      <Field
+                        type="radio"
+                        component={RadioAdapter}
                         label={<span>Travel</span>}
                         value="travel"
                         name="reason"
                         id="reason-0"
                       />
-                      <Radio
+                      <Field
+                        type="radio"
+                        component={RadioAdapter}
                         label={<span>Medical</span>}
                         value="medical"
                         name="reason"
                         id="reason-1"
                       />
-                      <Radio
+                      <Field
+                        type="radio"
+                        component={RadioAdapter}
                         label={<span>Work or School</span>}
                         value="workOrSchool"
                         name="reason"
                         id="reason-2"
                       />
-                      <Radio
+                      <Field
+                        type="radio"
+                        component={RadioAdapter}
                         label={<span>Family</span>}
                         value="family"
                         name="reason"
                         id="reason-3"
                       />
-                      <Radio
+                      <Field
+                        type="radio"
+                        component={RadioAdapter}
                         label={<span>Other</span>}
                         value="other"
                         name="reason"

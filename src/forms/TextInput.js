@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Field } from 'react-final-form'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 
@@ -21,15 +20,27 @@ const text_input = css`
   `)};
 `
 
-const TextInput = ({ name, id, labelledby, children }) => (
+const TextInput = ({
+  name,
+  id,
+  labelledby,
+  value,
+  children,
+  onBlur,
+  onChange,
+  onFocus,
+}) => (
   <div>
     {children}
-    <Field
+    <input
       type="text"
-      component="input"
       name={name}
       id={id}
       aria-labelledby={labelledby}
+      value={value}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
       className={text_input}
     />
   </div>
@@ -40,6 +51,18 @@ TextInput.propTypes = {
   id: PropTypes.string.isRequired,
   labelledby: PropTypes.string,
   name: PropTypes.string.isRequired,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  value: PropTypes.string,
 }
 
-export default TextInput
+const TextInputAdapter = ({ input, ...rest }) => (
+  <TextInput {...input} {...rest} />
+)
+
+TextInputAdapter.propTypes = {
+  input: PropTypes.object.isRequired,
+}
+
+export { TextInput, TextInputAdapter }

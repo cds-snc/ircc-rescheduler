@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Field } from 'react-final-form'
 import { css } from 'react-emotion'
 import { theme, roundedEdges, mediaQuery } from '../styles'
 
@@ -170,6 +169,7 @@ const cds_multiple_choice = css`
 `
 
 const radio = css`
+  ${govuk_multiple_choice};
   ${cds_multiple_choice};
 
   input[type='radio'] + label::before {
@@ -199,13 +199,28 @@ const radio = css`
   `)};
 `
 
-const Radio = ({ label, value, name, id, children }) => (
-  <div
-    className={css`
-      ${govuk_multiple_choice} ${radio};
-    `}
-  >
-    <Field type="radio" component="input" name={name} id={id} value={value} />
+const MultipleChoice = ({
+  label,
+  value,
+  name,
+  id,
+  children,
+  className,
+  type,
+  onBlur,
+  onChange,
+  onFocus,
+}) => (
+  <div className={className}>
+    <input
+      type={type}
+      name={name}
+      id={id}
+      value={value}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+    />
     <label htmlFor={id} className={govuk_label_pseudo_elements}>
       {label}
     </label>
@@ -213,7 +228,31 @@ const Radio = ({ label, value, name, id, children }) => (
   </div>
 )
 
+MultipleChoice.propTypes = {
+  type: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  label: PropTypes.element.isRequired,
+  value: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  id: PropTypes.string,
+  children: PropTypes.any,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+}
+
+const Radio = ({ ...props }) => (
+  <MultipleChoice type="radio" className={radio} {...props} />
+)
+
+const RadioAdapter = ({ input, ...rest }) => <Radio {...input} {...rest} />
+
+RadioAdapter.propTypes = {
+  input: PropTypes.object.isRequired,
+}
+
 const checkbox = css`
+  ${govuk_multiple_choice};
   ${cds_multiple_choice};
 
   input[type='checkbox'] + label::before {
@@ -234,35 +273,16 @@ const checkbox = css`
   }
 `
 
-const Checkbox = ({ label, value, name, id, children }) => (
-  <div
-    className={css`
-      ${govuk_multiple_choice} ${checkbox};
-    `}
-  >
-    <Field
-      type="checkbox"
-      component="input"
-      name={name}
-      id={id}
-      value={value}
-    />
-    <label htmlFor={id} className={govuk_label_pseudo_elements}>
-      {label}
-      {children}
-    </label>
-  </div>
+const Checkbox = ({ ...props }) => (
+  <MultipleChoice type="checkbox" className={checkbox} {...props} />
 )
 
-let defaultProps = {
-  label: PropTypes.element.isRequired,
-  value: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  id: PropTypes.string,
-  children: PropTypes.any,
+const CheckboxAdapter = ({ input, ...rest }) => (
+  <CheckboxAdapter {...input} {...rest} />
+)
+
+CheckboxAdapter.propTypes = {
+  input: PropTypes.object.isRequired,
 }
 
-Radio.propTypes = defaultProps
-Checkbox.propTypes = defaultProps
-
-export { Radio, Checkbox }
+export { Radio, RadioAdapter, Checkbox, CheckboxAdapter }
