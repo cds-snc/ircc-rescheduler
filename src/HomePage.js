@@ -185,6 +185,7 @@ class HomePage extends React.Component {
                       </p>
                       {validationField({ touched, errors, attr: 'reason' })}
                       <Field
+                        type="radio"
                         component={RadioAdapter}
                         label={<span>Travel</span>}
                         value="travel"
@@ -192,6 +193,7 @@ class HomePage extends React.Component {
                         id="reason-0"
                       />
                       <Field
+                        type="radio"
                         component={RadioAdapter}
                         label={<span>Medical</span>}
                         value="medical"
@@ -199,6 +201,7 @@ class HomePage extends React.Component {
                         id="reason-1"
                       />
                       <Field
+                        type="radio"
                         component={RadioAdapter}
                         label={<span>Work or School</span>}
                         value="workOrSchool"
@@ -206,6 +209,7 @@ class HomePage extends React.Component {
                         id="reason-2"
                       />
                       <Field
+                        type="radio"
                         component={RadioAdapter}
                         label={<span>Family</span>}
                         value="family"
@@ -213,6 +217,7 @@ class HomePage extends React.Component {
                         id="reason-3"
                       />
                       <Field
+                        type="radio"
                         component={RadioAdapter}
                         label={<span>Other</span>}
                         value="other"
