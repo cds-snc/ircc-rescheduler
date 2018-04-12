@@ -105,7 +105,7 @@ export const theme = {
     xl: '3em',
   },
   spacing: {
-    md: '1em',
+    md: '1.0em',
     sm: '0.5em',
     xs: '0.33em',
     xxs: '0.17em',
@@ -138,6 +138,7 @@ export const mediaQuery = Object.keys(breakpoints).reduce(
 export const H1 = styled.h1`
   font-size: ${theme.font.lg2};
   font-family: ${theme.weight.b};
+  margin-bottom: 0px;
 `
 
 export const H2 = styled.h2`
@@ -180,4 +181,22 @@ export const Circle = styled.div`
 export const TextLink = styled.a`
   text-decoration: underline;
   color: ${theme.colour.black};
+`
+
+export const CalHeader = styled.div`
+  width: 32em;
+  font-size: ${theme.font.lg};
+  font-family: ${theme.weight.s};
+  padding-bottom: ${theme.spacing.xl};
+`
+
+export const CalReminder = styled.div`
+  font-size: ${theme.font.lg};
+  font-family: ${theme.weight.s};
+  padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
+`
+
+export const ConfirmPara = styled.p`
+  margin-top: ${theme.spacing.xs};
+  margin-bottom: ${theme.spacing.xxl};
 `

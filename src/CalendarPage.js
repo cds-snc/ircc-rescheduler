@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import { H1, Content, Bold } from './styles'
+import { H1, Content, CalHeader, CalReminder, Bold } from './styles'
 import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
@@ -16,27 +16,26 @@ class CalendarPage extends Component {
           {' '}
           <span>This is a new service we are constantly improving.</span>{' '}
         </AlphaBanner>
-
         <FederalBanner />
         <main role="main">
           <PageHeader>
             <H1>Request a new Canadian Citizenship test date</H1>
           </PageHeader>
           <Content>
-            <p>
-              Use the calendar to{' '}
-              <Bold>
-                select all the days you’re AVAILABLE between May and June 2018
-              </Bold>{' '}
-              so we can schedule your new appointment.
-            </p>
+            <NavLink to="/">
+              <p>← Go Back</p>
+            </NavLink>
+
+            <CalHeader>
+              Citizenship Tests are scheduled on <Bold>Tuesdays</Bold> and{' '}
+              <Bold>Fridays</Bold>. Use the calendar to select{' '}
+              <Bold>at least four days you’re available</Bold> in May and June.
+            </CalHeader>
             <Calendar />
-            <p>
-              <strong>
-                Remember: make sure to stay available on all of the days you
-                select
-              </strong>
-            </p>
+            <CalReminder>
+              Remember: make sure to stay available on all of the days you
+              select
+            </CalReminder>
 
             <NavLink to="/confirmation">
               <Button>Review →</Button>
