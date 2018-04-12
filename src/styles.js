@@ -79,6 +79,8 @@ export const theme = {
     gray: '#4A4A4A',
     greyLight: '#DBDBDB',
     grayLight: '#DBDBDB',
+    greyVeryLight: '#f5f5f5',
+    grayVeryLight: '#f5f5f5',
     white: '#FFFFFF',
     black: '#000000',
     focus: '#ffbf47',
@@ -152,8 +154,10 @@ export const H3 = styled.h3`
 `
 
 export const Content = styled.section`
-  padding: ${theme.spacing.xl} 0 ${theme.spacing.xxxl} ${theme.spacing.xxxl};
-  width: 65%;
+  padding: ${theme.spacing.xl} 35% ${theme.spacing.xxxl} ${theme.spacing.xxxl};
+  width: 100%;
+  background-color: ${theme.colour.greyVeryLight};
+  box-sizing: border-box;
 `
 
 export const Bold = styled.strong`

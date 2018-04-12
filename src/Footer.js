@@ -30,6 +30,7 @@ const TopBar = styled.hr(
   {
     height: '0.4em',
     border: 'none',
+    marginTop: 0,
   },
   props => ({ background: props.background }),
 )
