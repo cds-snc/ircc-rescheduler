@@ -45,23 +45,6 @@ injectGlobal`
     }
   }
 
-  textarea {
-    height: 10em;
-    resize: none;
-    width: 550px;
-    margin-top: ${theme.spacing.sm};
-
-    /* cribbed from TextInput */
-    font-size: ${theme.font.lg};
-    border: 3px solid ${theme.colour.grey}};
-    outline: 0;
-    padding: ${theme.spacing.xs};
-
-    &:focus {
-      outline: 3px solid ${theme.colour.focus};
-      outline-offset: 0px;
-    }
-  }
 `
 
 const validate = values => {
@@ -227,22 +210,23 @@ class HomePage extends React.Component {
                     </FieldSet>
                   </div>
                   <div>
-                    <H2>
-                      <label
-                        className="explanation-header"
-                        htmlFor="explanation"
-                        id="explanation-label"
-                      >
-                        Briefly tell us why you can’t attend your test
-                      </label>
-                    </H2>
                     {validationField({ touched, errors, attr: 'explanation' })}
                     <Field
                       name="explanation"
                       id="explanation"
                       component={TextAreaAdapter}
                       aria-labelledby="explanation-label explanation-error"
-                    />
+                    >
+                      <H2>
+                        <label
+                          className="explanation-header"
+                          htmlFor="explanation"
+                          id="explanation-label"
+                        >
+                          Briefly tell us why you can’t attend your test
+                        </label>
+                      </H2>
+                    </Field>
                   </div>
                   {/*
                       Button is disabled if:
