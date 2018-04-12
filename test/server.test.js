@@ -14,9 +14,7 @@ describe('Server Side Rendering', () => {
 
   it('renders the calendar at /calendar', async () => {
     let response = await request(server).get('/calendar')
-    expect(response.text).toMatch(
-      /select all the days you’re AVAILABLE between May and June 2018/,
-    )
+    expect(response.text).toMatch(/Use the calendar to select./)
   })
 
   it('renders a reassuring confirmation message at /confirmation', async () => {

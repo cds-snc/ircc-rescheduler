@@ -161,7 +161,7 @@ class HomePage extends React.Component {
                     >
                       <H2>
                         <label htmlFor="uciNumber" id="uciNumber-label">
-                          UCI number
+                          Paper file number
                         </label>{' '}
                         (A123456)
                       </H2>
