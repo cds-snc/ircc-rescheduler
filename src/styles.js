@@ -138,7 +138,6 @@ export const mediaQuery = Object.keys(breakpoints).reduce(
 export const H1 = styled.h1`
   font-size: ${theme.font.lg2};
   font-family: ${theme.weight.b};
-  margin-bottom: 0px;
 `
 
 export const H2 = styled.h2`
@@ -194,9 +193,4 @@ export const CalReminder = styled.div`
   font-size: ${theme.font.lg};
   font-family: ${theme.weight.s};
   padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
-`
-
-export const ConfirmPara = styled.p`
-  margin-top: ${theme.spacing.xs};
-  margin-bottom: ${theme.spacing.xxl};
 `
