@@ -3,15 +3,15 @@
     "origin": [
       [
         "src/HomePage.js",
-        34
+        109
       ]
     ]
   },
-  "Reschedule your Canadian Citizenship appointment": {
+  "Request a new Canadian Citizenship test date": {
     "origin": [
       [
         "src/HomePage.js",
-        39
+        116
       ]
     ]
   },
@@ -19,31 +19,43 @@
     "origin": [
       [
         "src/HomePage.js",
-        46
+        150
+      ],
+      [
+        "src/HomePage.js",
+        305
       ]
     ]
   },
-  "UCI number": {
+  "This is the full name you used on your citizenship application.": {
     "origin": [
       [
         "src/HomePage.js",
-        55
+        155
       ]
     ]
   },
-  "(eg A123456)": {
+  "Paper file number": {
     "origin": [
       [
         "src/HomePage.js",
-        59
+        172
       ]
     ]
   },
-  "The number is at the top of the email we sent you": {
+  "(A123456)": {
     "origin": [
       [
         "src/HomePage.js",
-        63
+        174
+      ]
+    ]
+  },
+  "This number is at the top of the email we sent you": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        177
       ]
     ]
   },
@@ -51,7 +63,99 @@
     "origin": [
       [
         "src/HomePage.js",
-        74
+        188
+      ],
+      [
+        "src/HomePage.js",
+        329
+      ]
+    ]
+  },
+  "If you’re not sure if you can reschedule,": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        193
+      ]
+    ]
+  },
+  "read the guidelines for rescheduling.": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        197
+      ]
+    ]
+  },
+  "Travel": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        206
+      ]
+    ]
+  },
+  "Medical": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        218
+      ]
+    ]
+  },
+  "Work or School": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        230
+      ]
+    ]
+  },
+  "Family": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        242
+      ]
+    ]
+  },
+  "Other": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        254
+      ]
+    ]
+  },
+  "Briefly tell us why you can’t attend your test": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        270
+      ]
+    ]
+  },
+  "UCI number": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        312
+      ]
+    ]
+  },
+  "(eg A123456)": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        314
+      ]
+    ]
+  },
+  "The number is at the top of the email we sent you": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        318
       ]
     ]
   },
@@ -59,7 +163,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        81
+        336
       ]
     ]
   },
@@ -67,7 +171,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        85
+        340
       ]
     ]
   },
@@ -75,7 +179,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        96
+        355
       ]
     ]
   }

@@ -70,9 +70,11 @@
   "jest": {
     "verbose": true,
     "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/razzle/config/jest/babelTransform.js",
+      "^.+\\.(js|jsx)$":
+        "<rootDir>/node_modules/razzle/config/jest/babelTransform.js",
       "^.+\\.css$": "<rootDir>/node_modules/razzle/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
+      "^(?!.*\\.(js|jsx|css|json)$)":
+        "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/test/setupTests.js",
     "testMatch": [
@@ -80,19 +82,10 @@
       "<rootDir>/src/**/?(*.)(spec|test).js",
       "<rootDir>/test/**/?(*.)(spec|test).js"
     ],
-    "moduleFileExtensions": [
-      "jsx",
-      "js",
-      "json"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ]
+    "moduleFileExtensions": ["jsx", "js", "json"],
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"]
   },
   "lingui": {
-    "srcPathIgnorePatterns": [
-      "/node_modules/",
-      "build"
-    ]
+    "srcPathIgnorePatterns": ["/node_modules/", "build"]
   }
 }

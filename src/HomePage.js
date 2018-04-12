@@ -290,7 +290,7 @@ class HomePage extends React.Component {
                         .length < Object.keys(touched).length
                     }
                   >
-                    Next →
+                    <Trans>Next →</Trans>
                   </Button>
                 </form>
               )}

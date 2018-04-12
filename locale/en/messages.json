@@ -1,103 +1,4 @@
 {
-  "Use the calendar to": {
-    "translation": "",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        30
-      ]
-    ]
-  },
-  "select all the days you’re AVAILABLE between May and June 2018": {
-    "translation": "",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        32
-      ]
-    ]
-  },
-  "so we can schedule your new appointment.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        34
-      ]
-    ]
-  },
-  "Remember: make sure to stay available on all of the days you select": {
-    "translation": "",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        39
-      ]
-    ]
-  },
-  "Review →": {
-    "translation": "",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        44
-      ]
-    ]
-  },
-  "Cancel": {
-    "translation": "",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        46
-      ]
-    ]
-  },
-  "Thank you! Your request has been received.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        23
-      ]
-    ]
-  },
-  "We’ve sent you a confirmation email.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        24
-      ]
-    ]
-  },
-  "What happens next?": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        26
-      ]
-    ]
-  },
-  "Your local immigration office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        27
-      ]
-    ]
-  },
-  "If you have any questions, please contact:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        32
-      ]
-    ]
-  },
   "This is a new service we are constantly improving.": {
     "translation": "",
     "origin": [
@@ -107,15 +8,15 @@
       ],
       [
         "src/ConfirmationPage.js",
-        15
+        32
       ],
       [
         "src/HomePage.js",
-        34
+        109
       ]
     ]
   },
-  "Reschedule your Canadian Citizenship appointment": {
+  "Request a new Canadian Citizenship test date": {
     "translation": "",
     "origin": [
       [
@@ -124,11 +25,101 @@
       ],
       [
         "src/ConfirmationPage.js",
-        20
+        39
       ],
       [
         "src/HomePage.js",
-        39
+        116
+      ]
+    ]
+  },
+  "← Go Back": {
+    "translation": "",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        32
+      ]
+    ]
+  },
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in May and June.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        37
+      ]
+    ]
+  },
+  "Remember: make sure to stay available on all of the days you select": {
+    "translation": "",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        46
+      ]
+    ]
+  },
+  "Review →": {
+    "translation": "",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        53
+      ]
+    ]
+  },
+  "Cancel": {
+    "translation": "",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        57
+      ]
+    ]
+  },
+  "Thank you! Your request has been received.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        44
+      ]
+    ]
+  },
+  "We’ve sent you a confirmation email.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        47
+      ]
+    ]
+  },
+  "What happens next?": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        50
+      ]
+    ]
+  },
+  "Within two weeks, your local Immigration office will send you a new appointment, or email you to ask for more information.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        53
+      ]
+    ]
+  },
+  "If you have any questions, please contact:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        59
       ]
     ]
   },
@@ -137,34 +128,47 @@
     "origin": [
       [
         "src/HomePage.js",
-        46
+        150
+      ],
+      [
+        "src/HomePage.js",
+        305
       ]
     ]
   },
-  "UCI number": {
+  "This is the full name you used on your citizenship application.": {
     "translation": "",
     "origin": [
       [
         "src/HomePage.js",
-        55
+        155
       ]
     ]
   },
-  "(eg A123456)": {
+  "Paper file number": {
     "translation": "",
     "origin": [
       [
         "src/HomePage.js",
-        59
+        172
       ]
     ]
   },
-  "The number is at the top of the email we sent you": {
+  "(A123456)": {
     "translation": "",
     "origin": [
       [
         "src/HomePage.js",
-        63
+        174
+      ]
+    ]
+  },
+  "This number is at the top of the email we sent you": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        177
       ]
     ]
   },
@@ -173,7 +177,110 @@
     "origin": [
       [
         "src/HomePage.js",
-        74
+        188
+      ],
+      [
+        "src/HomePage.js",
+        329
+      ]
+    ]
+  },
+  "If you’re not sure if you can reschedule,": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        193
+      ]
+    ]
+  },
+  "read the guidelines for rescheduling.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        197
+      ]
+    ]
+  },
+  "Travel": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        206
+      ]
+    ]
+  },
+  "Medical": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        218
+      ]
+    ]
+  },
+  "Work or School": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        230
+      ]
+    ]
+  },
+  "Family": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        242
+      ]
+    ]
+  },
+  "Other": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        254
+      ]
+    ]
+  },
+  "Briefly tell us why you can’t attend your test": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        270
+      ]
+    ]
+  },
+  "UCI number": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        312
+      ]
+    ]
+  },
+  "(eg A123456)": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        314
+      ]
+    ]
+  },
+  "The number is at the top of the email we sent you": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        318
       ]
     ]
   },
@@ -182,7 +289,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        81
+        336
       ]
     ]
   },
@@ -191,7 +298,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        85
+        340
       ]
     ]
   },
@@ -200,7 +307,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        96
+        355
       ]
     ]
   }

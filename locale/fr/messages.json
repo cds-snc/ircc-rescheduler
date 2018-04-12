@@ -1,100 +1,10 @@
 {
-  "Use the calendar to": {
-    "translation": "Utilisez le calendrier pour",
+  "If you’re not sure if you can reschedule,": {
+    "translation": "Si vous n'êtes pas sûr de pouvoir reporter,",
     "origin": [
       [
-        "src/CalendarPage.js",
-        30
-      ]
-    ]
-  },
-  "select all the days you’re AVAILABLE between May and June 2018": {
-    "translation": "sélectionnez tous les jours où vous êtes DISPONIBLE entre mai et juin 2018",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        32
-      ]
-    ]
-  },
-  "so we can schedule your new appointment.": {
-    "translation": "Nous pouvons donc planifier votre nouveau rendez-vous.",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        34
-      ]
-    ]
-  },
-  "Remember: make sure to stay available on all of the days you select": {
-    "translation": "N'oubliez pas: assurez-vous de rester disponible tous les jours que vous sélectionnez",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        39
-      ]
-    ]
-  },
-  "Review →": {
-    "translation": "Revoir →",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        44
-      ]
-    ]
-  },
-  "Cancel": {
-    "translation": "Annuler",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        46
-      ]
-    ]
-  },
-  "Thank you! Your request has been received.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        23
-      ]
-    ]
-  },
-  "We’ve sent you a confirmation email.": {
-    "translation": "Nous vous avons envoyé un e-mail de confirmation.",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        24
-      ]
-    ]
-  },
-  "What happens next?": {
-    "translation": "ce qui se passe ensuite",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        26
-      ]
-    ]
-  },
-  "Your local immigration office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "Votre bureau d'immigration local vous enverra un nouveau rendez-vous ou vous enverra un email pour demander plus d'informations.",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        27
-      ]
-    ]
-  },
-  "If you have any questions, please contact:": {
-    "translation": "Si vous avez des questions, veuillez contacter:",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        32
+        "src/HomePage.js",
+        193
       ]
     ]
   },
@@ -107,16 +17,16 @@
       ],
       [
         "src/ConfirmationPage.js",
-        15
+        32
       ],
       [
         "src/HomePage.js",
-        34
+        109
       ]
     ]
   },
-  "Reschedule your Canadian Citizenship appointment": {
-    "translation": "Reporter votre rendez-vous de citoyenneté canadienne",
+  "Request a new Canadian Citizenship test date": {
+    "translation": "Demander une nouvelle date de test de citoyenneté canadienne",
     "origin": [
       [
         "src/CalendarPage.js",
@@ -124,11 +34,101 @@
       ],
       [
         "src/ConfirmationPage.js",
-        20
+        39
       ],
       [
         "src/HomePage.js",
-        39
+        116
+      ]
+    ]
+  },
+  "← Go Back": {
+    "translation": "← Retour",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        32
+      ]
+    ]
+  },
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in May and June.": {
+    "translation": "Les tests de citoyenneté sont programmés les <0> mardi </ 0> et <1> vendredi </ 1>. Utilisez le calendrier pour sélectionner <2> au moins quatre jours </ 2> en mai et en juin.",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        37
+      ]
+    ]
+  },
+  "Remember: make sure to stay available on all of the days you select": {
+    "translation": "N'oubliez pas: assurez-vous de rester disponible tous les jours que vous sélectionnez",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        46
+      ]
+    ]
+  },
+  "Review →": {
+    "translation": "Revoir →",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        53
+      ]
+    ]
+  },
+  "Cancel": {
+    "translation": "Annuler",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        57
+      ]
+    ]
+  },
+  "Thank you! Your request has been received.": {
+    "translation": "Je vous remercie! Votre demande a été reçue.",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        44
+      ]
+    ]
+  },
+  "We’ve sent you a confirmation email.": {
+    "translation": "Nous vous avons envoyé un e-mail de confirmation.",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        47
+      ]
+    ]
+  },
+  "What happens next?": {
+    "translation": "ce qui se passe ensuite",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        50
+      ]
+    ]
+  },
+  "Within two weeks, your local Immigration office will send you a new appointment, or email you to ask for more information.": {
+    "translation": "Dans un délai de deux semaines, votre bureau d'immigration local vous enverra un nouveau rendez-vous ou vous enverra un email pour demander plus d'informations.",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        53
+      ]
+    ]
+  },
+  "If you have any questions, please contact:": {
+    "translation": "Si vous avez des questions, veuillez contacter:",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        59
       ]
     ]
   },
@@ -137,34 +137,47 @@
     "origin": [
       [
         "src/HomePage.js",
-        46
+        150
+      ],
+      [
+        "src/HomePage.js",
+        305
       ]
     ]
   },
-  "UCI number": {
-    "translation": "Numéro UCI",
+  "This is the full name you used on your citizenship application.": {
+    "translation": "C'est le nom complet que vous avez utilisé pour votre demande de citoyenneté.",
     "origin": [
       [
         "src/HomePage.js",
-        55
+        155
       ]
     ]
   },
-  "(eg A123456)": {
+  "Paper file number": {
+    "translation": "Numéro de fichier papier",
+    "origin": [
+      [
+        "src/HomePage.js",
+        172
+      ]
+    ]
+  },
+  "(A123456)": {
     "translation": "",
     "origin": [
       [
         "src/HomePage.js",
-        59
+        174
       ]
     ]
   },
-  "The number is at the top of the email we sent you": {
-    "translation": "Le numéro est en haut de l'e-mail que nous vous avons envoyé",
+  "This number is at the top of the email we sent you": {
+    "translation": "Ce numéro est en haut de l'e-mail que nous vous avons envoyé",
     "origin": [
       [
         "src/HomePage.js",
-        63
+        177
       ]
     ]
   },
@@ -173,7 +186,101 @@
     "origin": [
       [
         "src/HomePage.js",
-        74
+        188
+      ],
+      [
+        "src/HomePage.js",
+        329
+      ]
+    ]
+  },
+  "read the guidelines for rescheduling.": {
+    "translation": "lisez les directives pour le rééchelonnement.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        197
+      ]
+    ]
+  },
+  "Travel": {
+    "translation": "Voyage",
+    "origin": [
+      [
+        "src/HomePage.js",
+        206
+      ]
+    ]
+  },
+  "Medical": {
+    "translation": "Médical",
+    "origin": [
+      [
+        "src/HomePage.js",
+        218
+      ]
+    ]
+  },
+  "Work or School": {
+    "translation": "Travail ou école",
+    "origin": [
+      [
+        "src/HomePage.js",
+        230
+      ]
+    ]
+  },
+  "Family": {
+    "translation": "Famille",
+    "origin": [
+      [
+        "src/HomePage.js",
+        242
+      ]
+    ]
+  },
+  "Other": {
+    "translation": "Autre",
+    "origin": [
+      [
+        "src/HomePage.js",
+        254
+      ]
+    ]
+  },
+  "Briefly tell us why you can’t attend your test": {
+    "translation": "Dites-nous brièvement pourquoi vous ne pouvez pas assister à votre test",
+    "origin": [
+      [
+        "src/HomePage.js",
+        270
+      ]
+    ]
+  },
+  "UCI number": {
+    "translation": "Numéro UCI",
+    "origin": [
+      [
+        "src/HomePage.js",
+        312
+      ]
+    ]
+  },
+  "(eg A123456)": {
+    "translation": "(par exemple A123456)",
+    "origin": [
+      [
+        "src/HomePage.js",
+        314
+      ]
+    ]
+  },
+  "The number is at the top of the email we sent you": {
+    "translation": "Le numéro est en haut de l'e-mail que nous vous avons envoyé",
+    "origin": [
+      [
+        "src/HomePage.js",
+        318
       ]
     ]
   },
@@ -182,7 +289,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        81
+        336
       ]
     ]
   },
@@ -191,7 +298,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        85
+        340
       ]
     ]
   },
@@ -200,7 +307,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        96
+        355
       ]
     ]
   }
