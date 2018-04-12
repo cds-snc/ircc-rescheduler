@@ -1,5 +1,5 @@
 import React from 'react'
-import { H1, H2, Content } from './styles'
+import { H1, H2, Content, ConfirmPara } from './styles'
 import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
@@ -20,17 +20,15 @@ class ConfirmationPage extends React.Component {
           </PageHeader>
           <Content>
             <H1>Thank you! Your request has been received.</H1>
-            <p>We’ve sent you a confirmation email.</p>
-
+            <ConfirmPara>We’ve sent you a confirmation email.</ConfirmPara>
             <H2>What happens next?</H2>
-            <p>
-              Your local immigration office will send you a new appointment, or
-              email you to ask for more information.
-            </p>
-
+            <ConfirmPara>
+              Within two weeks, your local Immigration office will send you a
+              new appointment, or email you to ask for more information.
+            </ConfirmPara>
             <H2>If you have any questions, please contact:</H2>
-            <p>upto4monthsresponsetime@gc.ca</p>
-            <p>(905) 823-8113</p>
+            <p>vancouverIRCC@cic.gc.ca</p>
+            <p>1-888-242-2100</p>
           </Content>
           <Footer topBarBackground="black" />
         </main>
