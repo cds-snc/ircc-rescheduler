@@ -6,7 +6,7 @@ import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
-import { TextInputAdapter } from './forms/TextInput'
+import { TextInputAdapter, TextAreaAdapter } from './forms/TextInput'
 import FieldSet from './forms/FieldSet'
 import { RadioAdapter } from './forms/MultipleChoice'
 import Button from './forms/Button'
@@ -240,7 +240,7 @@ class HomePage extends React.Component {
                     <Field
                       name="explanation"
                       id="explanation"
-                      component="textarea"
+                      component={TextAreaAdapter}
                       aria-labelledby="explanation-label explanation-error"
                     />
                   </div>
