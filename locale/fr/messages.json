@@ -1,6 +1,6 @@
 {
   "Use the calendar to": {
-    "translation": "",
+    "translation": "Utilisez le calendrier pour",
     "origin": [
       [
         "src/CalendarPage.js",
@@ -9,7 +9,7 @@
     ]
   },
   "select all the days you’re AVAILABLE between May and June 2018": {
-    "translation": "",
+    "translation": "sélectionnez tous les jours où vous êtes DISPONIBLE entre mai et juin 2018",
     "origin": [
       [
         "src/CalendarPage.js",
@@ -18,7 +18,7 @@
     ]
   },
   "so we can schedule your new appointment.": {
-    "translation": "",
+    "translation": "Nous pouvons donc planifier votre nouveau rendez-vous.",
     "origin": [
       [
         "src/CalendarPage.js",
@@ -27,7 +27,7 @@
     ]
   },
   "Remember: make sure to stay available on all of the days you select": {
-    "translation": "",
+    "translation": "N'oubliez pas: assurez-vous de rester disponible tous les jours que vous sélectionnez",
     "origin": [
       [
         "src/CalendarPage.js",
@@ -36,7 +36,7 @@
     ]
   },
   "Review →": {
-    "translation": "",
+    "translation": "Revoir →",
     "origin": [
       [
         "src/CalendarPage.js",
@@ -45,7 +45,7 @@
     ]
   },
   "Cancel": {
-    "translation": "",
+    "translation": "Annuler",
     "origin": [
       [
         "src/CalendarPage.js",
@@ -63,7 +63,7 @@
     ]
   },
   "We’ve sent you a confirmation email.": {
-    "translation": "",
+    "translation": "Nous vous avons envoyé un e-mail de confirmation.",
     "origin": [
       [
         "src/ConfirmationPage.js",
@@ -72,7 +72,7 @@
     ]
   },
   "What happens next?": {
-    "translation": "",
+    "translation": "ce qui se passe ensuite",
     "origin": [
       [
         "src/ConfirmationPage.js",
@@ -81,7 +81,7 @@
     ]
   },
   "Your local immigration office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "",
+    "translation": "Votre bureau d'immigration local vous enverra un nouveau rendez-vous ou vous enverra un email pour demander plus d'informations.",
     "origin": [
       [
         "src/ConfirmationPage.js",
@@ -90,7 +90,7 @@
     ]
   },
   "If you have any questions, please contact:": {
-    "translation": "",
+    "translation": "Si vous avez des questions, veuillez contacter:",
     "origin": [
       [
         "src/ConfirmationPage.js",
@@ -99,7 +99,7 @@
     ]
   },
   "This is a new service we are constantly improving.": {
-    "translation": "",
+    "translation": "C'est un nouveau service que nous améliorons constamment.",
     "origin": [
       [
         "src/CalendarPage.js",
@@ -116,7 +116,7 @@
     ]
   },
   "Reschedule your Canadian Citizenship appointment": {
-    "translation": "",
+    "translation": "Reporter votre rendez-vous de citoyenneté canadienne",
     "origin": [
       [
         "src/CalendarPage.js",
@@ -133,7 +133,7 @@
     ]
   },
   "Full name": {
-    "translation": "",
+    "translation": "Nom complet",
     "origin": [
       [
         "src/HomePage.js",
@@ -142,7 +142,7 @@
     ]
   },
   "UCI number": {
-    "translation": "",
+    "translation": "Numéro UCI",
     "origin": [
       [
         "src/HomePage.js",
@@ -160,7 +160,7 @@
     ]
   },
   "The number is at the top of the email we sent you": {
-    "translation": "",
+    "translation": "Le numéro est en haut de l'e-mail que nous vous avons envoyé",
     "origin": [
       [
         "src/HomePage.js",
@@ -169,7 +169,7 @@
     ]
   },
   "Reason for rescheduling": {
-    "translation": "",
+    "translation": "Raison du rééchelonnement",
     "origin": [
       [
         "src/HomePage.js",
@@ -178,7 +178,7 @@
     ]
   },
   "Tell us why you can’t attend your appointment": {
-    "translation": "",
+    "translation": "Dites-nous pourquoi vous ne pouvez pas assister à votre rendez-vous",
     "origin": [
       [
         "src/HomePage.js",
@@ -187,7 +187,7 @@
     ]
   },
   "If you’re not sure that you can reschedule, read the guidelines for scheduling.": {
-    "translation": "",
+    "translation": "Si vous n'êtes pas sûr de pouvoir reporter, lisez les instructions pour la planification.",
     "origin": [
       [
         "src/HomePage.js",
@@ -196,7 +196,7 @@
     ]
   },
   "Next →": {
-    "translation": "",
+    "translation": "Suivant →",
     "origin": [
       [
         "src/HomePage.js",

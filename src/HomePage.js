@@ -5,6 +5,7 @@ import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { mediaQuery, theme, H1, H2, Content, TextLink } from './styles'
 import PageHeader from './PageHeader'
+import { LanguageSwitcher } from './LanguageSwitcher'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
@@ -93,6 +94,7 @@ class HomePage extends React.Component {
           </span>{' '}
         </AlphaBanner>
         <FederalBanner />
+        <LanguageSwitcher />
         <main role="main">
           <PageHeader>
             <H1>
@@ -157,7 +159,9 @@ class HomePage extends React.Component {
                         <Trans>(A123456)</Trans>
                       </H2>
                       <p id="uciNumber-details">
-                        <Trans>This number is at the top of the email we sent you</Trans>
+                        <Trans>
+                          This number is at the top of the email we sent you
+                        </Trans>
                       </p>
                       {validationField({ touched, errors, attr: 'uciNumber' })}
                     </Field>
@@ -165,11 +169,15 @@ class HomePage extends React.Component {
                   <div>
                     <FieldSet legendHidden={false}>
                       <legend>
-                        <H2><Trans>Reason for rescheduling</Trans></H2>
+                        <H2>
+                          <Trans>Reason for rescheduling</Trans>
+                        </H2>
                       </legend>
                       <p id="reason-details">
                         {' '}
-                        <Trans>If you’re not sure if you can reschedule,</Trans>{' '}
+                        <Trans>
+                          If you’re not sure if you can reschedule,
+                        </Trans>{' '}
                         <TextLink href="#">
                           <Trans>read the guidelines for rescheduling.</Trans>
                         </TextLink>{' '}
@@ -178,7 +186,11 @@ class HomePage extends React.Component {
                       <Field
                         type="radio"
                         component={RadioAdapter}
-                        label={<span><Trans>Travel</Trans></span>}
+                        label={
+                          <span>
+                            <Trans>Travel</Trans>
+                          </span>
+                        }
                         value="travel"
                         name="reason"
                         id="reason-0"
@@ -186,7 +198,11 @@ class HomePage extends React.Component {
                       <Field
                         type="radio"
                         component={RadioAdapter}
-                        label={<span><Trans>Medical</Trans></span>}
+                        label={
+                          <span>
+                            <Trans>Medical</Trans>
+                          </span>
+                        }
                         value="medical"
                         name="reason"
                         id="reason-1"
@@ -194,7 +210,11 @@ class HomePage extends React.Component {
                       <Field
                         type="radio"
                         component={RadioAdapter}
-                        label={<span><Trans>Work or School</Trans></span>}
+                        label={
+                          <span>
+                            <Trans>Work or School</Trans>
+                          </span>
+                        }
                         value="workOrSchool"
                         name="reason"
                         id="reason-2"
@@ -202,7 +222,11 @@ class HomePage extends React.Component {
                       <Field
                         type="radio"
                         component={RadioAdapter}
-                        label={<span><Trans>Family</Trans></span>}
+                        label={
+                          <span>
+                            <Trans>Family</Trans>
+                          </span>
+                        }
                         value="family"
                         name="reason"
                         id="reason-3"
@@ -210,7 +234,11 @@ class HomePage extends React.Component {
                       <Field
                         type="radio"
                         component={RadioAdapter}
-                        label={<span><Trans>Other</Trans></span>}
+                        label={
+                          <span>
+                            <Trans>Other</Trans>
+                          </span>
+                        }
                         value="other"
                         name="reason"
                         id="reason-4"
@@ -218,6 +246,20 @@ class HomePage extends React.Component {
                     </FieldSet>
                   </div>
                   <div>
+<<<<<<< HEAD
+=======
+                    <H2>
+                      <label
+                        className="explanation-header"
+                        htmlFor="explanation"
+                        id="explanation-label"
+                      >
+                        <Trans>
+                          Briefly tell us why you can’t attend your test
+                        </Trans>
+                      </label>
+                    </H2>
+>>>>>>> Add language switching with Apollo-link-state
                     {validationField({ touched, errors, attr: 'explanation' })}
                     <Field
                       name="explanation"
@@ -255,6 +297,62 @@ class HomePage extends React.Component {
                 </form>
               )}
             />
+            <form>
+              <H2>
+                <label htmlFor="last-name" id="last-name-label">
+                  <Trans>Full name</Trans>
+                </label>
+              </H2>
+              <input type="text" name="last-name" id="last-name" />
+
+              <H2>
+                <label htmlFor="uci-number" id="uci-number-label">
+                  <Trans>UCI number</Trans>
+                </label>{' '}
+                <Trans>(eg A123456)</Trans>
+              </H2>
+
+              <p id="uci-number-details">
+                <Trans>The number is at the top of the email we sent you</Trans>
+              </p>
+              <input
+                type="text"
+                name="uci-number"
+                id="uci-number"
+                aria-labelledby="uci-number-label uci-number-details"
+              />
+
+              <H2>
+                <label htmlFor="reason" id="reason-label">
+                  <Trans>Reason for rescheduling</Trans>
+                </label>
+              </H2>
+              <input type="text" name="reason" id="reason" />
+
+              <H2>
+                <label htmlFor="explanation" id="explanation-label">
+                  <Trans>Tell us why you can’t attend your appointment</Trans>
+                </label>
+              </H2>
+              <p id="explanation-details">
+                <Trans>
+                  If you’re not sure that you can reschedule, read the
+                  guidelines for scheduling.
+                </Trans>
+              </p>
+              <input
+                type="text"
+                name="explanation"
+                id="explanation"
+                aria-labelledby="explanation-label explanation-details"
+              />
+            </form>
+            <br />
+            <NavLink to="/calendar">
+              <Button>
+                <Trans>Next →</Trans>
+              </Button>
+            </NavLink>
           </Content>
         </main>
         <Footer topBarBackground="black" />

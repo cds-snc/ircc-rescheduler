@@ -4,31 +4,43 @@ import { createHttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { withClientState } from 'apollo-link-state'
 import fetch from 'isomorphic-fetch'
+import gql from 'graphql-tag'
 
 const cache = new InMemoryCache()
+
+const typeDefs = `
+  type Mutation {
+    switchLanguage: String
+  }
+
+  type Query {
+    language: String
+  }
+`
 
 const stateLink = withClientState({
   cache,
   resolvers: {
     Mutation: {
-      setLanguage: (_, { language }, { cache }) => {
+      switchLanguage: (_, args, { cache }) => {
+        let query = gql`
+          {
+            language @client
+          }
+        `
+        let current = cache.readQuery({ query })
         const data = {
-          language: {
-            __typename: 'String',
-            language,
-          },
+          language: current.language === 'en' ? 'fr' : 'en',
         }
-        cache.writeData({ data })
+        cache.writeQuery({ data, query })
         return null
       },
     },
   },
   defaults: {
-    language: {
-      __typename: 'String',
-      language: 'en',
-    },
+    language: 'en',
   },
+  typeDefs,
 })
 
 function createApolloClient({ ssrMode }) {

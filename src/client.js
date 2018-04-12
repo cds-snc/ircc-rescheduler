@@ -29,18 +29,17 @@ ensureReady(routes).then(data =>
       <Query
         query={gql`
           {
-            language @client {
-							language
-						}
+            language @client
           }
         `}
       >
         {({ loading, error, data }) => {
-          if (error) return <p>Error :( {error}</p>
+          if (loading) return <p>loading... </p>
+          if (error) return <p>Error</p>
 
           return (
             <I18nProvider
-              language={loading ? 'fr' : data.language}
+              language={data.language}
               catalogs={catalogs}
               development={dev}
             >
