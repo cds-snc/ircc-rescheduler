@@ -8,7 +8,7 @@ import FederalBanner from './FederalBanner'
 import Footer from './Footer'
 import { TextInputAdapter } from './forms/TextInput'
 import FieldSet from './forms/FieldSet'
-import { Radio } from './forms/MultipleChoice'
+import { RadioAdapter } from './forms/MultipleChoice'
 import Button from './forms/Button'
 import { Form, Field } from 'react-final-form'
 
@@ -184,31 +184,36 @@ class HomePage extends React.Component {
                         </TextLink>{' '}
                       </p>
                       {validationField({ touched, errors, attr: 'reason' })}
-                      <Radio
+                      <Field
+                        component={RadioAdapter}
                         label={<span>Travel</span>}
                         value="travel"
                         name="reason"
                         id="reason-0"
                       />
-                      <Radio
+                      <Field
+                        component={RadioAdapter}
                         label={<span>Medical</span>}
                         value="medical"
                         name="reason"
                         id="reason-1"
                       />
-                      <Radio
+                      <Field
+                        component={RadioAdapter}
                         label={<span>Work or School</span>}
                         value="workOrSchool"
                         name="reason"
                         id="reason-2"
                       />
-                      <Radio
+                      <Field
+                        component={RadioAdapter}
                         label={<span>Family</span>}
                         value="family"
                         name="reason"
                         id="reason-3"
                       />
-                      <Radio
+                      <Field
+                        component={RadioAdapter}
                         label={<span>Other</span>}
                         value="other"
                         name="reason"

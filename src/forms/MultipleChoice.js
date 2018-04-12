@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Field } from 'react-final-form'
 import { css } from 'react-emotion'
 import { theme, roundedEdges, mediaQuery } from '../styles'
 
@@ -208,9 +207,20 @@ const MultipleChoice = ({
   children,
   className,
   type,
+  onBlur,
+  onChange,
+  onFocus,
 }) => (
   <div className={className}>
-    <Field type={type} component="input" name={name} id={id} value={value} />
+    <input
+      type={type}
+      name={name}
+      id={id}
+      value={value}
+      onBlur={onBlur}
+      onChange={onChange}
+      onFocus={onFocus}
+    />
     <label htmlFor={id} className={govuk_label_pseudo_elements}>
       {label}
     </label>
@@ -226,11 +236,20 @@ MultipleChoice.propTypes = {
   name: PropTypes.string,
   id: PropTypes.string,
   children: PropTypes.any,
+  onBlur: PropTypes.func,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
 }
 
 const Radio = ({ ...props }) => (
   <MultipleChoice type="radio" className={radio} {...props} />
 )
+
+const RadioAdapter = ({ input, ...rest }) => <Radio {...input} {...rest} />
+
+RadioAdapter.propTypes = {
+  input: PropTypes.object.isRequired,
+}
 
 const checkbox = css`
   ${govuk_multiple_choice};
@@ -258,4 +277,12 @@ const Checkbox = ({ ...props }) => (
   <MultipleChoice type="checkbox" className={checkbox} {...props} />
 )
 
-export { Radio, Checkbox }
+const CheckboxAdapter = ({ input, ...rest }) => (
+  <CheckboxAdapter {...input} {...rest} />
+)
+
+CheckboxAdapter.propTypes = {
+  input: PropTypes.object.isRequired,
+}
+
+export { Radio, RadioAdapter, Checkbox, CheckboxAdapter }
