@@ -10,9 +10,7 @@ const banner = css`
 `
 
 const PageHeader = ({ children }) => (
-  <section className={banner}>
-    <span>{children}</span>
-  </section>
+  <header className={banner}>{children}</header>
 )
 PageHeader.propTypes = {
   children: PropTypes.any.isRequired,
