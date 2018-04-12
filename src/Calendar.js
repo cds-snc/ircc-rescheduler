@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
 
-const dayPicker = css`
+const dayPickerDefault = css`
   /* DayPicker styles */
 
   display: inline-block;
@@ -215,6 +215,12 @@ const dayPicker = css`
   }
 `
 
+const dayPicker = css`
+  .DayPicker-wrapper {
+    background-color: white;
+  }
+`
+
 export default class Calendar extends Component {
   constructor(props) {
     super(props)
@@ -239,7 +245,9 @@ export default class Calendar extends Component {
   render() {
     return (
       <DayPicker
-        className={dayPicker}
+        className={css`
+          ${dayPickerDefault} ${dayPicker};
+        `}
         month={new Date(2018, 5)}
         fromMonth={new Date(2018, 5)}
         toMonth={new Date(2018, 6)}
