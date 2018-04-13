@@ -1,6 +1,5 @@
 import React from 'react'
 import { Trans } from 'lingui-react'
-import { NavLink } from 'react-router-dom'
 import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { mediaQuery, theme, H1, H2, Content, TextLink } from './styles'
@@ -52,20 +51,34 @@ injectGlobal`
 const validate = values => {
   const errors = {}
   if (!values.fullName) {
-    errors.fullName =
-      'You need to tell us your full name so we can confirm your identity.'
+    errors.fullName = (
+      <Trans>
+        You need to tell us your full name so we can confirm your identity.
+      </Trans>
+    )
   }
   if (!values.uciNumber) {
-    errors.uciNumber =
-      'You need to tell us your paper file number so we can confirm your identity.'
+    errors.uciNumber = (
+      <Trans>
+        You need to tell us your paper file number so we can confirm your
+        identity.
+      </Trans>
+    )
   }
   if (!values.reason) {
-    errors.reason =
-      'Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.'
+    errors.reason = (
+      <Trans>
+        Please tell us why you need to reschedule your test. If none of the
+        options fit your situation, choose ‘Other’.
+      </Trans>
+    )
   }
   if (!values.explanation) {
-    errors.explanation =
-      'Please tell us a bit more about why you need to reschedule your test.'
+    errors.explanation = (
+      <Trans>
+        Please tell us a bit more about why you need to reschedule your test.
+      </Trans>
+    )
   }
   return errors
 }
@@ -244,20 +257,6 @@ class HomePage extends React.Component {
                     </FieldSet>
                   </div>
                   <div>
-<<<<<<< HEAD
-=======
-                    <H2>
-                      <label
-                        className="explanation-header"
-                        htmlFor="explanation"
-                        id="explanation-label"
-                      >
-                        <Trans>
-                          Briefly tell us why you can’t attend your test
-                        </Trans>
-                      </label>
-                    </H2>
->>>>>>> Add language switching with Apollo-link-state
                     {validationField({ touched, errors, attr: 'explanation' })}
                     <Field
                       name="explanation"
@@ -271,7 +270,9 @@ class HomePage extends React.Component {
                           htmlFor="explanation"
                           id="explanation-label"
                         >
-													<Trans>Briefly tell us why you can’t attend your test</Trans>
+                          <Trans>
+                            Briefly tell us why you can’t attend your test
+                          </Trans>
                         </label>
                       </H2>
                     </Field>
@@ -295,62 +296,6 @@ class HomePage extends React.Component {
                 </form>
               )}
             />
-            <form>
-              <H2>
-                <label htmlFor="last-name" id="last-name-label">
-                  <Trans>Full name</Trans>
-                </label>
-              </H2>
-              <input type="text" name="last-name" id="last-name" />
-
-              <H2>
-                <label htmlFor="uci-number" id="uci-number-label">
-                  <Trans>UCI number</Trans>
-                </label>{' '}
-                <Trans>(eg A123456)</Trans>
-              </H2>
-
-              <p id="uci-number-details">
-                <Trans>The number is at the top of the email we sent you</Trans>
-              </p>
-              <input
-                type="text"
-                name="uci-number"
-                id="uci-number"
-                aria-labelledby="uci-number-label uci-number-details"
-              />
-
-              <H2>
-                <label htmlFor="reason" id="reason-label">
-                  <Trans>Reason for rescheduling</Trans>
-                </label>
-              </H2>
-              <input type="text" name="reason" id="reason" />
-
-              <H2>
-                <label htmlFor="explanation" id="explanation-label">
-                  <Trans>Tell us why you can’t attend your appointment</Trans>
-                </label>
-              </H2>
-              <p id="explanation-details">
-                <Trans>
-                  If you’re not sure that you can reschedule, read the
-                  guidelines for scheduling.
-                </Trans>
-              </p>
-              <input
-                type="text"
-                name="explanation"
-                id="explanation"
-                aria-labelledby="explanation-label explanation-details"
-              />
-            </form>
-            <br />
-            <NavLink to="/calendar">
-              <Button>
-                <Trans>Next →</Trans>
-              </Button>
-            </NavLink>
           </Content>
         </main>
         <Footer topBarBackground="black" />

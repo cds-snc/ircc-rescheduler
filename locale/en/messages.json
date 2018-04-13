@@ -12,7 +12,7 @@
       ],
       [
         "src/HomePage.js",
-        109
+        106
       ]
     ]
   },
@@ -29,7 +29,7 @@
       ],
       [
         "src/HomePage.js",
-        116
+        113
       ]
     ]
   },
@@ -123,16 +123,52 @@
       ]
     ]
   },
+  "You need to tell us your full name so we can confirm your identity.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        56
+      ]
+    ]
+  },
+  "You need to tell us your paper file number so we can confirm your identity.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        63
+      ]
+    ]
+  },
+  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        71
+      ]
+    ]
+  },
+  "Please tell us a bit more about why you need to reschedule your test.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        79
+      ]
+    ]
+  },
   "Full name": {
     "translation": "",
     "origin": [
       [
         "src/HomePage.js",
-        150
+        147
       ],
       [
         "src/HomePage.js",
-        305
+        303
       ]
     ]
   },
@@ -141,7 +177,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        155
+        152
       ]
     ]
   },
@@ -150,7 +186,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        172
+        169
       ]
     ]
   },
@@ -159,7 +195,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        174
+        171
       ]
     ]
   },
@@ -168,7 +204,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        177
+        174
       ]
     ]
   },
@@ -177,11 +213,11 @@
     "origin": [
       [
         "src/HomePage.js",
-        188
+        185
       ],
       [
         "src/HomePage.js",
-        329
+        327
       ]
     ]
   },
@@ -190,7 +226,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        193
+        190
       ]
     ]
   },
@@ -199,7 +235,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        197
+        194
       ]
     ]
   },
@@ -208,7 +244,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        206
+        203
       ]
     ]
   },
@@ -217,7 +253,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        218
+        215
       ]
     ]
   },
@@ -226,7 +262,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        230
+        227
       ]
     ]
   },
@@ -235,7 +271,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        242
+        239
       ]
     ]
   },
@@ -244,7 +280,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        254
+        251
       ]
     ]
   },
@@ -253,52 +289,7 @@
     "origin": [
       [
         "src/HomePage.js",
-        270
-      ]
-    ]
-  },
-  "UCI number": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        312
-      ]
-    ]
-  },
-  "(eg A123456)": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        314
-      ]
-    ]
-  },
-  "The number is at the top of the email we sent you": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        318
-      ]
-    ]
-  },
-  "Tell us why you can’t attend your appointment": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        336
-      ]
-    ]
-  },
-  "If you’re not sure that you can reschedule, read the guidelines for scheduling.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        340
+        274
       ]
     ]
   },
@@ -307,7 +298,56 @@
     "origin": [
       [
         "src/HomePage.js",
-        355
+        295
+      ],
+      [
+        "src/HomePage.js",
+        353
+      ]
+    ]
+  },
+  "UCI number": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        310
+      ]
+    ]
+  },
+  "(eg A123456)": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        312
+      ]
+    ]
+  },
+  "The number is at the top of the email we sent you": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        316
+      ]
+    ]
+  },
+  "Tell us why you can’t attend your appointment": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        334
+      ]
+    ]
+  },
+  "If you’re not sure that you can reschedule, read the guidelines for scheduling.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        338
       ]
     ]
   }

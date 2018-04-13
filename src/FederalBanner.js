@@ -10,6 +10,7 @@ const container = css`
   padding: ${theme.spacing.lg} ${theme.spacing.xxxl} ${theme.spacing.md}
     ${theme.spacing.xxxl};
   display: flex;
+	height: 1.5em;
   width: auto;
   justify-content: space-between;
   background-color: ${theme.colour.white};
@@ -28,7 +29,6 @@ const FederalBanner = () => (
       {({ data: { language } }) => (
         <GoCSignature
           width="250px"
-          height="24px"
           lang={language}
           flag={theme.colour.black}
           text={theme.colour.black}
