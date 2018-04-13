@@ -40,7 +40,8 @@
     "react-dom": "16.3.1",
     "react-final-form": "^3.1.5",
     "react-helmet": "^5.2.0",
-    "react-router-dom": "^4.2.2"
+    "react-router-dom": "^4.2.2",
+    "unfetch": "^3.0.0"
   },
   "devDependencies": {
     "@types/react": "^16.3.5",
@@ -70,11 +71,9 @@
   "jest": {
     "verbose": true,
     "transform": {
-      "^.+\\.(js|jsx)$":
-        "<rootDir>/node_modules/razzle/config/jest/babelTransform.js",
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/razzle/config/jest/babelTransform.js",
       "^.+\\.css$": "<rootDir>/node_modules/razzle/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)":
-        "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/test/setupTests.js",
     "testMatch": [
@@ -82,10 +81,19 @@
       "<rootDir>/src/**/?(*.)(spec|test).js",
       "<rootDir>/test/**/?(*.)(spec|test).js"
     ],
-    "moduleFileExtensions": ["jsx", "js", "json"],
-    "collectCoverageFrom": ["src/**/*.{js,jsx}"]
+    "moduleFileExtensions": [
+      "jsx",
+      "js",
+      "json"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
   },
   "lingui": {
-    "srcPathIgnorePatterns": ["/node_modules/", "build"]
+    "srcPathIgnorePatterns": [
+      "/node_modules/",
+      "build"
+    ]
   }
 }
