@@ -33,4 +33,11 @@ export default [
       loader: () => import('./GraphQLPage'),
     }),
   },
+  {
+    path: '*',
+    exact: true,
+    component: asyncComponent({
+      loader: () => import('./404Page'),
+    }),
+  },
 ]
