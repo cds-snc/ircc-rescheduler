@@ -1,10 +1,20 @@
 import React from 'react'
 import { render, shallow } from 'enzyme'
-import { Radio, RadioAdapter, Checkbox } from '../MultipleChoice'
+import {
+  Radio,
+  RadioAdapter,
+  Checkbox,
+  CheckboxAdapter,
+} from '../MultipleChoice'
 
 const defaultProps = {
   label: <span>Option</span>,
   value: 'option',
+}
+
+const defaultAdapterProps = {
+  input: { value: defaultProps.value },
+  label: defaultProps.label,
 }
 
 const getAdapterAttrib = (adapter, attr) =>
@@ -26,11 +36,7 @@ describe('<Radio> component', () => {
 
 describe('<RadioAdapter> component', () => {
   it('has props assigned directly through input object', () => {
-    const radioAdapterProps = {
-      input: { value: defaultProps.value },
-      label: defaultProps.label,
-    }
-    const radioAdapter = render(<RadioAdapter {...radioAdapterProps} />)
+    const radioAdapter = render(<RadioAdapter {...defaultAdapterProps} />)
     expect(radioAdapter.find('input')).toBeTruthy()
 
     const radio = shallow(<Radio {...defaultProps} />)
@@ -50,5 +56,16 @@ describe('<Checkbox> component', () => {
   it('renders label correctly', () => {
     const checkbox = render(<Checkbox {...defaultProps} />)
     expect(checkbox.find('label > span').text()).toMatch(/Option/)
+  })
+})
+
+describe('<CheckboxAdapter> component', () => {
+  it('has props assigned directly through input object', () => {
+    const cbAdapter = render(<CheckboxAdapter {...defaultAdapterProps} />)
+    expect(cbAdapter.find('input')).toBeTruthy()
+
+    const checkbox = shallow(<Checkbox {...defaultProps} />)
+    expect(getAdapterAttrib(cbAdapter, 'type')).toEqual(checkbox.props().type)
+    expect(getAdapterAttrib(cbAdapter, 'value')).toEqual(checkbox.props().value)
   })
 })

@@ -278,7 +278,7 @@ const Checkbox = ({ ...props }) => (
 )
 
 const CheckboxAdapter = ({ input, ...rest }) => (
-  <CheckboxAdapter {...input} {...rest} />
+  <Checkbox {...input} {...rest} />
 )
 
 CheckboxAdapter.propTypes = {
