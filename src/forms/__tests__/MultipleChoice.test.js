@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, shallow } from 'enzyme'
-import { Radio, RadioAdapter } from '../MultipleChoice'
+import { Radio, RadioAdapter, Checkbox } from '../MultipleChoice'
 
 const defaultProps = {
   label: <span>Option</span>,
@@ -36,5 +36,19 @@ describe('<RadioAdapter> component', () => {
     const radio = shallow(<Radio {...defaultProps} />)
     expect(getAdapterAttrib(radioAdapter, 'type')).toEqual(radio.props().type)
     expect(getAdapterAttrib(radioAdapter, 'value')).toEqual(radio.props().value)
+  })
+})
+
+describe('<Checkbox> component', () => {
+  it('has props assigned correctly', () => {
+    const checkbox = shallow(<Checkbox {...defaultProps} />)
+    expect(checkbox.find('input')).toBeTruthy()
+    expect(checkbox.props().type).toEqual('checkbox')
+    expect(checkbox.props().value).toEqual('option')
+  })
+
+  it('renders label correctly', () => {
+    const checkbox = render(<Checkbox {...defaultProps} />)
+    expect(checkbox.find('label > span').text()).toMatch(/Option/)
   })
 })
