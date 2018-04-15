@@ -20,11 +20,12 @@ const text_input = css`
   `)};
 `
 const text_area = css`
+  ${text_input};
+
   height: 10em;
   resize: none;
   width: 550px;
   margin-top: ${theme.spacing.sm};
-  ${text_input};
 `
 const TextInput = ({
   name,
