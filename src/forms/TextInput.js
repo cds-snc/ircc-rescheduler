@@ -27,7 +27,7 @@ const text_area = css`
   width: 550px;
   margin-top: ${theme.spacing.sm};
 `
-const TextInput = ({
+const TextField = ({
   name,
   id,
   labelledby,
@@ -53,7 +53,7 @@ const TextInput = ({
   </div>
 )
 
-TextInput.propTypes = {
+TextField.propTypes = {
   children: PropTypes.any.isRequired,
   id: PropTypes.string.isRequired,
   labelledby: PropTypes.string,
@@ -64,11 +64,11 @@ TextInput.propTypes = {
   value: PropTypes.string,
 }
 
-const TextInputAdapter = ({ input, ...rest }) => (
-  <TextInput {...input} {...rest} />
+const TextFieldAdapter = ({ input, ...rest }) => (
+  <TextField {...input} {...rest} />
 )
 
-TextInputAdapter.propTypes = {
+TextFieldAdapter.propTypes = {
   input: PropTypes.object.isRequired,
 }
 
@@ -97,12 +97,12 @@ const TextArea = ({
   </div>
 )
 
-TextArea.propTypes = TextInput.propTypes
+TextArea.propTypes = TextField.propTypes
 
 const TextAreaAdapter = ({ input, ...rest }) => (
   <TextArea {...input} {...rest} />
 )
 
-TextAreaAdapter.propTypes = TextInputAdapter.propTypes
+TextAreaAdapter.propTypes = TextFieldAdapter.propTypes
 
-export { TextInput, TextInputAdapter, TextArea, TextAreaAdapter }
+export { TextField, TextFieldAdapter, TextArea, TextAreaAdapter }
