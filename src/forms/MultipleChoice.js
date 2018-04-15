@@ -241,15 +241,17 @@ MultipleChoice.propTypes = {
   onFocus: PropTypes.func,
 }
 
+const adapterPropTypes = {
+  input: PropTypes.object.isRequired,
+}
+
 const Radio = ({ ...props }) => (
   <MultipleChoice type="radio" className={radio} {...props} />
 )
 
 const RadioAdapter = ({ input, ...rest }) => <Radio {...input} {...rest} />
 
-RadioAdapter.propTypes = {
-  input: PropTypes.object.isRequired,
-}
+RadioAdapter.propTypes = adapterPropTypes
 
 const checkbox = css`
   ${govuk_multiple_choice};
@@ -281,8 +283,6 @@ const CheckboxAdapter = ({ input, ...rest }) => (
   <Checkbox {...input} {...rest} />
 )
 
-CheckboxAdapter.propTypes = {
-  input: PropTypes.object.isRequired,
-}
+CheckboxAdapter.propTypes = adapterPropTypes
 
 export { Radio, RadioAdapter, Checkbox, CheckboxAdapter }
