@@ -7,7 +7,7 @@ import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
-import { TextInputAdapter, TextAreaAdapter } from './forms/TextInput'
+import { TextFieldAdapter, TextAreaAdapter } from './forms/TextInput'
 import FieldSet from './forms/FieldSet'
 import { RadioAdapter } from './forms/MultipleChoice'
 import Button from './forms/Button'
@@ -136,7 +136,7 @@ class HomePage extends React.Component {
                   {submitError && <div className="error">{submitError}</div>}
                   <div>
                     <Field
-                      component={TextInputAdapter}
+                      component={TextFieldAdapter}
                       name="fullName"
                       id="fullName"
                       labelledby="fullName-label fullName-details fullName-error"
@@ -158,7 +158,7 @@ class HomePage extends React.Component {
                   </div>
                   <div>
                     <Field
-                      component={TextInputAdapter}
+                      component={TextFieldAdapter}
                       name="uciNumber"
                       id="uciNumber"
                       labelledby="uciNumber-label uciNumber-details uciNumber-error"
