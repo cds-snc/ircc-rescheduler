@@ -21,14 +21,11 @@ class TestPage extends React.Component {
           </PageHeader>
 
           <ErrorContent>
-            <H1> 404: Page not found </H1>
-            <H2>
-              {' '}
-              Oops! We cant seem to find the page you are looking for:
-            </H2>{' '}
+            <H1>404: Page not found</H1>
+            <H2>Oops! We cant seem to find the page you are looking for:</H2>
             <ErrorMessage>
               If you wish to restart the rescheduling process, please navigate
-              to the Home Page and start the process again.{' '}
+              to the Home Page and start the process again.
             </ErrorMessage>
             <NavLink to="/">
               <p>← Go Back</p>
