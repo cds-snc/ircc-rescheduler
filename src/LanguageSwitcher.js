@@ -18,15 +18,9 @@ export const LanguageSwitcher = () => (
     {({ data: { language } }) => (
       <Mutation mutation={CHANGE_LANGUAGE_MUTATION}>
         {switchLanguage => (
-          <div>
-            <A
-              onClick={() => {
-                switchLanguage({ variables: { language: 'fr' } })
-              }}
-            >
-              {language === 'en' ? 'French' : 'English'}
-            </A>
-          </div>
+          <A onClick={() => switchLanguage()}>
+          {language === 'en' ? 'Français' : 'English'}
+          </A>
         )}
       </Mutation>
     )}
