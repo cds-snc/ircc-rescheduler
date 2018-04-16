@@ -1,6 +1,7 @@
 {
   "presets": [
     "razzle/babel",
+    "lingui-react",
     [
       "env",
       {

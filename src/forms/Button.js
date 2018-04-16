@@ -52,7 +52,7 @@ const Button = ({ disabled = false, children }) => (
 
 /* validation to make sure only one child is passed in */
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   disabled: PropTypes.any,
 }
 
