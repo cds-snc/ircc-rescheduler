@@ -1,12 +1,29 @@
 import React from 'react'
+import { injectGlobal } from 'emotion'
+import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
-import { H1, Content } from './styles'
+import { theme, mediaQuery, H1, Content } from './styles'
 import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
 
-const Layout = ({ children, mainClass = '' }) => (
+injectGlobal`
+  html, body {
+    padding: 0;
+    margin: 0;
+    background: ${theme.colour.white};
+    height: 100%;
+    font-family: ${theme.weight.l};
+    font-size: ${theme.font.md};
+
+    ${mediaQuery.small(css`
+      font-size: ${theme.font.xs};
+    `)};
+  }
+`
+
+const Layout = ({ children, contentClass = '' }) => (
   <div>
     <AlphaBanner>
       <span>
@@ -14,13 +31,13 @@ const Layout = ({ children, mainClass = '' }) => (
       </span>
     </AlphaBanner>
     <FederalBanner />
-    <main role="main" className={mainClass}>
+    <main role="main">
       <PageHeader>
         <H1>
           <Trans>Request a new Canadian Citizenship test date</Trans>
         </H1>
       </PageHeader>
-      <Content>{children}</Content>
+      <Content className={contentClass}>{children}</Content>
       <Footer topBarBackground="black" />
     </main>
   </div>
