@@ -37,7 +37,7 @@ export default [
     path: '*',
     exact: true,
     component: asyncComponent({
-      loader: () => import('./404Page'),
+      loader: () => import('./FourOhFourPage'),
     }),
   },
 ]

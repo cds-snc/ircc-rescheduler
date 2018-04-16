@@ -6,7 +6,7 @@ import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
 
-class TestPage extends React.Component {
+class FourOhFourPage extends React.Component {
   render() {
     return (
       <div>
@@ -39,4 +39,4 @@ class TestPage extends React.Component {
   }
 }
 
-export default TestPage
+export default FourOhFourPage
