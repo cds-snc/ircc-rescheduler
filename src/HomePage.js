@@ -1,8 +1,7 @@
 import React from 'react'
 import { Trans } from 'lingui-react'
-import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
-import { mediaQuery, theme, H2, TextLink } from './styles'
+import { theme, H2, TextLink } from './styles'
 import Layout from './Layout'
 import { TextFieldAdapter, TextAreaAdapter } from './forms/TextInput'
 import FieldSet from './forms/FieldSet'
@@ -10,20 +9,7 @@ import { RadioAdapter } from './forms/MultipleChoice'
 import Button from './forms/Button'
 import { Form, Field } from 'react-final-form'
 
-injectGlobal`
-  html, body {
-    padding: 0;
-    margin: 0;
-    background: ${theme.colour.white};
-    height: 100%;
-    font-family: ${theme.weight.l};
-    font-size: ${theme.font.md};
-
-    ${mediaQuery.small(css`
-      font-size: ${theme.font.xs};
-    `)};
-  }
-
+const contentClass = css`
   form {
     > div {
       margin-bottom: ${theme.spacing.xl};
@@ -94,7 +80,7 @@ const validationField = ({ touched, errors, attr }) => {
 class HomePage extends React.Component {
   render() {
     return (
-      <Layout>
+      <Layout contentClass={contentClass}>
         <Form
           onSubmit={async values => {}}
           validate={validate}
