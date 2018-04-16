@@ -160,11 +160,6 @@ export const Content = styled.section`
   box-sizing: border-box;
 `
 
-export const ErrorContent = styled.section`
-  padding: ${theme.spacing.xl} 0 ${theme.spacing.xxxl} ${theme.spacing.xxxl};
-  width: 35em;
-`
-
 export const Bold = styled.strong`
   font-family: ${theme.weight.b};
 `
