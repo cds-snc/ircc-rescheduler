@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, shallow } from 'enzyme'
-import { TextField, TextFieldAdapter } from '../TextInput'
+import { TextField, TextFieldAdapter, TextArea } from '../TextInput'
 
 const defaultProps = {
   children: <label>Name</label>,
@@ -41,5 +41,20 @@ describe('<TextFieldAdapter> component', () => {
     expect(getAdapterAttrib(tfAdapter, 'type')).toEqual(tfInput.props().type)
     expect(getAdapterAttrib(tfAdapter, 'id')).toEqual(tfInput.props().id)
     expect(getAdapterAttrib(tfAdapter, 'name')).toEqual(tfInput.props().name)
+  })
+})
+
+describe('<TextArea> component', () => {
+  it('has props assigned correctly', () => {
+    const textArea = shallow(<TextArea {...defaultProps} />)
+    const taInput = textArea.find('textarea')
+    expect(taInput).toBeTruthy()
+    expect(taInput.props().id).toEqual('id')
+    expect(taInput.props().name).toEqual('name')
+  })
+
+  it('renders label correctly', () => {
+    const textArea = shallow(<TextArea {...defaultProps} />)
+    expect(textArea.find('label').text()).toMatch(/Name/)
   })
 })
