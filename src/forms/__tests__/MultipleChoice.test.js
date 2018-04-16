@@ -18,7 +18,7 @@ const defaultAdapterProps = {
 }
 
 const getAdapterAttrib = (adapter, attr) =>
-  adapter.find('input')[0].attribs[attr]
+  adapter.find('input')[0].attribs[attr] // eslint-disable-line  security/detect-object-injection
 
 describe('<Radio> component', () => {
   it('has props assigned correctly', () => {

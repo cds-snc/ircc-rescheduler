@@ -36,7 +36,7 @@ describe('<TextField> component', () => {
 
 describe('<TextFieldAdapter> component', () => {
   const getAdapterAttrib = (adapter, attr) =>
-    adapter.find('input')[0].attribs[attr]
+    adapter.find('input')[0].attribs[attr] // eslint-disable-line  security/detect-object-injection
 
   it('has props assigned directly through input object', () => {
     const tfAdapter = render(<TextFieldAdapter {...defaultAdapterProps} />)
@@ -66,7 +66,7 @@ describe('<TextArea> component', () => {
 
 describe('<TextAreaAdapter> component', () => {
   const getAdapterAttrib = (adapter, attr) =>
-    adapter.find('textarea')[0].attribs[attr]
+    adapter.find('textarea')[0].attribs[attr] // eslint-disable-line  security/detect-object-injection
 
   it('has props assigned directly through input object', () => {
     const taAdapter = render(<TextAreaAdapter {...defaultAdapterProps} />)

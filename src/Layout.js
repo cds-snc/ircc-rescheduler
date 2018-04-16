@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
@@ -42,5 +43,9 @@ const Layout = ({ children, contentClass = '' }) => (
     </main>
   </div>
 )
+Layout.propTypes = {
+  children: PropTypes.any.isRequired,
+  contentClass: PropTypes.string,
+}
 
 export default Layout
