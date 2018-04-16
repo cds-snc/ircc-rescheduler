@@ -1,18 +1,27 @@
 import React from 'react'
-import { H1, H2, ErrorMessage } from './styles'
+import { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
+import { H1, H2, theme } from './styles'
 import Layout from './Layout'
+
+const mainClass = css`
+  section {
+    p {
+      padding-bottom: ${theme.spacing.lg};
+    }
+  }
+`
 
 class FourOhFourPage extends React.Component {
   render() {
     return (
-      <Layout>
+      <Layout mainClass={mainClass}>
         <H1>404: Page not found</H1>
         <H2>Oops! We can’t seem to find the page you are looking for:</H2>
-        <ErrorMessage>
+        <p>
           If you wish to restart the rescheduling process, please navigate to
           the Home Page and start the process again.
-        </ErrorMessage>
+        </p>
         <NavLink to="/">← Go Back</NavLink>
       </Layout>
     )

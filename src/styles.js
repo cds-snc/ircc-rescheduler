@@ -198,7 +198,3 @@ export const CalReminder = styled.div`
   font-family: ${theme.weight.s};
   padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
 `
-
-export const ErrorMessage = styled.p`
-  padding-bottom: ${theme.spacing.lg};
-`

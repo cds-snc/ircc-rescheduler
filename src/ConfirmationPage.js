@@ -4,7 +4,7 @@ import { theme, H1, H2 } from './styles'
 import { Trans } from 'lingui-react'
 import Layout from './Layout'
 
-const mainClassName = css`
+const mainClass = css`
   section > h1 {
     margin-bottom: 0;
   }
@@ -22,7 +22,7 @@ const mainClassName = css`
 class ConfirmationPage extends React.Component {
   render() {
     return (
-      <Layout mainClassName={mainClassName}>
+      <Layout mainClass={mainClass}>
         <H1>
           <Trans>Thank you! Your request has been received.</Trans>
         </H1>
