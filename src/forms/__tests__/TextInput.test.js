@@ -1,6 +1,11 @@
 import React from 'react'
 import { render, shallow } from 'enzyme'
-import { TextField, TextFieldAdapter, TextArea } from '../TextInput'
+import {
+  TextField,
+  TextFieldAdapter,
+  TextArea,
+  TextAreaAdapter,
+} from '../TextInput'
 
 const defaultProps = {
   children: <label>Name</label>,
@@ -12,9 +17,6 @@ const defaultAdapterProps = {
   input: {},
   ...defaultProps,
 }
-
-const getAdapterAttrib = (adapter, attr) =>
-  adapter.find('input')[0].attribs[attr]
 
 describe('<TextField> component', () => {
   it('has props assigned correctly', () => {
@@ -33,6 +35,9 @@ describe('<TextField> component', () => {
 })
 
 describe('<TextFieldAdapter> component', () => {
+  const getAdapterAttrib = (adapter, attr) =>
+    adapter.find('input')[0].attribs[attr]
+
   it('has props assigned directly through input object', () => {
     const tfAdapter = render(<TextFieldAdapter {...defaultAdapterProps} />)
     expect(tfAdapter.find('input')).toBeTruthy()
@@ -56,5 +61,19 @@ describe('<TextArea> component', () => {
   it('renders label correctly', () => {
     const textArea = shallow(<TextArea {...defaultProps} />)
     expect(textArea.find('label').text()).toMatch(/Name/)
+  })
+})
+
+describe('<TextAreaAdapter> component', () => {
+  const getAdapterAttrib = (adapter, attr) =>
+    adapter.find('textarea')[0].attribs[attr]
+
+  it('has props assigned directly through input object', () => {
+    const taAdapter = render(<TextAreaAdapter {...defaultAdapterProps} />)
+    expect(taAdapter.find('textarea')).toBeTruthy()
+
+    const taInput = shallow(<TextArea {...defaultProps} />).find('textarea')
+    expect(getAdapterAttrib(taAdapter, 'id')).toEqual(taInput.props().id)
+    expect(getAdapterAttrib(taAdapter, 'name')).toEqual(taInput.props().name)
   })
 })
