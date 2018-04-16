@@ -1,0 +1,58 @@
+{
+  "This is a new service we are constantly improving.": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        32
+      ]
+    ]
+  },
+  "Request a new Canadian Citizenship test date": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        39
+      ]
+    ]
+  },
+  "Thank you! Your request has been received.": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        44
+      ]
+    ]
+  },
+  "We’ve sent you a confirmation email.": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        47
+      ]
+    ]
+  },
+  "What happens next?": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        50
+      ]
+    ]
+  },
+  "Within two weeks, your local Immigration office will send you a new appointment, or email you to ask for more information.": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        53
+      ]
+    ]
+  },
+  "If you have any questions, please contact:": {
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        59
+      ]
+    ]
+  }
+}

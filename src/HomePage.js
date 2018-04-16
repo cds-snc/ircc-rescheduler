@@ -1,4 +1,5 @@
 import React from 'react'
+import { Trans } from 'lingui-react'
 import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { mediaQuery, theme, H1, H2, Content, TextLink } from './styles'
@@ -50,20 +51,34 @@ injectGlobal`
 const validate = values => {
   const errors = {}
   if (!values.fullName) {
-    errors.fullName =
-      'You need to tell us your full name so we can confirm your identity.'
+    errors.fullName = (
+      <Trans>
+        You need to tell us your full name so we can confirm your identity.
+      </Trans>
+    )
   }
   if (!values.uciNumber) {
-    errors.uciNumber =
-      'You need to tell us your paper file number so we can confirm your identity.'
+    errors.uciNumber = (
+      <Trans>
+        You need to tell us your paper file number so we can confirm your
+        identity.
+      </Trans>
+    )
   }
   if (!values.reason) {
-    errors.reason =
-      'Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.'
+    errors.reason = (
+      <Trans>
+        Please tell us why you need to reschedule your test. If none of the
+        options fit your situation, choose ‘Other’.
+      </Trans>
+    )
   }
   if (!values.explanation) {
-    errors.explanation =
-      'Please tell us a bit more about why you need to reschedule your test.'
+    errors.explanation = (
+      <Trans>
+        Please tell us a bit more about why you need to reschedule your test.
+      </Trans>
+    )
   }
   return errors
 }
@@ -86,12 +101,16 @@ class HomePage extends React.Component {
       <div>
         <AlphaBanner>
           {' '}
-          <span>This is a new service we are constantly improving.</span>{' '}
+          <span>
+            <Trans>This is a new service we are constantly improving.</Trans>
+          </span>{' '}
         </AlphaBanner>
         <FederalBanner />
         <main role="main">
           <PageHeader>
-            <H1>Request a new Canadian Citizenship test date</H1>
+            <H1>
+              <Trans>Request a new Canadian Citizenship test date</Trans>
+            </H1>
           </PageHeader>
           <Content>
             <Form
@@ -124,13 +143,15 @@ class HomePage extends React.Component {
                     >
                       <H2>
                         <label htmlFor="fullName" id="fullName-label">
-                          Full name
+                          <Trans>Full name</Trans>
                         </label>
                       </H2>
 
                       <p id="fullName-details">
-                        This is the full name you used on your citizenship
-                        application.
+                        <Trans>
+                          This is the full name you used on your citizenship
+                          application.
+                        </Trans>
                       </p>
                       {validationField({ touched, errors, attr: 'fullName' })}
                     </Field>
@@ -144,12 +165,14 @@ class HomePage extends React.Component {
                     >
                       <H2>
                         <label htmlFor="uciNumber" id="uciNumber-label">
-                          Paper file number
+                          <Trans>Paper file number</Trans>
                         </label>{' '}
-                        (A123456)
+                        <Trans>(A123456)</Trans>
                       </H2>
                       <p id="uciNumber-details">
-                        This number is at the top of the email we sent you
+                        <Trans>
+                          This number is at the top of the email we sent you
+                        </Trans>
                       </p>
                       {validationField({ touched, errors, attr: 'uciNumber' })}
                     </Field>
@@ -157,20 +180,28 @@ class HomePage extends React.Component {
                   <div>
                     <FieldSet legendHidden={false}>
                       <legend>
-                        <H2>Reason for rescheduling</H2>
+                        <H2>
+                          <Trans>Reason for rescheduling</Trans>
+                        </H2>
                       </legend>
                       <p id="reason-details">
                         {' '}
-                        If you’re not sure if you can reschedule,{' '}
+                        <Trans>
+                          If you’re not sure if you can reschedule,
+                        </Trans>{' '}
                         <TextLink href="#">
-                          read the guidelines for rescheduling.
+                          <Trans>read the guidelines for rescheduling.</Trans>
                         </TextLink>{' '}
                       </p>
                       {validationField({ touched, errors, attr: 'reason' })}
                       <Field
                         type="radio"
                         component={RadioAdapter}
-                        label={<span>Travel</span>}
+                        label={
+                          <span>
+                            <Trans>Travel</Trans>
+                          </span>
+                        }
                         value="travel"
                         name="reason"
                         id="reason-0"
@@ -178,7 +209,11 @@ class HomePage extends React.Component {
                       <Field
                         type="radio"
                         component={RadioAdapter}
-                        label={<span>Medical</span>}
+                        label={
+                          <span>
+                            <Trans>Medical</Trans>
+                          </span>
+                        }
                         value="medical"
                         name="reason"
                         id="reason-1"
@@ -186,7 +221,11 @@ class HomePage extends React.Component {
                       <Field
                         type="radio"
                         component={RadioAdapter}
-                        label={<span>Work or School</span>}
+                        label={
+                          <span>
+                            <Trans>Work or School</Trans>
+                          </span>
+                        }
                         value="workOrSchool"
                         name="reason"
                         id="reason-2"
@@ -194,7 +233,11 @@ class HomePage extends React.Component {
                       <Field
                         type="radio"
                         component={RadioAdapter}
-                        label={<span>Family</span>}
+                        label={
+                          <span>
+                            <Trans>Family</Trans>
+                          </span>
+                        }
                         value="family"
                         name="reason"
                         id="reason-3"
@@ -202,7 +245,11 @@ class HomePage extends React.Component {
                       <Field
                         type="radio"
                         component={RadioAdapter}
-                        label={<span>Other</span>}
+                        label={
+                          <span>
+                            <Trans>Other</Trans>
+                          </span>
+                        }
                         value="other"
                         name="reason"
                         id="reason-4"
@@ -223,7 +270,9 @@ class HomePage extends React.Component {
                           htmlFor="explanation"
                           id="explanation-label"
                         >
-                          Briefly tell us why you can’t attend your test
+                          <Trans>
+                            Briefly tell us why you can’t attend your test
+                          </Trans>
                         </label>
                       </H2>
                     </Field>
@@ -242,7 +291,7 @@ class HomePage extends React.Component {
                         .length < Object.keys(touched).length
                     }
                   >
-                    Next →
+                    <Trans>Next →</Trans>
                   </Button>
                 </form>
               )}

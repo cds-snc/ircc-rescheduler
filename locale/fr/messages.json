@@ -1,0 +1,354 @@
+{
+  "This is a new service we are constantly improving.": {
+    "translation": "C'est un nouveau service que nous améliorons constamment.",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        19
+      ],
+      [
+        "src/ConfirmationPage.js",
+        32
+      ],
+      [
+        "src/HomePage.js",
+        106
+      ]
+    ]
+  },
+  "Request a new Canadian Citizenship test date": {
+    "translation": "Demander une nouvelle date de test de citoyenneté canadienne",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        26
+      ],
+      [
+        "src/ConfirmationPage.js",
+        39
+      ],
+      [
+        "src/HomePage.js",
+        113
+      ]
+    ]
+  },
+  "← Go Back": {
+    "translation": "← Retour",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        32
+      ]
+    ]
+  },
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in May and June.": {
+    "translation": "Les tests de citoyenneté sont programmés les <0> mardi </0> et <1> vendredi</1>. Utilisez le calendrier pour sélectionner <2> au moins quatre jours </2> en mai et en juin.",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        37
+      ]
+    ]
+  },
+  "Remember: make sure to stay available on all of the days you select": {
+    "translation": "N'oubliez pas: assurez-vous de rester disponible tous les jours que vous sélectionnez",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        46
+      ]
+    ]
+  },
+  "Review →": {
+    "translation": "Revoir →",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        53
+      ]
+    ]
+  },
+  "Cancel": {
+    "translation": "Annuler",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        57
+      ]
+    ]
+  },
+  "Thank you! Your request has been received.": {
+    "translation": "Je vous remercie! Votre demande a été reçue.",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        44
+      ]
+    ]
+  },
+  "We’ve sent you a confirmation email.": {
+    "translation": "Nous vous avons envoyé un e-mail de confirmation.",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        47
+      ]
+    ]
+  },
+  "What happens next?": {
+    "translation": "ce qui se passe ensuite",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        50
+      ]
+    ]
+  },
+  "Within two weeks, your local Immigration office will send you a new appointment, or email you to ask for more information.": {
+    "translation": "Dans un délai de deux semaines, votre bureau d'immigration local vous enverra un nouveau rendez-vous ou vous enverra un email pour demander plus d'informations.",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        53
+      ]
+    ]
+  },
+  "If you have any questions, please contact:": {
+    "translation": "Si vous avez des questions, veuillez contacter:",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        59
+      ]
+    ]
+  },
+  "You need to tell us your full name so we can confirm your identity.": {
+    "translation": "Vous devez nous indiquer votre nom complet afin que nous puissions confirmer votre identité.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        56
+      ]
+    ]
+  },
+  "You need to tell us your paper file number so we can confirm your identity.": {
+    "translation": "Vous devez nous indiquer votre numéro de dossier papier afin que nous puissions confirmer votre identité.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        63
+      ]
+    ]
+  },
+  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
+    "translation": "Veuillez nous indiquer pourquoi vous devez reporter votre test. Si aucune des options ne correspond à votre situation, choisissez «Autre».",
+    "origin": [
+      [
+        "src/HomePage.js",
+        71
+      ]
+    ]
+  },
+  "Please tell us a bit more about why you need to reschedule your test.": {
+    "translation": "Veuillez nous en dire un peu plus sur les raisons pour lesquelles vous devez reporter votre test.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        79
+      ]
+    ]
+  },
+  "Full name": {
+    "translation": "Nom complet",
+    "origin": [
+      [
+        "src/HomePage.js",
+        147
+      ],
+      [
+        "src/HomePage.js",
+        303
+      ]
+    ]
+  },
+  "This is the full name you used on your citizenship application.": {
+    "translation": "C'est le nom complet que vous avez utilisé pour votre demande de citoyenneté.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        152
+      ]
+    ]
+  },
+  "Paper file number": {
+    "translation": "Numéro de fichier papier",
+    "origin": [
+      [
+        "src/HomePage.js",
+        169
+      ]
+    ]
+  },
+  "(A123456)": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        171
+      ]
+    ]
+  },
+  "This number is at the top of the email we sent you": {
+    "translation": "Ce numéro est en haut de l'e-mail que nous vous avons envoyé",
+    "origin": [
+      [
+        "src/HomePage.js",
+        174
+      ]
+    ]
+  },
+  "Reason for rescheduling": {
+    "translation": "Raison du rééchelonnement",
+    "origin": [
+      [
+        "src/HomePage.js",
+        185
+      ],
+      [
+        "src/HomePage.js",
+        327
+      ]
+    ]
+  },
+  "If you’re not sure if you can reschedule,": {
+    "translation": "Si vous n'êtes pas sûr de pouvoir reporter,",
+    "origin": [
+      [
+        "src/HomePage.js",
+        190
+      ]
+    ]
+  },
+  "read the guidelines for rescheduling.": {
+    "translation": "lisez les directives pour le rééchelonnement.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        194
+      ]
+    ]
+  },
+  "Travel": {
+    "translation": "Voyage",
+    "origin": [
+      [
+        "src/HomePage.js",
+        203
+      ]
+    ]
+  },
+  "Medical": {
+    "translation": "Médical",
+    "origin": [
+      [
+        "src/HomePage.js",
+        215
+      ]
+    ]
+  },
+  "Work or School": {
+    "translation": "Travail ou école",
+    "origin": [
+      [
+        "src/HomePage.js",
+        227
+      ]
+    ]
+  },
+  "Family": {
+    "translation": "Famille",
+    "origin": [
+      [
+        "src/HomePage.js",
+        239
+      ]
+    ]
+  },
+  "Other": {
+    "translation": "Autre",
+    "origin": [
+      [
+        "src/HomePage.js",
+        251
+      ]
+    ]
+  },
+  "Briefly tell us why you can’t attend your test": {
+    "translation": "Dites-nous brièvement pourquoi vous ne pouvez pas assister à votre test",
+    "origin": [
+      [
+        "src/HomePage.js",
+        274
+      ]
+    ]
+  },
+  "Next →": {
+    "translation": "Suivant →",
+    "origin": [
+      [
+        "src/HomePage.js",
+        295
+      ],
+      [
+        "src/HomePage.js",
+        353
+      ]
+    ]
+  },
+  "UCI number": {
+    "translation": "Numéro UCI",
+    "origin": [
+      [
+        "src/HomePage.js",
+        310
+      ]
+    ]
+  },
+  "(eg A123456)": {
+    "translation": "(par exemple A123456)",
+    "origin": [
+      [
+        "src/HomePage.js",
+        312
+      ]
+    ]
+  },
+  "The number is at the top of the email we sent you": {
+    "translation": "Le numéro est en haut de l'e-mail que nous vous avons envoyé",
+    "origin": [
+      [
+        "src/HomePage.js",
+        316
+      ]
+    ]
+  },
+  "Tell us why you can’t attend your appointment": {
+    "translation": "Dites-nous pourquoi vous ne pouvez pas assister à votre rendez-vous",
+    "origin": [
+      [
+        "src/HomePage.js",
+        334
+      ]
+    ]
+  },
+  "If you’re not sure that you can reschedule, read the guidelines for scheduling.": {
+    "translation": "Si vous n'êtes pas sûr de pouvoir reporter, lisez les instructions pour la planification.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        338
+      ]
+    ]
+  }
+}

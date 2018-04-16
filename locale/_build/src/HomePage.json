@@ -1,0 +1,222 @@
+{
+  "You need to tell us your full name so we can confirm your identity.": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        56
+      ]
+    ]
+  },
+  "You need to tell us your paper file number so we can confirm your identity.": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        63
+      ]
+    ]
+  },
+  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        71
+      ]
+    ]
+  },
+  "Please tell us a bit more about why you need to reschedule your test.": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        79
+      ]
+    ]
+  },
+  "This is a new service we are constantly improving.": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        106
+      ]
+    ]
+  },
+  "Request a new Canadian Citizenship test date": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        113
+      ]
+    ]
+  },
+  "Full name": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        147
+      ],
+      [
+        "src/HomePage.js",
+        303
+      ]
+    ]
+  },
+  "This is the full name you used on your citizenship application.": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        152
+      ]
+    ]
+  },
+  "Paper file number": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        169
+      ]
+    ]
+  },
+  "(A123456)": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        171
+      ]
+    ]
+  },
+  "This number is at the top of the email we sent you": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        174
+      ]
+    ]
+  },
+  "Reason for rescheduling": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        185
+      ],
+      [
+        "src/HomePage.js",
+        327
+      ]
+    ]
+  },
+  "If you’re not sure if you can reschedule,": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        190
+      ]
+    ]
+  },
+  "read the guidelines for rescheduling.": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        194
+      ]
+    ]
+  },
+  "Travel": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        203
+      ]
+    ]
+  },
+  "Medical": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        215
+      ]
+    ]
+  },
+  "Work or School": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        227
+      ]
+    ]
+  },
+  "Family": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        239
+      ]
+    ]
+  },
+  "Other": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        251
+      ]
+    ]
+  },
+  "Briefly tell us why you can’t attend your test": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        274
+      ]
+    ]
+  },
+  "Next →": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        295
+      ],
+      [
+        "src/HomePage.js",
+        353
+      ]
+    ]
+  },
+  "UCI number": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        310
+      ]
+    ]
+  },
+  "(eg A123456)": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        312
+      ]
+    ]
+  },
+  "The number is at the top of the email we sent you": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        316
+      ]
+    ]
+  },
+  "Tell us why you can’t attend your appointment": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        334
+      ]
+    ]
+  },
+  "If you’re not sure that you can reschedule, read the guidelines for scheduling.": {
+    "origin": [
+      [
+        "src/HomePage.js",
+        338
+      ]
+    ]
+  }
+}
