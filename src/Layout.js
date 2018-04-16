@@ -6,7 +6,7 @@ import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
 
-const Layout = ({ children, mainClassName = '' }) => (
+const Layout = ({ children, mainClass = '' }) => (
   <div>
     <AlphaBanner>
       <span>
@@ -14,7 +14,7 @@ const Layout = ({ children, mainClassName = '' }) => (
       </span>
     </AlphaBanner>
     <FederalBanner />
-    <main role="main" className={mainClassName}>
+    <main role="main" className={mainClass}>
       <PageHeader>
         <H1>
           <Trans>Request a new Canadian Citizenship test date</Trans>
