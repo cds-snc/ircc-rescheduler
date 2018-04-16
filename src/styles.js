@@ -160,11 +160,6 @@ export const Content = styled.section`
   box-sizing: border-box;
 `
 
-export const ErrorContent = styled.section`
-  padding: ${theme.spacing.xl} 0 ${theme.spacing.xxxl} ${theme.spacing.xxxl};
-  width: 35em;
-`
-
 export const Bold = styled.strong`
   font-family: ${theme.weight.b};
 `
@@ -202,8 +197,4 @@ export const CalReminder = styled.div`
   font-size: ${theme.font.lg};
   font-family: ${theme.weight.s};
   padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
-`
-
-export const ErrorMessage = styled.p`
-  padding-bottom: ${theme.spacing.lg};
 `
