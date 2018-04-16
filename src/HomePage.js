@@ -167,7 +167,7 @@ class HomePage extends React.Component {
                         <label htmlFor="uciNumber" id="uciNumber-label">
                           <Trans>Paper file number</Trans>
                         </label>{' '}
-                        <Trans>(A123456)</Trans>
+                        (123456)
                       </H2>
                       <p id="uciNumber-details">
                         <Trans>
@@ -283,6 +283,12 @@ class HomePage extends React.Component {
                       - form has been submitted (and is waiting)
                       - the number of values entries is less than the total number of fields
                     */}
+                  <p>
+                    <strong>
+                      By submitting this request you are forfeiting your
+                      original test date.
+                    </strong>
+                  </p>
                   <Button
                     disabled={
                       pristine ||
