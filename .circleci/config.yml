@@ -66,4 +66,4 @@ workflows:
             branches:
               only:
                 - master
-                - add_deploy
+                - add-deploy
