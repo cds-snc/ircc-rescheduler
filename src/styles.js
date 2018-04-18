@@ -31,7 +31,86 @@ export const incrementColor = (col, amt) => {
 }
 
 export const fontFace = css`
-  @import url(https://fontlibrary.org/face/hk-grotesk);
+
+  @font-face {
+    font-family: 'hk_groteskbold';
+    src: url('/fonts/hkgrotesk-bold-webfont.woff2') format('woff2'),
+      url('/fonts/hkgrotesk-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'hk_groteskbold_italic';
+    src: url('/fonts/hkgrotesk-bolditalic-webfont.woff2') format('woff2'),
+      url('/fonts/hkgrotesk-bolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'hk_groteskitalic';
+    src: url('/fonts/hkgrotesk-italic-webfont.woff2') format('woff2'),
+      url('/fonts/hkgrotesk-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'hk_grotesklight';
+    src: url('/fonts/hkgrotesk-light-webfont.woff2') format('woff2'),
+      url('/fonts/hkgrotesk-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'hk_grotesklight_italic';
+    src: url('/fonts/hkgrotesk-lightitalic-webfont.woff2') format('woff2'),
+      url('/fonts/hkgrotesk-lightitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'hk_groteskmedium';
+    src: url('/fonts/hkgrotesk-medium-webfont.woff2') format('woff2'),
+      url('/fonts/hkgrotesk-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'hk_groteskmedium_italic';
+    src: url('/fonts/hkgrotesk-mediumitalic-webfont.woff2') format('woff2'),
+      url('/fonts/hkgrotesk-mediumitalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'hk_groteskregular';
+    src: url('/fonts/hkgrotesk-regular-webfont.woff2') format('woff2'),
+      url('/fonts/hkgrotesk-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'hk_grotesksemibold';
+    src: url('/fonts/hkgrotesk-semibold-webfont.woff2') format('woff2'),
+      url('/fonts/hkgrotesk-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'hk_grotesksemibold_italic';
+    src: url('/fonts/hkgrotesk-semibolditalic-webfont.woff2') format('woff2'),
+      url('/fonts/hkgrotesk-semibolditalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
 `
 
 const borderRadius = 2
@@ -87,14 +166,14 @@ export const theme = {
     visited: '#551a8b',
   },
   weight: {
-    l: 'HKGroteskLight, sans serif',
-    li: 'HKGroteskLightItalic, sans serif',
-    m: 'HKGroteskMedium, sans serif',
-    mi: 'HKGroteskMediumItalic, sans serif',
-    r: 'HKGroteskRegular, sans serif',
-    s: 'HKGroteskSemiBold, sans serif',
-    b: 'HKGroteskBold, sans serif',
-    bi: 'HKGroteskSemiBoldItalic, sans serif',
+    l: 'hk_grotesklight, sans serif',
+    li: 'hk_grotesklight_italic, sans serif',
+    m: 'hk_groteskmedium, sans serif',
+    mi: 'hk_groteskmedium_italic, sans serif',
+    r: 'hk_groteskregular, sans serif',
+    s: 'hk_grotesksemibold, sans serif',
+    b: 'hk_groteskbold, sans serif',
+    bi: 'hk_grotesksemibold_italic, sans serif',
   },
   font: {
     xxs: '0.2em',
