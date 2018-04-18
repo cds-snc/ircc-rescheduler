@@ -14,11 +14,11 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
 
-    working_directory: ~/repo
+    working_directory: ~/repo/web
 
     steps:
-      - checkout
-
+      - checkout:
+          path: ~/repo
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -43,7 +43,7 @@ jobs:
       - image: docker
     steps:
       - checkout:
-          path: ~/repo
+          path: ~/repo/web
       - setup_remote_docker
       - run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - run: docker build  -t "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}" -t "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:latest" .
