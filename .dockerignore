@@ -1,0 +1,14 @@
+node_modules
+test
+**/*.test.js
+.circleci
+.editorconfig
+.git
+LICENSE
+node_modules
+.prettierrc
+README.md
+test
+Dockerfile
+.gitignore
+yarn-error.log
