@@ -45,13 +45,10 @@ jobs:
       - checkout:
           path: ~/repo
       - setup_remote_docker
-      - run:
-          command: |
-              yes | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-              docker build  -t "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}" -t "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:latest" .
-              docker push "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}"
-              docker push "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:latest"
-          name: "Deploy IRCC Docker Image"
+      - run: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+      - run: docker build  -t "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}" -t "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:latest" .
+      - run: docker push "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}"
+      - run: docker push "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:latest"
     working_directory: ~/repo
 
 workflows:
