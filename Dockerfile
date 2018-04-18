@@ -1,13 +1,13 @@
-FROM node:8.9.1 AS build-env
+FROM mhart/alpine-node:8
 MAINTAINER Mike Williamson <mike.williamson@cds-snc.ca>
+RUN addgroup -g 1000 -S irccapp && \
+          adduser -u 1000 -S irccapp -G irccapp
+ENV RAZZLE_PUBLIC_DIR /app/build/public
 ADD . /app
 WORKDIR /app
-ENV NODE_ENV production
-RUN yarn install && yarn build
-
-FROM gcr.io/distroless/nodejs
-COPY --from=build-env /app /app
-ENV NODE_ENV production
-WORKDIR /app
+RUN yarn install --production=false
+RUN yarn compile
+RUN yarn build
 EXPOSE 3004
-CMD ["build/server.js"]
+USER irccapp
+CMD yarn start
