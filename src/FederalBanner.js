@@ -10,17 +10,22 @@ const container = css`
   padding: ${theme.spacing.lg} ${theme.spacing.xxxl} ${theme.spacing.md}
     ${theme.spacing.xxxl};
   display: flex;
-	height: 1.5em;
+  height: 1.5em;
   width: auto;
   justify-content: space-between;
   background-color: ${theme.colour.white};
-  ${mediaQuery.medium(css`
-    display: block;
-  `)};
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
+
+  ${mediaQuery.small(css`
+    height: 1.4em;
+  `)};
+
+  ${mediaQuery.xs(css`
+    height: 1.2em;
+  `)};
 `
 
 const FederalBanner = () => (

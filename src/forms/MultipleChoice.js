@@ -151,7 +151,9 @@ const cds_multiple_choice = css`
   }
 
   ${mediaQuery.small(css`
-    margin-bottom: ${theme.spacing.md};
+    padding: ${theme.spacing.xs} 0 0 ${theme.spacing.xxl};
+
+    margin-bottom: ${theme.spacing.sm};
 
     input {
       width: 22px;

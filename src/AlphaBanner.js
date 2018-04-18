@@ -13,8 +13,12 @@ const banner = css`
 `
 
 const alpha = css`
-  font-size: ${theme.font.xs};
+  font-size: ${theme.font.sm};
   margin-bottom: 0;
+
+  ${mediaQuery.small(css`
+    font-size: 8px;
+  `)};
 `
 
 const statusBar = css`
@@ -30,7 +34,8 @@ const statusBar = css`
   background-color: ${theme.colour.white};
   ${roundedEdges};
   ${mediaQuery.small(css`
-    font-size: 10px;
+    font-size: 8px;
+    padding: 0px ${theme.spacing.md};
   `)};
 `
 
