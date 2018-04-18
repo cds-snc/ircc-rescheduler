@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
-import { CalHeader, CalReminder, Bold } from './styles'
+import { CalHeader, CalReminder, Bold, Cancel } from './styles'
 import Layout from './Layout'
 import Button from './forms/Button'
 import Calendar from './Calendar'
@@ -36,7 +36,9 @@ class CalendarPage extends Component {
           </Button>
         </NavLink>
         <NavLink to="/">
-          <Trans>Cancel</Trans>
+          <Cancel>
+            <Trans>Cancel</Trans>
+          </Cancel>
         </NavLink>
       </Layout>
     )

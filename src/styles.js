@@ -203,3 +203,12 @@ export const CalReminder = styled.div`
   font-family: ${theme.weight.s};
   padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
 `
+
+export const Cancel = styled.p`
+  display: inline;
+
+  ${mediaQuery.xs(css`
+    margin-top: ${theme.spacing.md};
+    display: block;
+  `)};
+`
