@@ -99,7 +99,7 @@ export const theme = {
   font: {
     xxs: '0.2em',
     xs: '0.5em',
-    sm: '0.75em',
+    sm: '0.9em',
     base: '1em',
     md: '1em',
     lg: '1.2em',
@@ -154,7 +154,8 @@ export const H3 = styled.h3`
 `
 
 export const Content = styled.section`
-  padding: ${theme.spacing.xl} 35% ${theme.spacing.xxxl} ${theme.spacing.xxxl};
+  padding: ${theme.spacing.xl} ${theme.spacing.xxxl} ${theme.spacing.xxxl}
+    ${theme.spacing.xxxl};
   width: 100%;
   background-color: ${theme.colour.greyVeryLight};
   box-sizing: border-box;
@@ -191,6 +192,10 @@ export const CalHeader = styled.div`
   font-size: ${theme.font.lg};
   font-family: ${theme.weight.s};
   padding-bottom: ${theme.spacing.xl};
+
+  ${mediaQuery.small(css`
+    width: 100%;
+  `)};
 `
 
 export const CalReminder = styled.div`
