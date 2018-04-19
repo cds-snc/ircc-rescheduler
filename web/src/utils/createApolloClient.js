@@ -9,11 +9,11 @@ const cache = new InMemoryCache()
 const typeDefs = `
   type Mutation {
     switchLanguage: String
-    saveFormState: String
+    registerUser: String
   }
   type Query {
     language: String
-    homePageForm: String
+    userRegistrationData: String
   }
 `
 
@@ -34,15 +34,15 @@ const stateLink = withClientState({
         cache.writeQuery({ data, query })
         return null
       },
-      saveFormState: (_, args, { cache }) => {
+      registerUser: (_, args, { cache }) => {
         let query = gql`
           {
-            homePageForm @client
+            userRegistrationData @client
           }
         `
 
         const data = {
-          homePageForm: args.homePageForm,
+          userRegistrationData: args.userRegistrationData,
         }
         //const { fullName, reason, uciNumber, explanation } = args.formValues
         //const data = { fullName, reason, uciNumber, explanation }
@@ -54,7 +54,7 @@ const stateLink = withClientState({
   },
   defaults: {
     language: 'en',
-    homePageForm: 'Default Name',
+    userRegistrationData: 'Default Name',
   },
   typeDefs,
 })
