@@ -5,7 +5,12 @@ import gql from 'graphql-tag'
 
 const QUERY = gql`
   query getUserData {
-    userRegistrationData @client
+    userRegistrationData @client {
+      fullName
+      uciNumber
+      reason
+      explanation
+    }
   }
 `
 
@@ -35,7 +40,7 @@ class LinkStateDisplay extends React.Component {
     return (
       <div>
         <h2>DATA!</h2>
-        <p>{values}</p>
+        <pre>{JSON.stringify(values)}</pre>
       </div>
     )
   }

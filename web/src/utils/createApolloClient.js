@@ -7,13 +7,21 @@ import gql from 'graphql-tag'
 const cache = new InMemoryCache()
 
 const typeDefs = `
+  type UserData {
+    fullName: String
+    uciNumber: String
+    reason: String
+    explanation: String
+  }
+
   type Mutation {
     switchLanguage: String
-    registerUser: String
+    registerUser(data: UserData)
   }
+
   type Query {
     language: String
-    userRegistrationData: String
+    userRegistrationData: UserData
   }
 `
 
@@ -37,16 +45,24 @@ const stateLink = withClientState({
       registerUser: (_, args, { cache }) => {
         let query = gql`
           {
-            userRegistrationData @client
+            userRegistrationData @client {
+              fullName
+              uciNumber
+              reason
+              explanation
+            }
           }
         `
-
+        const { fullName, reason, uciNumber, explanation } = args.data
         const data = {
-          userRegistrationData: args.userRegistrationData,
+          userRegistrationData: {
+            __typename: 'UserData',
+            fullName,
+            uciNumber,
+            reason,
+            explanation,
+          },
         }
-        //const { fullName, reason, uciNumber, explanation } = args.formValues
-        //const data = { fullName, reason, uciNumber, explanation }
-        console.log(args)
         cache.writeQuery({ data, query })
         return null
       },
@@ -54,7 +70,13 @@ const stateLink = withClientState({
   },
   defaults: {
     language: 'en',
-    userRegistrationData: 'Default Name',
+    userRegistrationData: {
+      __typename: 'UserData',
+      fullName: 'Default name',
+      uciNumber: 'Default number',
+      reason: 'Default reason',
+      explanation: 'Default explanation',
+    },
   },
   typeDefs,
 })
