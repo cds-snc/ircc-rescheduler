@@ -10,14 +10,19 @@ const banner = css`
   padding-right: ${theme.spacing.xxxl};
   padding-top: 12px;
   padding-bottom: ${theme.spacing.sm};
+
+  ${mediaQuery.small(css`
+    padding-left: ${theme.spacing.xl};
+    padding-right: ${theme.spacing.xl};
+  `)};
 `
 
 const alpha = css`
-  font-size: ${theme.font.sm};
+  font-size: 0.75rem;
   margin-bottom: 0;
 
   ${mediaQuery.small(css`
-    font-size: 8px;
+    font-size: ${theme.font.xs};
   `)};
 `
 
@@ -34,7 +39,7 @@ const statusBar = css`
   background-color: ${theme.colour.white};
   ${roundedEdges};
   ${mediaQuery.small(css`
-    font-size: 8px;
+    font-size: ${theme.font.xs};
     padding: 0px ${theme.spacing.md};
   `)};
 `

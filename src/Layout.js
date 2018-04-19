@@ -21,10 +21,10 @@ injectGlobal`
     ${mediaQuery.small(css`
       font-size: ${theme.font.md};
     `)};
+  }
 
-    ${mediaQuery.xs(css`
-      font-size: ${theme.font.sm};
-    `)};
+  #uciNumber-details, #fullName-details {
+   margin-top: 0rem;
   }
 `
 

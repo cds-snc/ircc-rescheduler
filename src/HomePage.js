@@ -1,7 +1,7 @@
 import React from 'react'
 import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
-import { theme, H2, TextLink } from './styles'
+import { theme, H3, TextLink } from './styles'
 import Layout from './Layout'
 import { TextFieldAdapter, TextAreaAdapter } from './forms/TextInput'
 import FieldSet from './forms/FieldSet'
@@ -109,11 +109,11 @@ class HomePage extends React.Component {
                   id="fullName"
                   labelledby="fullName-label fullName-details fullName-error"
                 >
-                  <H2>
+                  <H3>
                     <label htmlFor="fullName" id="fullName-label">
                       <Trans>Full name</Trans>
                     </label>
-                  </H2>
+                  </H3>
 
                   <p id="fullName-details">
                     <Trans>
@@ -131,12 +131,12 @@ class HomePage extends React.Component {
                   id="uciNumber"
                   labelledby="uciNumber-label uciNumber-details uciNumber-error"
                 >
-                  <H2>
+                  <H3>
                     <label htmlFor="uciNumber" id="uciNumber-label">
                       <Trans>Paper file number</Trans>
                     </label>{' '}
                     (123456)
-                  </H2>
+                  </H3>
                   <p id="uciNumber-details">
                     <Trans>
                       This number is at the top of the email we sent you
@@ -148,9 +148,9 @@ class HomePage extends React.Component {
               <div>
                 <FieldSet legendHidden={false}>
                   <legend>
-                    <H2>
+                    <H3>
                       <Trans>Reason for rescheduling</Trans>
-                    </H2>
+                    </H3>
                   </legend>
                   <p id="reason-details">
                     <Trans>If you’re not sure if you can reschedule,</Trans>{' '}
@@ -209,7 +209,7 @@ class HomePage extends React.Component {
                   component={TextAreaAdapter}
                   aria-labelledby="explanation-label explanation-error"
                 >
-                  <H2>
+                  <H3>
                     <label
                       className="explanation-header"
                       htmlFor="explanation"
@@ -219,7 +219,7 @@ class HomePage extends React.Component {
                         Briefly tell us why you can’t attend your test
                       </Trans>
                     </label>
-                  </H2>
+                  </H3>
                 </Field>
               </div>
               {/*

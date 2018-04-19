@@ -11,12 +11,8 @@ const Circle = styled.span`
   position: relative;
   bottom: 2px;
 
-  ${mediaQuery.small(css`
-    font-size: 0.4em;
-  `)};
-
-  ${mediaQuery.xs(css`
-    font-size: 0.1em;
+  ${mediaQuery.medium(css`
+    padding-top: ${theme.spacing.xxl};
   `)};
 `
 
@@ -28,15 +24,8 @@ const footer = css`
   flex-direction: row-reverse;
   position: relative;
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.medium(css`
     font-size: ${theme.font.md};
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `)};
-
-  ${mediaQuery.xs(css`
-    font-size: ${theme.font.sm};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,12 +35,38 @@ const footer = css`
 const Link = styled.a`
   color: ${theme.colour.black};
   margin-top: ${theme.spacing.lg};
-  font-size: ${theme.font.sm};
+  font-size: ${theme.font.md};
+
+  ${mediaQuery.small(css`
+    font-size: ${theme.font.sm};
+  `)};
 `
 
 const bottomLinks = css`
+  padding-top: 0.8rem;
+
+  ${mediaQuery.medium(css`
+    padding-top: ${theme.spacing.xl};
+    font-size: 0.2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  `)};
+
   ${mediaQuery.small(css`
     padding-top: ${theme.spacing.lg};
+    font-size: 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `)};
+
+  ${mediaQuery.xs(css`
+    padding-top: ${theme.spacing.lg};
+    font-size: 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   `)};
 `
 

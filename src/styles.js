@@ -97,14 +97,14 @@ export const theme = {
     bi: 'HKGroteskSemiBoldItalic, sans serif',
   },
   font: {
-    xxs: '0.2em',
-    xs: '0.5em',
-    sm: '0.9em',
-    base: '1em',
-    md: '1em',
-    lg: '1.2em',
-    lg2: '2em',
-    xl: '3em',
+    xs: '0.5rem',
+    sm: '0.9rem',
+    base: '1rem',
+    md: '1.125rem',
+    lg: '1.625rem',
+    lg2: '2rem',
+    xl: '2.25rem',
+    xxl: '2.75rem',
   },
   spacing: {
     md: '1.0em',
@@ -138,19 +138,32 @@ export const mediaQuery = Object.keys(breakpoints).reduce(
 /* eslint-enable security/detect-object-injection */
 
 export const H1 = styled.h1`
-  font-size: ${theme.font.lg2};
+  font-size: ${theme.font.xxl};
   font-family: ${theme.weight.b};
+
+  ${mediaQuery.medium(css`
+    font-size: ${theme.font.lg2};
+  `)};
 `
 
 export const H2 = styled.h2`
-  font-size: ${theme.font.lg};
+  font-size: ${theme.font.xl};
   font-family: ${theme.weight.b};
   margin-bottom: 0em;
+
+  ${mediaQuery.medium(css`
+    font-size: ${theme.font.lg};
+  `)};
 `
 
 export const H3 = styled.h3`
-  font-size: ${theme.font.md};
+  font-size: ${theme.font.lg2};
   font-family: ${theme.weight.b};
+  margin-bottom: 0.2rem;
+
+  ${mediaQuery.medium(css`
+    font-size: ${theme.font.lg};
+  `)};
 `
 
 export const Content = styled.section`
@@ -159,6 +172,11 @@ export const Content = styled.section`
   width: 100%;
   background-color: ${theme.colour.greyVeryLight};
   box-sizing: border-box;
+
+  ${mediaQuery.small(css`
+    padding-left: ${theme.spacing.xl};
+    padding-right: ${theme.spacing.xl};
+  `)};
 `
 
 export const Bold = styled.strong`
@@ -193,7 +211,7 @@ export const CalHeader = styled.div`
   font-family: ${theme.weight.s};
   padding-bottom: ${theme.spacing.xl};
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.medium(css`
     width: 100%;
   `)};
 `
@@ -204,11 +222,27 @@ export const CalReminder = styled.div`
   padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
 `
 
-export const Cancel = styled.p`
+export const BottomContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  ${mediaQuery.xs(css`
+    text-align: center;
+    flex-direction: column;
+  `)};
+`
+
+export const TopContainer = styled.div`
+  margin-bottom: ${theme.spacing.lg};
+`
+
+export const Cancel = styled.div`
   display: inline;
+  margin-left: ${theme.spacing.xxxl};
 
   ${mediaQuery.xs(css`
     margin-top: ${theme.spacing.md};
+    margin-left: 0rem;
     display: block;
   `)};
 `

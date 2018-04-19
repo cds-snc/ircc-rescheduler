@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
-import { CalHeader, CalReminder, Bold, Cancel } from './styles'
+import {
+  CalHeader,
+  CalReminder,
+  Bold,
+  Cancel,
+  BottomContainer,
+  TopContainer,
+} from './styles'
 import Layout from './Layout'
 import Button from './forms/Button'
 import Calendar from './Calendar'
@@ -10,12 +17,12 @@ class CalendarPage extends Component {
   render() {
     return (
       <Layout>
-        <NavLink to="/">
-          <Trans>← Go Back</Trans>
-        </NavLink>
+        <TopContainer>
+          <NavLink to="/">
+            <Trans>← Go Back</Trans>
+          </NavLink>
+        </TopContainer>
         {/* TODO: add bottom spacing to Go Back links */}
-        <br />
-        <br />
 
         <CalHeader>
           <Trans>
@@ -30,16 +37,19 @@ class CalendarPage extends Component {
             Remember: make sure to stay available on all of the days you select
           </Trans>
         </CalReminder>
-        <NavLink to="/confirmation">
-          <Button>
-            <Trans>Review →</Trans>
-          </Button>
-        </NavLink>
-        <NavLink to="/">
-          <Cancel>
-            <Trans>Cancel</Trans>
-          </Cancel>
-        </NavLink>
+        <BottomContainer>
+          <NavLink to="/confirmation">
+            <Button>
+              <Trans>Review →</Trans>
+            </Button>
+          </NavLink>
+
+          <NavLink to="/">
+            <Cancel>
+              <Trans>Cancel</Trans>
+            </Cancel>
+          </NavLink>
+        </BottomContainer>
       </Layout>
     )
   }
