@@ -230,8 +230,10 @@ class HomePage extends React.Component {
                     */}
               <p>
                 <strong>
-                  By submitting this request you are forfeiting your original
-                  test date.
+                  <Trans>
+                    By submitting this request you are forfeiting your original
+                    test date.
+                  </Trans>
                 </strong>
               </p>
               <Button

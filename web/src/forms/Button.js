@@ -4,7 +4,6 @@ import { css } from 'react-emotion'
 import { theme, roundedEdges, mediaQuery, incrementColor } from '../styles'
 
 const button = css`
-  margin-right: ${theme.spacing.xxxl};
   font-size: ${theme.font.md};
   font-family: ${theme.weight.s};
   color: ${theme.colour.white};

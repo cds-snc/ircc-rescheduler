@@ -10,17 +10,25 @@ const container = css`
   padding: ${theme.spacing.lg} ${theme.spacing.xxxl} ${theme.spacing.md}
     ${theme.spacing.xxxl};
   display: flex;
-	height: 1.5em;
+  height: 1.5em;
   width: auto;
   justify-content: space-between;
   background-color: ${theme.colour.white};
-  ${mediaQuery.medium(css`
-    display: block;
-  `)};
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
   display: -webkit-flex;
+  ${mediaQuery.small(css`
+    padding-left: ${theme.spacing.xl};
+    padding-right: ${theme.spacing.xl};
+  `)};
+  ${mediaQuery.small(css`
+    height: 1.4em;
+  `)};
+  ${mediaQuery.xs(css`
+    height: 3em;
+    flex-direction: column;
+  `)};
 `
 
 const FederalBanner = () => (
@@ -28,7 +36,7 @@ const FederalBanner = () => (
     <Query query={GET_LANGUAGE_QUERY}>
       {({ data: { language } }) => (
         <GoCSignature
-          width="250px"
+          width="13rem"
           lang={language}
           flag={theme.colour.black}
           text={theme.colour.black}
