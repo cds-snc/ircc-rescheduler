@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
 import { theme, H2, TextLink } from './styles'
@@ -8,6 +9,8 @@ import FieldSet from './forms/FieldSet'
 import { RadioAdapter } from './forms/MultipleChoice'
 import Button from './forms/Button'
 import { Form, Field } from 'react-final-form'
+import { withApollo } from 'react-apollo'
+import gql from 'graphql-tag'
 
 const contentClass = css`
   form {
@@ -78,11 +81,35 @@ const validationField = ({ touched, errors, attr }) => {
 }
 
 class HomePage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  async onSubmit(values, event) {
+    //console.log(this.props)
+    const { client } = this.props
+    try {
+      await client.mutate({
+        mutation: gql`
+          mutation saveFormState($fullName: String) {
+            saveFormState(homePageForm: $fullName) @client
+          }
+        `,
+        variables: { fullName: values.fullName },
+      })
+    } catch (err) {
+      //should be a logger
+      console.log(err)
+    }
+    await this.props.history.push('/calendar')
+  }
+
   render() {
     return (
       <Layout contentClass={contentClass}>
         <Form
-          onSubmit={async values => {}}
+          onSubmit={this.onSubmit}
           validate={validate}
           render={({
             handleSubmit,
@@ -93,14 +120,7 @@ class HomePage extends React.Component {
             errors,
             touched,
           }) => (
-            <form
-              onSubmit={event => {
-                handleSubmit(event).then(() => {
-                  // eslint-disable-next-line react/prop-types
-                  this.props.history.push('/calendar')
-                })
-              }}
-            >
+            <form onSubmit={handleSubmit}>
               {submitError && <div className="error">{submitError}</div>}
               <div>
                 <Field
@@ -251,5 +271,10 @@ class HomePage extends React.Component {
     )
   }
 }
+HomePage.propTypes = {
+  client: PropTypes.object.isRequired,
+  history: PropTypes.any,
+  push: PropTypes.any,
+}
 
-export default HomePage
+export default withApollo(HomePage)
