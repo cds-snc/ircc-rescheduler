@@ -93,8 +93,8 @@ class HomePage extends React.Component {
     try {
       await client.mutate({
         mutation: gql`
-          mutation saveFormState($fullName: String) {
-            saveFormState(homePageForm: $fullName) @client
+          mutation registerUser($fullName: String) {
+            registerUser(userRegistrationData: $fullName) @client
           }
         `,
         variables: { fullName: values.fullName },

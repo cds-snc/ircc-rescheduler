@@ -4,14 +4,16 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
 const QUERY = gql`
-  query getHomePageForm {
-    homePageForm @client
+  query getUserData {
+    userRegistrationData @client
   }
 `
 
 class LinkStateDisplay extends React.Component {
   render() {
-    const { data: { loading, error, homePageForm: values } } = this.props
+    const {
+      data: { loading, error, userRegistrationData: values },
+    } = this.props
     if (error) {
       return (
         <div>
