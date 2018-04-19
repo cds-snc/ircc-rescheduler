@@ -1,11 +1,11 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
 import { GET_LANGUAGE_QUERY, CHANGE_LANGUAGE_MUTATION } from './queries'
-import styled from 'react-emotion'
+import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import { theme, visuallyhidden } from './styles'
 
-const A = styled('a')`
+const link = css`
   font-size: ${theme.font.base};
   text-decoration: underline;
   &:visited {
@@ -25,9 +25,9 @@ export const LanguageSwitcher = () => (
       {({ data: { language } }) => (
         <Mutation mutation={CHANGE_LANGUAGE_MUTATION}>
           {switchLanguage => (
-            <A onClick={() => switchLanguage()}>
+            <a className={link} onClick={() => switchLanguage()}>
               {language === 'en' ? 'Français' : 'English'}
-            </A>
+            </a>
           )}
         </Mutation>
       )}
