@@ -88,20 +88,19 @@ class HomePage extends React.Component {
   }
 
   async onSubmit(values, event) {
-    //console.log(this.props)
     const { client } = this.props
     try {
       await client.mutate({
         mutation: gql`
-          mutation registerUser($fullName: String) {
-            registerUser(userRegistrationData: $fullName) @client
+          mutation($formValues: UserData) {
+            registerUser(data: $formValues) @client
           }
         `,
-        variables: { fullName: values.fullName },
+        variables: { formValues: values },
       })
     } catch (err) {
       //should be a logger
-      console.log(err)
+      console.log(err) // eslint-disable-line no-console
     }
     await this.props.history.push('/calendar')
   }
