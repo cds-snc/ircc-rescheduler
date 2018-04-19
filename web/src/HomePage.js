@@ -11,6 +11,7 @@ import Button from './forms/Button'
 import { Form, Field } from 'react-final-form'
 import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
+import LinkStateDisplay from './LinkStateDisplay'
 
 const contentClass = css`
   form {
@@ -108,6 +109,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass}>
+        <LinkStateDisplay />
         <Form
           onSubmit={this.onSubmit}
           validate={validate}
