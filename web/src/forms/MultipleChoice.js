@@ -131,36 +131,29 @@ const cds_multiple_choice = css`
   padding: 0 0 0 ${theme.spacing.xl};
   margin-bottom: ${theme.spacing.sm};
   font-family: ${theme.weight.m};
-
   input {
     width: 24px;
     height: 24px;
   }
-
   label {
     display: inline-block;
-    padding: 0;
-    height: ${theme.spacing.xl};
-    font-size: ${theme.font.lg};
+    height: ${theme.spacing.lg};
+    font-size: ${theme.font.md};
     /* this is a bit of a hack */
-    line-height: 1.8;
-
+    line-height: 0.7;
     > span {
-      padding: 0 ${theme.spacing.sm} 0 ${theme.spacing.xs};
+      padding: 0 0 0 0;
     }
   }
-
   ${mediaQuery.small(css`
-    margin-bottom: ${theme.spacing.md};
-
+    padding: 0.1rem 0 0 ${theme.spacing.xl};
+    margin-bottom: ${theme.spacing.xs};
     input {
       width: 22px;
       height: 22px;
     }
-
     label {
       font-size: ${theme.font.md};
-
       > span {
         padding-left: 0;
       }

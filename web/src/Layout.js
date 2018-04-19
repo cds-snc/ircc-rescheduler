@@ -17,10 +17,12 @@ injectGlobal`
     height: 100%;
     font-family: ${theme.weight.l};
     font-size: ${theme.font.md};
-
     ${mediaQuery.small(css`
-      font-size: ${theme.font.xs};
+      font-size: ${theme.font.md};
     `)};
+  }
+  #uciNumber-details, #fullName-details {
+   margin-top: 0rem;
   }
 `
 
