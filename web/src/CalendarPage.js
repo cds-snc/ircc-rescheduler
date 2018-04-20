@@ -43,7 +43,7 @@ class CalendarPage extends Component {
       <Layout>
         <TopContainer>
           <nav>
-            <NavLink to="/">
+            <NavLink to="/register">
               <Trans>← Go Back</Trans>
             </NavLink>
           </nav>
