@@ -175,24 +175,25 @@ export const theme = {
     bi: 'hk_grotesksemibold_italic, sans serif',
   },
   font: {
-    xs: '0.5rem',
-    sm: '0.9rem',
+    xs: '0.694rem',
+    sm: '0.833rem',
     base: '1rem',
-    md: '1.125rem',
-    lg: '1.625rem',
-    lg2: '2rem',
-    xl: '2.25rem',
-    xxl: '2.75rem',
+    md: '1rem',
+    lg: '1.2rem',
+    xl: '1.44rem',
+    xxl: '1.728rem',
+    xxxl: '1.602rem',
   },
   spacing: {
-    md: '1.0em',
-    sm: '0.5em',
-    xs: '0.33em',
-    xxs: '0.17em',
-    lg: '1.3em',
-    xl: '2em',
-    xxl: '3em',
-    xxxl: '4em',
+    xxs: '0.17rem',
+    xs: '0.33rem',
+    sm: '0.5rem',
+    md: '1.0rem',
+    base: '1.0rem',
+    lg: '1.3rem',
+    xl: '2rem',
+    xxl: '3rem',
+    xxxl: '4.5rem',
   },
 }
 
@@ -242,14 +243,13 @@ export const H3 = styled.h3`
 `
 
 export const Content = styled.section`
-  padding: ${theme.spacing.xl} ${theme.spacing.xxxl} ${theme.spacing.xxxl}
+  padding: ${theme.spacing.xl} ${theme.spacing.xxxl} ${theme.spacing.xxl}
     ${theme.spacing.xxxl};
   width: 100%;
   background-color: ${theme.colour.greyVeryLight};
   box-sizing: border-box;
   ${mediaQuery.small(css`
-    padding-left: ${theme.spacing.xl};
-    padding-right: ${theme.spacing.xl};
+    padding: ${theme.spacing.xl};
   `)};
 `
 

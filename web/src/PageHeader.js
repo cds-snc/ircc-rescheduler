@@ -6,7 +6,7 @@ import { theme, mediaQuery } from './styles'
 const banner = css`
   background-color: ${theme.colour.greyLight};
   color: ${theme.colour.black};
-  padding: ${theme.spacing.xl} ${theme.spacing.xxxl};
+  padding: ${theme.spacing.xxl} ${theme.spacing.xxxl};
 
   ${mediaQuery.small(css`
     padding-left: ${theme.spacing.xl};
