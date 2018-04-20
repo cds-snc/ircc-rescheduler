@@ -10,36 +10,50 @@ const banner = css`
   padding-right: ${theme.spacing.xxxl};
   padding-top: 12px;
   padding-bottom: ${theme.spacing.sm};
-`
-
-const alpha = css`
   font-size: ${theme.font.xs};
-  margin-bottom: 0;
+
+  ${mediaQuery.small(css`
+    font-family: ${theme.weight.r};
+    padding-left: ${theme.spacing.xl};
+    padding-right: ${theme.spacing.xl};
+    font-size: ${theme.font.xs};
+  `)};
 `
 
-const statusBar = css`
-  text-transform: uppercase;
-  line-height: 2;
-  color: ${theme.colour.black};
+const horizontalAlign = css`
   position: relative;
   display: inline-block;
-  font-size: ${theme.font.xs};
   bottom: 2px;
+`
+
+const badge = css`
+  text-transform: uppercase;
+  line-height: 1.8;
+  color: ${theme.colour.black};
   padding: 2px ${theme.spacing.md};
   margin-right: ${theme.spacing.md};
   background-color: ${theme.colour.white};
   ${roundedEdges};
+  ${horizontalAlign};
   ${mediaQuery.small(css`
-    font-size: 10px;
+    padding: 2px ${theme.spacing.md};
+    margin-bottom: ${theme.spacing.xs};
+  `)};
+`
+
+const message = css`
+  ${horizontalAlign};
+
+  ${mediaQuery.small(css`
+    display: block;
+    bottom: 0;
   `)};
 `
 
 const AlphaBanner = ({ children }) => (
   <div className={banner}>
-    <p className={alpha}>
-      <span className={statusBar}>Alpha</span>
-      {children}
-    </p>
+    <div className={`alphaBanner--badge ${badge}`}>Alpha</div>
+    <div className={`alphaBanner--message ${message}`}>{children}</div>
   </div>
 )
 AlphaBanner.propTypes = {

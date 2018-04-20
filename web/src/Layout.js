@@ -16,11 +16,36 @@ injectGlobal`
     background: ${theme.colour.white};
     height: 100%;
     font-family: ${theme.weight.l};
-    font-size: ${theme.font.md};
+    font-size: 18px;
+    box-sizing: border-box;
 
     ${mediaQuery.small(css`
-      font-size: ${theme.font.xs};
+      font-size: ${theme.font.md};
     `)};
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul, span {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    line-height: 1.4;
+  }
+
+  ol, ul {
+    list-style: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  #uciNumber-details, #fullName-details {
+   margin-top: 0rem;
   }
 `
 

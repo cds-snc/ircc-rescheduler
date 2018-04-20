@@ -4,19 +4,19 @@ import { css } from 'react-emotion'
 import { theme, roundedEdges, mediaQuery, incrementColor } from '../styles'
 
 const button = css`
-  margin-right: ${theme.spacing.xxxl};
-  font-size: ${theme.font.md};
+  font-size: ${theme.font.lg};
   font-family: ${theme.weight.s};
   color: ${theme.colour.white};
   background-color: ${theme.colour.gray};
   border: 5px solid transparent;
   outline: 0;
-  padding: ${theme.spacing.sm}px ${theme.spacing.xl}px;
+  padding: ${theme.spacing.xs} ${theme.spacing.lg};
   cursor: pointer;
   ${roundedEdges};
 
-  ${mediaQuery.xs(css`
+  ${mediaQuery.small(css`
     width: 100%;
+    padding: ${theme.spacing.sm} ${theme.spacing.lg};
   `)};
 
   &:focus {

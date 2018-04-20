@@ -8,23 +8,28 @@ const text_input = css`
   border: 3px solid ${theme.colour.black}};
   outline: 0;
   padding: ${theme.spacing.xs};
-  width: 400px;
+  width: 500px;
+  border-radius: 0;
 
   &:focus {
     outline: 3px solid ${theme.colour.focus};
     outline-offset: 0px;
   }
 
-  ${mediaQuery.xs(css`
+  ${mediaQuery.medium(css`
+    width: 80%;
+  `)};
+
+  ${mediaQuery.small(css`
     width: 100%;
   `)};
 `
 const text_area = css`
   ${text_input};
 
-  height: 10em;
+  height: 8em;
   resize: none;
-  width: 550px;
+  width: 600px;
   margin-top: ${theme.spacing.sm};
 `
 const TextField = ({
