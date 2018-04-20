@@ -229,7 +229,10 @@ export default class Calendar extends Component {
       selectedDays: [],
     }
   }
-  handleDayClick(day, { selected }) {
+  handleDayClick(day, { selected, disabled }) {
+    if (disabled) {
+      return
+    }
     const { selectedDays } = this.state
     if (selected) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>
