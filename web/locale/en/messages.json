@@ -1,37 +1,55 @@
 {
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in June and July.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        21
-      ]
-    ]
-  },
-  "Within six weeks, your local Immigration office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        36
-      ]
-    ]
-  },
-  "read the guidelines for rescheduling": {
+  "You need to tell us your name so we know who is requesting a new appointment.": {
     "translation": "",
     "origin": [
       [
         "src/HomePage.js",
-        158
+        56
       ]
     ]
   },
-  "Language Selection": {
+  "You need to tell us your Paper File Number so we can confirm your identity.": {
     "translation": "",
     "origin": [
       [
-        "src/LanguageSwitcher.js",
-        28
+        "src/HomePage.js",
+        63
+      ]
+    ]
+  },
+  "Paper File Number": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        153
+      ]
+    ]
+  },
+  "This number is at the top of the email we sent you.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        157
+      ]
+    ]
+  },
+  "Tell us why you can’t attend your test": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        234
+      ]
+    ]
+  },
+  "Provide enough detail so that IRCC staff can understand your situation.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        239
       ]
     ]
   },
@@ -40,7 +58,16 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        14
+        47
+      ]
+    ]
+  },
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in June and July.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        53
       ]
     ]
   },
@@ -49,7 +76,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        29
+        61
       ]
     ]
   },
@@ -58,7 +85,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        35
+        68
       ]
     ]
   },
@@ -67,7 +94,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        39
+        74
       ]
     ]
   },
@@ -98,12 +125,165 @@
       ]
     ]
   },
+  "Within six weeks, your local Immigration office will send you a new appointment, or email you to ask for more information.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        36
+      ]
+    ]
+  },
   "If you have any questions, please contact:": {
     "translation": "",
     "origin": [
       [
         "src/ConfirmationPage.js",
         42
+      ]
+    ]
+  },
+  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        71
+      ]
+    ]
+  },
+  "Please tell us a bit more about why you need to reschedule your test.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        79
+      ]
+    ]
+  },
+  "Full name": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        132
+      ]
+    ]
+  },
+  "This is the full name you used on your citizenship application.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        136
+      ]
+    ]
+  },
+  "Reason for rescheduling": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        168
+      ]
+    ]
+  },
+  "If you’re not sure if you can reschedule,": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        171
+      ]
+    ]
+  },
+  "read the guidelines for rescheduling": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        173
+      ]
+    ]
+  },
+  "Travel": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        182
+      ]
+    ]
+  },
+  "Medical": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        190
+      ]
+    ]
+  },
+  "Work or School": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        198
+      ]
+    ]
+  },
+  "Family": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        206
+      ]
+    ]
+  },
+  "Other": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        214
+      ]
+    ]
+  },
+  "Next →": {
+    "translation": "",
+    "origin": [
+      [
+        "src/HomePage.js",
+        260
+      ]
+    ]
+  },
+  "Language Selection": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LanguageSwitcher.js",
+        22
+      ]
+    ]
+  },
+  "This is a new service we are constantly improving.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/Layout.js",
+        56
+      ]
+    ]
+  },
+  "Request a new Canadian Citizenship test date": {
+    "translation": "",
+    "origin": [
+      [
+        "src/Layout.js",
+        63
       ]
     ]
   },
@@ -114,7 +294,8 @@
         "src/HomePage.js",
         37
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "You need to tell us your paper file number so we can confirm your identity.": {
     "translation": "",
@@ -123,43 +304,8 @@
         "src/HomePage.js",
         44
       ]
-    ]
-  },
-  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        52
-      ]
-    ]
-  },
-  "Please tell us a bit more about why you need to reschedule your test.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        60
-      ]
-    ]
-  },
-  "Full name": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        114
-      ]
-    ]
-  },
-  "This is the full name you used on your citizenship application.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        119
-      ]
-    ]
+    ],
+    "obsolete": true
   },
   "Paper file number": {
     "translation": "",
@@ -168,7 +314,8 @@
         "src/HomePage.js",
         136
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "This number is at the top of the email we sent you": {
     "translation": "",
@@ -177,70 +324,8 @@
         "src/HomePage.js",
         141
       ]
-    ]
-  },
-  "Reason for rescheduling": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        152
-      ]
-    ]
-  },
-  "If you’re not sure if you can reschedule,": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        156
-      ]
-    ]
-  },
-  "Travel": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        165
-      ]
-    ]
-  },
-  "Medical": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        173
-      ]
-    ]
-  },
-  "Work or School": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        181
-      ]
-    ]
-  },
-  "Family": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        189
-      ]
-    ]
-  },
-  "Other": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        197
-      ]
-    ]
+    ],
+    "obsolete": true
   },
   "Briefly tell us why you can’t attend your test": {
     "translation": "",
@@ -249,34 +334,8 @@
         "src/HomePage.js",
         218
       ]
-    ]
-  },
-  "Next →": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        245
-      ]
-    ]
-  },
-  "This is a new service we are constantly improving.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/Layout.js",
-        31
-      ]
-    ]
-  },
-  "Request a new Canadian Citizenship test date": {
-    "translation": "",
-    "origin": [
-      [
-        "src/Layout.js",
-        38
-      ]
-    ]
+    ],
+    "obsolete": true
   },
   "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in May and June.": {
     "translation": "",

@@ -1,45 +1,13 @@
 {
-  "This is a new service we are constantly improving.": {
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        19
-      ]
-    ]
-  },
-  "Request a new Canadian Citizenship test date": {
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        26
-      ]
-    ]
-  },
   "← Go Back": {
     "origin": [
       [
         "src/CalendarPage.js",
-        32
+        47
       ]
     ]
   },
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in May and June.": {
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        37
-      ]
-    ]
-  },
-  "Remember: make sure to stay available on all of the days you select": {
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        46
-      ]
-    ]
-  },
-  "Review →": {
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in June and July.": {
     "origin": [
       [
         "src/CalendarPage.js",
@@ -47,11 +15,27 @@
       ]
     ]
   },
+  "Remember: make sure to stay available on all of the days you select": {
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        61
+      ]
+    ]
+  },
+  "Review →": {
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        68
+      ]
+    ]
+  },
   "Cancel": {
     "origin": [
       [
         "src/CalendarPage.js",
-        57
+        74
       ]
     ]
   }
