@@ -2,14 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { WordMark } from '@cdssnc/gcui'
 import styled, { css } from 'react-emotion'
-import { theme } from './styles'
+import { theme, mediaQuery } from './styles'
 
 const Circle = styled.span`
-  font-size: 8px;
-  padding-left: ${theme.spacing.lg};
-  padding-right: ${theme.spacing.lg};
+  font-size: 0.5em;
   position: relative;
   bottom: 2px;
+
+  ${mediaQuery.medium(css`
+    display: none;
+  `)};
 `
 
 const footer = css`
@@ -17,13 +19,45 @@ const footer = css`
   padding: ${theme.spacing.xl} ${theme.spacing.xxxl};
   display: flex;
   justify-content: space-between;
+  flex-direction: row-reverse;
   position: relative;
+  font-size: ${theme.font.md};
+
+  ${mediaQuery.medium(css`
+    flex-direction: column;
+    align-items: center;
+  `)};
 `
 
-const Link = styled.a`
-  color: ${theme.colour.black};
-  margin-top: ${theme.spacing.lg};
-  font-size: ${theme.font.sm};
+const bottomLinks = css`
+  margin-top: ${theme.spacing.md};
+  font-size: ${theme.font.md};
+  display: inline-block;
+
+  > * {
+    margin-right: ${theme.spacing.md};
+
+    ${mediaQuery.small(css`
+      margin-right: 0;
+      margin-bottom: ${theme.spacing.xs};
+    `)};
+  }
+
+  a {
+    color: ${theme.colour.black};
+  }
+
+  ${mediaQuery.medium(css`
+    display: flex;
+    margin-top: ${theme.spacing.xl};
+    flex-direction: row;
+    align-items: center;
+  `)};
+
+  ${mediaQuery.small(css`
+    margin-top: ${theme.spacing.lg};
+    flex-direction: column;
+  `)};
 `
 
 const TopBar = styled.hr(
@@ -39,26 +73,22 @@ const Footer = ({ topBarBackground }) => (
   <section>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
-      <div>
-        <Link href="https://www.canada.ca/en/transparency/privacy.html">
-          Privacy
-        </Link>
-
-        <Circle> &#9679; </Circle>
-
-        <Link href="#">Terms and Conditions</Link>
-
-        <Circle> &#9679; </Circle>
-
-        <Link href="#">Contact</Link>
-      </div>
-
       <WordMark
         width="8.375em"
         height="2em"
         flag={theme.colour.black}
         text={theme.colour.black}
       />
+
+      <div className={bottomLinks}>
+        <a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a>
+        <Circle>&#9679;</Circle>
+        <a href="mailto:cds-snc@tbs-sct.gc.ca">Contact</a>
+        <Circle>&#9679;</Circle>
+        <a href="https://digital.canada.ca/legal/terms/">
+          Terms and Conditions
+        </a>
+      </div>
     </footer>
   </section>
 )

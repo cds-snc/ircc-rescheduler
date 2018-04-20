@@ -128,39 +128,29 @@ const govuk_label_pseudo_elements = css`
 `
 
 const cds_multiple_choice = css`
-  padding: 0 0 0 ${theme.spacing.xl};
-  margin-bottom: ${theme.spacing.sm};
-  font-family: ${theme.weight.m};
-
+  padding: 0 0 0 ${theme.spacing.xl}px;
+  margin-bottom: ${theme.spacing.sm}px;
   input {
     width: 24px;
     height: 24px;
   }
-
   label {
     display: inline-block;
     padding: 0;
-    height: ${theme.spacing.xl};
+    height: ${theme.spacing.xl}px;
     font-size: ${theme.font.lg};
-    /* this is a bit of a hack */
-    line-height: 1.8;
-
     > span {
-      padding: 0 ${theme.spacing.sm} 0 ${theme.spacing.xs};
+      padding: 0 ${theme.spacing.sm}px 0 ${theme.spacing.xs}px;
     }
   }
-
   ${mediaQuery.small(css`
-    margin-bottom: ${theme.spacing.md};
-
+    margin-bottom: ${theme.spacing.md}px;
     input {
       width: 22px;
       height: 22px;
     }
-
     label {
-      font-size: ${theme.font.md};
-
+      font-size: ${theme.font.lg};
       > span {
         padding-left: 0;
       }
@@ -173,29 +163,26 @@ const radio = css`
   ${cds_multiple_choice};
 
   input[type='radio'] + label::before {
-    border: 2px solid ${theme.colour.grey};
+    border: 2px solid ${theme.colour.black};
     width: 22px;
     height: 22px;
-    top: 2px;
+    top: 6px;
     left: 0;
-    background-color: ${theme.colour.white};
   }
-
   input[type='radio'] + label::after {
     border: 6px solid ${theme.colour.black};
-    top: 9px;
-    left: 7px;
+    top: 11px;
+    left: 5px;
   }
-
   ${mediaQuery.small(css`
     input[type='radio'] + label::before {
       width: 20px;
       height: 20px;
+      top: 4px;
     }
-
     input[type='radio'] + label::after {
       top: 8px;
-      left: 6px;
+      left: 4px;
     }
   `)};
 `
