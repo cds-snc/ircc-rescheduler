@@ -8,7 +8,7 @@ const text_input = css`
   border: 3px solid ${theme.colour.black}};
   outline: 0;
   padding: ${theme.spacing.xs};
-  width: 70%;
+  width: 500px;
 
   &:focus {
     outline: 3px solid ${theme.colour.focus};
@@ -16,20 +16,20 @@ const text_input = css`
   }
 
   ${mediaQuery.medium(css`
+    width: 80%;
+  `)};
+
+  ${mediaQuery.small(css`
     width: 100%;
   `)};
 `
 const text_area = css`
   ${text_input};
 
-  height: 10em;
+  height: 8em;
   resize: none;
-  width: 80%;
+  width: 600px;
   margin-top: ${theme.spacing.sm};
-
-  ${mediaQuery.medium(css`
-    width: 100%;
-  `)};
 `
 const TextField = ({
   name,

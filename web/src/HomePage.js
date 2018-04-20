@@ -1,7 +1,7 @@
 import React from 'react'
 import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
-import { theme, H2, TextLink } from './styles'
+import { theme, mediaQuery, TextLink } from './styles'
 import Layout from './Layout'
 import { TextFieldAdapter, TextAreaAdapter } from './forms/TextInput'
 import FieldSet from './forms/FieldSet'
@@ -15,17 +15,36 @@ const contentClass = css`
       margin-bottom: ${theme.spacing.xl};
     }
 
-    legend > h2 {
-      margin-top: 0 !important;
-    }
+    > p {
+      margin-bottom: ${theme.spacing.sm};
 
-    h2 + p,
-    legend + p {
-      margin-top: 0;
+      ${mediaQuery.small(css`
+        margin-bottom: ${theme.spacing.md};
+      `)};
     }
 
     .form-error {
       color: red;
+    }
+
+    label,
+    legend {
+      display: block;
+      margin-bottom: ${theme.spacing.sm};
+
+      header,
+      > span {
+        margin-bottom: ${theme.spacing.xxs};
+      }
+
+      header {
+        font-family: ${theme.weight.b};
+        font-size: ${theme.font.lg};
+      }
+
+      > span {
+        display: block;
+      }
     }
   }
 `
@@ -69,9 +88,9 @@ const validationField = ({ touched, errors, attr }) => {
   /* eslint-disable security/detect-object-injection */
   if (touched[attr] && errors[attr]) {
     return (
-      <p className={`form-error ${attr}-error`}>
+      <span className={`form-error ${attr}-error`}>
         <strong>{errors[attr]}</strong>
-      </p>
+      </span>
     )
   }
   /* eslint-enable security/detect-object-injection */
@@ -107,21 +126,19 @@ class HomePage extends React.Component {
                   component={TextFieldAdapter}
                   name="fullName"
                   id="fullName"
-                  labelledby="fullName-label fullName-details fullName-error"
                 >
-                  <H2>
-                    <label htmlFor="fullName" id="fullName-label">
+                  <label htmlFor="fullName" id="fullName-label">
+                    <header>
                       <Trans>Full name</Trans>
-                    </label>
-                  </H2>
-
-                  <p id="fullName-details">
-                    <Trans>
-                      This is the full name you used on your citizenship
-                      application.
-                    </Trans>
-                  </p>
-                  {validationField({ touched, errors, attr: 'fullName' })}
+                    </header>
+                    {validationField({ touched, errors, attr: 'fullName' })}
+                    <span id="fullName-details">
+                      <Trans>
+                        This is the full name you used on your citizenship
+                        application.
+                      </Trans>
+                    </span>
+                  </label>
                 </Field>
               </div>
               <div>
@@ -131,34 +148,34 @@ class HomePage extends React.Component {
                   id="uciNumber"
                   labelledby="uciNumber-label uciNumber-details uciNumber-error"
                 >
-                  <H2>
-                    <label htmlFor="uciNumber" id="uciNumber-label">
-                      <Trans>Paper file number</Trans>
-                    </label>{' '}
-                    (123456)
-                  </H2>
-                  <p id="uciNumber-details">
-                    <Trans>
-                      This number is at the top of the email we sent you
-                    </Trans>
-                  </p>
-                  {validationField({ touched, errors, attr: 'uciNumber' })}
+                  <label htmlFor="uciNumber" id="uciNumber-label">
+                    <header>
+                      <Trans>Paper file number</Trans> (123456)
+                    </header>
+                    {validationField({ touched, errors, attr: 'uciNumber' })}
+                    <span id="uciNumber-details">
+                      <Trans>
+                        This number is at the top of the email we sent you.
+                      </Trans>
+                    </span>
+                  </label>
                 </Field>
               </div>
               <div>
                 <FieldSet legendHidden={false}>
                   <legend>
-                    <H2>
+                    <header>
                       <Trans>Reason for rescheduling</Trans>
-                    </H2>
+                    </header>
+                    <span id="reason-details">
+                      <Trans>If you’re not sure if you can reschedule,</Trans>{' '}
+                      <TextLink href="#">
+                        <Trans>read the guidelines for rescheduling</Trans>
+                      </TextLink>.
+                    </span>
+                    {validationField({ touched, errors, attr: 'reason' })}
                   </legend>
-                  <p id="reason-details">
-                    <Trans>If you’re not sure if you can reschedule,</Trans>{' '}
-                    <TextLink href="#">
-                      <Trans>read the guidelines for rescheduling</Trans>
-                    </TextLink>.
-                  </p>
-                  {validationField({ touched, errors, attr: 'reason' })}
+
                   <Field
                     type="radio"
                     component={RadioAdapter}
@@ -202,24 +219,24 @@ class HomePage extends React.Component {
                 </FieldSet>
               </div>
               <div>
-                {validationField({ touched, errors, attr: 'explanation' })}
                 <Field
                   name="explanation"
                   id="explanation"
                   component={TextAreaAdapter}
                   aria-labelledby="explanation-label explanation-error"
                 >
-                  <H2>
-                    <label
-                      className="explanation-header"
-                      htmlFor="explanation"
-                      id="explanation-label"
-                    >
+                  <label
+                    className="explanation-header"
+                    htmlFor="explanation"
+                    id="explanation-label"
+                  >
+                    <header>
                       <Trans>
                         Briefly tell us why you can’t attend your test
                       </Trans>
-                    </label>
-                  </H2>
+                    </header>
+                    {validationField({ touched, errors, attr: 'explanation' })}
+                  </label>
                 </Field>
               </div>
               {/*
