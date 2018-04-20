@@ -33,7 +33,7 @@ const moreInfo = css`
   padding-bottom: 0rem;
 `
 
-class FourOhFourPage extends React.Component {
+class RegistrationPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass}>
@@ -86,4 +86,4 @@ class FourOhFourPage extends React.Component {
   }
 }
 
-export default FourOhFourPage
+export default RegistrationPage
