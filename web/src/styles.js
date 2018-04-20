@@ -219,27 +219,17 @@ export const mediaQuery = Object.keys(breakpoints).reduce(
 export const H1 = styled.h1`
   font-size: ${theme.font.xxl};
   font-family: ${theme.weight.b};
-  ${mediaQuery.medium(css`
-    font-size: ${theme.font.lg2};
-  `)};
 `
 
 export const H2 = styled.h2`
-  font-size: ${theme.font.xl};
-  font-family: ${theme.weight.b};
+  font-size: ${theme.font.lg};
+  font-family: ${theme.weight.s};
   margin-bottom: 0em;
-  ${mediaQuery.medium(css`
-    font-size: ${theme.font.lg};
-  `)};
 `
 
 export const H3 = styled.h3`
-  font-size: ${theme.font.lg2};
-  font-family: ${theme.weight.b};
-  margin-bottom: 0.2rem;
-  ${mediaQuery.medium(css`
-    font-size: ${theme.font.lg};
-  `)};
+  font-size: ${theme.font.lg};
+  font-family: ${theme.weight.s};
 `
 
 export const Content = styled.section`
@@ -263,17 +253,6 @@ export const Calendar = styled.div`
   background: ${theme.colour.grayLight};
 `
 
-export const Circle = styled.div`
-  width: 0.2em;
-  height: 0.2em;
-  border-radius: 50px;
-  font-size: 20px;
-  color: #fff;
-  line-height: 100px;
-  text-align: center;
-  background: #000;
-`
-
 export const TextLink = styled.a`
   text-decoration: underline;
   color: ${theme.colour.black};
@@ -295,6 +274,10 @@ export const CalReminder = styled.div`
   padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
 `
 
+export const TopContainer = styled.div`
+  margin-bottom: ${theme.spacing.lg};
+`
+
 export const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -302,10 +285,6 @@ export const BottomContainer = styled.div`
     text-align: center;
     flex-direction: column;
   `)};
-`
-
-export const TopContainer = styled.div`
-  margin-bottom: ${theme.spacing.lg};
 `
 
 export const Cancel = styled.div`
