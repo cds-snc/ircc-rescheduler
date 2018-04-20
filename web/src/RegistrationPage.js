@@ -96,7 +96,7 @@ const validationField = ({ touched, errors, attr }) => {
   /* eslint-enable security/detect-object-injection */
 }
 
-class HomePage extends React.Component {
+class RegistrationPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass}>
@@ -271,4 +271,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage
+export default RegistrationPage
