@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme'
-import HomePage from '../HomePage'
+import RegistrationPage from '../RegistrationPage'
 import React from 'react'
 import { ApolloProvider } from 'react-apollo'
 import { ApolloLink } from 'apollo-link'
@@ -29,13 +29,13 @@ const client = new ApolloClient({
   cache,
 })
 
-describe('<HomePage />', () => {
+describe('<RegistrationPage />', () => {
   it('renders', () => {
     const wrapper = shallow(
       <ApolloProvider client={client}>
-        <HomePage />
+        <RegistrationPage />
       </ApolloProvider>,
     )
-    expect(wrapper.is('HomePage')).toBeTruthy()
+    expect(wrapper.is('RegistrationPage')).toBeTruthy()
   })
 })
