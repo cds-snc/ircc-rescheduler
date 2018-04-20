@@ -31,7 +31,6 @@ export const incrementColor = (col, amt) => {
 }
 
 export const fontFace = css`
-
   @font-face {
     font-family: 'hk_groteskbold';
     src: url('/fonts/hkgrotesk-bold-webfont.woff2') format('woff2'),
@@ -176,24 +175,25 @@ export const theme = {
     bi: 'hk_grotesksemibold_italic, sans serif',
   },
   font: {
-    xxs: '0.2em',
-    xs: '0.5em',
-    sm: '0.75em',
-    base: '1em',
-    md: '1em',
-    lg: '1.2em',
-    lg2: '2em',
-    xl: '3em',
+    xs: '0.694rem',
+    sm: '0.833rem',
+    base: '1rem',
+    md: '1rem',
+    lg: '1.2rem',
+    xl: '1.44rem',
+    xxl: '1.728rem',
+    xxxl: '1.602rem',
   },
   spacing: {
-    md: '1.0em',
-    sm: '0.5em',
-    xs: '0.33em',
-    xxs: '0.17em',
-    lg: '1.3em',
-    xl: '2em',
-    xxl: '3em',
-    xxxl: '4em',
+    xxs: '0.17rem',
+    xs: '0.33rem',
+    sm: '0.5rem',
+    md: '1.0rem',
+    base: '1.0rem',
+    lg: '1.3rem',
+    xl: '2rem',
+    xxl: '3rem',
+    xxxl: '4.5rem',
   },
 }
 
@@ -217,26 +217,30 @@ export const mediaQuery = Object.keys(breakpoints).reduce(
 /* eslint-enable security/detect-object-injection */
 
 export const H1 = styled.h1`
-  font-size: ${theme.font.lg2};
+  font-size: ${theme.font.xxl};
   font-family: ${theme.weight.b};
 `
 
 export const H2 = styled.h2`
   font-size: ${theme.font.lg};
-  font-family: ${theme.weight.b};
+  font-family: ${theme.weight.s};
   margin-bottom: 0em;
 `
 
 export const H3 = styled.h3`
   font-size: ${theme.font.md};
-  font-family: ${theme.weight.b};
+  font-family: ${theme.weight.s};
 `
 
 export const Content = styled.section`
-  padding: ${theme.spacing.xl} 35% ${theme.spacing.xxxl} ${theme.spacing.xxxl};
+  padding: ${theme.spacing.xl} ${theme.spacing.xxxl} ${theme.spacing.xxl}
+    ${theme.spacing.xxxl};
   width: 100%;
   background-color: ${theme.colour.greyVeryLight};
   box-sizing: border-box;
+  ${mediaQuery.small(css`
+    padding: ${theme.spacing.xl};
+  `)};
 `
 
 export const Bold = styled.strong`
@@ -249,17 +253,6 @@ export const Calendar = styled.div`
   background: ${theme.colour.grayLight};
 `
 
-export const Circle = styled.div`
-  width: 0.2em;
-  height: 0.2em;
-  border-radius: 50px;
-  font-size: 20px;
-  color: #fff;
-  line-height: 100px;
-  text-align: center;
-  background: #000;
-`
-
 export const TextLink = styled.a`
   text-decoration: underline;
   color: ${theme.colour.black};
@@ -270,6 +263,9 @@ export const CalHeader = styled.div`
   font-size: ${theme.font.lg};
   font-family: ${theme.weight.s};
   padding-bottom: ${theme.spacing.xl};
+  ${mediaQuery.medium(css`
+    width: 100%;
+  `)};
 `
 
 export const CalReminder = styled.div`
