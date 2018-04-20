@@ -58,14 +58,14 @@ const validate = values => {
   if (!values.fullName) {
     errors.fullName = (
       <Trans>
-        You need to tell us your full name so we can confirm your identity.
+        You need to tell us your name so we know who is requesting a new appointment.
       </Trans>
     )
   }
   if (!values.uciNumber) {
     errors.uciNumber = (
       <Trans>
-        You need to tell us your paper file number so we can confirm your
+        You need to tell us your Paper File Number so we can confirm your
         identity.
       </Trans>
     )
@@ -208,7 +208,7 @@ class RegistrationPage extends React.Component {
                 >
                   <label htmlFor="uciNumber" id="uciNumber-label">
                     <header>
-                      <Trans>Paper file number</Trans> (123456)
+                      <Trans>Paper File Number</Trans>
                     </header>
                     {validationField({ touched, errors, attr: 'uciNumber' })}
                     <span id="uciNumber-details">
@@ -290,9 +290,12 @@ class RegistrationPage extends React.Component {
                   >
                     <header>
                       <Trans>
-                        Briefly tell us why you can’t attend your test
+                        Tell us why you can’t attend your test
                       </Trans>
                     </header>
+                    <span id="explanation-details">
+                      <Trans>Provide enough detail so that IRCC staff can understand your situation.</Trans>
+                    </span>
                     {validationField({ touched, errors, attr: 'explanation' })}
                   </label>
                 </Field>
@@ -303,14 +306,7 @@ class RegistrationPage extends React.Component {
                       - form has been submitted (and is waiting)
                       - the number of values entries is less than the total number of fields
                     */}
-              <p>
-                <strong>
-                  <Trans>
-                    By submitting this request you are forfeiting your original
-                    test date.
-                  </Trans>
-                </strong>
-              </p>
+
               <Button
                 disabled={
                   pristine ||
