@@ -10,3 +10,13 @@ export const CHANGE_LANGUAGE_MUTATION = gql`
     switchLanguage @client
   }
 `
+export const GET_USER_DATA = gql`
+  query getUserData {
+    userRegistrationData @client {
+      fullName
+      uciNumber
+      reason
+      explanation
+    }
+  }
+`

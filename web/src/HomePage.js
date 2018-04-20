@@ -12,6 +12,7 @@ import { Form, Field } from 'react-final-form'
 import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import LinkStateDisplay from './LinkStateDisplay'
+import { GET_USER_DATA } from './queries'
 
 const contentClass = css`
   form {
@@ -82,9 +83,24 @@ const validationField = ({ touched, errors, attr }) => {
 }
 
 class HomePage extends React.Component {
+  state = { data: {} }
+
   constructor(props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  async componentDidMount() {
+    let userRegistrationData = {}
+    let client = this.props.client
+    let query = GET_USER_DATA
+    try {
+      ({ userRegistrationData } = client.readQuery({ query }))
+    } catch (err) {
+      console.log(err) // eslint-disable-line no-console
+    }
+    this.setState({ data: userRegistrationData })
+    console.log(userRegistrationData) // eslint-disable-line no-console
   }
 
   async onSubmit(values, event) {
@@ -112,6 +128,7 @@ class HomePage extends React.Component {
         <Form
           onSubmit={this.onSubmit}
           validate={validate}
+          initialValues={this.state.data}
           render={({
             handleSubmit,
             submitError,
