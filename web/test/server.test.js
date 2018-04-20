@@ -6,8 +6,14 @@ import request from 'supertest'
 import server from '../src/server'
 
 describe('Server Side Rendering', () => {
-  it('renders the register page by default', async () => {
+  it('renders the landing page by default', async () => {
     let response = await request(server).get('/')
+
+    expect(response.text).toMatch(/Use this service to notify IRCC/)
+  })
+
+  it('renders the register page by default', async () => {
+    let response = await request(server).get('/register')
 
     expect(response.text).toMatch(/Full name/)
   })
