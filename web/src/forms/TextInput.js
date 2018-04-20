@@ -9,6 +9,7 @@ const text_input = css`
   outline: 0;
   padding: ${theme.spacing.xs};
   width: 500px;
+  border-radius: 0;
 
   &:focus {
     outline: 3px solid ${theme.colour.focus};
