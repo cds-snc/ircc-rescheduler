@@ -83,7 +83,9 @@ const validationField = ({ touched, errors, attr }) => {
 }
 
 class HomePage extends React.Component {
-  state = { data: {} }
+  state = {
+    data: {},
+  }
 
   constructor(props) {
     super(props)
@@ -91,20 +93,40 @@ class HomePage extends React.Component {
   }
 
   async componentDidMount() {
+    /*initialize the form values */
+    await this.props.client.query({
+      query: gql`
+        {
+          userRegistrationData @client {
+            fullName
+            uciNumber
+            reason
+            explanation
+          }
+        }
+      `,
+    })
+    this.load()
+  }
+
+  load = async () => {
     let userRegistrationData = {}
-    let client = this.props.client
-    let query = GET_USER_DATA
     try {
-      ({ userRegistrationData } = client.readQuery({ query }))
+      ({ userRegistrationData } = this.props.client.readQuery({
+        query: GET_USER_DATA,
+      }))
+
+      this.setState({
+        data: userRegistrationData,
+      })
     } catch (err) {
       console.log(err) // eslint-disable-line no-console
     }
-    this.setState({ data: userRegistrationData })
-    console.log(userRegistrationData) // eslint-disable-line no-console
   }
 
   async onSubmit(values, event) {
     const { client } = this.props
+    /*Update the cache with the form values */
     try {
       await client.mutate({
         mutation: gql`
