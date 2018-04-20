@@ -52,8 +52,8 @@ const message = css`
 
 const AlphaBanner = ({ children }) => (
   <div className={banner}>
-    <div className={badge}>Alpha</div>
-    <div className={message}>{children}</div>
+    <div className={`alphaBanner--badge ${badge}`}>Alpha</div>
+    <div className={`alphaBanner--message ${message}`}>{children}</div>
   </div>
 )
 AlphaBanner.propTypes = {
