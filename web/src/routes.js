@@ -34,13 +34,6 @@ export default [
     }),
   },
   {
-    path: '/graphql',
-    exact: true,
-    component: asyncComponent({
-      loader: () => import('./GraphQLPage'),
-    }),
-  },
-  {
     path: '*',
     exact: true,
     component: asyncComponent({
