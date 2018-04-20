@@ -6,13 +6,11 @@ import { theme, mediaQuery } from './styles'
 
 const Circle = styled.span`
   font-size: 0.5em;
-  padding-left: ${theme.spacing.lg};
-  padding-right: ${theme.spacing.lg};
   position: relative;
   bottom: 2px;
 
   ${mediaQuery.medium(css`
-    padding-top: ${theme.spacing.xxl};
+    display: none;
   `)};
 `
 
@@ -23,50 +21,42 @@ const footer = css`
   justify-content: space-between;
   flex-direction: row-reverse;
   position: relative;
+  font-size: ${theme.font.md};
 
   ${mediaQuery.medium(css`
-    font-size: ${theme.font.md};
-    display: flex;
     flex-direction: column;
     align-items: center;
   `)};
 `
 
-const Link = styled.a`
-  color: ${theme.colour.black};
-  margin-top: ${theme.spacing.lg};
-  font-size: ${theme.font.md};
-
-  ${mediaQuery.small(css`
-    font-size: ${theme.font.sm};
-  `)};
-`
-
 const bottomLinks = css`
-  padding-top: 0.8rem;
+  margin-top: ${theme.spacing.md};
+  font-size: ${theme.font.md};
+  display: inline-block;
+
+  > * {
+    margin-right: ${theme.spacing.md};
+
+    ${mediaQuery.small(css`
+      margin-right: 0;
+      margin-bottom: ${theme.spacing.xs};
+    `)};
+  }
+
+  a {
+    color: ${theme.colour.black};
+  }
 
   ${mediaQuery.medium(css`
-    padding-top: ${theme.spacing.xl};
-    font-size: 0.2rem;
     display: flex;
+    margin-top: ${theme.spacing.xl};
     flex-direction: row;
     align-items: center;
   `)};
 
   ${mediaQuery.small(css`
-    padding-top: ${theme.spacing.lg};
-    font-size: 0rem;
-    display: flex;
+    margin-top: ${theme.spacing.lg};
     flex-direction: column;
-    align-items: center;
-  `)};
-
-  ${mediaQuery.xs(css`
-    padding-top: ${theme.spacing.lg};
-    font-size: 0rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   `)};
 `
 
@@ -91,17 +81,13 @@ const Footer = ({ topBarBackground }) => (
       />
 
       <div className={bottomLinks}>
-        <Link href="https://www.canada.ca/en/transparency/privacy.html">
-          Privacy
-        </Link>
-
-        <Circle> &#9679; </Circle>
-
-        <Link href="#">Terms and Conditions</Link>
-
-        <Circle> &#9679; </Circle>
-
-        <Link href="#">Contact</Link>
+        <a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a>
+        <Circle>&#9679;</Circle>
+        <a href="mailto:cds-snc@tbs-sct.gc.ca">Contact</a>
+        <Circle>&#9679;</Circle>
+        <a href="https://digital.canada.ca/legal/terms/">
+          Terms and Conditions
+        </a>
       </div>
     </footer>
   </section>
