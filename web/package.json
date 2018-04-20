@@ -44,9 +44,11 @@
     "unfetch": "^3.0.0"
   },
   "devDependencies": {
+    "@types/graphql": "^0.13.0",
     "@types/react": "^16.3.5",
     "@types/react-dom": "^16.0.4",
     "babel-plugin-emotion": "^9.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-lingui-react": "^1.0.13",
@@ -71,9 +73,11 @@
   "jest": {
     "verbose": true,
     "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/razzle/config/jest/babelTransform.js",
+      "^.+\\.(js|jsx)$":
+        "<rootDir>/node_modules/razzle/config/jest/babelTransform.js",
       "^.+\\.css$": "<rootDir>/node_modules/razzle/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
+      "^(?!.*\\.(js|jsx|css|json)$)":
+        "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/test/setupTests.js",
     "testMatch": [
@@ -81,19 +85,10 @@
       "<rootDir>/src/**/?(*.)(spec|test).js",
       "<rootDir>/test/**/?(*.)(spec|test).js"
     ],
-    "moduleFileExtensions": [
-      "jsx",
-      "js",
-      "json"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ]
+    "moduleFileExtensions": ["jsx", "js", "json"],
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"]
   },
   "lingui": {
-    "srcPathIgnorePatterns": [
-      "/node_modules/",
-      "build"
-    ]
+    "srcPathIgnorePatterns": ["/node_modules/", "build"]
   }
 }
