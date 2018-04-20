@@ -7,9 +7,16 @@ export default [
     path: '/',
     exact: true,
     component: asyncComponent({
-      loader: () => import('./HomePage'),
+      loader: () => import('./LandingPage'),
       // eslint-disable-next-line react/display-name
       Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
+    }),
+  },
+  {
+    path: '/register',
+    exact: true,
+    component: asyncComponent({
+      loader: () => import('./RegistrationPage'),
     }),
   },
   {
