@@ -16,7 +16,7 @@ export default [
     path: '/register',
     exact: true,
     component: asyncComponent({
-      loader: () => import('./HomePage'),
+      loader: () => import('./RegistrationPage'),
     }),
   },
   {
