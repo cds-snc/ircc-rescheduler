@@ -18,9 +18,11 @@ class CalendarPage extends Component {
     return (
       <Layout>
         <TopContainer>
-          <NavLink to="/">
-            <Trans>← Go Back</Trans>
-          </NavLink>
+          <nav>
+            <NavLink to="/">
+              <Trans>← Go Back</Trans>
+            </NavLink>
+          </nav>
         </TopContainer>
 
         <CalHeader>
