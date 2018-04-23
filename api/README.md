@@ -10,7 +10,7 @@ This project expects two environmental variables to be defined, and can be run
 with the following command:
 
 ```sh
-SENDGRID_API_KEY=abcd IRCC_RECEIVING_ADDRESS=ircc@example.com yarn start
+SENDING_ADDRESS="from@example.com" IRCC_RECEIVING_ADDRESS="to@example.com" AWS_SECRET_ACCESS_KEY="secret" AWS_ACCESS_KEY_ID="id" AWS_REGION=xxxxxxxxx yarn start
 ```
 
 When running, it listens on port 3001 and currently only supports a single

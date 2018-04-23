@@ -4,6 +4,7 @@ const {
   GraphQLString,
   GraphQLNonNull,
 } = require('graphql')
+const { GraphQLError } = require('graphql/error')
 
 const createSchema = t => {
   const MailResponse = require('./types/MailResponse').default(t)
@@ -19,7 +20,6 @@ const createSchema = t => {
     },
   })
 
-  // See examples/payment.xml
   var mutation = new GraphQLObjectType({
     name: 'Mutation',
     fields: () => ({
@@ -36,24 +36,43 @@ const createSchema = t => {
           },
         },
         type: MailResponse,
-        resolve: async (_, { uci, reason }, context) => {
-          const msg = {
-            to: context.receivingAddress,
-            from: 'test@example.com', // TODO: What to use here? sheduler@? users email?
-            subject: 'Declined', // TODO: Choose something that filters nicely.
-            text: `User ${uci}, declined with this reason: ${reason}`,
-            html: `<strong>User ${uci}, declined with this reason: ${reason}</strong>`,
+        resolve: async (
+          _,
+          { uci, reason },
+          { mailer, receivingAddress, sendingAddress },
+        ) => {
+          let params = {
+            Destination: {
+              ToAddresses: [receivingAddress],
+            },
+            Message: {
+              Body: {
+                Html: {
+                  Charset: 'UTF-8',
+                  Data: `<strong>User ${uci}, declined with this reason: ${
+                    reason
+                  }</strong>`,
+                },
+                Text: {
+                  Charset: 'UTF-8',
+                  Data: `User ${uci}, declined with this reason: ${reason}`,
+                },
+              },
+              Subject: {
+                Charset: 'UTF-8',
+                Data: 'Test email',
+              },
+            },
+            Source: sendingAddress,
+            ReplyToAddresses: [sendingAddress],
           }
-          let [{ statusCode, headers }, _body] = await context.mailer.send(msg)
-          if (statusCode === 202) {
-            return {
-              statusCode,
-              messageID: headers['x-message-id'],
-            }
-          } else {
-            throw new Error(
-              'We were not able to process this request. Please try again later.',
-            )
+
+          let response
+          try {
+            response = await mailer.sendEmail(params).promise()
+            return response
+          } catch (e) {
+            return new GraphQLError(e.message)
           }
         },
       },
