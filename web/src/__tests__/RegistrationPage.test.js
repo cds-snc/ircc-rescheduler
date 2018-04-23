@@ -15,12 +15,32 @@ const stateLink = withClientState({
   cache,
   defaults: {
     language: 'en',
+    userRegistrationData: {
+      __typename: 'UserData',
+      fullName: '',
+      uciNumber: '',
+      reason: '',
+      explanation: '',
+    },
   },
   typeDefs: `
+    type UserData {
+      fullName: String
+      uciNumber: String
+      reason: String
+      explanation: String
+    }
+
+    type Mutation {
+      switchLanguage: String
+      registerUser(data: UserData)
+    }
+
     type Query {
       language: String
+      userRegistrationData: UserData
     }
-`,
+  `,
 })
 
 const client = new ApolloClient({
@@ -36,6 +56,6 @@ describe('<RegistrationPage />', () => {
         <RegistrationPage />
       </ApolloProvider>,
     )
-    expect(wrapper.is('RegistrationPage')).toBeTruthy()
+    expect(wrapper.is('withApollo(RegistrationPage)')).toBeTruthy()
   })
 })

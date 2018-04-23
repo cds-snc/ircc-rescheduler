@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
 import { theme, mediaQuery, TextLink } from './styles'
@@ -8,6 +9,9 @@ import FieldSet from './forms/FieldSet'
 import { RadioAdapter } from './forms/MultipleChoice'
 import Button from './forms/Button'
 import { Form, Field } from 'react-final-form'
+import { withApollo } from 'react-apollo'
+import gql from 'graphql-tag'
+import { GET_USER_DATA } from './queries'
 
 const contentClass = css`
   form {
@@ -97,12 +101,73 @@ const validationField = ({ touched, errors, attr }) => {
 }
 
 class RegistrationPage extends React.Component {
+  state = {
+    data: {},
+  }
+
+  constructor(props) {
+    super(props)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  async componentDidMount() {
+    /*initialize the form values */
+    await this.props.client.query({
+      query: gql`
+        {
+          userRegistrationData @client {
+            fullName
+            uciNumber
+            reason
+            explanation
+          }
+        }
+      `,
+    })
+    this.load()
+  }
+
+  load = async () => {
+    let userRegistrationData = {}
+    try {
+      ({ userRegistrationData } = this.props.client.readQuery({
+        query: GET_USER_DATA,
+      }))
+
+      this.setState({
+        data: userRegistrationData,
+      })
+    } catch (err) {
+      console.log(err) // eslint-disable-line no-console
+    }
+  }
+
+  async onSubmit(values, event) {
+    const { client } = this.props
+    /*Update the cache with the form values */
+    try {
+      await client.mutate({
+        mutation: gql`
+          mutation($formValues: UserData) {
+            registerUser(data: $formValues) @client
+          }
+        `,
+        variables: { formValues: values },
+      })
+    } catch (err) {
+      //should be a logger
+      console.log(err) // eslint-disable-line no-console
+    }
+    await this.props.history.push('/calendar')
+  }
+
   render() {
     return (
       <Layout contentClass={contentClass}>
         <Form
-          onSubmit={async values => {}}
+          onSubmit={this.onSubmit}
           validate={validate}
+          initialValues={this.state.data}
           render={({
             handleSubmit,
             submitError,
@@ -112,14 +177,7 @@ class RegistrationPage extends React.Component {
             errors,
             touched,
           }) => (
-            <form
-              onSubmit={event => {
-                handleSubmit(event).then(() => {
-                  // eslint-disable-next-line react/prop-types
-                  this.props.history.push('/calendar')
-                })
-              }}
-            >
+            <form onSubmit={handleSubmit}>
               {submitError && <div className="error">{submitError}</div>}
               <div>
                 <Field
@@ -270,5 +328,10 @@ class RegistrationPage extends React.Component {
     )
   }
 }
+RegistrationPage.propTypes = {
+  client: PropTypes.object.isRequired,
+  history: PropTypes.any,
+  push: PropTypes.any,
+}
 
-export default RegistrationPage
+export default withApollo(RegistrationPage)

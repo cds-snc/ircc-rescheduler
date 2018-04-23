@@ -12,5 +12,5 @@
       }
     ]
   ],
-  "plugins": ["emotion"]
+  "plugins": ["emotion","transform-class-properties"]
 }
