@@ -1,17 +1,19 @@
-const { GraphQLObjectType, GraphQLString, GraphQLInt } = require('graphql')
+const { GraphQLObjectType, GraphQLString } = require('graphql')
 
 const createMailResponse = t => {
   const MailResponse = new GraphQLObjectType({
     name: 'MailResponse',
     description: t('types.receipt.description'),
     fields: () => ({
-      messageID: {
+      requestId: {
         type: GraphQLString,
         description: t('types.mailResponse.messageid'),
+        resolve: root => root.ResponseMetadata.RequestId,
       },
-      statusCode: {
-        type: GraphQLInt,
+      messageId: {
+        type: GraphQLString,
         description: t('types.mailResponse.statusCode'),
+        resolve: root => root.MessageId,
       },
     }),
   })
