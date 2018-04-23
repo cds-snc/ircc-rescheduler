@@ -67,15 +67,15 @@ jobs:
   deploy_web:
     docker:
       - image: docker
-    working_directory: ~/repo/web
     steps:
       - checkout:
-          path: ~/repo
+          path: ~/repo/web
       - setup_remote_docker
       - run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - run: docker build  -t "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}" -t "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:latest" .
       - run: docker push "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}"
       - run: docker push "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:latest"
+    working_directory: ~/repo
 
   deploy_api:
     docker:

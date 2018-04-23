@@ -198,6 +198,7 @@ const MultipleChoice = ({
   onBlur,
   onChange,
   onFocus,
+  checked,
 }) => (
   <div className={className}>
     <input
@@ -208,6 +209,7 @@ const MultipleChoice = ({
       onBlur={onBlur}
       onChange={onChange}
       onFocus={onFocus}
+      checked={checked}
     />
     <label htmlFor={id} className={govuk_label_pseudo_elements}>
       {label}
@@ -227,6 +229,7 @@ MultipleChoice.propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
+  checked: PropTypes.bool,
 }
 
 const adapterPropTypes = {
