@@ -103,6 +103,7 @@ workflows:
               only:
                 - master
                 - add-deploy
+                - new-deploy
       - api
       - deploy_api:
           requires:
@@ -112,3 +113,4 @@ workflows:
               only:
                 - master
                 - add-deploy
+                - new-deploy
