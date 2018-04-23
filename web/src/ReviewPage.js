@@ -67,6 +67,7 @@ const AvailabiltyColumn = styled.div`
 
   ${mediaQuery.small(css`
     padding-left: 0rem;
+    width: 100%;
   `)};
 `
 
