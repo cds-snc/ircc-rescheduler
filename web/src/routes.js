@@ -27,6 +27,13 @@ export default [
     }),
   },
   {
+    path: '/review',
+    exact: true,
+    component: asyncComponent({
+      loader: () => import('./ReviewPage'),
+    }),
+  },
+  {
     path: '/confirmation',
     exact: true,
     component: asyncComponent({

@@ -10,6 +10,10 @@ const contentClass = css`
   p {
     padding-bottom: ${theme.spacing.lg};
   }
+
+  li {
+    padding-bottom: ${theme.spacing.sm};
+  }
 `
 
 const list = css`
@@ -29,11 +33,11 @@ const landingSection = css`
 `
 
 const moreInfo = css`
-  margin-left: ${theme.spacing.lg};
-  padding-bottom: 0rem;
+  font-family: ${theme.weight.l};
+  font-size: ${theme.font.md};
 `
 
-class RegistrationPage extends React.Component {
+class LandingPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass}>
@@ -48,22 +52,26 @@ class RegistrationPage extends React.Component {
           <H2>You will need:</H2>
           <ul className={list}>
             <li>
-              your paper file number (found at the top of your test notice
-              email)
+              your paper file number<br />
+              <span className={moreInfo}>
+                This is found at the top of your test notice email.
+              </span>
             </li>
             <li>your full name, as it appears on your application</li>
-            <li>to explain your reason for rescheduling</li>
+            <li>
+              to explain your reason for rescheduling
+              <p className={moreInfo}>
+                for more information on rescheduling,{' '}
+                <TextLink href="#">read the guidelines</TextLink>.
+              </p>
+            </li>
           </ul>
-          <p className={moreInfo}>
-            for more information on rescheduling,{' '}
-            <TextLink href="#">read the guidelines</TextLink>.
-          </p>
         </section>
 
         <section className={landingSection}>
           <H2>
             After verifying your personal information, you will be able to
-            select four (4) alternative days when you are able to take the
+            select three (3) alternative days when you are able to take the
             Citizenship test.
           </H2>
         </section>
@@ -71,8 +79,9 @@ class RegistrationPage extends React.Component {
         <section className={landingSection}>
           <H3>
             Important: by sending this request to reschedule, you will be
-            cancelling your current test. After you complete this process, wait
-            for IRCC to contact you with a new test date.
+            cancelling your current test. After you complete this process, it
+            could take up to 6 weeks for IRCC to contact you with a new test
+            date.
           </H3>
         </section>
 
@@ -86,4 +95,4 @@ class RegistrationPage extends React.Component {
   }
 }
 
-export default RegistrationPage
+export default LandingPage

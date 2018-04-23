@@ -1,41 +1,16 @@
 import React, { Component } from 'react'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
-import styled, { css } from 'react-emotion'
-import { theme, mediaQuery, CalHeader, CalReminder, Bold } from './styles'
+import {
+  CalHeader,
+  CalReminder,
+  Bold,
+  BottomContainer,
+  TopContainer,
+} from './styles'
 import Layout from './Layout'
 import Button from './forms/Button'
 import Calendar from './Calendar'
-
-const TopContainer = styled.div`
-  margin-bottom: ${theme.spacing.lg};
-`
-
-const BottomContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-
-  > div {
-    margin-left: ${theme.spacing.xxxl};
-  }
-
-  ${mediaQuery.xs(css`
-    text-align: center;
-    flex-direction: column;
-
-    > a,
-    > div {
-      width: 100%;
-    }
-
-    > div {
-      margin-left: 0;
-      margin-top: ${theme.spacing.xl};
-    }
-  `)};
-`
 
 class CalendarPage extends Component {
   render() {
@@ -63,7 +38,7 @@ class CalendarPage extends Component {
           </Trans>
         </CalReminder>
         <BottomContainer>
-          <NavLink to="/confirmation">
+          <NavLink to="/review">
             <Button>
               <Trans>Review →</Trans>
             </Button>
