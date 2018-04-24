@@ -41,10 +41,12 @@ describe('Mutations', () => {
           .post('/graphql')
           .set('Content-Type', 'application/graphql; charset=utf-8').send(`
             mutation {
-              decline(
-                uci: "111"
+              decline(input: {
+                fullName: "asdf"
+                explanation: "asdf"
+                paperFileNumber: "111"
                 reason: "because reasons"
-              ){
+              }){
                 messageId
 							}
             }
@@ -65,10 +67,12 @@ describe('Mutations', () => {
           .post('/graphql')
           .set('Content-Type', 'application/graphql; charset=utf-8').send(`
             mutation {
-              decline(
-                uci: "111"
+              decline(input: {
+                fullName: "asdf"
+                explanation: "asdf"
+                paperFileNumber: "111"
                 reason: "because reasons"
-              ){
+              }){
                 messageId
 							}
             }
@@ -88,10 +92,12 @@ describe('Mutations', () => {
         .post('/graphql')
         .set('Content-Type', 'application/graphql; charset=utf-8').send(`
             mutation {
-              decline(
-                uci: "111"
+              decline(input: {
+                fullName: "asdf"
+                explanation: "asdf"
+                paperFileNumber: "111"
                 reason: "because reasons"
-              ){
+              }){
                 requestId
 							}
             }

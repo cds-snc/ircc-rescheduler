@@ -8,6 +8,9 @@ module.exports.default = {
           mailerResponse: {
             description: `A response from IRCC.`,
           },
+          rescheduleForm: {
+            description: `An input representing the details needed to reschedule a language test.`,
+          },
         },
         mutation: {
           fields: {
