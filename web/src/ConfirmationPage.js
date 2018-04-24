@@ -6,7 +6,7 @@ import Layout from './Layout'
 
 const contentClass = css`
   h1 {
-    margin-bottom: 0;
+    margin-bottom: ${theme.spacing.xl};
   }
 
   p + h2 {
