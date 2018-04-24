@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from 'emotion'
-import { theme, H1, H2, VerticalSpace } from './styles'
+import { theme, H1, H2 } from './styles'
 import { Trans } from 'lingui-react'
 import Layout from './Layout'
 
@@ -26,7 +26,7 @@ class ConfirmationPage extends React.Component {
         <H1>
           <Trans>Thank you! Your request has been received.</Trans>
         </H1>
-        <VerticalSpace />
+
         <H2>
           <Trans>What happens next?</Trans>
         </H2>
