@@ -41,7 +41,7 @@ class ConfirmationPage extends React.Component {
         <H2>
           <Trans>If you have any questions, please contact:</Trans>
         </H2>
-        <p>vancouverIRCC@cic.gc.ca</p>
+        <p>paul.craig.is.awesome@gmail.com</p>
         <p>1-888-242-2100</p>
       </Layout>
     )
