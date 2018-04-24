@@ -22,7 +22,7 @@ const contentClass = css`
 
 const TableContainer = styled.div`
   width: 80%;
-  margin: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
+  margin: ${theme.spacing.lg} 0 ${theme.spacing.lg} 0;
 
   ${mediaQuery.medium(css`
     width: 100%;
@@ -32,42 +32,51 @@ const TableContainer = styled.div`
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
-
+  border-bottom: 1px dashed #a4a4a4;
+  padding-top: ${theme.spacing.md};
   ${mediaQuery.small(css`
     display: block;
   `)};
 `
 
-const Column = styled.div`
-  width: 33%;
+const Column1 = styled.div`
+  width: 25%;
 
   ${mediaQuery.small(css`
     width: 100%;
   `)};
 `
 
-const EditColumn = styled.div`
-  width: 2rem;
-  padding-bottom: ${theme.spacing.xs};
-`
-
-const ChangeColumn = styled.div`
-  width: 3.5rem;
-  padding-bottom: ${theme.spacing.xs};
-`
-
-const AvailabiltyColumn = styled.div`
-  width: 33%;
-  padding-left: 0.7rem;
+const Column2 = styled.div`
+  width: 45%;
 
   li {
-    padding-bottom: ${theme.spacing.md};
-    padding-left: 0rem;
+    padding-bottom: ${theme.spacing.xs};
+  }
+
+  li:last-of-type {
+    padding-bottom: ${theme.spacing.lg};
   }
 
   ${mediaQuery.small(css`
-    padding-left: 0rem;
     width: 100%;
+  `)};
+`
+
+const Column3 = styled.div`
+  width: 2rem;
+
+  ${mediaQuery.small(css`
+    padding-bottom: ${theme.spacing.md};
+  `)};
+`
+
+const change = css`
+  position: relative;
+  right: 1.2rem;
+
+  ${mediaQuery.small(css`
+    right: 0rem;
   `)};
 `
 
@@ -82,99 +91,120 @@ const Reminder = styled.section`
   `)};
 `
 
-const DottedLine = styled.hr`
-  border: 0 none;
-  border-top: 1px dashed #a4a4a4;
-  background: none;
-  height: 0;
-`
-
 class ReviewPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass}>
         <TopContainer>
-          <NavLink to="/">← Go Back</NavLink>
+          <NavLink to="/">
+            <Trans>← Go Back</Trans>
+          </NavLink>
         </TopContainer>
-        <H1>Review your request before sending it:</H1>
+        <H1>
+          <Trans>Review your request before sending it:</Trans>
+        </H1>
 
         <TableContainer>
           <Row>
-            <Column>
-              <H2>Full name:</H2>
-            </Column>
-            <Column>
-              <p>John Li</p>
-            </Column>
-            <EditColumn>
-              <TextLink href="#">Edit</TextLink>
-            </EditColumn>
-          </Row>
-
-          <DottedLine />
-
-          <Row>
-            <Column>
-              <H2>Paper file number:</H2>
-            </Column>
-            <Column>
-              <p>1234567</p>
-            </Column>
-            <EditColumn>
-              <TextLink href="#">Edit</TextLink>
-            </EditColumn>
-          </Row>
-
-          <DottedLine />
-
-          <Row>
-            <Column>
-              <H2>Reason:</H2>
-            </Column>
-            <Column>
-              <p>Travel</p>
-            </Column>
-            <EditColumn>
-              <TextLink href="#">Edit</TextLink>
-            </EditColumn>
-          </Row>
-
-          <DottedLine />
-
-          <Row>
-            <Column>
-              <H2>Explanation:</H2>
-            </Column>
-            <Column>
+            <Column1>
+              <H2>
+                <Trans>Full name:</Trans>
+              </H2>
+            </Column1>
+            <Column2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                <Trans>John Li</Trans>
               </p>
-            </Column>
-            <EditColumn>
-              <TextLink href="#">Edit</TextLink>
-            </EditColumn>
+            </Column2>
+            <Column3>
+              <TextLink href="#">
+                <Trans>Edit</Trans>
+              </TextLink>
+            </Column3>
           </Row>
-
-          <DottedLine />
 
           <Row>
-            <Column>
-              <H2>Availability:</H2>
-            </Column>
-            <AvailabiltyColumn>
-              <ul>
-                <li>Tuesday June 1, 2018</li>
-                <li>Friday June 11, 2018</li>
-                <li>Tuesday July 5, 2018</li>
-              </ul>
-            </AvailabiltyColumn>
-            <ChangeColumn>
-              <TextLink href="#">Change</TextLink>
-            </ChangeColumn>
+            <Column1>
+              <H2>
+                <Trans>Paper file number:</Trans>
+              </H2>
+            </Column1>
+            <Column2>
+              <p>
+                <Trans>1234567</Trans>
+              </p>
+            </Column2>
+            <Column3>
+              <TextLink href="#">
+                <Trans>Edit</Trans>
+              </TextLink>
+            </Column3>
           </Row>
 
-          <DottedLine />
+          <Row>
+            <Column1>
+              <H2>
+                <Trans>Reason:</Trans>
+              </H2>
+            </Column1>
+            <Column2>
+              <p>
+                <Trans>Travel</Trans>
+              </p>
+            </Column2>
+            <Column3>
+              <TextLink href="#">
+                <Trans>Edit</Trans>
+              </TextLink>
+            </Column3>
+          </Row>
+
+          <Row>
+            <Column1>
+              <H2>
+                <Trans>Explanation:</Trans>
+              </H2>
+            </Column1>
+            <Column2>
+              <p>
+                <Trans>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Trans>
+              </p>
+            </Column2>
+            <Column3>
+              <TextLink href="#">
+                <Trans>Edit</Trans>
+              </TextLink>
+            </Column3>
+          </Row>
+
+          <Row>
+            <Column1>
+              <H2>
+                <Trans>Availability:</Trans>
+              </H2>
+            </Column1>
+            <Column2>
+              <ul>
+                <li>
+                  <Trans>Tuesday June 1, 2018</Trans>
+                </li>
+                <li>
+                  <Trans>Friday June 11, 2018</Trans>
+                </li>
+                <li>
+                  <Trans>Tuesday July 5, 2018</Trans>
+                </li>
+              </ul>
+            </Column2>
+            <Column3>
+              <TextLink className={change} href="#">
+                <Trans>Change</Trans>
+              </TextLink>
+            </Column3>
+          </Row>
         </TableContainer>
         <Reminder>
           <Trans>
