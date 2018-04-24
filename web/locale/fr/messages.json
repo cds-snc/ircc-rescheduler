@@ -1,46 +1,19 @@
 {
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in June and July.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        21
-      ]
-    ]
-  },
-  "Within six weeks, your local Immigration office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        36
-      ]
-    ]
-  },
-  "read the guidelines for rescheduling": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        158
-      ]
-    ]
-  },
-  "Language Selection": {
-    "translation": "Sélection de la langue",
-    "origin": [
-      [
-        "src/LanguageSwitcher.js",
-        28
-      ]
-    ]
-  },
   "← Go Back": {
     "translation": "← Retour",
     "origin": [
       [
         "src/CalendarPage.js",
-        14
+        47
+      ]
+    ]
+  },
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in June and July.": {
+    "translation": "Les tests de citoyenneté sont programmés les <0>mardi</0> et <1>vendredi</1>. Utilisez le calendrier pour sélectionner <2> au moins quatre jours de disponibilité</2> en juin et en juillet.",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        53
       ]
     ]
   },
@@ -49,7 +22,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        29
+        61
       ]
     ]
   },
@@ -58,7 +31,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        35
+        68
       ]
     ]
   },
@@ -67,7 +40,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        39
+        74
       ]
     ]
   },
@@ -98,6 +71,15 @@
       ]
     ]
   },
+  "Within six weeks, your local Immigration office will send you a new appointment, or email you to ask for more information.": {
+    "translation": "Dans les six semaines, votre bureau d'immigration local vous enverra un nouveau rendez-vous ou vous enverra un courriel pour demander plus d'informations.",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        36
+      ]
+    ]
+  },
   "If you have any questions, please contact:": {
     "translation": "Si vous avez des questions, veuillez contacter:",
     "origin": [
@@ -107,21 +89,29 @@
       ]
     ]
   },
-  "You need to tell us your full name so we can confirm your identity.": {
-    "translation": "Vous devez nous indiquer votre nom complet afin que nous puissions confirmer votre identité.",
+  "You need to tell us your name so we know who is requesting a new appointment.": {
+    "translation": "Vous devez nous indiquer votre nom afin que nous sachions qui demande un nouveau rendez-vous.",
     "origin": [
       [
         "src/HomePage.js",
-        37
+        56
+      ],
+      [
+        "src/RegistrationPage.js",
+        60
       ]
     ]
   },
-  "You need to tell us your paper file number so we can confirm your identity.": {
+  "You need to tell us your Paper File Number so we can confirm your identity.": {
     "translation": "Vous devez nous indiquer votre numéro de dossier papier afin que nous puissions confirmer votre identité.",
     "origin": [
       [
         "src/HomePage.js",
-        44
+        63
+      ],
+      [
+        "src/RegistrationPage.js",
+        67
       ]
     ]
   },
@@ -130,7 +120,11 @@
     "origin": [
       [
         "src/HomePage.js",
-        52
+        71
+      ],
+      [
+        "src/RegistrationPage.js",
+        75
       ]
     ]
   },
@@ -139,7 +133,11 @@
     "origin": [
       [
         "src/HomePage.js",
-        60
+        79
+      ],
+      [
+        "src/RegistrationPage.js",
+        83
       ]
     ]
   },
@@ -148,7 +146,11 @@
     "origin": [
       [
         "src/HomePage.js",
-        114
+        132
+      ],
+      [
+        "src/RegistrationPage.js",
+        190
       ]
     ]
   },
@@ -157,25 +159,37 @@
     "origin": [
       [
         "src/HomePage.js",
-        119
-      ]
-    ]
-  },
-  "Paper file number": {
-    "translation": "Numéro de fichier papier",
-    "origin": [
-      [
-        "src/HomePage.js",
         136
+      ],
+      [
+        "src/RegistrationPage.js",
+        194
       ]
     ]
   },
-  "This number is at the top of the email we sent you": {
-    "translation": "Ce numéro est en haut de l'e-mail que nous vous avons envoyé",
+  "Paper File Number": {
+    "translation": "Numéro de Fichier Papier",
     "origin": [
       [
         "src/HomePage.js",
-        141
+        153
+      ],
+      [
+        "src/RegistrationPage.js",
+        211
+      ]
+    ]
+  },
+  "This number is at the top of the email we sent you.": {
+    "translation": "Ce numéro figure en haut de l'e-mail que nous vous avons envoyé.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        157
+      ],
+      [
+        "src/RegistrationPage.js",
+        215
       ]
     ]
   },
@@ -184,7 +198,11 @@
     "origin": [
       [
         "src/HomePage.js",
-        152
+        168
+      ],
+      [
+        "src/RegistrationPage.js",
+        226
       ]
     ]
   },
@@ -193,7 +211,24 @@
     "origin": [
       [
         "src/HomePage.js",
-        156
+        171
+      ],
+      [
+        "src/RegistrationPage.js",
+        229
+      ]
+    ]
+  },
+  "read the guidelines for rescheduling": {
+    "translation": "lire les lignes directrices pour le rééchelonnement",
+    "origin": [
+      [
+        "src/HomePage.js",
+        173
+      ],
+      [
+        "src/RegistrationPage.js",
+        231
       ]
     ]
   },
@@ -202,7 +237,11 @@
     "origin": [
       [
         "src/HomePage.js",
-        165
+        182
+      ],
+      [
+        "src/RegistrationPage.js",
+        240
       ]
     ]
   },
@@ -211,7 +250,11 @@
     "origin": [
       [
         "src/HomePage.js",
-        173
+        190
+      ],
+      [
+        "src/RegistrationPage.js",
+        248
       ]
     ]
   },
@@ -220,7 +263,11 @@
     "origin": [
       [
         "src/HomePage.js",
-        181
+        198
+      ],
+      [
+        "src/RegistrationPage.js",
+        256
       ]
     ]
   },
@@ -229,7 +276,11 @@
     "origin": [
       [
         "src/HomePage.js",
-        189
+        206
+      ],
+      [
+        "src/RegistrationPage.js",
+        264
       ]
     ]
   },
@@ -238,16 +289,37 @@
     "origin": [
       [
         "src/HomePage.js",
-        197
+        214
+      ],
+      [
+        "src/RegistrationPage.js",
+        272
       ]
     ]
   },
-  "Briefly tell us why you can’t attend your test": {
-    "translation": "Dites-nous brièvement pourquoi vous ne pouvez pas assister à votre test",
+  "Tell us why you can’t attend your test": {
+    "translation": "Dites-nous pourquoi vous ne pouvez pas assister à votre test",
     "origin": [
       [
         "src/HomePage.js",
-        218
+        234
+      ],
+      [
+        "src/RegistrationPage.js",
+        292
+      ]
+    ]
+  },
+  "Provide enough detail so that IRCC staff can understand your situation.": {
+    "translation": "Fournissez suffisamment de détails pour que le personnel d'IRCC puisse comprendre votre situation.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        239
+      ],
+      [
+        "src/RegistrationPage.js",
+        297
       ]
     ]
   },
@@ -256,7 +328,29 @@
     "origin": [
       [
         "src/HomePage.js",
-        245
+        260
+      ],
+      [
+        "src/RegistrationPage.js",
+        318
+      ]
+    ]
+  },
+  "Start Now →": {
+    "translation": "Commencez maintenant →",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        81
+      ]
+    ]
+  },
+  "Language Selection": {
+    "translation": "Sélection de la langue",
+    "origin": [
+      [
+        "src/LanguageSwitcher.js",
+        22
       ]
     ]
   },
@@ -265,7 +359,7 @@
     "origin": [
       [
         "src/Layout.js",
-        31
+        56
       ]
     ]
   },
@@ -274,98 +368,8 @@
     "origin": [
       [
         "src/Layout.js",
-        38
+        63
       ]
     ]
-  },
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in May and June.": {
-    "translation": "Les tests de citoyenneté sont programmés les <0> mardi </0> et <1> vendredi</1>. Utilisez le calendrier pour sélectionner <2> au moins quatre jours </2> en mai et en juin.",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        37
-      ]
-    ],
-    "obsolete": true
-  },
-  "Within two weeks, your local Immigration office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "Dans un délai de deux semaines, votre bureau d'immigration local vous enverra un nouveau rendez-vous ou vous enverra un email pour demander plus d'informations.",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        53
-      ]
-    ],
-    "obsolete": true
-  },
-  "(A123456)": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        171
-      ]
-    ],
-    "obsolete": true
-  },
-  "read the guidelines for rescheduling.": {
-    "translation": "lisez les directives pour le rééchelonnement.",
-    "origin": [
-      [
-        "src/HomePage.js",
-        194
-      ]
-    ],
-    "obsolete": true
-  },
-  "UCI number": {
-    "translation": "Numéro UCI",
-    "origin": [
-      [
-        "src/HomePage.js",
-        310
-      ]
-    ],
-    "obsolete": true
-  },
-  "(eg A123456)": {
-    "translation": "(par exemple A123456)",
-    "origin": [
-      [
-        "src/HomePage.js",
-        312
-      ]
-    ],
-    "obsolete": true
-  },
-  "The number is at the top of the email we sent you": {
-    "translation": "Le numéro est en haut de l'e-mail que nous vous avons envoyé",
-    "origin": [
-      [
-        "src/HomePage.js",
-        316
-      ]
-    ],
-    "obsolete": true
-  },
-  "Tell us why you can’t attend your appointment": {
-    "translation": "Dites-nous pourquoi vous ne pouvez pas assister à votre rendez-vous",
-    "origin": [
-      [
-        "src/HomePage.js",
-        334
-      ]
-    ],
-    "obsolete": true
-  },
-  "If you’re not sure that you can reschedule, read the guidelines for scheduling.": {
-    "translation": "Si vous n'êtes pas sûr de pouvoir reporter, lisez les instructions pour la planification.",
-    "origin": [
-      [
-        "src/HomePage.js",
-        338
-      ]
-    ],
-    "obsolete": true
   }
 }
