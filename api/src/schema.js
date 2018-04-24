@@ -8,6 +8,7 @@ const { GraphQLError } = require('graphql/error')
 
 const createSchema = t => {
   const MailResponse = require('./types/MailResponse').default(t)
+  const RescheduleFormInput = require('./types/RescheduleForm').default(t)
 
   // XXX: Is it not possible to have a mutation only schema?
   var query = new GraphQLObjectType({
@@ -26,22 +27,19 @@ const createSchema = t => {
       decline: {
         description: t('mutation.fields.decline.description'),
         args: {
-          uci: {
+          input: {
             description: t('mutation.fields.decline.args.uci'),
-            type: new GraphQLNonNull(GraphQLString),
-          },
-          reason: {
-            description: t('mutation.fields.decline.args.reason'),
-            type: new GraphQLNonNull(GraphQLString),
+            type: new GraphQLNonNull(RescheduleFormInput),
           },
         },
         type: MailResponse,
         resolve: async (
           _,
-          { uci, reason },
+          { input },
           { mailer, receivingAddress, sendingAddress },
         ) => {
-          let params = {
+          let { paperFileNumber, explanation, fullName, reason } = input
+          var params = {
             Destination: {
               ToAddresses: [receivingAddress],
             },
@@ -49,18 +47,30 @@ const createSchema = t => {
               Body: {
                 Html: {
                   Charset: 'UTF-8',
-                  Data: `<strong>User ${uci}, declined with this reason: ${
-                    reason
-                  }</strong>`,
+                  Data: `
+  ${fullName} requested a new Citizenship Test appointment.
+  <ul>
+    <li>Full Name: ${fullName}</li>
+    <li>Paper File Number: #${paperFileNumber}</li>
+    <li>Reason for rescheduling: ${reason}</li>
+    <li>Explanation: ${explanation}</li>
+  </ul>
+                  `,
                 },
                 Text: {
                   Charset: 'UTF-8',
-                  Data: `User ${uci}, declined with this reason: ${reason}`,
+                  Data: `
+  ${fullName} requested a new Citizenship Test appointment.
+    * Full Name: ${fullName}
+    * Paper File Number: #${paperFileNumber}
+    * Reason for rescheduling: ${reason}
+    * Explanation: ${explanation}
+                  `,
                 },
               },
               Subject: {
                 Charset: 'UTF-8',
-                Data: 'Test email',
+                Data: 'IRCC Citizenship Rescheduling Tool',
               },
             },
             Source: sendingAddress,
