@@ -58,7 +58,8 @@ const validate = values => {
   if (!values.fullName) {
     errors.fullName = (
       <Trans>
-        You need to tell us your name so we know who is requesting a new appointment.
+        You need to tell us your name so we know who is requesting a new
+        appointment.
       </Trans>
     )
   }
@@ -130,7 +131,8 @@ class RegistrationPage extends React.Component {
   load = async () => {
     let userRegistrationData = {}
     try {
-      ({ userRegistrationData } = this.props.client.readQuery({
+      // eslint-disable-next-line no-extra-semi
+      ;({ userRegistrationData } = this.props.client.readQuery({
         query: GET_USER_DATA,
       }))
 
@@ -289,12 +291,13 @@ class RegistrationPage extends React.Component {
                     id="explanation-label"
                   >
                     <header>
-                      <Trans>
-                        Tell us why you can’t attend your test
-                      </Trans>
+                      <Trans>Tell us why you can’t attend your test</Trans>
                     </header>
                     <span id="explanation-details">
-                      <Trans>Provide enough detail so that IRCC staff can understand your situation.</Trans>
+                      <Trans>
+                        Provide enough detail so that IRCC staff can understand
+                        your situation.
+                      </Trans>
                     </span>
                     {validationField({ touched, errors, attr: 'explanation' })}
                   </label>
@@ -305,8 +308,7 @@ class RegistrationPage extends React.Component {
                       - form has not been touched (ie, pristine)
                       - form has been submitted (and is waiting)
                       - the number of values entries is less than the total number of fields
-                    */}
-
+              */}
               <Button
                 disabled={
                   pristine ||

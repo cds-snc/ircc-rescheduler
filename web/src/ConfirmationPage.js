@@ -26,9 +26,7 @@ class ConfirmationPage extends React.Component {
         <H1>
           <Trans>Thank you! Your request has been received.</Trans>
         </H1>
-        <p>
-          <Trans>We’ve sent you a confirmation email.</Trans>
-        </p>
+
         <H2>
           <Trans>What happens next?</Trans>
         </H2>

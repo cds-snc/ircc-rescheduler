@@ -23,8 +23,13 @@ describe('Server Side Rendering', () => {
     expect(response.text).toMatch(/Use the calendar to select./)
   })
 
+  it('renders the calendar at /review', async () => {
+    let response = await request(server).get('/review')
+    expect(response.text).toMatch(/Review your request before sending it:/)
+  })
+
   it('renders a reassuring confirmation message at /confirmation', async () => {
     let response = await request(server).get('/confirmation')
-    expect(response.text).toMatch(/confirmation/)
+    expect(response.text).toMatch(/Thank you! Your request has been received./)
   })
 })
