@@ -131,6 +131,7 @@ class RegistrationPage extends React.Component {
   load = async () => {
     let userRegistrationData = {}
     try {
+      // eslint-disable-next-line no-extra-semi
       ;({ userRegistrationData } = this.props.client.readQuery({
         query: GET_USER_DATA,
       }))
