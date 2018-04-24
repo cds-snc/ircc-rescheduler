@@ -302,7 +302,3 @@ export const BottomContainer = styled.div`
 export const TopContainer = styled.div`
   margin-bottom: ${theme.spacing.lg};
 `
-
-export const VerticalSpace = styled.div`
-  height: ${theme.spacing.xl};
-`

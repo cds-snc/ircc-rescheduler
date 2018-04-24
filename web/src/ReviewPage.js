@@ -40,7 +40,7 @@ const Row = styled.div`
 `
 
 const Column1 = styled.div`
-  width: 25%;
+  width: 45%;
 
   ${mediaQuery.small(css`
     width: 100%;
@@ -48,7 +48,7 @@ const Column1 = styled.div`
 `
 
 const Column2 = styled.div`
-  width: 45%;
+  width: 40%;
 
   li {
     padding-bottom: ${theme.spacing.xs};
