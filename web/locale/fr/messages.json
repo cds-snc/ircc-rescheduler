@@ -1,58 +1,4 @@
 {
-  "You need to tell us your name so we know who is requesting a new appointment.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        56
-      ]
-    ]
-  },
-  "You need to tell us your Paper File Number so we can confirm your identity.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        63
-      ]
-    ]
-  },
-  "Paper File Number": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        153
-      ]
-    ]
-  },
-  "This number is at the top of the email we sent you.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        157
-      ]
-    ]
-  },
-  "Tell us why you can’t attend your test": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        234
-      ]
-    ]
-  },
-  "Provide enough detail so that IRCC staff can understand your situation.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        239
-      ]
-    ]
-  },
   "← Go Back": {
     "translation": "← Retour",
     "origin": [
@@ -63,7 +9,7 @@
     ]
   },
   "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in June and July.": {
-    "translation": "",
+    "translation": "Les tests de citoyenneté sont programmés les <0>mardi</0> et <1>vendredi</1>. Utilisez le calendrier pour sélectionner <2> au moins quatre jours de disponibilité</2> en juin et en juillet.",
     "origin": [
       [
         "src/CalendarPage.js",
@@ -126,7 +72,7 @@
     ]
   },
   "Within six weeks, your local Immigration office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "",
+    "translation": "Dans les six semaines, votre bureau d'immigration local vous enverra un nouveau rendez-vous ou vous enverra un courriel pour demander plus d'informations.",
     "origin": [
       [
         "src/ConfirmationPage.js",
@@ -143,12 +89,42 @@
       ]
     ]
   },
+  "You need to tell us your name so we know who is requesting a new appointment.": {
+    "translation": "Vous devez nous indiquer votre nom afin que nous sachions qui demande un nouveau rendez-vous.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        56
+      ],
+      [
+        "src/RegistrationPage.js",
+        60
+      ]
+    ]
+  },
+  "You need to tell us your Paper File Number so we can confirm your identity.": {
+    "translation": "Vous devez nous indiquer votre numéro de dossier papier afin que nous puissions confirmer votre identité.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        63
+      ],
+      [
+        "src/RegistrationPage.js",
+        67
+      ]
+    ]
+  },
   "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
     "translation": "Veuillez nous indiquer pourquoi vous devez reporter votre test. Si aucune des options ne correspond à votre situation, choisissez «Autre».",
     "origin": [
       [
         "src/HomePage.js",
         71
+      ],
+      [
+        "src/RegistrationPage.js",
+        75
       ]
     ]
   },
@@ -158,6 +134,10 @@
       [
         "src/HomePage.js",
         79
+      ],
+      [
+        "src/RegistrationPage.js",
+        83
       ]
     ]
   },
@@ -167,6 +147,10 @@
       [
         "src/HomePage.js",
         132
+      ],
+      [
+        "src/RegistrationPage.js",
+        190
       ]
     ]
   },
@@ -176,6 +160,36 @@
       [
         "src/HomePage.js",
         136
+      ],
+      [
+        "src/RegistrationPage.js",
+        194
+      ]
+    ]
+  },
+  "Paper File Number": {
+    "translation": "Numéro de Fichier Papier",
+    "origin": [
+      [
+        "src/HomePage.js",
+        153
+      ],
+      [
+        "src/RegistrationPage.js",
+        211
+      ]
+    ]
+  },
+  "This number is at the top of the email we sent you.": {
+    "translation": "Ce numéro figure en haut de l'e-mail que nous vous avons envoyé.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        157
+      ],
+      [
+        "src/RegistrationPage.js",
+        215
       ]
     ]
   },
@@ -185,6 +199,10 @@
       [
         "src/HomePage.js",
         168
+      ],
+      [
+        "src/RegistrationPage.js",
+        226
       ]
     ]
   },
@@ -194,15 +212,23 @@
       [
         "src/HomePage.js",
         171
+      ],
+      [
+        "src/RegistrationPage.js",
+        229
       ]
     ]
   },
   "read the guidelines for rescheduling": {
-    "translation": "",
+    "translation": "lire les lignes directrices pour le rééchelonnement",
     "origin": [
       [
         "src/HomePage.js",
         173
+      ],
+      [
+        "src/RegistrationPage.js",
+        231
       ]
     ]
   },
@@ -212,6 +238,10 @@
       [
         "src/HomePage.js",
         182
+      ],
+      [
+        "src/RegistrationPage.js",
+        240
       ]
     ]
   },
@@ -221,6 +251,10 @@
       [
         "src/HomePage.js",
         190
+      ],
+      [
+        "src/RegistrationPage.js",
+        248
       ]
     ]
   },
@@ -230,6 +264,10 @@
       [
         "src/HomePage.js",
         198
+      ],
+      [
+        "src/RegistrationPage.js",
+        256
       ]
     ]
   },
@@ -239,6 +277,10 @@
       [
         "src/HomePage.js",
         206
+      ],
+      [
+        "src/RegistrationPage.js",
+        264
       ]
     ]
   },
@@ -248,6 +290,36 @@
       [
         "src/HomePage.js",
         214
+      ],
+      [
+        "src/RegistrationPage.js",
+        272
+      ]
+    ]
+  },
+  "Tell us why you can’t attend your test": {
+    "translation": "Dites-nous pourquoi vous ne pouvez pas assister à votre test",
+    "origin": [
+      [
+        "src/HomePage.js",
+        234
+      ],
+      [
+        "src/RegistrationPage.js",
+        292
+      ]
+    ]
+  },
+  "Provide enough detail so that IRCC staff can understand your situation.": {
+    "translation": "Fournissez suffisamment de détails pour que le personnel d'IRCC puisse comprendre votre situation.",
+    "origin": [
+      [
+        "src/HomePage.js",
+        239
+      ],
+      [
+        "src/RegistrationPage.js",
+        297
       ]
     ]
   },
@@ -257,6 +329,19 @@
       [
         "src/HomePage.js",
         260
+      ],
+      [
+        "src/RegistrationPage.js",
+        318
+      ]
+    ]
+  },
+  "Start Now →": {
+    "translation": "Commencez maintenant →",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        81
       ]
     ]
   },
@@ -286,145 +371,5 @@
         63
       ]
     ]
-  },
-  "You need to tell us your full name so we can confirm your identity.": {
-    "translation": "Vous devez nous indiquer votre nom complet afin que nous puissions confirmer votre identité.",
-    "origin": [
-      [
-        "src/HomePage.js",
-        37
-      ]
-    ],
-    "obsolete": true
-  },
-  "You need to tell us your paper file number so we can confirm your identity.": {
-    "translation": "Vous devez nous indiquer votre numéro de dossier papier afin que nous puissions confirmer votre identité.",
-    "origin": [
-      [
-        "src/HomePage.js",
-        44
-      ]
-    ],
-    "obsolete": true
-  },
-  "Paper file number": {
-    "translation": "Numéro de fichier papier",
-    "origin": [
-      [
-        "src/HomePage.js",
-        136
-      ]
-    ],
-    "obsolete": true
-  },
-  "This number is at the top of the email we sent you": {
-    "translation": "Ce numéro est en haut de l'e-mail que nous vous avons envoyé",
-    "origin": [
-      [
-        "src/HomePage.js",
-        141
-      ]
-    ],
-    "obsolete": true
-  },
-  "Briefly tell us why you can’t attend your test": {
-    "translation": "Dites-nous brièvement pourquoi vous ne pouvez pas assister à votre test",
-    "origin": [
-      [
-        "src/HomePage.js",
-        218
-      ]
-    ],
-    "obsolete": true
-  },
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in May and June.": {
-    "translation": "Les tests de citoyenneté sont programmés les <0> mardi </0> et <1> vendredi</1>. Utilisez le calendrier pour sélectionner <2> au moins quatre jours </2> en mai et en juin.",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        37
-      ]
-    ],
-    "obsolete": true
-  },
-  "Within two weeks, your local Immigration office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "Dans un délai de deux semaines, votre bureau d'immigration local vous enverra un nouveau rendez-vous ou vous enverra un email pour demander plus d'informations.",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        53
-      ]
-    ],
-    "obsolete": true
-  },
-  "(A123456)": {
-    "translation": "",
-    "origin": [
-      [
-        "src/HomePage.js",
-        171
-      ]
-    ],
-    "obsolete": true
-  },
-  "read the guidelines for rescheduling.": {
-    "translation": "lisez les directives pour le rééchelonnement.",
-    "origin": [
-      [
-        "src/HomePage.js",
-        194
-      ]
-    ],
-    "obsolete": true
-  },
-  "UCI number": {
-    "translation": "Numéro UCI",
-    "origin": [
-      [
-        "src/HomePage.js",
-        310
-      ]
-    ],
-    "obsolete": true
-  },
-  "(eg A123456)": {
-    "translation": "(par exemple A123456)",
-    "origin": [
-      [
-        "src/HomePage.js",
-        312
-      ]
-    ],
-    "obsolete": true
-  },
-  "The number is at the top of the email we sent you": {
-    "translation": "Le numéro est en haut de l'e-mail que nous vous avons envoyé",
-    "origin": [
-      [
-        "src/HomePage.js",
-        316
-      ]
-    ],
-    "obsolete": true
-  },
-  "Tell us why you can’t attend your appointment": {
-    "translation": "Dites-nous pourquoi vous ne pouvez pas assister à votre rendez-vous",
-    "origin": [
-      [
-        "src/HomePage.js",
-        334
-      ]
-    ],
-    "obsolete": true
-  },
-  "If you’re not sure that you can reschedule, read the guidelines for scheduling.": {
-    "translation": "Si vous n'êtes pas sûr de pouvoir reporter, lisez les instructions pour la planification.",
-    "origin": [
-      [
-        "src/HomePage.js",
-        338
-      ]
-    ],
-    "obsolete": true
   }
 }
