@@ -1,10 +1,260 @@
 {
+  "1234567": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        134
+      ]
+    ]
+  },
+  "Use this service to notify IRCC that you can’t attend your Citizenship test, and you need a new appointment.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        58
+      ]
+    ]
+  },
+  "You will need:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        67
+      ]
+    ]
+  },
+  "your paper file number": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        72
+      ]
+    ]
+  },
+  "This is found at the top of your test notice email.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        75
+      ]
+    ]
+  },
+  "your full name, as it appears on your application": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        82
+      ]
+    ]
+  },
+  "to explain your reason for rescheduling": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        86
+      ]
+    ]
+  },
+  "for more information on rescheduling,": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        89
+      ]
+    ]
+  },
+  "read the guidelines": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        91
+      ]
+    ]
+  },
+  "After verifying your personal information, you will be able to select three (3) alternative days when you are able to take the Citizenship test.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        100
+      ]
+    ]
+  },
+  "Important: by sending this request to reschedule, you will be cancelling your current test. After you complete this process, it could take up to 6 weeks for IRCC to contact you with a new test date.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        110
+      ]
+    ]
+  },
+  "Review your request before sending it:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        104
+      ]
+    ]
+  },
+  "Full name:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        111
+      ]
+    ]
+  },
+  "John Li": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        116
+      ]
+    ]
+  },
+  "Edit": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        121
+      ],
+      [
+        "src/ReviewPage.js",
+        139
+      ],
+      [
+        "src/ReviewPage.js",
+        157
+      ],
+      [
+        "src/ReviewPage.js",
+        178
+      ]
+    ]
+  },
+  "Paper file number:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        129
+      ]
+    ]
+  },
+  "Reason:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        147
+      ]
+    ]
+  },
+  "Explanation:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        165
+      ]
+    ]
+  },
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        170
+      ]
+    ]
+  },
+  "Availability:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        186
+      ]
+    ]
+  },
+  "Tuesday June 1, 2018": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        192
+      ]
+    ]
+  },
+  "Friday June 11, 2018": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        195
+      ]
+    ]
+  },
+  "Tuesday July 5, 2018": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        198
+      ]
+    ]
+  },
+  "Change": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        204
+      ]
+    ]
+  },
+  "Remember: By sending this request, you are cancelling your currently scheduled test.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        210
+      ]
+    ]
+  },
+  "Send Request →": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        219
+      ]
+    ]
+  },
   "← Go Back": {
     "translation": "",
     "origin": [
       [
         "src/CalendarPage.js",
-        47
+        22
+      ],
+      [
+        "src/ReviewPage.js",
+        100
       ]
     ]
   },
@@ -13,7 +263,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        53
+        28
       ]
     ]
   },
@@ -22,7 +272,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        61
+        36
       ]
     ]
   },
@@ -31,7 +281,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        68
+        43
       ]
     ]
   },
@@ -40,7 +290,11 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        74
+        49
+      ],
+      [
+        "src/ReviewPage.js",
+        225
       ]
     ]
   },
@@ -53,21 +307,12 @@
       ]
     ]
   },
-  "We’ve sent you a confirmation email.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        30
-      ]
-    ]
-  },
   "What happens next?": {
     "translation": "",
     "origin": [
       [
         "src/ConfirmationPage.js",
-        33
+        31
       ]
     ]
   },
@@ -76,7 +321,7 @@
     "origin": [
       [
         "src/ConfirmationPage.js",
-        36
+        34
       ]
     ]
   },
@@ -85,7 +330,7 @@
     "origin": [
       [
         "src/ConfirmationPage.js",
-        42
+        40
       ]
     ]
   },
@@ -111,7 +356,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        67
+        68
       ]
     ]
   },
@@ -124,7 +369,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        75
+        76
       ]
     ]
   },
@@ -137,7 +382,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        83
+        84
       ]
     ]
   },
@@ -150,7 +395,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        190
+        191
       ]
     ]
   },
@@ -163,7 +408,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        194
+        195
       ]
     ]
   },
@@ -176,7 +421,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        211
+        212
       ]
     ]
   },
@@ -189,7 +434,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        215
+        216
       ]
     ]
   },
@@ -202,7 +447,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        226
+        227
       ]
     ]
   },
@@ -215,7 +460,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        229
+        230
       ]
     ]
   },
@@ -228,7 +473,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        231
+        232
       ]
     ]
   },
@@ -241,7 +486,11 @@
       ],
       [
         "src/RegistrationPage.js",
-        240
+        241
+      ],
+      [
+        "src/ReviewPage.js",
+        152
       ]
     ]
   },
@@ -254,7 +503,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        248
+        249
       ]
     ]
   },
@@ -267,7 +516,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        256
+        257
       ]
     ]
   },
@@ -280,7 +529,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        264
+        265
       ]
     ]
   },
@@ -293,7 +542,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        272
+        273
       ]
     ]
   },
@@ -306,7 +555,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        292
+        293
       ]
     ]
   },
@@ -319,7 +568,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        297
+        296
       ]
     ]
   },
@@ -332,7 +581,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        318
+        319
       ]
     ]
   },
@@ -341,7 +590,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        81
+        121
       ]
     ]
   },
@@ -371,5 +620,15 @@
         63
       ]
     ]
+  },
+  "We’ve sent you a confirmation email.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ConfirmationPage.js",
+        30
+      ]
+    ],
+    "obsolete": true
   }
 }

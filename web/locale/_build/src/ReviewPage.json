@@ -1,0 +1,166 @@
+{
+  "1234567": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        134
+      ]
+    ]
+  },
+  "← Go Back": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        100
+      ]
+    ]
+  },
+  "Review your request before sending it:": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        104
+      ]
+    ]
+  },
+  "Full name:": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        111
+      ]
+    ]
+  },
+  "John Li": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        116
+      ]
+    ]
+  },
+  "Edit": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        121
+      ],
+      [
+        "src/ReviewPage.js",
+        139
+      ],
+      [
+        "src/ReviewPage.js",
+        157
+      ],
+      [
+        "src/ReviewPage.js",
+        178
+      ]
+    ]
+  },
+  "Paper file number:": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        129
+      ]
+    ]
+  },
+  "Reason:": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        147
+      ]
+    ]
+  },
+  "Travel": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        152
+      ]
+    ]
+  },
+  "Explanation:": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        165
+      ]
+    ]
+  },
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        170
+      ]
+    ]
+  },
+  "Availability:": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        186
+      ]
+    ]
+  },
+  "Tuesday June 1, 2018": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        192
+      ]
+    ]
+  },
+  "Friday June 11, 2018": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        195
+      ]
+    ]
+  },
+  "Tuesday July 5, 2018": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        198
+      ]
+    ]
+  },
+  "Change": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        204
+      ]
+    ]
+  },
+  "Remember: By sending this request, you are cancelling your currently scheduled test.": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        210
+      ]
+    ]
+  },
+  "Send Request →": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        219
+      ]
+    ]
+  },
+  "Cancel": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        225
+      ]
+    ]
+  }
+}

@@ -273,3 +273,32 @@ export const CalReminder = styled.div`
   font-family: ${theme.weight.s};
   padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
 `
+
+export const BottomContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+
+  > div {
+    margin-left: ${theme.spacing.xxxl};
+  }
+
+  ${mediaQuery.xs(css`
+    text-align: center;
+    flex-direction: column;
+
+    > a,
+    > div {
+      width: 100%;
+    }
+
+    > div {
+      margin-left: 0;
+      margin-top: ${theme.spacing.xl};
+    }
+  `)};
+`
+export const TopContainer = styled.div`
+  margin-bottom: ${theme.spacing.lg};
+`
