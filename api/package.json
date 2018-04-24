@@ -1,14 +1,13 @@
 {
   "name": "sheduler_api",
   "version": "1.0.0",
-  "description": "The backend API for IRCC scheduler",
+  "description": "The API for IRCC rescheduler",
   "main": "index.js",
   "author": "Mike Williamson <mike.williamson@tbs-sct.gc.ca>",
   "license": "MIT",
   "scripts": {
     "test": "jest",
     "lint": "./node_modules/eslint/bin/eslint.js src/**",
-    "dockerize": "docker build -t cdssnc/ircc_backend .",
     "start": "node index.js"
   },
   "devDependencies": {
@@ -25,22 +24,19 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
-    "i18next": "^11.2.2",
-    "isomorphic-fetch": "^2.2.1",
     "jest": "^22.4.3",
     "supertest": "^3.0.0"
   },
   "dependencies": {
-    "@sendgrid/mail": "^6.2.1",
     "aws-sdk": "^2.226.1",
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.8.0",
+    "i18next": "^11.2.2",
     "i18next-express-middleware": "^1.1.1"
   },
   "jest": {
-    "verbose": true,
-    "testURL": "https://esqa.moneris.com/gateway2/servlet/MpgRequest"
+    "verbose": true
   }
 }
