@@ -90,11 +90,31 @@ jobs:
       - run: docker push "${DOCKER_REGISTRY}/${NAMESPACE}/ircc-rescheduler-api:${CIRCLE_SHA1}"
       - run: docker push "${DOCKER_REGISTRY}/${NAMESPACE}/ircc-rescheduler-api:latest"
 
+  update_ecs:
+    docker:
+      - image: "cdssnc/ecs-cli:latest"
+    steps:
+      - checkout:
+          path: ~/repo
+      - setup_remote_docker
+      - run:
+         command: |
+              cd deploy
+              ecs-cli compose --file docker-compose.yml --ecs-params ecs-params.yml --cluster staging-ecs-cluster --project-name staging-vac-poc  service up --launch-type FARGATE --timeout 15
+         name: "Update ECS Task and Perform Rolling Update"
+    working_directory: ~/repo
+
+
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - web
+      - update_ecs:
+          filters:
+            branches:
+              only:
+                - ecs_deploy
       - deploy_web:
           requires:
             - web
