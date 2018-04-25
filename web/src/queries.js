@@ -14,7 +14,7 @@ export const GET_USER_DATA = gql`
   query getUserData {
     userRegistrationData @client {
       fullName
-      uciNumber
+      paperFileNumber
       reason
       explanation
     }

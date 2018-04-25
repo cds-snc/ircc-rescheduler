@@ -7,7 +7,7 @@ const QUERY = gql`
   query getUserData {
     userRegistrationData @client {
       fullName
-      uciNumber
+      paperFileNumber
       reason
       explanation
     }

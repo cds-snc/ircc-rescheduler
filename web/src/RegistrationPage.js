@@ -206,7 +206,6 @@ class RegistrationPage extends React.Component {
                   component={TextFieldAdapter}
                   name="uciNumber"
                   id="uciNumber"
-                  labelledby="uciNumber-label uciNumber-details uciNumber-error"
                 >
                   <label htmlFor="uciNumber" id="uciNumber-label">
                     <header>
