@@ -8,7 +8,7 @@ task_definition:
     cpu_limit: 256
   launch-type: FARGATE
   services:
-    ircc_web:
+    ircc:
      essential: true
 run_params:
   network_configuration:

@@ -2,10 +2,10 @@ version: '2'
 
 services:
 
-   ircc_web:
+   ircc:
     image: docker.io/cdssnc/ircc-rescheduler:latest
     ports:
-      - "3001:3001"
+      - "3004:3004"
     logging:
       driver: awslogs
       options:
