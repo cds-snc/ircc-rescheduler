@@ -1,0 +1,9 @@
+dist
+**/.DS_Store
+node_modules
+# Vim swap files
+*.swp
+# Ignore lingui compiled catalogs (source catalogs are .json)
+# These should be generated at build time.
+locale/*/*.js
+
