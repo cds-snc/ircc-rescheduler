@@ -6,11 +6,9 @@ import { ensureReady, After } from '@jaredpalmer/after'
 import { ApolloProvider, Query } from 'react-apollo'
 import { I18nProvider } from 'lingui-react'
 import { unpackCatalog } from 'lingui-i18n'
-import './client.css'
 import routes from './routes'
 import createApolloClient from './utils/createApolloClient'
 import gql from 'graphql-tag'
-
 import en from '../locale/en/messages.js'
 import fr from '../locale/fr/messages.js'
 
