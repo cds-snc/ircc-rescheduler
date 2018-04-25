@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+
+   ircc_web:
+    image: docker.io/cdssnc/ircc-rescheduler:latest
+    ports:
+      - "3001:3001"
+    logging:
+      driver: awslogs
+      options:
+        awslogs-group: ecs-logs
+        awslogs-region: us-east-1
+        awslogs-stream-prefix: ircc-poc
