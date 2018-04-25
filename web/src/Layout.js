@@ -44,7 +44,7 @@ injectGlobal`
     height: auto;
   }
 
-  #uciNumber-details, #fullName-details {
+  #paperFileNumber-details, #fullName-details {
    margin-top: 0rem;
   }
 `
