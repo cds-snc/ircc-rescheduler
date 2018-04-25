@@ -18,7 +18,7 @@ const stateLink = withClientState({
     userRegistrationData: {
       __typename: 'UserData',
       fullName: '',
-      uciNumber: '',
+      paperFileNumber: '',
       reason: '',
       explanation: '',
     },
@@ -26,7 +26,7 @@ const stateLink = withClientState({
   typeDefs: `
     type UserData {
       fullName: String
-      uciNumber: String
+      paperFileNumber: String
       reason: String
       explanation: String
     }
