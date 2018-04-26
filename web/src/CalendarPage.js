@@ -24,7 +24,7 @@ const DAY_LIMIT = 3
 const onSubmit = async values => {
   await sleep(300)
 
-  if (!values.calendar || values.calendar.length === 0) {
+  if (!values.calendar || values.calendar.length < DAY_LIMIT) {
     return {
       [FORM_ERROR]: (
         <Trans>
@@ -32,12 +32,6 @@ const onSubmit = async values => {
           for you.
         </Trans>
       ),
-    }
-  } else if (values.calendar.length < DAY_LIMIT) {
-    let datesRemaining = DAY_LIMIT - values.calendar.length
-    let dateString = datesRemaining === 1 ? 'date' : 'dates'
-    return {
-      [FORM_ERROR]: `Please pick ${datesRemaining} more ${dateString} so we can schedule your test when it’s convenient for you.`,
     }
   }
   window.alert('CALENDAR SUCCESS!')
