@@ -28,8 +28,8 @@ const onSubmit = async values => {
     return {
       [FORM_ERROR]: (
         <Trans>
-          Please pick 3 dates so we can schedule your test when it’s convenient
-          for you.
+          Please pick three (3) dates so we can schedule your test when it’s
+          convenient for you.
         </Trans>
       ),
     }
@@ -62,7 +62,8 @@ class CalendarPage extends Component {
           <Trans>
             Citizenship Tests are scheduled on <Bold>Tuesdays</Bold> and{' '}
             <Bold>Fridays</Bold>. Use the calendar to select{' '}
-            <Bold>at least four days you’re available</Bold> in June and July.
+            <Bold>at least three (3) days you’re available</Bold> in June and
+            July.
           </Trans>
         </CalHeader>
         <Form
