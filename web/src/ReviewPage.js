@@ -52,7 +52,7 @@ class ReviewPage extends React.Component {
             return (
               <Summary
                 fullName={data.userRegistrationData.fullName}
-                uciNumber={data.userRegistrationData.uciNumber}
+                paperFileNumber={data.userRegistrationData.paperFileNumber}
                 explanation={data.userRegistrationData.explanation}
                 reason={this.translateReason(data.userRegistrationData.reason)}
               />
