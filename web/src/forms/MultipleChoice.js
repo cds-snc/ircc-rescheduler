@@ -128,8 +128,8 @@ const govuk_label_pseudo_elements = css`
 `
 
 const cds_multiple_choice = css`
-  padding: 0 0 0 ${theme.spacing.xl}px;
-  margin-bottom: ${theme.spacing.sm}px;
+  padding: 0 0 0 ${theme.spacing.xl};
+  margin-bottom: ${theme.spacing.sm};
   input {
     width: 24px;
     height: 24px;
@@ -137,14 +137,14 @@ const cds_multiple_choice = css`
   label {
     display: inline-block;
     padding: 0;
-    height: ${theme.spacing.xl}px;
+    height: initial;
     font-size: ${theme.font.lg};
     > span {
-      padding: 0 ${theme.spacing.sm}px 0 ${theme.spacing.xs}px;
+      padding: 0 ${theme.spacing.sm} 0 ${theme.spacing.xs};
     }
   }
   ${mediaQuery.small(css`
-    margin-bottom: ${theme.spacing.md}px;
+    margin-bottom: ${theme.spacing.md};
     input {
       width: 22px;
       height: 22px;
