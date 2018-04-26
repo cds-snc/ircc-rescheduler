@@ -63,8 +63,8 @@ const validate = values => {
       </Trans>
     )
   }
-  if (!values.uciNumber) {
-    errors.uciNumber = (
+  if (!values.paperFileNumber) {
+    errors.paperFileNumber = (
       <Trans>
         You need to tell us your Paper File Number so we can confirm your
         identity.
@@ -118,7 +118,7 @@ class RegistrationPage extends React.Component {
         {
           userRegistrationData @client {
             fullName
-            uciNumber
+            paperFileNumber
             reason
             explanation
           }
@@ -204,15 +204,19 @@ class RegistrationPage extends React.Component {
               <div>
                 <Field
                   component={TextFieldAdapter}
-                  name="uciNumber"
-                  id="uciNumber"
+                  name="paperFileNumber"
+                  id="paperFileNumber"
                 >
-                  <label htmlFor="uciNumber" id="uciNumber-label">
+                  <label htmlFor="paperFileNumber" id="paperFileNumber-label">
                     <header>
-                      <Trans>Paper File Number</Trans>
+                      <Trans>Paper file number</Trans>
                     </header>
-                    {validationField({ touched, errors, attr: 'uciNumber' })}
-                    <span id="uciNumber-details">
+                    {validationField({
+                      touched,
+                      errors,
+                      attr: 'paperFileNumber',
+                    })}
+                    <span id="paperFileNumber-details">
                       <Trans>
                         This number is at the top of the email we sent you.
                       </Trans>
