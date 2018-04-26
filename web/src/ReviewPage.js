@@ -38,7 +38,7 @@ class ReviewPage extends React.Component {
     return (
       <Layout contentClass={contentClass}>
         <TopContainer>
-          <NavLink to="/">
+          <NavLink to="/calendar">
             <Trans>← Go Back</Trans>
           </NavLink>
         </TopContainer>
