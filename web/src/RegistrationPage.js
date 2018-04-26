@@ -66,7 +66,7 @@ const validate = values => {
   if (!values.paperFileNumber) {
     errors.paperFileNumber = (
       <Trans>
-        You need to tell us your Paper File Number so we can confirm your
+        You need to tell us your Paper file number so we can confirm your
         identity.
       </Trans>
     )
