@@ -226,11 +226,13 @@ class Calendar extends Component {
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
     this.updateFieldParams = this.updateFieldParams.bind(this)
+    this.dateToHTML = this.dateToHTML.bind(this)
     this.state = {
       selectedDays: [],
     }
     this.props.input.value = this.state.selectedDays
   }
+
   handleDayClick(day, { selected, disabled }) {
     if (disabled) {
       return
@@ -248,6 +250,15 @@ class Calendar extends Component {
     this.updateFieldParams()
   }
 
+  dateToHTML(date) {
+    /*
+      This function will standardize strings across timezones.
+      Source: https://stackoverflow.com/questions/10830357/javascript-toisostring-ignores-timezone-offset
+    */
+    let tzOffset = date.getTimezoneOffset() * 60000 //offset in milliseconds
+    return new Date(date.valueOf() - tzOffset).toISOString().slice(0, -1)
+  }
+
   updateFieldParams() {
     this.props.input.value = this.state.selectedDays
     this.props.input.onChange(this.props.input.value)
@@ -256,7 +267,7 @@ class Calendar extends Component {
   render() {
     /* TODO: pass in dates as values */
     let {
-      input: { onBlur, onFocus },
+      input: { onBlur, onFocus, value },
     } = this.props
     return (
       <div>
@@ -274,6 +285,21 @@ class Calendar extends Component {
           onFocus={v => onFocus(v)}
           onBlur={v => onBlur(v)}
         />
+        {/*
+          This code demonstrates how to update the page as dates are selected.
+          It should be replaced as we fine-tune the interaction.
+        */}
+        <div id="selectedDays">
+          {value && value.length > 0 ? (
+            <ol>
+              {value.map((v, i) => (
+                <li key={i}>{`${i + 1}. ${this.dateToHTML(v)}`}</li>
+              ))}
+            </ol>
+          ) : (
+            'No dates selected'
+          )}
+        </div>
       </div>
     )
   }
