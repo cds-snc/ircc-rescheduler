@@ -17,25 +17,7 @@ import { Calendar } from './Calendar'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 
-const sleep = ms => new Promise(resolve => setTimeout(resolve, ms))
-
 const DAY_LIMIT = 3
-
-const onSubmit = async values => {
-  await sleep(300)
-
-  if (!values.calendar || values.calendar.length < DAY_LIMIT) {
-    return {
-      [FORM_ERROR]: (
-        <Trans>
-          Please pick three (3) dates so we can schedule your test when it’s
-          convenient for you.
-        </Trans>
-      ),
-    }
-  }
-  window.alert('CALENDAR SUCCESS!')
-}
 
 const errorClass = css`
   display: block;
@@ -44,6 +26,25 @@ const errorClass = css`
 `
 
 class CalendarPage extends Component {
+  constructor(props) {
+    super(props)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
+  async onSubmit(values, event) {
+    if (!values.calendar || values.calendar.length < DAY_LIMIT) {
+      return {
+        [FORM_ERROR]: (
+          <Trans>
+            Please select three (3) dates so we can schedule an appointment when
+            you are available.
+          </Trans>
+        ),
+      }
+    }
+    await this.props.history.push('/review')
+  }
+
   render() {
     return (
       <Layout>
@@ -67,7 +68,7 @@ class CalendarPage extends Component {
           </Trans>
         </CalHeader>
         <Form
-          onSubmit={onSubmit}
+          onSubmit={this.onSubmit}
           render={({
             handleSubmit,
             reset,
