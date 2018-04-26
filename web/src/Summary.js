@@ -64,7 +64,7 @@ const Column3 = styled.div`
   `)};
 `
 
-export const Summary = ({ fullName, uciNumber, reason, explanation }) => (
+export const Summary = ({ fullName, paperFileNumber, reason, explanation }) => (
   <TableContainer>
     <Row>
       <Column1>
@@ -89,7 +89,7 @@ export const Summary = ({ fullName, uciNumber, reason, explanation }) => (
         </H2>
       </Column1>
       <Column2>
-        <p>{uciNumber}</p>
+        <p>{paperFileNumber}</p>
       </Column2>
       <Column3>
         <TextLink href="#">
@@ -162,5 +162,5 @@ Summary.propTypes = {
   fullName: PropTypes.string,
   reason: PropTypes.object,
   explanation: PropTypes.string,
-  uciNumber: PropTypes.string,
+  paperFileNumber: PropTypes.string,
 }
