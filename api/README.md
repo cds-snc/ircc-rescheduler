@@ -18,8 +18,14 @@ GraphQL query, which can be made this:
 
 ```graphql
 mutation {
-  decline(uci: "111", reason: "because reasons") {
-    statusCode
+  decline(input: {
+    fullName: "Pat Patterson"
+    explanation: "meh"
+    reason: "ennui"
+    paperFileNumber: "123456789"
+  }){
+    requestId
+    messageId
   }
 }
 ```
