@@ -18,14 +18,14 @@ describe('Server Side Rendering', () => {
     expect(response.text).toMatch(/Full name/)
   })
 
-  it('renders the calendar at /calendar', async () => {
+  it('renders the calendar page at /calendar', async () => {
     let response = await request(server).get('/calendar')
     expect(response.text).toMatch(/Use the calendar to select./)
   })
 
-  it('renders the calendar at /review', async () => {
+  it('renders the review page at /review', async () => {
     let response = await request(server).get('/review')
-    expect(response.text).toMatch(/Review your request before sending it:/)
+    expect(response.text).toMatch(/Review your request before sending it/)
   })
 
   it('renders a reassuring confirmation message at /confirmation', async () => {

@@ -43,7 +43,7 @@ class ReviewPage extends React.Component {
           </NavLink>
         </TopContainer>
         <H1>
-          <Trans>Review your request before sending it:</Trans>
+          <Trans>Review your request before sending it</Trans>
         </H1>
         <Query query={GET_USER_DATA}>
           {({ loading, error, data }) => {

@@ -69,7 +69,7 @@ export const Summary = ({ fullName, paperFileNumber, reason, explanation }) => (
     <Row>
       <Column1>
         <H2>
-          <Trans>Full name:</Trans>
+          <Trans>Full name</Trans>
         </H2>
       </Column1>
       <Column2>
@@ -85,7 +85,7 @@ export const Summary = ({ fullName, paperFileNumber, reason, explanation }) => (
     <Row>
       <Column1>
         <H2>
-          <Trans>Paper file number:</Trans>
+          <Trans>Paper file number</Trans>
         </H2>
       </Column1>
       <Column2>
@@ -101,7 +101,7 @@ export const Summary = ({ fullName, paperFileNumber, reason, explanation }) => (
     <Row>
       <Column1>
         <H2>
-          <Trans>Reason:</Trans>
+          <Trans>Reason</Trans>
         </H2>
       </Column1>
       <Column2>
@@ -117,7 +117,7 @@ export const Summary = ({ fullName, paperFileNumber, reason, explanation }) => (
     <Row>
       <Column1>
         <H2>
-          <Trans>Explanation:</Trans>
+          <Trans>Explanation</Trans>
         </H2>
       </Column1>
       <Column2>
@@ -133,7 +133,7 @@ export const Summary = ({ fullName, paperFileNumber, reason, explanation }) => (
     <Row>
       <Column1>
         <H2>
-          <Trans>Availability:</Trans>
+          <Trans>Availability</Trans>
         </H2>
       </Column1>
       <Column2>
