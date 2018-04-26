@@ -164,6 +164,7 @@ const radio = css`
 
   input[type='radio'] + label::before {
     border: 2px solid ${theme.colour.black};
+    background-color: ${theme.colour.white};
     width: 22px;
     height: 22px;
     top: 6px;
