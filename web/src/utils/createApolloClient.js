@@ -80,13 +80,14 @@ const stateLink = withClientState({
   },
   typeDefs,
 })
-const createApolloClient = ssrMode =>
-  new ApolloClient({
+function createApolloClient({ ssrMode }) {
+  return new ApolloClient({
     ssrMode,
     link: ApolloLink.from([stateLink]),
     cache: ssrMode
       ? new InMemoryCache()
       : new InMemoryCache().restore(window.__APOLLO_STATE__),
   })
+}
 
 export default createApolloClient
