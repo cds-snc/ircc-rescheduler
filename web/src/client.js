@@ -31,6 +31,7 @@ ensureReady(routes).then(data =>
         `}
       >
         {({ loading, error, data }) => {
+          //If you are getting SSR warnings, comment out the ifs to debug further
           if (loading) return <p>loading... </p>
           if (error) return <p>Error</p>
 
