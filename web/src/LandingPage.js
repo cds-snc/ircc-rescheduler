@@ -91,10 +91,9 @@ class LandingPage extends React.Component {
               </p>
               <span className={moreInfo}>
                 <Trans>for more information on rescheduling,</Trans>{' '}
-                <a
-                  href="http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=786&amp;top=5"
-                  className={href}
-                >
+              </span>
+              <span className={(moreInfo, href)}>
+                <a href="http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=786&amp;top=5">
                   <Trans>read the guidelines</Trans>
                 </a>
               </span>
