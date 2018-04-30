@@ -80,7 +80,7 @@ const stateLink = withClientState({
   },
   typeDefs,
 })
-const createApolloClient = ssrMode =>
+const createApolloClient = ({ ssrMode }) =>
   new ApolloClient({
     ssrMode,
     link: ApolloLink.from([stateLink]),
