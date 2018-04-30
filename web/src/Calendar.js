@@ -229,7 +229,7 @@ class Calendar extends Component {
     this.updateFieldParams = this.updateFieldParams.bind(this)
     this.dateToHTML = this.dateToHTML.bind(this)
     this.state = {
-      selectedDays: [],
+      selectedDays: this.props.input.value || [],
     }
     this.props.input.value = this.state.selectedDays
   }
@@ -266,7 +266,6 @@ class Calendar extends Component {
   }
 
   render() {
-    /* TODO: pass in dates as values */
     let {
       input: { onBlur, onFocus, value },
     } = this.props
@@ -282,7 +281,7 @@ class Calendar extends Component {
           numberOfMonths={2}
           disabledDays={[{ daysOfWeek: [0, 1, 3, 4, 6] }]}
           onDayClick={this.handleDayClick}
-          selectedDays={this.state.selectedDays}
+          selectedDays={value || []}
           onFocus={v => onFocus(v)}
           onBlur={v => onBlur(v)}
         />
