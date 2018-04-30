@@ -306,4 +306,4 @@ class Calendar extends Component {
 }
 Calendar.propTypes = FieldAdapterPropTypes
 
-export { Calendar }
+export { Calendar as CalendarAdapter }
