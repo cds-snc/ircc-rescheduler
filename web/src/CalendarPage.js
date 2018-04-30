@@ -14,7 +14,7 @@ import {
 } from './styles'
 import Layout from './Layout'
 import Button from './forms/Button'
-import { Calendar } from './Calendar'
+import { CalendarAdapter } from './Calendar'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 
@@ -90,7 +90,7 @@ class CalendarPage extends Component {
                 )}
                 <Field
                   name="calendar"
-                  component={Calendar}
+                  component={CalendarAdapter}
                   dayLimit={DAY_LIMIT}
                 />
               </div>

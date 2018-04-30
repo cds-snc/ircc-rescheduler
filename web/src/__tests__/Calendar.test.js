@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { Calendar } from '../Calendar'
+import { CalendarAdapter } from '../Calendar'
 
 const clickFirstDate = wrapper => {
   return wrapper
@@ -15,16 +15,16 @@ const defaultProps = ({ value = '' } = {}) => {
   }
 }
 
-describe('<Calendar />', () => {
+describe('<CalendarAdapter />', () => {
   it('renders June and July 2018', () => {
-    const wrapper = mount(<Calendar {...defaultProps()} />)
+    const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
     expect(wrapper.text()).toMatch(/June 2018/)
     expect(wrapper.text()).toMatch(/July 2018/)
   })
 
   it('will prefill a date if an initial value is provided', () => {
     const wrapper = mount(
-      <Calendar
+      <CalendarAdapter
         {...defaultProps({ value: [new Date('2018-06-01T12:00:00.000')] })}
       />,
     )
@@ -36,7 +36,7 @@ describe('<Calendar />', () => {
 
   it('will prefill multiple dates if multiple initial values are provided', () => {
     const wrapper = mount(
-      <Calendar
+      <CalendarAdapter
         {...defaultProps({
           value: [
             new Date('2018-06-01T12:00:00.000'),
@@ -52,7 +52,7 @@ describe('<Calendar />', () => {
   })
 
   it('selects a date when it is clicked', () => {
-    const wrapper = mount(<Calendar {...defaultProps()} />)
+    const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
 
     expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
 
@@ -65,7 +65,7 @@ describe('<Calendar />', () => {
   })
 
   it('unselects a date when it is clicked twice', () => {
-    const wrapper = mount(<Calendar {...defaultProps()} />)
+    const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
 
     expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
 
