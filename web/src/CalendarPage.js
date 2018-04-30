@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
 import { css } from 'react-emotion'
@@ -117,6 +118,9 @@ class CalendarPage extends Component {
       </Layout>
     )
   }
+}
+CalendarPage.propTypes = {
+  history: PropTypes.any,
 }
 
 export default CalendarPage
