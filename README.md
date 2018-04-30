@@ -1,5 +1,7 @@
 # IRCC Rescheduler
 
+[![CircleCI](https://circleci.com/gh/cds-snc/ircc-rescheduler.svg?style=svg)](https://circleci.com/gh/cds-snc/ircc-rescheduler)
+
 This is a mono-repo containing the various microservices that collectively allow users to reschedule their language tests during the citizenship process.
 
 Each microservice is housed in it's own folder, with additional details to be found in an accompanying readme file.
