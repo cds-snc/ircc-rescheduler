@@ -335,7 +335,6 @@ class RegistrationPage extends React.Component {
 RegistrationPage.propTypes = {
   client: PropTypes.object.isRequired,
   history: PropTypes.any,
-  push: PropTypes.any,
 }
 
 export default withApollo(RegistrationPage)
