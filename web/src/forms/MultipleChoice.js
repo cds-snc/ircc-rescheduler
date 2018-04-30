@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import FieldAdapterPropTypes from '../_Field'
 import { css } from 'react-emotion'
 import { theme, roundedEdges, mediaQuery } from '../styles'
 
@@ -233,17 +234,13 @@ MultipleChoice.propTypes = {
   checked: PropTypes.bool,
 }
 
-const adapterPropTypes = {
-  input: PropTypes.object.isRequired,
-}
-
 const Radio = ({ ...props }) => (
   <MultipleChoice type="radio" className={radio} {...props} />
 )
 
 const RadioAdapter = ({ input, ...rest }) => <Radio {...input} {...rest} />
 
-RadioAdapter.propTypes = adapterPropTypes
+RadioAdapter.propTypes = FieldAdapterPropTypes
 
 const checkbox = css`
   ${govuk_multiple_choice};
@@ -276,6 +273,6 @@ const CheckboxAdapter = ({ input, ...rest }) => (
   <Checkbox {...input} {...rest} />
 )
 
-CheckboxAdapter.propTypes = adapterPropTypes
+CheckboxAdapter.propTypes = FieldAdapterPropTypes
 
 export { Radio, RadioAdapter, Checkbox, CheckboxAdapter }

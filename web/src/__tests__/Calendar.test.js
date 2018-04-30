@@ -9,19 +9,22 @@ const clickFirstDate = wrapper => {
     .simulate('click')
 }
 
+const defaultProps = {
+  input: { value: '', onChange: () => {} },
+}
+
 describe('<Calendar />', () => {
   it('renders June and July 2018', () => {
     /* TODO: create a calendar adaptor so that we don't need input */
-    const wrapper = mount(<Calendar input={{ value: '', onChange: {} }} />)
+    const wrapper = mount(<Calendar {...defaultProps} />)
     expect(wrapper.text()).toMatch(/June 2018/)
     expect(wrapper.text()).toMatch(/July 2018/)
   })
 
   it('selects a date when it is clicked', () => {
     /* TODO: create a calendar adaptor so that we don't need input */
-    const wrapper = mount(
-      <Calendar input={{ value: '', onChange: () => {} }} />,
-    )
+    const wrapper = mount(<Calendar {...defaultProps} />)
+
     expect(wrapper.find('#selectedDays').text()).toMatch('No dates selected')
 
     // click the first available day (June 1st, 2018)
@@ -34,9 +37,8 @@ describe('<Calendar />', () => {
 
   it('unselects a date when it is clicked twice', () => {
     /* TODO: create a calendar adaptor so that we don't need input */
-    const wrapper = mount(
-      <Calendar input={{ value: '', onChange: () => {} }} />,
-    )
+    const wrapper = mount(<Calendar {...defaultProps} />)
+
     expect(wrapper.find('#selectedDays').text()).toMatch('No dates selected')
 
     // click the first available day (June 1st, 2018) twice
