@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
 
@@ -304,6 +305,6 @@ class Calendar extends Component {
     )
   }
 }
-Calendar.defaultProps = {}
+Calendar.propTypes = FieldAdapterPropTypes
 
 export { Calendar }
