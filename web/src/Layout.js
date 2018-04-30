@@ -57,7 +57,7 @@ const Layout = ({ children, contentClass = '' }) => (
       </span>
     </AlphaBanner>
     <FederalBanner />
-    <main role="main">
+    <main>
       <PageHeader>
         <H1>
           <Trans>Request a new Canadian Citizenship test date</Trans>
