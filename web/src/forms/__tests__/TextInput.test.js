@@ -14,7 +14,7 @@ const defaultProps = {
 }
 
 const defaultAdapterProps = {
-  input: {},
+  input: { value: '', onChange: () => {} },
   ...defaultProps,
 }
 
