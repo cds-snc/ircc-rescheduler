@@ -22,15 +22,44 @@ describe('<Calendar />', () => {
     expect(wrapper.text()).toMatch(/July 2018/)
   })
 
+  it('will prefill a date if an initial value is provided', () => {
+    const wrapper = mount(
+      <Calendar
+        {...defaultProps({ value: [new Date('2018-06-01T12:00:00.000')] })}
+      />,
+    )
+
+    expect(wrapper.find('#selectedDays').text()).toEqual(
+      '1. 2018-06-01T12:00:00.000',
+    )
+  })
+
+  it('will prefill multiple dates if multiple initial values are provided', () => {
+    const wrapper = mount(
+      <Calendar
+        {...defaultProps({
+          value: [
+            new Date('2018-06-01T12:00:00.000'),
+            new Date('2018-06-05T12:00:00.000'),
+          ],
+        })}
+      />,
+    )
+
+    expect(wrapper.find('#selectedDays').text()).toEqual(
+      '1. 2018-06-01T12:00:00.0002. 2018-06-05T12:00:00.000',
+    )
+  })
+
   it('selects a date when it is clicked', () => {
     const wrapper = mount(<Calendar {...defaultProps()} />)
 
-    expect(wrapper.find('#selectedDays').text()).toMatch('No dates selected')
+    expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
 
     // click the first available day (June 1st, 2018)
     clickFirstDate(wrapper)
 
-    expect(wrapper.find('#selectedDays').text()).toMatch(
+    expect(wrapper.find('#selectedDays').text()).toEqual(
       '1. 2018-06-01T12:00:00.000',
     )
   })
@@ -38,12 +67,12 @@ describe('<Calendar />', () => {
   it('unselects a date when it is clicked twice', () => {
     const wrapper = mount(<Calendar {...defaultProps()} />)
 
-    expect(wrapper.find('#selectedDays').text()).toMatch('No dates selected')
+    expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
 
     // click the first available day (June 1st, 2018) twice
     clickFirstDate(wrapper)
     clickFirstDate(wrapper)
 
-    expect(wrapper.find('#selectedDays').text()).toMatch('No dates selected')
+    expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
   })
 })
