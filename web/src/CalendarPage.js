@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
 import {
+  visuallyhidden,
   CalHeader,
   CalReminder,
   Bold,
@@ -16,6 +17,9 @@ class CalendarPage extends Component {
   render() {
     return (
       <Layout>
+        <h1 className={visuallyhidden}>
+          Now use the calendar to tell us when you’re available.
+        </h1>
         <TopContainer>
           <nav>
             <NavLink to="/register">
