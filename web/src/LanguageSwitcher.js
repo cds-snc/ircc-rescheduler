@@ -25,7 +25,17 @@ export const LanguageSwitcher = () => (
       {({ data: { language } }) => (
         <Mutation mutation={CHANGE_LANGUAGE_MUTATION}>
           {switchLanguage => (
-            <a className={link} onClick={() => switchLanguage()}>
+            <a
+              tabIndex="0"
+              className={link}
+              onClick={() => switchLanguage()}
+              onKeyPress={e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  switchLanguage()
+                }
+              }}
+            >
               {language === 'en' ? 'Français' : 'English'}
             </a>
           )}
