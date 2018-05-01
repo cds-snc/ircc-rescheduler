@@ -222,12 +222,22 @@ const dayPicker = css`
   }
 `
 
+const dateToISOString = date => {
+  /*
+    This function will standardize strings across timezones.
+    Source: https://stackoverflow.com/questions/10830357/javascript-toisostring-ignores-timezone-offset
+  */
+  let tzOffset = date.getTimezoneOffset() * 60000 //offset in milliseconds
+  return new Date(date.valueOf() - tzOffset).toISOString().slice(0, -1)
+}
+
+const dateToHTMLString = date => date.toDateString()
+
 class Calendar extends Component {
   constructor(props) {
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
     this.updateFieldParams = this.updateFieldParams.bind(this)
-    this.dateToHTML = this.dateToHTML.bind(this)
     this.state = {
       selectedDays: this.props.input.value || [],
     }
@@ -249,15 +259,6 @@ class Calendar extends Component {
     }
     this.setState({ selectedDays })
     this.updateFieldParams()
-  }
-
-  dateToHTML(date) {
-    /*
-      This function will standardize strings across timezones.
-      Source: https://stackoverflow.com/questions/10830357/javascript-toisostring-ignores-timezone-offset
-    */
-    let tzOffset = date.getTimezoneOffset() * 60000 //offset in milliseconds
-    return new Date(date.valueOf() - tzOffset).toISOString().slice(0, -1)
   }
 
   updateFieldParams() {
@@ -293,7 +294,7 @@ class Calendar extends Component {
           {value && value.length > 0 ? (
             <ol>
               {value.map((v, i) => (
-                <li key={i}>{`${i + 1}. ${this.dateToHTML(v)}`}</li>
+                <li key={i}>{`${i + 1}. ${dateToHTMLString(v)}`}</li>
               ))}
             </ol>
           ) : (
@@ -306,4 +307,4 @@ class Calendar extends Component {
 }
 Calendar.propTypes = FieldAdapterPropTypes
 
-export { Calendar as CalendarAdapter }
+export { Calendar as CalendarAdapter, dateToISOString, dateToHTMLString }

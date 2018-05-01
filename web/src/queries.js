@@ -18,5 +18,6 @@ export const GET_USER_DATA = gql`
       reason
       explanation
     }
+    selectedDays @client
   }
 `

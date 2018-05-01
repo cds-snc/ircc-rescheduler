@@ -4,20 +4,21 @@ import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
 const QUERY = gql`
-  query getUserData {
+  query {
     userRegistrationData @client {
       fullName
       paperFileNumber
       reason
       explanation
     }
+    selectedDays @client
   }
 `
 
 class LinkStateDisplay extends React.Component {
   render() {
     const {
-      data: { loading, error, userRegistrationData: values },
+      data: { loading, error, variables, networkStatus, ...values },
     } = this.props
     if (error) {
       return (
