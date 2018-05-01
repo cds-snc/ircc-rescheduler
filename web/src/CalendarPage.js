@@ -17,6 +17,8 @@ import Button from './forms/Button'
 import { CalendarAdapter } from './Calendar'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
+import { withApollo } from 'react-apollo'
+import gql from 'graphql-tag'
 
 const DAY_LIMIT = 3
 
@@ -43,6 +45,22 @@ class CalendarPage extends Component {
         ),
       }
     }
+
+    const { client } = this.props
+    try {
+      await client.mutate({
+        mutation: gql`
+          mutation($dates: [String]) {
+            selectDays(data: $dates) @client
+          }
+        `,
+        variables: { dates: values.calendar },
+      })
+    } catch (err) {
+      //should be a logger
+      console.log(err) // eslint-disable-line no-console
+    }
+
     await this.props.history.push('/review')
   }
 
@@ -123,4 +141,4 @@ CalendarPage.propTypes = {
   history: PropTypes.any,
 }
 
-export default CalendarPage
+export default withApollo(CalendarPage)

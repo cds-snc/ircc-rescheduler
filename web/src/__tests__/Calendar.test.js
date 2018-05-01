@@ -29,9 +29,7 @@ describe('<CalendarAdapter />', () => {
       />,
     )
 
-    expect(wrapper.find('#selectedDays').text()).toEqual(
-      '1. 2018-06-01T12:00:00.000',
-    )
+    expect(wrapper.find('#selectedDays').text()).toEqual('1. Fri Jun 01 2018')
   })
 
   it('will prefill multiple dates if multiple initial values are provided', () => {
@@ -47,7 +45,7 @@ describe('<CalendarAdapter />', () => {
     )
 
     expect(wrapper.find('#selectedDays').text()).toEqual(
-      '1. 2018-06-01T12:00:00.0002. 2018-06-05T12:00:00.000',
+      '1. Fri Jun 01 20182. Tue Jun 05 2018',
     )
   })
 
@@ -59,9 +57,7 @@ describe('<CalendarAdapter />', () => {
     // click the first available day (June 1st, 2018)
     clickFirstDate(wrapper)
 
-    expect(wrapper.find('#selectedDays').text()).toEqual(
-      '1. 2018-06-01T12:00:00.000',
-    )
+    expect(wrapper.find('#selectedDays').text()).toEqual('1. Fri Jun 01 2018')
   })
 
   it('unselects a date when it is clicked twice', () => {
