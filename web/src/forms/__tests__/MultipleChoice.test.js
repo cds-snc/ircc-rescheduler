@@ -13,7 +13,7 @@ const defaultProps = {
 }
 
 const defaultAdapterProps = {
-  input: { value: defaultProps.value },
+  input: { value: defaultProps.value, onChange: () => {} },
   label: defaultProps.label,
 }
 

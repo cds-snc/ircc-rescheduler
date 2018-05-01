@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
 
@@ -221,15 +222,22 @@ const dayPicker = css`
   }
 `
 
-export default class Calendar extends Component {
+class Calendar extends Component {
   constructor(props) {
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
+    this.updateFieldParams = this.updateFieldParams.bind(this)
+    this.dateToHTML = this.dateToHTML.bind(this)
     this.state = {
-      selectedDays: [],
+      selectedDays: this.props.input.value || [],
     }
+    this.props.input.value = this.state.selectedDays
   }
-  handleDayClick(day, { selected }) {
+
+  handleDayClick(day, { selected, disabled }) {
+    if (disabled) {
+      return
+    }
     const { selectedDays } = this.state
     if (selected) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>
@@ -240,22 +248,62 @@ export default class Calendar extends Component {
       selectedDays.push(day)
     }
     this.setState({ selectedDays })
+    this.updateFieldParams()
+  }
+
+  dateToHTML(date) {
+    /*
+      This function will standardize strings across timezones.
+      Source: https://stackoverflow.com/questions/10830357/javascript-toisostring-ignores-timezone-offset
+    */
+    let tzOffset = date.getTimezoneOffset() * 60000 //offset in milliseconds
+    return new Date(date.valueOf() - tzOffset).toISOString().slice(0, -1)
+  }
+
+  updateFieldParams() {
+    this.props.input.value = this.state.selectedDays
+    this.props.input.onChange(this.props.input.value)
   }
 
   render() {
+    let {
+      input: { onBlur, onFocus, value },
+    } = this.props
     return (
-      <DayPicker
-        className={css`
-          ${dayPickerDefault} ${dayPicker};
-        `}
-        month={new Date(2018, 5)}
-        fromMonth={new Date(2018, 5)}
-        toMonth={new Date(2018, 6)}
-        numberOfMonths={2}
-        disabledDays={[{ daysOfWeek: [0, 1, 3, 4, 6] }]}
-        selectedDays={this.state.selectedDays}
-        onDayClick={this.handleDayClick}
-      />
+      <div>
+        <DayPicker
+          className={css`
+            ${dayPickerDefault} ${dayPicker};
+          `}
+          month={new Date(2018, 5)}
+          fromMonth={new Date(2018, 5)}
+          toMonth={new Date(2018, 6)}
+          numberOfMonths={2}
+          disabledDays={[{ daysOfWeek: [0, 1, 3, 4, 6] }]}
+          onDayClick={this.handleDayClick}
+          selectedDays={value || []}
+          onFocus={v => onFocus(v)}
+          onBlur={v => onBlur(v)}
+        />
+        {/*
+          This code demonstrates how to update the page as dates are selected.
+          It should be replaced as we fine-tune the interaction.
+        */}
+        <div id="selectedDays">
+          {value && value.length > 0 ? (
+            <ol>
+              {value.map((v, i) => (
+                <li key={i}>{`${i + 1}. ${this.dateToHTML(v)}`}</li>
+              ))}
+            </ol>
+          ) : (
+            'No dates selected'
+          )}
+        </div>
+      </div>
     )
   }
 }
+Calendar.propTypes = FieldAdapterPropTypes
+
+export { Calendar as CalendarAdapter }
