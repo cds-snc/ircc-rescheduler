@@ -232,7 +232,7 @@ export const H3 = styled.h3`
   font-family: ${theme.weight.s};
 `
 
-export const Content = styled.section`
+export const Content = styled.div`
   padding: ${theme.spacing.xl} ${theme.spacing.xxxl} ${theme.spacing.xxl}
     ${theme.spacing.xxxl};
   width: 100%;

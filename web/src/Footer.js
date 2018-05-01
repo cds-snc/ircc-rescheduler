@@ -64,13 +64,13 @@ const TopBar = styled.hr(
   {
     height: '0.4em',
     border: 'none',
-    marginTop: 0,
+    margin: 0,
   },
   props => ({ background: props.background }),
 )
 
 const Footer = ({ topBarBackground }) => (
-  <section>
+  <div>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
       <WordMark
@@ -90,7 +90,7 @@ const Footer = ({ topBarBackground }) => (
         </a>
       </div>
     </footer>
-  </section>
+  </div>
 )
 Footer.propTypes = {
   topBarBackground: PropTypes.string,
