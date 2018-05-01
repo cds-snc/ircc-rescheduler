@@ -45,7 +45,7 @@ const container = css`
 `
 
 const FederalBanner = () => (
-  <section className={container}>
+  <div className={container}>
     <Query query={GET_LANGUAGE_QUERY}>
       {({ data: { language } }) => (
         <div>
@@ -59,7 +59,7 @@ const FederalBanner = () => (
       )}
     </Query>
     <LanguageSwitcher />
-  </section>
+  </div>
 )
 
 export default FederalBanner

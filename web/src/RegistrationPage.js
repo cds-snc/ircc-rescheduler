@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
-import { theme, mediaQuery, TextLink } from './styles'
+import { theme, visuallyhidden, mediaQuery, TextLink } from './styles'
 import Layout from './Layout'
 import { TextFieldAdapter, TextAreaAdapter } from './forms/TextInput'
 import FieldSet from './forms/FieldSet'
@@ -166,6 +166,9 @@ class RegistrationPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass}>
+        <h1 className={visuallyhidden}>
+          First verify your identity and tell us why you need a new appointment.
+        </h1>
         <Form
           onSubmit={this.onSubmit}
           validate={validate}
