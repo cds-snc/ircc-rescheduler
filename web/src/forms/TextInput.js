@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import FieldAdapterPropTypes from '../_Field'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 
@@ -73,9 +74,7 @@ const TextFieldAdapter = ({ input, ...rest }) => (
   <TextField {...input} {...rest} />
 )
 
-TextFieldAdapter.propTypes = {
-  input: PropTypes.object.isRequired,
-}
+TextFieldAdapter.propTypes = FieldAdapterPropTypes
 
 const TextArea = ({
   name,
@@ -108,6 +107,6 @@ const TextAreaAdapter = ({ input, ...rest }) => (
   <TextArea {...input} {...rest} />
 )
 
-TextAreaAdapter.propTypes = TextFieldAdapter.propTypes
+TextAreaAdapter.propTypes = FieldAdapterPropTypes
 
 export { TextField, TextFieldAdapter, TextArea, TextAreaAdapter }
