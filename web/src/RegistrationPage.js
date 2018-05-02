@@ -112,29 +112,15 @@ class RegistrationPage extends React.Component {
   }
 
   async componentDidMount() {
-    /*initialize the form values */
-    await this.props.client.query({
-      query: gql`
-        {
-          userRegistrationData @client {
-            fullName
-            paperFileNumber
-            reason
-            explanation
-          }
-        }
-      `,
-    })
-    this.load()
-  }
-
-  load = async () => {
-    let userRegistrationData = {}
     try {
-      // eslint-disable-next-line no-extra-semi
-      ;({ userRegistrationData } = this.props.client.readQuery({
+      // 'result' would also be to place to check for potential graphql errors
+      let result = await this.props.client.query({
         query: GET_USER_DATA,
-      }))
+      })
+
+      let {
+        data: { userRegistrationData },
+      } = result
 
       this.setState({
         data: userRegistrationData,
@@ -146,7 +132,7 @@ class RegistrationPage extends React.Component {
 
   async onSubmit(values, event) {
     const { client } = this.props
-    /*Update the cache with the form values */
+    /* Update the cache with the form values */
     try {
       await client.mutate({
         mutation: gql`
