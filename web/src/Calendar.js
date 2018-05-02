@@ -231,7 +231,17 @@ const dateToISOString = date => {
   return new Date(date.valueOf() - tzOffset).toISOString().slice(0, -1)
 }
 
-const dateToHTMLString = date => date.toDateString()
+const dateToHTMLString = date => {
+  if (typeof date === 'string' || date instanceof String) {
+    /*
+      check if passed-in date is a string
+      source: https://stackoverflow.com/a/9436948/9728185
+    */
+    date = new Date(date)
+  }
+
+  return date.toDateString()
+}
 
 class Calendar extends Component {
   constructor(props) {
