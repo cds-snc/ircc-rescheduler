@@ -55,6 +55,7 @@ class ReviewPage extends React.Component {
                 paperFileNumber={data.userRegistrationData.paperFileNumber}
                 explanation={data.userRegistrationData.explanation}
                 reason={this.translateReason(data.userRegistrationData.reason)}
+                selectedDays={data.selectedDays}
               />
             )
           }}
