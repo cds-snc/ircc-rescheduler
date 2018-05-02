@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
+import Time from './Time'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -231,18 +232,6 @@ const dateToISOString = date => {
   return new Date(date.valueOf() - tzOffset).toISOString().slice(0, -1)
 }
 
-const dateToHTMLString = date => {
-  if (typeof date === 'string' || date instanceof String) {
-    /*
-      check if passed-in date is a string
-      source: https://stackoverflow.com/a/9436948/9728185
-    */
-    date = new Date(date)
-  }
-
-  return date.toDateString()
-}
-
 class Calendar extends Component {
   constructor(props) {
     super(props)
@@ -303,8 +292,11 @@ class Calendar extends Component {
         <div id="selectedDays">
           {value && value.length > 0 ? (
             <ol>
-              {value.map((v, i) => (
-                <li key={i}>{`${i + 1}. ${dateToHTMLString(v)}`}</li>
+              {value.map((day, index) => (
+                <li key={index}>
+                  {`${index + 1}. `}
+                  <Time date={day} />
+                </li>
               ))}
             </ol>
           ) : (
@@ -317,4 +309,4 @@ class Calendar extends Component {
 }
 Calendar.propTypes = FieldAdapterPropTypes
 
-export { Calendar as CalendarAdapter, dateToISOString, dateToHTMLString }
+export { Calendar as CalendarAdapter }
