@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'react-emotion'
 import { H2, theme, TextLink, mediaQuery } from './styles'
 import { Trans } from 'lingui-react'
-import { dateToHTMLString } from './Calendar'
+import Time from './Time'
 
 const TableContainer = styled.div`
   width: 80%;
@@ -146,8 +146,10 @@ export const Summary = ({
       <Column2>
         {selectedDays && selectedDays.length > 0 ? (
           <ul>
-            {selectedDays.map((day, i) => (
-              <li key={i}>{`${dateToHTMLString(day)}`}</li>
+            {selectedDays.map((day, index) => (
+              <li key={index}>
+                <Time date={day} />
+              </li>
             ))}
           </ul>
         ) : (

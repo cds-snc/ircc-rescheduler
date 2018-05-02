@@ -3,7 +3,7 @@ import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { withClientState } from 'apollo-link-state'
 import gql from 'graphql-tag'
-import { dateToISOString } from '../Calendar'
+import { dateToISODateString } from '../Time'
 
 const cache = new InMemoryCache()
 
@@ -76,7 +76,7 @@ const stateLink = withClientState({
           }
         `
         const data = {
-          selectedDays: args.data.map(d => dateToISOString(d)),
+          selectedDays: args.data.map(d => dateToISODateString(d)),
         }
         cache.writeQuery({ data, query })
         return null
