@@ -223,15 +223,6 @@ const dayPicker = css`
   }
 `
 
-const dateToISOString = date => {
-  /*
-    This function will standardize strings across timezones.
-    Source: https://stackoverflow.com/questions/10830357/javascript-toisostring-ignores-timezone-offset
-  */
-  let tzOffset = date.getTimezoneOffset() * 60000 //offset in milliseconds
-  return new Date(date.valueOf() - tzOffset).toISOString().slice(0, -1)
-}
-
 class Calendar extends Component {
   constructor(props) {
     super(props)
