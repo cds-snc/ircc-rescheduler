@@ -71,4 +71,52 @@ describe('<CalendarAdapter />', () => {
 
     expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
   })
+
+  it('will keep pre-filled dates when clicking new ones', () => {
+    const wrapper = mount(
+      <CalendarAdapter
+        {...defaultProps({
+          value: [
+            new Date('2018-06-05T12:00:00.000'),
+            new Date('2018-06-08T12:00:00.000'),
+          ],
+        })}
+      />,
+    )
+
+    expect(wrapper.find('#selectedDays').text()).toEqual(
+      '1. Tue, 05 Jun 20182. Fri, 08 Jun 2018',
+    )
+
+    // click the first available day (June 1st, 2018)
+    clickFirstDate(wrapper)
+
+    expect(wrapper.find('#selectedDays').text()).toEqual(
+      '1. Tue, 05 Jun 20182. Fri, 08 Jun 20183. Fri, 01 Jun 2018',
+    )
+  })
+
+  it('will un-click pre-filled dates when clicking new ones', () => {
+    const wrapper = mount(
+      <CalendarAdapter
+        {...defaultProps({
+          value: [
+            new Date('2018-06-05T12:00:00.000'),
+            new Date('2018-06-08T12:00:00.000'),
+          ],
+        })}
+      />,
+    )
+
+    expect(wrapper.find('#selectedDays').text()).toEqual(
+      '1. Tue, 05 Jun 20182. Fri, 08 Jun 2018',
+    )
+
+    // click the first available day (June 1st, 2018)
+    clickFirstDate(wrapper)
+
+    expect(wrapper.find('#selectedDays').text()).toEqual(
+      '1. Tue, 05 Jun 20182. Fri, 08 Jun 20183. Fri, 01 Jun 2018',
+    )
+  })
 })
