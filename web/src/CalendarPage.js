@@ -19,6 +19,8 @@ import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
+import { GET_USER_DATA } from './queries'
+import { makeDate } from './Time'
 
 const DAY_LIMIT = 3
 
@@ -32,6 +34,29 @@ class CalendarPage extends Component {
   constructor(props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
+    this.state = { data: {} }
+  }
+
+  async componentDidMount() {
+    try {
+      // 'result' would also be to place to check for potential graphql errors
+      let result = await this.props.client.query({
+        query: GET_USER_DATA,
+      })
+
+      let { data } = result
+
+      /* cast values to Date objects if selectedDays exists and has a length */
+      if (data && data.selectedDays && data.selectedDays.length) {
+        let selectedDays = data.selectedDays.map(day => makeDate(day))
+
+        this.setState({
+          data: { calendar: selectedDays },
+        })
+      }
+    } catch (err) {
+      console.log(err) // eslint-disable-line no-console
+    }
   }
 
   async onSubmit(values, event) {
@@ -88,6 +113,7 @@ class CalendarPage extends Component {
         </CalHeader>
         <Form
           onSubmit={this.onSubmit}
+          initialValues={this.state.data}
           render={({
             handleSubmit,
             reset,
@@ -138,7 +164,8 @@ class CalendarPage extends Component {
   }
 }
 CalendarPage.propTypes = {
-  history: PropTypes.any,
+  history: PropTypes.object.isRequired,
+  client: PropTypes.object.isRequired,
 }
 
 export default withApollo(CalendarPage)
