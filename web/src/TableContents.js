@@ -10,9 +10,7 @@ const DateRow = ({ header, secondColumn, thirdColumn }) => (
         <Trans>{header}</Trans>
       </H2>
     </Column1>
-    <Column2>
-      <p>{secondColumn}</p>
-    </Column2>
+    <Column2>{secondColumn}</Column2>
     <Column3>
       <TextLink className={change} href="/calendar">
         <Trans>{thirdColumn}</Trans>
@@ -41,14 +39,14 @@ const UserInfoRow = ({ header, secondColumn, thirdColumn }) => (
 
 DateRow.propTypes = {
   header: PropTypes.string,
-  secondColumn: PropTypes.string,
-  thirdColumn: PropTypes.object,
+  secondColumn: PropTypes.object,
+  thirdColumn: PropTypes.string,
 }
 
 UserInfoRow.propTypes = {
   header: PropTypes.string,
-  secondColumn: PropTypes.string,
-  thirdColumn: PropTypes.object,
+  secondColumn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  thirdColumn: PropTypes.string,
 }
 
 export { DateRow, UserInfoRow }

@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'react-emotion'
-import { H2, theme, TextLink, mediaQuery } from './styles'
+import { theme, mediaQuery } from './styles'
 import { Trans } from 'lingui-react'
 import Time from './Time'
+import { DateRow, UserInfoRow } from './TableContents'
 
 const TableContainer = styled.div`
   width: 80%;
@@ -14,56 +15,21 @@ const TableContainer = styled.div`
   `)};
 `
 
-const change = css`
-  position: relative;
-  right: 1.2rem;
-
-  ${mediaQuery.small(css`
-    right: 0rem;
-  `)};
-`
-
-const Row = styled.div`
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px dashed #a4a4a4;
-  padding-top: ${theme.spacing.md};
-  ${mediaQuery.small(css`
-    display: block;
-  `)};
-`
-
-const Column1 = styled.div`
-  width: 25%;
-
-  ${mediaQuery.small(css`
-    width: 100%;
-  `)};
-`
-
-const Column2 = styled.div`
-  width: 35%;
-
-  li {
-    padding-bottom: ${theme.spacing.xs};
-  }
-
-  li:last-of-type {
-    padding-bottom: ${theme.spacing.lg};
-  }
-
-  ${mediaQuery.small(css`
-    width: 100%;
-  `)};
-`
-
-const Column3 = styled.div`
-  width: 2rem;
-
-  ${mediaQuery.small(css`
-    padding-bottom: ${theme.spacing.md};
-  `)};
-`
+const renderSelectedDays = selectedDays => {
+  return selectedDays && selectedDays.length > 0 ? (
+    <ul>
+      {selectedDays.map((day, index) => (
+        <li key={index}>
+          <Time date={day} />
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>
+      <Trans>No dates selected</Trans>
+    </p>
+  )
+}
 
 export const Summary = ({
   fullName,
@@ -73,97 +39,27 @@ export const Summary = ({
   selectedDays,
 }) => (
   <TableContainer>
-    <Row>
-      <Column1>
-        <H2>
-          <Trans>Full name</Trans>
-        </H2>
-      </Column1>
-      <Column2>
-        <p>{fullName}</p>
-      </Column2>
-      <Column3>
-        <TextLink href="#">
-          <Trans>Edit</Trans>
-        </TextLink>
-      </Column3>
-    </Row>
-
-    <Row>
-      <Column1>
-        <H2>
-          <Trans>Paper file number</Trans>
-        </H2>
-      </Column1>
-      <Column2>
-        <p>{paperFileNumber}</p>
-      </Column2>
-      <Column3>
-        <TextLink href="#">
-          <Trans>Edit</Trans>
-        </TextLink>
-      </Column3>
-    </Row>
-
-    <Row>
-      <Column1>
-        <H2>
-          <Trans>Reason</Trans>
-        </H2>
-      </Column1>
-      <Column2>
-        <p>{reason}</p>
-      </Column2>
-      <Column3>
-        <TextLink href="#">
-          <Trans>Edit</Trans>
-        </TextLink>
-      </Column3>
-    </Row>
-
-    <Row>
-      <Column1>
-        <H2>
-          <Trans>Explanation</Trans>
-        </H2>
-      </Column1>
-      <Column2>
-        <p>{explanation}</p>
-      </Column2>
-      <Column3>
-        <TextLink href="#">
-          <Trans>Edit</Trans>
-        </TextLink>
-      </Column3>
-    </Row>
-
-    <Row>
-      <Column1>
-        <H2>
-          <Trans>Availability</Trans>
-        </H2>
-      </Column1>
-      <Column2>
-        {selectedDays && selectedDays.length > 0 ? (
-          <ul>
-            {selectedDays.map((day, index) => (
-              <li key={index}>
-                <Time date={day} />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>
-            <Trans>No dates selected</Trans>
-          </p>
-        )}
-      </Column2>
-      <Column3>
-        <TextLink className={change} href="#">
-          <Trans>Change</Trans>
-        </TextLink>
-      </Column3>
-    </Row>
+    <UserInfoRow
+      header="Full name"
+      secondColumn={fullName}
+      thirdColumn="Edit"
+    />
+    <UserInfoRow
+      header="Paper file number"
+      secondColumn={paperFileNumber}
+      thirdColumn="Edit"
+    />
+    <UserInfoRow header="Reason" secondColumn={reason} thirdColumn="Edit" />
+    <UserInfoRow
+      header="Explanation"
+      secondColumn={explanation}
+      thirdColumn="Edit"
+    />
+    <DateRow
+      header="Availability"
+      secondColumn={renderSelectedDays(selectedDays)}
+      thirdColumn="Change"
+    />
   </TableContainer>
 )
 
