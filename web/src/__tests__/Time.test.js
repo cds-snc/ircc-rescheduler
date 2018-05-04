@@ -14,13 +14,13 @@ describe('<Time />', () => {
   it('renders correctly from a Date object', () => {
     const time = shallow(<Time date={date} />)
     expect(time.props().dateTime).toEqual('1870-04-22')
-    expect(time.text()).toEqual('Fri Apr 22 1870')
+    expect(time.text()).toEqual('Fri, 22 Apr 1870')
   })
 
   it('renders correctly from a date string', () => {
     const time = shallow(<Time date={dateString} />)
     expect(time.props().dateTime).toEqual('1870-04-22')
-    expect(time.text()).toEqual('Fri Apr 22 1870')
+    expect(time.text()).toEqual('Fri, 22 Apr 1870')
   })
 })
 

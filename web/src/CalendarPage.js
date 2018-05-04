@@ -20,7 +20,7 @@ import { FORM_ERROR } from 'final-form'
 import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import { GET_USER_DATA } from './queries'
-import { makeDate } from './Time'
+import { makeGMTDate } from './Time'
 
 const DAY_LIMIT = 3
 
@@ -48,7 +48,7 @@ class CalendarPage extends Component {
 
       /* cast values to Date objects if selectedDays exists and has a length */
       if (data && data.selectedDays && data.selectedDays.length) {
-        let selectedDays = data.selectedDays.map(day => makeDate(day))
+        let selectedDays = data.selectedDays.map(day => makeGMTDate(day))
 
         this.setState({
           data: { calendar: selectedDays },
