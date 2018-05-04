@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
+import Time, { makeGMTDate } from './Time'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -227,17 +228,35 @@ class Calendar extends Component {
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
     this.updateFieldParams = this.updateFieldParams.bind(this)
-    this.dateToHTML = this.dateToHTML.bind(this)
     this.state = {
       selectedDays: this.props.input.value || [],
     }
     this.props.input.value = this.state.selectedDays
   }
 
-  handleDayClick(day, { selected, disabled }) {
+  async handleDayClick(day, { selected, disabled }) {
     if (disabled) {
       return
     }
+
+    /* Cast all Dates to 12 noon GMT */
+    day = makeGMTDate(day)
+
+    /*
+      The first time we return to this page with pre-populated dates,
+      - this.props.input.value will contain all of the pre-poulated dates
+      - this.state.selectedDates will be empty
+
+      So let's update the state with the prepopulated dates
+    */
+    if (
+      !this.state.selectedDays.length &&
+      this.props.input.value &&
+      this.props.input.value.length
+    ) {
+      await this.setState({ selectedDays: this.props.input.value })
+    }
+
     const { selectedDays } = this.state
     if (selected) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>
@@ -247,17 +266,8 @@ class Calendar extends Component {
     } else {
       selectedDays.push(day)
     }
-    this.setState({ selectedDays })
+    await this.setState({ selectedDays })
     this.updateFieldParams()
-  }
-
-  dateToHTML(date) {
-    /*
-      This function will standardize strings across timezones.
-      Source: https://stackoverflow.com/questions/10830357/javascript-toisostring-ignores-timezone-offset
-    */
-    let tzOffset = date.getTimezoneOffset() * 60000 //offset in milliseconds
-    return new Date(date.valueOf() - tzOffset).toISOString().slice(0, -1)
   }
 
   updateFieldParams() {
@@ -292,8 +302,11 @@ class Calendar extends Component {
         <div id="selectedDays">
           {value && value.length > 0 ? (
             <ol>
-              {value.map((v, i) => (
-                <li key={i}>{`${i + 1}. ${this.dateToHTML(v)}`}</li>
+              {value.map((day, index) => (
+                <li key={index}>
+                  {`${index + 1}. `}
+                  <Time date={day} />
+                </li>
               ))}
             </ol>
           ) : (
