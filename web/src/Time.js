@@ -39,14 +39,17 @@ const _convertDateToUTC = date => {
   )
 }
 
+const makeDate = date =>
+  _isString(date) ? _convertDateToUTC(new Date(date)) : date
+
 const dateToHTMLString = date => {
-  date = _isString(date) ? _convertDateToUTC(new Date(date)) : date
+  date = makeDate(date)
 
   return date.toDateString()
 }
 
 const dateToISODateString = date => {
-  date = _isString(date) ? _convertDateToUTC(new Date(date)) : date
+  date = makeDate(date)
 
   /*
   YYYY-MM-DD from "a valid date string"
@@ -64,4 +67,4 @@ Time.propTypes = {
     .isRequired,
 }
 
-export { Time as default, dateToISODateString }
+export { Time as default, makeDate, dateToISODateString }
