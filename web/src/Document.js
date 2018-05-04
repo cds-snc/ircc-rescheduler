@@ -21,7 +21,6 @@ class Document extends React.Component {
           <meta charSet="utf-8" />
           <title>Reschedule your Canadian Citizenship appointment</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          {helmet.title.toComponent()}
           {helmet.meta.toComponent()}
           {helmet.link.toComponent()}
         </head>

@@ -1,10 +1,11 @@
 import React from 'react'
 import { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
-import { H1, H2, H3, theme, TextLink, mediaQuery } from './styles'
+import { H1, H2, H3, theme, mediaQuery } from './styles'
 import Layout from './Layout'
 import Button from './forms/Button'
 import { Trans } from 'lingui-react'
+import { Helmet } from 'react-helmet'
 
 const contentClass = css`
   p {
@@ -48,11 +49,18 @@ const moreInfo = css`
   font-family: ${theme.weight.l};
   font-size: ${theme.font.md};
 `
+const href = css`
+  text-decoration: underline;
+  color: ${theme.colour.black};
+`
 
 class LandingPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass}>
+        <Helmet>
+          <title>Request a new Canadian Citizenship test date</title>
+        </Helmet>
         <section className={landingSection}>
           <H1>
             <Trans>
@@ -87,9 +95,14 @@ class LandingPage extends React.Component {
               </p>
               <span className={moreInfo}>
                 <Trans>for more information on rescheduling,</Trans>{' '}
-                <TextLink href="#">
+              </span>
+              <span className={moreInfo}>
+                <a
+                  href="http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=786&amp;top=5"
+                  className={href}
+                >
                   <Trans>read the guidelines</Trans>
-                </TextLink>.
+                </a>
               </span>
             </li>
           </ul>
