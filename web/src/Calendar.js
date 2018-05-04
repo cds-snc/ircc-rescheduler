@@ -234,13 +234,28 @@ class Calendar extends Component {
     this.props.input.value = this.state.selectedDays
   }
 
-  handleDayClick(day, { selected, disabled }) {
+  async handleDayClick(day, { selected, disabled }) {
     if (disabled) {
       return
     }
 
     /* Cast all Dates to 12 noon GMT */
     day = makeGMTDate(day)
+
+    /*
+      The first time we return to this page with pre-populated dates,
+      - this.props.input.value will contain all of the pre-poulated dates
+      - this.state.selectedDates will be empty
+
+      So let's update the state with the prepopulated dates
+    */
+    if (
+      !this.state.selectedDays.length &&
+      this.props.input.value &&
+      this.props.input.value.length
+    ) {
+      await this.setState({ selectedDays: this.props.input.value })
+    }
 
     const { selectedDays } = this.state
     if (selected) {
@@ -251,7 +266,7 @@ class Calendar extends Component {
     } else {
       selectedDays.push(day)
     }
-    this.setState({ selectedDays })
+    await this.setState({ selectedDays })
     this.updateFieldParams()
   }
 
