@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
-import Time from './Time'
+import Time, { makeGMTDate } from './Time'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -238,6 +238,10 @@ class Calendar extends Component {
     if (disabled) {
       return
     }
+
+    /* Cast all Dates to 12 noon GMT */
+    day = makeGMTDate(day)
+
     const { selectedDays } = this.state
     if (selected) {
       const selectedIndex = selectedDays.findIndex(selectedDay =>
