@@ -23,13 +23,13 @@ const getAdapterAttrib = (adapter, attr) =>
 describe('<Radio> component', () => {
   it('has props assigned correctly', () => {
     const radio = shallow(<Radio {...defaultProps} />)
-    expect(radio.find('input')).toBeTruthy()
     expect(radio.props().type).toEqual('radio')
     expect(radio.props().value).toEqual('option')
   })
 
   it('renders label correctly', () => {
     const radio = render(<Radio {...defaultProps} />)
+    expect(radio.find('input').length).toBe(1)
     expect(radio.find('label > span').text()).toMatch(/Option/)
   })
 })
@@ -37,7 +37,7 @@ describe('<Radio> component', () => {
 describe('<RadioAdapter> component', () => {
   it('has props assigned directly through input object', () => {
     const radioAdapter = render(<RadioAdapter {...defaultAdapterProps} />)
-    expect(radioAdapter.find('input')).toBeTruthy()
+    expect(radioAdapter.find('input').length).toBe(1)
 
     const radio = shallow(<Radio {...defaultProps} />)
     expect(getAdapterAttrib(radioAdapter, 'type')).toEqual(radio.props().type)
@@ -48,13 +48,13 @@ describe('<RadioAdapter> component', () => {
 describe('<Checkbox> component', () => {
   it('has props assigned correctly', () => {
     const checkbox = shallow(<Checkbox {...defaultProps} />)
-    expect(checkbox.find('input')).toBeTruthy()
     expect(checkbox.props().type).toEqual('checkbox')
     expect(checkbox.props().value).toEqual('option')
   })
 
   it('renders label correctly', () => {
     const checkbox = render(<Checkbox {...defaultProps} />)
+    expect(checkbox.find('input').length).toBe(1)
     expect(checkbox.find('label > span').text()).toMatch(/Option/)
   })
 })
@@ -62,7 +62,7 @@ describe('<Checkbox> component', () => {
 describe('<CheckboxAdapter> component', () => {
   it('has props assigned directly through input object', () => {
     const cbAdapter = render(<CheckboxAdapter {...defaultAdapterProps} />)
-    expect(cbAdapter.find('input')).toBeTruthy()
+    expect(cbAdapter.find('input').length).toBe(1)
 
     const checkbox = shallow(<Checkbox {...defaultProps} />)
     expect(getAdapterAttrib(cbAdapter, 'type')).toEqual(checkbox.props().type)

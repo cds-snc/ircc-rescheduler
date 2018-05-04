@@ -22,7 +22,7 @@ describe('<TextField> component', () => {
   it('has props assigned correctly', () => {
     const textField = shallow(<TextField {...defaultProps} />)
     const tfInput = textField.find('input')
-    expect(tfInput).toBeTruthy()
+    expect(tfInput.length).toBe(1)
     expect(tfInput.props().type).toEqual('text')
     expect(tfInput.props().id).toEqual('id')
     expect(tfInput.props().name).toEqual('name')
@@ -40,7 +40,7 @@ describe('<TextFieldAdapter> component', () => {
 
   it('has props assigned directly through input object', () => {
     const tfAdapter = render(<TextFieldAdapter {...defaultAdapterProps} />)
-    expect(tfAdapter.find('input')).toBeTruthy()
+    expect(tfAdapter.find('input').length).toBe(1)
 
     const tfInput = shallow(<TextField {...defaultProps} />).find('input')
     expect(getAdapterAttrib(tfAdapter, 'type')).toEqual(tfInput.props().type)
@@ -53,7 +53,7 @@ describe('<TextArea> component', () => {
   it('has props assigned correctly', () => {
     const textArea = shallow(<TextArea {...defaultProps} />)
     const taInput = textArea.find('textarea')
-    expect(taInput).toBeTruthy()
+    expect(taInput.length).toBe(1)
     expect(taInput.props().id).toEqual('id')
     expect(taInput.props().name).toEqual('name')
   })
@@ -70,7 +70,7 @@ describe('<TextAreaAdapter> component', () => {
 
   it('has props assigned directly through input object', () => {
     const taAdapter = render(<TextAreaAdapter {...defaultAdapterProps} />)
-    expect(taAdapter.find('textarea')).toBeTruthy()
+    expect(taAdapter.find('textarea').length).toBe(1)
 
     const taInput = shallow(<TextArea {...defaultProps} />).find('textarea')
     expect(getAdapterAttrib(taAdapter, 'id')).toEqual(taInput.props().id)
