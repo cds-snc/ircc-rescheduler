@@ -302,3 +302,54 @@ export const BottomContainer = styled.div`
 export const TopContainer = styled.div`
   margin-bottom: ${theme.spacing.lg};
 `
+
+export const change = css`
+  position: relative;
+  right: 1.2rem;
+
+  ${mediaQuery.small(css`
+    right: 0rem;
+  `)};
+`
+
+export const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #a4a4a4;
+  padding-top: ${theme.spacing.md};
+  ${mediaQuery.small(css`
+    display: block;
+  `)};
+`
+
+export const Column1 = styled.div`
+  width: 25%;
+
+  ${mediaQuery.small(css`
+    width: 100%;
+  `)};
+`
+
+export const Column2 = styled.div`
+  width: 35%;
+
+  li {
+    padding-bottom: ${theme.spacing.xs};
+  }
+
+  li:last-of-type {
+    padding-bottom: ${theme.spacing.lg};
+  }
+
+  ${mediaQuery.small(css`
+    width: 100%;
+  `)};
+`
+
+export const Column3 = styled.div`
+  width: 2rem;
+
+  ${mediaQuery.small(css`
+    padding-bottom: ${theme.spacing.md};
+  `)};
+`
