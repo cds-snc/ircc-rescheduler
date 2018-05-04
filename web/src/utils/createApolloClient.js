@@ -1,6 +1,8 @@
 import { ApolloLink } from 'apollo-link'
+import { HttpLink } from 'apollo-link-http'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
+import fetch from 'unfetch'
 import { withClientState } from 'apollo-link-state'
 import gql from 'graphql-tag'
 import { dateToISODateString } from '../Time'
@@ -99,7 +101,7 @@ const stateLink = withClientState({
 const createApolloClient = ({ ssrMode }) =>
   new ApolloClient({
     ssrMode,
-    link: ApolloLink.from([stateLink]),
+    link: ApolloLink.from([stateLink, new HttpLink({ fetch })]),
     cache: ssrMode
       ? new InMemoryCache()
       : new InMemoryCache().restore(window.__APOLLO_STATE__),
