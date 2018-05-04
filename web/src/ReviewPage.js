@@ -1,11 +1,11 @@
 import React from 'react'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
-import { Query } from 'react-apollo'
-import { NavLink } from 'react-router-dom'
+import { Query, Mutation } from 'react-apollo'
+import { NavLink, Redirect } from 'react-router-dom'
 import { H1, theme, BottomContainer, TopContainer } from './styles'
 import Layout from './Layout'
-import { GET_USER_DATA } from './queries'
+import { GET_USER_DATA, SUBMIT } from './queries'
 import Button from './forms/Button'
 import { Summary } from './Summary'
 import { Reminder } from './Reminder'
@@ -49,38 +49,62 @@ class ReviewPage extends React.Component {
           {({ loading, error, data }) => {
             if (loading) return 'Loading...'
             if (error) return `Error! ${error.message}`
+            let {
+              fullName,
+              paperFileNumber,
+              explanation,
+              reason,
+            } = data.userRegistrationData
             return (
-              <Summary
-                fullName={data.userRegistrationData.fullName}
-                paperFileNumber={data.userRegistrationData.paperFileNumber}
-                explanation={data.userRegistrationData.explanation}
-                reason={this.translateReason(data.userRegistrationData.reason)}
-                selectedDays={data.selectedDays}
-              />
+              <section>
+                <Summary
+                  fullName={fullName}
+                  paperFileNumber={paperFileNumber}
+                  explanation={explanation}
+                  reason={this.translateReason(reason)}
+                />
+                <Reminder>
+                  <Trans>
+                    Remember: By sending this request, you are cancelling your
+                    currently scheduled test.
+                  </Trans>
+                </Reminder>
+
+                <BottomContainer>
+                  <Mutation mutation={SUBMIT}>
+                    {(submit, { data }) => {
+                      if (data) {
+                        return <Redirect to="/confirmation" push />
+                      } else {
+                        return (
+                          <Button
+                            onClick={() => {
+                              submit({
+                                variables: {
+                                  fullName,
+                                  reason,
+                                  explanation,
+                                  paperFileNumber,
+                                },
+                              })
+                            }}
+                          >
+                            <Trans>Send Request →</Trans>
+                          </Button>
+                        )
+                      }
+                    }}
+                  </Mutation>
+                  <div>
+                    <NavLink to="/">
+                      <Trans>Cancel</Trans>
+                    </NavLink>
+                  </div>
+                </BottomContainer>
+              </section>
             )
           }}
         </Query>
-
-        <Reminder>
-          <Trans>
-            Remember: By sending this request, you are cancelling your currently
-            scheduled test.
-          </Trans>
-        </Reminder>
-
-        <BottomContainer>
-          <NavLink to="/confirmation">
-            <Button>
-              <Trans>Send Request →</Trans>
-            </Button>
-          </NavLink>
-
-          <div>
-            <NavLink to="/">
-              <Trans>Cancel</Trans>
-            </NavLink>
-          </div>
-        </BottomContainer>
       </Layout>
     )
   }

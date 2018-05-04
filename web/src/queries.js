@@ -21,3 +21,24 @@ export const GET_USER_DATA = gql`
     selectedDays @client
   }
 `
+
+export const SUBMIT = gql`
+  mutation submit(
+    $fullName: String!
+    $explanation: String!
+    $reason: String!
+    $paperFileNumber: String!
+  ) {
+    decline(
+      input: {
+        fullName: $fullName
+        explanation: $explanation
+        reason: $reason
+        paperFileNumber: $paperFileNumber
+      }
+    ) {
+      requestId
+      messageId
+    }
+  }
+`
