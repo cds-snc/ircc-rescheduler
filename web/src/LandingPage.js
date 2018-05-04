@@ -5,6 +5,7 @@ import { H1, H2, H3, theme, mediaQuery } from './styles'
 import Layout from './Layout'
 import Button from './forms/Button'
 import { Trans } from 'lingui-react'
+import { Helmet } from 'react-helmet'
 
 const contentClass = css`
   p {
@@ -57,6 +58,9 @@ class LandingPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass}>
+        <Helmet>
+          <title>Request a new Canadian Citizenship test date</title>
+        </Helmet>
         <section className={landingSection}>
           <H1>
             <Trans>
