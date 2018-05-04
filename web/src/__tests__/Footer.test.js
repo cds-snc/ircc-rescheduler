@@ -5,7 +5,7 @@ import React from 'react'
 describe('<Footer />', () => {
   it('renders footer', () => {
     const footer = shallow(<Footer />)
-    expect(footer.find('footer')).toBeTruthy()
+    expect(footer.find('footer').length).toBe(1)
   })
 
   it('renders footer with topBar', () => {
