@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'react-emotion'
 import { H2, theme, TextLink, mediaQuery } from './styles'
 import { Trans } from 'lingui-react'
+import Time from './Time'
 
 const TableContainer = styled.div`
   width: 80%;
@@ -64,7 +65,13 @@ const Column3 = styled.div`
   `)};
 `
 
-export const Summary = ({ fullName, paperFileNumber, reason, explanation }) => (
+export const Summary = ({
+  fullName,
+  paperFileNumber,
+  reason,
+  explanation,
+  selectedDays,
+}) => (
   <TableContainer>
     <Row>
       <Column1>
@@ -137,17 +144,19 @@ export const Summary = ({ fullName, paperFileNumber, reason, explanation }) => (
         </H2>
       </Column1>
       <Column2>
-        <ul>
-          <li>
-            <Trans>Tuesday June 1, 2018</Trans>
-          </li>
-          <li>
-            <Trans>Friday June 11, 2018</Trans>
-          </li>
-          <li>
-            <Trans>Tuesday July 5, 2018</Trans>
-          </li>
-        </ul>
+        {selectedDays && selectedDays.length > 0 ? (
+          <ul>
+            {selectedDays.map((day, index) => (
+              <li key={index}>
+                <Time date={day} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>
+            <Trans>No dates selected</Trans>
+          </p>
+        )}
       </Column2>
       <Column3>
         <TextLink className={change} href="#">
@@ -163,4 +172,5 @@ Summary.propTypes = {
   reason: PropTypes.object,
   explanation: PropTypes.string,
   paperFileNumber: PropTypes.string,
+  selectedDays: PropTypes.array,
 }
