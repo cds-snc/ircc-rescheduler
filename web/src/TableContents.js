@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { H2, TextLink, change, Row, Column1, Column2, Column3 } from './styles'
+import { H2, change, Row, Column1, Column2, Column3 } from './styles'
 import { Trans } from 'lingui-react'
+import { NavLink } from 'react-router-dom'
 
 const DateRow = ({ header, secondColumn, thirdColumn }) => (
   <Row>
@@ -12,9 +13,9 @@ const DateRow = ({ header, secondColumn, thirdColumn }) => (
     </Column1>
     <Column2>{secondColumn}</Column2>
     <Column3>
-      <TextLink className={change} href="/calendar">
+      <NavLink activeClassName={change} to="/calendar">
         <Trans>{thirdColumn}</Trans>
-      </TextLink>
+      </NavLink>
     </Column3>
   </Row>
 )
@@ -30,9 +31,9 @@ const UserInfoRow = ({ header, secondColumn, thirdColumn }) => (
       <p>{secondColumn}</p>
     </Column2>
     <Column3>
-      <TextLink href="/register">
+      <NavLink to="/register">
         <Trans>{thirdColumn}</Trans>
-      </TextLink>
+      </NavLink>
     </Column3>
   </Row>
 )
