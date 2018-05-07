@@ -5,7 +5,6 @@ import { theme, mediaQuery } from './styles'
 import { Trans } from 'lingui-react'
 import Time from './Time'
 import { SummaryRow } from './TableContents'
-import { NavLink } from 'react-router-dom'
 
 const TableContainer = styled.div`
   width: 80%;
@@ -43,47 +42,27 @@ export const Summary = ({
     <SummaryRow
       header={<Trans>Full name</Trans>}
       secondColumn={fullName}
-      thirdColumn={
-        <NavLink to="/register">
-          <Trans>Change</Trans>
-        </NavLink>
-      }
+      thirdColumn={'/register'}
     />
     <SummaryRow
       header={<Trans>Paper file number</Trans>}
       secondColumn={paperFileNumber}
-      thirdColumn={
-        <NavLink to="/register">
-          <Trans>Change</Trans>
-        </NavLink>
-      }
+      thirdColumn={'/register'}
     />
     <SummaryRow
       header={<Trans>Reason</Trans>}
       secondColumn={reason}
-      thirdColumn={
-        <NavLink to="/register">
-          <Trans>Change</Trans>
-        </NavLink>
-      }
+      thirdColumn={'/register'}
     />
     <SummaryRow
       header={<Trans>Explanation</Trans>}
       secondColumn={explanation}
-      thirdColumn={
-        <NavLink to="/register">
-          <Trans>Change</Trans>
-        </NavLink>
-      }
+      thirdColumn={'/register'}
     />
     <SummaryRow
       header={<Trans>Availability</Trans>}
       secondColumn={renderSelectedDays(selectedDays)}
-      thirdColumn={
-        <NavLink to="/calendar">
-          <Trans>Change</Trans>
-        </NavLink>
-      }
+      thirdColumn={'/calendar'}
     />
   </TableContainer>
 )
