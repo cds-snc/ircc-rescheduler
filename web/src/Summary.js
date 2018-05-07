@@ -45,12 +45,6 @@ const SummaryRow = ({ header, secondColumn, thirdColumn }) => (
   </Row>
 )
 
-SummaryRow.propTypes = {
-  header: PropTypes.object.isRequired,
-  secondColumn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  thirdColumn: PropTypes.string.isRequired,
-}
-
 export const Summary = ({
   fullName,
   paperFileNumber,
