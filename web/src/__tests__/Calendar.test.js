@@ -2,16 +2,21 @@ import React from 'react'
 import { mount } from 'enzyme'
 import { CalendarAdapter } from '../Calendar'
 
-const clickFirstDate = wrapper => {
+const clickDate = (wrapper, index) => {
   return wrapper
     .find('.DayPicker-Day[aria-disabled=false]')
-    .first()
+    .at(index)
     .simulate('click')
 }
 
-const defaultProps = ({ value = '' } = {}) => {
+const clickFirstDate = wrapper => {
+  return clickDate(wrapper, 0)
+}
+
+const defaultProps = ({ value = '', dayLimit = 3 } = {}) => {
   return {
     input: { value: value, onChange: () => {} },
+    dayLimit: dayLimit,
   }
 }
 
@@ -70,6 +75,42 @@ describe('<CalendarAdapter />', () => {
     clickFirstDate(wrapper)
 
     expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
+  })
+
+  it('will not select more days once the limit is reached', () => {
+    const wrapper = mount(
+      <CalendarAdapter
+        {...defaultProps({
+          value: [new Date('2018-06-05T12:00:00.000')],
+          dayLimit: 1,
+        })}
+      />,
+    )
+    expect(wrapper.find('#selectedDays').text()).toEqual('1. Tue, 05 Jun 2018')
+
+    // click the first available day (June 1st, 2018)
+    clickFirstDate(wrapper)
+    expect(wrapper.find('#selectedDays').text()).toEqual('1. Tue, 05 Jun 2018')
+  })
+
+  it('will allow more days to be selected once a day is unselected', () => {
+    const wrapper = mount(
+      <CalendarAdapter
+        {...defaultProps({
+          value: [new Date('2018-06-05T12:00:00.000')],
+          dayLimit: 1,
+        })}
+      />,
+    )
+    expect(wrapper.find('#selectedDays').text()).toEqual('1. Tue, 05 Jun 2018')
+
+    // click June 5th, 2018
+    clickDate(wrapper, 1)
+    expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
+
+    // click the first available day (June 1st, 2018)
+    clickFirstDate(wrapper)
+    expect(wrapper.find('#selectedDays').text()).toEqual('1. Fri, 01 Jun 2018')
   })
 
   it('will keep pre-filled dates when clicking new ones', () => {

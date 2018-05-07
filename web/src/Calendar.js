@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
@@ -263,6 +264,7 @@ class Calendar extends Component {
     */
     let {
       input: { value },
+      dayLimit,
     } = this.props
 
     if (!this.state.selectedDays.length && value && value.length) {
@@ -273,6 +275,11 @@ class Calendar extends Component {
 
     // !selected means that this current day is not marked as 'selected' on the calendar
     if (!selected) {
+      // If we have already selected the maximum number of days, return early
+      if (selectedDays.length >= dayLimit) {
+        return
+      }
+
       // push new day into array of selectedDays
       selectedDays.push(day)
     } else {
@@ -334,6 +341,9 @@ class Calendar extends Component {
     )
   }
 }
-Calendar.propTypes = FieldAdapterPropTypes
+Calendar.propTypes = {
+  ...FieldAdapterPropTypes,
+  dayLimit: PropTypes.number.isRequired,
+}
 
 export { Calendar as CalendarAdapter }
