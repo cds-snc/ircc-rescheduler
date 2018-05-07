@@ -4,7 +4,8 @@ import styled, { css } from 'react-emotion'
 import { theme, mediaQuery } from './styles'
 import { Trans } from 'lingui-react'
 import Time from './Time'
-import { DateRow, UserInfoRow } from './TableContents'
+import { SummaryRow } from './TableContents'
+import { NavLink } from 'react-router-dom'
 
 const TableContainer = styled.div`
   width: 80%;
@@ -39,26 +40,50 @@ export const Summary = ({
   selectedDays,
 }) => (
   <TableContainer>
-    <UserInfoRow
-      header="Full name"
+    <SummaryRow
+      header={<Trans>Full name</Trans>}
       secondColumn={fullName}
-      thirdColumn="Edit"
+      thirdColumn={
+        <NavLink to="/register">
+          <Trans>Change</Trans>
+        </NavLink>
+      }
     />
-    <UserInfoRow
-      header="Paper file number"
+    <SummaryRow
+      header={<Trans>Paper file number</Trans>}
       secondColumn={paperFileNumber}
-      thirdColumn="Edit"
+      thirdColumn={
+        <NavLink to="/register">
+          <Trans>Change</Trans>
+        </NavLink>
+      }
     />
-    <UserInfoRow header="Reason" secondColumn={reason} thirdColumn="Edit" />
-    <UserInfoRow
-      header="Explanation"
+    <SummaryRow
+      header={<Trans>Reason</Trans>}
+      secondColumn={reason}
+      thirdColumn={
+        <NavLink to="/register">
+          <Trans>Change</Trans>
+        </NavLink>
+      }
+    />
+    <SummaryRow
+      header={<Trans>Explanation</Trans>}
       secondColumn={explanation}
-      thirdColumn="Edit"
+      thirdColumn={
+        <NavLink to="/register">
+          <Trans>Change</Trans>
+        </NavLink>
+      }
     />
-    <DateRow
-      header="Availability"
+    <SummaryRow
+      header={<Trans>Availability</Trans>}
       secondColumn={renderSelectedDays(selectedDays)}
-      thirdColumn="Change"
+      thirdColumn={
+        <NavLink to="/calendar">
+          <Trans>Change</Trans>
+        </NavLink>
+      }
     />
   </TableContainer>
 )
