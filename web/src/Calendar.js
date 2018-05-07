@@ -234,6 +234,18 @@ class Calendar extends Component {
     this.props.input.value = this.state.selectedDays
   }
 
+  /*
+    'selected' is a boolean field
+    - true if the day being passed in has already been selected on the calendar
+    - false if the day being passed in is not already on the calendar
+
+    'disabled' is a boolean field as well
+    - true if the day being passed in is disabled (not able to be selected)
+    - else false
+
+    These properties are part of the DayPicker API
+    http://react-day-picker.js.org/examples/selected-multiple
+  */
   async handleDayClick(day, { selected, disabled }) {
     if (disabled) {
       return
@@ -249,23 +261,28 @@ class Calendar extends Component {
 
       So let's update the state with the prepopulated dates
     */
-    if (
-      !this.state.selectedDays.length &&
-      this.props.input.value &&
-      this.props.input.value.length
-    ) {
-      await this.setState({ selectedDays: this.props.input.value })
+    let {
+      input: { value },
+    } = this.props
+
+    if (!this.state.selectedDays.length && value && value.length) {
+      await this.setState({ selectedDays: value })
     }
 
     const { selectedDays } = this.state
-    if (selected) {
+
+    // !selected means that this current day is not marked as 'selected' on the calendar
+    if (!selected) {
+      // push new day into array of selectedDays
+      selectedDays.push(day)
+    } else {
+      // If we have already selected this day, unselect it
       const selectedIndex = selectedDays.findIndex(selectedDay =>
         DateUtils.isSameDay(selectedDay, day),
       )
       selectedDays.splice(selectedIndex, 1)
-    } else {
-      selectedDays.push(day)
     }
+
     await this.setState({ selectedDays })
     this.updateFieldParams()
   }
