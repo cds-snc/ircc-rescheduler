@@ -5,7 +5,7 @@ import Button from '../Button'
 describe('<Button>', () => {
   it('Renders the Button component', () => {
     const button = shallow(<Button disabled={true}>Next</Button>)
-    expect(button.find('button')).toBeTruthy()
+    expect(button.find('button').length).toBe(1)
   })
 
   it('Renders the Button component and also tests to make sure disabled = true', () => {
