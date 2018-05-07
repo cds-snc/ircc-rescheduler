@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
-import { theme, visuallyhidden, mediaQuery, TextLink } from './styles'
+import { theme, visuallyhidden, mediaQuery } from './styles'
 import Layout from './Layout'
 import { TextFieldAdapter, TextAreaAdapter } from './forms/TextInput'
 import FieldSet from './forms/FieldSet'
@@ -221,9 +221,9 @@ class RegistrationPage extends React.Component {
                     </header>
                     <span id="reason-details">
                       <Trans>If you’re not sure if you can reschedule,</Trans>{' '}
-                      <TextLink href="#">
-                        <Trans>read the guidelines for rescheduling</Trans>
-                      </TextLink>.
+                      <a href="http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=786&amp;top=5">
+                        <Trans>read the guidelines for rescheduling</Trans>.
+                      </a>
                     </span>
                     {validationField({ touched, errors, attr: 'reason' })}
                   </legend>
