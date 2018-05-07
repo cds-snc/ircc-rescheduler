@@ -253,11 +253,6 @@ export const Calendar = styled.div`
   background: ${theme.colour.grayLight};
 `
 
-export const TextLink = styled.a`
-  text-decoration: underline;
-  color: ${theme.colour.black};
-`
-
 export const CalHeader = styled.div`
   width: 32em;
   font-size: ${theme.font.lg};
