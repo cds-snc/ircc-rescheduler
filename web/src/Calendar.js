@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Trans } from 'lingui-react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
@@ -229,10 +230,25 @@ class Calendar extends Component {
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
     this.updateFieldParams = this.updateFieldParams.bind(this)
+    this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
     this.state = {
       selectedDays: this.props.input.value || [],
     }
     this.props.input.value = this.state.selectedDays
+  }
+
+  removeDayOnClickOrKeyPress = day => e => {
+    /*
+      Remove the selected day from the internal state when
+      - there has been a real click event (ie, e.detail > 0)
+      - the spacebar or enter key is pressed
+    */
+    if (
+      (e.type === 'click' && e.detail !== 0) ||
+      ((e.type === 'keypress' && e.key === 'Enter') || e.key === ' ')
+    ) {
+      this.handleDayClick(day, { selected: true })
+    }
   }
 
   /*
@@ -329,7 +345,14 @@ class Calendar extends Component {
               {value.map((day, index) => (
                 <li key={index}>
                   {`${index + 1}. `}
-                  <Time date={day} />
+                  <Time date={day} />{' '}
+                  <button
+                    type="button"
+                    onClick={this.removeDayOnClickOrKeyPress(day)}
+                    onKeyPress={this.removeDayOnClickOrKeyPress(day)}
+                  >
+                    <Trans>Remove date</Trans>
+                  </button>
                 </li>
               ))}
             </ol>
