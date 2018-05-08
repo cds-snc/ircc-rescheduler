@@ -250,12 +250,7 @@ export const Bold = styled.strong`
 export const Calendar = styled.div`
   height: 30em;
   width: 60em;
-  background: ${theme.colour.grayLight};
-`
-
-export const TextLink = styled.a`
-  text-decoration: underline;
-  color: ${theme.colour.black};
+  background: ${theme.colour.greyLight};
 `
 
 export const CalHeader = styled.div`
@@ -301,4 +296,56 @@ export const BottomContainer = styled.div`
 `
 export const TopContainer = styled.div`
   margin-bottom: ${theme.spacing.lg};
+`
+
+export const change = css`
+  position: relative;
+  right: 1.2rem;
+
+  ${mediaQuery.small(css`
+    right: 0rem;
+  `)};
+`
+
+export const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px dashed ${theme.colour.greyLight};
+  padding-top: ${theme.spacing.md};
+  padding-bottom: ${theme.spacing.md};
+  ${mediaQuery.small(css`
+    display: block;
+  `)};
+
+  li,
+  p {
+    padding-bottom: 0;
+    margin-bottom: ${theme.spacing.xs};
+  }
+`
+
+export const Column1 = styled.div`
+  width: 25%;
+
+  ${mediaQuery.small(css`
+    width: 100%;
+  `)};
+`
+
+export const Column2 = styled.div`
+  width: 35%;
+
+  ${mediaQuery.small(css`
+    width: 100%;
+    margin-bottom: ${theme.spacing.md};
+  `)};
+`
+
+export const Column3 = styled.div`
+  width: 6em;
+  text-align: right;
+
+  ${mediaQuery.small(css`
+    text-align: left;
+  `)};
 `

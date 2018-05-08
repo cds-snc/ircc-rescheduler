@@ -6,242 +6,24 @@
         "src/ReviewPage.js",
         134
       ]
-    ]
+    ],
+    "obsolete": true
   },
-  "Use this service to notify IRCC that you can’t attend your Citizenship test, and you need a new appointment.": {
+  "Citizenship Tests are scheduled on Tuesdays and Fridays. Use the calendar to select at least three (3) days you’re available in June and July.": {
     "translation": "",
     "origin": [
       [
-        "src/LandingPage.js",
-        58
+        "src/CalendarPage.js",
+        106
       ]
     ]
   },
-  "You will need:": {
+  "Please select three (3) dates so we can schedule an appointment when you are available.": {
     "translation": "",
     "origin": [
       [
-        "src/LandingPage.js",
-        67
-      ]
-    ]
-  },
-  "your paper file number": {
-    "translation": "",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        72
-      ]
-    ]
-  },
-  "This is found at the top of your test notice email.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        75
-      ]
-    ]
-  },
-  "your full name, as it appears on your application": {
-    "translation": "",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        82
-      ]
-    ]
-  },
-  "to explain your reason for rescheduling": {
-    "translation": "",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        86
-      ]
-    ]
-  },
-  "for more information on rescheduling,": {
-    "translation": "",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        89
-      ]
-    ]
-  },
-  "read the guidelines": {
-    "translation": "",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        91
-      ]
-    ]
-  },
-  "After verifying your personal information, you will be able to select three (3) alternative days when you are able to take the Citizenship test.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        100
-      ]
-    ]
-  },
-  "Important: by sending this request to reschedule, you will be cancelling your current test. After you complete this process, it could take up to 6 weeks for IRCC to contact you with a new test date.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        110
-      ]
-    ]
-  },
-  "Review your request before sending it:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        104
-      ]
-    ]
-  },
-  "Full name:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        111
-      ]
-    ]
-  },
-  "John Li": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        116
-      ]
-    ]
-  },
-  "Edit": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        121
-      ],
-      [
-        "src/ReviewPage.js",
-        139
-      ],
-      [
-        "src/ReviewPage.js",
-        157
-      ],
-      [
-        "src/ReviewPage.js",
-        178
-      ]
-    ]
-  },
-  "Paper file number:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        129
-      ]
-    ]
-  },
-  "Reason:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        147
-      ]
-    ]
-  },
-  "Explanation:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        165
-      ]
-    ]
-  },
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        170
-      ]
-    ]
-  },
-  "Availability:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        186
-      ]
-    ]
-  },
-  "Tuesday June 1, 2018": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        192
-      ]
-    ]
-  },
-  "Friday June 11, 2018": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        195
-      ]
-    ]
-  },
-  "Tuesday July 5, 2018": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        198
-      ]
-    ]
-  },
-  "Change": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        204
-      ]
-    ]
-  },
-  "Remember: By sending this request, you are cancelling your currently scheduled test.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        210
-      ]
-    ]
-  },
-  "Send Request →": {
-    "translation": "",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        219
+        "src/CalendarPage.js",
+        65
       ]
     ]
   },
@@ -250,20 +32,11 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        22
+        100
       ],
       [
         "src/ReviewPage.js",
-        100
-      ]
-    ]
-  },
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in June and July.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        28
+        42
       ]
     ]
   },
@@ -272,7 +45,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        36
+        141
       ]
     ]
   },
@@ -281,7 +54,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        43
+        148
       ]
     ]
   },
@@ -290,11 +63,11 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        49
+        153
       ],
       [
         "src/ReviewPage.js",
-        225
+        80
       ]
     ]
   },
@@ -353,10 +126,6 @@
       [
         "src/HomePage.js",
         63
-      ],
-      [
-        "src/RegistrationPage.js",
-        68
       ]
     ]
   },
@@ -395,7 +164,11 @@
       ],
       [
         "src/RegistrationPage.js",
-        191
+        181
+      ],
+      [
+        "src/Summary.js",
+        65
       ]
     ]
   },
@@ -408,7 +181,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        195
+        185
       ]
     ]
   },
@@ -418,10 +191,6 @@
       [
         "src/HomePage.js",
         153
-      ],
-      [
-        "src/RegistrationPage.js",
-        212
       ]
     ]
   },
@@ -434,7 +203,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        216
+        209
       ]
     ]
   },
@@ -447,7 +216,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        227
+        220
       ]
     ]
   },
@@ -460,7 +229,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        230
+        223
       ]
     ]
   },
@@ -473,7 +242,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        232
+        225
       ]
     ]
   },
@@ -486,11 +255,15 @@
       ],
       [
         "src/RegistrationPage.js",
-        241
+        234
       ],
       [
         "src/ReviewPage.js",
-        152
+        23
+      ],
+      [
+        "src/__tests__/Summary.test.js",
+        16
       ]
     ]
   },
@@ -503,7 +276,11 @@
       ],
       [
         "src/RegistrationPage.js",
-        249
+        242
+      ],
+      [
+        "src/ReviewPage.js",
+        27
       ]
     ]
   },
@@ -516,7 +293,11 @@
       ],
       [
         "src/RegistrationPage.js",
-        257
+        250
+      ],
+      [
+        "src/ReviewPage.js",
+        29
       ]
     ]
   },
@@ -529,7 +310,11 @@
       ],
       [
         "src/RegistrationPage.js",
-        265
+        258
+      ],
+      [
+        "src/ReviewPage.js",
+        25
       ]
     ]
   },
@@ -542,7 +327,11 @@
       ],
       [
         "src/RegistrationPage.js",
-        273
+        266
+      ],
+      [
+        "src/ReviewPage.js",
+        31
       ]
     ]
   },
@@ -555,7 +344,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        293
+        286
       ]
     ]
   },
@@ -568,7 +357,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        296
+        289
       ]
     ]
   },
@@ -581,7 +370,97 @@
       ],
       [
         "src/RegistrationPage.js",
-        319
+        312
+      ]
+    ]
+  },
+  "Use this service to notify IRCC that you can’t attend your Citizenship test, and you need a new appointment.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        66
+      ]
+    ]
+  },
+  "You will need:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        75
+      ]
+    ]
+  },
+  "your paper file number": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        80
+      ]
+    ]
+  },
+  "This is found at the top of your test notice email.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        83
+      ]
+    ]
+  },
+  "your full name, as it appears on your application": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        90
+      ]
+    ]
+  },
+  "to explain your reason for rescheduling": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        94
+      ]
+    ]
+  },
+  "for more information on rescheduling,": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        97
+      ]
+    ]
+  },
+  "read the guidelines": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        104
+      ]
+    ]
+  },
+  "After verifying your personal information, you will be able to select three (3) alternative days when you are able to take the Citizenship test.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        113
+      ]
+    ]
+  },
+  "Important: by sending this request to reschedule, you will be cancelling your current test. After you complete this process, it could take up to 6 weeks for IRCC to contact you with a new test date.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        123
       ]
     ]
   },
@@ -590,7 +469,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        121
+        134
       ]
     ]
   },
@@ -620,6 +499,252 @@
         63
       ]
     ]
+  },
+  "You need to tell us your Paper file number so we can confirm your identity.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/RegistrationPage.js",
+        68
+      ]
+    ]
+  },
+  "Paper file number": {
+    "translation": "",
+    "origin": [
+      [
+        "src/RegistrationPage.js",
+        201
+      ],
+      [
+        "src/Summary.js",
+        70
+      ]
+    ]
+  },
+  "Review your request before sending it": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        46
+      ]
+    ]
+  },
+  "Remember: By sending this request, you are cancelling your currently scheduled test.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        65
+      ]
+    ]
+  },
+  "Send Request →": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        74
+      ]
+    ]
+  },
+  "No dates selected": {
+    "translation": "",
+    "origin": [
+      [
+        "src/Summary.js",
+        29
+      ]
+    ]
+  },
+  "Change": {
+    "translation": "",
+    "origin": [
+      [
+        "src/Summary.js",
+        45
+      ]
+    ]
+  },
+  "Reason": {
+    "translation": "",
+    "origin": [
+      [
+        "src/Summary.js",
+        75
+      ]
+    ]
+  },
+  "Explanation": {
+    "translation": "",
+    "origin": [
+      [
+        "src/Summary.js",
+        80
+      ]
+    ]
+  },
+  "Availability": {
+    "translation": "",
+    "origin": [
+      [
+        "src/Summary.js",
+        85
+      ]
+    ]
+  },
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least three (3) days you’re available</2> in June and July.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        107
+      ]
+    ],
+    "obsolete": true
+  },
+  "Review your request before sending it:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        104
+      ]
+    ],
+    "obsolete": true
+  },
+  "Full name:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        111
+      ]
+    ],
+    "obsolete": true
+  },
+  "John Li": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        116
+      ]
+    ],
+    "obsolete": true
+  },
+  "Edit": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        121
+      ],
+      [
+        "src/ReviewPage.js",
+        139
+      ],
+      [
+        "src/ReviewPage.js",
+        157
+      ],
+      [
+        "src/ReviewPage.js",
+        178
+      ]
+    ],
+    "obsolete": true
+  },
+  "Paper file number:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        129
+      ]
+    ],
+    "obsolete": true
+  },
+  "Reason:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        147
+      ]
+    ],
+    "obsolete": true
+  },
+  "Explanation:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        165
+      ]
+    ],
+    "obsolete": true
+  },
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        170
+      ]
+    ],
+    "obsolete": true
+  },
+  "Availability:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        186
+      ]
+    ],
+    "obsolete": true
+  },
+  "Tuesday June 1, 2018": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        192
+      ]
+    ],
+    "obsolete": true
+  },
+  "Friday June 11, 2018": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        195
+      ]
+    ],
+    "obsolete": true
+  },
+  "Tuesday July 5, 2018": {
+    "translation": "",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        198
+      ]
+    ],
+    "obsolete": true
+  },
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in June and July.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        28
+      ]
+    ],
+    "obsolete": true
   },
   "We’ve sent you a confirmation email.": {
     "translation": "",

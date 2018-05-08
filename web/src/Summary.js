@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'react-emotion'
-import { H2, theme, TextLink, mediaQuery } from './styles'
+import { theme, mediaQuery, H2, Row, Column1, Column2, Column3 } from './styles'
 import { Trans } from 'lingui-react'
 import Time from './Time'
+import { NavLink } from 'react-router-dom'
 
 const TableContainer = styled.div`
   width: 80%;
@@ -14,58 +15,45 @@ const TableContainer = styled.div`
   `)};
 `
 
-const change = css`
-  position: relative;
-  right: 1.2rem;
+const SelectedDayList = ({ selectedDays }) => {
+  return selectedDays && selectedDays.length > 0 ? (
+    <ul>
+      {selectedDays.map((day, index) => (
+        <li key={index}>
+          <Time date={day} />
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>
+      <Trans>No dates selected</Trans>
+    </p>
+  )
+}
+SelectedDayList.propTypes = {
+  selectedDays: PropTypes.array,
+}
 
-  ${mediaQuery.small(css`
-    right: 0rem;
-  `)};
-`
+const SummaryRow = ({ header, secondColumn, thirdColumn }) => (
+  <Row>
+    <Column1>
+      <H2>{header}</H2>
+    </Column1>
+    <Column2>{secondColumn}</Column2>
+    <Column3>
+      <NavLink to={thirdColumn}>
+        <Trans>Change</Trans>
+      </NavLink>
+    </Column3>
+  </Row>
+)
+SummaryRow.propTypes = {
+  header: PropTypes.object.isRequired,
+  secondColumn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  thirdColumn: PropTypes.string.isRequired,
+}
 
-const Row = styled.div`
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px dashed #a4a4a4;
-  padding-top: ${theme.spacing.md};
-  ${mediaQuery.small(css`
-    display: block;
-  `)};
-`
-
-const Column1 = styled.div`
-  width: 25%;
-
-  ${mediaQuery.small(css`
-    width: 100%;
-  `)};
-`
-
-const Column2 = styled.div`
-  width: 35%;
-
-  li {
-    padding-bottom: ${theme.spacing.xs};
-  }
-
-  li:last-of-type {
-    padding-bottom: ${theme.spacing.lg};
-  }
-
-  ${mediaQuery.small(css`
-    width: 100%;
-  `)};
-`
-
-const Column3 = styled.div`
-  width: 2rem;
-
-  ${mediaQuery.small(css`
-    padding-bottom: ${theme.spacing.md};
-  `)};
-`
-
-export const Summary = ({
+const Summary = ({
   fullName,
   paperFileNumber,
   reason,
@@ -73,97 +61,31 @@ export const Summary = ({
   selectedDays,
 }) => (
   <TableContainer>
-    <Row>
-      <Column1>
-        <H2>
-          <Trans>Full name</Trans>
-        </H2>
-      </Column1>
-      <Column2>
-        <p>{fullName}</p>
-      </Column2>
-      <Column3>
-        <TextLink href="#">
-          <Trans>Edit</Trans>
-        </TextLink>
-      </Column3>
-    </Row>
-
-    <Row>
-      <Column1>
-        <H2>
-          <Trans>Paper file number</Trans>
-        </H2>
-      </Column1>
-      <Column2>
-        <p>{paperFileNumber}</p>
-      </Column2>
-      <Column3>
-        <TextLink href="#">
-          <Trans>Edit</Trans>
-        </TextLink>
-      </Column3>
-    </Row>
-
-    <Row>
-      <Column1>
-        <H2>
-          <Trans>Reason</Trans>
-        </H2>
-      </Column1>
-      <Column2>
-        <p>{reason}</p>
-      </Column2>
-      <Column3>
-        <TextLink href="#">
-          <Trans>Edit</Trans>
-        </TextLink>
-      </Column3>
-    </Row>
-
-    <Row>
-      <Column1>
-        <H2>
-          <Trans>Explanation</Trans>
-        </H2>
-      </Column1>
-      <Column2>
-        <p>{explanation}</p>
-      </Column2>
-      <Column3>
-        <TextLink href="#">
-          <Trans>Edit</Trans>
-        </TextLink>
-      </Column3>
-    </Row>
-
-    <Row>
-      <Column1>
-        <H2>
-          <Trans>Availability</Trans>
-        </H2>
-      </Column1>
-      <Column2>
-        {selectedDays && selectedDays.length > 0 ? (
-          <ul>
-            {selectedDays.map((day, index) => (
-              <li key={index}>
-                <Time date={day} />
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>
-            <Trans>No dates selected</Trans>
-          </p>
-        )}
-      </Column2>
-      <Column3>
-        <TextLink className={change} href="#">
-          <Trans>Change</Trans>
-        </TextLink>
-      </Column3>
-    </Row>
+    <SummaryRow
+      header={<Trans>Full name</Trans>}
+      secondColumn={fullName}
+      thirdColumn={'/register'}
+    />
+    <SummaryRow
+      header={<Trans>Paper file number</Trans>}
+      secondColumn={paperFileNumber}
+      thirdColumn={'/register'}
+    />
+    <SummaryRow
+      header={<Trans>Reason</Trans>}
+      secondColumn={reason}
+      thirdColumn={'/register'}
+    />
+    <SummaryRow
+      header={<Trans>Explanation</Trans>}
+      secondColumn={explanation}
+      thirdColumn={'/register'}
+    />
+    <SummaryRow
+      header={<Trans>Availability</Trans>}
+      secondColumn={<SelectedDayList selectedDays={selectedDays} />}
+      thirdColumn={'/calendar'}
+    />
   </TableContainer>
 )
 
@@ -174,3 +96,5 @@ Summary.propTypes = {
   paperFileNumber: PropTypes.string,
   selectedDays: PropTypes.array,
 }
+
+export { Summary as default, SelectedDayList }

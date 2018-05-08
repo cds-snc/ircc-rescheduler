@@ -8,7 +8,6 @@ import {
   visuallyhidden,
   CalHeader,
   CalReminder,
-  Bold,
   BottomContainer,
   TopContainer,
 } from './styles'
@@ -105,10 +104,9 @@ class CalendarPage extends Component {
 
         <CalHeader>
           <Trans>
-            Citizenship Tests are scheduled on <Bold>Tuesdays</Bold> and{' '}
-            <Bold>Fridays</Bold>. Use the calendar to select{' '}
-            <Bold>at least three (3) days you’re available</Bold> in June and
-            July.
+            Citizenship Tests are scheduled on Tuesdays and Fridays. Use the
+            calendar to select at least three (3) days you’re available in June
+            and July.
           </Trans>
         </CalHeader>
         <Form

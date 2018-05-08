@@ -1,17 +1,25 @@
 {
+  "Please select three (3) dates so we can schedule an appointment when you are available.": {
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        65
+      ]
+    ]
+  },
   "← Go Back": {
     "origin": [
       [
         "src/CalendarPage.js",
-        22
+        100
       ]
     ]
   },
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in June and July.": {
+  "Citizenship Tests are scheduled on Tuesdays and Fridays. Use the calendar to select at least three (3) days you’re available in June and July.": {
     "origin": [
       [
         "src/CalendarPage.js",
-        28
+        106
       ]
     ]
   },
@@ -19,7 +27,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        36
+        141
       ]
     ]
   },
@@ -27,7 +35,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        43
+        148
       ]
     ]
   },
@@ -35,7 +43,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        49
+        153
       ]
     ]
   }
