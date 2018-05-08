@@ -13,6 +13,13 @@ const clickFirstDate = wrapper => {
   return clickDate(wrapper, 0)
 }
 
+const getDateStrings = wrapper => {
+  return wrapper
+    .find('#selectedDays time')
+    .map(time => time.text())
+    .join(' ')
+}
+
 const defaultProps = ({ value = '', dayLimit = 3 } = {}) => {
   return {
     input: { value: value, onChange: () => {} },
@@ -34,7 +41,7 @@ describe('<CalendarAdapter />', () => {
       />,
     )
 
-    expect(wrapper.find('#selectedDays').text()).toEqual('1. Fri, 01 Jun 2018')
+    expect(getDateStrings(wrapper)).toEqual('Fri, 01 Jun 2018')
   })
 
   it('will prefill multiple dates if multiple initial values are provided', () => {
@@ -49,9 +56,7 @@ describe('<CalendarAdapter />', () => {
       />,
     )
 
-    expect(wrapper.find('#selectedDays').text()).toEqual(
-      '1. Fri, 01 Jun 20182. Tue, 05 Jun 2018',
-    )
+    expect(getDateStrings(wrapper)).toEqual('Fri, 01 Jun 2018 Tue, 05 Jun 2018')
   })
 
   it('selects a date when it is clicked', () => {
@@ -62,7 +67,7 @@ describe('<CalendarAdapter />', () => {
     // click the first available day (June 1st, 2018)
     clickFirstDate(wrapper)
 
-    expect(wrapper.find('#selectedDays').text()).toEqual('1. Fri, 01 Jun 2018')
+    expect(getDateStrings(wrapper)).toEqual('Fri, 01 Jun 2018')
   })
 
   it('unselects a date when it is clicked twice', () => {
@@ -86,11 +91,11 @@ describe('<CalendarAdapter />', () => {
         })}
       />,
     )
-    expect(wrapper.find('#selectedDays').text()).toEqual('1. Tue, 05 Jun 2018')
+    expect(getDateStrings(wrapper)).toEqual('Tue, 05 Jun 2018')
 
     // click the first available day (June 1st, 2018)
     clickFirstDate(wrapper)
-    expect(wrapper.find('#selectedDays').text()).toEqual('1. Tue, 05 Jun 2018')
+    expect(getDateStrings(wrapper)).toEqual('Tue, 05 Jun 2018')
   })
 
   it('will allow more days to be selected once a day is unselected', () => {
@@ -102,7 +107,7 @@ describe('<CalendarAdapter />', () => {
         })}
       />,
     )
-    expect(wrapper.find('#selectedDays').text()).toEqual('1. Tue, 05 Jun 2018')
+    expect(getDateStrings(wrapper)).toEqual('Tue, 05 Jun 2018')
 
     // click June 5th, 2018
     clickDate(wrapper, 1)
@@ -110,7 +115,7 @@ describe('<CalendarAdapter />', () => {
 
     // click the first available day (June 1st, 2018)
     clickFirstDate(wrapper)
-    expect(wrapper.find('#selectedDays').text()).toEqual('1. Fri, 01 Jun 2018')
+    expect(getDateStrings(wrapper)).toEqual('Fri, 01 Jun 2018')
   })
 
   it('will keep pre-filled dates when clicking new ones', () => {
@@ -124,16 +129,12 @@ describe('<CalendarAdapter />', () => {
         })}
       />,
     )
-
-    expect(wrapper.find('#selectedDays').text()).toEqual(
-      '1. Tue, 05 Jun 20182. Fri, 08 Jun 2018',
-    )
+    expect(getDateStrings(wrapper)).toEqual('Tue, 05 Jun 2018 Fri, 08 Jun 2018')
 
     // click the first available day (June 1st, 2018)
     clickFirstDate(wrapper)
-
-    expect(wrapper.find('#selectedDays').text()).toEqual(
-      '1. Tue, 05 Jun 20182. Fri, 08 Jun 20183. Fri, 01 Jun 2018',
+    expect(getDateStrings(wrapper)).toEqual(
+      'Tue, 05 Jun 2018 Fri, 08 Jun 2018 Fri, 01 Jun 2018',
     )
   })
 
@@ -142,22 +143,16 @@ describe('<CalendarAdapter />', () => {
       <CalendarAdapter
         {...defaultProps({
           value: [
+            new Date('2018-06-01T12:00:00.000'),
             new Date('2018-06-05T12:00:00.000'),
-            new Date('2018-06-08T12:00:00.000'),
           ],
         })}
       />,
     )
-
-    expect(wrapper.find('#selectedDays').text()).toEqual(
-      '1. Tue, 05 Jun 20182. Fri, 08 Jun 2018',
-    )
+    expect(getDateStrings(wrapper)).toEqual('Fri, 01 Jun 2018 Tue, 05 Jun 2018')
 
     // click the first available day (June 1st, 2018)
     clickFirstDate(wrapper)
-
-    expect(wrapper.find('#selectedDays').text()).toEqual(
-      '1. Tue, 05 Jun 20182. Fri, 08 Jun 20183. Fri, 01 Jun 2018',
-    )
+    expect(getDateStrings(wrapper)).toEqual('Tue, 05 Jun 2018')
   })
 })
