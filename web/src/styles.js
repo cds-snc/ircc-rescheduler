@@ -250,7 +250,7 @@ export const Bold = styled.strong`
 export const Calendar = styled.div`
   height: 30em;
   width: 60em;
-  background: ${theme.colour.grayLight};
+  background: ${theme.colour.greyLight};
 `
 
 export const CalHeader = styled.div`
@@ -310,11 +310,18 @@ export const change = css`
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px dashed #a4a4a4;
+  border-bottom: 2px dashed ${theme.colour.greyLight};
   padding-top: ${theme.spacing.md};
+  padding-bottom: ${theme.spacing.md};
   ${mediaQuery.small(css`
     display: block;
   `)};
+
+  li,
+  p {
+    padding-bottom: 0;
+    margin-bottom: ${theme.spacing.xs};
+  }
 `
 
 export const Column1 = styled.div`
@@ -328,23 +335,17 @@ export const Column1 = styled.div`
 export const Column2 = styled.div`
   width: 35%;
 
-  li {
-    padding-bottom: ${theme.spacing.xs};
-  }
-
-  li:last-of-type {
-    padding-bottom: ${theme.spacing.lg};
-  }
-
   ${mediaQuery.small(css`
     width: 100%;
+    margin-bottom: ${theme.spacing.md};
   `)};
 `
 
 export const Column3 = styled.div`
-  width: 2rem;
+  width: 6em;
+  text-align: right;
 
   ${mediaQuery.small(css`
-    padding-bottom: ${theme.spacing.md};
+    text-align: left;
   `)};
 `
