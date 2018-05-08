@@ -4,6 +4,10 @@ module.exports.default = {
   resources: {
     en: {
       translation: {
+        errors: {
+          threeDatesRequired:
+            'Three dates are required to process your request.',
+        },
         types: {
           mailerResponse: {
             description: `A response from IRCC.`,
@@ -16,6 +20,7 @@ module.exports.default = {
                 "an explanation for why the proposed date doesn't work",
               reasons: "a short reason for why the proposed date doesn't work",
               paperFileNumber: 'The number at the top of the invitation email',
+              availability: 'The three alternate dates chosen',
             },
           },
         },
@@ -34,6 +39,10 @@ module.exports.default = {
     },
     fr: {
       translation: {
+        errors: {
+          threeDatesRequired:
+            'Trois dates sont nécessaires pour traiter votre demande.',
+        },
         types: {
           mailerResponse: {
             description: `A response from Immigration, Réfugiés et Citoyenneté Canada.`,
@@ -43,9 +52,11 @@ module.exports.default = {
             fields: {
               fullName: 'Le nom complet utilisé sur la demande de citoyenneté',
               explanation:
-                "Une explication des raisons pour lesquelles la date proposée ne marche pas",
-              reasons: "une courte raison pour laquelle la date proposée ne marche pas.",
+                'Une explication des raisons pour lesquelles la date proposée ne marche pas',
+              reasons:
+                'une courte raison pour laquelle la date proposée ne marche pas.',
               paperFileNumber: "Le numéro en haut de l'email d'invitation",
+              availability: 'Les trois dates alternatives choisies',
             },
           },
         },

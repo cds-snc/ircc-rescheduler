@@ -2,7 +2,9 @@ const {
   GraphQLString,
   GraphQLInputObjectType,
   GraphQLNonNull,
+  GraphQLList,
 } = require('graphql')
+const { GraphQLDate } = require('graphql-iso-date')
 
 module.exports.default = t => {
   const RescheduleFormInput = new GraphQLInputObjectType({
@@ -24,6 +26,10 @@ module.exports.default = t => {
       reason: {
         description: t('types.rescheduleForm.fields.reason'),
         type: new GraphQLNonNull(GraphQLString),
+      },
+      availability: {
+        description: t('types.rescheduleForm.fields.availability'),
+        type: new GraphQLList(new GraphQLNonNull(GraphQLDate)),
       },
     }),
   })
