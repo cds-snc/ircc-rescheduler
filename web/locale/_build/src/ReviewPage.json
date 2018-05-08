@@ -1,9 +1,41 @@
 {
-  "1234567": {
+  "Travel": {
     "origin": [
       [
         "src/ReviewPage.js",
-        134
+        23
+      ]
+    ]
+  },
+  "Family": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        25
+      ]
+    ]
+  },
+  "Medical": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        27
+      ]
+    ]
+  },
+  "Work or School": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        29
+      ]
+    ]
+  },
+  "Other": {
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        31
       ]
     ]
   },
@@ -11,131 +43,15 @@
     "origin": [
       [
         "src/ReviewPage.js",
-        100
+        42
       ]
     ]
   },
-  "Review your request before sending it:": {
+  "Review your request before sending it": {
     "origin": [
       [
         "src/ReviewPage.js",
-        104
-      ]
-    ]
-  },
-  "Full name:": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        111
-      ]
-    ]
-  },
-  "John Li": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        116
-      ]
-    ]
-  },
-  "Edit": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        121
-      ],
-      [
-        "src/ReviewPage.js",
-        139
-      ],
-      [
-        "src/ReviewPage.js",
-        157
-      ],
-      [
-        "src/ReviewPage.js",
-        178
-      ]
-    ]
-  },
-  "Paper file number:": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        129
-      ]
-    ]
-  },
-  "Reason:": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        147
-      ]
-    ]
-  },
-  "Travel": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        152
-      ]
-    ]
-  },
-  "Explanation:": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        165
-      ]
-    ]
-  },
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        170
-      ]
-    ]
-  },
-  "Availability:": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        186
-      ]
-    ]
-  },
-  "Tuesday June 1, 2018": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        192
-      ]
-    ]
-  },
-  "Friday June 11, 2018": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        195
-      ]
-    ]
-  },
-  "Tuesday July 5, 2018": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        198
-      ]
-    ]
-  },
-  "Change": {
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        204
+        46
       ]
     ]
   },
@@ -143,7 +59,7 @@
     "origin": [
       [
         "src/ReviewPage.js",
-        210
+        65
       ]
     ]
   },
@@ -151,7 +67,7 @@
     "origin": [
       [
         "src/ReviewPage.js",
-        219
+        74
       ]
     ]
   },
@@ -159,7 +75,7 @@
     "origin": [
       [
         "src/ReviewPage.js",
-        225
+        80
       ]
     ]
   }

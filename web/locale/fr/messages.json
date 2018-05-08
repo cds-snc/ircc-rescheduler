@@ -6,242 +6,24 @@
         "src/ReviewPage.js",
         134
       ]
-    ]
+    ],
+    "obsolete": true
   },
-  "Use this service to notify IRCC that you can’t attend your Citizenship test, and you need a new appointment.": {
-    "translation": "Utilisez ce service pour informer IRCC que vous ne pouvez pas participer à votre test de citoyenneté et que vous avez besoin d'un nouveau rendez-vous.",
+  "Citizenship Tests are scheduled on Tuesdays and Fridays. Use the calendar to select at least three (3) days you’re available in June and July.": {
+    "translation": "Les tests de citoyenneté sont programmés les mardis et vendredis. Utilisez le calendrier pour sélectionner au moins trois (3) jours de disponibilité en juin et en juillet.",
     "origin": [
       [
-        "src/LandingPage.js",
-        58
+        "src/CalendarPage.js",
+        106
       ]
     ]
   },
-  "You will need:": {
-    "translation": "Tu auras besoin de:",
+  "Please select three (3) dates so we can schedule an appointment when you are available.": {
+    "translation": "Veuillez sélectionner trois (3) dates pour que nous puissions prendre rendez-vous lorsque vous êtes disponible.",
     "origin": [
       [
-        "src/LandingPage.js",
-        67
-      ]
-    ]
-  },
-  "your paper file number": {
-    "translation": "votre numéro de dossier papier",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        72
-      ]
-    ]
-  },
-  "This is found at the top of your test notice email.": {
-    "translation": "Cela se trouve en haut de votre e-mail de notification de test.",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        75
-      ]
-    ]
-  },
-  "your full name, as it appears on your application": {
-    "translation": "votre nom complet, tel qu'il apparaît sur votre demande",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        82
-      ]
-    ]
-  },
-  "to explain your reason for rescheduling": {
-    "translation": "pour expliquer la raison du rééchelonnement",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        86
-      ]
-    ]
-  },
-  "for more information on rescheduling,": {
-    "translation": "pour plus d'informations sur le rééchelonnement,",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        89
-      ]
-    ]
-  },
-  "read the guidelines": {
-    "translation": "lire les directives",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        91
-      ]
-    ]
-  },
-  "After verifying your personal information, you will be able to select three (3) alternative days when you are able to take the Citizenship test.": {
-    "translation": "Après avoir vérifié vos renseignements personnels, vous pourrez choisir trois (3) jours de remplacement lorsque vous pourrez passer le test de citoyenneté.",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        100
-      ]
-    ]
-  },
-  "Important: by sending this request to reschedule, you will be cancelling your current test. After you complete this process, it could take up to 6 weeks for IRCC to contact you with a new test date.": {
-    "translation": "Important: en envoyant cette demande pour replanifier, vous annulez votre test en cours. Après avoir terminé ce processus, IRCC peut vous demander jusqu'à 6 semaines pour vous contacter avec une nouvelle date de test.",
-    "origin": [
-      [
-        "src/LandingPage.js",
-        110
-      ]
-    ]
-  },
-  "Review your request before sending it:": {
-    "translation": "Passez en revue votre demande avant de l'envoyer:",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        104
-      ]
-    ]
-  },
-  "Full name:": {
-    "translation": "Nom complet:",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        111
-      ]
-    ]
-  },
-  "John Li": {
-    "translation": "John Li",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        116
-      ]
-    ]
-  },
-  "Edit": {
-    "translation": "modifier",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        121
-      ],
-      [
-        "src/ReviewPage.js",
-        139
-      ],
-      [
-        "src/ReviewPage.js",
-        157
-      ],
-      [
-        "src/ReviewPage.js",
-        178
-      ]
-    ]
-  },
-  "Paper file number:": {
-    "translation": "Numéro de fichier papier:",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        129
-      ]
-    ]
-  },
-  "Reason:": {
-    "translation": "Raison:",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        147
-      ]
-    ]
-  },
-  "Explanation:": {
-    "translation": "Explication:",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        165
-      ]
-    ]
-  },
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.": {
-    "translation": "Lorem ipsum dolor s'asseoir amet, consectetur adipiscing elit, sed faire eiusmod temporel incididunt ut labore et dolore magna aliqua.",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        170
-      ]
-    ]
-  },
-  "Availability:": {
-    "translation": "Disponibilité:",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        186
-      ]
-    ]
-  },
-  "Tuesday June 1, 2018": {
-    "translation": "Mardi 1er juin 2018",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        192
-      ]
-    ]
-  },
-  "Friday June 11, 2018": {
-    "translation": "Vendredi 11 juin 2018",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        195
-      ]
-    ]
-  },
-  "Tuesday July 5, 2018": {
-    "translation": "Mardi 5 juillet 2018",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        198
-      ]
-    ]
-  },
-  "Change": {
-    "translation": "Changement",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        204
-      ]
-    ]
-  },
-  "Remember: By sending this request, you are cancelling your currently scheduled test.": {
-    "translation": "Rappelez-vous: en envoyant cette demande, vous annulez votre test actuellement prévu.",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        210
-      ]
-    ]
-  },
-  "Send Request →": {
-    "translation": "Envoyer une demande →",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        219
+        "src/CalendarPage.js",
+        65
       ]
     ]
   },
@@ -250,20 +32,11 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        22
+        100
       ],
       [
         "src/ReviewPage.js",
-        100
-      ]
-    ]
-  },
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in June and July.": {
-    "translation": "Les tests de citoyenneté sont programmés les <0>mardi</0> et <1>vendredi</1>. Utilisez le calendrier pour sélectionner <2> au moins quatre jours de disponibilité</2> en juin et en juillet.",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        28
+        42
       ]
     ]
   },
@@ -272,7 +45,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        36
+        141
       ]
     ]
   },
@@ -281,7 +54,7 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        43
+        148
       ]
     ]
   },
@@ -290,11 +63,11 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        49
+        153
       ],
       [
         "src/ReviewPage.js",
-        225
+        80
       ]
     ]
   },
@@ -353,10 +126,6 @@
       [
         "src/HomePage.js",
         63
-      ],
-      [
-        "src/RegistrationPage.js",
-        68
       ]
     ]
   },
@@ -395,7 +164,11 @@
       ],
       [
         "src/RegistrationPage.js",
-        191
+        181
+      ],
+      [
+        "src/Summary.js",
+        65
       ]
     ]
   },
@@ -408,7 +181,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        195
+        185
       ]
     ]
   },
@@ -418,10 +191,6 @@
       [
         "src/HomePage.js",
         153
-      ],
-      [
-        "src/RegistrationPage.js",
-        212
       ]
     ]
   },
@@ -434,7 +203,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        216
+        209
       ]
     ]
   },
@@ -447,7 +216,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        227
+        220
       ]
     ]
   },
@@ -460,7 +229,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        230
+        223
       ]
     ]
   },
@@ -473,7 +242,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        232
+        225
       ]
     ]
   },
@@ -486,11 +255,15 @@
       ],
       [
         "src/RegistrationPage.js",
-        241
+        234
       ],
       [
         "src/ReviewPage.js",
-        152
+        23
+      ],
+      [
+        "src/__tests__/Summary.test.js",
+        16
       ]
     ]
   },
@@ -503,7 +276,11 @@
       ],
       [
         "src/RegistrationPage.js",
-        249
+        242
+      ],
+      [
+        "src/ReviewPage.js",
+        27
       ]
     ]
   },
@@ -516,7 +293,11 @@
       ],
       [
         "src/RegistrationPage.js",
-        257
+        250
+      ],
+      [
+        "src/ReviewPage.js",
+        29
       ]
     ]
   },
@@ -529,7 +310,11 @@
       ],
       [
         "src/RegistrationPage.js",
-        265
+        258
+      ],
+      [
+        "src/ReviewPage.js",
+        25
       ]
     ]
   },
@@ -542,7 +327,11 @@
       ],
       [
         "src/RegistrationPage.js",
-        273
+        266
+      ],
+      [
+        "src/ReviewPage.js",
+        31
       ]
     ]
   },
@@ -555,7 +344,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        293
+        286
       ]
     ]
   },
@@ -568,7 +357,7 @@
       ],
       [
         "src/RegistrationPage.js",
-        296
+        289
       ]
     ]
   },
@@ -581,7 +370,97 @@
       ],
       [
         "src/RegistrationPage.js",
-        319
+        312
+      ]
+    ]
+  },
+  "Use this service to notify IRCC that you can’t attend your Citizenship test, and you need a new appointment.": {
+    "translation": "Utilisez ce service pour informer IRCC que vous ne pouvez pas participer à votre test de citoyenneté et que vous avez besoin d'un nouveau rendez-vous.",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        66
+      ]
+    ]
+  },
+  "You will need:": {
+    "translation": "Tu auras besoin de:",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        75
+      ]
+    ]
+  },
+  "your paper file number": {
+    "translation": "votre numéro de dossier papier",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        80
+      ]
+    ]
+  },
+  "This is found at the top of your test notice email.": {
+    "translation": "Cela se trouve en haut de votre e-mail de notification de test.",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        83
+      ]
+    ]
+  },
+  "your full name, as it appears on your application": {
+    "translation": "votre nom complet, tel qu'il apparaît sur votre demande",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        90
+      ]
+    ]
+  },
+  "to explain your reason for rescheduling": {
+    "translation": "pour expliquer la raison du rééchelonnement",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        94
+      ]
+    ]
+  },
+  "for more information on rescheduling,": {
+    "translation": "pour plus d'informations sur le rééchelonnement,",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        97
+      ]
+    ]
+  },
+  "read the guidelines": {
+    "translation": "lire les directives",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        104
+      ]
+    ]
+  },
+  "After verifying your personal information, you will be able to select three (3) alternative days when you are able to take the Citizenship test.": {
+    "translation": "Après avoir vérifié vos renseignements personnels, vous pourrez choisir trois (3) jours de remplacement lorsque vous pourrez passer le test de citoyenneté.",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        113
+      ]
+    ]
+  },
+  "Important: by sending this request to reschedule, you will be cancelling your current test. After you complete this process, it could take up to 6 weeks for IRCC to contact you with a new test date.": {
+    "translation": "Important: en envoyant cette demande pour replanifier, vous annulez votre test en cours. Après avoir terminé ce processus, IRCC peut vous demander jusqu'à 6 semaines pour vous contacter avec une nouvelle date de test.",
+    "origin": [
+      [
+        "src/LandingPage.js",
+        123
       ]
     ]
   },
@@ -590,7 +469,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        121
+        134
       ]
     ]
   },
@@ -620,6 +499,252 @@
         63
       ]
     ]
+  },
+  "You need to tell us your Paper file number so we can confirm your identity.": {
+    "translation": "Vous devez nous indiquer votre numéro de dossier papier afin que nous puissions confirmer votre identité.",
+    "origin": [
+      [
+        "src/RegistrationPage.js",
+        68
+      ]
+    ]
+  },
+  "Paper file number": {
+    "translation": "Numéro de fichier papier",
+    "origin": [
+      [
+        "src/RegistrationPage.js",
+        201
+      ],
+      [
+        "src/Summary.js",
+        70
+      ]
+    ]
+  },
+  "Review your request before sending it": {
+    "translation": "Passez en revue votre demande avant de l'envoyer",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        46
+      ]
+    ]
+  },
+  "Remember: By sending this request, you are cancelling your currently scheduled test.": {
+    "translation": "Rappelez-vous: en envoyant cette demande, vous annulez votre test actuellement prévu.",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        65
+      ]
+    ]
+  },
+  "Send Request →": {
+    "translation": "Envoyer une demande →",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        74
+      ]
+    ]
+  },
+  "No dates selected": {
+    "translation": "Aucune date sélectionnée",
+    "origin": [
+      [
+        "src/Summary.js",
+        29
+      ]
+    ]
+  },
+  "Change": {
+    "translation": "Changement",
+    "origin": [
+      [
+        "src/Summary.js",
+        45
+      ]
+    ]
+  },
+  "Reason": {
+    "translation": "Raison",
+    "origin": [
+      [
+        "src/Summary.js",
+        75
+      ]
+    ]
+  },
+  "Explanation": {
+    "translation": "Explication",
+    "origin": [
+      [
+        "src/Summary.js",
+        80
+      ]
+    ]
+  },
+  "Availability": {
+    "translation": "Disponibilité",
+    "origin": [
+      [
+        "src/Summary.js",
+        85
+      ]
+    ]
+  },
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least three (3) days you’re available</2> in June and July.": {
+    "translation": "Les tests de citoyenneté sont programmés les <0>mardi</ 0> et <1>vendredi</ 1>. Utilisez le calendrier pour sélectionner <2>au moins trois (3) jours de disponibilité</ 2> en juin et en juillet.",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        107
+      ]
+    ],
+    "obsolete": true
+  },
+  "Review your request before sending it:": {
+    "translation": "Passez en revue votre demande avant de l'envoyer:",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        104
+      ]
+    ],
+    "obsolete": true
+  },
+  "Full name:": {
+    "translation": "Nom complet:",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        111
+      ]
+    ],
+    "obsolete": true
+  },
+  "John Li": {
+    "translation": "John Li",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        116
+      ]
+    ],
+    "obsolete": true
+  },
+  "Edit": {
+    "translation": "modifier",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        121
+      ],
+      [
+        "src/ReviewPage.js",
+        139
+      ],
+      [
+        "src/ReviewPage.js",
+        157
+      ],
+      [
+        "src/ReviewPage.js",
+        178
+      ]
+    ],
+    "obsolete": true
+  },
+  "Paper file number:": {
+    "translation": "Numéro de fichier papier:",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        129
+      ]
+    ],
+    "obsolete": true
+  },
+  "Reason:": {
+    "translation": "Raison:",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        147
+      ]
+    ],
+    "obsolete": true
+  },
+  "Explanation:": {
+    "translation": "Explication:",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        165
+      ]
+    ],
+    "obsolete": true
+  },
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.": {
+    "translation": "Lorem ipsum dolor s'asseoir amet, consectetur adipiscing elit, sed faire eiusmod temporel incididunt ut labore et dolore magna aliqua.",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        170
+      ]
+    ],
+    "obsolete": true
+  },
+  "Availability:": {
+    "translation": "Disponibilité:",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        186
+      ]
+    ],
+    "obsolete": true
+  },
+  "Tuesday June 1, 2018": {
+    "translation": "Mardi 1er juin 2018",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        192
+      ]
+    ],
+    "obsolete": true
+  },
+  "Friday June 11, 2018": {
+    "translation": "Vendredi 11 juin 2018",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        195
+      ]
+    ],
+    "obsolete": true
+  },
+  "Tuesday July 5, 2018": {
+    "translation": "Mardi 5 juillet 2018",
+    "origin": [
+      [
+        "src/ReviewPage.js",
+        198
+      ]
+    ],
+    "obsolete": true
+  },
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in June and July.": {
+    "translation": "Les tests de citoyenneté sont programmés les <0>mardi</0> et <1>vendredi</1>. Utilisez le calendrier pour sélectionner <2> au moins quatre jours de disponibilité</2> en juin et en juillet.",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        28
+      ]
+    ],
+    "obsolete": true
   },
   "We’ve sent you a confirmation email.": {
     "translation": "Nous vous avons envoyé un e-mail de confirmation.",
