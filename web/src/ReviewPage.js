@@ -90,6 +90,7 @@ class ReviewPage extends React.Component {
                                   reason,
                                   explanation,
                                   paperFileNumber,
+                                  availability: selectedDays,
                                 },
                               })
                             }}
