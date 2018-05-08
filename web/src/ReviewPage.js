@@ -1,13 +1,14 @@
 import React from 'react'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
-import { Query, Mutation } from 'react-apollo'
+import { Query } from 'react-apollo'
 import { NavLink, Redirect } from 'react-router-dom'
 import { H1, theme, BottomContainer, TopContainer } from './styles'
 import Layout from './Layout'
 import { GET_USER_DATA, SUBMIT } from './queries'
 import Button from './forms/Button'
 import Summary from './Summary'
+import { Submission } from './Submission'
 import { Reminder } from './Reminder'
 
 const contentClass = css`
@@ -76,31 +77,29 @@ class ReviewPage extends React.Component {
                 </Reminder>
 
                 <BottomContainer>
-                  <Mutation mutation={SUBMIT}>
-                    {(submit, { data }) => {
-                      if (data) {
-                        return <Redirect to="/confirmation" push />
-                      } else {
-                        return (
-                          <Button
-                            onClick={() => {
-                              submit({
-                                variables: {
-                                  fullName,
-                                  reason,
-                                  explanation,
-                                  paperFileNumber,
-                                  availability: selectedDays,
-                                },
-                              })
-                            }}
-                          >
-                            <Trans>Send Request →</Trans>
-                          </Button>
-                        )
-                      }
-                    }}
-                  </Mutation>
+                  <Submission
+                    action={SUBMIT}
+                    success={data => <Redirect to="/confirmation" push />}
+                    failure={error => <Redirect to="/error" push />}
+                  >
+                    {submit => (
+                      <Button
+                        onClick={() => {
+                          submit({
+                            variables: {
+                              fullName,
+                              reason,
+                              explanation,
+                              paperFileNumber,
+                              availability: selectedDays,
+                            },
+                          })
+                        }}
+                      >
+                        <Trans>Send Request →</Trans>
+                      </Button>
+                    )}
+                  </Submission>
                   <div>
                     <NavLink to="/">
                       <Trans>Cancel</Trans>
