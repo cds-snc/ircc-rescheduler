@@ -50,11 +50,15 @@ class ReviewPage extends React.Component {
             if (loading) return 'Loading...'
             if (error) return `Error! ${error.message}`
             let {
-              fullName,
-              paperFileNumber,
-              explanation,
-              reason,
-            } = data.userRegistrationData
+              userRegistrationData: {
+                fullName,
+                paperFileNumber,
+                explanation,
+                reason,
+              },
+              selectedDays,
+            } = data
+
             return (
               <section>
                 <Summary
@@ -62,6 +66,7 @@ class ReviewPage extends React.Component {
                   paperFileNumber={paperFileNumber}
                   explanation={explanation}
                   reason={this.translateReason(reason)}
+                  selectedDays={selectedDays}
                 />
                 <Reminder>
                   <Trans>
