@@ -7,7 +7,7 @@
       ]
     ]
   },
-  "You need to tell us your Paper File Number so we can confirm your identity.": {
+  "You need to tell us your Paper file number so we can confirm your identity.": {
     "origin": [
       [
         "src/RegistrationPage.js",
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        191
+        181
       ]
     ]
   },
@@ -43,15 +43,15 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        195
+        185
       ]
     ]
   },
-  "Paper File Number": {
+  "Paper file number": {
     "origin": [
       [
         "src/RegistrationPage.js",
-        212
+        201
       ]
     ]
   },
@@ -59,7 +59,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        216
+        209
       ]
     ]
   },
@@ -67,7 +67,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        227
+        220
       ]
     ]
   },
@@ -75,7 +75,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        230
+        223
       ]
     ]
   },
@@ -83,7 +83,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        232
+        225
       ]
     ]
   },
@@ -91,7 +91,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        241
+        234
       ]
     ]
   },
@@ -99,7 +99,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        249
+        242
       ]
     ]
   },
@@ -107,7 +107,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        257
+        250
       ]
     ]
   },
@@ -115,7 +115,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        265
+        258
       ]
     ]
   },
@@ -123,7 +123,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        273
+        266
       ]
     ]
   },
@@ -131,7 +131,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        293
+        286
       ]
     ]
   },
@@ -139,7 +139,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        296
+        289
       ]
     ]
   },
@@ -147,7 +147,7 @@
     "origin": [
       [
         "src/RegistrationPage.js",
-        319
+        312
       ]
     ]
   }
