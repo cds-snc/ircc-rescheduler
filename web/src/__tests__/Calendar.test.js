@@ -155,4 +155,34 @@ describe('<CalendarAdapter />', () => {
     clickFirstDate(wrapper)
     expect(getDateStrings(wrapper)).toEqual('Tue, 05 Jun 2018')
   })
+
+  const events = [
+    { eventType: 'click', options: {}, toString: 'click event' },
+    {
+      eventType: 'keypress',
+      options: { key: ' ' },
+      toString: 'keypress event with spacebar',
+    },
+    {
+      eventType: 'keypress',
+      options: { key: 'Enter' },
+      toString: 'keypress event with enter key',
+    },
+  ]
+
+  events.map(({ eventType, options, toString }) => {
+    it(`will remove a date when its "Remove date" button is triggered by a ${toString}`, () => {
+      const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
+      expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
+
+      clickFirstDate(wrapper)
+      expect(getDateStrings(wrapper)).toEqual('Fri, 01 Jun 2018')
+
+      wrapper
+        .find('#selectedDays button')
+        .first()
+        .simulate(eventType, options)
+      expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
+    })
+  })
 })
