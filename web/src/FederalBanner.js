@@ -18,6 +18,12 @@ const container = css`
   display: -moz-box;
   display: flex;
 
+  .svg-container {
+    /* same as the width value in our svg */
+    width: 250px;
+    height: 30px;
+  }
+
   ${mediaQuery.small(css`
     padding-left: ${theme.spacing.xl};
     padding-right: ${theme.spacing.xl};
@@ -48,9 +54,9 @@ const FederalBanner = () => (
   <div className={container}>
     <Query query={GET_LANGUAGE_QUERY}>
       {({ data: { language } }) => (
-        <div>
+        <div className="svg-container">
           <GoCSignature
-            width="13rem"
+            width="250px"
             lang={language}
             flag={theme.colour.black}
             text={theme.colour.black}

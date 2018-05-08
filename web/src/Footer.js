@@ -23,6 +23,16 @@ const footer = css`
   position: relative;
   font-size: ${theme.font.md};
 
+  .svg-container {
+    width: 150px;
+    height: 40px;
+
+    ${mediaQuery.small(css`
+      width: 140px;
+      height: 36px;
+    `)};
+  }
+
   ${mediaQuery.medium(css`
     flex-direction: column;
     align-items: center;
@@ -73,12 +83,14 @@ const Footer = ({ topBarBackground }) => (
   <div>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
-      <WordMark
-        width="8.375em"
-        height="2em"
-        flag={theme.colour.black}
-        text={theme.colour.black}
-      />
+      <div className="svg-container">
+        <WordMark
+          width="150px"
+          height="40px"
+          flag={theme.colour.black}
+          text={theme.colour.black}
+        />
+      </div>
 
       <div className={bottomLinks}>
         <a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a>
