@@ -10,6 +10,13 @@ module.exports.default = {
           },
           rescheduleForm: {
             description: `An input representing the details needed to reschedule a language test.`,
+            fields: {
+              fullName: 'The full name used on the citizenship application',
+              explanation:
+                "an explanation for why the proposed date doesn't work",
+              reasons: "a short reason for why the proposed date doesn't work",
+              paperFileNumber: 'The number at the top of the invitation email',
+            },
           },
         },
         mutation: {
@@ -30,6 +37,16 @@ module.exports.default = {
         types: {
           mailerResponse: {
             description: `A response from Immigration, Réfugiés et Citoyenneté Canada.`,
+          },
+          rescheduleForm: {
+            description: `Une entrée représentant les détails nécessaires pour reprogrammer un test linguistique.`,
+            fields: {
+              fullName: 'Le nom complet utilisé sur la demande de citoyenneté',
+              explanation:
+                "Une explication des raisons pour lesquelles la date proposée ne marche pas",
+              reasons: "une courte raison pour laquelle la date proposée ne marche pas.",
+              paperFileNumber: "Le numéro en haut de l'email d'invitation",
+            },
           },
         },
         mutation: {
