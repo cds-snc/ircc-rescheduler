@@ -15,7 +15,7 @@ const TableContainer = styled.div`
   `)};
 `
 
-const renderSelectedDays = selectedDays => {
+const SelectedDayList = ({ selectedDays }) => {
   return selectedDays && selectedDays.length > 0 ? (
     <ul>
       {selectedDays.map((day, index) => (
@@ -29,6 +29,9 @@ const renderSelectedDays = selectedDays => {
       <Trans>No dates selected</Trans>
     </p>
   )
+}
+SelectedDayList.propTypes = {
+  selectedDays: PropTypes.array,
 }
 
 const SummaryRow = ({ header, secondColumn, thirdColumn }) => (
@@ -44,8 +47,13 @@ const SummaryRow = ({ header, secondColumn, thirdColumn }) => (
     </Column3>
   </Row>
 )
+SummaryRow.propTypes = {
+  header: PropTypes.object.isRequired,
+  secondColumn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  thirdColumn: PropTypes.string.isRequired,
+}
 
-export const Summary = ({
+const Summary = ({
   fullName,
   paperFileNumber,
   reason,
@@ -75,7 +83,7 @@ export const Summary = ({
     />
     <SummaryRow
       header={<Trans>Availability</Trans>}
-      secondColumn={renderSelectedDays(selectedDays)}
+      secondColumn={<SelectedDayList selectedDays={selectedDays} />}
       thirdColumn={'/calendar'}
     />
   </TableContainer>
@@ -89,8 +97,4 @@ Summary.propTypes = {
   selectedDays: PropTypes.array,
 }
 
-SummaryRow.propTypes = {
-  header: PropTypes.object.isRequired,
-  secondColumn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  thirdColumn: PropTypes.string.isRequired,
-}
+export { Summary as default, SelectedDayList }

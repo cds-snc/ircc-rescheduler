@@ -7,7 +7,7 @@ import { H1, theme, BottomContainer, TopContainer } from './styles'
 import Layout from './Layout'
 import { GET_USER_DATA, SUBMIT } from './queries'
 import Button from './forms/Button'
-import { Summary } from './Summary'
+import Summary from './Summary'
 import { Reminder } from './Reminder'
 
 const contentClass = css`
