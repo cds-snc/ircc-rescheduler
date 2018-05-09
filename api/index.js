@@ -1,3 +1,4 @@
+require('dotenv').config()
 const Server = require('./src/server').default
 const AWS = require('aws-sdk')
 
