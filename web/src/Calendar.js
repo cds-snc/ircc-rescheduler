@@ -5,6 +5,7 @@ import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
 import Time, { makeGMTDate } from './Time'
+import ErrorMessage from './ErrorMessage'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -233,6 +234,7 @@ class Calendar extends Component {
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
     this.state = {
       selectedDays: this.props.input.value || [],
+      errorMessage: null,
     }
     this.props.input.value = this.state.selectedDays
   }
@@ -293,6 +295,9 @@ class Calendar extends Component {
     if (!selected) {
       // If we have already selected the maximum number of days, return early
       if (selectedDays.length >= dayLimit) {
+        await this.setState({
+          errorMessage: `Max days selected, sorry! Unselect a date to select new dates!`,
+        })
         return
       }
 
@@ -306,7 +311,7 @@ class Calendar extends Component {
       selectedDays.splice(selectedIndex, 1)
     }
 
-    await this.setState({ selectedDays })
+    await this.setState({ selectedDays, errorMessage: null })
     this.updateFieldParams()
   }
 
@@ -339,26 +344,33 @@ class Calendar extends Component {
           This code demonstrates how to update the page as dates are selected.
           It should be replaced as we fine-tune the interaction.
         */}
-        <div id="selectedDays">
-          {value && value.length > 0 ? (
-            <ol>
-              {value.map((day, index) => (
-                <li key={index}>
-                  {`${index + 1}. `}
-                  <Time date={day} />{' '}
-                  <button
-                    type="button"
-                    onClick={this.removeDayOnClickOrKeyPress(day)}
-                    onKeyPress={this.removeDayOnClickOrKeyPress(day)}
-                  >
-                    <Trans>Remove date</Trans>
-                  </button>
-                </li>
-              ))}
-            </ol>
-          ) : (
-            'No dates selected'
-          )}
+        <div>
+          <h3>Dates selected:</h3>
+          <ErrorMessage
+            message={this.state.errorMessage}
+            id="selectedDays-error"
+          />
+          <div id="selectedDays">
+            {value && value.length > 0 ? (
+              <ol>
+                {value.map((day, index) => (
+                  <li key={index}>
+                    {`${index + 1}. `}
+                    <Time date={day} />{' '}
+                    <button
+                      type="button"
+                      onClick={this.removeDayOnClickOrKeyPress(day)}
+                      onKeyPress={this.removeDayOnClickOrKeyPress(day)}
+                    >
+                      <Trans>Remove date</Trans>
+                    </button>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              'No dates selected'
+            )}
+          </div>
         </div>
       </div>
     )
