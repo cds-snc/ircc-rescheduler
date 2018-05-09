@@ -20,6 +20,13 @@ const getDateStrings = wrapper => {
     .join(' ')
 }
 
+const getErrorMessageString = wrapper => {
+  return wrapper
+    .find('#selectedDays-error')
+    .first()
+    .text()
+}
+
 const defaultProps = ({ value = '', dayLimit = 3 } = {}) => {
   return {
     input: { value: value, onChange: () => {} },
@@ -61,12 +68,10 @@ describe('<CalendarAdapter />', () => {
 
   it('selects a date when it is clicked', () => {
     const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
-
     expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
 
     // click the first available day (June 1st, 2018)
     clickFirstDate(wrapper)
-
     expect(getDateStrings(wrapper)).toEqual('Fri, 01 Jun 2018')
   })
 
@@ -78,7 +83,6 @@ describe('<CalendarAdapter />', () => {
     // click the first available day (June 1st, 2018) twice
     clickFirstDate(wrapper)
     clickFirstDate(wrapper)
-
     expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
   })
 
@@ -96,6 +100,34 @@ describe('<CalendarAdapter />', () => {
     // click the first available day (June 1st, 2018)
     clickFirstDate(wrapper)
     expect(getDateStrings(wrapper)).toEqual('Tue, 05 Jun 2018')
+    expect(getErrorMessageString(wrapper)).toEqual(
+      'You have already selected the maximum number of dates!',
+    )
+  })
+
+  it('will remove maximum date error message if a date is unselected', () => {
+    const wrapper = mount(
+      <CalendarAdapter
+        {...defaultProps({
+          value: [new Date('2018-06-05T12:00:00.000')],
+          dayLimit: 1,
+        })}
+      />,
+    )
+    // click the first available day (June 1st, 2018)
+    clickFirstDate(wrapper)
+    expect(getDateStrings(wrapper)).toEqual('Tue, 05 Jun 2018')
+    expect(getErrorMessageString(wrapper)).toEqual(
+      'You have already selected the maximum number of dates!',
+    )
+
+    // click first "Remove date" button
+    wrapper
+      .find('#selectedDays button')
+      .first()
+      .simulate('click')
+    expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
+    expect(getErrorMessageString(wrapper)).toEqual('')
   })
 
   it('will allow more days to be selected once a day is unselected', () => {
