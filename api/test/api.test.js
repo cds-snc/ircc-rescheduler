@@ -46,6 +46,7 @@ describe('Mutations', () => {
                 explanation: "asdf"
                 paperFileNumber: "111"
                 reason: "because reasons"
+                availability: ["2018-06-26","2018-06-29","2018-07-31"]
               }){
                 messageId
 							}
@@ -55,6 +56,7 @@ describe('Mutations', () => {
         expect(err.message).toEqual('so unhappy right now')
       })
     })
+
     describe('when no errors occur sending an email', () => {
       it('returns a message id when asked', async () => {
         let app = Server({
@@ -72,6 +74,7 @@ describe('Mutations', () => {
                 explanation: "asdf"
                 paperFileNumber: "111"
                 reason: "because reasons"
+                availability: ["2018-06-26","2018-06-29","2018-07-31"]
               }){
                 messageId
 							}
@@ -80,7 +83,34 @@ describe('Mutations', () => {
         let { decline } = response.body.data
         expect(decline.messageId).toEqual(msgId)
       })
+
+      it(`rejects requests that don't include 3 dates`, async () => {
+        let app = Server({
+          mailer: mockSES,
+          receivingAddress: 'test@example.com',
+          sendingAddress: 'test@example.com',
+        })
+
+        let response = await request(app)
+          .post('/graphql')
+          .set('Content-Type', 'application/graphql; charset=utf-8').send(`
+            mutation {
+              decline(input: {
+                fullName: "asdf"
+                explanation: "asdf"
+                paperFileNumber: "111"
+                reason: "because reasons"
+                availability: ["2018-06-29","2018-07-31"]
+              }){
+                messageId
+							}
+            }
+        `)
+        let { errors: [err] } = response.body
+        expect(err.message).toMatch(/Three dates/)
+      })
     })
+
     it('returns a request id when asked', async () => {
       let app = Server({
         mailer: mockSES,
@@ -97,6 +127,7 @@ describe('Mutations', () => {
                 explanation: "asdf"
                 paperFileNumber: "111"
                 reason: "because reasons"
+                availability: ["2018-06-26","2018-06-29","2018-07-31"]
               }){
                 requestId
 							}
