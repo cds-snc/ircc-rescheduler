@@ -30,88 +30,6 @@ export const incrementColor = (col, amt) => {
   return (usePound ? '#' : '') + (g | (b << 8) | (r << 16)).toString(16)
 }
 
-export const fontFace = css`
-  @font-face {
-    font-family: 'hk_groteskbold';
-    src: url('/fonts/hkgrotesk-bold-webfont.woff2') format('woff2'),
-      url('/fonts/hkgrotesk-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'hk_groteskbold_italic';
-    src: url('/fonts/hkgrotesk-bolditalic-webfont.woff2') format('woff2'),
-      url('/fonts/hkgrotesk-bolditalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'hk_groteskitalic';
-    src: url('/fonts/hkgrotesk-italic-webfont.woff2') format('woff2'),
-      url('/fonts/hkgrotesk-italic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'hk_grotesklight';
-    src: url('/fonts/hkgrotesk-light-webfont.woff2') format('woff2'),
-      url('/fonts/hkgrotesk-light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'hk_grotesklight_italic';
-    src: url('/fonts/hkgrotesk-lightitalic-webfont.woff2') format('woff2'),
-      url('/fonts/hkgrotesk-lightitalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'hk_groteskmedium';
-    src: url('/fonts/hkgrotesk-medium-webfont.woff2') format('woff2'),
-      url('/fonts/hkgrotesk-medium-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'hk_groteskmedium_italic';
-    src: url('/fonts/hkgrotesk-mediumitalic-webfont.woff2') format('woff2'),
-      url('/fonts/hkgrotesk-mediumitalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'hk_groteskregular';
-    src: url('/fonts/hkgrotesk-regular-webfont.woff2') format('woff2'),
-      url('/fonts/hkgrotesk-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'hk_grotesksemibold';
-    src: url('/fonts/hkgrotesk-semibold-webfont.woff2') format('woff2'),
-      url('/fonts/hkgrotesk-semibold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'hk_grotesksemibold_italic';
-    src: url('/fonts/hkgrotesk-semibolditalic-webfont.woff2') format('woff2'),
-      url('/fonts/hkgrotesk-semibolditalic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-`
-
 const borderRadius = 2
 export const roundedEdges = css`
   -webkit-border-radius: ${borderRadius}px;
@@ -165,14 +83,14 @@ export const theme = {
     visited: '#551a8b',
   },
   weight: {
-    l: 'hk_grotesklight, sans serif',
-    li: 'hk_grotesklight_italic, sans serif',
-    m: 'hk_groteskmedium, sans serif',
-    mi: 'hk_groteskmedium_italic, sans serif',
-    r: 'hk_groteskregular, sans serif',
-    s: 'hk_grotesksemibold, sans serif',
-    b: 'hk_groteskbold, sans serif',
-    bi: 'hk_grotesksemibold_italic, sans serif',
+    l: 'lighter, sans serif',
+    li: 'lighter, italic, sans serif',
+    m: 'sans serif',
+    mi: 'sans serif',
+    r: 'sans serif',
+    s: 'sans serif',
+    b: 'bold, sans serif',
+    bi: 'bold, italic, sans serif',
   },
   font: {
     xs: '0.694rem',
