@@ -30,7 +30,7 @@ class ErrorMessage extends React.Component {
 }
 
 ErrorMessage.propTypes = {
-  message: PropTypes.string,
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   id: PropTypes.string,
 }
 

@@ -293,10 +293,15 @@ class Calendar extends Component {
 
     // !selected means that this current day is not marked as 'selected' on the calendar
     if (!selected) {
-      // If we have already selected the maximum number of days, return early
+      // If we have already selected the maximum number of days,
+      // add an error message to the internal state and then return early
       if (selectedDays.length >= dayLimit) {
         await this.setState({
-          errorMessage: `Max days selected, sorry! Unselect a date to select new dates!`,
+          errorMessage: (
+            <Trans>
+              You have already selected the maximum number of dates!
+            </Trans>
+          ),
         })
         return
       }
