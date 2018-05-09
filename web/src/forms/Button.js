@@ -3,7 +3,7 @@ import { theme, roundedEdges, mediaQuery, incrementColor } from '../styles'
 
 const Button = styled.button`
   font-size: ${theme.font.lg};
-  font-family: ${theme.weight.s};
+  font-weight: 500;
   color: ${theme.colour.white};
   background-color: ${theme.colour.gray};
   border: 5px solid transparent;

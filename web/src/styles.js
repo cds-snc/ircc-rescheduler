@@ -82,16 +82,6 @@ export const theme = {
     focus: '#ffbf47',
     visited: '#551a8b',
   },
-  weight: {
-    l: 'lighter, sans serif',
-    li: 'lighter, italic, sans serif',
-    m: 'sans serif',
-    mi: 'sans serif',
-    r: 'sans serif',
-    s: 'sans serif',
-    b: 'bold, sans serif',
-    bi: 'bold, italic, sans serif',
-  },
   font: {
     xs: '0.694rem',
     sm: '0.833rem',
@@ -136,18 +126,18 @@ export const mediaQuery = Object.keys(breakpoints).reduce(
 
 export const H1 = styled.h1`
   font-size: ${theme.font.xxl};
-  font-family: ${theme.weight.b};
+  font-weight: bold;
 `
 
 export const H2 = styled.h2`
   font-size: ${theme.font.lg};
-  font-family: ${theme.weight.s};
+  font-weight: bold;
   margin-bottom: 0em;
 `
 
 export const H3 = styled.h3`
   font-size: ${theme.font.md};
-  font-family: ${theme.weight.s};
+  font-weight: bold;
 `
 
 export const Content = styled.div`
@@ -162,7 +152,7 @@ export const Content = styled.div`
 `
 
 export const Bold = styled.strong`
-  font-family: ${theme.weight.b};
+  font-weight: bold;
 `
 
 export const Calendar = styled.div`
@@ -174,7 +164,6 @@ export const Calendar = styled.div`
 export const CalHeader = styled.div`
   width: 32em;
   font-size: ${theme.font.lg};
-  font-family: ${theme.weight.s};
   padding-bottom: ${theme.spacing.xl};
   ${mediaQuery.medium(css`
     width: 100%;
@@ -183,7 +172,6 @@ export const CalHeader = styled.div`
 
 export const CalReminder = styled.div`
   font-size: ${theme.font.lg};
-  font-family: ${theme.weight.s};
   padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
 `
 
