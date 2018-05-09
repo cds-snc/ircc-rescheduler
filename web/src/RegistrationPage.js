@@ -42,7 +42,7 @@ const contentClass = css`
       }
 
       header {
-        font-family: ${theme.weight.b};
+        font-weight: bold;
         font-size: ${theme.font.lg};
       }
 

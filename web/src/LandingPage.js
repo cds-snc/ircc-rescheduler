@@ -33,7 +33,6 @@ const list = css`
   list-style: disc;
   margin-left: ${theme.spacing.lg};
   font-size: ${theme.font.lg};
-  font-family: ${theme.weight.s};
 `
 
 const landingSection = css`
@@ -46,7 +45,6 @@ const landingSection = css`
 `
 
 const moreInfo = css`
-  font-family: ${theme.weight.l};
   font-size: ${theme.font.md};
 `
 const href = css`

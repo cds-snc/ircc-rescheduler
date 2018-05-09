@@ -13,7 +13,6 @@ const banner = css`
   font-size: ${theme.font.xs};
 
   ${mediaQuery.small(css`
-    font-family: ${theme.weight.r};
     padding-left: ${theme.spacing.xl};
     padding-right: ${theme.spacing.xl};
     font-size: ${theme.font.xs};
