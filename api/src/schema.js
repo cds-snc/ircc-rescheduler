@@ -6,6 +6,17 @@ const {
 } = require('graphql')
 const { GraphQLError } = require('graphql/error')
 
+function humanReadable(dates) {
+  return dates.map(date =>
+    new Date(date).toLocaleDateString('en-CA', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }),
+  )
+}
+
 const createSchema = t => {
   const MailResponse = require('./types/MailResponse').default(t)
   const RescheduleFormInput = require('./types/RescheduleForm').default(t)
@@ -38,7 +49,17 @@ const createSchema = t => {
           { input },
           { mailer, receivingAddress, sendingAddress },
         ) => {
-          let { paperFileNumber, explanation, fullName, reason } = input
+          let {
+            paperFileNumber,
+            explanation,
+            fullName,
+            reason,
+            availability,
+          } = input
+
+          if (availability.length !== 3)
+            return new GraphQLError(t('errors.threeDatesRequired'))
+
           var params = {
             Destination: {
               ToAddresses: [receivingAddress],
@@ -54,6 +75,7 @@ const createSchema = t => {
     <li>Paper File Number: #${paperFileNumber}</li>
     <li>Reason for rescheduling: ${reason}</li>
     <li>Explanation: ${explanation}</li>
+    <li>Availability: ${humanReadable(availability)}</li>
   </ul>
                   `,
                 },
@@ -65,6 +87,7 @@ const createSchema = t => {
     * Paper File Number: #${paperFileNumber}
     * Reason for rescheduling: ${reason}
     * Explanation: ${explanation}
+    * Availability: ${humanReadable(availability)}
                   `,
                 },
               },

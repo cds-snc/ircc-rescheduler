@@ -28,6 +28,7 @@ export const SUBMIT = gql`
     $explanation: String!
     $reason: String!
     $paperFileNumber: String!
+    $availability: [Date!]!
   ) {
     decline(
       input: {
@@ -35,6 +36,7 @@ export const SUBMIT = gql`
         explanation: $explanation
         reason: $reason
         paperFileNumber: $paperFileNumber
+        availability: $availability
       }
     ) {
       requestId
