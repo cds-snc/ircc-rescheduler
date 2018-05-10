@@ -1,0 +1,18 @@
+{
+  "You have already selected the maximum number of dates!": {
+    "origin": [
+      [
+        "src/Calendar.js",
+        301
+      ]
+    ]
+  },
+  "Remove date": {
+    "origin": [
+      [
+        "src/Calendar.js",
+        370
+      ]
+    ]
+  }
+}
