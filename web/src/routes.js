@@ -41,6 +41,13 @@ export default [
     }),
   },
   {
+    path: '/error',
+    exact: true,
+    component: asyncComponent({
+      loader: () => import('./ErrorPage'),
+    }),
+  },
+  {
     path: '*',
     exact: true,
     component: asyncComponent({

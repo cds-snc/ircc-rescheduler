@@ -1,0 +1,26 @@
+{
+  "We tried to send your request but failed.": {
+    "origin": [
+      [
+        "src/ErrorPage.js",
+        19
+      ]
+    ]
+  },
+  "We'll have to look into this. In the mean time, you should contact IRCC directly and ask them to change your appointment:": {
+    "origin": [
+      [
+        "src/ErrorPage.js",
+        22
+      ]
+    ]
+  },
+  "← Go Back": {
+    "origin": [
+      [
+        "src/ErrorPage.js",
+        30
+      ]
+    ]
+  }
+}
