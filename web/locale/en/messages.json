@@ -1,4 +1,22 @@
 {
+  "You have already selected the maximum number of dates!": {
+    "translation": "",
+    "origin": [
+      [
+        "src/Calendar.js",
+        301
+      ]
+    ]
+  },
+  "Remove date": {
+    "translation": "",
+    "origin": [
+      [
+        "src/Calendar.js",
+        370
+      ]
+    ]
+  },
   "Please select three (3) dates so we can schedule an appointment when you are available.": {
     "translation": "",
     "origin": [
