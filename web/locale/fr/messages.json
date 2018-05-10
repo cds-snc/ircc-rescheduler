@@ -1,23 +1,4 @@
 {
-  "1234567": {
-    "translation": "1234567",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        134
-      ]
-    ],
-    "obsolete": true
-  },
-  "Citizenship Tests are scheduled on Tuesdays and Fridays. Use the calendar to select at least three (3) days you’re available in June and July.": {
-    "translation": "Les tests de citoyenneté sont programmés les mardis et vendredis. Utilisez le calendrier pour sélectionner au moins trois (3) jours de disponibilité en juin et en juillet.",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        106
-      ]
-    ]
-  },
   "Please select three (3) dates so we can schedule an appointment when you are available.": {
     "translation": "Veuillez sélectionner trois (3) dates pour que nous puissions prendre rendez-vous lorsque vous êtes disponible.",
     "origin": [
@@ -37,6 +18,15 @@
       [
         "src/ReviewPage.js",
         42
+      ]
+    ]
+  },
+  "Citizenship Tests are scheduled on Tuesdays and Fridays. Use the calendar to select at least three (3) days you’re available in June and July.": {
+    "translation": "Les tests de citoyenneté sont programmés les mardis et vendredis. Utilisez le calendrier pour sélectionner au moins trois (3) jours de disponibilité en juin et en juillet.",
+    "origin": [
+      [
+        "src/CalendarPage.js",
+        106
       ]
     ]
   },
@@ -67,7 +57,7 @@
       ],
       [
         "src/ReviewPage.js",
-        80
+        106
       ]
     ]
   },
@@ -263,7 +253,7 @@
       ],
       [
         "src/__tests__/Summary.test.js",
-        16
+        17
       ]
     ]
   },
@@ -379,7 +369,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        66
+        64
       ]
     ]
   },
@@ -388,7 +378,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        75
+        73
       ]
     ]
   },
@@ -397,7 +387,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        80
+        78
       ]
     ]
   },
@@ -406,7 +396,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        83
+        81
       ]
     ]
   },
@@ -415,7 +405,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        90
+        88
       ]
     ]
   },
@@ -424,7 +414,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        94
+        92
       ]
     ]
   },
@@ -433,7 +423,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        97
+        95
       ]
     ]
   },
@@ -442,7 +432,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        104
+        102
       ]
     ]
   },
@@ -451,7 +441,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        113
+        111
       ]
     ]
   },
@@ -460,7 +450,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        123
+        121
       ]
     ]
   },
@@ -469,7 +459,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        134
+        132
       ]
     ]
   },
@@ -487,7 +477,7 @@
     "origin": [
       [
         "src/Layout.js",
-        56
+        55
       ]
     ]
   },
@@ -496,7 +486,7 @@
     "origin": [
       [
         "src/Layout.js",
-        63
+        62
       ]
     ]
   },
@@ -536,7 +526,7 @@
     "origin": [
       [
         "src/ReviewPage.js",
-        65
+        72
       ]
     ]
   },
@@ -545,7 +535,7 @@
     "origin": [
       [
         "src/ReviewPage.js",
-        74
+        98
       ]
     ]
   },
@@ -593,167 +583,5 @@
         85
       ]
     ]
-  },
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least three (3) days you’re available</2> in June and July.": {
-    "translation": "Les tests de citoyenneté sont programmés les <0>mardi</ 0> et <1>vendredi</ 1>. Utilisez le calendrier pour sélectionner <2>au moins trois (3) jours de disponibilité</ 2> en juin et en juillet.",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        107
-      ]
-    ],
-    "obsolete": true
-  },
-  "Review your request before sending it:": {
-    "translation": "Passez en revue votre demande avant de l'envoyer:",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        104
-      ]
-    ],
-    "obsolete": true
-  },
-  "Full name:": {
-    "translation": "Nom complet:",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        111
-      ]
-    ],
-    "obsolete": true
-  },
-  "John Li": {
-    "translation": "John Li",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        116
-      ]
-    ],
-    "obsolete": true
-  },
-  "Edit": {
-    "translation": "modifier",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        121
-      ],
-      [
-        "src/ReviewPage.js",
-        139
-      ],
-      [
-        "src/ReviewPage.js",
-        157
-      ],
-      [
-        "src/ReviewPage.js",
-        178
-      ]
-    ],
-    "obsolete": true
-  },
-  "Paper file number:": {
-    "translation": "Numéro de fichier papier:",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        129
-      ]
-    ],
-    "obsolete": true
-  },
-  "Reason:": {
-    "translation": "Raison:",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        147
-      ]
-    ],
-    "obsolete": true
-  },
-  "Explanation:": {
-    "translation": "Explication:",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        165
-      ]
-    ],
-    "obsolete": true
-  },
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.": {
-    "translation": "Lorem ipsum dolor s'asseoir amet, consectetur adipiscing elit, sed faire eiusmod temporel incididunt ut labore et dolore magna aliqua.",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        170
-      ]
-    ],
-    "obsolete": true
-  },
-  "Availability:": {
-    "translation": "Disponibilité:",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        186
-      ]
-    ],
-    "obsolete": true
-  },
-  "Tuesday June 1, 2018": {
-    "translation": "Mardi 1er juin 2018",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        192
-      ]
-    ],
-    "obsolete": true
-  },
-  "Friday June 11, 2018": {
-    "translation": "Vendredi 11 juin 2018",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        195
-      ]
-    ],
-    "obsolete": true
-  },
-  "Tuesday July 5, 2018": {
-    "translation": "Mardi 5 juillet 2018",
-    "origin": [
-      [
-        "src/ReviewPage.js",
-        198
-      ]
-    ],
-    "obsolete": true
-  },
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>. Use the calendar to select <2>at least four days you’re available</2> in June and July.": {
-    "translation": "Les tests de citoyenneté sont programmés les <0>mardi</0> et <1>vendredi</1>. Utilisez le calendrier pour sélectionner <2> au moins quatre jours de disponibilité</2> en juin et en juillet.",
-    "origin": [
-      [
-        "src/CalendarPage.js",
-        28
-      ]
-    ],
-    "obsolete": true
-  },
-  "We’ve sent you a confirmation email.": {
-    "translation": "Nous vous avons envoyé un e-mail de confirmation.",
-    "origin": [
-      [
-        "src/ConfirmationPage.js",
-        30
-      ]
-    ],
-    "obsolete": true
   }
 }
