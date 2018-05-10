@@ -39,6 +39,7 @@
     "i18next-express-middleware": "^1.1.1"
   },
   "jest": {
-    "verbose": true
+    "verbose": true,
+    "testEnvironment": "jest-environment-node"
   }
 }
