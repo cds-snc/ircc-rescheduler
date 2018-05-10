@@ -16,6 +16,10 @@
         100
       ],
       [
+        "src/FourOhFourPage.js",
+        33
+      ],
+      [
         "src/ReviewPage.js",
         42
       ]
@@ -94,6 +98,33 @@
       [
         "src/ConfirmationPage.js",
         40
+      ]
+    ]
+  },
+  "404: Page not found": {
+    "translation": "404 Page non trouvée",
+    "origin": [
+      [
+        "src/FourOhFourPage.js",
+        19
+      ]
+    ]
+  },
+  "Oops! We can’t seem to find the page you are looking for:": {
+    "translation": "Oops! Nous n'arrivons pas à trouver la page que vous cherchez:",
+    "origin": [
+      [
+        "src/FourOhFourPage.js",
+        22
+      ]
+    ]
+  },
+  "If you wish to restart the rescheduling process, please navigate to the Home Page and start the process again.": {
+    "translation": "Si vous souhaitez redémarrer le processus de replanification, accédez à la page d'accueil et relancez le processus.",
+    "origin": [
+      [
+        "src/FourOhFourPage.js",
+        27
       ]
     ]
   },
