@@ -70,6 +70,7 @@ export const theme = {
     blue: '#1177DD',
     blueDark: '#073767',
     blueAlpha: '#4A90E2',
+    alpha: '#F90277',
     red: '#A5071B',
     grey: '#4A4A4A',
     gray: '#4A4A4A',
