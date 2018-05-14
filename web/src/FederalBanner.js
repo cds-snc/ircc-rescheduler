@@ -7,7 +7,7 @@ import { theme, mediaQuery } from './styles'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 const container = css`
-  padding: ${theme.spacing.md} ${theme.spacing.xxxl} ${theme.spacing.sm}
+  padding: ${theme.spacing.lg} ${theme.spacing.xxxl} ${theme.spacing.lg}
     ${theme.spacing.xxxl};
   width: auto;
   justify-content: space-between;
@@ -40,10 +40,8 @@ const container = css`
   context of the Banner segment, not on the switcher by itself.
   */
   section {
-    margin-top: -${theme.spacing.xs};
-
     ${mediaQuery.xs(css`
-      margin-top: 0;
+      margin-top: ${theme.spacing.sm};
       /* this means the "Français" link looks aligned with the flag */
       margin-left: -2px;
     `)};
@@ -58,7 +56,7 @@ const FederalBanner = () => (
           <GoCSignature
             width="250px"
             lang={language}
-            flag={theme.colour.black}
+            flag={theme.colour.redFIP}
             text={theme.colour.black}
           />
         </div>
