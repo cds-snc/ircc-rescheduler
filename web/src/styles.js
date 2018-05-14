@@ -72,6 +72,7 @@ export const theme = {
     blueAlpha: '#4A90E2',
     alpha: '#F90277',
     red: '#A5071B',
+    redFIP: '#FF0000',
     grey: '#4A4A4A',
     gray: '#4A4A4A',
     greyLight: '#DBDBDB',
