@@ -28,10 +28,10 @@ const horizontalAlign = css`
 const badge = css`
   text-transform: uppercase;
   line-height: 1.8;
-  color: ${theme.colour.black};
+  color: ${theme.colour.white};
+  background-color: ${theme.colour.alpha};
   padding: 2px ${theme.spacing.md};
   margin-right: ${theme.spacing.md};
-  background-color: ${theme.colour.white};
   ${roundedEdges};
   ${horizontalAlign};
   ${mediaQuery.small(css`
@@ -42,10 +42,12 @@ const badge = css`
 
 const message = css`
   ${horizontalAlign};
+  font-weight: 600;
 
   ${mediaQuery.small(css`
     display: block;
     bottom: 0;
+    font-weight: 400;
   `)};
 `
 
