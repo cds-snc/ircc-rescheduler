@@ -57,7 +57,7 @@ class LandingPage extends React.Component {
     return (
       <Layout contentClass={contentClass}>
         <Helmet>
-          <title>Request a new Canadian Citizenship test date</title>
+          <title>Request a new Canadian Citizenship appointment</title>
         </Helmet>
         <section className={landingSection}>
           <H1>

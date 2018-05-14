@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
-import { theme, mediaQuery, H1, Content } from './styles'
+import { theme, mediaQuery, Content } from './styles'
 import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
@@ -58,9 +58,7 @@ const Layout = ({ children, contentClass = '' }) => (
     <FederalBanner />
     <main role="main">
       <PageHeader>
-        <H1>
-          <Trans>Request a new Canadian Citizenship test date</Trans>
-        </H1>
+        <Trans>Request a new Canadian Citizenship appointment</Trans>
       </PageHeader>
       <Content className={contentClass}>{children}</Content>
       <Footer topBarBackground="black" />
