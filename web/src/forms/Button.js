@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
 import { theme, roundedEdges, mediaQuery, incrementColor } from '../styles'
 
@@ -143,5 +144,8 @@ const Button = ({ children, ...props }) => (
     {children}
   </button>
 )
+Button.propTypes = {
+  children: PropTypes.any.isRequired,
+}
 
 export { Button as default, button as buttonStyles }
