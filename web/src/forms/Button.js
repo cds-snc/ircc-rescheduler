@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
-import { theme, roundedEdges, mediaQuery, incrementColor } from '../styles'
+import { theme, mediaQuery, incrementColor } from '../styles'
 
 const govuk_button = css`
   /* https://raw.githubusercontent.com/alphagov/govuk_frontend_toolkit/e00b009b2a9722363d3c247838632d8e3673daa9/stylesheets/design-patterns/_buttons.scss */
@@ -100,7 +100,6 @@ const button = css`
 
   // Size and shape
   padding: ${theme.spacing.sm} ${theme.spacing.lg};
-  ${roundedEdges};
 
   // Bottom edge effect
   box-shadow: 0 2px 0 ${incrementColor(theme.colour.grey, 80)};
