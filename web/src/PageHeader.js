@@ -4,14 +4,19 @@ import { css } from 'react-emotion'
 import { theme, mediaQuery } from './styles'
 
 const banner = css`
-  background-color: ${theme.colour.greyLight};
-  color: ${theme.colour.black};
-  padding: ${theme.spacing.xxl} ${theme.spacing.xxxl};
+  background-color: ${theme.colour.blue};
+  color: ${theme.colour.white};
+  padding: ${theme.spacing.lg} ${theme.spacing.xxxl};
 
   ${mediaQuery.small(css`
     padding-left: ${theme.spacing.xl};
     padding-right: ${theme.spacing.xl};
   `)};
+
+  > * {
+    font-size: ${theme.font.xxl};
+    font-weight: 700;
+  }
 `
 
 const PageHeader = ({ children }) => (

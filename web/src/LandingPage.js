@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from 'react-emotion'
+import styled, { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, H2, H3, theme, mediaQuery } from './styles'
 import Layout from './Layout'
@@ -8,48 +8,43 @@ import { Trans } from 'lingui-react'
 import { Helmet } from 'react-helmet'
 
 const contentClass = css`
+  section {
+    width: 80%;
+    margin-bottom: ${theme.spacing.lg};
+
+    ${mediaQuery.small(css`
+      width: 100%;
+    `)};
+  }
+
   p {
-    padding-bottom: ${theme.spacing.lg};
-  }
-
-  li p:first-of-type {
-    padding-bottom: 0rem;
-  }
-
-  li p:last-of-type {
-    padding-bottom: 0rem;
-  }
-
-  li {
-    padding-bottom: ${theme.spacing.sm};
-  }
-
-  li:last-of-type {
-    padding-bottom: ${theme.spacing.lg};
+    font-size: ${theme.font.lg};
+    margin-bottom: ${theme.spacing.lg};
   }
 `
 
 const list = css`
   list-style: disc;
   margin-left: ${theme.spacing.lg};
-  font-size: ${theme.font.lg};
-`
-
-const landingSection = css`
+  margin-top: ${theme.spacing.sm};
   margin-bottom: ${theme.spacing.lg};
-  width: 70%;
 
-  ${mediaQuery.medium(css`
-    width: 100%;
-  `)};
+  li {
+    margin-bottom: ${theme.spacing.sm};
+
+    p {
+      margin-bottom: 0;
+    }
+
+    p + p {
+      font-size: ${theme.font.md};
+    }
+  }
 `
 
-const moreInfo = css`
-  font-size: ${theme.font.md};
-`
-const href = css`
-  text-decoration: underline;
-  color: ${theme.colour.black};
+const H1Landing = styled(H1)`
+  font-size: ${theme.font.xl};
+  line-height: 1;
 `
 
 class LandingPage extends React.Component {
@@ -57,15 +52,16 @@ class LandingPage extends React.Component {
     return (
       <Layout contentClass={contentClass}>
         <Helmet>
-          <title>Request a new Canadian Citizenship test date</title>
+          <title>Request a new Canadian Citizenship appointment</title>
         </Helmet>
-        <section className={landingSection}>
-          <H1>
+        <section>
+          <H1Landing>
             <Trans>
-              Use this service to notify IRCC that you can’t attend your
-              Citizenship test, and you need a new appointment.
+              Use this service to notify Immigration, Refugees and Citizenship
+              Canada that you cannot attend your Citizenship test, and you need
+              a new appointment.
             </Trans>
-          </H1>
+          </H1Landing>
         </section>
 
         <section>
@@ -75,9 +71,11 @@ class LandingPage extends React.Component {
           <ul className={list}>
             <li>
               <p>
-                <Trans>your paper file number</Trans>
+                <Trans>
+                  Your <strong>paper file number</strong>
+                </Trans>
               </p>
-              <p className={moreInfo}>
+              <p>
                 <Trans>
                   This is found at the top of your test notice email.
                 </Trans>
@@ -85,38 +83,38 @@ class LandingPage extends React.Component {
             </li>
 
             <li>
-              <Trans>your full name, as it appears on your application</Trans>
+              <p>
+                <Trans>Your full name</Trans>
+              </p>
+              <p>
+                <Trans>This should match the name on your application.</Trans>
+              </p>
             </li>
+
             <li>
               <p>
-                <Trans>to explain your reason for rescheduling</Trans>
+                <Trans>To describe your reason for rescheduling</Trans>
               </p>
-              <span className={moreInfo}>
-                <Trans>for more information on rescheduling,</Trans>{' '}
-              </span>
-              <span className={moreInfo}>
-                <a
-                  href="http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=786&amp;top=5"
-                  className={href}
-                >
-                  <Trans>read the guidelines</Trans>
-                </a>
-              </span>
+              <p>
+                <Trans>
+                  For more information on rescheduling,{' '}
+                  <a href="http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=786&amp;top=5">
+                    read the guidelines
+                  </a>.
+                </Trans>
+              </p>
             </li>
           </ul>
-        </section>
 
-        <section className={landingSection}>
-          <H2>
+          <p>
             <Trans>
-              After verifying your personal information, you will be able to
-              select three (3) alternative days when you are able to take the
-              Citizenship test.
+              After that, you will select <strong>three (3) days</strong> when
+              you’re available for an appointment in the future.
             </Trans>
-          </H2>
+          </p>
         </section>
 
-        <section className={landingSection}>
+        <section>
           <H3>
             <Trans>
               Important: by sending this request to reschedule, you will be

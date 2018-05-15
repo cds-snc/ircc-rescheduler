@@ -64,13 +64,9 @@ export const breakpoints = {
 
 export const theme = {
   colour: {
-    yellow: '#FDD262',
-    yellowLight: '#E5BF73',
-    yellowDark: '#E7AE27',
-    blue: '#1177DD',
-    blueDark: '#073767',
-    blueAlpha: '#4A90E2',
+    blue: '#335075',
     red: '#A5071B',
+    redFIP: '#FF0000',
     grey: '#4A4A4A',
     gray: '#4A4A4A',
     greyLight: '#DBDBDB',
@@ -81,6 +77,7 @@ export const theme = {
     black: '#000000',
     focus: '#ffbf47',
     visited: '#551a8b',
+    alpha: '#F90277',
   },
   font: {
     xs: '0.694rem',
