@@ -145,7 +145,7 @@ class CalendarPage extends Component {
               </CalReminder>
               <BottomContainer>
                 <Button disabled={submitting}>
-                  <Trans>Review →</Trans>
+                  <Trans>Review</Trans>
                 </Button>
 
                 <div>

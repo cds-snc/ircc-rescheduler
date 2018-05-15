@@ -309,7 +309,7 @@ class RegistrationPage extends React.Component {
                     Object.keys(touched).length
                 }
               >
-                <Trans>Next →</Trans>
+                <Trans>Continue</Trans>
               </Button>
             </form>
           )}
