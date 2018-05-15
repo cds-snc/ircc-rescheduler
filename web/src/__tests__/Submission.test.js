@@ -8,7 +8,7 @@ import makeFakeClient from '../utils/makeFakeClient'
 const flushPromises = () => new Promise(resolve => setImmediate(resolve))
 
 describe('<Submission />', () => {
-  it(`calls it's child as a function`, async () => {
+  it(`calls its child as a function`, async () => {
     const client = makeFakeClient({
       resolveWith: {
         decline: {
