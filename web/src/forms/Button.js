@@ -1,4 +1,5 @@
-import styled, { css } from 'react-emotion'
+import React from 'react'
+import { css } from 'react-emotion'
 import { theme, roundedEdges, mediaQuery, incrementColor } from '../styles'
 
 const govuk_button = css`
@@ -85,7 +86,7 @@ const govuk_button = css`
   /* removed IE8-specific rule */
 `
 
-const Button = styled.button`
+const button = css`
   ${govuk_button};
 
   font-family: -apple-system, system-ui, Helvetica, Arial, sans-serif;
@@ -137,4 +138,10 @@ const Button = styled.button`
   }
 `
 
-export default Button
+const Button = ({ children, ...props }) => (
+  <button className={button} {...props}>
+    {children}
+  </button>
+)
+
+export { Button as default, button as buttonStyles }
