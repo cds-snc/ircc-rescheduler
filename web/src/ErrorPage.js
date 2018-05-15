@@ -16,12 +16,11 @@ class ErrorPage extends React.Component {
     return (
       <Layout contentClass={contentClass}>
         <H1>
-          <Trans>We tried to send your request but failed.</Trans>
+          <Trans>Request failed</Trans>
         </H1>
         <p>
           <Trans>
-            We&apos;ll have to look into this. In the mean time, you should
-            contact IRCC directly and ask them to change your appointment:
+            Please contact IRCC directly in order to change your appointment.
           </Trans>
         </p>
         <p>vancouverIRCC@cic.gc.ca</p>
