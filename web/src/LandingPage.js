@@ -3,7 +3,7 @@ import styled, { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, H2, H3, theme, mediaQuery } from './styles'
 import Layout from './Layout'
-import Button from './forms/Button'
+import { buttonStyles } from './forms/Button'
 import { Trans } from 'lingui-react'
 import { Helmet } from 'react-helmet'
 
@@ -125,10 +125,8 @@ class LandingPage extends React.Component {
           </H3>
         </section>
 
-        <NavLink to="/register">
-          <Button>
-            <Trans>Start Now →</Trans>
-          </Button>
+        <NavLink to="/register" className={buttonStyles}>
+          <Trans>Start Now →</Trans>
         </NavLink>
       </Layout>
     )
