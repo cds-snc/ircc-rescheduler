@@ -34,6 +34,10 @@
         100
       ],
       [
+        "src/ErrorPage.js",
+        30
+      ],
+      [
         "src/FourOhFourPage.js",
         33
       ],
@@ -79,7 +83,7 @@
       ],
       [
         "src/ReviewPage.js",
-        106
+        109
       ]
     ]
   },
@@ -116,6 +120,24 @@
       [
         "src/ConfirmationPage.js",
         40
+      ]
+    ]
+  },
+  "We tried to send your request but failed.": {
+    "translation": "Nous avons essayé d'envoyer votre demande, mais sans succès.",
+    "origin": [
+      [
+        "src/ErrorPage.js",
+        19
+      ]
+    ]
+  },
+  "We'll have to look into this. In the mean time, you should contact IRCC directly and ask them to change your appointment:": {
+    "translation": "Il faut qu'on se penche là-dessus. Dans l'intervalle, vous devriez communiquer directement avec l'IRCC et lui demander de modifier votre rendez-vous :",
+    "origin": [
+      [
+        "src/ErrorPage.js",
+        22
       ]
     ]
   },
@@ -584,7 +606,7 @@
     "origin": [
       [
         "src/ReviewPage.js",
-        98
+        101
       ]
     ]
   },
