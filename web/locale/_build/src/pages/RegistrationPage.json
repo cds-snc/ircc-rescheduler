@@ -1,0 +1,154 @@
+{
+  "You need to tell us your name so we know who is requesting a new appointment.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        63
+      ]
+    ]
+  },
+  "You need to tell us your Paper file number so we can confirm your identity.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        71
+      ]
+    ]
+  },
+  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        79
+      ]
+    ]
+  },
+  "Please tell us a bit more about why you need to reschedule your test.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        87
+      ]
+    ]
+  },
+  "Full name": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        184
+      ]
+    ]
+  },
+  "This is the full name you used on your citizenship application.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        188
+      ]
+    ]
+  },
+  "Paper file number": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        204
+      ]
+    ]
+  },
+  "This number is at the top of the email we sent you.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        212
+      ]
+    ]
+  },
+  "Reason for rescheduling": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        223
+      ]
+    ]
+  },
+  "If you’re not sure if you can reschedule,": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        226
+      ]
+    ]
+  },
+  "read the guidelines for rescheduling": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        228
+      ]
+    ]
+  },
+  "Travel": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        237
+      ]
+    ]
+  },
+  "Medical": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        245
+      ]
+    ]
+  },
+  "Work or School": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        253
+      ]
+    ]
+  },
+  "Family": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        261
+      ]
+    ]
+  },
+  "Other": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        269
+      ]
+    ]
+  },
+  "Tell us why you can’t attend your test": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        289
+      ]
+    ]
+  },
+  "Provide enough detail so that IRCC staff can understand your situation.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        292
+      ]
+    ]
+  },
+  "Continue": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        315
+      ]
+    ]
+  }
+}
