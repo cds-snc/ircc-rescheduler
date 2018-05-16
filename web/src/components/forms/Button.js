@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
-import { theme, mediaQuery, incrementColor } from '../styles'
+import { theme, mediaQuery, incrementColor } from '../../styles'
 
 const govuk_button = css`
   /* https://raw.githubusercontent.com/alphagov/govuk_frontend_toolkit/e00b009b2a9722363d3c247838632d8e3673daa9/stylesheets/design-patterns/_buttons.scss */

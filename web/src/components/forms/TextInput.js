@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FieldAdapterPropTypes from '../components/_Field'
+import FieldAdapterPropTypes from '../_Field'
 import { css } from 'react-emotion'
-import { theme, mediaQuery } from '../styles'
+import { theme, mediaQuery } from '../../styles'
 
 const text_input = css`
   font-size: ${theme.font.lg};
