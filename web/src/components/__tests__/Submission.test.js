@@ -70,10 +70,7 @@ describe('<Submission />', () => {
       paperFileNumber: '12341235',
     }
 
-    const successSpy = jest.fn(data => {
-      return <div>success</div>
-    })
-
+    const successSpy = jest.fn(data => <div>success</div>)
     const failureSpy = jest.fn(err => null)
     const spy = jest.fn(submit => <div onClick={() => submit(data)}>foo</div>)
 
@@ -107,9 +104,7 @@ describe('<Submission />', () => {
     })
 
     const successSpy = jest.fn(data => <div>success</div>)
-
     const failureSpy = jest.fn(err => <div>error</div>)
-
     const spy = jest.fn(submit => <div onClick={() => submit()}>foo</div>)
 
     const wrapper = mount(
@@ -126,5 +121,32 @@ describe('<Submission />', () => {
     expect(Array.isArray(failureSpy.mock.calls[0][0])).toEqual(true)
     // first element of the first argument of the first call
     expect(failureSpy.mock.calls[0][0][0].message).toEqual('sadness')
+  })
+
+  it(`calls the failure prop with an errors array when there is a Network error`, async () => {
+    const client = makeFakeClient({
+      fail: true,
+      failWith: Error('omg where is the api??? 🤷‍♀️'),
+    })
+
+    const successSpy = jest.fn(data => <div>success</div>)
+    const failureSpy = jest.fn(err => <div>error</div>)
+    const spy = jest.fn(submit => <div onClick={() => submit()}>foo</div>)
+
+    const wrapper = mount(
+      <ApolloProvider client={client}>
+        <Submission action={SUBMIT} success={successSpy} failure={failureSpy}>
+          {spy}
+        </Submission>
+      </ApolloProvider>,
+    )
+
+    wrapper.find('div').simulate('click')
+    await flushPromises()
+    expect(failureSpy).toHaveBeenCalled()
+    // first element of the first argument of the first call
+    expect(failureSpy.mock.calls[0][0].message).toEqual(
+      'Network error: omg where is the api??? 🤷‍♀️',
+    )
   })
 })
