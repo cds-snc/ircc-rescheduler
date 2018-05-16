@@ -30,11 +30,10 @@ export const incrementColor = (col, amt) => {
   return (usePound ? '#' : '') + (g | (b << 8) | (r << 16)).toString(16)
 }
 
-const borderRadius = 2
 export const roundedEdges = css`
-  -webkit-border-radius: ${borderRadius}px;
-  -moz-border-radius: ${borderRadius}px;
-  border-radius: ${borderRadius}px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 `
 
 /*

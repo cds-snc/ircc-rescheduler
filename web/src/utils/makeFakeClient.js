@@ -1,6 +1,6 @@
 import { ApolloLink, Observable } from 'apollo-link'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import ApolloClient from 'apollo-client' // eslint-disable-this-line import/no-named-as-default
+import ApolloClient from 'apollo-client' // eslint-disable-line import/no-named-as-default
 
 function createMockLink(options) {
   return new ApolloLink(

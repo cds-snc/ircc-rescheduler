@@ -1,0 +1,58 @@
+{
+  "No dates selected": {
+    "origin": [
+      [
+        "src/components/Summary.js",
+        37
+      ]
+    ]
+  },
+  "Change": {
+    "origin": [
+      [
+        "src/components/Summary.js",
+        53
+      ]
+    ]
+  },
+  "Full name": {
+    "origin": [
+      [
+        "src/components/Summary.js",
+        73
+      ]
+    ]
+  },
+  "Paper file number": {
+    "origin": [
+      [
+        "src/components/Summary.js",
+        78
+      ]
+    ]
+  },
+  "Reason": {
+    "origin": [
+      [
+        "src/components/Summary.js",
+        83
+      ]
+    ]
+  },
+  "Explanation": {
+    "origin": [
+      [
+        "src/components/Summary.js",
+        88
+      ]
+    ]
+  },
+  "Availability": {
+    "origin": [
+      [
+        "src/components/Summary.js",
+        93
+      ]
+    ]
+  }
+}
