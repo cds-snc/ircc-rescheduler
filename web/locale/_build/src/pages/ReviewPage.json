@@ -2,7 +2,7 @@
   "Travel": {
     "origin": [
       [
-        "src/ReviewPage.js",
+        "src/pages/ReviewPage.js",
         24
       ]
     ]
@@ -10,7 +10,7 @@
   "Family": {
     "origin": [
       [
-        "src/ReviewPage.js",
+        "src/pages/ReviewPage.js",
         26
       ]
     ]
@@ -18,7 +18,7 @@
   "Medical": {
     "origin": [
       [
-        "src/ReviewPage.js",
+        "src/pages/ReviewPage.js",
         28
       ]
     ]
@@ -26,7 +26,7 @@
   "Work or School": {
     "origin": [
       [
-        "src/ReviewPage.js",
+        "src/pages/ReviewPage.js",
         30
       ]
     ]
@@ -34,7 +34,7 @@
   "Other": {
     "origin": [
       [
-        "src/ReviewPage.js",
+        "src/pages/ReviewPage.js",
         32
       ]
     ]
@@ -42,7 +42,7 @@
   "← Go Back": {
     "origin": [
       [
-        "src/ReviewPage.js",
+        "src/pages/ReviewPage.js",
         43
       ]
     ]
@@ -50,7 +50,7 @@
   "Review your request before sending it": {
     "origin": [
       [
-        "src/ReviewPage.js",
+        "src/pages/ReviewPage.js",
         47
       ]
     ]
@@ -58,7 +58,7 @@
   "Remember: By sending this request, you are cancelling your currently scheduled test.": {
     "origin": [
       [
-        "src/ReviewPage.js",
+        "src/pages/ReviewPage.js",
         73
       ]
     ]
@@ -66,7 +66,7 @@
   "Send Request →": {
     "origin": [
       [
-        "src/ReviewPage.js",
+        "src/pages/ReviewPage.js",
         99
       ]
     ]
@@ -74,7 +74,7 @@
   "Cancel": {
     "origin": [
       [
-        "src/ReviewPage.js",
+        "src/pages/ReviewPage.js",
         105
       ]
     ]

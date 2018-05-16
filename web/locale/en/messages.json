@@ -5,6 +5,10 @@
       [
         "src/Calendar.js",
         301
+      ],
+      [
+        "src/components/Calendar.js",
+        301
       ]
     ]
   },
@@ -14,6 +18,10 @@
       [
         "src/Calendar.js",
         370
+      ],
+      [
+        "src/components/Calendar.js",
+        370
       ]
     ]
   },
@@ -22,6 +30,10 @@
     "origin": [
       [
         "src/CalendarPage.js",
+        65
+      ],
+      [
+        "src/pages/CalendarPage.js",
         65
       ]
     ]
@@ -35,7 +47,7 @@
       ],
       [
         "src/ErrorPage.js",
-        30
+        29
       ],
       [
         "src/FourOhFourPage.js",
@@ -43,7 +55,23 @@
       ],
       [
         "src/ReviewPage.js",
-        42
+        43
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        100
+      ],
+      [
+        "src/pages/ErrorPage.js",
+        29
+      ],
+      [
+        "src/pages/FourOhFourPage.js",
+        31
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        43
       ]
     ]
   },
@@ -52,6 +80,10 @@
     "origin": [
       [
         "src/CalendarPage.js",
+        106
+      ],
+      [
+        "src/pages/CalendarPage.js",
         106
       ]
     ]
@@ -62,14 +94,22 @@
       [
         "src/CalendarPage.js",
         141
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        141
       ]
     ]
   },
-  "Review →": {
+  "Review": {
     "translation": "",
     "origin": [
       [
         "src/CalendarPage.js",
+        148
+      ],
+      [
+        "src/pages/CalendarPage.js",
         148
       ]
     ]
@@ -83,7 +123,15 @@
       ],
       [
         "src/ReviewPage.js",
-        109
+        105
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        153
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        105
       ]
     ]
   },
@@ -92,6 +140,10 @@
     "origin": [
       [
         "src/ConfirmationPage.js",
+        27
+      ],
+      [
+        "src/pages/ConfirmationPage.js",
         27
       ]
     ]
@@ -102,6 +154,10 @@
       [
         "src/ConfirmationPage.js",
         31
+      ],
+      [
+        "src/pages/ConfirmationPage.js",
+        31
       ]
     ]
   },
@@ -110,6 +166,10 @@
     "origin": [
       [
         "src/ConfirmationPage.js",
+        34
+      ],
+      [
+        "src/pages/ConfirmationPage.js",
         34
       ]
     ]
@@ -120,23 +180,35 @@
       [
         "src/ConfirmationPage.js",
         40
+      ],
+      [
+        "src/pages/ConfirmationPage.js",
+        40
       ]
     ]
   },
-  "We tried to send your request but failed.": {
+  "Request failed": {
     "translation": "",
     "origin": [
       [
         "src/ErrorPage.js",
         19
+      ],
+      [
+        "src/pages/ErrorPage.js",
+        19
       ]
     ]
   },
-  "We'll have to look into this. In the mean time, you should contact IRCC directly and ask them to change your appointment:": {
+  "Please contact IRCC directly in order to change your appointment.": {
     "translation": "",
     "origin": [
       [
         "src/ErrorPage.js",
+        22
+      ],
+      [
+        "src/pages/ErrorPage.js",
         22
       ]
     ]
@@ -146,6 +218,10 @@
     "origin": [
       [
         "src/FourOhFourPage.js",
+        19
+      ],
+      [
+        "src/pages/FourOhFourPage.js",
         19
       ]
     ]
@@ -165,6 +241,10 @@
       [
         "src/FourOhFourPage.js",
         27
+      ],
+      [
+        "src/pages/FourOhFourPage.js",
+        25
       ]
     ]
   },
@@ -178,6 +258,10 @@
       [
         "src/RegistrationPage.js",
         60
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        63
       ]
     ]
   },
@@ -200,6 +284,10 @@
       [
         "src/RegistrationPage.js",
         76
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        79
       ]
     ]
   },
@@ -213,6 +301,10 @@
       [
         "src/RegistrationPage.js",
         84
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        87
       ]
     ]
   },
@@ -230,6 +322,14 @@
       [
         "src/Summary.js",
         65
+      ],
+      [
+        "src/components/Summary.js",
+        73
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        184
       ]
     ]
   },
@@ -243,6 +343,10 @@
       [
         "src/RegistrationPage.js",
         185
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        188
       ]
     ]
   },
@@ -265,6 +369,10 @@
       [
         "src/RegistrationPage.js",
         209
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        212
       ]
     ]
   },
@@ -278,6 +386,10 @@
       [
         "src/RegistrationPage.js",
         220
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        223
       ]
     ]
   },
@@ -291,6 +403,10 @@
       [
         "src/RegistrationPage.js",
         223
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        226
       ]
     ]
   },
@@ -304,6 +420,10 @@
       [
         "src/RegistrationPage.js",
         225
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        228
       ]
     ]
   },
@@ -320,11 +440,23 @@
       ],
       [
         "src/ReviewPage.js",
-        23
+        24
       ],
       [
         "src/__tests__/Summary.test.js",
         17
+      ],
+      [
+        "src/components/__tests__/Summary.test.js",
+        17
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        237
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        24
       ]
     ]
   },
@@ -341,7 +473,15 @@
       ],
       [
         "src/ReviewPage.js",
-        27
+        28
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        245
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        28
       ]
     ]
   },
@@ -358,7 +498,15 @@
       ],
       [
         "src/ReviewPage.js",
-        29
+        30
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        253
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        30
       ]
     ]
   },
@@ -375,7 +523,15 @@
       ],
       [
         "src/ReviewPage.js",
-        25
+        26
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        261
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        26
       ]
     ]
   },
@@ -392,7 +548,15 @@
       ],
       [
         "src/ReviewPage.js",
-        31
+        32
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        269
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        32
       ]
     ]
   },
@@ -406,6 +570,10 @@
       [
         "src/RegistrationPage.js",
         286
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        289
       ]
     ]
   },
@@ -419,6 +587,10 @@
       [
         "src/RegistrationPage.js",
         289
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        292
       ]
     ]
   },
@@ -428,19 +600,19 @@
       [
         "src/HomePage.js",
         260
-      ],
-      [
-        "src/RegistrationPage.js",
-        312
       ]
     ]
   },
-  "Use this service to notify IRCC that you can’t attend your Citizenship test, and you need a new appointment.": {
+  "Use this service to notify Immigration, Refugees and Citizenship Canada that you cannot attend your Citizenship test, and you need a new appointment.": {
     "translation": "",
     "origin": [
       [
         "src/LandingPage.js",
-        64
+        59
+      ],
+      [
+        "src/pages/LandingPage.js",
+        59
       ]
     ]
   },
@@ -449,16 +621,24 @@
     "origin": [
       [
         "src/LandingPage.js",
-        73
+        69
+      ],
+      [
+        "src/pages/LandingPage.js",
+        69
       ]
     ]
   },
-  "your paper file number": {
+  "Your <0>paper file number</0>": {
     "translation": "",
     "origin": [
       [
         "src/LandingPage.js",
-        78
+        74
+      ],
+      [
+        "src/pages/LandingPage.js",
+        74
       ]
     ]
   },
@@ -467,52 +647,76 @@
     "origin": [
       [
         "src/LandingPage.js",
-        81
+        79
+      ],
+      [
+        "src/pages/LandingPage.js",
+        79
       ]
     ]
   },
-  "your full name, as it appears on your application": {
+  "Your full name": {
     "translation": "",
     "origin": [
       [
         "src/LandingPage.js",
-        88
+        87
+      ],
+      [
+        "src/pages/LandingPage.js",
+        87
       ]
     ]
   },
-  "to explain your reason for rescheduling": {
+  "This should match the name on your application.": {
     "translation": "",
     "origin": [
       [
         "src/LandingPage.js",
-        92
+        90
+      ],
+      [
+        "src/pages/LandingPage.js",
+        90
       ]
     ]
   },
-  "for more information on rescheduling,": {
+  "To describe your reason for rescheduling": {
     "translation": "",
     "origin": [
       [
         "src/LandingPage.js",
-        95
+        96
+      ],
+      [
+        "src/pages/LandingPage.js",
+        96
       ]
     ]
   },
-  "read the guidelines": {
+  "For more information on rescheduling, <0>read the guidelines</0>.": {
     "translation": "",
     "origin": [
       [
         "src/LandingPage.js",
-        102
+        99
+      ],
+      [
+        "src/pages/LandingPage.js",
+        99
       ]
     ]
   },
-  "After verifying your personal information, you will be able to select three (3) alternative days when you are able to take the Citizenship test.": {
+  "After that, you will select <0>three (3) days</0> when you’re available for an appointment in the future.": {
     "translation": "",
     "origin": [
       [
         "src/LandingPage.js",
-        111
+        110
+      ],
+      [
+        "src/pages/LandingPage.js",
+        110
       ]
     ]
   },
@@ -521,7 +725,11 @@
     "origin": [
       [
         "src/LandingPage.js",
-        121
+        119
+      ],
+      [
+        "src/pages/LandingPage.js",
+        119
       ]
     ]
   },
@@ -530,7 +738,11 @@
     "origin": [
       [
         "src/LandingPage.js",
-        132
+        129
+      ],
+      [
+        "src/pages/LandingPage.js",
+        129
       ]
     ]
   },
@@ -539,6 +751,10 @@
     "origin": [
       [
         "src/LanguageSwitcher.js",
+        22
+      ],
+      [
+        "src/components/LanguageSwitcher.js",
         22
       ]
     ]
@@ -549,15 +765,23 @@
       [
         "src/Layout.js",
         55
+      ],
+      [
+        "src/components/Layout.js",
+        60
       ]
     ]
   },
-  "Request a new Canadian Citizenship test date": {
+  "Request a new Canadian Citizenship appointment": {
     "translation": "",
     "origin": [
       [
         "src/Layout.js",
-        62
+        61
+      ],
+      [
+        "src/components/Layout.js",
+        66
       ]
     ]
   },
@@ -567,6 +791,10 @@
       [
         "src/RegistrationPage.js",
         68
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        71
       ]
     ]
   },
@@ -580,6 +808,27 @@
       [
         "src/Summary.js",
         70
+      ],
+      [
+        "src/components/Summary.js",
+        78
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        204
+      ]
+    ]
+  },
+  "Continue": {
+    "translation": "",
+    "origin": [
+      [
+        "src/RegistrationPage.js",
+        312
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        315
       ]
     ]
   },
@@ -588,7 +837,11 @@
     "origin": [
       [
         "src/ReviewPage.js",
-        46
+        47
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        47
       ]
     ]
   },
@@ -597,7 +850,11 @@
     "origin": [
       [
         "src/ReviewPage.js",
-        72
+        73
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        73
       ]
     ]
   },
@@ -606,7 +863,11 @@
     "origin": [
       [
         "src/ReviewPage.js",
-        101
+        99
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        99
       ]
     ]
   },
@@ -616,6 +877,10 @@
       [
         "src/Summary.js",
         29
+      ],
+      [
+        "src/components/Summary.js",
+        37
       ]
     ]
   },
@@ -625,6 +890,10 @@
       [
         "src/Summary.js",
         45
+      ],
+      [
+        "src/components/Summary.js",
+        53
       ]
     ]
   },
@@ -634,6 +903,10 @@
       [
         "src/Summary.js",
         75
+      ],
+      [
+        "src/components/Summary.js",
+        83
       ]
     ]
   },
@@ -643,6 +916,10 @@
       [
         "src/Summary.js",
         80
+      ],
+      [
+        "src/components/Summary.js",
+        88
       ]
     ]
   },
@@ -652,6 +929,19 @@
       [
         "src/Summary.js",
         85
+      ],
+      [
+        "src/components/Summary.js",
+        93
+      ]
+    ]
+  },
+  "Sorry, the page you are looking for doesn’t exist.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/FourOhFourPage.js",
+        22
       ]
     ]
   }
