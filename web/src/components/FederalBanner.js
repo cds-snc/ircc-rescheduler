@@ -1,9 +1,9 @@
 import React from 'react'
 import { GoCSignature } from '@cdssnc/gcui'
 import { Query } from 'react-apollo'
-import { GET_LANGUAGE_QUERY } from './queries'
+import { GET_LANGUAGE_QUERY } from '../queries'
 import { css } from 'react-emotion'
-import { theme, mediaQuery } from './styles'
+import { theme, mediaQuery } from '../styles'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 const container = css`

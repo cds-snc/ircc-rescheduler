@@ -1,9 +1,9 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
-import { GET_LANGUAGE_QUERY, CHANGE_LANGUAGE_MUTATION } from './queries'
+import { GET_LANGUAGE_QUERY, CHANGE_LANGUAGE_MUTATION } from '../queries'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
-import { theme, visuallyhidden } from './styles'
+import { theme, visuallyhidden } from '../styles'
 
 const link = css`
   font-size: ${theme.font.base};

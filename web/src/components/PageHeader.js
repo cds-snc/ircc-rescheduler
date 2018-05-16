@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
-import { theme, mediaQuery } from './styles'
+import { theme, mediaQuery } from '../styles'
 
 const banner = css`
   background-color: ${theme.colour.blue};

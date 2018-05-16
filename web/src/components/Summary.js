@@ -1,7 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'react-emotion'
-import { theme, mediaQuery, H2, Row, Column1, Column2, Column3 } from './styles'
+import {
+  theme,
+  mediaQuery,
+  H2,
+  Row,
+  Column1,
+  Column2,
+  Column3,
+} from '../styles'
 import { Trans } from 'lingui-react'
 import Time from './Time'
 import { NavLink } from 'react-router-dom'

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
-import { theme, roundedEdges, mediaQuery } from './styles'
+import { theme, roundedEdges, mediaQuery } from '../styles'
 
 const banner = css`
   background-color: ${theme.colour.black};

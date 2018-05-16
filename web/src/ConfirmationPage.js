@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from 'emotion'
 import { theme, H1, H2 } from './styles'
 import { Trans } from 'lingui-react'
-import Layout from './Layout'
+import Layout from './components/Layout'
 
 const contentClass = css`
   h1 {

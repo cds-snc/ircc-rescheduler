@@ -1,9 +1,9 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { Submission } from '../Submission'
-import { SUBMIT } from '../queries'
+import { SUBMIT } from '../../queries'
 import { ApolloProvider } from 'react-apollo'
-import makeFakeClient from '../utils/makeFakeClient'
+import makeFakeClient from '../../utils/makeFakeClient'
 
 const flushPromises = () => new Promise(resolve => setImmediate(resolve))
 

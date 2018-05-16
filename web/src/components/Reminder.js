@@ -1,5 +1,5 @@
 import styled, { css } from 'react-emotion'
-import { theme, mediaQuery } from './styles'
+import { theme, mediaQuery } from '../styles'
 
 export const Reminder = styled.section`
   font-size: ${theme.font.lg};
