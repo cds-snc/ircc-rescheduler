@@ -19,9 +19,7 @@ class FourOhFourPage extends React.Component {
           <Trans>404: Page not found</Trans>
         </H1>
         <H2>
-          <Trans>
-            Oops! We can’t seem to find the page you are looking for:
-          </Trans>
+          <Trans>Sorry, the page you are looking for doesn’t exist.</Trans>
         </H2>
         <p>
           <Trans>

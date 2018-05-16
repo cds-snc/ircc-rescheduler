@@ -1,0 +1,90 @@
+{
+  "Use this service to notify Immigration, Refugees and Citizenship Canada that you cannot attend your Citizenship test, and you need a new appointment.": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        59
+      ]
+    ]
+  },
+  "You will need:": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        69
+      ]
+    ]
+  },
+  "Your <0>paper file number</0>": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        74
+      ]
+    ]
+  },
+  "This is found at the top of your test notice email.": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        79
+      ]
+    ]
+  },
+  "Your full name": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        87
+      ]
+    ]
+  },
+  "This should match the name on your application.": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        90
+      ]
+    ]
+  },
+  "To describe your reason for rescheduling": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        96
+      ]
+    ]
+  },
+  "For more information on rescheduling, <0>read the guidelines</0>.": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        99
+      ]
+    ]
+  },
+  "After that, you will select <0>three (3) days</0> when you’re available for an appointment in the future.": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        110
+      ]
+    ]
+  },
+  "Important: by sending this request to reschedule, you will be cancelling your current test. After you complete this process, it could take up to 6 weeks for IRCC to contact you with a new test date.": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        119
+      ]
+    ]
+  },
+  "Start Now →": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        129
+      ]
+    ]
+  }
+}

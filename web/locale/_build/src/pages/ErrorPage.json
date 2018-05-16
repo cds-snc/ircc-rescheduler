@@ -1,0 +1,26 @@
+{
+  "Request failed": {
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        19
+      ]
+    ]
+  },
+  "Please contact IRCC directly in order to change your appointment.": {
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        22
+      ]
+    ]
+  },
+  "← Go Back": {
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        29
+      ]
+    ]
+  }
+}
