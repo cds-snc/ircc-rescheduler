@@ -2,16 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
-import { theme, visuallyhidden, mediaQuery } from './styles'
-import Layout from './components/Layout'
-import { TextFieldAdapter, TextAreaAdapter } from './components/forms/TextInput'
-import FieldSet from './components/forms/FieldSet'
-import { RadioAdapter } from './components/forms/MultipleChoice'
-import Button from './components/forms/Button'
+import { theme, visuallyhidden, mediaQuery } from '../styles'
+import Layout from '../components/Layout'
+import {
+  TextFieldAdapter,
+  TextAreaAdapter,
+} from '../components/forms/TextInput'
+import FieldSet from '../components/forms/FieldSet'
+import { RadioAdapter } from '../components/forms/MultipleChoice'
+import Button from '../components/forms/Button'
 import { Form, Field } from 'react-final-form'
 import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
-import { GET_USER_DATA } from './queries'
+import { GET_USER_DATA } from '../queries'
 
 const contentClass = css`
   form {
