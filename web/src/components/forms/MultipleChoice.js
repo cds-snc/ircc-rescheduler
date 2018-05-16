@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FieldAdapterPropTypes from '../components/_Field'
+import FieldAdapterPropTypes from '../_Field'
 import { css } from 'react-emotion'
-import { theme, roundedEdges, mediaQuery } from '../styles'
+import { theme, roundedEdges, mediaQuery } from '../../styles'
 
 const govuk_multiple_choice = css`
   display: block;

@@ -12,7 +12,7 @@ import {
   TopContainer,
 } from './styles'
 import Layout from './components/Layout'
-import Button from './forms/Button'
+import Button from './components/forms/Button'
 import { CalendarAdapter } from './components/Calendar'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
