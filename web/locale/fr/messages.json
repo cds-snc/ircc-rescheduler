@@ -35,7 +35,7 @@
       ],
       [
         "src/ErrorPage.js",
-        30
+        29
       ],
       [
         "src/FourOhFourPage.js",
@@ -43,7 +43,7 @@
       ],
       [
         "src/ReviewPage.js",
-        42
+        43
       ]
     ]
   },
@@ -65,8 +65,8 @@
       ]
     ]
   },
-  "Review →": {
-    "translation": "Revoir →",
+  "Review": {
+    "translation": "La revue",
     "origin": [
       [
         "src/CalendarPage.js",
@@ -83,7 +83,7 @@
       ],
       [
         "src/ReviewPage.js",
-        109
+        105
       ]
     ]
   },
@@ -123,8 +123,8 @@
       ]
     ]
   },
-  "We tried to send your request but failed.": {
-    "translation": "Nous avons essayé d'envoyer votre demande, mais sans succès.",
+  "Request failed": {
+    "translation": "Demande échoué",
     "origin": [
       [
         "src/ErrorPage.js",
@@ -132,8 +132,8 @@
       ]
     ]
   },
-  "We'll have to look into this. In the mean time, you should contact IRCC directly and ask them to change your appointment:": {
-    "translation": "Il faut qu'on se penche là-dessus. Dans l'intervalle, vous devriez communiquer directement avec l'IRCC et lui demander de modifier votre rendez-vous :",
+  "Please contact IRCC directly in order to change your appointment.": {
+    "translation": "Veuillez communiquer directement avec IRCC afin de changer votre rendez-vous.",
     "origin": [
       [
         "src/ErrorPage.js",
@@ -320,7 +320,7 @@
       ],
       [
         "src/ReviewPage.js",
-        23
+        24
       ],
       [
         "src/__tests__/Summary.test.js",
@@ -341,7 +341,7 @@
       ],
       [
         "src/ReviewPage.js",
-        27
+        28
       ]
     ]
   },
@@ -358,7 +358,7 @@
       ],
       [
         "src/ReviewPage.js",
-        29
+        30
       ]
     ]
   },
@@ -375,7 +375,7 @@
       ],
       [
         "src/ReviewPage.js",
-        25
+        26
       ]
     ]
   },
@@ -392,7 +392,7 @@
       ],
       [
         "src/ReviewPage.js",
-        31
+        32
       ]
     ]
   },
@@ -428,19 +428,15 @@
       [
         "src/HomePage.js",
         260
-      ],
-      [
-        "src/RegistrationPage.js",
-        312
       ]
     ]
   },
-  "Use this service to notify IRCC that you can’t attend your Citizenship test, and you need a new appointment.": {
-    "translation": "Utilisez ce service pour informer IRCC que vous ne pouvez pas participer à votre test de citoyenneté et que vous avez besoin d'un nouveau rendez-vous.",
+  "Use this service to notify Immigration, Refugees and Citizenship Canada that you cannot attend your Citizenship test, and you need a new appointment.": {
+    "translation": "Utilisez ce service pour aviser Immigration, Réfugiés et Citoyenneté Canada que vous ne pouvez pas participer à votre test de citoyenneté et que vous avez besoin d'un nouveau rendez-vous.",
     "origin": [
       [
         "src/LandingPage.js",
-        64
+        59
       ]
     ]
   },
@@ -449,16 +445,16 @@
     "origin": [
       [
         "src/LandingPage.js",
-        73
+        69
       ]
     ]
   },
-  "your paper file number": {
-    "translation": "votre numéro de dossier papier",
+  "Your <0>paper file number</0>": {
+    "translation": "Votre <0> numéro de fichier papier </ 0>",
     "origin": [
       [
         "src/LandingPage.js",
-        78
+        74
       ]
     ]
   },
@@ -467,52 +463,52 @@
     "origin": [
       [
         "src/LandingPage.js",
-        81
+        79
       ]
     ]
   },
-  "your full name, as it appears on your application": {
-    "translation": "votre nom complet, tel qu'il apparaît sur votre demande",
+  "Your full name": {
+    "translation": "Ton nom complet",
     "origin": [
       [
         "src/LandingPage.js",
-        88
+        87
       ]
     ]
   },
-  "to explain your reason for rescheduling": {
-    "translation": "pour expliquer la raison du rééchelonnement",
+  "This should match the name on your application.": {
+    "translation": "Cela devrait correspondre au nom de votre application.",
     "origin": [
       [
         "src/LandingPage.js",
-        92
+        90
       ]
     ]
   },
-  "for more information on rescheduling,": {
-    "translation": "pour plus d'informations sur le rééchelonnement,",
+  "To describe your reason for rescheduling": {
+    "translation": "Pour décrire la raison de votre rééchelonnement",
     "origin": [
       [
         "src/LandingPage.js",
-        95
+        96
       ]
     ]
   },
-  "read the guidelines": {
-    "translation": "lire les directives",
+  "For more information on rescheduling, <0>read the guidelines</0>.": {
+    "translation": "Pour plus d'informations sur le ré-ordonnancement, <0> lisez les instructions </ 0>.",
     "origin": [
       [
         "src/LandingPage.js",
-        102
+        99
       ]
     ]
   },
-  "After verifying your personal information, you will be able to select three (3) alternative days when you are able to take the Citizenship test.": {
-    "translation": "Après avoir vérifié vos renseignements personnels, vous pourrez choisir trois (3) jours de remplacement lorsque vous pourrez passer le test de citoyenneté.",
+  "After that, you will select <0>three (3) days</0> when you’re available for an appointment in the future.": {
+    "translation": "Après cela, vous sélectionnez <0> trois (3) jours </ 0> lorsque vous êtes disponible pour un rendez-vous dans le futur.",
     "origin": [
       [
         "src/LandingPage.js",
-        111
+        110
       ]
     ]
   },
@@ -521,7 +517,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        121
+        119
       ]
     ]
   },
@@ -530,7 +526,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        132
+        129
       ]
     ]
   },
@@ -552,12 +548,12 @@
       ]
     ]
   },
-  "Request a new Canadian Citizenship test date": {
-    "translation": "Demander une nouvelle date de test de citoyenneté canadienne",
+  "Request a new Canadian Citizenship appointment": {
+    "translation": "Demander un nouveau rendez-vous pour la citoyenneté canadienne",
     "origin": [
       [
         "src/Layout.js",
-        62
+        61
       ]
     ]
   },
@@ -583,12 +579,21 @@
       ]
     ]
   },
+  "Continue": {
+    "translation": "Continuer",
+    "origin": [
+      [
+        "src/RegistrationPage.js",
+        312
+      ]
+    ]
+  },
   "Review your request before sending it": {
     "translation": "Passez en revue votre demande avant de l'envoyer",
     "origin": [
       [
         "src/ReviewPage.js",
-        46
+        47
       ]
     ]
   },
@@ -597,7 +602,7 @@
     "origin": [
       [
         "src/ReviewPage.js",
-        72
+        73
       ]
     ]
   },
@@ -606,7 +611,7 @@
     "origin": [
       [
         "src/ReviewPage.js",
-        101
+        99
       ]
     ]
   },

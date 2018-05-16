@@ -1,9 +1,9 @@
 {
-  "Use this service to notify IRCC that you can’t attend your Citizenship test, and you need a new appointment.": {
+  "Use this service to notify Immigration, Refugees and Citizenship Canada that you cannot attend your Citizenship test, and you need a new appointment.": {
     "origin": [
       [
         "src/LandingPage.js",
-        64
+        59
       ]
     ]
   },
@@ -11,15 +11,15 @@
     "origin": [
       [
         "src/LandingPage.js",
-        73
+        69
       ]
     ]
   },
-  "your paper file number": {
+  "Your <0>paper file number</0>": {
     "origin": [
       [
         "src/LandingPage.js",
-        78
+        74
       ]
     ]
   },
@@ -27,47 +27,47 @@
     "origin": [
       [
         "src/LandingPage.js",
-        81
+        79
       ]
     ]
   },
-  "your full name, as it appears on your application": {
+  "Your full name": {
     "origin": [
       [
         "src/LandingPage.js",
-        88
+        87
       ]
     ]
   },
-  "to explain your reason for rescheduling": {
+  "This should match the name on your application.": {
     "origin": [
       [
         "src/LandingPage.js",
-        92
+        90
       ]
     ]
   },
-  "for more information on rescheduling,": {
+  "To describe your reason for rescheduling": {
     "origin": [
       [
         "src/LandingPage.js",
-        95
+        96
       ]
     ]
   },
-  "read the guidelines": {
+  "For more information on rescheduling, <0>read the guidelines</0>.": {
     "origin": [
       [
         "src/LandingPage.js",
-        102
+        99
       ]
     ]
   },
-  "After verifying your personal information, you will be able to select three (3) alternative days when you are able to take the Citizenship test.": {
+  "After that, you will select <0>three (3) days</0> when you’re available for an appointment in the future.": {
     "origin": [
       [
         "src/LandingPage.js",
-        111
+        110
       ]
     ]
   },
@@ -75,7 +75,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        121
+        119
       ]
     ]
   },
@@ -83,7 +83,7 @@
     "origin": [
       [
         "src/LandingPage.js",
-        132
+        129
       ]
     ]
   }
