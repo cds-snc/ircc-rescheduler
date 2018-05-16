@@ -97,6 +97,7 @@ const button = css`
 
   color: ${theme.colour.white};
   background-color: ${theme.colour.green};
+  overflow: hidden;
 
   // Size and shape
   padding: ${theme.spacing.sm} ${theme.spacing.lg};
