@@ -2,8 +2,8 @@ import React from 'react'
 import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
-import { H1, H2, theme } from './styles'
-import Layout from './components/Layout'
+import { H1, theme } from '../styles'
+import Layout from '../components/Layout'
 
 const contentClass = css`
   p {
@@ -11,24 +11,20 @@ const contentClass = css`
   }
 `
 
-class FourOhFourPage extends React.Component {
+class ErrorPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass}>
         <H1>
-          <Trans>404: Page not found</Trans>
+          <Trans>Request failed</Trans>
         </H1>
-        <H2>
-          <Trans>
-            Oops! We can’t seem to find the page you are looking for:
-          </Trans>
-        </H2>
         <p>
           <Trans>
-            If you wish to restart the rescheduling process, please navigate to
-            the Home Page and start the process again.
+            Please contact IRCC directly in order to change your appointment.
           </Trans>
         </p>
+        <p>vancouverIRCC@cic.gc.ca</p>
+        <p>1-888-242-2100</p>
         <NavLink to="/">
           <Trans>← Go Back</Trans>
         </NavLink>
@@ -37,4 +33,4 @@ class FourOhFourPage extends React.Component {
   }
 }
 
-export default FourOhFourPage
+export default ErrorPage

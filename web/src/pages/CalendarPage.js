@@ -10,16 +10,16 @@ import {
   CalReminder,
   BottomContainer,
   TopContainer,
-} from './styles'
-import Layout from './components/Layout'
-import Button from './components/forms/Button'
-import { CalendarAdapter } from './components/Calendar'
+} from '../styles'
+import Layout from '../components/Layout'
+import Button from '../components/forms/Button'
+import { CalendarAdapter } from '../components/Calendar'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
-import { GET_USER_DATA } from './queries'
-import { makeGMTDate } from './components/Time'
+import { GET_USER_DATA } from '../queries'
+import { makeGMTDate } from '../components/Time'
 
 const DAY_LIMIT = 3
 
