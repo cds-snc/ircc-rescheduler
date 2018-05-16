@@ -5,7 +5,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import fetch from 'unfetch'
 import { withClientState } from 'apollo-link-state'
 import gql from 'graphql-tag'
-import { dateToISODateString } from '../Time'
+import { dateToISODateString } from '../components/Time'
 
 const cache = new InMemoryCache()
 

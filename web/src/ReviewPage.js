@@ -4,12 +4,12 @@ import { Trans } from 'lingui-react'
 import { Query } from 'react-apollo'
 import { NavLink, Redirect } from 'react-router-dom'
 import { H1, theme, BottomContainer, TopContainer } from './styles'
-import Layout from './Layout'
+import Layout from './components/Layout'
 import { GET_USER_DATA, SUBMIT } from './queries'
 import Button from './forms/Button'
-import Summary from './Summary'
-import { Submission } from './Submission'
-import { Reminder } from './Reminder'
+import Summary from './components/Summary'
+import { Submission } from './components/Submission'
+import { Reminder } from './components/Reminder'
 
 const contentClass = css`
   p {

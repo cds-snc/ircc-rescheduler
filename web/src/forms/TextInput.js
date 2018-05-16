@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FieldAdapterPropTypes from '../_Field'
+import FieldAdapterPropTypes from '../components/_Field'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 
