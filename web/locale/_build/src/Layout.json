@@ -7,11 +7,11 @@
       ]
     ]
   },
-  "Request a new Canadian Citizenship test date": {
+  "Request a new Canadian Citizenship appointment": {
     "origin": [
       [
         "src/Layout.js",
-        62
+        61
       ]
     ]
   }
