@@ -34,6 +34,11 @@ injectGlobal`
     line-height: 1.4;
   }
 
+  a:focus {
+    outline-offset: 2px;
+    outline: 3px solid #ffbf47;
+  }
+
   ol, ul {
     list-style: none;
   }
