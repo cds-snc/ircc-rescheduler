@@ -135,7 +135,12 @@ describe('<Submission />', () => {
 
     const wrapper = mount(
       <ApolloProvider client={client}>
-        <Submission action={SUBMIT} success={successSpy} failure={failureSpy}>
+        <Submission
+          action={SUBMIT}
+          success={successSpy}
+          failure={failureSpy}
+          onError={error => {}}
+        >
           {spy}
         </Submission>
       </ApolloProvider>,
