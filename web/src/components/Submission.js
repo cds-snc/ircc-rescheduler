@@ -2,12 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Mutation } from 'react-apollo'
 
-const _logError = error => {
-  /* TODO log error.message */
-  return undefined
-}
 export const Submission = props => (
-  <Mutation mutation={props.action} onError={_logError}>
+  <Mutation mutation={props.action} onError={props.onError}>
     {(submit, { data, error, called, loading }) => {
       if (called && !loading) {
         if (error || data.errors) {
@@ -26,4 +22,5 @@ Submission.propTypes = {
   action: PropTypes.object.isRequired,
   success: PropTypes.func.isRequired,
   failure: PropTypes.func.isRequired,
+  onError: PropTypes.func,
 }
