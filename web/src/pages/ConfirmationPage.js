@@ -23,24 +23,26 @@ class ConfirmationPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass}>
-        <H1>
-          <Trans>Thank you! Your request has been received.</Trans>
-        </H1>
+        <section>
+          <H1>
+            <Trans>Thank you! Your request has been received.</Trans>
+          </H1>
 
-        <H2>
-          <Trans>What happens next?</Trans>
-        </H2>
-        <p>
-          <Trans>
-            Within six weeks, your local Immigration office will send you a new
-            appointment, or email you to ask for more information.
-          </Trans>
-        </p>
-        <H2>
-          <Trans>If you have any questions, please contact:</Trans>
-        </H2>
-        <p>vancouverIRCC@cic.gc.ca</p>
-        <p>1-888-242-2100</p>
+          <H2>
+            <Trans>What happens next?</Trans>
+          </H2>
+          <p>
+            <Trans>
+              Within six weeks, your local Immigration office will send you a
+              new appointment, or email you to ask for more information.
+            </Trans>
+          </p>
+          <H2>
+            <Trans>If you have any questions, please contact:</Trans>
+          </H2>
+          <p>vancouverIRCC@cic.gc.ca</p>
+          <p>1-888-242-2100</p>
+        </section>
       </Layout>
     )
   }
