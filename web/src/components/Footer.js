@@ -87,7 +87,7 @@ const Footer = ({ topBarBackground }) => (
         <WordMark
           width="150px"
           height="40px"
-          flag={theme.colour.black}
+          flag={theme.colour.redFIP}
           text={theme.colour.black}
         />
       </div>
