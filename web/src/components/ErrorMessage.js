@@ -11,7 +11,10 @@ const errorMessage = css`
 class ValidationMessage extends React.Component {
   render() {
     return (
-      <span className={errorMessage} id={this.props.id}>
+      <span
+        className={`${this.props.message ? '' : 'empty '}${errorMessage}`}
+        id={this.props.id}
+      >
         {this.props.message}
       </span>
     )
@@ -33,7 +36,7 @@ class ErrorMessage extends React.Component {
   render() {
     return (
       <span
-        className={errorMessage}
+        className={`${this.props.message ? '' : 'empty '}${errorMessage}`}
         id={this.props.id}
         role="alert"
         aria-live="assertive"

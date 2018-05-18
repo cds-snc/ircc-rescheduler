@@ -50,6 +50,15 @@ const contentClass = css`
   }
 `
 
+const forNowSubmitErrorStyles = css`
+  margin-bottom: 0 !important;
+
+  > span:not(.empty) {
+    margin-bottom: ${theme.spacing.lg};
+    font-size: ${theme.font.lg};
+  }
+`
+
 const validate = values => {
   const errors = {}
   if (!values.fullName) {
@@ -157,7 +166,10 @@ class RegistrationPage extends React.Component {
           initialValues={this.state.data}
           render={({ handleSubmit, submitError, submitting, values }) => (
             <form onSubmit={handleSubmit}>
-              <ErrorMessage message={submitError || ''} />
+              <div id="submit-error" className={forNowSubmitErrorStyles}>
+                <ErrorMessage message={submitError || ''} />
+              </div>
+
               <div>
                 <Field
                   component={TextFieldAdapter}
