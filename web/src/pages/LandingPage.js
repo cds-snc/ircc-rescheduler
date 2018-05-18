@@ -1,24 +1,14 @@
 import React from 'react'
 import styled, { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
-import { H1, H2, H3, theme, mediaQuery } from '../styles'
+import { H1, H2, H3, theme } from '../styles'
 import Layout from '../components/Layout'
 import { buttonStyles } from '../components/forms/Button'
 import { Trans } from 'lingui-react'
 import { Helmet } from 'react-helmet'
 
 const contentClass = css`
-  section {
-    width: 80%;
-    margin-bottom: ${theme.spacing.lg};
-
-    ${mediaQuery.small(css`
-      width: 100%;
-    `)};
-  }
-
   p {
-    font-size: ${theme.font.lg};
     margin-bottom: ${theme.spacing.lg};
   }
 `
@@ -126,7 +116,7 @@ class LandingPage extends React.Component {
         </section>
 
         <NavLink to="/register" className={buttonStyles}>
-          <Trans>Start Now →</Trans>
+          <Trans>Start Now</Trans> →
         </NavLink>
       </Layout>
     )

@@ -16,19 +16,16 @@ class FourOhFourPage extends React.Component {
     return (
       <Layout contentClass={contentClass}>
         <H1>
-          <Trans>404: Page not found</Trans>
+          <Trans>Page not found</Trans>
         </H1>
         <H2>
           <Trans>Sorry, the page you are looking for doesn’t exist.</Trans>
         </H2>
         <p>
-          <Trans>
-            If you wish to restart the rescheduling process, please navigate to
-            the Home Page and start the process again.
-          </Trans>
+          <Trans>Return to the home page to reschedule your appointment.</Trans>
         </p>
         <NavLink to="/">
-          <Trans>← Go Back</Trans>
+          ← <Trans>Home</Trans>
         </NavLink>
       </Layout>
     )

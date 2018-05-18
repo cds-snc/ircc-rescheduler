@@ -146,6 +146,24 @@ export const Content = styled.div`
   ${mediaQuery.small(css`
     padding: ${theme.spacing.xl};
   `)};
+
+  section {
+    width: 80%;
+    margin-bottom: ${theme.spacing.lg};
+
+    ${mediaQuery.small(css`
+      width: 100%;
+    `)};
+  }
+
+  h2,
+  h3 {
+    margin-top: ${theme.spacing.lg};
+  }
+
+  p {
+    font-size: ${theme.font.lg};
+  }
 `
 
 export const Bold = styled.strong`

@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        59
+        49
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        69
+        59
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        74
+        64
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        79
+        69
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        87
+        77
       ]
     ]
   },
@@ -43,7 +43,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        90
+        80
       ]
     ]
   },
@@ -51,7 +51,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        96
+        86
       ]
     ]
   },
@@ -59,7 +59,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        99
+        89
       ]
     ]
   },
@@ -67,7 +67,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        110
+        100
       ]
     ]
   },
@@ -75,15 +75,15 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        119
+        109
       ]
     ]
   },
-  "Start Now →": {
+  "Start Now": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        129
+        119
       ]
     ]
   }

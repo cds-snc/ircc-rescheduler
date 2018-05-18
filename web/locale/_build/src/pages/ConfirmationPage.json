@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        27
+        13
       ]
     ]
   },
@@ -11,15 +11,15 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        31
+        17
       ]
     ]
   },
-  "Within six weeks, your local Immigration office will send you a new appointment, or email you to ask for more information.": {
+  "Within six (6) weeks, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        34
+        20
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        40
+        31
       ]
     ]
   }

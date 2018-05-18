@@ -7,7 +7,7 @@
       ]
     ]
   },
-  "← Go Back": {
+  "Go Back": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
