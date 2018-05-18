@@ -1,6 +1,6 @@
+import React from 'react'
 import { shallow } from 'enzyme'
 import ErrorMessage from '../ErrorMessage'
-import React from 'react'
 
 describe('<ErrorMessage />', () => {
   it('renders without a message or id', () => {

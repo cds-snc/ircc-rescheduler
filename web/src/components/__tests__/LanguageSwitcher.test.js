@@ -1,7 +1,7 @@
+import React from 'react'
 import { mount } from 'enzyme'
 import { ApolloProvider } from 'react-apollo'
 import { LanguageSwitcher } from '../LanguageSwitcher'
-import React from 'react'
 import { testClient } from '../../utils/createTestClient'
 
 describe('<LanguageSwitcher />', () => {
