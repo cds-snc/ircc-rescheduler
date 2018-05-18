@@ -97,7 +97,7 @@ class CalendarPage extends Component {
         <TopContainer>
           <nav>
             <NavLink to="/register">
-              <Trans>← Go Back</Trans>
+              ← <Trans>Go Back</Trans>
             </NavLink>
           </nav>
         </TopContainer>

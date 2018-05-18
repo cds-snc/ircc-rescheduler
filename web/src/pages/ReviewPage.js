@@ -40,7 +40,7 @@ class ReviewPage extends React.Component {
       <Layout contentClass={contentClass}>
         <TopContainer>
           <NavLink to="/calendar">
-            <Trans>← Go Back</Trans>
+            ← <Trans>Go Back</Trans>
           </NavLink>
         </TopContainer>
         <H1>
@@ -96,7 +96,7 @@ class ReviewPage extends React.Component {
                           })
                         }}
                       >
-                        <Trans>Send Request →</Trans>
+                        <Trans>Send Request</Trans> →
                       </Button>
                     )}
                   </Submission>
