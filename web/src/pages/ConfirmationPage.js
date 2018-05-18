@@ -1,47 +1,46 @@
 import React from 'react'
-import { css } from 'emotion'
+import styled from 'react-emotion'
 import { theme, H1, H2 } from '../styles'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
 
-const contentClass = css`
-  h1 {
-    margin-bottom: ${theme.spacing.xl};
-  }
-
-  p + h2 {
-    margin-top: ${theme.spacing.xl};
-  }
-
-  p {
-    margin-top: ${theme.spacing.xs};
-    margin-bottom: ${theme.spacing.xs};
-  }
+const H2Confirmation = styled(H2)`
+  margin-top: ${theme.spacing.lg};
 `
 
 class ConfirmationPage extends React.Component {
   render() {
     return (
-      <Layout contentClass={contentClass}>
+      <Layout>
         <section>
           <H1>
             <Trans>Thank you! Your request has been received.</Trans>
           </H1>
 
-          <H2>
+          <H2Confirmation>
             <Trans>What happens next?</Trans>
-          </H2>
+          </H2Confirmation>
           <p>
             <Trans>
-              Within six weeks, your local Immigration office will send you a
-              new appointment, or email you to ask for more information.
+              Within six (6) weeks, your local{' '}
+              <abbr title="Immigration, Refugees and Citizenship Canada">
+                IRCC
+              </abbr>{' '}
+              office will send you a new appointment, or email you to ask for
+              more information.
             </Trans>
           </p>
-          <H2>
+          <H2Confirmation>
             <Trans>If you have any questions, please contact:</Trans>
-          </H2>
-          <p>vancouverIRCC@cic.gc.ca</p>
-          <p>1-888-242-2100</p>
+          </H2Confirmation>
+          <p>
+            <a href="mailto:vancouverIRCC@cic.gc.ca">vancouverIRCC@cic.gc.ca</a>
+          </p>
+          <p>
+            <a href="tel:+1-888-242-2100" rel="nofollow">
+              1-888-242-2100
+            </a>
+          </p>
         </section>
       </Layout>
     )
