@@ -21,6 +21,7 @@ messages.map(({ component, alert, toString }) => {
       expect(wrapper.find('span').length).toBe(1)
       expect(wrapper.find('span').text()).toEqual('')
       expect(wrapper.props().id).toBe(undefined)
+      expect(wrapper.props().className).toMatch(/^empty/)
     })
 
     it('renders with a string message and an id', () => {
@@ -32,6 +33,7 @@ messages.map(({ component, alert, toString }) => {
       )
       expect(wrapper.find('span').text()).toEqual('Not one step backwards!')
       expect(wrapper.props().id).toEqual('order-227')
+      expect(wrapper.props().className).not.toMatch(/^empty/)
     })
 
     it('renders with a react element message and an id', () => {
