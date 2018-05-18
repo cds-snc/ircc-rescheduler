@@ -11,7 +11,7 @@ import {
 import FieldSet from '../components/forms/FieldSet'
 import { RadioAdapter } from '../components/forms/MultipleChoice'
 import Button from '../components/forms/Button'
-import { ValidationMessage } from '../components/ErrorMessage'
+import ErrorMessage, { ValidationMessage } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import { withApollo } from 'react-apollo'
@@ -157,7 +157,7 @@ class RegistrationPage extends React.Component {
           initialValues={this.state.data}
           render={({ handleSubmit, submitError, submitting, values }) => (
             <form onSubmit={handleSubmit}>
-              {submitError && <div className="error">{submitError}</div>}
+              <ErrorMessage message={submitError || ''} />
               <div>
                 <Field
                   component={TextFieldAdapter}
