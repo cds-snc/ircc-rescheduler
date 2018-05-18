@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'emotion'
+import { theme } from '../styles'
 
 const errorMessage = css`
-  color: red;
+  color: ${theme.colour.redFIP};
   display: block;
 `
 
