@@ -8,7 +8,7 @@ const banner = css`
   color: ${theme.colour.white};
   padding: ${theme.spacing.lg} ${theme.spacing.xxxl};
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     padding-left: ${theme.spacing.xl};
     padding-right: ${theme.spacing.xl};
   `)};

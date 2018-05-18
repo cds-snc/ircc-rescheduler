@@ -53,12 +53,11 @@ export const visuallyhidden = css`
 
 export const breakpoints = {
   xs: 481,
-  small: 576,
-  medSmall: 600,
-  medium: 764,
-  large: 992,
-  xLarge: 1500,
-  xxl: 3000,
+  sm: 576,
+  md: 764,
+  base: 764,
+  lg: 992,
+  xl: 1500,
 }
 
 export const theme = {
@@ -143,7 +142,7 @@ export const Content = styled.div`
   width: 100%;
   background-color: ${theme.colour.greyVeryLight};
   box-sizing: border-box;
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     padding: ${theme.spacing.xl};
   `)};
 
@@ -151,7 +150,7 @@ export const Content = styled.div`
     width: 80%;
     margin-bottom: ${theme.spacing.lg};
 
-    ${mediaQuery.small(css`
+    ${mediaQuery.sm(css`
       width: 100%;
     `)};
   }
@@ -180,7 +179,7 @@ export const CalHeader = styled.div`
   width: 32em;
   font-size: ${theme.font.lg};
   padding-bottom: ${theme.spacing.xl};
-  ${mediaQuery.medium(css`
+  ${mediaQuery.md(css`
     width: 100%;
   `)};
 `
@@ -223,7 +222,7 @@ export const change = css`
   position: relative;
   right: 1.2rem;
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     right: 0rem;
   `)};
 `

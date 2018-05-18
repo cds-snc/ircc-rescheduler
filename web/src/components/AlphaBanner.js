@@ -12,7 +12,7 @@ const banner = css`
   padding-bottom: ${theme.spacing.sm};
   font-size: ${theme.font.xs};
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     padding-left: ${theme.spacing.xl};
     padding-right: ${theme.spacing.xl};
     font-size: ${theme.font.xs};
@@ -34,7 +34,7 @@ const badge = css`
   margin-right: ${theme.spacing.md};
   ${roundedEdges};
   ${horizontalAlign};
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     padding: 2px ${theme.spacing.md};
     margin-bottom: ${theme.spacing.xs};
   `)};
@@ -44,7 +44,7 @@ const message = css`
   ${horizontalAlign};
   font-weight: 600;
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     display: block;
     bottom: 0;
     font-weight: 400;

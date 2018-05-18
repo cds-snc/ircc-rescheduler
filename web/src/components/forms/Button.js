@@ -105,7 +105,7 @@ const button = css`
   // Bottom edge effect
   box-shadow: 0 2px 0 ${incrementColor(theme.colour.grey, 80)};
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     width: 100%;
     padding: ${theme.spacing.sm} ${theme.spacing.lg};
   `)};

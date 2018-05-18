@@ -9,7 +9,7 @@ const Circle = styled.span`
   position: relative;
   bottom: 2px;
 
-  ${mediaQuery.medium(css`
+  ${mediaQuery.md(css`
     display: none;
   `)};
 `
@@ -27,13 +27,13 @@ const footer = css`
     width: 150px;
     height: 40px;
 
-    ${mediaQuery.small(css`
+    ${mediaQuery.sm(css`
       width: 140px;
       height: 36px;
     `)};
   }
 
-  ${mediaQuery.medium(css`
+  ${mediaQuery.md(css`
     flex-direction: column;
     align-items: center;
   `)};
@@ -47,7 +47,7 @@ const bottomLinks = css`
   > * {
     margin-right: ${theme.spacing.md};
 
-    ${mediaQuery.small(css`
+    ${mediaQuery.sm(css`
       margin-right: 0;
       margin-bottom: ${theme.spacing.xs};
     `)};
@@ -57,14 +57,14 @@ const bottomLinks = css`
     color: ${theme.colour.black};
   }
 
-  ${mediaQuery.medium(css`
+  ${mediaQuery.md(css`
     display: flex;
     margin-top: ${theme.spacing.xl};
     flex-direction: row;
     align-items: center;
   `)};
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     margin-top: ${theme.spacing.lg};
     flex-direction: column;
   `)};

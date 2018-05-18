@@ -10,7 +10,7 @@ const telStyles = css`
   > a {
     display: none;
   }
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     > span {
       display: none;
     }
