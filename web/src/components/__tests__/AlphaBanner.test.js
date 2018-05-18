@@ -1,6 +1,6 @@
+import React from 'react'
 import { shallow } from 'enzyme'
 import AlphaBanner from '../AlphaBanner'
-import React from 'react'
 
 describe('<AlphaBanner />', () => {
   it('can be instantiated', () => {

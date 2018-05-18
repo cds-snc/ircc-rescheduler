@@ -39,7 +39,7 @@
       ]
     ]
   },
-  "← Go Back": {
+  "Go Back": {
     "origin": [
       [
         "src/pages/ReviewPage.js",
@@ -63,7 +63,7 @@
       ]
     ]
   },
-  "Send Request →": {
+  "Send Request": {
     "origin": [
       [
         "src/pages/ReviewPage.js",

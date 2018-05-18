@@ -1,46 +1,37 @@
 import React from 'react'
-import { css } from 'emotion'
-import { theme, H1, H2 } from '../styles'
+import { H1, H2 } from '../styles'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
-
-const contentClass = css`
-  h1 {
-    margin-bottom: ${theme.spacing.xl};
-  }
-
-  p + h2 {
-    margin-top: ${theme.spacing.xl};
-  }
-
-  p {
-    margin-top: ${theme.spacing.xs};
-    margin-bottom: ${theme.spacing.xs};
-  }
-`
+import Contact from '../components/Contact'
 
 class ConfirmationPage extends React.Component {
   render() {
     return (
-      <Layout contentClass={contentClass}>
-        <H1>
-          <Trans>Thank you! Your request has been received.</Trans>
-        </H1>
+      <Layout>
+        <section>
+          <H1>
+            <Trans>Thank you! Your request has been received.</Trans>
+          </H1>
 
-        <H2>
-          <Trans>What happens next?</Trans>
-        </H2>
-        <p>
-          <Trans>
-            Within six weeks, your local Immigration office will send you a new
-            appointment, or email you to ask for more information.
-          </Trans>
-        </p>
-        <H2>
-          <Trans>If you have any questions, please contact:</Trans>
-        </H2>
-        <p>vancouverIRCC@cic.gc.ca</p>
-        <p>1-888-242-2100</p>
+          <H2>
+            <Trans>What happens next?</Trans>
+          </H2>
+          <p>
+            <Trans>
+              Within six (6) weeks, your local{' '}
+              <abbr title="Immigration, Refugees and Citizenship Canada">
+                IRCC
+              </abbr>{' '}
+              office will send you a new appointment, or email you to ask for
+              more information.
+            </Trans>
+          </p>
+          <Contact>
+            <H2>
+              <Trans>If you have any questions, please contact:</Trans>
+            </H2>
+          </Contact>
+        </section>
       </Layout>
     )
   }
