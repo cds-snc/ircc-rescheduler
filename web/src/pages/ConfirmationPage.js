@@ -1,13 +1,8 @@
 import React from 'react'
-import styled from 'react-emotion'
-import { theme, H1, H2 } from '../styles'
+import { H1, H2 } from '../styles'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
 import TelLink from '../components/TelLink'
-
-const H2Confirmation = styled(H2)`
-  margin-top: ${theme.spacing.lg};
-`
 
 class ConfirmationPage extends React.Component {
   render() {
@@ -18,9 +13,9 @@ class ConfirmationPage extends React.Component {
             <Trans>Thank you! Your request has been received.</Trans>
           </H1>
 
-          <H2Confirmation>
+          <H2>
             <Trans>What happens next?</Trans>
-          </H2Confirmation>
+          </H2>
           <p>
             <Trans>
               Within six (6) weeks, your local{' '}
@@ -31,9 +26,9 @@ class ConfirmationPage extends React.Component {
               more information.
             </Trans>
           </p>
-          <H2Confirmation>
+          <H2>
             <Trans>If you have any questions, please contact:</Trans>
-          </H2Confirmation>
+          </H2>
           <p>
             <a href="mailto:vancouverIRCC@cic.gc.ca">vancouverIRCC@cic.gc.ca</a>
           </p>
