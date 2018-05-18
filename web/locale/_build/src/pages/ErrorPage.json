@@ -3,23 +3,23 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        19
+        13
       ]
     ]
   },
-  "Please contact IRCC directly in order to change your appointment.": {
+  "Please contact <0>IRCC</0> directly to reschedule your appointment": {
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        22
+        17
       ]
     ]
   },
-  "← Go Back": {
+  "Home": {
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        29
+        27
       ]
     ]
   }

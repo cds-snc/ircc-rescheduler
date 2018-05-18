@@ -56,22 +56,6 @@
       [
         "src/ReviewPage.js",
         43
-      ],
-      [
-        "src/pages/CalendarPage.js",
-        100
-      ],
-      [
-        "src/pages/ErrorPage.js",
-        29
-      ],
-      [
-        "src/pages/FourOhFourPage.js",
-        31
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        43
       ]
     ]
   },
@@ -144,7 +128,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        27
+        13
       ]
     ]
   },
@@ -157,7 +141,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        31
+        17
       ]
     ]
   },
@@ -166,10 +150,6 @@
     "origin": [
       [
         "src/ConfirmationPage.js",
-        34
-      ],
-      [
-        "src/pages/ConfirmationPage.js",
         34
       ]
     ]
@@ -183,7 +163,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        40
+        31
       ]
     ]
   },
@@ -196,7 +176,7 @@
       ],
       [
         "src/pages/ErrorPage.js",
-        19
+        13
       ]
     ]
   },
@@ -206,10 +186,6 @@
       [
         "src/ErrorPage.js",
         22
-      ],
-      [
-        "src/pages/ErrorPage.js",
-        22
       ]
     ]
   },
@@ -218,10 +194,6 @@
     "origin": [
       [
         "src/FourOhFourPage.js",
-        19
-      ],
-      [
-        "src/pages/FourOhFourPage.js",
         19
       ]
     ]
@@ -241,10 +213,6 @@
       [
         "src/FourOhFourPage.js",
         27
-      ],
-      [
-        "src/pages/FourOhFourPage.js",
-        25
       ]
     ]
   },
@@ -612,7 +580,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        59
+        49
       ]
     ]
   },
@@ -625,12 +593,12 @@
       ],
       [
         "src/pages/LandingPage.js",
-        69
+        59
       ]
     ]
   },
   "Your <0>paper file number</0>": {
-    "translation": "Votre <0> numéro de fichier papier </ 0>",
+    "translation": "Votre numéro de fichier papier",
     "origin": [
       [
         "src/LandingPage.js",
@@ -638,7 +606,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        74
+        64
       ]
     ]
   },
@@ -651,7 +619,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        79
+        69
       ]
     ]
   },
@@ -664,7 +632,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        87
+        77
       ]
     ]
   },
@@ -677,7 +645,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        90
+        80
       ]
     ]
   },
@@ -690,12 +658,12 @@
       ],
       [
         "src/pages/LandingPage.js",
-        96
+        86
       ]
     ]
   },
   "For more information on rescheduling, <0>read the guidelines</0>.": {
-    "translation": "Pour plus d'informations sur le ré-ordonnancement, <0> lisez les instructions </ 0>.",
+    "translation": "Pour plus d'informations sur le ré-ordonnancement, lisez les instructions.",
     "origin": [
       [
         "src/LandingPage.js",
@@ -703,12 +671,12 @@
       ],
       [
         "src/pages/LandingPage.js",
-        99
+        89
       ]
     ]
   },
   "After that, you will select <0>three (3) days</0> when you’re available for an appointment in the future.": {
-    "translation": "Après cela, vous sélectionnez <0> trois (3) jours </ 0> lorsque vous êtes disponible pour un rendez-vous dans le futur.",
+    "translation": "Après cela, vous sélectionnez trois (3) jours lorsque vous êtes disponible pour un rendez-vous dans le futur.",
     "origin": [
       [
         "src/LandingPage.js",
@@ -716,7 +684,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        110
+        100
       ]
     ]
   },
@@ -729,7 +697,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        119
+        109
       ]
     ]
   },
@@ -738,10 +706,6 @@
     "origin": [
       [
         "src/LandingPage.js",
-        129
-      ],
-      [
-        "src/pages/LandingPage.js",
         129
       ]
     ]
@@ -864,10 +828,6 @@
       [
         "src/ReviewPage.js",
         99
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        99
       ]
     ]
   },
@@ -936,12 +896,92 @@
       ]
     ]
   },
+  "Go Back": {
+    "translation": "Retourner",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        100
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        43
+      ]
+    ]
+  },
+  "Within six (6) weeks, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
+    "translation": "Dans un délai de six (6) semaines, votre bureau local IRCC vous enverra un nouveau rendez-vous ou vous enverra un email pour demander plus d'informations.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        20
+      ]
+    ]
+  },
+  "Please contact <0>IRCC</0> directly to reschedule your appointment": {
+    "translation": "Veuillez contacter IRCC directement pour reporter votre rendez-vous",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        17
+      ]
+    ]
+  },
+  "Home": {
+    "translation": "Accueil",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        27
+      ],
+      [
+        "src/pages/FourOhFourPage.js",
+        28
+      ]
+    ]
+  },
+  "Page not found": {
+    "translation": "Page non trouvée",
+    "origin": [
+      [
+        "src/pages/FourOhFourPage.js",
+        19
+      ]
+    ]
+  },
   "Sorry, the page you are looking for doesn’t exist.": {
     "translation": "Désolé, la page que vous recherchez n'existe pas.",
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
         22
+      ]
+    ]
+  },
+  "Return to the home page to reschedule your appointment.": {
+    "translation": "Retournez à la page d'accueil pour reporter votre rendez-vous.",
+    "origin": [
+      [
+        "src/pages/FourOhFourPage.js",
+        25
+      ]
+    ]
+  },
+  "Start Now": {
+    "translation": "Commencez maintenant",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        119
+      ]
+    ]
+  },
+  "Send Request": {
+    "translation": "Envoyer une demande",
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        99
       ]
     ]
   }
