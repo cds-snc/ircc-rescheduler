@@ -3,6 +3,7 @@ import styled from 'react-emotion'
 import { theme, H1, H2 } from '../styles'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
+import TelLink from '../components/TelLink'
 
 const H2Confirmation = styled(H2)`
   margin-top: ${theme.spacing.lg};
@@ -37,9 +38,7 @@ class ConfirmationPage extends React.Component {
             <a href="mailto:vancouverIRCC@cic.gc.ca">vancouverIRCC@cic.gc.ca</a>
           </p>
           <p>
-            <a href="tel:+1-888-242-2100" rel="nofollow">
-              1-888-242-2100
-            </a>
+            <TelLink tel="1-888-242-2100" />
           </p>
         </section>
       </Layout>
