@@ -53,9 +53,7 @@ class LandingPage extends React.Component {
               a new appointment.
             </Trans>
           </H1Landing>
-        </section>
 
-        <section>
           <H2>
             <Trans>You will need:</Trans>
           </H2>
