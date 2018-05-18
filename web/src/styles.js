@@ -156,6 +156,11 @@ export const Content = styled.div`
     `)};
   }
 
+  h2,
+  h3 {
+    margin-top: ${theme.spacing.lg};
+  }
+
   p {
     font-size: ${theme.font.lg};
   }
