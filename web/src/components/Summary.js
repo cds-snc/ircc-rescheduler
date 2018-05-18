@@ -22,7 +22,7 @@ const Row = styled.div`
   border-bottom: 1px solid ${theme.colour.greyLight};
   padding-top: ${theme.spacing.md};
   padding-bottom: ${theme.spacing.md};
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     display: block;
   `)};
 
@@ -35,11 +35,11 @@ const Row = styled.div`
 const Column1 = styled.div`
   width: 20%;
 
-  ${mediaQuery.large(css`
+  ${mediaQuery.lg(css`
     width: 25%;
   `)};
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     width: 100%;
   `)};
 `
@@ -47,15 +47,15 @@ const Column1 = styled.div`
 const Column2 = styled.div`
   width: 45%;
 
-  ${mediaQuery.large(css`
+  ${mediaQuery.lg(css`
     width: 40%;
   `)};
 
-  ${mediaQuery.medium(css`
+  ${mediaQuery.md(css`
     width: 33%;
   `)};
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     width: 100%;
     margin-bottom: ${theme.spacing.md};
   `)};
@@ -65,7 +65,7 @@ const Column3 = styled.div`
   width: 6em;
   text-align: right;
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     text-align: left;
   `)};
 `

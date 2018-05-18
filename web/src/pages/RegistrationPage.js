@@ -25,7 +25,7 @@ const contentClass = css`
     > p {
       margin-bottom: ${theme.spacing.sm};
 
-      ${mediaQuery.small(css`
+      ${mediaQuery.sm(css`
         margin-bottom: ${theme.spacing.md};
       `)};
     }
