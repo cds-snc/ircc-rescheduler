@@ -37,18 +37,14 @@ const contentClass = css`
       display: block;
       margin-bottom: ${theme.spacing.sm};
 
-      header,
       > span {
         margin-bottom: ${theme.spacing.xxs};
-      }
-
-      header {
-        font-weight: bold;
-        font-size: ${theme.font.lg};
-      }
-
-      > span {
         display: block;
+
+        &[id$='-header'] {
+          font-weight: bold;
+          font-size: ${theme.font.lg};
+        }
       }
     }
   }
@@ -169,9 +165,9 @@ class RegistrationPage extends React.Component {
                   id="fullName"
                 >
                   <label htmlFor="fullName" id="fullName-label">
-                    <header>
+                    <span id="fullName-header">
                       <Trans>Full name</Trans>
-                    </header>
+                    </span>
                     <ValidationMessage
                       id="fullName-error"
                       message={
@@ -196,9 +192,9 @@ class RegistrationPage extends React.Component {
                   id="paperFileNumber"
                 >
                   <label htmlFor="paperFileNumber" id="paperFileNumber-label">
-                    <header>
+                    <span id="paperFileNumber-header">
                       <Trans>Paper file number</Trans>
-                    </header>
+                    </span>
                     <ValidationMessage
                       id="paperFileNumber-error"
                       message={
@@ -218,9 +214,9 @@ class RegistrationPage extends React.Component {
               <div>
                 <FieldSet legendHidden={false}>
                   <legend>
-                    <header>
+                    <span id="reason-header">
                       <Trans>Reason for rescheduling</Trans>
-                    </header>
+                    </span>
                     <ValidationMessage
                       id="reason-error"
                       message={
@@ -286,14 +282,10 @@ class RegistrationPage extends React.Component {
                   component={TextAreaAdapter}
                   aria-labelledby="explanation-label explanation-error"
                 >
-                  <label
-                    className="explanation-header"
-                    htmlFor="explanation"
-                    id="explanation-label"
-                  >
-                    <header>
-                      <Trans>Tell us why you can’t attend your test</Trans>
-                    </header>
+                  <label htmlFor="explanation" id="explanation-label">
+                    <span id="explanation-header">
+                      <Trans>Describe why you cannot attend your test</Trans>
+                    </span>
                     <ValidationMessage
                       id="explanation-error"
                       message={
@@ -304,8 +296,8 @@ class RegistrationPage extends React.Component {
                     />
                     <span id="explanation-details">
                       <Trans>
-                        Provide enough detail so that IRCC staff can understand
-                        your situation.
+                        Provide enough detail so that staff can understand your
+                        situation.
                       </Trans>
                     </span>
                   </label>
