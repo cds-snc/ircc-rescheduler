@@ -1,8 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'emotion'
-import { theme } from '../styles'
-import TelLink from './TelLink'
+import { theme, mediaQuery } from '../styles'
+
+const telStyles = css`
+  > span {
+    display: initial;
+  }
+  > a {
+    display: none;
+  }
+  ${mediaQuery.small(css`
+    > span {
+      display: none;
+    }
+    > a {
+      display: initial;
+    }
+  `)};
+`
+
+const TelLink = ({ tel }) => (
+  <span className={telStyles}>
+    <span>{tel}</span>
+    <a href={`tel:+${tel}`} rel="nofollow">
+      {tel}
+    </a>
+  </span>
+)
+TelLink.propTypes = {
+  tel: PropTypes.string.isRequired,
+}
 
 const contact = css`
   margin-bottom: ${theme.spacing.lg};
@@ -23,4 +51,4 @@ Contact.propTypes = {
   children: PropTypes.element.isRequired,
 }
 
-export default Contact
+export { Contact as default, TelLink }
