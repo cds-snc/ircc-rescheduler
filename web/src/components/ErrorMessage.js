@@ -7,6 +7,21 @@ const errorMessage = css`
   display: block;
 `
 
+class ValidationMessage extends React.Component {
+  render() {
+    return (
+      <span className={errorMessage} id={this.props.id}>
+        {this.props.message}
+      </span>
+    )
+  }
+}
+
+ValidationMessage.propTypes = {
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  id: PropTypes.string,
+}
+
 /**
  * ErrorMessage.js
  *
@@ -34,4 +49,4 @@ ErrorMessage.propTypes = {
   id: PropTypes.string,
 }
 
-export default ErrorMessage
+export { ErrorMessage as default, ValidationMessage }
