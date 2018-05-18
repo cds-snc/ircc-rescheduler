@@ -2,7 +2,7 @@ import React from 'react'
 import { H1, H2 } from '../styles'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
-import TelLink from '../components/TelLink'
+import Contact from '../components/Contact'
 
 class ConfirmationPage extends React.Component {
   render() {
@@ -26,15 +26,11 @@ class ConfirmationPage extends React.Component {
               more information.
             </Trans>
           </p>
-          <H2>
-            <Trans>If you have any questions, please contact:</Trans>
-          </H2>
-          <p>
-            <a href="mailto:vancouverIRCC@cic.gc.ca">vancouverIRCC@cic.gc.ca</a>
-          </p>
-          <p>
-            <TelLink tel="1-888-242-2100" />
-          </p>
+          <Contact>
+            <H2>
+              <Trans>If you have any questions, please contact:</Trans>
+            </H2>
+          </Contact>
         </section>
       </Layout>
     )
