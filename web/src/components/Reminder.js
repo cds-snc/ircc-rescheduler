@@ -1,12 +1,8 @@
-import styled, { css } from 'react-emotion'
-import { theme, mediaQuery } from '../styles'
+import styled from 'react-emotion'
+import { theme } from '../styles'
 
-export const Reminder = styled.section`
-  font-size: ${theme.font.lg};
+const Reminder = styled.section`
   margin-bottom: ${theme.spacing.xl};
-  width: 80%;
-
-  ${mediaQuery.medium(css`
-    width: 100%;
-  `)};
 `
+
+export default Reminder
