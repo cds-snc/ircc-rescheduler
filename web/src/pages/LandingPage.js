@@ -116,7 +116,7 @@ class LandingPage extends React.Component {
         </section>
 
         <NavLink to="/register" className={buttonStyles}>
-          <Trans>Start Now →</Trans>
+          <Trans>Start Now</Trans> →
         </NavLink>
       </Layout>
     )
