@@ -14,7 +14,6 @@ describe('<ErrorMessage />', () => {
     const wrapper = shallow(
       <ErrorMessage message="Not one step backwards!" id="order-227" />,
     )
-    expect(wrapper.find('span').length).toBe(1)
     expect(wrapper.find('span').text()).toEqual('Not one step backwards!')
     expect(wrapper.props().id).toEqual('order-227')
   })
@@ -23,7 +22,6 @@ describe('<ErrorMessage />', () => {
     const wrapper = shallow(
       <ErrorMessage message={<p>Not one step backwards!</p>} id="order-227" />,
     )
-    expect(wrapper.find('span p').length).toBe(1)
     expect(wrapper.find('span p').text()).toEqual('Not one step backwards!')
     expect(wrapper.props().id).toEqual('order-227')
   })
