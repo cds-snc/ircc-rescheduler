@@ -89,10 +89,10 @@ SelectedDayList.propTypes = {
   selectedDays: PropTypes.array,
 }
 
-const SummaryRow = ({ header, secondColumn, thirdColumn }) => (
+const SummaryRow = ({ firstColumn, secondColumn, thirdColumn }) => (
   <Row>
     <Column1>
-      <H2>{header}</H2>
+      <H2>{firstColumn}</H2>
     </Column1>
     <Column2>{secondColumn}</Column2>
     <Column3>
@@ -103,7 +103,7 @@ const SummaryRow = ({ header, secondColumn, thirdColumn }) => (
   </Row>
 )
 SummaryRow.propTypes = {
-  header: PropTypes.object.isRequired,
+  firstColumn: PropTypes.object.isRequired,
   secondColumn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   thirdColumn: PropTypes.string.isRequired,
 }
@@ -117,27 +117,27 @@ const Summary = ({
 }) => (
   <TableContainer>
     <SummaryRow
-      header={<Trans>Full name</Trans>}
+      firstColumn={<Trans>Full name</Trans>}
       secondColumn={fullName}
       thirdColumn={'/register'}
     />
     <SummaryRow
-      header={<Trans>Paper file number</Trans>}
+      firstColumn={<Trans>Paper file number</Trans>}
       secondColumn={paperFileNumber}
       thirdColumn={'/register'}
     />
     <SummaryRow
-      header={<Trans>Reason</Trans>}
+      firstColumn={<Trans>Reason</Trans>}
       secondColumn={reason}
       thirdColumn={'/register'}
     />
     <SummaryRow
-      header={<Trans>Explanation</Trans>}
+      firstColumn={<Trans>Explanation</Trans>}
       secondColumn={explanation}
       thirdColumn={'/register'}
     />
     <SummaryRow
-      header={<Trans>Availability</Trans>}
+      firstColumn={<Trans>Availability</Trans>}
       secondColumn={<SelectedDayList selectedDays={selectedDays} />}
       thirdColumn={'/calendar'}
     />
