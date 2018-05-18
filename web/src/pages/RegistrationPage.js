@@ -11,7 +11,9 @@ import {
 import FieldSet from '../components/forms/FieldSet'
 import { RadioAdapter } from '../components/forms/MultipleChoice'
 import Button from '../components/forms/Button'
+import { ValidationMessage } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
+import { FORM_ERROR } from 'final-form'
 import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import { GET_USER_DATA } from '../queries'
@@ -28,10 +30,6 @@ const contentClass = css`
       ${mediaQuery.sm(css`
         margin-bottom: ${theme.spacing.md};
       `)};
-    }
-
-    .form-error {
-      color: red;
     }
 
     label,
@@ -69,7 +67,7 @@ const validate = values => {
   if (!values.paperFileNumber) {
     errors.paperFileNumber = (
       <Trans>
-        You need to tell us your Paper file number so we can confirm your
+        You need to tell us your paper file number so we can confirm your
         identity.
       </Trans>
     )
@@ -90,18 +88,6 @@ const validate = values => {
     )
   }
   return errors
-}
-
-const validationField = ({ touched, errors, attr }) => {
-  /* eslint-disable security/detect-object-injection */
-  if (touched[attr] && errors[attr]) {
-    return (
-      <span className={`form-error ${attr}-error`}>
-        <strong>{errors[attr]}</strong>
-      </span>
-    )
-  }
-  /* eslint-enable security/detect-object-injection */
 }
 
 class RegistrationPage extends React.Component {
@@ -134,6 +120,18 @@ class RegistrationPage extends React.Component {
   }
 
   async onSubmit(values, event) {
+    const submitErrors = validate(values)
+
+    if (Object.keys(submitErrors).length) {
+      return {
+        [FORM_ERROR]: (
+          <Trans>
+            Sorry, there was a problem with the information you submitted.
+          </Trans>
+        ),
+      }
+    }
+
     const { client } = this.props
     /* Update the cache with the form values */
     try {
@@ -160,17 +158,8 @@ class RegistrationPage extends React.Component {
         </h1>
         <Form
           onSubmit={this.onSubmit}
-          validate={validate}
           initialValues={this.state.data}
-          render={({
-            handleSubmit,
-            submitError,
-            submitting,
-            pristine,
-            values,
-            errors,
-            touched,
-          }) => (
+          render={({ handleSubmit, submitError, submitting, values }) => (
             <form onSubmit={handleSubmit}>
               {submitError && <div className="error">{submitError}</div>}
               <div>
@@ -183,7 +172,14 @@ class RegistrationPage extends React.Component {
                     <header>
                       <Trans>Full name</Trans>
                     </header>
-                    {validationField({ touched, errors, attr: 'fullName' })}
+                    <ValidationMessage
+                      id="fullName-error"
+                      message={
+                        submitError && validate(values).fullName
+                          ? validate(values).fullName
+                          : ''
+                      }
+                    />
                     <span id="fullName-details">
                       <Trans>
                         This is the full name you used on your citizenship
@@ -203,11 +199,14 @@ class RegistrationPage extends React.Component {
                     <header>
                       <Trans>Paper file number</Trans>
                     </header>
-                    {validationField({
-                      touched,
-                      errors,
-                      attr: 'paperFileNumber',
-                    })}
+                    <ValidationMessage
+                      id="paperFileNumber-error"
+                      message={
+                        submitError && validate(values).paperFileNumber
+                          ? validate(values).paperFileNumber
+                          : ''
+                      }
+                    />
                     <span id="paperFileNumber-details">
                       <Trans>
                         This number is at the top of the email we sent you.
@@ -222,13 +221,20 @@ class RegistrationPage extends React.Component {
                     <header>
                       <Trans>Reason for rescheduling</Trans>
                     </header>
+                    <ValidationMessage
+                      id="reason-error"
+                      message={
+                        submitError && validate(values).reason
+                          ? validate(values).reason
+                          : ''
+                      }
+                    />
                     <span id="reason-details">
                       <Trans>If you’re not sure if you can reschedule,</Trans>{' '}
                       <a href="http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=786&amp;top=5">
-                        <Trans>read the guidelines for rescheduling</Trans>.
-                      </a>
+                        <Trans>read the guidelines for rescheduling</Trans>
+                      </a>.
                     </span>
-                    {validationField({ touched, errors, attr: 'reason' })}
                   </legend>
 
                   <Field
@@ -288,30 +294,27 @@ class RegistrationPage extends React.Component {
                     <header>
                       <Trans>Tell us why you can’t attend your test</Trans>
                     </header>
+                    <ValidationMessage
+                      id="explanation-error"
+                      message={
+                        submitError && validate(values).explanation
+                          ? validate(values).explanation
+                          : ''
+                      }
+                    />
                     <span id="explanation-details">
                       <Trans>
                         Provide enough detail so that IRCC staff can understand
                         your situation.
                       </Trans>
                     </span>
-                    {validationField({ touched, errors, attr: 'explanation' })}
                   </label>
                 </Field>
               </div>
               {/*
-                      Button is disabled if:
-                      - form has not been touched (ie, pristine)
-                      - form has been submitted (and is waiting)
-                      - the number of values entries is less than the total number of fields
+               Button is disabled if form has been submitted (and is waiting)
               */}
-              <Button
-                disabled={
-                  pristine ||
-                  submitting ||
-                  Object.values(values).filter(v => v !== undefined).length <
-                    Object.keys(touched).length
-                }
-              >
+              <Button disabled={submitting}>
                 <Trans>Continue</Trans>
               </Button>
             </form>
