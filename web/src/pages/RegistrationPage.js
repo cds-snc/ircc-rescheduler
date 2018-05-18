@@ -128,6 +128,7 @@ class RegistrationPage extends React.Component {
     const submitErrors = validate(values)
 
     if (Object.keys(submitErrors).length) {
+      this.errorContainer.focus()
       return {
         [FORM_ERROR]: (
           <Trans>
@@ -166,7 +167,14 @@ class RegistrationPage extends React.Component {
           initialValues={this.state.data}
           render={({ handleSubmit, submitError, submitting, values }) => (
             <form onSubmit={handleSubmit}>
-              <div id="submit-error" className={forNowSubmitErrorStyles}>
+              <div
+                id="submit-error"
+                className={forNowSubmitErrorStyles}
+                tabIndex="-1"
+                ref={errorContainer => {
+                  this.errorContainer = errorContainer
+                }}
+              >
                 <ErrorMessage message={submitError || ''} />
               </div>
 
