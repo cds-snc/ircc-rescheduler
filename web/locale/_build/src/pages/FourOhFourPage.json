@@ -1,5 +1,5 @@
 {
-  "404: Page not found": {
+  "Page not found": {
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
@@ -15,7 +15,7 @@
       ]
     ]
   },
-  "If you wish to restart the rescheduling process, please navigate to the Home Page and start the process again.": {
+  "Return to the home page to reschedule your appointment.": {
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
@@ -23,11 +23,11 @@
       ]
     ]
   },
-  "← Go Back": {
+  "Home": {
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
-        31
+        28
       ]
     ]
   }
