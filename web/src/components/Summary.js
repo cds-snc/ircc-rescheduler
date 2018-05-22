@@ -1,25 +1,72 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'react-emotion'
-import {
-  theme,
-  mediaQuery,
-  H2,
-  Row,
-  Column1,
-  Column2,
-  Column3,
-} from '../styles'
+import { theme, mediaQuery, H2 } from '../styles'
 import { Trans } from 'lingui-react'
 import Time from './Time'
 import { NavLink } from 'react-router-dom'
 
 const TableContainer = styled.div`
-  width: 80%;
-  margin: ${theme.spacing.lg} 0 ${theme.spacing.lg} 0;
+  margin: ${theme.spacing.lg} 0;
 
-  ${mediaQuery.medium(css`
+  h2 {
+    font-size: ${theme.font.md};
+    margin-top: 0;
+  }
+`
+
+const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 1px solid ${theme.colour.greyLight};
+  padding-top: ${theme.spacing.md};
+  padding-bottom: ${theme.spacing.md};
+  ${mediaQuery.sm(css`
+    display: block;
+  `)};
+
+  li {
+    padding-bottom: 0;
+    margin-bottom: ${theme.spacing.xs};
+  }
+`
+
+const Column1 = styled.div`
+  width: 20%;
+
+  ${mediaQuery.lg(css`
+    width: 25%;
+  `)};
+
+  ${mediaQuery.sm(css`
     width: 100%;
+  `)};
+`
+
+const Column2 = styled.div`
+  width: 45%;
+
+  ${mediaQuery.lg(css`
+    width: 40%;
+  `)};
+
+  ${mediaQuery.md(css`
+    width: 33%;
+  `)};
+
+  ${mediaQuery.sm(css`
+    width: 100%;
+    margin-bottom: ${theme.spacing.md};
+  `)};
+`
+
+const Column3 = styled.div`
+  width: 6em;
+  text-align: right;
+
+  ${mediaQuery.sm(css`
+    text-align: left;
   `)};
 `
 
@@ -33,19 +80,19 @@ const SelectedDayList = ({ selectedDays }) => {
       ))}
     </ul>
   ) : (
-    <p>
+    <span className="no-dates-selected">
       <Trans>No dates selected</Trans>
-    </p>
+    </span>
   )
 }
 SelectedDayList.propTypes = {
   selectedDays: PropTypes.array,
 }
 
-const SummaryRow = ({ header, secondColumn, thirdColumn }) => (
+const SummaryRow = ({ firstColumn, secondColumn, thirdColumn }) => (
   <Row>
     <Column1>
-      <H2>{header}</H2>
+      <H2>{firstColumn}</H2>
     </Column1>
     <Column2>{secondColumn}</Column2>
     <Column3>
@@ -56,7 +103,7 @@ const SummaryRow = ({ header, secondColumn, thirdColumn }) => (
   </Row>
 )
 SummaryRow.propTypes = {
-  header: PropTypes.object.isRequired,
+  firstColumn: PropTypes.object.isRequired,
   secondColumn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   thirdColumn: PropTypes.string.isRequired,
 }
@@ -70,27 +117,27 @@ const Summary = ({
 }) => (
   <TableContainer>
     <SummaryRow
-      header={<Trans>Full name</Trans>}
+      firstColumn={<Trans>Full name</Trans>}
       secondColumn={fullName}
       thirdColumn={'/register'}
     />
     <SummaryRow
-      header={<Trans>Paper file number</Trans>}
+      firstColumn={<Trans>Paper file number</Trans>}
       secondColumn={paperFileNumber}
       thirdColumn={'/register'}
     />
     <SummaryRow
-      header={<Trans>Reason</Trans>}
+      firstColumn={<Trans>Reason</Trans>}
       secondColumn={reason}
       thirdColumn={'/register'}
     />
     <SummaryRow
-      header={<Trans>Explanation</Trans>}
+      firstColumn={<Trans>Explanation</Trans>}
       secondColumn={explanation}
       thirdColumn={'/register'}
     />
     <SummaryRow
-      header={<Trans>Availability</Trans>}
+      firstColumn={<Trans>Availability</Trans>}
       secondColumn={<SelectedDayList selectedDays={selectedDays} />}
       thirdColumn={'/calendar'}
     />

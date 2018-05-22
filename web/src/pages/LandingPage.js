@@ -3,6 +3,7 @@ import styled, { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, H2, H3, theme } from '../styles'
 import Layout from '../components/Layout'
+import Reminder from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
 import { Trans } from 'lingui-react'
 import { Helmet } from 'react-helmet'
@@ -52,9 +53,7 @@ class LandingPage extends React.Component {
               a new appointment.
             </Trans>
           </H1Landing>
-        </section>
 
-        <section>
           <H2>
             <Trans>You will need:</Trans>
           </H2>
@@ -104,7 +103,7 @@ class LandingPage extends React.Component {
           </p>
         </section>
 
-        <section>
+        <Reminder>
           <H3>
             <Trans>
               Important: by sending this request to reschedule, you will be
@@ -113,7 +112,7 @@ class LandingPage extends React.Component {
               date.
             </Trans>
           </H3>
-        </section>
+        </Reminder>
 
         <NavLink to="/register" className={buttonStyles}>
           <Trans>Start Now</Trans> →

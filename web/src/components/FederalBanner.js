@@ -24,7 +24,7 @@ const container = css`
     height: 30px;
   }
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     padding-left: ${theme.spacing.xl};
     padding-right: ${theme.spacing.xl};
   `)};

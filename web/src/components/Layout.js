@@ -19,7 +19,7 @@ injectGlobal`
     font-size: 18px;
     box-sizing: border-box;
 
-    ${mediaQuery.small(css`
+    ${mediaQuery.sm(css`
       font-size: ${theme.font.md};
     `)};
   }
