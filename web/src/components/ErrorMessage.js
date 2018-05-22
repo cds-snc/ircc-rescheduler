@@ -1,11 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'emotion'
+import { theme } from '../styles'
 
 const errorMessage = css`
-  color: red;
+  color: ${theme.colour.redFIP};
   display: block;
 `
+
+class ValidationMessage extends React.Component {
+  render() {
+    return (
+      <span
+        className={`${this.props.message ? '' : 'empty '}${errorMessage}`}
+        id={this.props.id}
+      >
+        {this.props.message}
+      </span>
+    )
+  }
+}
+
+ValidationMessage.propTypes = {
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  id: PropTypes.string,
+}
 
 /**
  * ErrorMessage.js
@@ -17,7 +36,7 @@ class ErrorMessage extends React.Component {
   render() {
     return (
       <span
-        className={errorMessage}
+        className={`${this.props.message ? '' : 'empty '}${errorMessage}`}
         id={this.props.id}
         role="alert"
         aria-live="assertive"
@@ -34,4 +53,4 @@ ErrorMessage.propTypes = {
   id: PropTypes.string,
 }
 
-export default ErrorMessage
+export { ErrorMessage as default, ValidationMessage }
