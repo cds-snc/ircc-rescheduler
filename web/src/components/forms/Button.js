@@ -94,6 +94,7 @@ const button = css`
   font-size: ${theme.font.lg};
   font-weight: 600;
   line-height: 2;
+  text-align: center;
 
   color: ${theme.colour.white};
   background-color: ${theme.colour.green};
