@@ -13,7 +13,7 @@ const fieldset = css`
     padding: 0;
   }
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     margin-bottom: ${theme.spacing.md};
   `)};
 `

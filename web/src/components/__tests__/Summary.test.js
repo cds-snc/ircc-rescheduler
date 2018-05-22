@@ -41,12 +41,16 @@ describe('<SelectedDayList />', () => {
 
   it('renders empty message when empty array passed in', () => {
     const wrapper = mount(<SelectedDayList selectedDays={[]} />)
-    expect(wrapper.find('p').text()).toEqual('No dates selected')
+    expect(wrapper.find('.no-dates-selected').text()).toEqual(
+      'No dates selected',
+    )
   })
 
   it('renders empty message when no arguments are passed in', () => {
     const wrapper = mount(<SelectedDayList />)
-    expect(wrapper.find('p').text()).toEqual('No dates selected')
+    expect(wrapper.find('.no-dates-selected').text()).toEqual(
+      'No dates selected',
+    )
   })
 })
 

@@ -18,11 +18,11 @@ const text_input = css`
     outline-offset: 0px;
   }
 
-  ${mediaQuery.medium(css`
+  ${mediaQuery.md(css`
     width: 80%;
   `)};
 
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     width: 100%;
   `)};
 `

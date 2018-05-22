@@ -144,7 +144,7 @@ const cds_multiple_choice = css`
       padding: 0 ${theme.spacing.sm} 0 ${theme.spacing.xs};
     }
   }
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     margin-bottom: ${theme.spacing.md};
     input {
       width: 22px;
@@ -176,7 +176,7 @@ const radio = css`
     top: 11px;
     left: 5px;
   }
-  ${mediaQuery.small(css`
+  ${mediaQuery.sm(css`
     input[type='radio'] + label::before {
       width: 20px;
       height: 20px;
