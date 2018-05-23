@@ -4,7 +4,7 @@ import { css } from 'emotion'
 import { theme } from '../styles'
 
 const errorMessage = css`
-  color: ${theme.colour.redFIP};
+  color: ${theme.colour.red};
   display: block;
 `
 
