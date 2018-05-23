@@ -136,6 +136,14 @@ export const H3 = styled.h3`
   font-weight: bold;
 `
 
+const contentSpacing = css`
+  width: 80%;
+
+  ${mediaQuery.sm(css`
+    width: 100%;
+  `)};
+`
+
 export const Content = styled.div`
   padding: ${theme.spacing.xl} ${theme.spacing.xxxl} ${theme.spacing.xxl}
     ${theme.spacing.xxxl};
@@ -146,13 +154,14 @@ export const Content = styled.div`
     padding: ${theme.spacing.xl};
   `)};
 
-  section {
-    width: 80%;
-    margin-bottom: ${theme.spacing.lg};
+  > form {
+    ${contentSpacing};
+  }
 
-    ${mediaQuery.sm(css`
-      width: 100%;
-    `)};
+  > section,
+  > div {
+    ${contentSpacing};
+    margin-bottom: ${theme.spacing.lg};
   }
 
   h2,
