@@ -57,7 +57,7 @@ export const breakpoints = {
   md: 764,
   base: 764,
   lg: 992,
-  xl: 1500,
+  xl: 1325,
 }
 
 export const theme = {
@@ -139,7 +139,7 @@ export const H3 = styled.h3`
 const contentSpacing = css`
   width: 80%;
 
-  ${mediaQuery.sm(css`
+  ${mediaQuery.lg(css`
     width: 100%;
   `)};
 `
@@ -191,11 +191,6 @@ export const CalHeader = styled.div`
   ${mediaQuery.md(css`
     width: 100%;
   `)};
-`
-
-export const CalReminder = styled.div`
-  font-size: ${theme.font.lg};
-  padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
 `
 
 export const BottomContainer = styled.div`

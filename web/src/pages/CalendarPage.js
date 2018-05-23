@@ -7,9 +7,9 @@ import {
   theme,
   visuallyhidden,
   CalHeader,
-  CalReminder,
   BottomContainer,
   TopContainer,
+  mediaQuery,
 } from '../styles'
 import Layout from '../components/Layout'
 import Button from '../components/forms/Button'
@@ -20,6 +20,7 @@ import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import { GET_USER_DATA } from '../queries'
 import { makeGMTDate } from '../components/Time'
+import Reminder from '../components/Reminder'
 
 const DAY_LIMIT = 3
 
@@ -27,6 +28,23 @@ const errorClass = css`
   display: block;
   color: red;
   margin-bottom: ${theme.spacing.sm};
+`
+
+const calReminder = css`
+  margin-top: ${theme.spacing.xl};
+  width: 60%;
+
+  ${mediaQuery.xl(css`
+    width: 70%;
+  `)};
+
+  ${mediaQuery.lg(css`
+    width: 80%;
+  `)};
+
+  ${mediaQuery.md(css`
+    width: 100%;
+  `)};
 `
 
 class CalendarPage extends Component {
@@ -136,13 +154,13 @@ class CalendarPage extends Component {
                   dayLimit={DAY_LIMIT}
                 />
               </div>
-
-              <CalReminder>
-                <Trans>
-                  Remember: make sure to stay available on all of the days you
-                  select
-                </Trans>
-              </CalReminder>
+              <div className={calReminder}>
+                <Reminder>
+                  <Trans>
+                    Make sure you stay available on all of the days you select.
+                  </Trans>
+                </Reminder>
+              </div>
               <BottomContainer>
                 <Button disabled={submitting}>
                   <Trans>Review</Trans>

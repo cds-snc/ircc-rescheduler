@@ -3,7 +3,7 @@ import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import { Query } from 'react-apollo'
 import { NavLink, Redirect } from 'react-router-dom'
-import { H1, H3, theme, BottomContainer, TopContainer } from '../styles'
+import { H1, theme, BottomContainer, TopContainer } from '../styles'
 import Layout from '../components/Layout'
 import { GET_USER_DATA, SUBMIT } from '../queries'
 import Button from '../components/forms/Button'
@@ -70,12 +70,10 @@ class ReviewPage extends React.Component {
                   selectedDays={selectedDays}
                 />
                 <Reminder>
-                  <H3>
-                    <Trans>
-                      Remember: By sending this request, you are cancelling your
-                      currently scheduled test.
-                    </Trans>
-                  </H3>
+                  <Trans>
+                    By sending this request, you are{' '}
+                    <strong>cancelling your current appointment.</strong>
+                  </Trans>
                 </Reminder>
 
                 <BottomContainer>
