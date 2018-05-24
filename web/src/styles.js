@@ -30,27 +30,6 @@ export const incrementColor = (col, amt) => {
   return (usePound ? '#' : '') + (g | (b << 8) | (r << 16)).toString(16)
 }
 
-export const roundedEdges = css`
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-`
-
-/*
- * Hide only visually, but have it
- * available for screenreaders
- */
-export const visuallyhidden = css`
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-`
-
 export const breakpoints = {
   xs: 481,
   sm: 576,
@@ -70,12 +49,13 @@ export const theme = {
     gray: '#4A4A4A',
     greyLight: '#DBDBDB',
     grayLight: '#DBDBDB',
-    greyVeryLight: '#f5f5f5',
-    grayVeryLight: '#f5f5f5',
+    greyVeryLight: '#F5F5F5',
+    grayVeryLight: '#F5F5F5',
     white: '#FFFFFF',
     black: '#000000',
-    focus: '#ffbf47',
-    visited: '#551a8b',
+    focus: '#FFBF47',
+    link: '#0000EE',
+    visited: '#551A8B',
     alpha: '#F90277',
   },
   font: {
@@ -117,6 +97,27 @@ export const mediaQuery = Object.keys(breakpoints).reduce(
   },
   {},
 )
+
+export const roundedEdges = css`
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+`
+
+/*
+ * Hide only visually, but have it
+ * available for screenreaders
+ */
+export const visuallyhidden = css`
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+`
 
 /* eslint-enable security/detect-object-injection */
 
