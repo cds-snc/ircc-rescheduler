@@ -55,19 +55,21 @@ injectGlobal`
 
 const Layout = ({ children, contentClass = '' }) => (
   <div>
-    <AlphaBanner>
-      <span>
-        <Trans>This is a new service we are constantly improving.</Trans>
-      </span>
-    </AlphaBanner>
-    <FederalBanner />
-    <main role="main">
+    <div role="banner">
+      <AlphaBanner>
+        <span>
+          <Trans>This is a new service we are constantly improving.</Trans>
+        </span>
+      </AlphaBanner>
+      <FederalBanner />
       <PageHeader>
         <Trans>Request a new Canadian Citizenship appointment</Trans>
       </PageHeader>
-      <Content className={contentClass}>{children}</Content>
-      <Footer topBarBackground="black" />
-    </main>
+    </div>
+    <Content className={contentClass} role="main">
+      {children}
+    </Content>
+    <Footer topBarBackground="black" />
   </div>
 )
 Layout.propTypes = {
