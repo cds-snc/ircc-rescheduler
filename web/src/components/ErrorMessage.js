@@ -8,6 +8,24 @@ const errorMessage = css`
   display: block;
 `
 
+class ErrorList extends React.Component {
+  render() {
+    return (
+      <div>
+        <h2>{this.props.message}</h2>
+        {this.props.message ? (
+          <div>
+            <p>pls fix:</p>
+            {this.props.children}
+          </div>
+        ) : (
+          ''
+        )}
+      </div>
+    )
+  }
+}
+
 class ValidationMessage extends React.Component {
   render() {
     return (
@@ -53,4 +71,4 @@ ErrorMessage.propTypes = {
   id: PropTypes.string,
 }
 
-export { ErrorMessage as default, ValidationMessage }
+export { ErrorMessage as default, ValidationMessage, ErrorList }

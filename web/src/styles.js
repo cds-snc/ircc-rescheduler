@@ -140,7 +140,7 @@ export const H3 = styled.h3`
 const contentSpacing = css`
   width: 80%;
 
-  ${mediaQuery.sm(css`
+  ${mediaQuery.md(css`
     width: 100%;
   `)};
 `

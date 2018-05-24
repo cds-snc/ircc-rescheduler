@@ -11,7 +11,7 @@ import {
 import FieldSet from '../components/forms/FieldSet'
 import { RadioAdapter } from '../components/forms/MultipleChoice'
 import Button from '../components/forms/Button'
-import ErrorMessage, { ValidationMessage } from '../components/ErrorMessage'
+import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import { withApollo } from 'react-apollo'
@@ -58,6 +58,15 @@ const forNowSubmitErrorStyles = css`
     font-size: ${theme.font.lg};
   }
 `
+
+const labelNames = id => {
+  switch (id) {
+    case 'reason':
+      return <Trans>Reason for rescheduling</Trans>
+    default:
+      return ''
+  }
+}
 
 const validate = values => {
   const errors = {}
@@ -175,7 +184,14 @@ class RegistrationPage extends React.Component {
                   this.errorContainer = errorContainer
                 }}
               >
-                <ErrorMessage message={submitError || ''} />
+                <ErrorList message={submitError || ''}>
+                  {Object.keys(validate(values)).map((formId, i) => (
+                    <a href={`#${formId}`} key={i}>
+                      {labelNames(formId) ? labelNames(formId) : formId}
+                      <br />
+                    </a>
+                  ))}
+                </ErrorList>
               </div>
 
               <div>
@@ -186,6 +202,7 @@ class RegistrationPage extends React.Component {
                 >
                   <label htmlFor="fullName" id="fullName-label">
                     <span id="fullName-header">
+                      {}
                       <Trans>Full name</Trans>
                     </span>
                     <ValidationMessage
@@ -232,11 +249,9 @@ class RegistrationPage extends React.Component {
                 </Field>
               </div>
               <div>
-                <FieldSet legendHidden={false}>
+                <FieldSet legendHidden={false} id="reason">
                   <legend>
-                    <span id="reason-header">
-                      <Trans>Reason for rescheduling</Trans>
-                    </span>
+                    <span id="reason-header">{labelNames('reason')}</span>
                     <ValidationMessage
                       id="reason-error"
                       message={
