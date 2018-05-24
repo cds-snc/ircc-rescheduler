@@ -230,13 +230,10 @@ class Calendar extends Component {
   constructor(props) {
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
-    this.updateFieldParams = this.updateFieldParams.bind(this)
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
     this.state = {
-      selectedDays: this.props.input.value || [],
       errorMessage: null,
     }
-    this.props.input.value = this.state.selectedDays
   }
 
   removeDayOnClickOrKeyPress = day => e => {
@@ -273,23 +270,9 @@ class Calendar extends Component {
     /* Cast all Dates to 12 noon GMT */
     day = makeGMTDate(day)
 
-    /*
-      The first time we return to this page with pre-populated dates,
-      - this.props.input.value will contain all of the pre-poulated dates
-      - this.state.selectedDates will be empty
+    let { dayLimit } = this.props
 
-      So let's update the state with the prepopulated dates
-    */
-    let {
-      input: { value },
-      dayLimit,
-    } = this.props
-
-    if (!this.state.selectedDays.length && value && value.length) {
-      await this.setState({ selectedDays: value })
-    }
-
-    const { selectedDays } = this.state
+    const selectedDays = this.props.input.value || []
 
     // !selected means that this current day is not marked as 'selected' on the calendar
     if (!selected) {
@@ -316,13 +299,11 @@ class Calendar extends Component {
       selectedDays.splice(selectedIndex, 1)
     }
 
-    await this.setState({ selectedDays, errorMessage: null })
-    this.updateFieldParams()
-  }
-
-  updateFieldParams() {
-    this.props.input.value = this.state.selectedDays
+    this.props.input.value = selectedDays
     this.props.input.onChange(this.props.input.value)
+    await this.setState({
+      errorMessage: null,
+    })
   }
 
   render() {
@@ -342,8 +323,8 @@ class Calendar extends Component {
           disabledDays={[{ daysOfWeek: [0, 1, 3, 4, 6] }]}
           onDayClick={this.handleDayClick}
           selectedDays={value || []}
-          onFocus={v => onFocus(v)}
-          onBlur={v => onBlur(v)}
+          onFocus={() => onFocus(value)}
+          onBlur={() => onBlur(value)}
         />
         {/*
           This code demonstrates how to update the page as dates are selected.
