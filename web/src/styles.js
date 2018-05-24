@@ -185,15 +185,6 @@ export const Calendar = styled.div`
   background: ${theme.colour.greyLight};
 `
 
-export const CalHeader = styled.div`
-  width: 32em;
-  font-size: ${theme.font.lg};
-  padding-bottom: ${theme.spacing.xl};
-  ${mediaQuery.md(css`
-    width: 100%;
-  `)};
-`
-
 export const CalReminder = styled.div`
   font-size: ${theme.font.lg};
   padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;

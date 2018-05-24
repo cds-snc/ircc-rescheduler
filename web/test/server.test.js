@@ -8,7 +8,6 @@ import server from '../src/server'
 describe('Server Side Rendering', () => {
   it('renders the landing page at /', async () => {
     let response = await request(server).get('/')
-
     expect(response.text).toMatch(
       /Use this service to notify Immigration, Refugees and Citizenship Canada/,
     )
@@ -16,13 +15,12 @@ describe('Server Side Rendering', () => {
 
   it('renders the register page at /register', async () => {
     let response = await request(server).get('/register')
-
     expect(response.text).toMatch(/Full name/)
   })
 
   it('renders the calendar page at /calendar', async () => {
     let response = await request(server).get('/calendar')
-    expect(response.text).toMatch(/Use the calendar to select./)
+    expect(response.text).toMatch(/Citizenship Tests are scheduled on/)
   })
 
   it('renders the review page at /review', async () => {
