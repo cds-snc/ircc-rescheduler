@@ -264,15 +264,23 @@ const calendarContainer = css`
     width: 22em;
   }
 
+  width: 130%;
+
   ${mediaQuery.lg(css`
     display: block;
   `)};
 
   ${mediaQuery.md(css`
+    width: 125%;
+
     > div:first-of-type,
     > div:last-of-type {
       width: 100%;
     }
+  `)};
+
+  ${mediaQuery.sm(css`
+    width: 100%;
   `)};
 
   #selectedDays {
