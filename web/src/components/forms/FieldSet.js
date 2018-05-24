@@ -40,6 +40,7 @@ class FieldSet extends React.Component {
   render() {
     return (
       <fieldset
+        id={this.props.id}
         className={css`
           ${fieldset} ${this.props.legendHidden
             ? css`
@@ -56,6 +57,7 @@ class FieldSet extends React.Component {
 
 FieldSet.propTypes = {
   children: PropTypes.any.isRequired,
+  id: PropTypes.string,
   legendHidden: PropTypes.bool,
 }
 

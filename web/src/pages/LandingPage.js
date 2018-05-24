@@ -38,6 +38,10 @@ const H1Landing = styled(H1)`
   line-height: 1;
 `
 
+const landingButton = css`
+  margin-top: ${theme.spacing.md};
+`
+
 class LandingPage extends React.Component {
   render() {
     return (
@@ -112,9 +116,11 @@ class LandingPage extends React.Component {
           </Trans>
         </Reminder>
 
-        <NavLink to="/register" className={buttonStyles}>
-          <Trans>Start Now</Trans> →
-        </NavLink>
+        <div className={landingButton}>
+          <NavLink to="/register" className={buttonStyles}>
+            <Trans>Start Now</Trans> →
+          </NavLink>
+        </div>
       </Layout>
     )
   }
