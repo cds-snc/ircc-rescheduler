@@ -74,7 +74,7 @@ describe('<CalendarAdapter />', () => {
 
   it('selects a date when it is clicked', () => {
     const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
-    expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
+    expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
 
     // click the first available day (June 1st, 2018)
     clickFirstDate(wrapper)
@@ -84,12 +84,12 @@ describe('<CalendarAdapter />', () => {
   it('unselects a date when it is clicked twice', () => {
     const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
 
-    expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
+    expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
 
     // click the first available day (June 1st, 2018) twice
     clickFirstDate(wrapper)
     clickFirstDate(wrapper)
-    expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
+    expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
   })
 
   it('will not select more days once the limit is reached', () => {
@@ -132,7 +132,7 @@ describe('<CalendarAdapter />', () => {
       .find('#selectedDays button')
       .first()
       .simulate('click')
-    expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
+    expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
     expect(getErrorMessageString(wrapper)).toEqual('')
   })
 
@@ -149,7 +149,7 @@ describe('<CalendarAdapter />', () => {
 
     // click June 5th, 2018
     clickDate(wrapper, 1)
-    expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
+    expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
 
     // click the first available day (June 1st, 2018)
     clickFirstDate(wrapper)
@@ -211,7 +211,7 @@ describe('<CalendarAdapter />', () => {
   events.map(({ eventType, options, toString }) => {
     it(`will remove a date when its "Remove date" button is triggered by a ${toString}`, () => {
       const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
-      expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
+      expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
 
       clickFirstDate(wrapper)
       expect(getDateStrings(wrapper)).toEqual('Fri, 01 Jun 2018')
@@ -220,7 +220,7 @@ describe('<CalendarAdapter />', () => {
         .find('#selectedDays button')
         .first()
         .simulate(eventType, options)
-      expect(wrapper.find('#selectedDays').text()).toEqual('No dates selected')
+      expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
     })
   })
 })
