@@ -286,6 +286,7 @@ class Calendar extends Component {
             </Trans>
           ),
         })
+        this.errorContainer.focus()
         return
       }
 
@@ -332,10 +333,18 @@ class Calendar extends Component {
         */}
         <div>
           <h3>Dates selected:</h3>
-          <ErrorMessage
-            message={this.state.errorMessage}
-            id="selectedDays-error"
-          />
+          <div
+            tabIndex="-1"
+            ref={errorContainer => {
+              this.errorContainer = errorContainer
+            }}
+          >
+            <ErrorMessage
+              message={this.state.errorMessage}
+              id="selectedDays-error"
+            />
+          </div>
+
           <div id="selectedDays">
             {value && value.length > 0 ? (
               <ol>
