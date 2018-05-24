@@ -316,10 +316,10 @@ class Calendar extends Component {
           className={css`
             ${dayPickerDefault} ${dayPicker};
           `}
-          month={new Date(2018, 5)}
+          initialMonth={new Date(2018, 5)}
           fromMonth={new Date(2018, 5)}
           toMonth={new Date(2018, 6)}
-          numberOfMonths={2}
+          numberOfMonths={1}
           disabledDays={[{ daysOfWeek: [0, 1, 3, 4, 6] }]}
           onDayClick={this.handleDayClick}
           selectedDays={value || []}

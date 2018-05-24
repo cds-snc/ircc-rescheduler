@@ -35,10 +35,16 @@ const defaultProps = ({ value = '', dayLimit = 3 } = {}) => {
 }
 
 describe('<CalendarAdapter />', () => {
-  it('renders June and July 2018', () => {
+  it('renders June 2018', () => {
     const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
     expect(wrapper.text()).toMatch(/June 2018/)
+  })
+
+  it('renders July 2018', () => {
+    const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
+    wrapper.find('.DayPicker-NavButton--next').simulate('click')
     expect(wrapper.text()).toMatch(/July 2018/)
+    expect(wrapper.text()).not.toMatch(/June 2018/)
   })
 
   it('will prefill a date if an initial value is provided', () => {
