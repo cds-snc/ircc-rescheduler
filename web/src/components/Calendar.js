@@ -6,6 +6,7 @@ import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
 import Time, { makeGMTDate } from './Time'
 import ErrorMessage from './ErrorMessage'
+import { theme, mediaQuery, incrementColor } from '../styles'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -158,11 +159,6 @@ const dayPickerDefault = css`
 
   /* Default modifiers */
 
-  .DayPicker-Day--today {
-    color: #d0021b;
-    font-weight: 700;
-  }
-
   .DayPicker-Day--outside {
     cursor: default;
     color: #8b9898;
@@ -171,72 +167,208 @@ const dayPickerDefault = css`
   .DayPicker-Day--disabled {
     color: #dce0e0;
     cursor: default;
-    /* background-color: #eff1f1; */
-  }
-
-  /* Example modifiers */
-
-  .DayPicker-Day--sunday {
-    background-color: #f7f8f8;
-  }
-
-  .DayPicker-Day--sunday:not(.DayPicker-Day--today) {
-    color: #dce0e0;
-  }
-
-  .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
-    position: relative;
-    color: #f0f8ff;
-    background-color: #4a90e2;
-    border-radius: 100%;
-  }
-
-  .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
-    background-color: #51a0fa;
-  }
-
-  .DayPicker:not(.DayPicker--interactionDisabled)
-    .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-    background-color: #f0f8ff;
-    border-radius: 50%;
-  }
-
-  /* DayPickerInput */
-
-  .DayPickerInput {
-    display: inline-block;
-  }
-
-  .DayPickerInput-OverlayWrapper {
-    position: relative;
-  }
-
-  .DayPickerInput-Overlay {
-    left: 0;
-    z-index: 1;
-    position: absolute;
-    background: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   }
 `
 
 const dayPicker = css`
   .DayPicker-wrapper {
     background-color: white;
+    font-size: ${theme.font.lg};
+    border: 2px solid ${theme.colour.greyLight};
+  }
+
+  .DayPicker-NavButton {
+    top: 1.5rem;
+    right: auto;
+    color: ${theme.colour.black};
+    width: 1.35rem;
+    height: 1.35rem;
+    background-size: 50%;
+
+    &:focus {
+      outline: 3px solid ${theme.colour.focus};
+      outline-offset: 2px;
+    }
+
+    &.DayPicker-NavButton--next {
+      right: 2.5rem;
+    }
+
+    &.DayPicker-NavButton--prev {
+      left: 2.5rem;
+    }
+  }
+
+  .DayPicker-Weekday,
+  .DayPicker-Day {
+    padding: 0.7rem;
+  }
+
+  .DayPicker-Caption {
+    border-bottom: 2px dotted black;
+    text-align: center;
+    padding: ${theme.spacing.sm};
+
+    > div {
+      font-weight: 700;
+    }
+  }
+
+  .DayPicker-Day {
+    /* enabled dates */
+    &[aria-disabled='false'] {
+      font-weight: 700;
+
+      &:focus {
+        outline: 3px solid ${theme.colour.focus};
+        outline-offset: -2px;
+      }
+      &:hover {
+        background-color: ${theme.colour.greyLight};
+      }
+    }
+
+    /* disabled dates */
+    &[aria-disabled='true'] {
+      cursor: not-allowed;
+
+      &:focus {
+        outline: 3px solid ${theme.colour.lightGrey};
+        outline-offset: -2px;
+      }
+    }
+  }
+
+  /* selected dates */
+  .DayPicker-Day--selected:not([aria-disabled='true']):not(.DayPicker-Day--outside) {
+    background-color: ${theme.colour.blue};
+    color: ${theme.colour.white};
+
+    &:hover {
+      background-color: ${incrementColor(theme.colour.blue, 30)};
+    }
   }
 `
+
+const calendarContainer = css`
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  > div:first-of-type {
+    width: 25em;
+    margin-right: ${theme.spacing.xxl};
+  }
+  > div:last-of-type {
+    width: 22em;
+  }
+
+  width: 130%;
+
+  ${mediaQuery.lg(css`
+    display: block;
+  `)};
+
+  ${mediaQuery.md(css`
+    width: 125%;
+
+    > div:first-of-type,
+    > div:last-of-type {
+      width: 100%;
+    }
+  `)};
+
+  ${mediaQuery.sm(css`
+    width: 100%;
+  `)};
+
+  #selectedDays {
+    margin: ${theme.spacing.md} 0;
+  }
+`
+
+const dayBox = css`
+  margin-bottom: ${theme.spacing.md};
+  display: flex;
+  justify-content: space-between;
+
+  .day-box {
+    font-size: ${theme.font.lg};
+    width: 12em;
+    display: inline-block;
+    border: 2px solid ${theme.colour.grey};
+    background-color: ${theme.colour.white};
+    padding: ${theme.spacing.sm} 0;
+    text-align: center;
+
+    &.empty {
+      background-color: ${theme.colour.greyLight};
+      border: 2px solid ${theme.colour.greyLight};
+
+      * {
+        visibility: hidden;
+      }
+    }
+  }
+
+  button {
+    font-size: ${theme.font.md};
+    text-decoration: underline;
+    color: ${theme.colour.link};
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+
+    &:focus {
+      outline-offset: 2px;
+      outline: 3px solid ${theme.colour.focus};
+    }
+  }
+`
+
+const renderDayBoxes = ({
+  dayLimit,
+  selectedDays,
+  removeDayOnClickOrKeyPress,
+}) => {
+  let dayBoxes = []
+  for (let i = 0; i < dayLimit; i++) {
+    let selectedDay = selectedDays[i] // eslint-disable-line security/detect-object-injection
+    dayBoxes.push(
+      selectedDay ? (
+        <li key={i} className={dayBox}>
+          <span className="day-box">
+            <Time date={selectedDay} />
+          </span>
+          <button
+            type="button"
+            onClick={removeDayOnClickOrKeyPress(selectedDay)}
+            onKeyPress={removeDayOnClickOrKeyPress(selectedDay)}
+          >
+            <Trans>Remove date</Trans>
+          </button>
+        </li>
+      ) : (
+        <li key={i} className={dayBox}>
+          <span className="empty day-box">
+            <span>No date selected</span>
+          </span>
+        </li>
+      ),
+    )
+  }
+  return dayBoxes
+}
 
 class Calendar extends Component {
   constructor(props) {
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
-    this.updateFieldParams = this.updateFieldParams.bind(this)
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
     this.state = {
-      selectedDays: this.props.input.value || [],
       errorMessage: null,
     }
-    this.props.input.value = this.state.selectedDays
   }
 
   removeDayOnClickOrKeyPress = day => e => {
@@ -273,23 +405,9 @@ class Calendar extends Component {
     /* Cast all Dates to 12 noon GMT */
     day = makeGMTDate(day)
 
-    /*
-      The first time we return to this page with pre-populated dates,
-      - this.props.input.value will contain all of the pre-poulated dates
-      - this.state.selectedDates will be empty
+    let { dayLimit } = this.props
 
-      So let's update the state with the prepopulated dates
-    */
-    let {
-      input: { value },
-      dayLimit,
-    } = this.props
-
-    if (!this.state.selectedDays.length && value && value.length) {
-      await this.setState({ selectedDays: value })
-    }
-
-    const { selectedDays } = this.state
+    const selectedDays = this.props.input.value || []
 
     // !selected means that this current day is not marked as 'selected' on the calendar
     if (!selected) {
@@ -303,6 +421,7 @@ class Calendar extends Component {
             </Trans>
           ),
         })
+        this.errorContainer.focus()
         return
       }
 
@@ -316,66 +435,56 @@ class Calendar extends Component {
       selectedDays.splice(selectedIndex, 1)
     }
 
-    await this.setState({ selectedDays, errorMessage: null })
-    this.updateFieldParams()
-  }
-
-  updateFieldParams() {
-    this.props.input.value = this.state.selectedDays
+    this.props.input.value = selectedDays
     this.props.input.onChange(this.props.input.value)
+    await this.setState({
+      errorMessage: null,
+    })
   }
 
   render() {
     let {
       input: { onBlur, onFocus, value },
+      dayLimit,
     } = this.props
+    value = value || []
     return (
-      <div>
+      <div className={calendarContainer}>
         <DayPicker
           className={css`
             ${dayPickerDefault} ${dayPicker};
           `}
-          month={new Date(2018, 5)}
+          initialMonth={new Date(2018, 5)}
           fromMonth={new Date(2018, 5)}
           toMonth={new Date(2018, 6)}
-          numberOfMonths={2}
+          numberOfMonths={1}
           disabledDays={[{ daysOfWeek: [0, 1, 3, 4, 6] }]}
           onDayClick={this.handleDayClick}
-          selectedDays={value || []}
-          onFocus={v => onFocus(v)}
-          onBlur={v => onBlur(v)}
+          selectedDays={value}
+          onFocus={() => onFocus(value)}
+          onBlur={() => onBlur(value)}
         />
-        {/*
-          This code demonstrates how to update the page as dates are selected.
-          It should be replaced as we fine-tune the interaction.
-        */}
         <div>
           <h3>Dates selected:</h3>
-          <ErrorMessage
-            message={this.state.errorMessage}
-            id="selectedDays-error"
-          />
-          <div id="selectedDays">
-            {value && value.length > 0 ? (
-              <ol>
-                {value.map((day, index) => (
-                  <li key={index}>
-                    {`${index + 1}. `}
-                    <Time date={day} />{' '}
-                    <button
-                      type="button"
-                      onClick={this.removeDayOnClickOrKeyPress(day)}
-                      onKeyPress={this.removeDayOnClickOrKeyPress(day)}
-                    >
-                      <Trans>Remove date</Trans>
-                    </button>
-                  </li>
-                ))}
-              </ol>
-            ) : (
-              'No dates selected'
-            )}
+          <div
+            tabIndex="-1"
+            ref={errorContainer => {
+              this.errorContainer = errorContainer
+            }}
+          >
+            <ErrorMessage
+              message={this.state.errorMessage}
+              id="selectedDays-error"
+            />
           </div>
+
+          <ul id="selectedDays">
+            {renderDayBoxes({
+              dayLimit,
+              selectedDays: value,
+              removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
+            })}
+          </ul>
         </div>
       </div>
     )

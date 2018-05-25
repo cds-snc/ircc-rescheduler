@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
-import { css } from 'react-emotion'
+import styled, { css } from 'react-emotion'
 import {
   theme,
-  visuallyhidden,
-  CalHeader,
   CalReminder,
   BottomContainer,
   TopContainer,
+  H1,
+  H2,
 } from '../styles'
 import Layout from '../components/Layout'
 import Button from '../components/forms/Button'
@@ -27,6 +27,25 @@ const errorClass = css`
   display: block;
   color: red;
   margin-bottom: ${theme.spacing.sm};
+`
+
+const headerStyles = css`
+  font-weight: 400;
+  margin-bottom: ${theme.spacing.xl};
+
+  strong {
+    font-weight: 700;
+  }
+`
+
+const CalendarHeader = styled(H1)`
+  font-size: ${theme.font.xl};
+  ${headerStyles};
+`
+
+const CalendarSubheader = styled(H2)`
+  font-size: ${theme.font.lg};
+  ${headerStyles};
 `
 
 class CalendarPage extends Component {
@@ -91,9 +110,6 @@ class CalendarPage extends Component {
   render() {
     return (
       <Layout>
-        <h1 className={visuallyhidden}>
-          Now use the calendar to tell us when you’re available.
-        </h1>
         <TopContainer>
           <nav>
             <NavLink to="/register">
@@ -102,13 +118,19 @@ class CalendarPage extends Component {
           </nav>
         </TopContainer>
 
-        <CalHeader>
+        <CalendarHeader>
           <Trans>
-            Citizenship Tests are scheduled on Tuesdays and Fridays. Use the
-            calendar to select at least three (3) days you’re available in June
-            and July.
+            Citizenship Tests are scheduled on <strong>Tuesdays</strong> and{' '}
+            <strong>Fridays</strong>.
           </Trans>
-        </CalHeader>
+        </CalendarHeader>
+        <CalendarSubheader>
+          <Trans>
+            <strong>Select three (3) days you are available</strong> in June and
+            July.
+          </Trans>
+        </CalendarSubheader>
+
         <Form
           onSubmit={this.onSubmit}
           initialValues={this.state.data}
