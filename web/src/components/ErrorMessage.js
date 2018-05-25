@@ -8,14 +8,28 @@ const errorMessage = css`
   display: block;
 `
 
+const errorList = css`
+  a {
+    color: ${theme.colour.red};
+    font-weight: 700;
+  }
+
+  p {
+    font-size: ${theme.font.md};
+    margin-bottom: ${theme.spacing.sm};
+  }
+
+  margin-bottom: ${theme.spacing.xl};
+`
+
 class ErrorList extends React.Component {
   render() {
     return (
-      <div>
+      <div className={errorList}>
         <h2>{this.props.message}</h2>
         {this.props.message ? (
           <div>
-            <p>pls fix:</p>
+            <p>Please take another look at the:</p>
             {this.props.children}
           </div>
         ) : (
