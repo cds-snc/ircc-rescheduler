@@ -61,8 +61,14 @@ const forNowSubmitErrorStyles = css`
 
 const labelNames = id => {
   switch (id) {
+    case 'fullName':
+      return <Trans>Full Name</Trans>
+    case 'paperFileNumber':
+      return <Trans>Paper File Number</Trans>
     case 'reason':
       return <Trans>Reason for rescheduling</Trans>
+    case 'explanation':
+      return <Trans>Explanation</Trans>
     default:
       return ''
   }
