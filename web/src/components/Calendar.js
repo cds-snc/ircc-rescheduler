@@ -20,6 +20,7 @@ const dayPickerDefault = css`
     -ms-user-select: none;
     user-select: none;
     padding-bottom: 1rem;
+    margin-bottom: ${theme.spacing.xl};
     flex-direction: row;
   }
 
