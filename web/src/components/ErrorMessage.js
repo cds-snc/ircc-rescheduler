@@ -1,21 +1,35 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'emotion'
-import { theme } from '../styles'
+import { theme, H2 } from '../styles'
 
 const errorMessage = css`
   color: ${theme.colour.red};
   display: block;
 `
 
+const errorList = css`
+  a {
+    color: ${theme.colour.red};
+    font-weight: 700;
+  }
+
+  p {
+    font-size: ${theme.spacing.md};
+    margin-bottom: ${theme.spacing.sm};
+  }
+
+  margin-bottom: ${theme.spacing.xl};
+`
+
 class ErrorList extends React.Component {
   render() {
     return (
-      <div>
-        <h2>{this.props.message}</h2>
+      <div className={errorList}>
+        <H2>{this.props.message}</H2>
         {this.props.message ? (
           <div>
-            <p>pls fix:</p>
+            <p>Please take another look at the:</p>
             {this.props.children}
           </div>
         ) : (
