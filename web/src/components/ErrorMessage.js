@@ -43,7 +43,7 @@ class ErrorList extends React.Component {
 ErrorList.propTypes = {
   message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   id: PropTypes.string,
-  children: PropTypes.string,
+  children: PropTypes.array,
 }
 
 class ValidationMessage extends React.Component {

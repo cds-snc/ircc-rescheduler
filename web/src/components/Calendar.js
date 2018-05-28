@@ -19,9 +19,13 @@ const dayPickerDefault = css`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    padding-bottom: 1rem;
     margin-bottom: ${theme.spacing.xl};
+    padding-bottom: 1rem;
     flex-direction: row;
+
+    ${mediaQuery.lg(css`
+      margin-bottom: ${theme.spacing.sm};
+    `)};
   }
 
   .DayPicker-Months {
@@ -272,7 +276,7 @@ const calendarContainer = css`
   `)};
 
   ${mediaQuery.md(css`
-    width: 125%;
+    width: 100%;
 
     > div:first-of-type,
     > div:last-of-type {
@@ -326,6 +330,12 @@ const dayBox = css`
       outline: 3px solid ${theme.colour.focus};
     }
   }
+`
+
+const daySelection = css`
+  ${mediaQuery.lg(css`
+    margin-bottom: ${theme.spacing.xxl};
+  `)};
 `
 
 const renderDayBoxes = ({
@@ -465,7 +475,7 @@ class Calendar extends Component {
           onFocus={() => onFocus(value)}
           onBlur={() => onBlur(value)}
         />
-        <div>
+        <div className={daySelection}>
           <h3>Dates selected:</h3>
           <div
             tabIndex="-1"
