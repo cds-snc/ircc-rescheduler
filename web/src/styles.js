@@ -36,7 +36,7 @@ export const breakpoints = {
   md: 764,
   base: 764,
   lg: 992,
-  xl: 1500,
+  xl: 1325,
 }
 
 export const theme = {
@@ -140,7 +140,7 @@ export const H3 = styled.h3`
 const contentSpacing = css`
   width: 80%;
 
-  ${mediaQuery.sm(css`
+  ${mediaQuery.md(css`
     width: 100%;
   `)};
 `

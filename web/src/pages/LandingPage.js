@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
-import { H1, H2, H3, theme } from '../styles'
+import { H1, H2, theme } from '../styles'
 import Layout from '../components/Layout'
 import Reminder from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
@@ -36,6 +36,10 @@ const list = css`
 const H1Landing = styled(H1)`
   font-size: ${theme.font.xl};
   line-height: 1;
+`
+
+const landingButton = css`
+  margin-top: ${theme.spacing.md};
 `
 
 class LandingPage extends React.Component {
@@ -104,19 +108,19 @@ class LandingPage extends React.Component {
         </section>
 
         <Reminder>
-          <H3>
-            <Trans>
-              Important: by sending this request to reschedule, you will be
-              cancelling your current test. After you complete this process, it
-              could take up to 6 weeks for IRCC to contact you with a new test
-              date.
-            </Trans>
-          </H3>
+          <Trans>
+            By sending this request to reschedule, you will be{' '}
+            <strong>cancelling your current appointment</strong>. After you
+            complete this process, it could take up to six (6) weeks for IRCC to
+            schedule your new appointment.
+          </Trans>
         </Reminder>
 
-        <NavLink to="/register" className={buttonStyles}>
-          <Trans>Start Now</Trans> →
-        </NavLink>
+        <div className={landingButton}>
+          <NavLink to="/register" className={buttonStyles}>
+            <Trans>Start Now</Trans> →
+          </NavLink>
+        </div>
       </Layout>
     )
   }
