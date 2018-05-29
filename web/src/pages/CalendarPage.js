@@ -3,14 +3,7 @@ import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
 import styled, { css } from 'react-emotion'
-import {
-  theme,
-  CalReminder,
-  BottomContainer,
-  TopContainer,
-  H1,
-  H2,
-} from '../styles'
+import { theme, BottomContainer, TopContainer, H1, H2 } from '../styles'
 import Layout from '../components/Layout'
 import Button from '../components/forms/Button'
 import { CalendarAdapter } from '../components/Calendar'
@@ -20,6 +13,7 @@ import { withApollo } from 'react-apollo'
 import gql from 'graphql-tag'
 import { GET_USER_DATA } from '../queries'
 import { makeGMTDate } from '../components/Time'
+import Reminder from '../components/Reminder'
 
 const DAY_LIMIT = 3
 
@@ -158,13 +152,13 @@ class CalendarPage extends Component {
                   dayLimit={DAY_LIMIT}
                 />
               </div>
-
-              <CalReminder>
-                <Trans>
-                  Remember: make sure to stay available on all of the days you
-                  select
-                </Trans>
-              </CalReminder>
+              <div>
+                <Reminder>
+                  <Trans>
+                    Make sure you stay available on all of the days you select.
+                  </Trans>
+                </Reminder>
+              </div>
               <BottomContainer>
                 <Button disabled={submitting}>
                   <Trans>Review</Trans>
