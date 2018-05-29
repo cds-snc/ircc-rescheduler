@@ -19,13 +19,23 @@ const errorList = css`
     margin-bottom: ${theme.spacing.sm};
   }
 
+  h2 {
+    margin-top: 0rem;
+  }
+
+  border: solid 2px red;
+  padding: ${theme.spacing.lg};
   margin-bottom: ${theme.spacing.xl};
+`
+
+const noErrorList = css`
+  display: none;
 `
 
 class ErrorList extends React.Component {
   render() {
     return (
-      <div className={errorList}>
+      <div className={this.props.message ? errorList : noErrorList}>
         <h2>{this.props.message}</h2>
         {this.props.message ? (
           <div>
