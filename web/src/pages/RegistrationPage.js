@@ -32,6 +32,10 @@ const contentClass = css`
       `)};
     }
 
+    h2 {
+      margin-top: 0rem;
+    }
+
     label,
     legend {
       display: block;
