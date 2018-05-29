@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from 'emotion'
+import { css } from 'react-emotion'
 import { theme } from '../styles'
 
 const errorMessage = css`
@@ -17,10 +17,6 @@ const errorList = css`
   p {
     font-size: ${theme.font.md};
     margin-bottom: ${theme.spacing.sm};
-  }
-
-  h2 {
-    margin-top: 0rem;
   }
 
   border: solid 2px red;
