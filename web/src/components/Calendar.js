@@ -297,7 +297,6 @@ const calendarContainer = css`
 const dayBox = css`
   margin-bottom: ${theme.spacing.md};
   display: flex;
-  justify-content: space-between;
 
   .day-box {
     font-size: ${theme.font.lg};
@@ -322,6 +321,7 @@ const dayBox = css`
     font-size: ${theme.font.md};
     text-decoration: underline;
     color: ${theme.colour.link};
+    padding-left: ${theme.spacing.lg};
     background-color: transparent;
     border: 0;
     cursor: pointer;
