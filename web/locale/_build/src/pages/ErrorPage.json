@@ -1,5 +1,5 @@
 {
-  "Request failed": {
+  "We're sorry, something went wrong.": {
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -7,11 +7,27 @@
       ]
     ]
   },
+  "Our team has been notified, but click <0>here</0> to fill out an error report.": {
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        18
+      ]
+    ]
+  },
+  "Report a bug": {
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        29
+      ]
+    ]
+  },
   "Please contact <0>IRCC</0> directly to reschedule your appointment": {
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        17
+        38
       ]
     ]
   },
@@ -19,7 +35,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        27
+        48
       ]
     ]
   }

@@ -55,11 +55,11 @@
       ]
     ]
   },
-  "Remember: By sending this request, you are cancelling your currently scheduled test.": {
+  "By sending this request, you are <0>cancelling your current appointment.</0>": {
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        74
+        73
       ]
     ]
   },
@@ -67,7 +67,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        101
+        99
       ]
     ]
   },
@@ -75,7 +75,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        107
+        105
       ]
     ]
   }

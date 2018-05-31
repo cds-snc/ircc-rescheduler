@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        50
+        54
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        58
+        62
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        63
+        67
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        68
+        72
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        76
+        80
       ]
     ]
   },
@@ -43,7 +43,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        79
+        83
       ]
     ]
   },
@@ -51,7 +51,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        85
+        89
       ]
     ]
   },
@@ -59,7 +59,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        88
+        92
       ]
     ]
   },
@@ -67,15 +67,15 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        99
+        103
       ]
     ]
   },
-  "Important: by sending this request to reschedule, you will be cancelling your current test. After you complete this process, it could take up to 6 weeks for IRCC to contact you with a new test date.": {
+  "By sending this request to reschedule, you will be <0>cancelling your current appointment</0>. After you complete this process, it could take up to six (6) weeks for IRCC to schedule your new appointment.": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        108
+        111
       ]
     ]
   },
@@ -83,7 +83,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        118
+        121
       ]
     ]
   }

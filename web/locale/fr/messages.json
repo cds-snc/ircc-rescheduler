@@ -8,7 +8,7 @@
       ],
       [
         "src/components/Calendar.js",
-        301
+        430
       ]
     ]
   },
@@ -21,7 +21,7 @@
       ],
       [
         "src/components/Calendar.js",
-        370
+        360
       ]
     ]
   },
@@ -34,7 +34,7 @@
       ],
       [
         "src/pages/CalendarPage.js",
-        65
+        78
       ]
     ]
   },
@@ -65,10 +65,6 @@
       [
         "src/CalendarPage.js",
         106
-      ],
-      [
-        "src/pages/CalendarPage.js",
-        106
       ]
     ]
   },
@@ -77,10 +73,6 @@
     "origin": [
       [
         "src/CalendarPage.js",
-        141
-      ],
-      [
-        "src/pages/CalendarPage.js",
         141
       ]
     ]
@@ -94,7 +86,7 @@
       ],
       [
         "src/pages/CalendarPage.js",
-        148
+        164
       ]
     ]
   },
@@ -111,11 +103,11 @@
       ],
       [
         "src/pages/CalendarPage.js",
-        153
+        169
       ],
       [
         "src/pages/ReviewPage.js",
-        107
+        105
       ]
     ]
   },
@@ -173,10 +165,6 @@
       [
         "src/ErrorPage.js",
         19
-      ],
-      [
-        "src/pages/ErrorPage.js",
-        13
       ]
     ]
   },
@@ -229,7 +217,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        66
+        85
       ]
     ]
   },
@@ -255,7 +243,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        82
+        101
       ]
     ]
   },
@@ -272,7 +260,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        90
+        109
       ]
     ]
   },
@@ -297,7 +285,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        189
+        216
       ]
     ]
   },
@@ -314,7 +302,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        200
+        227
       ]
     ]
   },
@@ -324,6 +312,10 @@
       [
         "src/HomePage.js",
         153
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        71
       ]
     ]
   },
@@ -340,7 +332,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        227
+        254
       ]
     ]
   },
@@ -357,7 +349,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        238
+        73
       ]
     ]
   },
@@ -374,7 +366,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        249
+        274
       ]
     ]
   },
@@ -391,7 +383,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        251
+        276
       ]
     ]
   },
@@ -420,7 +412,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        259
+        284
       ],
       [
         "src/pages/ReviewPage.js",
@@ -445,7 +437,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        267
+        292
       ],
       [
         "src/pages/ReviewPage.js",
@@ -470,7 +462,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        275
+        300
       ],
       [
         "src/pages/ReviewPage.js",
@@ -495,7 +487,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        283
+        308
       ],
       [
         "src/pages/ReviewPage.js",
@@ -520,7 +512,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        291
+        316
       ],
       [
         "src/pages/ReviewPage.js",
@@ -572,7 +564,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        50
+        54
       ]
     ]
   },
@@ -585,7 +577,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        58
+        62
       ]
     ]
   },
@@ -598,7 +590,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        63
+        67
       ]
     ]
   },
@@ -611,7 +603,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        68
+        72
       ]
     ]
   },
@@ -624,7 +616,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        76
+        80
       ]
     ]
   },
@@ -637,7 +629,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        79
+        83
       ]
     ]
   },
@@ -650,7 +642,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        85
+        89
       ]
     ]
   },
@@ -663,7 +655,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        88
+        92
       ]
     ]
   },
@@ -676,7 +668,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        99
+        103
       ]
     ]
   },
@@ -686,10 +678,6 @@
       [
         "src/LandingPage.js",
         119
-      ],
-      [
-        "src/pages/LandingPage.js",
-        108
       ]
     ]
   },
@@ -724,7 +712,7 @@
       ],
       [
         "src/components/Layout.js",
-        60
+        71
       ]
     ]
   },
@@ -737,7 +725,7 @@
       ],
       [
         "src/components/Layout.js",
-        66
+        76
       ]
     ]
   },
@@ -767,7 +755,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        216
+        243
       ]
     ]
   },
@@ -780,7 +768,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        330
+        355
       ]
     ]
   },
@@ -803,10 +791,6 @@
       [
         "src/ReviewPage.js",
         73
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        74
       ]
     ]
   },
@@ -868,6 +852,10 @@
       [
         "src/components/Summary.js",
         135
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        75
       ]
     ]
   },
@@ -889,11 +877,38 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        100
+        110
       ],
       [
         "src/pages/ReviewPage.js",
         43
+      ]
+    ]
+  },
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        116
+      ]
+    ]
+  },
+  "<0>Select three (3) days you are available</0> in June and July.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        122
+      ]
+    ]
+  },
+  "Make sure you stay available on all of the days you select.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        157
       ]
     ]
   },
@@ -906,12 +921,39 @@
       ]
     ]
   },
+  "We're sorry, something went wrong.": {
+    "translation": "Nous sommes désolés, quelque chose s'est mal passé.",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        13
+      ]
+    ]
+  },
+  "Our team has been notified, but click <0>here</0> to fill out an error report.": {
+    "translation": "Notre équipe a été avertie, mais cliquez sur <0>ici</0> pour remplir un rapport d'erreur.",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        18
+      ]
+    ]
+  },
+  "Report a bug": {
+    "translation": "Rapporter un bogue",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        29
+      ]
+    ]
+  },
   "Please contact <0>IRCC</0> directly to reschedule your appointment": {
     "translation": "Veuillez contacter IRCC directement pour reporter votre rendez-vous",
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        17
+        38
       ]
     ]
   },
@@ -920,7 +962,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        27
+        48
       ],
       [
         "src/pages/FourOhFourPage.js",
@@ -955,12 +997,30 @@
       ]
     ]
   },
+  "By sending this request to reschedule, you will be <0>cancelling your current appointment</0>. After you complete this process, it could take up to six (6) weeks for IRCC to schedule your new appointment.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        111
+      ]
+    ]
+  },
   "Start Now": {
     "translation": "Commencez maintenant",
     "origin": [
       [
         "src/pages/LandingPage.js",
-        118
+        121
+      ]
+    ]
+  },
+  "Full Name": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        69
       ]
     ]
   },
@@ -969,7 +1029,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        74
+        93
       ]
     ]
   },
@@ -978,7 +1038,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        134
+        153
       ]
     ]
   },
@@ -987,7 +1047,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        307
+        332
       ]
     ]
   },
@@ -996,7 +1056,16 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        318
+        343
+      ]
+    ]
+  },
+  "By sending this request, you are <0>cancelling your current appointment.</0>": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        73
       ]
     ]
   },
@@ -1005,7 +1074,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        101
+        99
       ]
     ]
   }

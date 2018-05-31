@@ -12,6 +12,14 @@ import gql from 'graphql-tag'
 import en from '../locale/en/messages.js'
 import fr from '../locale/fr/messages.js'
 
+import Raven from 'raven-js'
+if (window) {
+  window.Raven = Raven
+  window.Raven.config(
+    'https://f8b5f68731864265b10502eb0b29c042@sentry.io/1215804',
+  ).install()
+}
+
 const catalogs = { en: unpackCatalog(en), fr: unpackCatalog(fr) }
 
 // required in development only (huge dependency)
