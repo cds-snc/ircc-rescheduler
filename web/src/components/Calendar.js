@@ -7,6 +7,7 @@ import { css } from 'emotion'
 import Time, { makeGMTDate } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor } from '../styles'
+import Cancel from '../assets/cancel.svg'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -338,6 +339,24 @@ const daySelection = css`
   `)};
 `
 
+const removeDateMobile = css`
+  display: none;
+  height: 3rem;
+  width: 3rem;
+
+  ${mediaQuery.sm(css`
+    display: block;
+  `)};
+`
+
+const removeDateDesktop = css`
+  display: block;
+
+  ${mediaQuery.sm(css`
+    display: none;
+  `)};
+`
+
 const renderDayBoxes = ({
   dayLimit,
   selectedDays,
@@ -357,7 +376,13 @@ const renderDayBoxes = ({
             onClick={removeDayOnClickOrKeyPress(selectedDay)}
             onKeyPress={removeDayOnClickOrKeyPress(selectedDay)}
           >
-            <Trans>Remove date</Trans>
+            <div className={removeDateDesktop}>
+              <Trans>Remove date</Trans>
+            </div>
+
+            <div className={removeDateMobile}>
+              <img src={Cancel} alt="Cancel Button" />
+            </div>
           </button>
         </li>
       ) : (
