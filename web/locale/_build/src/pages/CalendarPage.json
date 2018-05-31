@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        65
+        78
       ]
     ]
   },
@@ -11,23 +11,31 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        100
+        110
       ]
     ]
   },
-  "Citizenship Tests are scheduled on Tuesdays and Fridays. Use the calendar to select at least three (3) days you’re available in June and July.": {
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        106
+        116
       ]
     ]
   },
-  "Remember: make sure to stay available on all of the days you select": {
+  "<0>Select three (3) days you are available</0> in June and July.": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        141
+        122
+      ]
+    ]
+  },
+  "Make sure you stay available on all of the days you select.": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        157
       ]
     ]
   },
@@ -35,7 +43,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        148
+        164
       ]
     ]
   },
@@ -43,7 +51,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        153
+        169
       ]
     ]
   }

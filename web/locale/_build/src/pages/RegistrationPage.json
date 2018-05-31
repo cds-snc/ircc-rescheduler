@@ -1,73 +1,17 @@
 {
-  "You need to tell us your name so we know who is requesting a new appointment.": {
+  "Full Name": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        66
+        69
       ]
     ]
   },
-  "You need to tell us your paper file number so we can confirm your identity.": {
+  "Paper File Number": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        74
-      ]
-    ]
-  },
-  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        82
-      ]
-    ]
-  },
-  "Please tell us a bit more about why you need to reschedule your test.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        90
-      ]
-    ]
-  },
-  "Sorry, there was a problem with the information you submitted.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        134
-      ]
-    ]
-  },
-  "Full name": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        189
-      ]
-    ]
-  },
-  "This is the full name you used on your citizenship application.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        200
-      ]
-    ]
-  },
-  "Paper file number": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        216
-      ]
-    ]
-  },
-  "This number is at the top of the email we sent you.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        227
+        71
       ]
     ]
   },
@@ -75,7 +19,87 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        238
+        73
+      ]
+    ]
+  },
+  "Explanation": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        75
+      ]
+    ]
+  },
+  "You need to tell us your name so we know who is requesting a new appointment.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        85
+      ]
+    ]
+  },
+  "You need to tell us your paper file number so we can confirm your identity.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        93
+      ]
+    ]
+  },
+  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        101
+      ]
+    ]
+  },
+  "Please tell us a bit more about why you need to reschedule your test.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        109
+      ]
+    ]
+  },
+  "Sorry, there was a problem with the information you submitted.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        153
+      ]
+    ]
+  },
+  "Full name": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        216
+      ]
+    ]
+  },
+  "This is the full name you used on your citizenship application.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        227
+      ]
+    ]
+  },
+  "Paper file number": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        243
+      ]
+    ]
+  },
+  "This number is at the top of the email we sent you.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        254
       ]
     ]
   },
@@ -83,7 +107,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        249
+        274
       ]
     ]
   },
@@ -91,7 +115,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        251
+        276
       ]
     ]
   },
@@ -99,7 +123,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        259
+        284
       ]
     ]
   },
@@ -107,7 +131,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        267
+        292
       ]
     ]
   },
@@ -115,7 +139,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        275
+        300
       ]
     ]
   },
@@ -123,7 +147,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        283
+        308
       ]
     ]
   },
@@ -131,7 +155,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        291
+        316
       ]
     ]
   },
@@ -139,7 +163,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        307
+        332
       ]
     ]
   },
@@ -147,7 +171,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        318
+        343
       ]
     ]
   },
@@ -155,7 +179,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        330
+        355
       ]
     ]
   }
