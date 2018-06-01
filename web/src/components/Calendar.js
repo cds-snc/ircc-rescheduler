@@ -23,10 +23,6 @@ const dayPickerDefault = css`
     margin-bottom: ${theme.spacing.xl};
     padding-bottom: 1rem;
     flex-direction: row;
-
-    ${mediaQuery.lg(css`
-      margin-bottom: ${theme.spacing.sm};
-    `)};
   }
 
   .DayPicker-Months {
@@ -337,6 +333,10 @@ const daySelection = css`
   ${mediaQuery.lg(css`
     margin-bottom: ${theme.spacing.xxl};
   `)};
+
+  h3 {
+    margin: 0rem;
+  }
 `
 
 const removeDateMobile = css`
