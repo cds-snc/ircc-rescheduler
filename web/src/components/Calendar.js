@@ -307,6 +307,10 @@ const dayBox = css`
     padding: ${theme.spacing.sm} 0;
     text-align: center;
 
+    ${mediaQuery.sm(css`
+      width: 13em;
+    `)};
+
     &.empty {
       background-color: ${theme.colour.greyLight};
       border: 2px solid ${theme.colour.greyLight};
