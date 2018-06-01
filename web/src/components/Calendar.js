@@ -287,6 +287,10 @@ const calendarContainer = css`
 
   #selectedDays {
     margin: 0rem 0rem;
+
+    li:nth-child(3) {
+      margin-bottom: 0rem;
+    }
   }
 `
 
