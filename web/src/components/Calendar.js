@@ -341,8 +341,7 @@ const daySelection = css`
   margin-bottom: ${theme.spacing.xxl};
 
   h3 {
-    margin-top: 0rem;
-    margin-bottom: ${theme.spacing.md};
+    margin: 0rem 0rem ${theme.spacing.lg} 0rem;
   }
 `
 

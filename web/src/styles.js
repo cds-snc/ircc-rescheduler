@@ -165,8 +165,7 @@ export const Content = styled.main`
     margin-bottom: ${theme.spacing.lg};
   }
 
-  h2,
-  h3 {
+  h2 {
     margin-top: ${theme.spacing.lg};
   }
 
