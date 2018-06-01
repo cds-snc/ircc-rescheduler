@@ -18,7 +18,7 @@ const TableContainer = styled.div`
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
-
+  position: relative;
   border-bottom: 1px solid ${theme.colour.greyLight};
   padding-top: ${theme.spacing.md};
   padding-bottom: ${theme.spacing.md};
@@ -33,39 +33,28 @@ const Row = styled.div`
 `
 
 const Column1 = styled.div`
-  width: 20%;
-
-  ${mediaQuery.lg(css`
-    width: 25%;
-  `)};
-
-  ${mediaQuery.sm(css`
-    width: 100%;
-  `)};
+  width: 100%;
 `
 
 const Column2 = styled.div`
-  width: 45%;
-
-  ${mediaQuery.lg(css`
-    width: 40%;
-  `)};
-
-  ${mediaQuery.md(css`
-    width: 33%;
-  `)};
+  width: 80%;
+  margin-top: ${theme.spacing.sm};
 
   ${mediaQuery.sm(css`
     width: 100%;
-    margin-bottom: ${theme.spacing.md};
   `)};
 `
 
 const Column3 = styled.div`
+  position: absolute;
+  bottom: ${theme.spacing.md};
+  right: 0;
   width: 6em;
   text-align: right;
 
   ${mediaQuery.sm(css`
+    position: static;
+    margin-top: ${theme.spacing.md};
     text-align: left;
   `)};
 `
@@ -93,8 +82,9 @@ const SummaryRow = ({ firstColumn, secondColumn, thirdColumn }) => (
   <Row>
     <Column1>
       <H2>{firstColumn}</H2>
+      <Column2>{secondColumn}</Column2>
     </Column1>
-    <Column2>{secondColumn}</Column2>
+
     <Column3>
       <NavLink to={thirdColumn}>
         <Trans>Change</Trans>

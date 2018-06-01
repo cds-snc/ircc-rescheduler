@@ -296,7 +296,7 @@ const dayBox = css`
 
   .day-box {
     font-size: ${theme.font.lg};
-    width: 12em;
+    width: 11em;
     display: inline-block;
     border: 2px solid ${theme.colour.grey};
     background-color: ${theme.colour.white};
@@ -330,9 +330,7 @@ const dayBox = css`
 `
 
 const daySelection = css`
-  ${mediaQuery.lg(css`
-    margin-bottom: ${theme.spacing.xxl};
-  `)};
+  margin-bottom: ${theme.spacing.xxl};
 
   h3 {
     margin: 0rem;
@@ -341,8 +339,8 @@ const daySelection = css`
 
 const removeDateMobile = css`
   display: none;
-  height: 3rem;
-  width: 3rem;
+  height: 2.5rem;
+  width: 2.5rem;
 
   ${mediaQuery.sm(css`
     display: block;
@@ -350,7 +348,7 @@ const removeDateMobile = css`
 `
 
 const removeDateDesktop = css`
-  display: block;
+  width: 7rem;
 
   ${mediaQuery.sm(css`
     display: none;
