@@ -286,7 +286,7 @@ const calendarContainer = css`
   `)};
 
   #selectedDays {
-    margin: ${theme.spacing.md} 0;
+    margin: 0rem 0rem;
   }
 `
 
@@ -333,7 +333,8 @@ const daySelection = css`
   margin-bottom: ${theme.spacing.xxl};
 
   h3 {
-    margin: 0rem;
+    margin-top: 0rem;
+    margin-bottom: ${theme.spacing.md};
   }
 `
 

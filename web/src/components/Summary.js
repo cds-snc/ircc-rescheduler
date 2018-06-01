@@ -32,11 +32,11 @@ const Row = styled.div`
   }
 `
 
-const Column1 = styled.div`
+const Column1A = styled.div`
   width: 100%;
 `
 
-const Column2 = styled.div`
+const Column1B = styled.div`
   width: 80%;
   margin-top: ${theme.spacing.sm};
 
@@ -45,7 +45,7 @@ const Column2 = styled.div`
   `)};
 `
 
-const Column3 = styled.div`
+const Column2 = styled.div`
   position: absolute;
   bottom: ${theme.spacing.md};
   right: 0;
@@ -78,24 +78,24 @@ SelectedDayList.propTypes = {
   selectedDays: PropTypes.array,
 }
 
-const SummaryRow = ({ firstColumn, secondColumn, thirdColumn }) => (
+const SummaryRow = ({ firstColumnA, firstColumnB, secondColumn }) => (
   <Row>
-    <Column1>
-      <H2>{firstColumn}</H2>
-      <Column2>{secondColumn}</Column2>
-    </Column1>
+    <Column1A>
+      <H2>{firstColumnA}</H2>
+      <Column1B>{firstColumnB}</Column1B>
+    </Column1A>
 
-    <Column3>
-      <NavLink to={thirdColumn}>
+    <Column2>
+      <NavLink to={secondColumn}>
         <Trans>Change</Trans>
       </NavLink>
-    </Column3>
+    </Column2>
   </Row>
 )
 SummaryRow.propTypes = {
-  firstColumn: PropTypes.object.isRequired,
-  secondColumn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  thirdColumn: PropTypes.string.isRequired,
+  firstColumnA: PropTypes.object.isRequired,
+  firstColumnB: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  secondColumn: PropTypes.string.isRequired,
 }
 
 const Summary = ({
@@ -107,29 +107,29 @@ const Summary = ({
 }) => (
   <TableContainer>
     <SummaryRow
-      firstColumn={<Trans>Full name</Trans>}
-      secondColumn={fullName}
-      thirdColumn={'/register'}
+      firstColumnA={<Trans>Full name</Trans>}
+      firstColumnB={fullName}
+      secondColumn={'/register'}
     />
     <SummaryRow
-      firstColumn={<Trans>Paper file number</Trans>}
-      secondColumn={paperFileNumber}
-      thirdColumn={'/register'}
+      firstColumnA={<Trans>Paper file number</Trans>}
+      firstColumnB={paperFileNumber}
+      secondColumn={'/register'}
     />
     <SummaryRow
-      firstColumn={<Trans>Reason</Trans>}
-      secondColumn={reason}
-      thirdColumn={'/register'}
+      firstColumnA={<Trans>Reason</Trans>}
+      firstColumnB={reason}
+      secondColumn={'/register'}
     />
     <SummaryRow
-      firstColumn={<Trans>Explanation</Trans>}
-      secondColumn={explanation}
-      thirdColumn={'/register'}
+      firstColumnA={<Trans>Explanation</Trans>}
+      firstColumnB={explanation}
+      secondColumn={'/register'}
     />
     <SummaryRow
-      firstColumn={<Trans>Availability</Trans>}
-      secondColumn={<SelectedDayList selectedDays={selectedDays} />}
-      thirdColumn={'/calendar'}
+      firstColumnA={<Trans>Availability</Trans>}
+      firstColumnB={<SelectedDayList selectedDays={selectedDays} />}
+      secondColumn={'/calendar'}
     />
   </TableContainer>
 )
