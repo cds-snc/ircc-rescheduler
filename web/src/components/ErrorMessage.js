@@ -31,7 +31,13 @@ const noErrorList = css`
 class ErrorList extends React.Component {
   render() {
     return (
-      <div className={this.props.message ? errorList : noErrorList}>
+      <div
+        className={
+          this.props.message && this.props.children.length
+            ? errorList
+            : noErrorList
+        }
+      >
         <h2>{this.props.message}</h2>
         {this.props.message ? (
           <div>
