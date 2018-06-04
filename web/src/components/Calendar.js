@@ -341,8 +341,7 @@ const daySelection = css`
   margin-bottom: ${theme.spacing.xxl};
 
   h3 {
-    margin-top: 0rem;
-    margin-bottom: ${theme.spacing.md};
+    margin: 0rem 0rem ${theme.spacing.lg} 0rem;
   }
 `
 
@@ -362,6 +361,9 @@ const removeDateDesktop = css`
   ${mediaQuery.sm(css`
     display: none;
   `)};
+`
+const selectedDaysError = css`
+  margin-bottom: ${theme.spacing.lg};
 `
 
 const renderDayBoxes = ({
@@ -459,9 +461,11 @@ class Calendar extends Component {
       if (selectedDays.length >= dayLimit) {
         await this.setState({
           errorMessage: (
-            <Trans>
-              You have already selected the maximum number of dates!
-            </Trans>
+            <div className={selectedDaysError}>
+              <Trans>
+                You have already selected the maximum number of dates!
+              </Trans>
+            </div>
           ),
         })
         this.errorContainer.focus()
