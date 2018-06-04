@@ -39,6 +39,8 @@ const Column1A = styled.div`
 const Column1B = styled.div`
   width: 80%;
   margin-top: ${theme.spacing.sm};
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 
   ${mediaQuery.sm(css`
     width: 100%;
