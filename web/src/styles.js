@@ -184,11 +184,6 @@ export const Calendar = styled.div`
   background: ${theme.colour.greyLight};
 `
 
-export const CalReminder = styled.div`
-  font-size: ${theme.font.lg};
-  padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
-`
-
 export const BottomContainer = styled.div`
   display: flex;
   flex-direction: row;

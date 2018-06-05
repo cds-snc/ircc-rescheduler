@@ -3,7 +3,14 @@ import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
 import styled, { css } from 'react-emotion'
-import { theme, BottomContainer, TopContainer, H1, H2 } from '../styles'
+import {
+  theme,
+  BottomContainer,
+  TopContainer,
+  H1,
+  H2,
+  mediaQuery,
+} from '../styles'
 import Layout from '../components/Layout'
 import Button from '../components/forms/Button'
 import { CalendarAdapter } from '../components/Calendar'
@@ -14,13 +21,14 @@ import gql from 'graphql-tag'
 import { GET_USER_DATA } from '../queries'
 import { makeGMTDate } from '../components/Time'
 import Reminder from '../components/Reminder'
+import { ErrorList } from '../components/ErrorMessage'
 
 const DAY_LIMIT = 3
 
-const errorClass = css`
-  display: block;
-  color: red;
-  margin-bottom: ${theme.spacing.sm};
+const contentClass = css`
+  h2 {
+    margin-top: 0rem;
+  }
 `
 
 const headerStyles = css`
@@ -41,6 +49,33 @@ const CalendarSubheader = styled(H2)`
   font-size: ${theme.font.lg};
   ${headerStyles};
 `
+
+const labelNames = id => {
+  switch (id) {
+    case 'calendar':
+      return <Trans>Calendar</Trans>
+    default:
+      return ''
+  }
+}
+
+const calMessage = css`
+  margin-top: ${theme.spacing.xxl};
+
+  ${mediaQuery.lg(css`
+    margin-top: 0rem;
+  `)};
+`
+
+const validate = values => {
+  const errors = {}
+  if (!values.calendar || values.calendar.length < DAY_LIMIT) {
+    errors.calendar = (
+      <Trans>You have already selected the maximum number of dates!</Trans>
+    )
+  }
+  return errors
+}
 
 class CalendarPage extends Component {
   constructor(props) {
@@ -72,12 +107,24 @@ class CalendarPage extends Component {
   }
 
   async onSubmit(values, event) {
+    const submitErrors = validate(values)
+
+    if (Object.keys(submitErrors).length) {
+      this.errorContainer.focus()
+      return {
+        [FORM_ERROR]: (
+          <Trans>
+            Sorry, there was a problem with the information you submitted.
+          </Trans>
+        ),
+      }
+    }
+
     if (!values.calendar || values.calendar.length < DAY_LIMIT) {
       return {
         [FORM_ERROR]: (
           <Trans>
-            Please select three (3) dates so we can schedule an appointment when
-            you are available.
+            Sorry, there was a problem with the information you submitted.
           </Trans>
         ),
       }
@@ -103,7 +150,7 @@ class CalendarPage extends Component {
 
   render() {
     return (
-      <Layout>
+      <Layout contentClass={contentClass}>
         <TopContainer>
           <nav>
             <NavLink to="/register">
@@ -139,20 +186,31 @@ class CalendarPage extends Component {
           }) => (
             <form onSubmit={handleSubmit}>
               <div>
-                {submitError ? (
-                  <span className={errorClass}>
-                    <strong>{submitError}</strong>
-                  </span>
-                ) : (
-                  ''
-                )}
+                <div
+                  id="submit-error"
+                  tabIndex="-1"
+                  ref={errorContainer => {
+                    this.errorContainer = errorContainer
+                  }}
+                >
+                  <ErrorList message={submitError || ''}>
+                    {Object.keys(validate(values)).map((formId, i) => (
+                      <a href={`#${formId}`} key={i}>
+                        {labelNames(formId) ? labelNames(formId) : formId}
+                        <br />
+                      </a>
+                    ))}
+                  </ErrorList>
+                </div>
                 <Field
                   name="calendar"
+                  id="calendar"
+                  tabIndex={-1}
                   component={CalendarAdapter}
                   dayLimit={DAY_LIMIT}
                 />
               </div>
-              <div>
+              <div className={calMessage}>
                 <Reminder>
                   <Trans>
                     Make sure you stay available on all of the days you select.
