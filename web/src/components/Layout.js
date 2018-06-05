@@ -8,6 +8,8 @@ import PageHeader from './PageHeader'
 import AlphaBanner from './AlphaBanner'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
+import { ErrorBoundary } from '@cdssnc/gcui'
+import ErrorPage from '../pages/ErrorPage'
 
 injectGlobal`
   html, body {
@@ -55,6 +57,14 @@ injectGlobal`
 
 const Layout = ({ children, contentClass = '' }) => (
   <div>
+    <ErrorBoundary
+      onError={(error, errorInfo) => {
+        window.Raven.captureException(error, {
+          extra: errorInfo,
+        })
+      }}
+      render={() => <ErrorPage />}
+    >
     <div role="banner">
       <AlphaBanner>
         <span>
@@ -66,10 +76,11 @@ const Layout = ({ children, contentClass = '' }) => (
         <Trans>Request a new Canadian Citizenship appointment</Trans>
       </PageHeader>
     </div>
-    <Content className={contentClass} role="main">
-      {children}
-    </Content>
+      <Content className={contentClass} role="main">
+        {children}
+      </Content>
     <Footer topBarBackground="black" />
+    </ErrorBoundary>
   </div>
 )
 Layout.propTypes = {
