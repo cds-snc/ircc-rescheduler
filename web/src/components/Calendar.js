@@ -325,7 +325,7 @@ const dayBox = css`
     font-size: ${theme.font.md};
     text-decoration: underline;
     color: ${theme.colour.link};
-    padding-left: ${theme.spacing.lg};
+    margin-left: ${theme.spacing.lg};
     background-color: transparent;
     border: 0;
     cursor: pointer;
