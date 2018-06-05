@@ -95,4 +95,16 @@ describe(`<ErrorList />`, () => {
     expect(wrapper.find('span').text()).toEqual('This is a span')
     expect(wrapper.props().className).not.toMatch(/^empty/)
   })
+
+  it('renders with NO message AND children', () => {
+    const wrapper = shallow(
+      <ErrorList>
+        <span>This is a span</span>
+      </ErrorList>,
+    )
+    expect(wrapper.find('h2').length).toBe(1)
+    expect(wrapper.find('h2').text()).toEqual('')
+    expect(wrapper.find('p').length).toBe(0)
+    expect(wrapper.props().className).toMatch(/^empty/)
+  })
 })
