@@ -7,6 +7,7 @@ import { css } from 'emotion'
 import Time, { makeGMTDate } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor } from '../styles'
+import Cancel from '../assets/cancel.svg'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -22,10 +23,6 @@ const dayPickerDefault = css`
     margin-bottom: ${theme.spacing.xl};
     padding-bottom: 1rem;
     flex-direction: row;
-
-    ${mediaQuery.lg(css`
-      margin-bottom: ${theme.spacing.sm};
-    `)};
   }
 
   .DayPicker-Months {
@@ -289,23 +286,30 @@ const calendarContainer = css`
   `)};
 
   #selectedDays {
-    margin: ${theme.spacing.md} 0;
+    margin: 0;
+
+    li:last-of-type {
+      margin-bottom: 0;
+    }
   }
 `
 
 const dayBox = css`
   margin-bottom: ${theme.spacing.md};
   display: flex;
-  justify-content: space-between;
 
   .day-box {
     font-size: ${theme.font.lg};
-    width: 12em;
+    width: 11em;
     display: inline-block;
     border: 2px solid ${theme.colour.grey};
     background-color: ${theme.colour.white};
     padding: ${theme.spacing.sm} 0;
     text-align: center;
+
+    ${mediaQuery.sm(css`
+      width: 13em;
+    `)};
 
     &.empty {
       background-color: ${theme.colour.greyLight};
@@ -321,6 +325,7 @@ const dayBox = css`
     font-size: ${theme.font.md};
     text-decoration: underline;
     color: ${theme.colour.link};
+    margin-left: ${theme.spacing.lg};
     background-color: transparent;
     border: 0;
     cursor: pointer;
@@ -333,9 +338,32 @@ const dayBox = css`
 `
 
 const daySelection = css`
-  ${mediaQuery.lg(css`
-    margin-bottom: ${theme.spacing.xxl};
+  margin-bottom: ${theme.spacing.xxl};
+
+  h3 {
+    margin: 0 0 ${theme.spacing.lg} 0;
+  }
+`
+
+const removeDateMobile = css`
+  display: none;
+  height: 2.5rem;
+  width: 2.5rem;
+
+  ${mediaQuery.sm(css`
+    display: block;
   `)};
+`
+
+const removeDateDesktop = css`
+  width: 7rem;
+
+  ${mediaQuery.sm(css`
+    display: none;
+  `)};
+`
+const selectedDaysError = css`
+  margin-bottom: ${theme.spacing.lg};
 `
 
 const renderDayBoxes = ({
@@ -357,7 +385,13 @@ const renderDayBoxes = ({
             onClick={removeDayOnClickOrKeyPress(selectedDay)}
             onKeyPress={removeDayOnClickOrKeyPress(selectedDay)}
           >
-            <Trans>Remove date</Trans>
+            <div className={removeDateDesktop}>
+              <Trans>Remove date</Trans>
+            </div>
+
+            <div className={removeDateMobile}>
+              <img src={Cancel} alt="Remove Date" />
+            </div>
           </button>
         </li>
       ) : (
@@ -479,6 +513,7 @@ class Calendar extends Component {
           <h3>Dates selected:</h3>
           <div
             tabIndex="-1"
+            className={selectedDaysError}
             ref={errorContainer => {
               this.errorContainer = errorContainer
             }}
