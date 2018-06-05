@@ -17,6 +17,7 @@ const errorList = css`
   p {
     font-size: ${theme.font.md};
     margin-bottom: ${theme.spacing.sm};
+    margin-top: ${theme.spacing.sm};
   }
 
   border: solid 2px red;

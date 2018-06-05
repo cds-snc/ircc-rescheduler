@@ -20,7 +20,6 @@ const dayPickerDefault = css`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    margin-bottom: ${theme.spacing.xl};
     padding-bottom: 1rem;
     flex-direction: row;
   }
@@ -340,6 +339,10 @@ const dayBox = css`
 const daySelection = css`
   margin-bottom: ${theme.spacing.xxl};
 
+  ${mediaQuery.lg(css`
+    margin-top: ${theme.spacing.xl};
+  `)};
+
   h3 {
     margin: 0 0 ${theme.spacing.lg} 0;
   }
@@ -364,6 +367,11 @@ const removeDateDesktop = css`
 `
 const selectedDaysError = css`
   margin-bottom: ${theme.spacing.lg};
+
+  &:focus {
+    outline-offset: 3px;
+    outline: 3px solid ${theme.colour.focus};
+  }
 `
 
 const renderDayBoxes = ({
@@ -491,6 +499,8 @@ class Calendar extends Component {
     let {
       input: { onBlur, onFocus, value },
       dayLimit,
+      id,
+      tabIndex,
     } = this.props
     value = value || []
     return (
@@ -508,10 +518,12 @@ class Calendar extends Component {
           selectedDays={value}
           onFocus={() => onFocus(value)}
           onBlur={() => onBlur(value)}
+          containerProps={{ id, tabIndex }}
         />
         <div className={daySelection}>
           <h3>Dates selected:</h3>
           <div
+            className={selectedDaysError}
             tabIndex="-1"
             className={selectedDaysError}
             ref={errorContainer => {
