@@ -60,13 +60,13 @@ describe('<Summary />', () => {
     const numOfSummaryRows = wrapper.children()
 
     expect(numOfSummaryRows.length).toBe(5)
-    expect(numOfSummaryRows.at(0).prop('firstColumnB')).toEqual('Test1')
-    expect(numOfSummaryRows.at(1).prop('firstColumnB')).toEqual('12346789')
-    expect(numOfSummaryRows.at(2).prop('firstColumnB').props.id).toEqual(
+    expect(numOfSummaryRows.at(0).prop('summaryBody')).toEqual('Test1')
+    expect(numOfSummaryRows.at(1).prop('summaryBody')).toEqual('12346789')
+    expect(numOfSummaryRows.at(2).prop('summaryBody').props.id).toEqual(
       'Travel',
     )
-    expect(numOfSummaryRows.at(3).prop('firstColumnB')).toEqual('feeling lazy')
-    expect(numOfSummaryRows.at(4).prop('firstColumnB')).toMatchObject(
+    expect(numOfSummaryRows.at(3).prop('summaryBody')).toEqual('feeling lazy')
+    expect(numOfSummaryRows.at(4).prop('summaryBody')).toMatchObject(
       <SelectedDayList selectedDays={selectedDays} />,
     )
   })
