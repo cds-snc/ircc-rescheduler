@@ -18,7 +18,7 @@ const TableContainer = styled.div`
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
-
+  position: relative;
   border-bottom: 1px solid ${theme.colour.greyLight};
   padding-top: ${theme.spacing.md};
   padding-bottom: ${theme.spacing.md};
@@ -32,40 +32,30 @@ const Row = styled.div`
   }
 `
 
-const Column1 = styled.div`
-  width: 20%;
+const SummaryHeader = styled.div`
+  width: 100%;
+`
 
-  ${mediaQuery.lg(css`
-    width: 25%;
-  `)};
+const SummaryBody = styled.div`
+  width: 80%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 
   ${mediaQuery.sm(css`
     width: 100%;
   `)};
 `
 
-const Column2 = styled.div`
-  width: 45%;
-
-  ${mediaQuery.lg(css`
-    width: 40%;
-  `)};
-
-  ${mediaQuery.md(css`
-    width: 33%;
-  `)};
-
-  ${mediaQuery.sm(css`
-    width: 100%;
-    margin-bottom: ${theme.spacing.md};
-  `)};
-`
-
-const Column3 = styled.div`
+const SummaryLink = styled.div`
+  position: absolute;
+  bottom: ${theme.spacing.md};
+  right: 0;
   width: 6em;
   text-align: right;
 
   ${mediaQuery.sm(css`
+    position: static;
+    margin-top: ${theme.spacing.md};
     text-align: left;
   `)};
 `
@@ -89,23 +79,24 @@ SelectedDayList.propTypes = {
   selectedDays: PropTypes.array,
 }
 
-const SummaryRow = ({ firstColumn, secondColumn, thirdColumn }) => (
+const SummaryRow = ({ summaryHeader, summaryBody, summaryLink }) => (
   <Row>
-    <Column1>
-      <H2>{firstColumn}</H2>
-    </Column1>
-    <Column2>{secondColumn}</Column2>
-    <Column3>
-      <NavLink to={thirdColumn}>
+    <SummaryHeader>
+      <H2>{summaryHeader}</H2>
+      <SummaryBody>{summaryBody}</SummaryBody>
+    </SummaryHeader>
+
+    <SummaryLink>
+      <NavLink to={summaryLink}>
         <Trans>Change</Trans>
       </NavLink>
-    </Column3>
+    </SummaryLink>
   </Row>
 )
 SummaryRow.propTypes = {
-  firstColumn: PropTypes.object.isRequired,
-  secondColumn: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  thirdColumn: PropTypes.string.isRequired,
+  summaryHeader: PropTypes.object.isRequired,
+  summaryBody: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  summaryLink: PropTypes.string.isRequired,
 }
 
 const Summary = ({
@@ -117,29 +108,29 @@ const Summary = ({
 }) => (
   <TableContainer>
     <SummaryRow
-      firstColumn={<Trans>Full name</Trans>}
-      secondColumn={fullName}
-      thirdColumn={'/register'}
+      summaryHeader={<Trans>Full name</Trans>}
+      summaryBody={fullName}
+      summaryLink={'/register'}
     />
     <SummaryRow
-      firstColumn={<Trans>Paper file number</Trans>}
-      secondColumn={paperFileNumber}
-      thirdColumn={'/register'}
+      summaryHeader={<Trans>Paper file number</Trans>}
+      summaryBody={paperFileNumber}
+      summaryLink={'/register'}
     />
     <SummaryRow
-      firstColumn={<Trans>Reason</Trans>}
-      secondColumn={reason}
-      thirdColumn={'/register'}
+      summaryHeader={<Trans>Reason</Trans>}
+      summaryBody={reason}
+      summaryLink={'/register'}
     />
     <SummaryRow
-      firstColumn={<Trans>Explanation</Trans>}
-      secondColumn={explanation}
-      thirdColumn={'/register'}
+      summaryHeader={<Trans>Explanation</Trans>}
+      summaryBody={explanation}
+      summaryLink={'/register'}
     />
     <SummaryRow
-      firstColumn={<Trans>Availability</Trans>}
-      secondColumn={<SelectedDayList selectedDays={selectedDays} />}
-      thirdColumn={'/calendar'}
+      summaryHeader={<Trans>Availability</Trans>}
+      summaryBody={<SelectedDayList selectedDays={selectedDays} />}
+      summaryLink={'/calendar'}
     />
   </TableContainer>
 )
