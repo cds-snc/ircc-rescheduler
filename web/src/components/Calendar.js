@@ -286,10 +286,10 @@ const calendarContainer = css`
   `)};
 
   #selectedDays {
-    margin: 0rem 0rem;
+    margin: 0;
 
-    li:nth-child(3) {
-      margin-bottom: 0rem;
+    li:last-of-type {
+      margin-bottom: 0;
     }
   }
 `
@@ -341,7 +341,7 @@ const daySelection = css`
   margin-bottom: ${theme.spacing.xxl};
 
   h3 {
-    margin: 0rem 0rem ${theme.spacing.lg} 0rem;
+    margin: 0 0 ${theme.spacing.lg} 0;
   }
 `
 
@@ -390,7 +390,7 @@ const renderDayBoxes = ({
             </div>
 
             <div className={removeDateMobile}>
-              <img src={Cancel} alt="Cancel Button" />
+              <img src={Cancel} alt="Remove Date" />
             </div>
           </button>
         </li>
@@ -461,11 +461,9 @@ class Calendar extends Component {
       if (selectedDays.length >= dayLimit) {
         await this.setState({
           errorMessage: (
-            <div className={selectedDaysError}>
-              <Trans>
-                You have already selected the maximum number of dates!
-              </Trans>
-            </div>
+            <Trans>
+              You have already selected the maximum number of dates!
+            </Trans>
           ),
         })
         this.errorContainer.focus()
@@ -515,6 +513,7 @@ class Calendar extends Component {
           <h3>Dates selected:</h3>
           <div
             tabIndex="-1"
+            className={selectedDaysError}
             ref={errorContainer => {
               this.errorContainer = errorContainer
             }}
