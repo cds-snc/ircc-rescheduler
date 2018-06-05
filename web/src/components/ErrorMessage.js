@@ -29,23 +29,31 @@ const noErrorList = css`
 `
 
 class ErrorList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.isEmpty = this.isEmpty.bind(this)
+  }
+
+  isEmpty() {
+    let children =
+      typeof this.props.children === 'object'
+        ? Object.keys(this.props.children)
+        : this.props.children
+
+    return !(this.props.message && children && children.length)
+  }
+
   render() {
     return (
-      <div
-        className={
-          this.props.message && this.props.children.length
-            ? errorList
-            : noErrorList
-        }
-      >
+      <div className={this.isEmpty() ? `empty ${noErrorList}` : errorList}>
         <h2>{this.props.message}</h2>
-        {this.props.message ? (
+        {this.isEmpty() ? (
+          ''
+        ) : (
           <div>
             <p>Please take another look at the:</p>
             {this.props.children}
           </div>
-        ) : (
-          ''
         )}
       </div>
     )
@@ -55,7 +63,7 @@ class ErrorList extends React.Component {
 ErrorList.propTypes = {
   message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   id: PropTypes.string,
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
 }
 
 class ValidationMessage extends React.Component {
