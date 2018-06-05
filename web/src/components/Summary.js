@@ -32,13 +32,12 @@ const Row = styled.div`
   }
 `
 
-const Column1A = styled.div`
+const SummaryHeader = styled.div`
   width: 100%;
 `
 
-const Column1B = styled.div`
+const SummaryBody = styled.div`
   width: 80%;
-  margin-top: ${theme.spacing.sm};
   overflow-wrap: break-word;
   word-wrap: break-word;
 
@@ -47,7 +46,7 @@ const Column1B = styled.div`
   `)};
 `
 
-const Column2 = styled.div`
+const SummaryLink = styled.div`
   position: absolute;
   bottom: ${theme.spacing.md};
   right: 0;
@@ -80,24 +79,24 @@ SelectedDayList.propTypes = {
   selectedDays: PropTypes.array,
 }
 
-const SummaryRow = ({ firstColumnA, firstColumnB, secondColumn }) => (
+const SummaryRow = ({ summaryHeader, summaryBody, summaryLink }) => (
   <Row>
-    <Column1A>
-      <H2>{firstColumnA}</H2>
-      <Column1B>{firstColumnB}</Column1B>
-    </Column1A>
+    <SummaryHeader>
+      <H2>{summaryHeader}</H2>
+      <SummaryBody>{summaryBody}</SummaryBody>
+    </SummaryHeader>
 
-    <Column2>
-      <NavLink to={secondColumn}>
+    <SummaryLink>
+      <NavLink to={summaryLink}>
         <Trans>Change</Trans>
       </NavLink>
-    </Column2>
+    </SummaryLink>
   </Row>
 )
 SummaryRow.propTypes = {
-  firstColumnA: PropTypes.object.isRequired,
-  firstColumnB: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  secondColumn: PropTypes.string.isRequired,
+  summaryHeader: PropTypes.object.isRequired,
+  summaryBody: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  summaryLink: PropTypes.string.isRequired,
 }
 
 const Summary = ({
@@ -109,29 +108,29 @@ const Summary = ({
 }) => (
   <TableContainer>
     <SummaryRow
-      firstColumnA={<Trans>Full name</Trans>}
-      firstColumnB={fullName}
-      secondColumn={'/register'}
+      summaryHeader={<Trans>Full name</Trans>}
+      summaryBody={fullName}
+      summaryLink={'/register'}
     />
     <SummaryRow
-      firstColumnA={<Trans>Paper file number</Trans>}
-      firstColumnB={paperFileNumber}
-      secondColumn={'/register'}
+      summaryHeader={<Trans>Paper file number</Trans>}
+      summaryBody={paperFileNumber}
+      summaryLink={'/register'}
     />
     <SummaryRow
-      firstColumnA={<Trans>Reason</Trans>}
-      firstColumnB={reason}
-      secondColumn={'/register'}
+      summaryHeader={<Trans>Reason</Trans>}
+      summaryBody={reason}
+      summaryLink={'/register'}
     />
     <SummaryRow
-      firstColumnA={<Trans>Explanation</Trans>}
-      firstColumnB={explanation}
-      secondColumn={'/register'}
+      summaryHeader={<Trans>Explanation</Trans>}
+      summaryBody={explanation}
+      summaryLink={'/register'}
     />
     <SummaryRow
-      firstColumnA={<Trans>Availability</Trans>}
-      firstColumnB={<SelectedDayList selectedDays={selectedDays} />}
-      secondColumn={'/calendar'}
+      summaryHeader={<Trans>Availability</Trans>}
+      summaryBody={<SelectedDayList selectedDays={selectedDays} />}
+      summaryLink={'/calendar'}
     />
   </TableContainer>
 )
