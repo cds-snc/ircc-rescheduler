@@ -7,6 +7,6 @@ describe('<ErrorPage />', () => {
     const wrapper = shallow(<ErrorPage />)
     // have to use mount so that we don't get <withI18N />
     const header = mount(wrapper.props().children[0])
-    expect(header.text()).toEqual('Request failed')
+    expect(header.text()).toEqual("We're sorry, something went wrong.")
   })
 })
