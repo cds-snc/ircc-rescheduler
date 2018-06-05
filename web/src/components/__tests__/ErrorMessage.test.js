@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import ErrorMessage, { ValidationMessage } from '../ErrorMessage'
+import ErrorMessage, { ValidationMessage, ErrorList } from '../ErrorMessage'
 
 const messages = [
   {
@@ -63,5 +63,36 @@ messages.map(({ component, alert, toString }) => {
         expect(wrapper.props()).not.toHaveProperty('aria-live')
       }
     })
+  })
+})
+
+describe(`<ErrorList />`, () => {
+  it('renders without a message or children', () => {
+    const wrapper = shallow(<ErrorList />)
+    expect(wrapper.find('div').length).toBe(1)
+    expect(wrapper.find('h2').text()).toEqual('')
+    expect(wrapper.props().className).toMatch(/^empty/)
+  })
+
+  it('renders with a message but NO children', () => {
+    const wrapper = shallow(<ErrorList message="This is a message" />)
+    expect(wrapper.find('h2').length).toBe(1)
+    expect(wrapper.find('h2').text()).toEqual('This is a message')
+    expect(wrapper.find('p').length).toBe(0)
+    expect(wrapper.props().className).toMatch(/^empty/)
+  })
+
+  it('renders with a message AND children', () => {
+    const wrapper = shallow(
+      <ErrorList message="This is a message">
+        <span>This is a span</span>
+      </ErrorList>,
+    )
+    expect(wrapper.find('h2').length).toBe(1)
+    expect(wrapper.find('h2').text()).toEqual('This is a message')
+    expect(wrapper.find('p').length).toBe(1)
+    expect(wrapper.find('p').text()).toEqual('Please take another look at the:')
+    expect(wrapper.find('span').text()).toEqual('This is a span')
+    expect(wrapper.props().className).not.toMatch(/^empty/)
   })
 })
