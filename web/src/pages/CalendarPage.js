@@ -9,7 +9,7 @@ import {
   TopContainer,
   H1,
   H2,
-  mediaQuery,
+  focusRing,
 } from '../styles'
 import Layout from '../components/Layout'
 import Button from '../components/forms/Button'
@@ -59,14 +59,6 @@ const labelNames = id => {
   }
 }
 
-const calMessage = css`
-  margin-top: ${theme.spacing.xxl};
-
-  ${mediaQuery.lg(css`
-    margin-top: 0rem;
-  `)};
-`
-
 const validate = values => {
   const errors = {}
   if (!values.calendar || values.calendar.length < DAY_LIMIT) {
@@ -111,16 +103,6 @@ class CalendarPage extends Component {
 
     if (Object.keys(submitErrors).length) {
       this.errorContainer.focus()
-      return {
-        [FORM_ERROR]: (
-          <Trans>
-            Sorry, there was a problem with the information you submitted.
-          </Trans>
-        ),
-      }
-    }
-
-    if (!values.calendar || values.calendar.length < DAY_LIMIT) {
       return {
         [FORM_ERROR]: (
           <Trans>
@@ -189,6 +171,7 @@ class CalendarPage extends Component {
                 <div
                   id="submit-error"
                   tabIndex="-1"
+                  className={focusRing}
                   ref={errorContainer => {
                     this.errorContainer = errorContainer
                   }}
@@ -210,7 +193,7 @@ class CalendarPage extends Component {
                   dayLimit={DAY_LIMIT}
                 />
               </div>
-              <div className={calMessage}>
+              <div>
                 <Reminder>
                   <Trans>
                     Make sure you stay available on all of the days you select.

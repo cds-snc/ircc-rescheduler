@@ -104,6 +104,12 @@ export const roundedEdges = css`
   border-radius: 2px;
 `
 
+export const focusRing = css`
+  &:focus{
+    outline: 3px solid ${theme.colour.focus};
+  }
+`
+
 /*
  * Hide only visually, but have it
  * available for screenreaders
