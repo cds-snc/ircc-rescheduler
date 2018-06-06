@@ -4,7 +4,7 @@ import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import { theme, mediaQuery, Content } from '../styles'
-import { PhaseBanner } from '@cdssnc/gcui'
+import AlphaBanner from './AlphaBanner'
 import PageHeader from './PageHeader'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
@@ -66,9 +66,9 @@ const Layout = ({ children, contentClass = '' }) => (
       render={() => <ErrorPage />}
     >
     <div role="banner">
-      <PhaseBanner alpha>
+      <AlphaBanner alpha>
         <Trans>This is a new service we are constantly improving.</Trans>
-      </PhaseBanner>
+      </AlphaBanner>
       <FederalBanner />
       <PageHeader>
         <Trans>Request a new Canadian Citizenship appointment</Trans>
