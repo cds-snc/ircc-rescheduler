@@ -32,7 +32,7 @@ export const incrementColor = (col, amt) => {
 
 export const breakpoints = {
   xs: 481,
-  sm: 576,
+  sm: 578,
   md: 764,
   base: 764,
   lg: 992,
