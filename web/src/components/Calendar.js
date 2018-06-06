@@ -6,7 +6,7 @@ import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
 import Time, { makeGMTDate } from './Time'
 import ErrorMessage from './ErrorMessage'
-import { theme, mediaQuery, incrementColor } from '../styles'
+import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
 
 const dayPickerDefault = css`
@@ -172,6 +172,9 @@ const dayPickerDefault = css`
 `
 
 const dayPicker = css`
+  ${focusRing};
+  margin-bottom: ${theme.spacing.xl};
+
   .DayPicker-wrapper {
     background-color: white;
     font-size: ${theme.font.lg};
@@ -337,11 +340,7 @@ const dayBox = css`
 `
 
 const daySelection = css`
-  margin-bottom: ${theme.spacing.xxl};
-
-  ${mediaQuery.lg(css`
-    margin-top: ${theme.spacing.xl};
-  `)};
+  margin-bottom: ${theme.spacing.xl};
 
   h3 {
     margin: 0 0 ${theme.spacing.lg} 0;
@@ -525,7 +524,6 @@ class Calendar extends Component {
           <div
             className={selectedDaysError}
             tabIndex="-1"
-            className={selectedDaysError}
             ref={errorContainer => {
               this.errorContainer = errorContainer
             }}
