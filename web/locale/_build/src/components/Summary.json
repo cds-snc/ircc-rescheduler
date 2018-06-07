@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        84
+        74
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        100
+        91
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        120
+        111
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        125
+        116
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        130
+        121
       ]
     ]
   },
@@ -43,7 +43,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        135
+        126
       ]
     ]
   },
@@ -51,7 +51,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        140
+        131
       ]
     ]
   }
