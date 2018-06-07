@@ -9,7 +9,6 @@ const imBanner = css`
   color: ${theme.colour.black};
   display: inline-flex;
   align-items: center;
-  margin-top: 0rem;
   margin-bottom: ${theme.spacing.xxl};
   padding: ${theme.spacing.lg} ${theme.spacing.xl} ${theme.spacing.lg}
     ${theme.spacing.xl};
