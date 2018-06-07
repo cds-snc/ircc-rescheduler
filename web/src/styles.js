@@ -104,6 +104,12 @@ export const roundedEdges = css`
   border-radius: 2px;
 `
 
+export const focusRing = css`
+  &:focus{
+    outline: 3px solid ${theme.colour.focus};
+  }
+`
+
 /*
  * Hide only visually, but have it
  * available for screenreaders
@@ -182,11 +188,6 @@ export const Calendar = styled.div`
   height: 30em;
   width: 60em;
   background: ${theme.colour.greyLight};
-`
-
-export const CalReminder = styled.div`
-  font-size: ${theme.font.lg};
-  padding: ${theme.spacing.xl} 0 ${theme.spacing.lg} 0;
 `
 
 export const BottomContainer = styled.div`
