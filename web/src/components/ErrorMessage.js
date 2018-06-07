@@ -20,6 +20,7 @@ const errorList = css`
   }
 
   h2 {
+    margin-top: 0 !important;
     margin-bottom: ${theme.spacing.sm};
   }
 
