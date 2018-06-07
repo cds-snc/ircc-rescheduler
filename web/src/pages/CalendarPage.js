@@ -25,12 +25,6 @@ import { ErrorList } from '../components/ErrorMessage'
 
 const DAY_LIMIT = 3
 
-const contentClass = css`
-  h2 {
-    margin-top: 0rem;
-  }
-`
-
 const headerStyles = css`
   font-weight: 400;
   margin-bottom: ${theme.spacing.xl};
@@ -132,7 +126,7 @@ class CalendarPage extends Component {
 
   render() {
     return (
-      <Layout contentClass={contentClass}>
+      <Layout>
         <TopContainer>
           <nav>
             <NavLink to="/register">
