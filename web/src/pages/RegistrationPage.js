@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
-import { theme, visuallyhidden, mediaQuery } from '../styles'
+import { theme, visuallyhidden, mediaQuery, focusRing } from '../styles'
 import Layout from '../components/Layout'
 import {
   TextFieldAdapter,
@@ -56,6 +56,8 @@ const contentClass = css`
 
 const forNowSubmitErrorStyles = css`
   margin-bottom: 0 !important;
+
+  ${focusRing};
 
   > span:not(.empty) {
     margin-bottom: ${theme.spacing.lg};

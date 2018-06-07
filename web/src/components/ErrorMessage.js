@@ -19,6 +19,11 @@ const errorList = css`
     margin-bottom: ${theme.spacing.sm};
   }
 
+  h2 {
+    margin-top: 0 !important;
+    margin-bottom: ${theme.spacing.sm};
+  }
+
   border: solid 2px red;
   padding: ${theme.spacing.lg};
   margin-bottom: ${theme.spacing.xl};
@@ -46,11 +51,11 @@ class ErrorList extends React.Component {
   render() {
     return (
       <div className={this.isEmpty() ? `empty ${noErrorList}` : errorList}>
-        <h2>{this.props.message}</h2>
         {this.isEmpty() ? (
           ''
         ) : (
           <div>
+            <h2>{this.props.message}</h2>
             <p>Please take another look at the:</p>
             {this.props.children}
           </div>
