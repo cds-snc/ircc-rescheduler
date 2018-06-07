@@ -10,6 +10,7 @@ import FederalBanner from './FederalBanner'
 import Footer from './Footer'
 import { ErrorBoundary } from '@cdssnc/gcui'
 import ErrorPage from '../pages/ErrorPage'
+import { initGA, logPageView } from '../utils/analytics'
 
 injectGlobal`
   html, body {
@@ -55,32 +56,47 @@ injectGlobal`
   }
 `
 
-const Layout = ({ children, contentClass = '' }) => (
-  <div>
-    <ErrorBoundary
-      onError={(error, errorInfo) => {
-        window.Raven.captureException(error, {
-          extra: errorInfo,
-        })
-      }}
-      render={() => <ErrorPage />}
-    >
-    <div role="banner">
-      <AlphaBanner alpha>
-        <Trans>This is a new service we are constantly improving.</Trans>
-      </AlphaBanner>
-      <FederalBanner />
-      <PageHeader>
-        <Trans>Request a new Canadian Citizenship appointment</Trans>
-      </PageHeader>
-    </div>
-      <Content className={contentClass} role="main">
-        {children}
-      </Content>
-    <Footer topBarBackground="black" />
-    </ErrorBoundary>
-  </div>
-)
+class Layout extends React.Component {
+  componentDidMount() {
+    if (process.env.NODE_ENV === 'production' && process.env.RAZZLE_GA_ID) {
+      if (!window.GA_INITIALIZED) {
+        initGA(process.env.RAZZLE_GA_ID)
+        window.GA_INITIALIZED = true
+      }
+      logPageView()
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <ErrorBoundary
+          onError={(error, errorInfo) => {
+            window.Raven.captureException(error, {
+              extra: errorInfo,
+            })
+          }}
+          render={() => <ErrorPage />}
+        >
+          <div role="banner">
+            <AlphaBanner alpha>
+              <Trans>This is a new service we are constantly improving.</Trans>
+            </AlphaBanner>
+            <FederalBanner />
+            <PageHeader>
+              <Trans>Request a new Canadian Citizenship appointment</Trans>
+            </PageHeader>
+          </div>
+          <Content className={this.props.contentClass || ''} role="main">
+            {this.props.children}
+          </Content>
+          <Footer topBarBackground="black" />
+        </ErrorBoundary>
+      </div>
+    )
+  }
+}
+
 Layout.propTypes = {
   children: PropTypes.any.isRequired,
   contentClass: PropTypes.string,
