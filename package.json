@@ -1,0 +1,14 @@
+{
+  "name": "ircc-rescheduler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/cds-snc/ircc-rescheduler.git",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=production forever start web/build/server.js && cd api && forever start index.js",
+    "stop": "forever stopall"
+  },
+  "dependencies": {
+    "forever": "^0.15.3"
+  }
+}
