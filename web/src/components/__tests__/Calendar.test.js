@@ -81,6 +81,26 @@ describe('<CalendarAdapter />', () => {
     expect(getDateStrings(wrapper)).toEqual('Fri, 01 Jun 2018')
   })
 
+  it('orders selected dates chronologically', () => {
+    const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
+    expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
+
+    // click June 8th, 2018
+    clickDate(wrapper, 2)
+    expect(getDateStrings(wrapper)).toEqual('Fri, 08 Jun 2018')
+
+    // click June 5th, 2018
+    clickDate(wrapper, 1)
+    expect(getDateStrings(wrapper)).toEqual('Tue, 05 Jun 2018 Fri, 08 Jun 2018')
+
+    // click June 1st, 2018
+    clickDate(wrapper, 0)
+
+    expect(getDateStrings(wrapper)).toEqual(
+      'Fri, 01 Jun 2018 Tue, 05 Jun 2018 Fri, 08 Jun 2018',
+    )
+  })
+
   it('unselects a date when it is clicked twice', () => {
     const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
 
@@ -172,7 +192,7 @@ describe('<CalendarAdapter />', () => {
     // click the first available day (June 1st, 2018)
     clickFirstDate(wrapper)
     expect(getDateStrings(wrapper)).toEqual(
-      'Tue, 05 Jun 2018 Fri, 08 Jun 2018 Fri, 01 Jun 2018',
+      'Fri, 01 Jun 2018 Tue, 05 Jun 2018 Fri, 08 Jun 2018',
     )
   })
 
