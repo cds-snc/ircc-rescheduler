@@ -5,7 +5,11 @@
   "repository": "https://github.com/cds-snc/ircc-rescheduler.git",
   "license": "MIT",
   "scripts": {
-    "start": "cd web && yarn build && cd .. && NODE_ENV=production forever start web/build/server.js && cd api && forever start index.js",
+    "build-web": "cd web && yarn && yarn build",
+    "build-api": "cd api && yarn",
+    "start-web": "NODE_ENV=production forever start web/build/server.js",
+    "start-api": "cd api && forever start index.js",
+    "start": "yarn stop && yarn build-web && yarn build-api && yarn start-web && yarn start-api",
     "stop": "forever stopall"
   },
   "dependencies": {
