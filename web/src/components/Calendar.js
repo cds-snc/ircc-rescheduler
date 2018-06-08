@@ -373,14 +373,22 @@ const selectedDaysError = css`
   }
 `
 
+const sortSelectedDays = selectedDays => {
+  // create a new array because .sort() modifies our original array
+  let temp = selectedDays.slice()
+  temp.sort((date1, date2) => date1.getTime() - date2.getTime())
+  return temp
+}
+
 const renderDayBoxes = ({
   dayLimit,
   selectedDays,
   removeDayOnClickOrKeyPress,
 }) => {
   let dayBoxes = []
+  let selectedDaysSorted = sortSelectedDays(selectedDays)
   for (let i = 0; i < dayLimit; i++) {
-    let selectedDay = selectedDays[i] // eslint-disable-line security/detect-object-injection
+    let selectedDay = selectedDaysSorted[i] // eslint-disable-line security/detect-object-injection
     dayBoxes.push(
       selectedDay ? (
         <li key={i} className={dayBox}>
