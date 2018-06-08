@@ -1,0 +1,21 @@
+version: 1
+task_definition:
+  task_execution_role: arn:aws:iam::241785157803:role/ecs_task_execution_role-ircc-rescheduler
+  task_role_arn: arn:aws:iam::241785157803:role/ecs_task_execution_role-ircc-rescheduler
+  ecs_network_mode: awsvpc
+  task_size:
+    mem_limit: 0.5GB
+    cpu_limit: 256
+  launch-type: FARGATE
+  services:
+    ircc:
+     essential: true
+run_params:
+  network_configuration:
+    awsvpc_configuration:
+      subnets:
+        - "subnet-1000f777"
+        - "subnet-40e8f31d"
+      security_groups:
+        - "sg-cc9ed885"
+      assign_public_ip: ENABLED
