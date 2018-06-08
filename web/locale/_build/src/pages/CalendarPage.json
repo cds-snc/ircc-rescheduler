@@ -1,9 +1,25 @@
 {
-  "Please select three (3) dates so we can schedule an appointment when you are available.": {
+  "Calendar": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        78
+        50
+      ]
+    ]
+  },
+  "You have already selected the maximum number of dates!": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        60
+      ]
+    ]
+  },
+  "Sorry, there was a problem with the information you submitted.": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        102
       ]
     ]
   },
@@ -11,7 +27,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        110
+        133
       ]
     ]
   },
@@ -19,7 +35,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        116
+        139
       ]
     ]
   },
@@ -27,7 +43,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        122
+        145
       ]
     ]
   },
@@ -35,7 +51,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        157
+        192
       ]
     ]
   },
@@ -43,7 +59,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        164
+        199
       ]
     ]
   },
@@ -51,7 +67,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        169
+        204
       ]
     ]
   }
