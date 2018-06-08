@@ -91,7 +91,7 @@ describe(`<ErrorList />`, () => {
     expect(wrapper.find('h2').text()).toEqual('This is a message')
     expect(wrapper.find('p').length).toBe(1)
     expect(wrapper.find('p').text()).toEqual('Please take another look at the:')
-    expect(wrapper.find('span').text()).toEqual('This is a span')
+    expect(wrapper.find('ul > li > span').text()).toEqual('This is a span')
     expect(wrapper.props().className).not.toMatch(/^empty/)
   })
 

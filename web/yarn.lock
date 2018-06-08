@@ -6783,7 +6783,7 @@ razzle-dev-utils@^2.0.0-alpha.12:
     sockjs-client "1.1.4"
     strip-ansi "4.0.0"
 
-razzle@^2.0.0-alpha.12:
+razzle@2.0.0-alpha.12:
   version "2.0.0-alpha.12"
   resolved "https://registry.yarnpkg.com/razzle/-/razzle-2.0.0-alpha.12.tgz#de72f0c5b3108ecae9fe82918ada3c85bdcf4237"
   dependencies:
