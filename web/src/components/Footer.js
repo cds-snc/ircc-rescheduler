@@ -19,7 +19,6 @@ const footer = css`
   padding: ${theme.spacing.xl} ${theme.spacing.xxxl};
   display: flex;
   justify-content: space-between;
-  flex-direction: row-reverse;
   position: relative;
   font-size: ${theme.font.md};
 
@@ -40,12 +39,11 @@ const footer = css`
 
   ${mediaQuery.md(css`
     align-items: center;
-    flex-direction: row;
     padding: ${theme.spacing.xl} ${theme.spacing.xxxl};
   `)};
 
   ${mediaQuery.sm(css`
-    padding: ${theme.spacing.xl} ${theme.spacing.xl};
+    padding: ${theme.spacing.lg} ${theme.spacing.xl};
   `)};
 `
 
@@ -74,19 +72,17 @@ const bottomLinks = css`
   ${mediaQuery.md(css`
     display: flex;
     margin-top: ${theme.spacing.sm};
-    font-size: ${theme.font.sm};
-    flex-direction: row;
-    align-items: center;
   `)};
 
   ${mediaQuery.sm(css`
     margin-top: ${theme.spacing.md};
+    font-size: ${theme.font.sm};
   `)};
 `
 const terms = css`
   span::after {
     content: "Terms and Conditions";
-    ${mediaQuery.xs(css`
+    ${mediaQuery.md(css`
       content: "Terms";
     `)};
   }
