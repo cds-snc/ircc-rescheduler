@@ -105,7 +105,7 @@ export const roundedEdges = css`
 `
 
 export const focusRing = css`
-  &:focus{
+  &:focus {
     outline: 3px solid ${theme.colour.focus};
   }
 `
@@ -123,6 +123,12 @@ export const visuallyhidden = css`
   padding: 0;
   position: absolute;
   width: 1px;
+`
+
+export const visuallyhiddenMobile = css`
+  ${mediaQuery.sm(css`
+    ${visuallyhidden};
+  `)};
 `
 
 /* eslint-enable security/detect-object-injection */

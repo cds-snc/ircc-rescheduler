@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { WordMark } from '@cdssnc/gcui'
 import styled, { css } from 'react-emotion'
-import { theme, mediaQuery } from '../styles'
+import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
 
 const Circle = styled.span`
   font-size: 0.5em;
@@ -72,20 +72,12 @@ const bottomLinks = css`
   ${mediaQuery.md(css`
     display: flex;
     margin-top: ${theme.spacing.sm};
+    font-size: ${theme.font.sm};
   `)};
 
   ${mediaQuery.sm(css`
     margin-top: ${theme.spacing.md};
-    font-size: ${theme.font.sm};
   `)};
-`
-const terms = css`
-  span::after {
-    content: "Terms and Conditions";
-    ${mediaQuery.md(css`
-      content: "Terms";
-    `)};
-  }
 `
 
 const TopBar = styled.hr(
@@ -115,8 +107,8 @@ const Footer = ({ topBarBackground }) => (
         <Circle>&#9679;</Circle>
         <a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a>
         <Circle>&#9679;</Circle>
-        <a className={terms} href="https://digital.canada.ca/legal/terms/">
-          <span className={terms}></span>
+        <a href="https://digital.canada.ca/legal/terms/">
+          Terms<span className={visuallyhiddenMobile}> and Conditions</span>
         </a>
       </div>
     </footer>
