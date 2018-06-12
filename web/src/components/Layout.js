@@ -83,7 +83,7 @@ class Layout extends React.Component {
               <Trans>This is a new service we are constantly improving.</Trans>
             </AlphaBanner>
             <FederalBanner />
-            <PageHeader>
+            <PageHeader headerClass={this.props.headerClass}>
               <Trans>Request a new Canadian Citizenship appointment</Trans>
             </PageHeader>
           </div>
@@ -100,6 +100,7 @@ class Layout extends React.Component {
 Layout.propTypes = {
   children: PropTypes.any.isRequired,
   contentClass: PropTypes.string,
+  headerClass: PropTypes.string,
 }
 
 export default Layout

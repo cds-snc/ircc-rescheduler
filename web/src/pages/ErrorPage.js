@@ -1,14 +1,14 @@
 import React from 'react'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
-import { H1 } from '../styles'
+import { H1, visuallyhiddenMobile } from '../styles'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
 
 class ErrorPage extends React.Component {
   render() {
     return (
-      <Layout>
+      <Layout headerClass={visuallyhiddenMobile}>
         <H1>
           <Trans>We&apos;re sorry, something went wrong.</Trans>
         </H1>
