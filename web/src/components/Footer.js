@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { WordMark } from '@cdssnc/gcui'
 import styled, { css } from 'react-emotion'
-import { theme, mediaQuery } from '../styles'
+import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
 
 const Circle = styled.span`
   font-size: 0.5em;
@@ -19,7 +19,6 @@ const footer = css`
   padding: ${theme.spacing.xl} ${theme.spacing.xxxl};
   display: flex;
   justify-content: space-between;
-  flex-direction: row-reverse;
   position: relative;
   font-size: ${theme.font.md};
 
@@ -27,15 +26,24 @@ const footer = css`
     width: 150px;
     height: 40px;
 
+    ${mediaQuery.md(css`
+      width: 85px;
+      height: 25px;
+    `)};
+
     ${mediaQuery.sm(css`
-      width: 140px;
-      height: 36px;
+      width: 65px;
+      height: 18px;
     `)};
   }
 
   ${mediaQuery.md(css`
-    flex-direction: column;
     align-items: center;
+    padding: ${theme.spacing.xl} ${theme.spacing.xxxl};
+  `)};
+
+  ${mediaQuery.sm(css`
+    padding: ${theme.spacing.lg} ${theme.spacing.xl};
   `)};
 `
 
@@ -47,8 +55,12 @@ const bottomLinks = css`
   > * {
     margin-right: ${theme.spacing.md};
 
-    ${mediaQuery.sm(css`
+    ${mediaQuery.md(css`
       margin-right: 0;
+      margin-left: ${theme.spacing.md};
+    `)};
+
+    ${mediaQuery.sm(css`
       margin-bottom: ${theme.spacing.xs};
     `)};
   }
@@ -59,14 +71,12 @@ const bottomLinks = css`
 
   ${mediaQuery.md(css`
     display: flex;
-    margin-top: ${theme.spacing.xl};
-    flex-direction: row;
-    align-items: center;
+    margin-top: ${theme.spacing.sm};
+    font-size: ${theme.font.sm};
   `)};
 
   ${mediaQuery.sm(css`
-    margin-top: ${theme.spacing.lg};
-    flex-direction: column;
+    margin-top: ${theme.spacing.md};
   `)};
 `
 
@@ -93,12 +103,12 @@ const Footer = ({ topBarBackground }) => (
       </div>
 
       <div className={bottomLinks}>
-        <a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a>
-        <Circle>&#9679;</Circle>
         <a href="mailto:cds-snc@tbs-sct.gc.ca">Contact</a>
         <Circle>&#9679;</Circle>
+        <a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a>
+        <Circle>&#9679;</Circle>
         <a href="https://digital.canada.ca/legal/terms/">
-          Terms and Conditions
+          Terms<span className={visuallyhiddenMobile}> and Conditions</span>
         </a>
       </div>
     </footer>
