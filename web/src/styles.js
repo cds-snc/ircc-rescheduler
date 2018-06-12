@@ -117,12 +117,13 @@ export const focusRing = css`
 export const visuallyhidden = css`
   border: 0;
   clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
+  height: auto;
+  margin: 0;
   overflow: hidden;
   padding: 0;
   position: absolute;
   width: 1px;
+  white-space: nowrap;
 `
 
 export const visuallyhiddenMobile = css`
