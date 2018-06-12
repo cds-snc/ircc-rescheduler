@@ -1,5 +1,5 @@
 import React from 'react'
-import { H1, H2 } from '../styles'
+import { H1, H2, visuallyhiddenMobile } from '../styles'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
@@ -7,7 +7,7 @@ import Contact from '../components/Contact'
 class ConfirmationPage extends React.Component {
   render() {
     return (
-      <Layout>
+      <Layout headerClass={visuallyhiddenMobile}>
         <section>
           <H1>
             <Trans>Thank you! Your request has been received.</Trans>
