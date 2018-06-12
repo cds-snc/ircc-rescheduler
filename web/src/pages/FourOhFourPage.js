@@ -2,7 +2,7 @@ import React from 'react'
 import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
-import { H1, H2, theme } from '../styles'
+import { H1, H2, theme, visuallyhiddenMobile } from '../styles'
 import Layout from '../components/Layout'
 
 const contentClass = css`
@@ -14,7 +14,7 @@ const contentClass = css`
 class FourOhFourPage extends React.Component {
   render() {
     return (
-      <Layout contentClass={contentClass}>
+      <Layout contentClass={contentClass} headerClass={visuallyhiddenMobile}>
         <H1>
           <Trans>Page not found</Trans>
         </H1>

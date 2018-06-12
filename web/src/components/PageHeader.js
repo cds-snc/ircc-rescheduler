@@ -16,14 +16,19 @@ const banner = css`
   > * {
     font-size: ${theme.font.xxl};
     font-weight: 700;
+
+    ${mediaQuery.sm(css`
+      font-size: ${theme.font.lg};
+    `)};
   }
 `
 
-const PageHeader = ({ children }) => (
-  <header className={banner}>{children}</header>
+const PageHeader = ({ children, headerClass = '' }) => (
+  <header className={`${banner} ${headerClass}`}>{children}</header>
 )
 PageHeader.propTypes = {
   children: PropTypes.any.isRequired,
+  headerClass: PropTypes.string,
 }
 
 export default PageHeader
