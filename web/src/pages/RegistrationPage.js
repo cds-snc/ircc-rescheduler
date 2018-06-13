@@ -72,7 +72,7 @@ const labelNames = id => {
     case 'paperFileNumber':
       return <Trans>Paper File Number</Trans>
     case 'reason':
-      return <Trans>Reason for rescheduling</Trans>
+      return <Trans>Why are you rescheduling?</Trans>
     case 'explanation':
       return <Trans>Explanation</Trans>
     default:
@@ -272,12 +272,6 @@ class RegistrationPage extends React.Component {
                           : ''
                       }
                     />
-                    <span id="reason-details">
-                      <Trans>If you’re not sure if you can reschedule,</Trans>{' '}
-                      <a href="http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=786&amp;top=5">
-                        <Trans>read the guidelines for rescheduling</Trans>
-                      </a>.
-                    </span>
                   </legend>
 
                   <Field

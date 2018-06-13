@@ -13,12 +13,14 @@ class ConfirmationPage extends React.Component {
             <Trans>Thank you! Your request has been received.</Trans>
           </H1>
 
+          <p> We&#39;ve sent you a confirmation email. </p>
+
           <H2>
             <Trans>What happens next?</Trans>
           </H2>
           <p>
             <Trans>
-              Within six (6) weeks, your local{' '}
+              By July 6, 2018, your local{' '}
               <abbr title="Immigration, Refugees and Citizenship Canada">
                 IRCC
               </abbr>{' '}
