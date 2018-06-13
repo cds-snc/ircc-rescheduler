@@ -77,15 +77,6 @@ class LandingPage extends React.Component {
 
             <li>
               <p>
-                <Trans>Your full name</Trans>
-              </p>
-              <p>
-                <Trans>This should match the name on your application.</Trans>
-              </p>
-            </li>
-
-            <li>
-              <p>
                 <Trans>To describe your reason for rescheduling</Trans>
               </p>
               <p>
@@ -111,8 +102,8 @@ class LandingPage extends React.Component {
           <Trans>
             By sending this request to reschedule, you will be{' '}
             <strong>cancelling your current appointment</strong>. After you
-            complete this process, it could take up to six (6) weeks for IRCC to
-            schedule your new appointment.
+            complete this process, it could take up to nine (9) weeks for IRCC
+            to schedule your new appointment.
           </Trans>
         </Reminder>
 
