@@ -23,13 +23,15 @@ const imBanner = css`
   }
 `
 const icon = css`
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 3rem;
+  height: 3rem;
   display: block;
   margin-right: ${theme.spacing.lg};
 
   ${mediaQuery.md(css`
     float: left;
+    margin-top: ${theme.spacing.xs};
+    margin-right: ${theme.spacing.md};
   `)};
 `
 
