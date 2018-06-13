@@ -39,7 +39,7 @@
       ]
     ]
   },
-  "<0>Select three (3) days you are available</0> in June and July.": {
+  "<0>Select three (3) days you are available</0> between July and September": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
