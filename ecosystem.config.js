@@ -18,7 +18,7 @@ module.exports = {
         "production": {
             "user": "ircc",
             "host": ["13.71.191.141"],
-            "ref": "origin/deploy_with_pm2",
+            "ref": "deploy_with_pm2",
             "repo": "https://github.com/cds-snc/ircc-rescheduler.git",
             "path": "/home/ircc/ircc-rescheduler-new",
             "ssh_options": "StrictHostKeyChecking=no",
