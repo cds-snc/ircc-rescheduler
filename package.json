@@ -13,6 +13,7 @@
     "stop": "forever stopall"
   },
   "dependencies": {
-    "forever": "^0.15.3"
+    "forever": "^0.15.3",
+    "razzle": "2.1.0"
   }
 }
