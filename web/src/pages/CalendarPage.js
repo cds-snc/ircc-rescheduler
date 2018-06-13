@@ -143,8 +143,8 @@ class CalendarPage extends Component {
         </CalendarHeader>
         <CalendarSubheader>
           <Trans>
-            <strong>Select three (3) days you are available</strong> in June and
-            July.
+            <strong>Select three (3) days you are available</strong> between
+            July and September
           </Trans>
         </CalendarSubheader>
 

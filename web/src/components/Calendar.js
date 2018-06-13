@@ -516,11 +516,19 @@ class Calendar extends Component {
           className={css`
             ${dayPickerDefault} ${dayPicker};
           `}
-          initialMonth={new Date(2018, 5)}
-          fromMonth={new Date(2018, 5)}
-          toMonth={new Date(2018, 6)}
+          initialMonth={new Date(2018, 6)}
+          fromMonth={new Date(2018, 6)}
+          toMonth={new Date(2018, 8)}
           numberOfMonths={1}
-          disabledDays={[{ daysOfWeek: [0, 1, 3, 4, 6] }]}
+          disabledDays={[
+            {
+              before: new Date(2018, 6, 14),
+              after: new Date(2018, 8, 14),
+            },
+            {
+              daysOfWeek: [0, 1, 3, 4, 6],
+            },
+          ]}
           onDayClick={this.handleDayClick}
           selectedDays={value}
           onFocus={() => onFocus(value)}
