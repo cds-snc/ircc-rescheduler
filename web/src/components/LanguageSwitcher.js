@@ -3,7 +3,12 @@ import { Query, Mutation } from 'react-apollo'
 import { GET_LANGUAGE_QUERY, CHANGE_LANGUAGE_MUTATION } from '../queries'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
-import { theme, visuallyhidden, mediaQuery } from '../styles'
+import {
+  theme,
+  visuallyhidden,
+  visuallyhiddenMobile,
+  mediaQuery,
+} from '../styles'
 
 const link = css`
   font-size: ${theme.font.base};
@@ -14,14 +19,6 @@ const link = css`
   &:hover {
     cursor: pointer;
   }
-`
-
-const hiddenOnMobile = css`
-  display: initial;
-
-  ${mediaQuery.sm(css`
-    display: none;
-  `)};
 `
 
 const hiddenOnDesktop = css`
@@ -54,8 +51,10 @@ export const LanguageSwitcher = () => (
             >
               {language === 'en' ? (
                 <span>
-                  <span className={hiddenOnMobile}>Français</span>
-                  <span className={hiddenOnDesktop}>FR</span>
+                  <span className={visuallyhiddenMobile}>Français</span>
+                  <span className={hiddenOnDesktop} aria-hidden="true">
+                    FR
+                  </span>
                 </span>
               ) : (
                 'English'
