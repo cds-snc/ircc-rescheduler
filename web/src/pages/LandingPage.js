@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
-import { H1, H2, theme } from '../styles'
+import { H1, H2, theme, mediaQuery } from '../styles'
 import Layout from '../components/Layout'
 import Reminder from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
@@ -36,6 +36,20 @@ const list = css`
 const H1Landing = styled(H1)`
   font-size: ${theme.font.xl};
   line-height: 1;
+`
+
+const LongReminder = styled(Reminder)`
+  ${mediaQuery.md(css`
+    display: block;
+  `)};
+
+  img {
+    ${mediaQuery.md(css`
+      float: left;
+      margin-top: ${theme.spacing.xs};
+      margin-right: ${theme.spacing.md};
+    `)};
+  }
 `
 
 const landingButton = css`
@@ -98,14 +112,14 @@ class LandingPage extends React.Component {
           </p>
         </section>
 
-        <Reminder>
+        <LongReminder>
           <Trans>
             By sending this request to reschedule, you will be{' '}
             <strong>cancelling your current appointment</strong>. After you
             complete this process, it could take up to nine (9) weeks for IRCC
             to schedule your new appointment.
           </Trans>
-        </Reminder>
+        </LongReminder>
 
         <div className={landingButton}>
           <NavLink to="/register" className={buttonStyles}>
