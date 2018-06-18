@@ -13,7 +13,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        479
+        472
       ],
       [
         "src/pages/CalendarPage.js",
@@ -25,8 +25,12 @@
     "translation": "Sélection de la langue",
     "origin": [
       [
-        "src/components/LanguageSwitcher.js",
-        22
+        "src/Calendar.js",
+        370
+      ],
+      [
+        "src/components/Calendar.js",
+        397
       ]
     ]
   },
@@ -448,8 +452,12 @@
     "translation": "Numéro de fichier papier",
     "origin": [
       [
-        "src/pages/RegistrationPage.js",
-        73
+        "src/Layout.js",
+        55
+      ],
+      [
+        "src/components/Layout.js",
+        83
       ]
     ]
   },
@@ -457,8 +465,12 @@
     "translation": "Raison du rééchelonnement",
     "origin": [
       [
-        "src/pages/RegistrationPage.js",
-        75
+        "src/Layout.js",
+        61
+      ],
+      [
+        "src/components/Layout.js",
+        87
       ]
     ]
   },
@@ -560,8 +572,44 @@
       ]
     ]
   },
-  "Family": {
-    "translation": "Famille",
+  "January": {
+    "translation": "janvier",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        10
+      ]
+    ]
+  },
+  "February": {
+    "translation": "février",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        11
+      ]
+    ]
+  },
+  "March": {
+    "translation": "mars",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        12
+      ]
+    ]
+  },
+  "April": {
+    "translation": "avril",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        13
+      ]
+    ]
+  },
+  "Calendar": {
+    "translation": "Calendrier",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -639,5 +687,225 @@
         99
       ]
     ]
+  },
+  "May": {
+    "translation": "mai",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        381
+      ]
+    ],
+    "obsolete": true
+  },
+  "June": {
+    "translation": "juin",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        382
+      ]
+    ],
+    "obsolete": true
+  },
+  "July": {
+    "translation": "juillet",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        383
+      ]
+    ],
+    "obsolete": true
+  },
+  "August": {
+    "translation": "août",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        384
+      ]
+    ],
+    "obsolete": true
+  },
+  "September": {
+    "translation": "septembre",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        385
+      ]
+    ],
+    "obsolete": true
+  },
+  "October": {
+    "translation": "octobre",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        386
+      ]
+    ],
+    "obsolete": true
+  },
+  "November": {
+    "translation": "novembre",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        388
+      ]
+    ],
+    "obsolete": true
+  },
+  "December": {
+    "translation": "décembre",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        389
+      ]
+    ],
+    "obsolete": true
+  },
+  "Saturday": {
+    "translation": "samedi",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        391
+      ]
+    ],
+    "obsolete": true
+  },
+  "Monday": {
+    "translation": "lundi",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        392
+      ]
+    ],
+    "obsolete": true
+  },
+  "Tuesday": {
+    "translation": "mardi",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        393
+      ]
+    ],
+    "obsolete": true
+  },
+  "Wednesday": {
+    "translation": "mercredi",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        394
+      ]
+    ],
+    "obsolete": true
+  },
+  "Thursday": {
+    "translation": "jeudi",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        395
+      ]
+    ],
+    "obsolete": true
+  },
+  "Friday": {
+    "translation": "vendredi",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        396
+      ]
+    ],
+    "obsolete": true
+  },
+  "Sunday": {
+    "translation": "Dimanche",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        397
+      ]
+    ],
+    "obsolete": true
+  },
+  "Sat": {
+    "translation": "sam",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        399
+      ]
+    ],
+    "obsolete": true
+  },
+  "Mo": {
+    "translation": "lu",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        400
+      ]
+    ],
+    "obsolete": true
+  },
+  "Tu": {
+    "translation": "ma",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        401
+      ]
+    ],
+    "obsolete": true
+  },
+  "We": {
+    "translation": "me",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        402
+      ]
+    ],
+    "obsolete": true
+  },
+  "Thu": {
+    "translation": "jeu",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        403
+      ]
+    ],
+    "obsolete": true
+  },
+  "Fri": {
+    "translation": "ven",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        404
+      ]
+    ],
+    "obsolete": true
+  },
+  "Su": {
+    "translation": "di",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        405
+      ]
+    ],
+    "obsolete": true
   }
 }
