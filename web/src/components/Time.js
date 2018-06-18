@@ -12,14 +12,14 @@ const makeGMTDate = date => {
   )
 }
 
-const dateToHTMLString = date => {
-  /*
-    For now we are relying on a JS Date object toString method
-    but we will want to create our own
-  */
-  return makeGMTDate(date)
-    .toUTCString()
-    .slice(0, 'Day, DD Mon YYYY'.length)
+const dateToHTMLString = (date, locale) => {
+  var options = {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }
+  return makeGMTDate(date).toLocaleDateString(locale, options)
 }
 
 const dateToISODateString = date => {
@@ -33,12 +33,15 @@ const dateToISODateString = date => {
     .slice(0, 'YYYY-MM-DD'.length)
 }
 
-const Time = ({ date }) => (
-  <time dateTime={dateToISODateString(date)}>{dateToHTMLString(date)}</time>
+const Time = ({ date, locale }) => (
+  <time dateTime={dateToISODateString(date)}>
+    {dateToHTMLString(date, locale)}
+  </time>
 )
 Time.propTypes = {
   date: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)])
     .isRequired,
+  locale: PropTypes.string,
 }
 
 export { Time as default, makeGMTDate, dateToISODateString }
