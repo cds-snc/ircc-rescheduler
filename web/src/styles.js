@@ -158,7 +158,7 @@ const contentSpacing = css`
   `)};
 `
 
-export const Content = styled.main`
+export const Content = styled.div`
   padding: ${theme.spacing.xl} ${theme.spacing.xxxl} ${theme.spacing.xxl}
     ${theme.spacing.xxxl};
   width: 100%;

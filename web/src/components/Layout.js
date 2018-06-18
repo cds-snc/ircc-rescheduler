@@ -87,9 +87,11 @@ class Layout extends React.Component {
               <Trans>Request a new Canadian Citizenship appointment</Trans>
             </PageHeader>
           </div>
-          <Content className={this.props.contentClass || ''} role="main">
-            {this.props.children}
-          </Content>
+          <main role="main">
+            <Content className={this.props.contentClass || ''}>
+              {this.props.children}
+            </Content>
+          </main>
           <Footer topBarBackground="black" />
         </ErrorBoundary>
       </div>
