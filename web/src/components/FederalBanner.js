@@ -7,7 +7,7 @@ import { theme, mediaQuery } from '../styles'
 import { LanguageSwitcher } from './LanguageSwitcher'
 
 const container = css`
-  padding: ${theme.spacing.lg} ${theme.spacing.xxxl} ${theme.spacing.lg}
+  padding: ${theme.spacing.lg} ${theme.spacing.xxxl} ${theme.spacing.md}
     ${theme.spacing.xxxl};
   width: auto;
   justify-content: space-between;
@@ -25,27 +25,21 @@ const container = css`
   }
 
   ${mediaQuery.sm(css`
-    padding-left: ${theme.spacing.xl};
-    padding-right: ${theme.spacing.xl};
+    padding: ${theme.spacing.md} ${theme.spacing.xl} ${theme.spacing.md}
+      ${theme.spacing.xl};
   `)};
 
   ${mediaQuery.xs(css`
-    flex-direction: column;
-  `)};
+    .svg-container {
+      width: 210px;
+      height: 20px;
 
-  /*
-  This is a fudge.
-  We shouldn't know that the LanguageSwitcher component is a <section>, really.
-  The reason for this is that these spacing rules make sense in the
-  context of the Banner segment, not on the switcher by itself.
-  */
-  section {
-    ${mediaQuery.xs(css`
-      margin-top: ${theme.spacing.sm};
-      /* this means the "Français" link looks aligned with the flag */
-      margin-left: -2px;
-    `)};
-  }
+      svg {
+        width: 210px;
+        height: 20px;
+      }
+    }
+  `)};
 `
 
 const FederalBanner = () => (
