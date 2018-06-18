@@ -521,6 +521,10 @@ class Calendar extends Component {
           className={css`
             ${dayPickerDefault} ${dayPicker};
           `}
+          locale={locale}
+          months={date.months}
+          weekdaysLong={date.weekdaysLong}
+          weekdaysShort={date.weekdaysShort}
           initialMonth={new Date(2018, 6)}
           fromMonth={new Date(2018, 6)}
           toMonth={new Date(2018, 8)}
