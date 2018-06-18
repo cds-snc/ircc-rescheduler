@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Trans } from 'lingui-react'
+import { Trans, withI18n } from 'lingui-react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
@@ -8,6 +8,7 @@ import Time, { makeGMTDate } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
+import { getDateInfo } from './forms/CalendarConstants'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -372,11 +373,11 @@ const selectedDaysError = css`
     outline: 3px solid ${theme.colour.focus};
   }
 `
-
 const renderDayBoxes = ({
   dayLimit,
   selectedDays,
   removeDayOnClickOrKeyPress,
+  locale,
 }) => {
   let dayBoxes = []
   for (let i = 0; i < dayLimit; i++) {
@@ -385,7 +386,7 @@ const renderDayBoxes = ({
       selectedDay ? (
         <li key={i} className={dayBox}>
           <span className="day-box">
-            <Time date={selectedDay} />
+            <Time date={selectedDay} locale={locale} />
           </span>
           <button
             type="button"
@@ -416,6 +417,7 @@ const renderDayBoxes = ({
 class Calendar extends Component {
   constructor(props) {
     super(props)
+    //console.log('catalogs: ', catalogs)
     this.handleDayClick = this.handleDayClick.bind(this)
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
     this.state = {
@@ -453,7 +455,6 @@ class Calendar extends Component {
     if (disabled) {
       return
     }
-
     /* Cast all Dates to 12 noon GMT */
     day = makeGMTDate(day)
 
@@ -500,7 +501,10 @@ class Calendar extends Component {
       dayLimit,
       id,
       tabIndex,
+      i18n,
     } = this.props
+    const date = getDateInfo(i18n)
+    const locale = i18n !== undefined ? i18n._language : 'en'
     value = value || []
     return (
       <div className={calendarContainer}>
@@ -508,7 +512,11 @@ class Calendar extends Component {
           className={css`
             ${dayPickerDefault} ${dayPicker};
           `}
-          initialMonth={new Date(2018, 5)}
+          months={date.months}
+          locale={locale}
+          weekdaysLong={date.weekdaysLong}
+          weekdaysShort={date.weekdaysShort}
+          //initialMonth={new Date(2018, 5)}
           fromMonth={new Date(2018, 5)}
           toMonth={new Date(2018, 6)}
           numberOfMonths={1}
@@ -539,6 +547,7 @@ class Calendar extends Component {
               dayLimit,
               selectedDays: value,
               removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
+              locale,
             })}
           </ul>
         </div>
@@ -550,5 +559,5 @@ Calendar.propTypes = {
   ...FieldAdapterPropTypes,
   dayLimit: PropTypes.number.isRequired,
 }
-
-export { Calendar as CalendarAdapter }
+const CalendarAdapter = Calendar
+export default withI18n()(CalendarAdapter)
