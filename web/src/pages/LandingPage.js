@@ -7,11 +7,17 @@ import Reminder from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
 import { Trans } from 'lingui-react'
 import { Helmet } from 'react-helmet'
+import rightArrow from '../assets/rightArrow.svg'
 
 const contentClass = css`
   p {
     margin-bottom: ${theme.spacing.lg};
   }
+`
+
+const arrow = css`
+  width: 0.9rem;
+  height: 0.9rem;
 `
 
 const list = css`
@@ -25,10 +31,6 @@ const list = css`
 
     p {
       margin-bottom: 0;
-    }
-
-    p + p {
-      font-size: ${theme.font.md};
     }
   }
 `
@@ -66,9 +68,8 @@ class LandingPage extends React.Component {
         <section>
           <H1Landing>
             <Trans>
-              Use this service to notify Immigration, Refugees and Citizenship
-              Canada that you cannot attend your Citizenship test, and you need
-              a new appointment.
+              Tell IRCC that you can&#39;t attend your Citizenship test, and
+              request a new appointment.
             </Trans>
           </H1Landing>
 
@@ -82,24 +83,11 @@ class LandingPage extends React.Component {
                   Your <strong>paper file number</strong>
                 </Trans>
               </p>
-              <p>
-                <Trans>
-                  This is found at the top of your test notice email.
-                </Trans>
-              </p>
             </li>
 
             <li>
               <p>
                 <Trans>To describe your reason for rescheduling</Trans>
-              </p>
-              <p>
-                <Trans>
-                  For more information on rescheduling,{' '}
-                  <a href="http://www.cic.gc.ca/english/helpcentre/answer.asp?qnum=786&amp;top=5">
-                    read the guidelines
-                  </a>.
-                </Trans>
               </p>
             </li>
           </ul>
@@ -114,16 +102,16 @@ class LandingPage extends React.Component {
 
         <LongReminder>
           <Trans>
-            By sending this request to reschedule, you will be{' '}
-            <strong>cancelling your current appointment</strong>. After you
-            complete this process, it could take up to nine (9) weeks for IRCC
-            to schedule your new appointment.
+            When you request a new appointment, you will be{' '}
+            <strong>cancelling your current appointment</strong>. It can take up
+            to six weeks to schedule your new appointment.
           </Trans>
         </LongReminder>
 
         <div className={landingButton}>
           <NavLink to="/register" className={buttonStyles}>
-            <Trans>Start Now</Trans> →
+            <Trans>Start Now</Trans>{' '}
+            <img src={rightArrow} className={arrow} alt="" />
           </NavLink>
         </div>
       </Layout>
