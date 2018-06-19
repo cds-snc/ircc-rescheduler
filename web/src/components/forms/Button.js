@@ -5,8 +5,7 @@ import { theme, mediaQuery, incrementColor } from '../../styles'
 
 const govuk_button = css`
   /* https://raw.githubusercontent.com/alphagov/govuk_frontend_toolkit/e00b009b2a9722363d3c247838632d8e3673daa9/stylesheets/design-patterns/_buttons.scss */
-  /* since I don't have their sass variables, I'm using a close-enough default colour */
-  background-color: forestgreen;
+  background-color: #00823b;
 
   position: relative;
   display: inline-block;
@@ -19,7 +18,7 @@ const govuk_button = css`
 
   // Bottom edge effect
   /* again, I don't have sass variables, so I'm using default colour */
-  box-shadow: 0 2px 0 lightseagreen;
+  box-shadow: 0 2px 0 #003618;
   /* removed IE8-specific rule */
 
   // Text
@@ -32,17 +31,17 @@ const govuk_button = css`
   cursor: pointer;
 
   &:visited {
-    background-color: forestgreen;
+    background-color: #00823b;
   }
 
   &:hover,
   &:focus {
-    background-color: darkgreen;
+    background-color: #00692f;
   }
 
   &:active {
     top: 2px;
-    box-shadow: 0 0 0 forestgreen;
+    box-shadow: 0 0 0 #00823b;
   }
 
   // Disabled button styles
@@ -52,12 +51,12 @@ const govuk_button = css`
     opacity: 0.5;
     &:hover {
       cursor: default;
-      background-color: forestgreen;
+      background-color: #00823b;
     }
 
     &:active {
       top: 0;
-      box-shadow: 0 2px 0 darkgreen;
+      box-shadow: 0 2px 0 #00692f;
       /* removed IE8-specific rule */
     }
   }
@@ -103,9 +102,6 @@ const button = css`
   // Size and shape
   padding: ${theme.spacing.sm} ${theme.spacing.lg};
 
-  // Bottom edge effect
-  box-shadow: 0 2px 0 ${incrementColor(theme.colour.grey, 80)};
-
   ${mediaQuery.sm(css`
     width: 100%;
     padding: ${theme.spacing.sm} ${theme.spacing.lg};
@@ -122,20 +118,20 @@ const button = css`
 
   &:hover,
   &:focus {
-    background-color: ${incrementColor(theme.colour.green, 20)};
-    box-shadow: 0 2px 0 ${incrementColor(theme.colour.grey, 100)};
+    background-color: ${theme.colour.greenDark};
+    box-shadow: 0 2px 0 ${incrementColor(theme.colour.black, 20)};
   }
 
   &:active {
     top: 2px;
-    background-color: ${incrementColor(theme.colour.green, 20)};
-    box-shadow: 0 0 0 ${incrementColor(theme.colour.green, 20)};
+    background-color: ${theme.colour.greenDark};
+    box-shadow: 0 0 0 ${theme.colour.greenDark};
   }
 
   &:disabled {
     &:hover {
       cursor: not-allowed;
-      background-color: ${incrementColor(theme.colour.green, 30)};
+      background-color: ${incrementColor(theme.colour.greenDark, 50)};
     }
   }
 `
