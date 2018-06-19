@@ -111,7 +111,7 @@ class LandingPage extends React.Component {
         <div className={landingButton}>
           <NavLink to="/register" className={buttonStyles}>
             <Trans>Start Now</Trans>{' '}
-            <img src={rightArrow} className={arrow} alt="right arrow" />
+            <img src={rightArrow} className={arrow} alt="" />
           </NavLink>
         </div>
       </Layout>
