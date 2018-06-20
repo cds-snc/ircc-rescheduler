@@ -15,6 +15,10 @@ module.exports.default = t => {
         description: t('types.rescheduleForm.fields.fullName'),
         type: new GraphQLNonNull(GraphQLString),
       },
+      email: {
+        description: t('types.rescheduleForm.fields.email'),
+        type: new GraphQLNonNull(GraphQLString),
+      },
       explanation: {
         description: t('types.rescheduleForm.fields.explanation'),
         type: new GraphQLNonNull(GraphQLString),

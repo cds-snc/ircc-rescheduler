@@ -44,6 +44,7 @@ describe('Mutations', () => {
               decline(input: {
                 fullName: "asdf"
                 explanation: "asdf"
+                email: "test@test.com"
                 paperFileNumber: "111"
                 reason: "because reasons"
                 availability: ["2018-06-26","2018-06-29","2018-07-31"]
@@ -74,6 +75,7 @@ describe('Mutations', () => {
                 explanation: "asdf"
                 paperFileNumber: "111"
                 reason: "because reasons"
+                email:"test@test.com"
                 availability: ["2018-06-26","2018-06-29","2018-07-31"]
               }){
                 messageId
@@ -100,6 +102,7 @@ describe('Mutations', () => {
                 explanation: "asdf"
                 paperFileNumber: "111"
                 reason: "because reasons"
+                email:"test@test.com"
                 availability: ["2018-06-29","2018-07-31"]
               }){
                 messageId
@@ -127,6 +130,7 @@ describe('Mutations', () => {
                 explanation: "asdf"
                 paperFileNumber: "111"
                 reason: "because reasons"
+                email:"test@test.com"
                 availability: ["2018-06-26","2018-06-29","2018-07-31"]
               }){
                 requestId
