@@ -33,6 +33,7 @@
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
     "graphql": "^0.13.2",
+    "graphql-custom-types": "^1.4.0",
     "graphql-iso-date": "^3.5.0",
     "graphql-tag": "^2.9.2",
     "i18next": "^11.3.1",

@@ -6,17 +6,6 @@ const {
 } = require('graphql')
 const { GraphQLError } = require('graphql/error')
 
-function humanReadable(dates) {
-  return dates.map(date =>
-    new Date(date).toLocaleDateString('en-CA', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }),
-  )
-}
-
 const createSchema = t => {
   const MailResponse = require('./types/MailResponse').default(t)
   const RescheduleFormInput = require('./types/RescheduleForm').default(t)
@@ -50,30 +39,22 @@ const createSchema = t => {
           { input },
           { mailer, receivingAddress, sendingAddress, siteUrl },
         ) => {
-          let {
-            paperFileNumber,
-            explanation,
-            fullName,
-            reason,
-            availability,
-          } = input
+          let { availability } = input
 
           if (availability.length !== 3)
             return new GraphQLError(t('errors.threeDatesRequired'))
 
           const options = {
-            htmlTemplate: '_test-rich',
-            plainTemplate: '_test-plain',
+            htmlTemplate: 'staff-rich',
+            plainTemplate: 'staff-plain',
             formValues: input,
             url: siteUrl,
             receivingAddress,
             sendingAddress,
           }
-          //
-
-          params = await buildParams(options)
 
           let response
+          let params = await buildParams(options)
           try {
             response = await mailer.sendEmail(params).promise()
             return response

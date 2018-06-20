@@ -5,6 +5,7 @@ const {
   GraphQLList,
 } = require('graphql')
 const { GraphQLDate } = require('graphql-iso-date')
+const { GraphQLEmail } = require('graphql-custom-types')
 
 module.exports.default = t => {
   const RescheduleFormInput = new GraphQLInputObjectType({
@@ -17,7 +18,7 @@ module.exports.default = t => {
       },
       email: {
         description: t('types.rescheduleForm.fields.email'),
-        type: new GraphQLNonNull(GraphQLString),
+        type: new GraphQLNonNull(GraphQLEmail),
       },
       explanation: {
         description: t('types.rescheduleForm.fields.explanation'),

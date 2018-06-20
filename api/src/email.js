@@ -6,9 +6,11 @@ const readFile = promisify(fs.readFile)
 
 // add newlines formatting plain and html emails
 function datesMarkup(dates, newline) {
-  return dates.map(date => {
+  const arr = dates.map(date => {
     return `${date} ${newline}`
   })
+
+  return arr.join('')
 }
 
 // form values are in 2018-06-26 format
@@ -32,13 +34,15 @@ const readFileContent = async filename => {
 
 // build a dynamic template literal in the proper context
 // standard template literals can't be dynamic / built at runtime
+
+/* eslint-disable no-new-func */
 const fillTemplate = function(template, params) {
   const names = Object.keys(params)
   const vals = Object.keys(params).map(key => params[key])
   return new Function(...names, `return \`${template}\`;`)(...vals)
 }
 
-//read content from template and replace param placeholders
+// read content from template and replace param placeholders
 const buildMarkup = async options => {
   const { templateName, formValues, url } = options
   const html = await readFileContent(templateName)
@@ -49,7 +53,7 @@ const buildMarkup = async options => {
 
 const renderMarkup = async options => {
   const { htmlTemplate, plainTemplate, formValues, url } = options
-  return await Promise.all([
+  return Promise.all([
     buildMarkup({
       templateName: htmlTemplate,
       formValues,
@@ -66,7 +70,7 @@ const renderMarkup = async options => {
 const buildParams = async options => {
   const { availability } = options.formValues
 
-  //add line breaks to dates available
+  // add line breaks to dates available
   options.formValues.datesHtml = datesMarkup(
     humanReadable(availability),
     '<br>',
@@ -76,7 +80,7 @@ const buildParams = async options => {
     '\r\n',
   )
 
-  const markup = await new Promise((resolve, reject) => {
+  const markup = await new Promise(resolve => {
     renderMarkup(options).then(results => {
       resolve({ html: results[0], plain: results[1] })
     })
