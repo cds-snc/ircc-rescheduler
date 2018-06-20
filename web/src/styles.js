@@ -235,3 +235,8 @@ export const change = css`
     right: 0rem;
   `)};
 `
+
+export const arrow = css`
+  width: 0.9rem;
+  height: 0.9rem;
+`

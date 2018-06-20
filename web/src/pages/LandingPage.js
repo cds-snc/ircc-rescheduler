@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
-import { H1, H2, theme, mediaQuery } from '../styles'
+import { H1, H2, theme, mediaQuery, arrow } from '../styles'
 import Layout from '../components/Layout'
 import Reminder from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
@@ -13,11 +13,6 @@ const contentClass = css`
   p {
     margin-bottom: ${theme.spacing.lg};
   }
-`
-
-const arrow = css`
-  width: 0.9rem;
-  height: 0.9rem;
 `
 
 const list = css`
