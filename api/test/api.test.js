@@ -35,6 +35,7 @@ describe('Mutations', () => {
           mailer: errorMock,
           receivingAddress: 'test@example.com',
           sendingAddress: 'test@example.com',
+          siteUrl: "https://test.com"
         })
 
         let response = await request(app)
@@ -64,6 +65,7 @@ describe('Mutations', () => {
           mailer: mockSES,
           receivingAddress: 'test@example.com',
           sendingAddress: 'test@example.com',
+          siteUrl: "https://test.com"
         })
 
         let response = await request(app)
@@ -91,6 +93,7 @@ describe('Mutations', () => {
           mailer: mockSES,
           receivingAddress: 'test@example.com',
           sendingAddress: 'test@example.com',
+          siteUrl: "https://test.com"
         })
 
         let response = await request(app)
@@ -119,6 +122,7 @@ describe('Mutations', () => {
         mailer: mockSES,
         receivingAddress: 'test@example.com',
         sendingAddress: 'test@example.com',
+        siteUrl: "https://test.com"
       })
 
       let response = await request(app)
