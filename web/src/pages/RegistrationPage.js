@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
+import { NavLink } from 'react-router-dom'
 import { css } from 'react-emotion'
-import { theme, visuallyhidden, mediaQuery, focusRing } from '../styles'
+import { theme, visuallyhidden, mediaQuery, BottomContainer, focusRing } from '../styles'
 import Layout from '../components/Layout'
 import {
   TextFieldAdapter,
@@ -347,9 +348,17 @@ class RegistrationPage extends React.Component {
               {/*
                Button is disabled if form has been submitted (and is waiting)
               */}
-              <Button disabled={submitting}>
-                <Trans>Continue</Trans>
-              </Button>
+              <BottomContainer>
+                <Button disabled={submitting}>
+                  <Trans>Continue</Trans>
+                </Button>
+
+                <div>
+                  <NavLink to="/">
+                    <Trans>Cancel request</Trans>
+                  </NavLink>
+                </div>
+              </BottomContainer>
             </form>
           )}
         />

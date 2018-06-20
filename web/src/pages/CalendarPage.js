@@ -201,7 +201,7 @@ class CalendarPage extends Component {
 
                 <div>
                   <NavLink to="/">
-                    <Trans>Cancel</Trans>
+                    <Trans>Cancel request</Trans>
                   </NavLink>
                 </div>
               </BottomContainer>

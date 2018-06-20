@@ -102,7 +102,7 @@ class ReviewPage extends React.Component {
                   </Submission>
                   <div>
                     <NavLink to="/">
-                      <Trans>Cancel</Trans>
+                      <Trans>Cancel request</Trans>
                     </NavLink>
                   </div>
                 </BottomContainer>
