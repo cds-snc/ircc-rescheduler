@@ -1,17 +1,28 @@
 import React from 'react'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
-import { H1, visuallyhiddenMobile } from '../styles'
+import { H1, visuallyhidden, theme } from '../styles'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
+import styled, { css } from 'react-emotion'
+
+const ErrorH1 = styled(H1)`
+  margin-bottom: ${theme.spacing.sm};
+`
+
+const contentClass = css`
+  p:last-of-type {
+    margin-bottom: ${theme.spacing.md};
+  }
+`
 
 class ErrorPage extends React.Component {
   render() {
     return (
-      <Layout headerClass={visuallyhiddenMobile}>
-        <H1>
+      <Layout contentClass={contentClass} headerClass={visuallyhidden}>
+        <ErrorH1>
           <Trans>We&apos;re sorry, something went wrong.</Trans>
-        </H1>
+        </ErrorH1>
         <Contact>
           <div>
             <p>

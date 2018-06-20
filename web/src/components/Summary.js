@@ -30,10 +30,15 @@ const Row = styled.div`
     padding-bottom: 0;
     margin-bottom: ${theme.spacing.xs};
   }
+
+  li:last-of-type {
+    margin-bottom: 0;
+  }
 `
 
 const SummaryHeader = styled.div`
   width: 100%;
+  margin-bottom: 0;
 `
 
 const SummaryBody = styled.div`
@@ -60,6 +65,10 @@ const SummaryLink = styled.div`
   `)};
 `
 
+const SummaryH2 = styled(H2)`
+  margin-bottom: ${theme.spacing.sm};
+`
+
 const SelectedDayList = ({ selectedDays }) => {
   return selectedDays && selectedDays.length > 0 ? (
     <ul>
@@ -82,7 +91,7 @@ SelectedDayList.propTypes = {
 const SummaryRow = ({ summaryHeader, summaryBody, summaryLink }) => (
   <Row>
     <SummaryHeader>
-      <H2>{summaryHeader}</H2>
+      <SummaryH2>{summaryHeader}</SummaryH2>
       <SummaryBody>{summaryBody}</SummaryBody>
     </SummaryHeader>
 
