@@ -3,13 +3,14 @@ import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import { Query } from 'react-apollo'
 import { NavLink, Redirect } from 'react-router-dom'
-import { H1, theme, BottomContainer, TopContainer } from '../styles'
+import { H2, theme, BottomContainer, TopContainer, arrow } from '../styles'
 import Layout from '../components/Layout'
 import { GET_USER_DATA, SUBMIT } from '../queries'
 import Button from '../components/forms/Button'
 import Summary from '../components/Summary'
 import { Submission } from '../components/Submission'
 import Reminder from '../components/Reminder'
+import rightArrow from '../assets/rightArrow.svg'
 
 const contentClass = css`
   p {
@@ -43,9 +44,9 @@ class ReviewPage extends React.Component {
             ← <Trans>Go Back</Trans>
           </NavLink>
         </TopContainer>
-        <H1>
+        <H2>
           <Trans>Review your request before sending it</Trans>
-        </H1>
+        </H2>
         <Query query={GET_USER_DATA}>
           {({ loading, error, data }) => {
             if (loading) return 'Loading...'
@@ -96,7 +97,8 @@ class ReviewPage extends React.Component {
                           })
                         }}
                       >
-                        <Trans>Send Request</Trans> →
+                        <Trans>Send Request</Trans>{' '}
+                        <img src={rightArrow} className={arrow} alt="" />
                       </Button>
                     )}
                   </Submission>
