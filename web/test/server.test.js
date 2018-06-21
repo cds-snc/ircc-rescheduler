@@ -9,7 +9,7 @@ describe('Server Side Rendering', () => {
   it('renders the landing page at /', async () => {
     let response = await request(server).get('/')
     expect(response.text).toMatch(
-      /Use this service to notify Immigration, Refugees and Citizenship Canada/,
+      /It can take up to 9 weeks for us to reschedule you./,
     )
   })
 

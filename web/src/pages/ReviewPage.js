@@ -3,13 +3,14 @@ import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import { Query } from 'react-apollo'
 import { NavLink, Redirect } from 'react-router-dom'
-import { H1, theme, BottomContainer, TopContainer } from '../styles'
+import { H2, theme, BottomContainer, TopContainer, arrow } from '../styles'
 import Layout from '../components/Layout'
 import { GET_USER_DATA, SUBMIT } from '../queries'
 import Button from '../components/forms/Button'
 import Summary from '../components/Summary'
 import { Submission } from '../components/Submission'
 import Reminder from '../components/Reminder'
+import rightArrow from '../assets/rightArrow.svg'
 
 const contentClass = css`
   p {
@@ -43,9 +44,9 @@ class ReviewPage extends React.Component {
             ← <Trans>Go Back</Trans>
           </NavLink>
         </TopContainer>
-        <H1>
+        <H2>
           <Trans>Review your request before sending it</Trans>
-        </H1>
+        </H2>
         <Query query={GET_USER_DATA}>
           {({ loading, error, data }) => {
             if (loading) return 'Loading...'
@@ -53,6 +54,7 @@ class ReviewPage extends React.Component {
             let {
               userRegistrationData: {
                 fullName,
+                email,
                 paperFileNumber,
                 explanation,
                 reason,
@@ -64,6 +66,7 @@ class ReviewPage extends React.Component {
               <section>
                 <Summary
                   fullName={fullName}
+                  email={email}
                   paperFileNumber={paperFileNumber}
                   explanation={explanation}
                   reason={this.translateReason(reason)}
@@ -71,8 +74,9 @@ class ReviewPage extends React.Component {
                 />
                 <Reminder>
                   <Trans>
-                    By sending this request, you are{' '}
-                    <strong>cancelling your current appointment.</strong>
+                    Sending this request will cancel your current appointment.
+                    <strong> Do not attend your old appointment</strong> after
+                    you send this request.
                   </Trans>
                 </Reminder>
 
@@ -88,6 +92,7 @@ class ReviewPage extends React.Component {
                           submit({
                             variables: {
                               fullName,
+                              email,
                               reason,
                               explanation,
                               paperFileNumber,
@@ -96,13 +101,14 @@ class ReviewPage extends React.Component {
                           })
                         }}
                       >
-                        <Trans>Send Request</Trans> →
+                        <Trans>Send Request</Trans>{' '}
+                        <img src={rightArrow} className={arrow} alt="" />
                       </Button>
                     )}
                   </Submission>
                   <div>
                     <NavLink to="/">
-                      <Trans>Cancel</Trans>
+                      <Trans>Cancel request</Trans>
                     </NavLink>
                   </div>
                 </BottomContainer>

@@ -30,10 +30,15 @@ const Row = styled.div`
     padding-bottom: 0;
     margin-bottom: ${theme.spacing.xs};
   }
+
+  li:last-of-type {
+    margin-bottom: 0;
+  }
 `
 
 const SummaryHeader = styled.div`
   width: 100%;
+  margin-bottom: 0;
 `
 
 const SummaryBody = styled.div`
@@ -60,8 +65,12 @@ const SummaryLink = styled.div`
   `)};
 `
 
+const SummaryH2 = styled(H2)`
+  margin-bottom: ${theme.spacing.sm};
+`
 const SelectedDayList = withI18n()(({i18n,selectedDays}) => {
   const locale = i18n !== undefined ? i18n._language : 'en'
+
   return selectedDays && selectedDays.length > 0 ? (
     <ul>
       {selectedDays.map((day, index) => (
@@ -84,7 +93,7 @@ SelectedDayList.propTypes = {
 const SummaryRow = ({ summaryHeader, summaryBody, summaryLink }) => (
   <Row>
     <SummaryHeader>
-      <H2>{summaryHeader}</H2>
+      <SummaryH2>{summaryHeader}</SummaryH2>
       <SummaryBody>{summaryBody}</SummaryBody>
     </SummaryHeader>
 
@@ -103,6 +112,7 @@ SummaryRow.propTypes = {
 
 const Summary = ({
   fullName,
+  email,
   paperFileNumber,
   reason,
   explanation,
@@ -112,6 +122,11 @@ const Summary = ({
     <SummaryRow
       summaryHeader={<Trans>Full name</Trans>}
       summaryBody={fullName}
+      summaryLink={'/register'}
+    />
+    <SummaryRow
+      summaryHeader={<Trans>Email</Trans>}
+      summaryBody={email}
       summaryLink={'/register'}
     />
     <SummaryRow
@@ -139,6 +154,7 @@ const Summary = ({
 
 Summary.propTypes = {
   fullName: PropTypes.string,
+  email: PropTypes.string,
   reason: PropTypes.object,
   explanation: PropTypes.string,
   paperFileNumber: PropTypes.string,

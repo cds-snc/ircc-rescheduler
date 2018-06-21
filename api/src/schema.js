@@ -6,20 +6,10 @@ const {
 } = require('graphql')
 const { GraphQLError } = require('graphql/error')
 
-function humanReadable(dates) {
-  return dates.map(date =>
-    new Date(date).toLocaleDateString('en-CA', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }),
-  )
-}
-
 const createSchema = t => {
   const MailResponse = require('./types/MailResponse').default(t)
   const RescheduleFormInput = require('./types/RescheduleForm').default(t)
+  const buildParams = require('./email')
 
   // XXX: Is it not possible to have a mutation only schema?
   var query = new GraphQLObjectType({
@@ -47,60 +37,24 @@ const createSchema = t => {
         resolve: async (
           _,
           { input },
-          { mailer, receivingAddress, sendingAddress },
+          { mailer, receivingAddress, sendingAddress, siteUrl },
         ) => {
-          let {
-            paperFileNumber,
-            explanation,
-            fullName,
-            reason,
-            availability,
-          } = input
+          let { availability } = input
 
           if (availability.length !== 3)
             return new GraphQLError(t('errors.threeDatesRequired'))
 
-          var params = {
-            Destination: {
-              ToAddresses: [receivingAddress],
-            },
-            Message: {
-              Body: {
-                Html: {
-                  Charset: 'UTF-8',
-                  Data: `
-  ${fullName} requested a new Citizenship Test appointment.
-  <ul>
-    <li>Full Name: ${fullName}</li>
-    <li>Paper File Number: #${paperFileNumber}</li>
-    <li>Reason for rescheduling: ${reason}</li>
-    <li>Explanation: ${explanation}</li>
-    <li>Availability: ${humanReadable(availability)}</li>
-  </ul>
-                  `,
-                },
-                Text: {
-                  Charset: 'UTF-8',
-                  Data: `
-  ${fullName} requested a new Citizenship Test appointment.
-    * Full Name: ${fullName}
-    * Paper File Number: #${paperFileNumber}
-    * Reason for rescheduling: ${reason}
-    * Explanation: ${explanation}
-    * Availability: ${humanReadable(availability)}
-                  `,
-                },
-              },
-              Subject: {
-                Charset: 'UTF-8',
-                Data: 'IRCC Citizenship Rescheduling Tool',
-              },
-            },
-            Source: sendingAddress,
-            ReplyToAddresses: [sendingAddress],
+          const options = {
+            htmlTemplate: 'staff-rich',
+            plainTemplate: 'staff-plain',
+            formValues: input,
+            url: siteUrl,
+            receivingAddress,
+            sendingAddress,
           }
 
           let response
+          let params = await buildParams(options)
           try {
             response = await mailer.sendEmail(params).promise()
             return response
