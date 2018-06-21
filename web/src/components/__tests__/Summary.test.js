@@ -12,6 +12,7 @@ const selectedDays = [
 
 const defaultProps = {
   fullName: 'Test1',
+  email: 'test@test.com',
   paperFileNumber: '12346789',
   explanation: 'feeling lazy',
   reason: <Trans>Travel</Trans>,
@@ -59,14 +60,15 @@ describe('<Summary />', () => {
     const wrapper = shallow(<Summary {...defaultProps} />)
     const numOfSummaryRows = wrapper.children()
 
-    expect(numOfSummaryRows.length).toBe(5)
+    expect(numOfSummaryRows.length).toBe(6)
     expect(numOfSummaryRows.at(0).prop('summaryBody')).toEqual('Test1')
-    expect(numOfSummaryRows.at(1).prop('summaryBody')).toEqual('12346789')
-    expect(numOfSummaryRows.at(2).prop('summaryBody').props.id).toEqual(
+    expect(numOfSummaryRows.at(1).prop('summaryBody')).toEqual('test@test.com')
+    expect(numOfSummaryRows.at(2).prop('summaryBody')).toEqual('12346789')
+    expect(numOfSummaryRows.at(3).prop('summaryBody').props.id).toEqual(
       'Travel',
     )
-    expect(numOfSummaryRows.at(3).prop('summaryBody')).toEqual('feeling lazy')
-    expect(numOfSummaryRows.at(4).prop('summaryBody')).toMatchObject(
+    expect(numOfSummaryRows.at(4).prop('summaryBody')).toEqual('feeling lazy')
+    expect(numOfSummaryRows.at(5).prop('summaryBody')).toMatchObject(
       <SelectedDayList selectedDays={selectedDays} />,
     )
   })
