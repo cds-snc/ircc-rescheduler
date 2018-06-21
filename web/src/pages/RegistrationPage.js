@@ -1,8 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
+import { NavLink } from 'react-router-dom'
 import { css } from 'react-emotion'
-import { theme, visuallyhidden, mediaQuery, focusRing } from '../styles'
+import {
+  theme,
+  visuallyhidden,
+  mediaQuery,
+  BottomContainer,
+  focusRing,
+} from '../styles'
 import Layout from '../components/Layout'
 import {
   TextFieldAdapter,
@@ -68,16 +75,25 @@ const forNowSubmitErrorStyles = css`
 const labelNames = id => {
   switch (id) {
     case 'fullName':
-      return <Trans>Full Name</Trans>
+      return <Trans>Full name</Trans>
     case 'paperFileNumber':
-      return <Trans>Paper File Number</Trans>
+      return <Trans>Paper file number</Trans>
     case 'reason':
       return <Trans>Why are you rescheduling?</Trans>
     case 'explanation':
-      return <Trans>Explanation</Trans>
+      return <Trans>Describe why you can’t attend your test</Trans>
+    case 'email':
+      return <Trans>Email</Trans>
     default:
       return ''
   }
+}
+
+function validateEmail(email) {
+  /*eslint-disable */
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  return re.test(String(email).toLowerCase())
+  /*eslint-enable */
 }
 
 const validate = values => {
@@ -113,6 +129,16 @@ const validate = values => {
       </Trans>
     )
   }
+
+  if (!validateEmail(values.email)) {
+    errors.email = (
+      <Trans>
+        You need to provide an email address so we can send you a confirmation
+        message.
+      </Trans>
+    )
+  }
+
   return errors
 }
 
@@ -151,11 +177,7 @@ class RegistrationPage extends React.Component {
     if (Object.keys(submitErrors).length) {
       this.errorContainer.focus()
       return {
-        [FORM_ERROR]: (
-          <Trans>
-            Sorry, there was a problem with the information you submitted.
-          </Trans>
-        ),
+        [FORM_ERROR]: <Trans>Some information is missing.</Trans>,
       }
     }
 
@@ -229,6 +251,29 @@ class RegistrationPage extends React.Component {
                       <Trans>
                         This is the full name you used on your citizenship
                         application.
+                      </Trans>
+                    </span>
+                  </label>
+                </Field>
+              </div>
+              <div>
+                <Field component={TextFieldAdapter} name="email" id="email">
+                  <label htmlFor="email" id="email-label">
+                    <span id="email-header">
+                      <Trans>Email address</Trans>
+                    </span>
+                    <ValidationMessage
+                      id="email-error"
+                      message={
+                        submitError && validate(values).email
+                          ? validate(values).email
+                          : ''
+                      }
+                    />
+                    <span id="email-details">
+                      <Trans>
+                        We will send a confirmation message to this email
+                        address.
                       </Trans>
                     </span>
                   </label>
@@ -347,9 +392,17 @@ class RegistrationPage extends React.Component {
               {/*
                Button is disabled if form has been submitted (and is waiting)
               */}
-              <Button disabled={submitting}>
-                <Trans>Continue</Trans>
-              </Button>
+              <BottomContainer>
+                <Button disabled={submitting}>
+                  <Trans>Continue</Trans>
+                </Button>
+
+                <div>
+                  <NavLink to="/">
+                    <Trans>Cancel request</Trans>
+                  </NavLink>
+                </div>
+              </BottomContainer>
             </form>
           )}
         />

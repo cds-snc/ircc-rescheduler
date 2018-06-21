@@ -44,6 +44,7 @@ export const theme = {
     blue: '#335075',
     red: '#E8112D',
     green: '#00823B',
+    greenDark: '#00692f',
     redFIP: '#FF0000',
     grey: '#4A4A4A',
     gray: '#4A4A4A',
@@ -233,4 +234,9 @@ export const change = css`
   ${mediaQuery.sm(css`
     right: 0rem;
   `)};
+`
+
+export const arrow = css`
+  width: 0.9rem;
+  height: 0.9rem;
 `

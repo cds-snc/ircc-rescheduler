@@ -1,13 +1,20 @@
 import React from 'react'
-import { H1, H2, visuallyhiddenMobile } from '../styles'
+import { H1, H2, visuallyhidden, theme } from '../styles'
+import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
 
+const contentClass = css`
+  p {
+    margin-top: ${theme.spacing.xs};
+  }
+`
+
 class ConfirmationPage extends React.Component {
   render() {
     return (
-      <Layout headerClass={visuallyhiddenMobile}>
+      <Layout contentClass={contentClass} headerClass={visuallyhidden}>
         <section>
           <H1>
             <Trans>Thank you! Your request has been received.</Trans>
