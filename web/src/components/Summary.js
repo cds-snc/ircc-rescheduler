@@ -60,7 +60,7 @@ const SummaryLink = styled.div`
   `)};
 `
 
-export const SelectedDayList = withI18n()(({i18n,selectedDays}) => {
+const SelectedDayList = withI18n()(({i18n,selectedDays}) => {
   const locale = i18n !== undefined ? i18n._language : 'en'
   return selectedDays && selectedDays.length > 0 ? (
     <ul>
@@ -145,5 +145,4 @@ Summary.propTypes = {
   selectedDays: PropTypes.array,
 }
 
-//export default withI18n()(CalendarAdapter)
-export default Summary
+export { Summary as default, SelectedDayList }
