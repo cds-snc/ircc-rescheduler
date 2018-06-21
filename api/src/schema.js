@@ -44,7 +44,7 @@ const createSchema = t => {
           if (availability.length !== 3)
             return new GraphQLError(t('errors.threeDatesRequired'))
 
-          const options = {
+          const staffOptions = {
             htmlTemplate: 'staff-rich',
             plainTemplate: 'staff-plain',
             formValues: input,
@@ -53,11 +53,25 @@ const createSchema = t => {
             sendingAddress,
           }
 
-          let response
-          let params = await buildParams(options)
+          const applicantOptions = {
+            htmlTemplate: 'applicant-rich',
+            plainTemplate: 'applicant-plain',
+            formValues: input,
+            url: siteUrl,
+            receivingAddress: input.email,
+            sendingAddress,
+          }
+
+          let staffResponse
+          // let applicantResponse
+          let staffParams = await buildParams(staffOptions)
+          let applicantParams = await buildParams(applicantOptions)
+
           try {
-            response = await mailer.sendEmail(params).promise()
-            return response
+            staffResponse = await mailer.sendEmail(staffParams).promise()
+
+            await mailer.sendEmail(applicantParams).promise()
+            return staffResponse
           } catch (e) {
             return new GraphQLError(e.message)
           }
