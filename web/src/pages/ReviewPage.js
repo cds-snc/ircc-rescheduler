@@ -54,6 +54,7 @@ class ReviewPage extends React.Component {
             let {
               userRegistrationData: {
                 fullName,
+                email,
                 paperFileNumber,
                 explanation,
                 reason,
@@ -65,6 +66,7 @@ class ReviewPage extends React.Component {
               <section>
                 <Summary
                   fullName={fullName}
+                  email={email}
                   paperFileNumber={paperFileNumber}
                   explanation={explanation}
                   reason={this.translateReason(reason)}
@@ -90,6 +92,7 @@ class ReviewPage extends React.Component {
                           submit({
                             variables: {
                               fullName,
+                              email,
                               reason,
                               explanation,
                               paperFileNumber,

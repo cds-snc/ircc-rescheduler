@@ -1,10 +1,9 @@
 import React from 'react'
-import { H1, H2, visuallyhidden } from '../styles'
+import { H1, H2, visuallyhidden, theme } from '../styles'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
-import { theme } from '../styles'
 
 const contentClass = css`
   p {
