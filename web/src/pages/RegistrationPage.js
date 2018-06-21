@@ -133,12 +133,7 @@ const validate = values => {
   if (!validateEmail(values.email)) {
     errors.email = (
       <Trans>
-<<<<<<< HEAD
         You need to provide an email address so we can send you a confirmation message.
-=======
-        You need to provide an email address so we can send you a confirmation
-        message..
->>>>>>> 36560fc... add email field to reg form
       </Trans>
     )
   }
