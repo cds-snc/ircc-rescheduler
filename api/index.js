@@ -12,7 +12,7 @@ if (!process.env.IRCC_RECEIVING_ADDRESS)
   throw new Error('IRCC_RECEIVING_ADDRESS was not found in the environment')
 if (!process.env.SENDING_ADDRESS)
   throw new Error('SENDING_ADDRESS was not found in the environment')
-if (!process.env.SITE_URL)
+if (typeof process.env.SITE_URL === 'undefined')
   throw new Error('SITE_URL was not found in the environment')
 
 AWS.config.update({ region: process.env.AWS_REGION })
@@ -21,7 +21,7 @@ const server = Server({
   mailer: new AWS.SES({ apiVersion: '2010-12-01' }),
   receivingAddress: process.env.IRCC_RECEIVING_ADDRESS,
   sendingAddress: process.env.SENDING_ADDRESS,
-  siteUrl: process.env.SITE_URL,
+  siteUrl: process.env.SITE_URL || ' ',
 })
 
 server.listen(3001)
