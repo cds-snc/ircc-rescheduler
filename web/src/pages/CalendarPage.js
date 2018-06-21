@@ -137,14 +137,14 @@ class CalendarPage extends Component {
 
         <CalendarHeader>
           <Trans>
-            Citizenship Tests are scheduled on <strong>Tuesdays</strong> and{' '}
-            <strong>Fridays</strong>.
+            Citizenship appointments are scheduled on <strong>Wednesdays</strong> and{' '}
+            <strong>Thursdays</strong>.
           </Trans>
         </CalendarHeader>
         <CalendarSubheader>
           <Trans>
-            <strong>Select three (3) days you are available</strong> between
-            July and September
+            <strong>Select 3 days</strong> you’re available between
+            July and September:
           </Trans>
         </CalendarSubheader>
 
@@ -196,7 +196,7 @@ class CalendarPage extends Component {
               </div>
               <BottomContainer>
                 <Button disabled={submitting}>
-                  <Trans>Review</Trans>
+                  <Trans>Review request</Trans>
                 </Button>
 
                 <div>
