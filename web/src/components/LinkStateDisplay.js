@@ -10,6 +10,7 @@ const QUERY = gql`
       paperFileNumber
       reason
       explanation
+      email
     }
     selectedDays @client
   }

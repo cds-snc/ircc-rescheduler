@@ -110,6 +110,7 @@ SummaryRow.propTypes = {
 
 const Summary = ({
   fullName,
+  email,
   paperFileNumber,
   reason,
   explanation,
@@ -119,6 +120,11 @@ const Summary = ({
     <SummaryRow
       summaryHeader={<Trans>Full name</Trans>}
       summaryBody={fullName}
+      summaryLink={'/register'}
+    />
+    <SummaryRow
+      summaryHeader={<Trans>Email</Trans>}
+      summaryBody={email}
       summaryLink={'/register'}
     />
     <SummaryRow
@@ -146,6 +152,7 @@ const Summary = ({
 
 Summary.propTypes = {
   fullName: PropTypes.string,
+  email: PropTypes.string,
   reason: PropTypes.object,
   explanation: PropTypes.string,
   paperFileNumber: PropTypes.string,
