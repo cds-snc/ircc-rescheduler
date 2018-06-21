@@ -35,6 +35,7 @@ describe('Mutations', () => {
           mailer: errorMock,
           receivingAddress: 'test@example.com',
           sendingAddress: 'test@example.com',
+          siteUrl: "https://test.com"
         })
 
         let response = await request(app)
@@ -44,6 +45,7 @@ describe('Mutations', () => {
               decline(input: {
                 fullName: "asdf"
                 explanation: "asdf"
+                email: "test@test.com"
                 paperFileNumber: "111"
                 reason: "because reasons"
                 availability: ["2018-06-26","2018-06-29","2018-07-31"]
@@ -63,6 +65,7 @@ describe('Mutations', () => {
           mailer: mockSES,
           receivingAddress: 'test@example.com',
           sendingAddress: 'test@example.com',
+          siteUrl: "https://test.com"
         })
 
         let response = await request(app)
@@ -74,6 +77,7 @@ describe('Mutations', () => {
                 explanation: "asdf"
                 paperFileNumber: "111"
                 reason: "because reasons"
+                email:"test@test.com"
                 availability: ["2018-06-26","2018-06-29","2018-07-31"]
               }){
                 messageId
@@ -89,6 +93,7 @@ describe('Mutations', () => {
           mailer: mockSES,
           receivingAddress: 'test@example.com',
           sendingAddress: 'test@example.com',
+          siteUrl: "https://test.com"
         })
 
         let response = await request(app)
@@ -100,6 +105,7 @@ describe('Mutations', () => {
                 explanation: "asdf"
                 paperFileNumber: "111"
                 reason: "because reasons"
+                email:"test@test.com"
                 availability: ["2018-06-29","2018-07-31"]
               }){
                 messageId
@@ -116,6 +122,7 @@ describe('Mutations', () => {
         mailer: mockSES,
         receivingAddress: 'test@example.com',
         sendingAddress: 'test@example.com',
+        siteUrl: "https://test.com"
       })
 
       let response = await request(app)
@@ -127,6 +134,7 @@ describe('Mutations', () => {
                 explanation: "asdf"
                 paperFileNumber: "111"
                 reason: "because reasons"
+                email:"test@test.com"
                 availability: ["2018-06-26","2018-06-29","2018-07-31"]
               }){
                 requestId
