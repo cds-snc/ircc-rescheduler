@@ -14,6 +14,7 @@ export const GET_USER_DATA = gql`
   query getUserData {
     userRegistrationData @client {
       fullName
+      email
       paperFileNumber
       reason
       explanation
@@ -25,6 +26,7 @@ export const GET_USER_DATA = gql`
 export const SUBMIT = gql`
   mutation submit(
     $fullName: String!
+    $email: String!
     $explanation: String!
     $reason: String!
     $paperFileNumber: String!
@@ -33,6 +35,7 @@ export const SUBMIT = gql`
     decline(
       input: {
         fullName: $fullName
+        email: $email
         explanation: $explanation
         reason: $reason
         paperFileNumber: $paperFileNumber
