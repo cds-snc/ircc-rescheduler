@@ -71,7 +71,7 @@ class ReviewPage extends React.Component {
                 />
                 <Reminder>
                   <Trans>
-                    Sending this request will cancel your existing appointment.
+                    Sending this request will cancel your current appointment.
                     <strong> Do not attend your old appointment</strong> after
                     you send this request.
                   </Trans>
