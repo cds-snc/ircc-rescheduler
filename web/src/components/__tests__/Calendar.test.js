@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import CalendarAdapter from '../../components/Calendar'
+import CalendarAdapter from '../Calendar'
 
 const clickDate = (wrapper, index) => {
   return wrapper

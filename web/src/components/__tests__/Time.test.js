@@ -11,10 +11,10 @@ describe('<Time />', () => {
     expect(time.find('time').length).toEqual(1)
   })
 
-  it('renders correctly from a Date object', () => {
-    const time = shallow(<Time date={date} locale='en'/>)
+  it('renders correctly from a Date object in french format', () => {
+    const time = shallow(<Time date={date} locale='fr'/>)
     expect(time.props().dateTime).toEqual('1870-04-22')
-    expect(time.text()).toEqual('Fri, Apr 22, 1870')
+    expect(time.text()).toEqual('ven. 22 avr. 1870')
   })
 
   it('renders correctly from a date string', () => {
