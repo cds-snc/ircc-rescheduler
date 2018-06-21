@@ -426,7 +426,6 @@ const renderDayBoxes = ({
 class Calendar extends Component {
   constructor(props) {
     super(props)
-    //console.log('catalogs: ', catalogs)
     this.handleDayClick = this.handleDayClick.bind(this)
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
     this.state = {

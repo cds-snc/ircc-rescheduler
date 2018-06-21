@@ -76,7 +76,3 @@ export const getDateInfo = i18n => {
   }
   return date
 }
-
-/*export const CalendarConstants = withI18n()(({ i18n, language }) => {
-  console.log(i18n._`Review`)
-})*/
