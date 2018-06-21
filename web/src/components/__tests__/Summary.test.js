@@ -21,7 +21,6 @@ const defaultProps = {
 describe('<SelectedDayList />', () => {
   it('renders correct number of rows', () => {
     const wrapper = mount(<SelectedDayList selectedDays={selectedDays} />)
-    console.log('aJDYgajsda', wrapper.text())
     expect(wrapper.find('ul').length).toBe(1)
     expect(wrapper.find('li').length).toBe(selectedDays.length)
   })
