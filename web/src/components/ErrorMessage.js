@@ -56,7 +56,7 @@ class ErrorList extends React.Component {
         ) : (
           <div>
             <h2>{this.props.message}</h2>
-            <p>Please take another look at the:</p>
+            <p>Please check the following sections for errors:</p>
             <ul>
               {Array.isArray(this.props.children) ? (
                 this.props.children.map((child, i) => <li key={i}>{child}</li>)

@@ -69,13 +69,13 @@ const forNowSubmitErrorStyles = css`
 const labelNames = id => {
   switch (id) {
     case 'fullName':
-      return <Trans>Full Name</Trans>
+      return <Trans>Full name</Trans>
     case 'paperFileNumber':
-      return <Trans>Paper File Number</Trans>
+      return <Trans>Paper file number</Trans>
     case 'reason':
       return <Trans>Why are you rescheduling?</Trans>
     case 'explanation':
-      return <Trans>Explanation</Trans>
+      return <Trans>Describe why you can’t attend your test</Trans>
     default:
       return ''
   }
@@ -154,7 +154,7 @@ class RegistrationPage extends React.Component {
       return {
         [FORM_ERROR]: (
           <Trans>
-            Sorry, there was a problem with the information you submitted.
+            Some information is missing.
           </Trans>
         ),
       }
