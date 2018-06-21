@@ -63,8 +63,8 @@ class LandingPage extends React.Component {
         <section>
           <H1Landing>
             <Trans>
-              Tell IRCC that you can&#39;t attend your Citizenship test, and
-              request a new appointment.
+              Tell IRCC you can&#39;t attend your Citizenship appointment, and
+              request a new one.
             </Trans>
           </H1Landing>
 
@@ -89,7 +89,7 @@ class LandingPage extends React.Component {
 
           <p>
             <Trans>
-              After that, you will select <strong>three (3) days</strong> when
+              Then you’ll select <strong>3 days</strong> when
               you’re available for an appointment in the future.
             </Trans>
           </p>
