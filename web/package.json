@@ -8,7 +8,7 @@
     "dbg": "node --inspect-brk node_modules/jest/bin/jest.js",
     "lint": "node_modules/eslint/bin/eslint.js src test",
     "start": "NODE_ENV=production node build/server.js",
-    "test": "node_modules/jest/bin/jest.js",
+    "test": "node --icu-data-dir=./node_modules/full-icu node_modules/jest/bin/jest.js",
     "extract": "NODE_ENV=development lingui extract",
     "compile": "NODE_ENV=development lingui compile",
     "add-locale": "lingui add-locale"
@@ -25,6 +25,7 @@
     "emotion-server": "^9.2.3",
     "express": "^4.16.3",
     "final-form": "^4.4.0",
+    "full-icu": "^1.2.1",
     "graphql": "^0.13.2",
     "graphql-tag": "^2.8.0",
     "isomorphic-fetch": "^2.2.1",
