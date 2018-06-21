@@ -12,6 +12,7 @@ const cache = new InMemoryCache()
 const typeDefs = `
   type UserData {
     fullName: String
+    email: String
     paperFileNumber: String
     reason: String
     explanation: String
@@ -52,17 +53,19 @@ const stateLink = withClientState({
           {
             userRegistrationData @client {
               fullName
+              email
               paperFileNumber
               reason
               explanation
             }
           }
         `
-        const { fullName, reason, paperFileNumber, explanation } = args.data
+        const { fullName,email, reason, paperFileNumber, explanation } = args.data
         const data = {
           userRegistrationData: {
             __typename: 'UserData',
             fullName,
+            email,
             paperFileNumber,
             reason,
             explanation,
@@ -90,6 +93,7 @@ const stateLink = withClientState({
     userRegistrationData: {
       __typename: 'UserData',
       fullName: '',
+      email: '',
       paperFileNumber: '',
       reason: '',
       explanation: '',
