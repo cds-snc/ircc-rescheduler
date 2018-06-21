@@ -54,6 +54,12 @@ injectGlobal`
   #paperFileNumber-details, #fullName-details {
    margin-top: 0rem;
   }
+
+  hr {
+   border: 0;
+   height: 1px;
+   background: #DBDBDB;
+  }
 `
 
 class Layout extends React.Component {
