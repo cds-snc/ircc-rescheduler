@@ -3,24 +3,24 @@ import { shallow } from 'enzyme'
 import Time, { dateToISODateString } from '../Time'
 
 describe('<Time />', () => {
-  let dateString = 'Fri Apr 22 1870'
+  let dateString = 'Fri, Apr 22, 1870'
   let date = new Date(dateString)
 
   it('renders a <time> element', () => {
-    const time = shallow(<Time date={date} />)
+    const time = shallow(<Time date={date} locale={'en'}/>)
     expect(time.find('time').length).toEqual(1)
   })
 
-  it('renders correctly from a Date object', () => {
-    const time = shallow(<Time date={date} />)
+  it('renders correctly from a Date object in french format', () => {
+    const time = shallow(<Time date={date} locale={'fr'}/>)
     expect(time.props().dateTime).toEqual('1870-04-22')
-    expect(time.text()).toEqual('Fri, 22 Apr 1870')
+    expect(time.text()).toEqual('ven. 22 avr. 1870')
   })
 
   it('renders correctly from a date string', () => {
-    const time = shallow(<Time date={dateString} />)
+    const time = shallow(<Time date={dateString} locale={'en'}/>)
     expect(time.props().dateTime).toEqual('1870-04-22')
-    expect(time.text()).toEqual('Fri, 22 Apr 1870')
+    expect(time.text()).toEqual('Fri, Apr 22, 1870')
   })
 })
 

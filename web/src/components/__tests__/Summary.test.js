@@ -21,8 +21,7 @@ const defaultProps = {
 
 describe('<SelectedDayList />', () => {
   it('renders correct number of rows', () => {
-    const wrapper = shallow(<SelectedDayList selectedDays={selectedDays} />)
-
+    const wrapper = mount(<SelectedDayList selectedDays={selectedDays} />)
     expect(wrapper.find('ul').length).toBe(1)
     expect(wrapper.find('li').length).toBe(selectedDays.length)
   })
@@ -36,7 +35,7 @@ describe('<SelectedDayList />', () => {
           .find('li')
           .at(index)
           .text(),
-      ).toEqual(shallow(<Time date={day} />).text())
+      ).toEqual(shallow(<Time date={day} locale={'en'}/>).text())
     })
   })
 
