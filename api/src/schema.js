@@ -65,6 +65,7 @@ const createSchema = t => {
           let staffResponse
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           // let applicantResponse
 =======
           let applicantResponse
@@ -72,12 +73,15 @@ const createSchema = t => {
 =======
           let applicantResponse
 >>>>>>> c090dde... applicant email
+=======
+>>>>>>> 773fcfb349f25d2957a6bdd30e9235d4c0484c29
           let staffParams = await buildParams(staffOptions)
           let applicantParams = await buildParams(applicantOptions)
 
           try {
             staffResponse = await mailer.sendEmail(staffParams).promise()
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             await mailer.sendEmail(applicantParams).promise()
@@ -91,6 +95,11 @@ const createSchema = t => {
               .sendEmail(applicantParams)
               .promise()
 >>>>>>> c090dde... applicant email
+=======
+            await mailer
+              .sendEmail(applicantParams)
+              .promise()
+>>>>>>> 773fcfb349f25d2957a6bdd30e9235d4c0484c29
             return staffResponse
           } catch (e) {
             return new GraphQLError(e.message)
