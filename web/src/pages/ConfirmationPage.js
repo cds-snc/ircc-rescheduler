@@ -9,6 +9,12 @@ const contentClass = css`
   p {
     margin-top: ${theme.spacing.xs};
   }
+
+  section {
+    margin-bottom: 0;
+  }
+
+  padding-bottom: ${theme.spacing.xxxl};
 `
 
 class ConfirmationPage extends React.Component {
@@ -40,6 +46,26 @@ class ConfirmationPage extends React.Component {
               <Trans>If you have any questions, please contact:</Trans>
             </H2>
           </Contact>
+
+          <hr />
+
+          <H2>
+            <Trans>Were you satisfied with this service?</Trans>
+          </H2>
+
+          <p>
+            <Trans>Your feedback helps us improve.</Trans>
+          </p>
+
+          <p>
+            <a
+              href="https://docs.google.com/forms/d/1a1bJDF4BmepyMJaYubOSg3IiW4kjCqFrAu_0QXLYQ8Q/edit"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Send us feedback.
+            </a>
+          </p>
         </section>
       </Layout>
     )
