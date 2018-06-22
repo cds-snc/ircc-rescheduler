@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        24
+        25
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        26
+        27
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        28
+        29
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        30
+        31
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        32
+        33
       ]
     ]
   },
@@ -43,23 +43,23 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        43
+        44
       ]
     ]
   },
-  "Review your request before sending it": {
+  "Review your request": {
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        47
+        48
       ]
     ]
   },
-  "By sending this request, you are <0>cancelling your current appointment.</0>": {
+  "Sending this request will cancel your current appointment.<0> Do not attend your old appointment</0> after you send this request.": {
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        73
+        76
       ]
     ]
   },
@@ -67,15 +67,15 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        99
+        104
       ]
     ]
   },
-  "Cancel": {
+  "Cancel request": {
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        105
+        111
       ]
     ]
   }

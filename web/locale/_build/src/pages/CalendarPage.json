@@ -31,7 +31,7 @@
       ]
     ]
   },
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
+  "Citizenship appointments are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -39,7 +39,7 @@
       ]
     ]
   },
-  "<0>Select three (3) days you are available</0> between July and September": {
+  "<0>Select 3 days</0> you’re available between July and September:": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -55,7 +55,7 @@
       ]
     ]
   },
-  "Review": {
+  "Review request": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -63,7 +63,7 @@
       ]
     ]
   },
-  "Cancel": {
+  "Cancel request": {
     "origin": [
       [
         "src/pages/CalendarPage.js",

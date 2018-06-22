@@ -1,89 +1,25 @@
 {
-  "Full Name": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        71
-      ]
-    ]
-  },
-  "Paper File Number": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        73
-      ]
-    ]
-  },
-  "Reason for rescheduling": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        75
-      ]
-    ]
-  },
-  "Explanation": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        77
-      ]
-    ]
-  },
-  "You need to tell us your name so we know who is requesting a new appointment.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        87
-      ]
-    ]
-  },
-  "You need to tell us your paper file number so we can confirm your identity.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        95
-      ]
-    ]
-  },
-  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        103
-      ]
-    ]
-  },
-  "Please tell us a bit more about why you need to reschedule your test.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        111
-      ]
-    ]
-  },
-  "Sorry, there was a problem with the information you submitted.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        155
-      ]
-    ]
-  },
   "Full name": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        218
+        78
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        238
       ]
     ]
   },
-  "This is the full name you used on your citizenship application.": {
+  "Email address": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        229
+        80
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        261
       ]
     ]
   },
@@ -91,7 +27,91 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        245
+        82
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        288
+      ]
+    ]
+  },
+  "Why are you rescheduling?": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        84
+      ]
+    ]
+  },
+  "Describe why you can’t attend your test": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        86
+      ]
+    ]
+  },
+  "You need to tell us your name so we know who is requesting a new appointment.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        103
+      ]
+    ]
+  },
+  "You need to provide an email address so we can send you a confirmation message.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        111
+      ]
+    ]
+  },
+  "You need to tell us your paper file number so we can confirm your identity.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        119
+      ]
+    ]
+  },
+  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        127
+      ]
+    ]
+  },
+  "Please tell us a bit more about why you need to reschedule your test.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        135
+      ]
+    ]
+  },
+  "Some information is missing.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        178
+      ]
+    ]
+  },
+  "This is the full name you used on your citizenship application.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        249
+      ]
+    ]
+  },
+  "We will send a confirmation message to this email address.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        272
       ]
     ]
   },
@@ -99,23 +119,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        256
-      ]
-    ]
-  },
-  "If you’re not sure if you can reschedule,": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        276
-      ]
-    ]
-  },
-  "read the guidelines for rescheduling": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        278
+        299
       ]
     ]
   },
@@ -123,7 +127,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        286
+        323
       ]
     ]
   },
@@ -131,7 +135,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        294
+        331
       ]
     ]
   },
@@ -139,7 +143,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        302
+        339
       ]
     ]
   },
@@ -147,7 +151,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        310
+        347
       ]
     ]
   },
@@ -155,7 +159,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        318
+        355
       ]
     ]
   },
@@ -163,7 +167,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        334
+        371
       ]
     ]
   },
@@ -171,7 +175,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        345
+        382
       ]
     ]
   },
@@ -179,7 +183,15 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        357
+        395
+      ]
+    ]
+  },
+  "Cancel request": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        400
       ]
     ]
   }
