@@ -1,6 +1,7 @@
 require('dotenv').config()
 const Server = require('./src/server').default
 const AWS = require('aws-sdk')
+const nodemailer = require('nodemailer')
 
 if (!process.env.AWS_REGION)
   throw new Error('AWS_REGION was not found in the environment')
@@ -17,8 +18,12 @@ if (typeof process.env.SITE_URL === 'undefined')
 
 AWS.config.update({ region: process.env.AWS_REGION })
 
+const transporter = nodemailer.createTransport({
+  SES: new AWS.SES({ apiVersion: '2010-12-01' }),
+})
+
 const server = Server({
-  mailer: new AWS.SES({ apiVersion: '2010-12-01' }),
+  mailer: transporter,
   receivingAddress: process.env.IRCC_RECEIVING_ADDRESS,
   sendingAddress: process.env.SENDING_ADDRESS,
   siteUrl: process.env.SITE_URL || ' ',

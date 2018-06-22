@@ -32,6 +32,10 @@ const readFileContent = async filename => {
   return content
 }
 
+function getWordmarkPath() {
+  return path.resolve(__dirname, './email_templates')
+}
+
 // build a dynamic template literal in the proper context
 // standard template literals can't be dynamic / built at runtime
 
@@ -88,29 +92,20 @@ const buildParams = async options => {
 
   const { receivingAddress, sendingAddress } = options
   const { html, plain } = markup
-
   const params = {
-    Destination: {
-      ToAddresses: [receivingAddress],
-    },
-    Message: {
-      Body: {
-        Html: {
-          Charset: 'UTF-8',
-          Data: html,
-        },
-        Text: {
-          Charset: 'UTF-8',
-          Data: plain,
-        },
+    from: sendingAddress,
+    to: receivingAddress,
+    replyTo: sendingAddress,
+    subject: 'IRCC Citizenship Rescheduling Tool',
+    text: plain,
+    html: html,
+    attachments: [
+      {
+        filename: 'Canwordmark_black.png',
+        path: getWordmarkPath() + '/Canwordmark_black.png',
+        cid: 'ircc-wordmark@cds', //same cid value as in the html img src
       },
-      Subject: {
-        Charset: 'UTF-8',
-        Data: 'IRCC Citizenship Rescheduling Tool',
-      },
-    },
-    Source: sendingAddress,
-    ReplyToAddresses: [sendingAddress],
+    ],
   }
 
   return params
