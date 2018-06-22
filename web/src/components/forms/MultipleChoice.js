@@ -67,8 +67,8 @@ const govuk_label_pseudo_elements = css`
     width: 0;
     height: 0;
     position: absolute;
-    top: 9px;
-    left: 9px;
+    top: 7px;
+    left: 7px;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
@@ -161,30 +161,20 @@ const cds_multiple_choice = css`
 
 const radio = css`
   ${govuk_multiple_choice};
-  ${cds_multiple_choice};
+
+  label {
+    padding-top: 3px;
+    font-size: ${theme.font.lg};
+  }
 
   input[type='radio'] + label::before {
     border: 2px solid ${theme.colour.black};
     background-color: ${theme.colour.white};
-    width: 22px;
-    height: 22px;
-    top: 6px;
-    left: 0;
   }
-  input[type='radio'] + label::after {
-    border: 6px solid ${theme.colour.black};
-    top: 11px;
-    left: 5px;
-  }
+
   ${mediaQuery.sm(css`
-    input[type='radio'] + label::before {
-      width: 20px;
-      height: 20px;
-      top: 4px;
-    }
-    input[type='radio'] + label::after {
-      top: 8px;
-      left: 4px;
+    label {
+      padding-top: 4px;
     }
   `)};
 `
