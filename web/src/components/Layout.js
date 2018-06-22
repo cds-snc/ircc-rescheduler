@@ -86,7 +86,7 @@ class Layout extends React.Component {
         >
           <div role="banner">
             <AlphaBanner alpha>
-              <Trans>This is a new service we are constantly improving.</Trans>
+              <Trans>This is a new service we are constantly deploying.</Trans>
             </AlphaBanner>
             <FederalBanner />
             <PageHeader headerClass={this.props.headerClass}>
