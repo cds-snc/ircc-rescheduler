@@ -117,7 +117,7 @@ class ReviewPage extends React.Component {
                     )}
                   </Submission>
                   <div>
-                    <NavLink to="/">
+                    <NavLink to="/cancel">
                       <Trans>Cancel request</Trans>
                     </NavLink>
                   </div>
