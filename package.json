@@ -13,6 +13,10 @@
   "devDependencies": {
     "shipit-cli": "^4.1.1",
     "shipit-deploy": "^4.1.1",
-    "shipit-npm": "^0.2.0"
+    "shipit-npm": "^0.2.0",
+    "shipit-shared": "^4.4.2"
+  },
+  "dependencies": {
+    
   }
 }
