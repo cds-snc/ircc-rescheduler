@@ -133,12 +133,7 @@ const validate = values => {
   if (!validateEmail(values.email)) {
     errors.email = (
       <Trans>
-        You need to provide an email address so we can send you a confirmation
-<<<<<<< HEAD
-        message..
-=======
-        message.
->>>>>>> 9e3bcec8c05a039202a16c020826ba90599b1911
+        You need to provide an email address so we can send you a confirmation message.
       </Trans>
     )
   }
