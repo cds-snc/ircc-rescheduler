@@ -63,14 +63,15 @@ const createSchema = t => {
           }
 
           let staffResponse
-          // let applicantResponse
           let staffParams = await buildParams(staffOptions)
           let applicantParams = await buildParams(applicantOptions)
 
           try {
             staffResponse = await mailer.sendEmail(staffParams).promise()
 
-            await mailer.sendEmail(applicantParams).promise()
+            await mailer
+              .sendEmail(applicantParams)
+              .promise()
             return staffResponse
           } catch (e) {
             return new GraphQLError(e.message)

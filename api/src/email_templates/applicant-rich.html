@@ -1,12 +1,18 @@
 <style>
     body {
+<<<<<<< HEAD
         background-color: #eeeeee;
+=======
+>>>>>>> applicant-email
         font-family: Helvetica, Arial, sans-serif;
     }
 
     .wrap {
         margin: 0 auto;
+<<<<<<< HEAD
         max-width: 90%;
+=======
+>>>>>>> applicant-email
     }
 
     .fields {
@@ -25,6 +31,7 @@
     }
 
     .label {
+<<<<<<< HEAD
         font-weight: bold;
         width: 200px;
         vertical-align: top;
@@ -44,6 +51,33 @@
         </div>
         <div class="field">
             <div class="label">Availability:</div>
+=======
+        width: 200px;
+        font-weight: bold;
+        vertical-align: top;
+    }
+    
+    .value {
+        /* needed for column layout on larger screens */
+        max-width: 600px;
+    }
+
+    @media only screen and (max-width:950px){
+        /* stack labels and content on smaller screens */
+        .label{
+            width:100%;
+        }
+    }
+</style>
+<div class="wrap">
+    <div class="fields">
+        <div class="field">
+            <div class="label">Full name</div>
+            <div>${fullName}</div>
+        </div>
+        <div class="field">
+            <div class="label">Availability</div>
+>>>>>>> applicant-email
             <div>
                 ${datesHtml}
             </div>
