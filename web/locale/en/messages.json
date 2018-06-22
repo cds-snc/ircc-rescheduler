@@ -4,11 +4,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        472
-      ],
-      [
-        "src/pages/CalendarPage.js",
-        60
+        406
       ]
     ]
   },
@@ -17,11 +13,11 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        479
+        480
       ],
       [
-        "src/components/Calendar.js",
-        397
+        "src/pages/CalendarPage.js",
+        60
       ]
     ]
   },
@@ -30,16 +26,16 @@
     "origin": [
       [
         "src/components/LanguageSwitcher.js",
-        22
+        35
       ]
     ]
   },
-  "This is a new service we are constantly improving.": {
+  "This is a new service we are constantly deploying.": {
     "translation": "",
     "origin": [
       [
         "src/components/Layout.js",
-        83
+        89
       ]
     ]
   },
@@ -48,7 +44,7 @@
     "origin": [
       [
         "src/components/Layout.js",
-        87
+        93
       ]
     ]
   },
@@ -57,7 +53,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        74
+        84
       ]
     ]
   },
@@ -66,7 +62,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        91
+        102
       ]
     ]
   },
@@ -75,11 +71,24 @@
     "origin": [
       [
         "src/components/Summary.js",
-        111
+        123
       ],
       [
         "src/pages/RegistrationPage.js",
-        218
+        78
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        238
+      ]
+    ]
+  },
+  "Email": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Summary.js",
+        128
       ]
     ]
   },
@@ -88,11 +97,15 @@
     "origin": [
       [
         "src/components/Summary.js",
-        116
+        133
       ],
       [
         "src/pages/RegistrationPage.js",
-        245
+        82
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        288
       ]
     ]
   },
@@ -101,7 +114,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        121
+        138
       ]
     ]
   },
@@ -110,11 +123,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        126
-      ],
-      [
-        "src/pages/RegistrationPage.js",
-        77
+        143
       ]
     ]
   },
@@ -123,7 +132,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        131
+        148
       ]
     ]
   },
@@ -132,443 +141,15 @@
     "origin": [
       [
         "src/components/__tests__/Summary.test.js",
-        17
-      ],
-      [
-        "src/pages/RegistrationPage.js",
-        286
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        24
-      ]
-    ]
-  },
-  "Calendar": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        50
-      ]
-    ]
-  },
-  "Sorry, there was a problem with the information you submitted.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        102
-      ],
-      [
-        "src/pages/RegistrationPage.js",
-        155
-      ]
-    ]
-  },
-  "Go Back": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        133
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        43
-      ]
-    ]
-  },
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        139
-      ]
-    ]
-  },
-  "<0>Select three (3) days you are available</0> between July and September": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        145
-      ]
-    ]
-  },
-  "Make sure you stay available on all of the days you select.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        192
-      ]
-    ]
-  },
-  "Review": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        199
-      ]
-    ]
-  },
-  "Cancel": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        204
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        105
-      ]
-    ]
-  },
-  "Thank you! Your request has been received.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        13
-      ]
-    ]
-  },
-  "What happens next?": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        17
-      ]
-    ]
-  },
-  "Within six (6) weeks, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        20
-      ]
-    ]
-  },
-  "If you have any questions, please contact:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        31
-      ]
-    ]
-  },
-  "We're sorry, something went wrong.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        13
-      ]
-    ]
-  },
-  "Our team has been notified, but click <0>here</0> to fill out an error report.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
         18
-      ]
-    ]
-  },
-  "Report a bug": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        29
-      ]
-    ]
-  },
-  "Please contact <0>IRCC</0> directly to reschedule your appointment": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        37
-      ]
-    ]
-  },
-  "Home": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        48
       ],
       [
-        "src/pages/FourOhFourPage.js",
-        28
-      ]
-    ]
-  },
-  "Page not found": {
-    "translation": "",
-    "origin": [
+        "src/pages/RegistrationPage.js",
+        323
+      ],
       [
-        "src/pages/FourOhFourPage.js",
-        19
-      ]
-    ]
-  },
-  "Sorry, the page you are looking for doesn’t exist.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/FourOhFourPage.js",
-        22
-      ]
-    ]
-  },
-  "Return to the home page to reschedule your appointment.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/FourOhFourPage.js",
+        "src/pages/ReviewPage.js",
         25
-      ]
-    ]
-  },
-  "Use this service to notify Immigration, Refugees and Citizenship Canada that you cannot attend your Citizenship test, and you need a new appointment.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        54
-      ]
-    ]
-  },
-  "You will need:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        62
-      ]
-    ]
-  },
-  "Your <0>paper file number</0>": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        67
-      ]
-    ]
-  },
-  "This is found at the top of your test notice email.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        72
-      ]
-    ]
-  },
-  "Your full name": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        80
-      ]
-    ]
-  },
-  "This should match the name on your application.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        83
-      ]
-    ]
-  },
-  "To describe your reason for rescheduling": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        89
-      ]
-    ]
-  },
-  "For more information on rescheduling, <0>read the guidelines</0>.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        92
-      ]
-    ]
-  },
-  "After that, you will select <0>three (3) days</0> when you’re available for an appointment in the future.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        103
-      ]
-    ]
-  },
-  "By sending this request to reschedule, you will be <0>cancelling your current appointment</0>. After you complete this process, it could take up to six (6) weeks for IRCC to schedule your new appointment.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        111
-      ]
-    ]
-  },
-  "Start Now": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        121
-      ]
-    ]
-  },
-  "Full Name": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        71
-      ]
-    ]
-  },
-  "Paper File Number": {
-    "translation": "",
-    "origin": [
-      [
-        "src/Layout.js",
-        55
-      ],
-      [
-        "src/components/Layout.js",
-        83
-      ]
-    ]
-  },
-  "Reason for rescheduling": {
-    "translation": "",
-    "origin": [
-      [
-        "src/Layout.js",
-        61
-      ],
-      [
-        "src/components/Layout.js",
-        87
-      ]
-    ]
-  },
-  "You need to tell us your name so we know who is requesting a new appointment.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        87
-      ]
-    ]
-  },
-  "You need to tell us your paper file number so we can confirm your identity.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        95
-      ]
-    ]
-  },
-  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        103
-      ]
-    ]
-  },
-  "Please tell us a bit more about why you need to reschedule your test.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        111
-      ]
-    ]
-  },
-  "This is the full name you used on your citizenship application.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        229
-      ]
-    ]
-  },
-  "This number is at the top of the email we sent you.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        256
-      ]
-    ]
-  },
-  "If you’re not sure if you can reschedule,": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        276
-      ]
-    ]
-  },
-  "read the guidelines for rescheduling": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        278
-      ]
-    ]
-  },
-  "Medical": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        294
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        28
-      ]
-    ]
-  },
-  "Work or School": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        302
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        30
       ]
     ]
   },
@@ -612,12 +193,427 @@
     "translation": "",
     "origin": [
       [
-        "src/pages/RegistrationPage.js",
-        310
+        "src/pages/CalendarPage.js",
+        50
+      ]
+    ]
+  },
+  "Sorry, there was a problem with the information you submitted.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        102
+      ]
+    ]
+  },
+  "Go Back": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        133
       ],
       [
         "src/pages/ReviewPage.js",
+        44
+      ]
+    ]
+  },
+  "Citizenship appointments are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        139
+      ]
+    ]
+  },
+  "<0>Select 3 days</0> you’re available between July and September:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        145
+      ]
+    ]
+  },
+  "Make sure you stay available on all of the days you select.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        192
+      ]
+    ]
+  },
+  "Review request": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        199
+      ]
+    ]
+  },
+  "Cancel request": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        204
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        400
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        111
+      ]
+    ]
+  },
+  "Thank you! Your request has been received.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
         26
+      ]
+    ]
+  },
+  "What happens next?": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        32
+      ]
+    ]
+  },
+  "By July 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        35
+      ]
+    ]
+  },
+  "If you have any questions, please contact:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        46
+      ]
+    ]
+  },
+  "Were you satisfied with this service?": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        53
+      ]
+    ]
+  },
+  "Your feedback helps us improve.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        57
+      ]
+    ]
+  },
+  "We're sorry, something went wrong.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        24
+      ]
+    ]
+  },
+  "Our team has been notified, but click <0>here</0> to fill out an error report.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        29
+      ]
+    ]
+  },
+  "Report a bug": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        40
+      ]
+    ]
+  },
+  "Please contact <0>IRCC</0> directly to reschedule your appointment": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        48
+      ]
+    ]
+  },
+  "Home": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        59
+      ],
+      [
+        "src/pages/FourOhFourPage.js",
+        28
+      ]
+    ]
+  },
+  "Page not found": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/FourOhFourPage.js",
+        19
+      ]
+    ]
+  },
+  "Sorry, the page you are looking for doesn’t exist.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/FourOhFourPage.js",
+        22
+      ]
+    ]
+  },
+  "Return to the home page to reschedule your appointment.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/FourOhFourPage.js",
+        25
+      ]
+    ]
+  },
+  "Tell IRCC you can't attend your Citizenship appointment, and request a new one.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        65
+      ]
+    ]
+  },
+  "You will need:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        72
+      ]
+    ]
+  },
+  "Your <0>paper file number</0>": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        77
+      ]
+    ]
+  },
+  "To describe your reason for rescheduling": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        85
+      ]
+    ]
+  },
+  "Then you’ll select <0>3 days</0> when you’re available for an appointment in the future.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        91
+      ]
+    ]
+  },
+  "Requesting a new appointment will cancel your current one.<0> Do not attend your old appointment</0> after you complete this request. It can take up to 9 weeks for us to reschedule you.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        99
+      ]
+    ]
+  },
+  "Start Now": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        108
+      ]
+    ]
+  },
+  "Email address": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        80
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        261
+      ]
+    ]
+  },
+  "Why are you rescheduling?": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        84
+      ]
+    ]
+  },
+  "Describe why you can’t attend your test": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        86
+      ]
+    ]
+  },
+  "You need to tell us your name so we know who is requesting a new appointment.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        103
+      ]
+    ]
+  },
+  "You need to provide an email address so we can send you a confirmation message.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        111
+      ]
+    ]
+  },
+  "You need to tell us your paper file number so we can confirm your identity.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        119
+      ]
+    ]
+  },
+  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        127
+      ]
+    ]
+  },
+  "Please tell us a bit more about why you need to reschedule your test.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        135
+      ]
+    ]
+  },
+  "Some information is missing.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        178
+      ]
+    ]
+  },
+  "This is the full name you used on your citizenship application.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        249
+      ]
+    ]
+  },
+  "We will send a confirmation message to this email address.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        272
+      ]
+    ]
+  },
+  "This number is at the top of the email we sent you.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        299
+      ]
+    ]
+  },
+  "Medical": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        331
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        29
+      ]
+    ]
+  },
+  "Work or School": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        339
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        31
+      ]
+    ]
+  },
+  "Family": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        347
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        27
       ]
     ]
   },
@@ -626,11 +622,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        318
+        355
       ],
       [
         "src/pages/ReviewPage.js",
-        32
+        33
       ]
     ]
   },
@@ -639,7 +635,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        334
+        371
       ]
     ]
   },
@@ -648,7 +644,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        345
+        382
       ]
     ]
   },
@@ -657,25 +653,25 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        357
+        395
       ]
     ]
   },
-  "Review your request before sending it": {
+  "Review your request": {
     "translation": "",
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        47
+        48
       ]
     ]
   },
-  "By sending this request, you are <0>cancelling your current appointment.</0>": {
+  "Sending this request will cancel your current appointment.<0> Do not attend your old appointment</0> after you send this request.": {
     "translation": "",
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        73
+        76
       ]
     ]
   },
@@ -684,9 +680,221 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        99
+        104
       ]
     ]
+  },
+  "This is a new service we are constantly improving.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Layout.js",
+        83
+      ]
+    ],
+    "obsolete": true
+  },
+  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        139
+      ]
+    ],
+    "obsolete": true
+  },
+  "<0>Select three (3) days you are available</0> between July and September": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        145
+      ]
+    ],
+    "obsolete": true
+  },
+  "Review": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        199
+      ]
+    ],
+    "obsolete": true
+  },
+  "Cancel": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        204
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        105
+      ]
+    ],
+    "obsolete": true
+  },
+  "Within six (6) weeks, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        20
+      ]
+    ],
+    "obsolete": true
+  },
+  "Use this service to notify Immigration, Refugees and Citizenship Canada that you cannot attend your Citizenship test, and you need a new appointment.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        54
+      ]
+    ],
+    "obsolete": true
+  },
+  "This is found at the top of your test notice email.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        72
+      ]
+    ],
+    "obsolete": true
+  },
+  "Your full name": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        80
+      ]
+    ],
+    "obsolete": true
+  },
+  "This should match the name on your application.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        83
+      ]
+    ],
+    "obsolete": true
+  },
+  "For more information on rescheduling, <0>read the guidelines</0>.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        92
+      ]
+    ],
+    "obsolete": true
+  },
+  "After that, you will select <0>three (3) days</0> when you’re available for an appointment in the future.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        103
+      ]
+    ],
+    "obsolete": true
+  },
+  "By sending this request to reschedule, you will be <0>cancelling your current appointment</0>. After you complete this process, it could take up to six (6) weeks for IRCC to schedule your new appointment.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        111
+      ]
+    ],
+    "obsolete": true
+  },
+  "Full Name": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        71
+      ]
+    ],
+    "obsolete": true
+  },
+  "Paper File Number": {
+    "translation": "",
+    "origin": [
+      [
+        "src/Layout.js",
+        55
+      ],
+      [
+        "src/components/Layout.js",
+        83
+      ]
+    ],
+    "obsolete": true
+  },
+  "Reason for rescheduling": {
+    "translation": "",
+    "origin": [
+      [
+        "src/Layout.js",
+        61
+      ],
+      [
+        "src/components/Layout.js",
+        87
+      ]
+    ],
+    "obsolete": true
+  },
+  "If you’re not sure if you can reschedule,": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        276
+      ]
+    ],
+    "obsolete": true
+  },
+  "read the guidelines for rescheduling": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        278
+      ]
+    ],
+    "obsolete": true
+  },
+  "Review your request before sending it": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        47
+      ]
+    ],
+    "obsolete": true
+  },
+  "By sending this request, you are <0>cancelling your current appointment.</0>": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        73
+      ]
+    ],
+    "obsolete": true
   },
   "May": {
     "translation": "",

@@ -1,9 +1,9 @@
 {
-  "Use this service to notify Immigration, Refugees and Citizenship Canada that you cannot attend your Citizenship test, and you need a new appointment.": {
+  "Tell IRCC you can't attend your Citizenship appointment, and request a new one.": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        54
+        65
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        62
+        72
       ]
     ]
   },
@@ -19,31 +19,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        67
-      ]
-    ]
-  },
-  "This is found at the top of your test notice email.": {
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        72
-      ]
-    ]
-  },
-  "Your full name": {
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        80
-      ]
-    ]
-  },
-  "This should match the name on your application.": {
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        83
+        77
       ]
     ]
   },
@@ -51,31 +27,23 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        89
+        85
       ]
     ]
   },
-  "For more information on rescheduling, <0>read the guidelines</0>.": {
+  "Then you’ll select <0>3 days</0> when you’re available for an appointment in the future.": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        92
+        91
       ]
     ]
   },
-  "After that, you will select <0>three (3) days</0> when you’re available for an appointment in the future.": {
+  "Requesting a new appointment will cancel your current one.<0> Do not attend your old appointment</0> after you complete this request. It can take up to 9 weeks for us to reschedule you.": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        103
-      ]
-    ]
-  },
-  "By sending this request to reschedule, you will be <0>cancelling your current appointment</0>. After you complete this process, it could take up to six (6) weeks for IRCC to schedule your new appointment.": {
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        111
+        99
       ]
     ]
   },
@@ -83,7 +51,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        121
+        108
       ]
     ]
   }
