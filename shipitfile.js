@@ -1,8 +1,8 @@
 module.exports = shipit => {
   // Load shipit-deploy tasks
   require('shipit-deploy')(shipit)
-  require('shipit-npm')(shipit);
-  require('shipit-shared')(shipit);
+  require('shipit-npm')(shipit)
+  require('shipit-shared')(shipit)
 
   shipit.initConfig({
     default: {
@@ -11,13 +11,11 @@ module.exports = shipit => {
       repositoryUrl: 'https://github.com/cds-snc/ircc-rescheduler.git',
       shared: {
         overwrite: true,
-        files: [
-          'api/.env',
-        ],
-      }
+        files: ['api/.env', 'web/.env.production'],
+      },
     },
     dev: {
       servers: 'ircc@ircc-vm-2.canadacentral.cloudapp.azure.com',
     },
-  });
+  })
 }
