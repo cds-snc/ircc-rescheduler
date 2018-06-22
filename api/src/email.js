@@ -101,8 +101,8 @@ const buildParams = async options => {
     html: html,
     attachments: [
       {
-        filename: 'Canwordmark_black.png',
-        path: getWordmarkPath() + '/Canwordmark_black.png',
+        filename: 'Canwordmark.png',
+        path: getWordmarkPath() + '/Canwordmark.png',
         cid: 'ircc-wordmark@cds', //same cid value as in the html img src
       },
     ],
