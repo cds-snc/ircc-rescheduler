@@ -11,9 +11,15 @@
     "start_api": "cd api && forever start index.js",
     "start": "yarn stop && yarn build_web && yarn build_api && yarn start_web && yarn start_api",
     "stop": "forever stopall",
-    "restart": "yarn build_web && yarn build_api && pm2 startOrRestart ecosystem.config.js"
+    "restart": "yarn build_web && yarn build_api && pm2 startOrRestart ecosystem.config.js",
+    "postinstall": "yarn restart"
   },
   "dependencies": {
     "forever": "^0.15.3"
+  },
+  "devDependencies": {
+    "shipit-cli": "^4.1.1",
+    "shipit-deploy": "^4.1.1",
+    "shipit-npm": "^0.2.0"
   }
 }
