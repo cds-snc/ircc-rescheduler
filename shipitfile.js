@@ -6,7 +6,7 @@ module.exports = shipit => {
 
   shipit.initConfig({
     default: {
-      branch: 'deploy_with_pm2',
+      branch: 'master',
       deployTo: '/home/ircc/ircc-rescheduler',
       repositoryUrl: 'https://github.com/cds-snc/ircc-rescheduler.git',
       shared: {
