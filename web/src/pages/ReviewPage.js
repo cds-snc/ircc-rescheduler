@@ -3,7 +3,7 @@ import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import { Query } from 'react-apollo'
 import { NavLink, Redirect } from 'react-router-dom'
-import { H2, theme, BottomContainer, TopContainer, arrow } from '../styles'
+import { H1, theme, BottomContainer, TopContainer, arrow } from '../styles'
 import Layout from '../components/Layout'
 import { GET_USER_DATA, SUBMIT } from '../queries'
 import Button from '../components/forms/Button'
@@ -44,9 +44,9 @@ class ReviewPage extends React.Component {
             ← <Trans>Go Back</Trans>
           </NavLink>
         </TopContainer>
-        <H2>
-          <Trans>Review your request before sending it</Trans>
-        </H2>
+        <H1>
+          <Trans>Review your request</Trans>
+        </H1>
         <Query query={GET_USER_DATA}>
           {({ loading, error, data }) => {
             if (loading) return 'Loading...'

@@ -76,14 +76,14 @@ const labelNames = id => {
   switch (id) {
     case 'fullName':
       return <Trans>Full name</Trans>
+    case 'email':
+      return <Trans>Email address</Trans>
     case 'paperFileNumber':
       return <Trans>Paper file number</Trans>
     case 'reason':
       return <Trans>Why are you rescheduling?</Trans>
     case 'explanation':
       return <Trans>Describe why you can’t attend your test</Trans>
-    case 'email':
-      return <Trans>Email</Trans>
     default:
       return ''
   }
@@ -103,6 +103,14 @@ const validate = values => {
       <Trans>
         You need to tell us your name so we know who is requesting a new
         appointment.
+      </Trans>
+    )
+  }
+  if (!validateEmail(values.email)) {
+    errors.email = (
+      <Trans>
+        You need to provide an email address so we can send you a confirmation
+        message.
       </Trans>
     )
   }
@@ -129,15 +137,6 @@ const validate = values => {
       </Trans>
     )
   }
-
-  if (!validateEmail(values.email)) {
-    errors.email = (
-      <Trans>
-        You need to provide an email address so we can send you a confirmation message.
-      </Trans>
-    )
-  }
-
   return errors
 }
 
