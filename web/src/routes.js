@@ -48,6 +48,13 @@ export default [
     }),
   },
   {
+    path: '/cancel',
+    exact: true,
+    component: asyncComponent({
+      loader: () => import('./pages/CancelPage'),
+    }),
+  },
+  {
     path: '*',
     exact: true,
     component: asyncComponent({
