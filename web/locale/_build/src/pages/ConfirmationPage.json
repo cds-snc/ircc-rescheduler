@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        13
+        26
       ]
     ]
   },
@@ -11,15 +11,15 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        17
+        32
       ]
     ]
   },
-  "Within six (6) weeks, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
+  "By July 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        20
+        35
       ]
     ]
   },
@@ -27,7 +27,23 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        31
+        46
+      ]
+    ]
+  },
+  "Were you satisfied with this service?": {
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        53
+      ]
+    ]
+  },
+  "Your feedback helps us improve.": {
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        57
       ]
     ]
   }

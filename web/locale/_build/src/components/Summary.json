@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        74
+        84
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        91
+        102
       ]
     ]
   },
@@ -19,7 +19,15 @@
     "origin": [
       [
         "src/components/Summary.js",
-        111
+        123
+      ]
+    ]
+  },
+  "Email": {
+    "origin": [
+      [
+        "src/components/Summary.js",
+        128
       ]
     ]
   },
@@ -27,7 +35,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        116
+        133
       ]
     ]
   },
@@ -35,7 +43,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        121
+        138
       ]
     ]
   },
@@ -43,7 +51,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        126
+        143
       ]
     ]
   },
@@ -51,7 +59,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        131
+        148
       ]
     ]
   }
