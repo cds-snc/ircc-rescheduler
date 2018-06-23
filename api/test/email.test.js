@@ -16,24 +16,24 @@ const options = {
 describe('Email', () => {
   it('is properly sets destination address', async () => {
     const data = await buildParams(options)
-    expect(data.Destination.ToAddresses[0]).toEqual('receive@null.com')
+    expect(data.to).toEqual('receive@null.com')
   })
 
   it('is properly sets reply address', async () => {
     const data = await buildParams(options)
-    expect(data.ReplyToAddresses[0]).toEqual('send@null.com')
+    expect(data.replyTo).toEqual('send@null.com')
   })
 
   it('renders html email markup with inline styles & variables', async () => {
     const data = await buildParams(options)
-    expect(data.Message.Body.Html.Data).toEqual(
+    expect(data.html).toEqual(
       '<div class="title" style="color: red;">Citizenship Test – John Li</div>',
     )
   })
 
   it('renders plain text email with variables', async () => {
     const data = await buildParams(options)
-    expect(data.Message.Body.Text.Data).toEqual(
+    expect(data.text).toEqual(
       'John Li requested a new Citizenship Test appointment',
     )
   })

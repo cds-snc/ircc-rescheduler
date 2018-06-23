@@ -3,6 +3,7 @@ const {
   GraphQLObjectType,
   GraphQLString,
   GraphQLNonNull,
+  GraphQLList,
 } = require('graphql')
 const { GraphQLError } = require('graphql/error')
 
@@ -33,7 +34,7 @@ const createSchema = t => {
             type: new GraphQLNonNull(RescheduleFormInput),
           },
         },
-        type: MailResponse,
+        type: new GraphQLList(MailResponse),
         resolve: async (
           _,
           { input },
@@ -70,8 +71,8 @@ const createSchema = t => {
           try {
             staffResponse = await mailer.sendMail(staffParams)
             applicantResponse = await mailer.sendMail(applicantParams)
-            
-            return staffResponse
+
+            return [staffResponse, applicantResponse]
           } catch (e) {
             return new GraphQLError(e.message)
           }
