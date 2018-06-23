@@ -92,6 +92,7 @@ const buildParams = async options => {
 
   const { receivingAddress, sendingAddress } = options
   const { html, plain } = markup
+
   const params = {
     from: sendingAddress,
     to: receivingAddress,
@@ -103,7 +104,7 @@ const buildParams = async options => {
       {
         filename: 'Canwordmark.png',
         path: getWordmarkPath() + '/Canwordmark.png',
-        cid: 'ircc-wordmark@cds', //same cid value as in the html img src
+        cid: 'ircc-wordmark@cds', // same cid value as in the html img src
       },
     ],
   }
