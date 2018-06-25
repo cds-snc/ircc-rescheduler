@@ -4,14 +4,11 @@ import { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, H2, theme, visuallyhidden } from '../styles'
 import Layout from '../components/Layout'
+import Contact from '../components/Contact'
 
 const contentClass = css`
   p {
-    padding-bottom: ${theme.spacing.md};
-  }
-
-  h2 {
-    margin-top: 0;
+    margin-top: ${theme.spacing.xs};
   }
 
   .nav-link-top {
@@ -19,7 +16,6 @@ const contentClass = css`
     padding-bottom: ${theme.spacing.lg};
   }
 `
-
 class CancelPage extends React.Component {
   render() {
     return (
@@ -27,7 +23,6 @@ class CancelPage extends React.Component {
         <NavLink className="nav-link-top" to="/">
           ← <Trans>Start Over</Trans>
         </NavLink>
-
         <H1>
           <Trans>Your request has been cancelled.</Trans>
         </H1>
@@ -52,15 +47,11 @@ class CancelPage extends React.Component {
             abandoned.
           </Trans>
         </p>
-
-        <H2>
-          <Trans>If you have any questions, please contact:</Trans>
-        </H2>
-        <div>
-          <a href="mailto:vancouverIRCC@cic.gc.ca">vancouverIRCC@cic.gc.ca</a>
-          <br />
-          1-888-242-2100
-        </div>
+        <Contact>
+          <H2>
+            <Trans>If you have any questions, please contact:</Trans>
+          </H2>
+        </Contact>
       </Layout>
     )
   }
