@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
 import { theme } from '../styles'
+import { Trans } from 'lingui-react'
 import importantMessage from '../assets/importantMessage.svg'
 
 const imBanner = css`
@@ -27,7 +28,7 @@ const icon = css`
 
 const Reminder = ({ children, className = '' }) => (
   <div className={`${imBanner} ${className}`}>
-    <img src={importantMessage} className={icon} alt="Important Message" />
+    <img src={importantMessage} className={icon} alt={<Trans>Important Message</Trans>} />
     <span>{children}</span>
   </div>
 )

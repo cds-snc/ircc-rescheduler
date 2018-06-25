@@ -102,7 +102,7 @@ class ReviewPage extends React.Component {
                         }}
                       >
                         <Trans>Send Request</Trans>{' '}
-                        <img src={rightArrow} className={arrow} alt="" />
+                        <img src={rightArrow} className={arrow} alt={<Trans>Picture of an arrow pointing to the right</Trans>} />
                       </Button>
                     )}
                   </Submission>

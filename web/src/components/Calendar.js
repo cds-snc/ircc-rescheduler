@@ -407,17 +407,17 @@ const renderDayBoxes = ({
             </div>
 
             <div className={removeDateMobile}>
-              <img src={Cancel} alt="Remove Date" />
+              <img src={Cancel} alt={<Trans>Remove Date</Trans>} />
             </div>
           </button>
         </li>
       ) : (
-        <li key={i} className={dayBox}>
-          <span className="empty day-box">
-            <span>No date selected</span>
-          </span>
-        </li>
-      ),
+          <li key={i} className={dayBox}>
+            <span className="empty day-box">
+              <span>No date selected</span>
+            </span>
+          </li>
+        ),
     )
   }
   return dayBoxes

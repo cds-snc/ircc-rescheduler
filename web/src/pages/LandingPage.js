@@ -30,12 +30,12 @@ const list = css`
   }
 `
 
-const H1Landing = styled(H1)`
+const H1Landing = styled(H1) `
   font-size: ${theme.font.xl};
   line-height: 1;
 `
 
-const LongReminder = styled(Reminder)`
+const LongReminder = styled(Reminder) `
   ${mediaQuery.md(css`
     display: block;
   `)};
@@ -106,7 +106,7 @@ class LandingPage extends React.Component {
         <div className={landingButton}>
           <NavLink to="/register" className={buttonStyles}>
             <Trans>Start Now</Trans>{' '}
-            <img src={rightArrow} className={arrow} alt="" />
+            <img src={rightArrow} className={arrow} alt={<Trans>Picture of an arrow pointing to the right</Trans>} />
           </NavLink>
         </div>
       </Layout>
