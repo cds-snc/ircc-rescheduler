@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from 'react-emotion'
-import { Trans, withI18n } from 'lingui-react'
+import { Trans } from 'lingui-react'
 import { Query } from 'react-apollo'
 import { NavLink, Redirect } from 'react-router-dom'
 import { H1, theme, BottomContainer, TopContainer, arrow } from '../styles'
@@ -12,8 +12,6 @@ import Summary from '../components/Summary'
 import { Submission } from '../components/Submission'
 import Reminder from '../components/Reminder'
 import rightArrow from '../assets/rightArrow.svg'
-import PropTypes from 'prop-types'
-import { translateText } from '../utils/translation'
 
 const contentClass = css`
   p {
@@ -40,7 +38,6 @@ class ReviewPage extends React.Component {
   }
 
   render() {
-    let { i18n } = this.props
     return (
       <Layout contentClass={contentClass}>
         <TopContainer>
@@ -106,14 +103,7 @@ class ReviewPage extends React.Component {
                         }}
                       >
                         <Trans>Send Request</Trans>{' '}
-                        <img
-                          src={rightArrow}
-                          className={arrow}
-                          alt={translateText(
-                            i18n,
-                            'Picture of an arrow pointing to the right',
-                          )}
-                        />
+                        <img src={rightArrow} className={arrow} alt="" />
                       </Button>
                     )}
                   </Submission>
@@ -132,8 +122,4 @@ class ReviewPage extends React.Component {
   }
 }
 
-ReviewPage.propTypes = {
-  i18n: PropTypes.object,
-}
-
-export default withI18n()(ReviewPage)
+export default ReviewPage

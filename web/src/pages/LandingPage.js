@@ -5,11 +5,9 @@ import { H1, H2, theme, mediaQuery, arrow } from '../styles'
 import Layout from '../components/Layout'
 import Reminder from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
-import { Trans, withI18n } from 'lingui-react'
+import { Trans } from 'lingui-react'
 import { Helmet } from 'react-helmet'
 import rightArrow from '../assets/rightArrow.svg'
-import { translateText } from '../utils/translation'
-import PropTypes from 'prop-types'
 
 const contentClass = css`
   p {
@@ -57,7 +55,6 @@ const landingButton = css`
 
 class LandingPage extends React.Component {
   render() {
-    let { i18n } = this.props
     return (
       <Layout contentClass={contentClass}>
         <Helmet>
@@ -110,14 +107,7 @@ class LandingPage extends React.Component {
         <div className={landingButton}>
           <NavLink to="/register" className={buttonStyles}>
             <Trans>Start Now</Trans>{' '}
-            <img
-              src={rightArrow}
-              className={arrow}
-              alt={translateText(
-                i18n,
-                'Picture of an arrow pointing to the right',
-              )}
-            />
+            <img src={rightArrow} className={arrow} alt="" />
           </NavLink>
         </div>
       </Layout>
@@ -125,8 +115,4 @@ class LandingPage extends React.Component {
   }
 }
 
-LandingPage.propTypes = {
-  i18n: PropTypes.object,
-}
-
-export default withI18n()(LandingPage)
+export default LandingPage
