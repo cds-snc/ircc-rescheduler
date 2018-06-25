@@ -32,7 +32,7 @@ export class ErrorPageContent extends React.Component {
           </Trans>
         </p>
 
-        <Contact>
+        <Contact phoneFirst={true}>
           <div>
             <p>
               <Trans>

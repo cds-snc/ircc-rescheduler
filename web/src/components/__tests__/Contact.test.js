@@ -16,7 +16,7 @@ describe('<TelLink />', () => {
 })
 
 describe('<Contact />', () => {
-  it('renders itself and child', () => {
+  it('renders with children', () => {
     const wrapper = shallow(
       <Contact>
         <h1>Get in touch ✉️</h1>
@@ -28,6 +28,14 @@ describe('<Contact />', () => {
 
     const h1 = wrapper.find('h1')
     expect(h1.text()).toEqual('Get in touch ✉️')
+  })
+
+  it('renders with the email first and the telephone number second', () => {
+    const wrapper = shallow(
+      <Contact>
+        <h1>Get in touch ✉️</h1>
+      </Contact>,
+    )
 
     expect(
       wrapper
@@ -42,5 +50,27 @@ describe('<Contact />', () => {
         .at(1)
         .text(),
     ).toEqual('<TelLink />')
+  })
+
+  it('renders with the email first and the telephone number second', () => {
+    const wrapper = shallow(
+      <Contact phoneFirst={true}>
+        <h1>Get in touch ✉️</h1>
+      </Contact>,
+    )
+
+    expect(
+      wrapper
+        .find('p')
+        .at(0)
+        .text(),
+    ).toEqual('<TelLink />')
+
+    expect(
+      wrapper
+        .find('p')
+        .at(1)
+        .text(),
+    ).toEqual('vancouverIRCC@cic.gc.ca')
   })
 })
