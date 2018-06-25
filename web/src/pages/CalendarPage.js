@@ -14,6 +14,7 @@ import {
 import Layout from '../components/Layout'
 import Button from '../components/forms/Button'
 import CalendarAdapter from '../components/Calendar'
+import Chevron from '../components/Chevron'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import { withApollo } from 'react-apollo'
@@ -129,8 +130,9 @@ class CalendarPage extends Component {
       <Layout>
         <TopContainer>
           <nav>
-            <NavLink to="/register">
-              ← <Trans>Go Back</Trans>
+            <NavLink className="chevron-link" to="/register">
+              <Chevron dir="left" />
+              <Trans>Go Back</Trans>
             </NavLink>
           </nav>
         </TopContainer>

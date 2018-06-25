@@ -60,6 +60,14 @@ injectGlobal`
    height: 1px;
    background: #DBDBDB;
   }
+
+  .chevron-link path {
+    fill: #1c2bf0;
+  }
+
+  .chevron-link:visited path {
+    fill: #572c94;
+  }
 `
 
 class Layout extends React.Component {

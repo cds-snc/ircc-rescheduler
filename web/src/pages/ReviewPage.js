@@ -4,6 +4,7 @@ import { Trans, withI18n } from 'lingui-react'
 import { Query } from 'react-apollo'
 import { NavLink, Redirect } from 'react-router-dom'
 import { H1, theme, BottomContainer, TopContainer, arrow } from '../styles'
+import Chevron from '../components/Chevron'
 import Layout from '../components/Layout'
 import { GET_USER_DATA, SUBMIT } from '../queries'
 import Button from '../components/forms/Button'
@@ -43,8 +44,8 @@ class ReviewPage extends React.Component {
     return (
       <Layout contentClass={contentClass}>
         <TopContainer>
-          <NavLink to="/calendar">
-            ← <Trans>Go Back</Trans>
+          <NavLink className="chevron-link" to="/calendar">
+            <Chevron dir="left" /><Trans>Go Back</Trans>
           </NavLink>
         </TopContainer>
         <H1>

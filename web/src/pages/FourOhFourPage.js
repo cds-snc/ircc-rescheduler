@@ -1,5 +1,6 @@
 import React from 'react'
 import { Trans } from 'lingui-react'
+import Chevron from '../components/Chevron'
 import { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, H2, theme, visuallyhiddenMobile } from '../styles'
@@ -24,8 +25,8 @@ class FourOhFourPage extends React.Component {
         <p>
           <Trans>Return to the home page to reschedule your appointment.</Trans>
         </p>
-        <NavLink to="/">
-          ← <Trans>Home</Trans>
+        <NavLink className="chevron-link" to="/">
+          <Chevron dir="left" /><Trans>Home</Trans>
         </NavLink>
       </Layout>
     )
