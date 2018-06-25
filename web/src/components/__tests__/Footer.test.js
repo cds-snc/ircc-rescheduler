@@ -4,7 +4,7 @@ import Footer from '../Footer'
 
 describe('<Footer />', () => {
   it('renders footer', () => {
-    const footer = shallow(<Footer />)
+    const footer = render(<Footer />)
     expect(footer.find('footer').length).toBe(1)
     expect(footer.find('hr').length).toBe(0)
   })
