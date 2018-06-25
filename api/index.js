@@ -24,4 +24,6 @@ const server = Server({
   siteUrl: process.env.SITE_URL || ' ',
 })
 
-server.listen(3001)
+const port = 3001
+console.log(`🚀 api started on port ${port}`)
+server.listen(port)
