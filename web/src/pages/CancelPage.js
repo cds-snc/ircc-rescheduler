@@ -14,7 +14,7 @@ const contentClass = css`
 
   .nav-link-top {
     display: inline-block;
-    padding-bottom: ${theme.spacing.lg};
+    margin-bottom: ${theme.spacing.lg};
   }
 
   .chevron-link-top path {
