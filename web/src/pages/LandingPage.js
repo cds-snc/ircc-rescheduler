@@ -89,8 +89,8 @@ class LandingPage extends React.Component {
 
           <p>
             <Trans>
-              Then you’ll select <strong>3 days</strong> when
-              you’re available for an appointment in the future.
+              Then you’ll select <strong>3 days</strong> when you’re available
+              for an appointment in the future.
             </Trans>
           </p>
         </section>
@@ -98,8 +98,9 @@ class LandingPage extends React.Component {
         <LongReminder>
           <Trans>
             Requesting a new appointment will cancel your current one.
-            <strong> Do not attend your old appointment</strong> after you complete this request.
-            It can take up to 9 weeks for us to reschedule you.
+            <strong> Do not attend your old appointment</strong> after you
+            complete this request. It can take up to 9 weeks for us to
+            reschedule you.
           </Trans>
         </LongReminder>
 

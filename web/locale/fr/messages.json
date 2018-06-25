@@ -21,6 +21,42 @@
       ]
     ]
   },
+  "Contact": {
+    "translation": "Contact",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        116
+      ]
+    ]
+  },
+  "Privacy": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        125
+      ]
+    ]
+  },
+  "Terms": {
+    "translation": "Termes",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        129
+      ]
+    ]
+  },
+  "and Conditions": {
+    "translation": "et conditions",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        132
+      ]
+    ]
+  },
   "Language Selection": {
     "translation": "Sélection de la langue",
     "origin": [
@@ -31,7 +67,7 @@
     ]
   },
   "This is a new service we are constantly deploying.": {
-    "translation": "C'est un nouveau service que nous déployons constamment.",
+    "translation": "",
     "origin": [
       [
         "src/components/Layout.js",
@@ -84,7 +120,7 @@
     ]
   },
   "Email": {
-    "translation": "Email",
+    "translation": "",
     "origin": [
       [
         "src/components/Summary.js",
@@ -221,7 +257,7 @@
     ]
   },
   "Citizenship appointments are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
-    "translation": "Les nominations à la citoyenneté sont prévues les mardis et vendredi.",
+    "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -230,7 +266,7 @@
     ]
   },
   "<0>Select 3 days</0> you’re available between July and September:": {
-    "translation": "Sélectionnez 3 jours vous êtes disponible entre juillet et septembre:",
+    "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -248,7 +284,7 @@
     ]
   },
   "Review request": {
-    "translation": "Demande de révision",
+    "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -257,7 +293,7 @@
     ]
   },
   "Cancel request": {
-    "translation": "Demande d'annulation",
+    "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -292,7 +328,7 @@
     ]
   },
   "By July 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "D'ici le 6 juillet 2018, votre bureau local IRCC vous enverra un nouveau rendez-vous ou vous enverra un courriel pour demander plus de renseignements.",
+    "translation": "",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
@@ -310,7 +346,7 @@
     ]
   },
   "Were you satisfied with this service?": {
-    "translation": "Etiez-vous satisfait de ce service?",
+    "translation": "",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
@@ -319,7 +355,7 @@
     ]
   },
   "Your feedback helps us improve.": {
-    "translation": "Vos commentaires nous aident à nous améliorer.",
+    "translation": "",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
@@ -404,7 +440,7 @@
     ]
   },
   "Tell IRCC you can't attend your Citizenship appointment, and request a new one.": {
-    "translation": "Dites à IRCC que vous ne pouvez pas assister à votre rendez-vous de citoyenneté et en demander un nouveau.",
+    "translation": "",
     "origin": [
       [
         "src/pages/LandingPage.js",
@@ -440,7 +476,7 @@
     ]
   },
   "Then you’ll select <0>3 days</0> when you’re available for an appointment in the future.": {
-    "translation": "Ensuite, vous sélectionnez 3 jours lorsque vous êtes disponible pour un rendez-vous dans le futur.",
+    "translation": "",
     "origin": [
       [
         "src/pages/LandingPage.js",
@@ -449,7 +485,7 @@
     ]
   },
   "Requesting a new appointment will cancel your current one.<0> Do not attend your old appointment</0> after you complete this request. It can take up to 9 weeks for us to reschedule you.": {
-    "translation": "Demander un nouveau rendez-vous annulera votre rendez-vous actuel. N'assistez pas à votre ancien rendez-vous après avoir répondu à cette demande. Cela peut prendre jusqu'à neuf semaines pour que nous vous rééchelonnions.",
+    "translation": "",
     "origin": [
       [
         "src/pages/LandingPage.js",
@@ -467,7 +503,7 @@
     ]
   },
   "Email address": {
-    "translation": "Adresse e-mail",
+    "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -480,7 +516,7 @@
     ]
   },
   "Why are you rescheduling?": {
-    "translation": "Pourquoi faites-vous un rééchelonnement?",
+    "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -489,7 +525,7 @@
     ]
   },
   "Describe why you can’t attend your test": {
-    "translation": "Décrivez pourquoi vous ne pouvez pas assister à votre test",
+    "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -507,7 +543,7 @@
     ]
   },
   "You need to provide an email address so we can send you a confirmation message.": {
-    "translation": "Vous devez fournir une adresse e-mail afin que nous puissions vous envoyer un message de confirmation.",
+    "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -543,7 +579,7 @@
     ]
   },
   "Some information is missing.": {
-    "translation": "Certaines informations sont manquantes.",
+    "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -561,7 +597,7 @@
     ]
   },
   "We will send a confirmation message to this email address.": {
-    "translation": "Nous enverrons un message de confirmation à cette adresse email.",
+    "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -605,7 +641,7 @@
     ]
   },
   "Family": {
-    "translation": "Famille",
+    "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -658,7 +694,7 @@
     ]
   },
   "Review your request": {
-    "translation": "Passez en revue votre demande",
+    "translation": "",
     "origin": [
       [
         "src/pages/ReviewPage.js",
@@ -667,7 +703,7 @@
     ]
   },
   "Sending this request will cancel your current appointment.<0> Do not attend your old appointment</0> after you send this request.": {
-    "translation": "Si vous envoyez cette demande, votre rendez-vous actuel sera annulé. N'assistez pas à votre ancien rendez-vous après avoir envoyé cette demande.",
+    "translation": "",
     "origin": [
       [
         "src/pages/ReviewPage.js",
@@ -683,6 +719,36 @@
         104
       ]
     ]
+  },
+  "https://www.canada.ca/en/transparency/privacy.html": {
+    "translation": "https://www.canada.ca/fr/transparence/confidentialite.html",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        124
+      ]
+    ],
+    "obsolete": true
+  },
+  "CDSLink": {
+    "translation": "https://numerique.canada.ca/transparence/avis/",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        130
+      ]
+    ],
+    "obsolete": true
+  },
+  "https://digital.canada.ca/legal/terms/": {
+    "translation": "https://numerique.canada.ca/transparence/avis/",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        126
+      ]
+    ],
+    "obsolete": true
   },
   "This is a new service we are constantly improving.": {
     "translation": "C'est un nouveau service que nous améliorons constamment.",

@@ -54,5 +54,13 @@
         108
       ]
     ]
+  },
+  "Picture of an arrow pointing to the right": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        109
+      ]
+    ]
   }
 }

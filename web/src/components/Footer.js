@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { WordMark } from '@cdssnc/gcui'
 import styled, { css } from 'react-emotion'
+import { Trans, withI18n } from 'lingui-react'
 import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
+import { translateText } from "../utils/translation";
 
 const Circle = styled.span`
   font-size: 0.5em;
@@ -89,7 +91,9 @@ const TopBar = styled.hr(
   props => ({ background: props.background }),
 )
 
-const Footer = ({ topBarBackground }) => (
+
+
+const Footer = ({ topBarBackground, i18n }) => (
   <div>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
@@ -103,19 +107,33 @@ const Footer = ({ topBarBackground }) => (
       </div>
 
       <div className={bottomLinks}>
-        <a href="mailto:cds-snc@tbs-sct.gc.ca">Contact</a>
+        <a href="mailto:cds-snc@tbs-sct.gc.ca">
+          <Trans>Contact</Trans>
+        </a>
         <Circle>&#9679;</Circle>
-        <a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a>
+        <a
+          href={translateText(
+            i18n,
+            'https://www.canada.ca/en/transparency/privacy.html',
+          )}
+        >
+          <Trans>Privacy</Trans>
+        </a>
         <Circle>&#9679;</Circle>
-        <a href="https://digital.canada.ca/legal/terms/">
-          Terms<span className={visuallyhiddenMobile}> and Conditions</span>
+        <a href={translateText(i18n, 'https://digital.canada.ca/legal/terms/')}>
+          <Trans>Terms</Trans>
+          <span className={visuallyhiddenMobile}>
+            {' '}
+            <Trans>and Conditions</Trans>
+          </span>
         </a>
       </div>
     </footer>
   </div>
 )
 Footer.propTypes = {
+  i18n: PropTypes.object,
   topBarBackground: PropTypes.string,
 }
 
-export default Footer
+export default withI18n()(Footer)

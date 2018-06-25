@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
 import { theme } from '../styles'
+import { withI18n } from 'lingui-react'
 import importantMessage from '../assets/importantMessage.svg'
-
+import { translateText } from '../utils/translation'
 const imBanner = css`
   background-color: ${theme.colour.grayLight};
   color: ${theme.colour.black};
@@ -25,15 +26,20 @@ const icon = css`
   margin-right: ${theme.spacing.lg};
 `
 
-const Reminder = ({ children, className = '' }) => (
+const Reminder = ({ children, className = '', i18n }) => (
   <div className={`${imBanner} ${className}`}>
-    <img src={importantMessage} className={icon} alt="Important Message" />
+    <img
+      src={importantMessage}
+      className={icon}
+      alt={translateText(i18n, 'Important Message')}
+    />
     <span>{children}</span>
   </div>
 )
 Reminder.propTypes = {
+  i18n: PropTypes.object,
   children: PropTypes.any.isRequired,
   className: PropTypes.string,
 }
 
-export default Reminder
+export default withI18n()(Reminder)

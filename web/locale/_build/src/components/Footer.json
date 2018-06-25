@@ -1,0 +1,34 @@
+{
+  "Contact": {
+    "origin": [
+      [
+        "src/components/Footer.js",
+        111
+      ]
+    ]
+  },
+  "Privacy": {
+    "origin": [
+      [
+        "src/components/Footer.js",
+        120
+      ]
+    ]
+  },
+  "Terms": {
+    "origin": [
+      [
+        "src/components/Footer.js",
+        124
+      ]
+    ]
+  },
+  "and Conditions": {
+    "origin": [
+      [
+        "src/components/Footer.js",
+        127
+      ]
+    ]
+  }
+}
