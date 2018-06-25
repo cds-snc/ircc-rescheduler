@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { H1, visuallyhidden, theme } from '../styles'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
+import Chevron from '../components/Chevron'
 import styled, { css } from 'react-emotion'
 
 const ErrorH1 = styled(H1)`
@@ -15,11 +16,10 @@ const contentClass = css`
     margin-bottom: ${theme.spacing.md};
   }
 `
-
-class ErrorPage extends React.Component {
+export class ErrorPageContent extends React.Component {
   render() {
     return (
-      <Layout contentClass={contentClass} headerClass={visuallyhidden}>
+      <React.Fragment>
         <ErrorH1>
           <Trans>We&apos;re sorry, something went wrong.</Trans>
         </ErrorH1>
@@ -55,9 +55,19 @@ class ErrorPage extends React.Component {
             </p>
           </div>
         </Contact>
-        <NavLink to="/">
-          ← <Trans>Home</Trans>
+        <NavLink className="chevron-link" to="/">
+          <Chevron dir="left" /> <Trans>Home</Trans>
         </NavLink>
+      </React.Fragment>
+    )
+  }
+}
+
+class ErrorPage extends React.Component {
+  render() {
+    return (
+      <Layout contentClass={contentClass} headerClass={visuallyhidden}>
+        <ErrorPageContent />
       </Layout>
     )
   }
