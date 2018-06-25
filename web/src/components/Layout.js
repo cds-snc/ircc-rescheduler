@@ -78,6 +78,7 @@ class Layout extends React.Component {
       <div>
         <ErrorBoundary
           onError={(error, errorInfo) => {
+            if (!window || !window.Raven) return
             window.Raven.captureException(error, {
               extra: errorInfo,
             })
