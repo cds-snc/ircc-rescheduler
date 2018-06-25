@@ -41,7 +41,8 @@ server
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log(error.message, error.stack)
-      res.json({ error: error.message })
+      res.redirect('/error');
+      //res.json({ error: error.message })
     }
   })
 
