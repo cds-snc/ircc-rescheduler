@@ -8,12 +8,12 @@ const createMailResponse = t => {
       requestId: {
         type: GraphQLString,
         description: t('types.mailResponse.messageid'),
-        resolve: root => root.ResponseMetadata.RequestId,
+        resolve: root => root.response,
       },
       messageId: {
         type: GraphQLString,
         description: t('types.mailResponse.statusCode'),
-        resolve: root => root.MessageId,
+        resolve: root => root.messageId,
       },
     }),
   })

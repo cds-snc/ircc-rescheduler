@@ -38,7 +38,8 @@
     "graphql-tag": "^2.9.2",
     "i18next": "^11.3.1",
     "i18next-express-middleware": "^1.1.1",
-    "inline-css": "^2.4.0"
+    "inline-css": "^2.4.0",
+    "nodemailer": "^4.6.7"
   },
   "jest": {
     "verbose": true,

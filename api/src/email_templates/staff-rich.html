@@ -27,16 +27,21 @@
         font-weight: bold;
         vertical-align: top;
     }
-    
+
     .value {
         /* needed for column layout on larger screens */
         max-width: 600px;
     }
 
-    @media only screen and (max-width:950px){
+    .align-right {
+        text-align: right;
+        padding-top: 20px;
+    }
+
+    @media only screen and (max-width:950px) {
         /* stack labels and content on smaller screens */
-        .label{
-            width:100%;
+        .label {
+            width: 100%;
         }
     }
 </style>
@@ -69,5 +74,9 @@
                 ${datesHtml}
             </div>
         </div>
+        <div class="align-right">
+            <img width="150" src="cid:ircc-wordmark@cds" />
+        </div>
     </div>
+
 </div>
