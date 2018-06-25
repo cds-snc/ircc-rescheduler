@@ -22,6 +22,7 @@
     "apollo-link-http": "^1.5.3",
     "apollo-link-state": "^0.4.1",
     "cookie-encrypter": "^1.0.1",
+    "cookie-parser": "^1.4.3",
     "emotion": "^9.2.3",
     "emotion-server": "^9.2.3",
     "express": "^4.16.3",

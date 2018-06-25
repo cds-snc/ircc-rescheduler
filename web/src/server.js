@@ -1,5 +1,7 @@
 import React from 'react'
 import express from 'express'
+import cookieParser from 'cookie-parser'
+import { SECRET } from './cookies'
 import { render } from '@jaredpalmer/after'
 import { renderToString } from 'react-dom/server'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
@@ -18,6 +20,7 @@ const server = express()
 server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || 'public'))
+  .use(cookieParser(SECRET))
   .get('/clear', (req, res) => {
     /* TODO: this needs improvement */
     res.clearCookie('store')
