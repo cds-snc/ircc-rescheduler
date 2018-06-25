@@ -9,7 +9,7 @@ import PageHeader from './PageHeader'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
 import { ErrorBoundary } from '@cdssnc/gcui'
-import ErrorPage from '../pages/ErrorPage'
+import { ErrorPageContent } from '../pages/ErrorPage'
 import { initGA, logPageView } from '../utils/analytics'
 
 injectGlobal`
@@ -60,6 +60,14 @@ injectGlobal`
    height: 1px;
    background: #DBDBDB;
   }
+
+  .chevron-link path {
+    fill: #1c2bf0;
+  }
+
+  .chevron-link:visited path {
+    fill: #572c94;
+  }
 `
 
 class Layout extends React.Component {
@@ -78,11 +86,12 @@ class Layout extends React.Component {
       <div>
         <ErrorBoundary
           onError={(error, errorInfo) => {
+            if (!window || !window.Raven) return
             window.Raven.captureException(error, {
               extra: errorInfo,
             })
           }}
-          render={() => <ErrorPage />}
+          render={() => <ErrorPageContent />}
         >
           <div role="banner">
             <AlphaBanner alpha>
