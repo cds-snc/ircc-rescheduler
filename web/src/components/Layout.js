@@ -9,7 +9,7 @@ import PageHeader from './PageHeader'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
 import { ErrorBoundary } from '@cdssnc/gcui'
-import ErrorPage from '../pages/ErrorPage'
+import { ErrorPageContent } from '../pages/ErrorPage'
 import { initGA, logPageView } from '../utils/analytics'
 
 injectGlobal`
@@ -83,7 +83,7 @@ class Layout extends React.Component {
               extra: errorInfo,
             })
           }}
-          render={() => <ErrorPage />}
+          render={() => <ErrorPageContent />}
         >
           <div role="banner">
             <AlphaBanner alpha>

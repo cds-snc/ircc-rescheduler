@@ -1,14 +1,21 @@
 import React from 'react'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
-import { H1, theme } from '../styles'
+import { H1, visuallyhidden, theme } from '../styles'
+import Layout from '../components/Layout'
 import Contact from '../components/Contact'
-import styled from 'react-emotion'
+import styled, { css } from 'react-emotion'
 
 const ErrorH1 = styled(H1)`
   margin-bottom: ${theme.spacing.sm};
 `
-class ErrorPage extends React.Component {
+
+const contentClass = css`
+  p:last-of-type {
+    margin-bottom: ${theme.spacing.md};
+  }
+`
+export class ErrorPageContent extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -51,6 +58,16 @@ class ErrorPage extends React.Component {
           ← <Trans>Home</Trans>
         </NavLink>
       </React.Fragment>
+    )
+  }
+}
+
+class ErrorPage extends React.Component {
+  render() {
+    return (
+      <Layout contentClass={contentClass} headerClass={visuallyhidden}>
+        <ErrorPageContent />
+      </Layout>
     )
   }
 }

@@ -106,14 +106,6 @@ const validate = values => {
       </Trans>
     )
   }
-  if (!validateEmail(values.email)) {
-    errors.email = (
-      <Trans>
-        You need to provide an email address so we can send you a confirmation
-        message.
-      </Trans>
-    )
-  }
   if (!values.paperFileNumber) {
     errors.paperFileNumber = (
       <Trans>
