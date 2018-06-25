@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom'
 import { H1, H2, theme, visuallyhidden } from '../styles'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
+import Chevron from '../components/Chevron'
 
 const contentClass = css`
   p {
@@ -15,13 +16,22 @@ const contentClass = css`
     display: inline-block;
     padding-bottom: ${theme.spacing.lg};
   }
+
+  .chevron-link-top path {
+    fill: #1c2bf0;
+  }
+
+  .chevron-link-top:visited path {
+    fill: #572c94;
+  }
 `
 class CancelPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass} headerClass={visuallyhidden}>
-        <NavLink className="nav-link-top" to="/">
-          ← <Trans>Start Over</Trans>
+        <NavLink className="chevron-link nav-link-top" to="/">
+          <Chevron dir="left" />
+          <Trans>Start Over</Trans>
         </NavLink>
         <H1>
           <Trans>Your request has been cancelled.</Trans>

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { H1, visuallyhidden, theme } from '../styles'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
+import Chevron from '../components/Chevron'
 import styled, { css } from 'react-emotion'
 
 const ErrorH1 = styled(H1)`
@@ -54,8 +55,8 @@ export class ErrorPageContent extends React.Component {
             </p>
           </div>
         </Contact>
-        <NavLink to="/">
-          ← <Trans>Home</Trans>
+        <NavLink className="chevron-link" to="/">
+          <Chevron dir="left" /> <Trans>Home</Trans>
         </NavLink>
       </React.Fragment>
     )
