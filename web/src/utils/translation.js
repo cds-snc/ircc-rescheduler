@@ -4,6 +4,6 @@
   The reason we have to sometimes use this method over say the <Trans> tag is that we need the text to be a string at compile time (it's a React object at compile time)
   */
 export const translateText = (i18n, text) => {
-    const translation = i18n === undefined ? text : i18n._(text)
-    return translation
+  const translation = i18n === undefined ? text : i18n._(text)
+  return translation
 }

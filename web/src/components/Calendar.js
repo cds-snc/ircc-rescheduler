@@ -9,6 +9,7 @@ import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
 import { getDateInfo } from './forms/CalendarConstants'
+import { translateText } from '../utils/translation'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -386,6 +387,7 @@ const renderDayBoxes = ({
   selectedDays,
   removeDayOnClickOrKeyPress,
   locale,
+  i18n,
 }) => {
   let dayBoxes = []
   let selectedDaysSorted = sortSelectedDays(selectedDays)
@@ -407,17 +409,17 @@ const renderDayBoxes = ({
             </div>
 
             <div className={removeDateMobile}>
-              <img src={Cancel} alt={<Trans>Remove Date</Trans>} />
+              <img src={Cancel} alt={translateText(i18n, 'Remove Date')} />
             </div>
           </button>
         </li>
       ) : (
-          <li key={i} className={dayBox}>
-            <span className="empty day-box">
-              <span>No date selected</span>
-            </span>
-          </li>
-        ),
+        <li key={i} className={dayBox}>
+          <span className="empty day-box">
+            <span>No date selected</span>
+          </span>
+        </li>
+      ),
     )
   }
   return dayBoxes
@@ -564,6 +566,7 @@ class Calendar extends Component {
               selectedDays: value,
               removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
               locale,
+              i18n,
             })}
           </ul>
         </div>

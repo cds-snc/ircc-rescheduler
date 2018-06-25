@@ -71,6 +71,14 @@
       ]
     ]
   },
+  "Picture of an arrow pointing to the right": {
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        105
+      ]
+    ]
+  },
   "Cancel request": {
     "origin": [
       [

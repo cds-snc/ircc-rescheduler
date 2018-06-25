@@ -5,9 +5,11 @@ import { H1, H2, theme, mediaQuery, arrow } from '../styles'
 import Layout from '../components/Layout'
 import Reminder from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
-import { Trans } from 'lingui-react'
+import { Trans, withI18n } from 'lingui-react'
 import { Helmet } from 'react-helmet'
 import rightArrow from '../assets/rightArrow.svg'
+import { translateText } from '../utils/translation'
+import PropTypes from 'prop-types'
 
 const contentClass = css`
   p {
@@ -30,12 +32,12 @@ const list = css`
   }
 `
 
-const H1Landing = styled(H1) `
+const H1Landing = styled(H1)`
   font-size: ${theme.font.xl};
   line-height: 1;
 `
 
-const LongReminder = styled(Reminder) `
+const LongReminder = styled(Reminder)`
   ${mediaQuery.md(css`
     display: block;
   `)};
@@ -55,6 +57,7 @@ const landingButton = css`
 
 class LandingPage extends React.Component {
   render() {
+    let { i18n } = this.props
     return (
       <Layout contentClass={contentClass}>
         <Helmet>
@@ -89,8 +92,8 @@ class LandingPage extends React.Component {
 
           <p>
             <Trans>
-              Then you’ll select <strong>3 days</strong> when
-              you’re available for an appointment in the future.
+              Then you’ll select <strong>3 days</strong> when you’re available
+              for an appointment in the future.
             </Trans>
           </p>
         </section>
@@ -98,15 +101,23 @@ class LandingPage extends React.Component {
         <LongReminder>
           <Trans>
             Requesting a new appointment will cancel your current one.
-            <strong> Do not attend your old appointment</strong> after you complete this request.
-            It can take up to 9 weeks for us to reschedule you.
+            <strong> Do not attend your old appointment</strong> after you
+            complete this request. It can take up to 9 weeks for us to
+            reschedule you.
           </Trans>
         </LongReminder>
 
         <div className={landingButton}>
           <NavLink to="/register" className={buttonStyles}>
             <Trans>Start Now</Trans>{' '}
-            <img src={rightArrow} className={arrow} alt={<Trans>Picture of an arrow pointing to the right</Trans>} />
+            <img
+              src={rightArrow}
+              className={arrow}
+              alt={translateText(
+                i18n,
+                'Picture of an arrow pointing to the right',
+              )}
+            />
           </NavLink>
         </div>
       </Layout>
@@ -114,4 +125,8 @@ class LandingPage extends React.Component {
   }
 }
 
-export default LandingPage
+LandingPage.propTypes = {
+  i18n: PropTypes.object,
+}
+
+export default withI18n()(LandingPage)
