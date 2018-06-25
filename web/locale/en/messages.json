@@ -5,6 +5,8 @@
       [
         "src/components/Calendar.js",
         406
+<<<<<<< HEAD
+=======
       ]
     ]
   },
@@ -18,6 +20,52 @@
       [
         "src/pages/CalendarPage.js",
         60
+>>>>>>> Get the links on the footer to start translating
+      ]
+    ]
+  },
+  "Contact": {
+    "translation": "",
+    "origin": [
+      [
+<<<<<<< HEAD
+        "src/components/Calendar.js",
+        480
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        60
+=======
+        "src/components/Footer.js",
+        116
+      ]
+    ]
+  },
+  "Privacy": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        125
+      ]
+    ]
+  },
+  "Terms": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        129
+      ]
+    ]
+  },
+  "and Conditions": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        132
+>>>>>>> Get the links on the footer to start translating
       ]
     ]
   },
@@ -72,6 +120,7 @@
       [
         "src/components/Summary.js",
         123
+<<<<<<< HEAD
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -79,6 +128,15 @@
       ],
       [
         "src/pages/RegistrationPage.js",
+=======
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        78
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+>>>>>>> Get the links on the footer to start translating
         238
       ]
     ]
@@ -98,6 +156,7 @@
       [
         "src/components/Summary.js",
         133
+<<<<<<< HEAD
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -105,6 +164,15 @@
       ],
       [
         "src/pages/RegistrationPage.js",
+=======
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        82
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+>>>>>>> Get the links on the footer to start translating
         288
       ]
     ]
@@ -684,10 +752,47 @@
       ]
     ]
   },
+<<<<<<< HEAD
   "This is a new service we are constantly improving.": {
     "translation": "",
     "origin": [
       [
+=======
+  "https://www.canada.ca/en/transparency/privacy.html": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        124
+      ]
+    ],
+    "obsolete": true
+  },
+  "CDSLink": {
+    "translation": "https://digital.canada.ca/legal/terms/",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        130
+      ]
+    ],
+    "obsolete": true
+  },
+  "https://digital.canada.ca/legal/terms/": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        126
+      ]
+    ],
+    "obsolete": true
+  },
+  "This is a new service we are constantly improving.": {
+    "translation": "",
+    "origin": [
+      [
+>>>>>>> Get the links on the footer to start translating
         "src/components/Layout.js",
         83
       ]
