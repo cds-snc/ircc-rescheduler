@@ -1,12 +1,18 @@
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
 import CancelPage from '../CancelPage'
 import React from 'react'
+import { MemoryRouter } from 'react-router'
 
 describe('<CancelPage />', () => {
   it('can be instantiated', () => {
-    const wrapper = shallow(<CancelPage />)
-    // have to use mount so that we don't get <withI18N />
-    const header = mount(wrapper.props().children[0])
-    expect(header.text()).toEqual('Canceled')
+    const wrapper = mount(
+      <MemoryRouter initialEntries={['/cancel']}>
+        <div>
+          <CancelPage />
+        </div>
+      </MemoryRouter>,
+    )
+
+    expect(wrapper.find(CancelPage)).toHaveLength(1)
   })
 })
