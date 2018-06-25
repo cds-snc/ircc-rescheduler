@@ -11,7 +11,7 @@ export const Submission = props => (
         }
         if (data) return props.success(data)
       } else {
-        return props.children(submit)
+        return props.children(submit, loading)
       }
     }}
   </Mutation>
