@@ -117,13 +117,13 @@ class CalendarPage extends Component {
 
         <CalendarHeader>
           <Trans>
-            Citizenship appointments are scheduled on <strong>Tuesdays</strong>{' '}
-            and <strong>Fridays</strong>.
+            Citizenship appointments are scheduled on{' '}
+            <strong>Wednesdays</strong> and <strong>Fridays</strong>.
           </Trans>
         </CalendarHeader>
         <CalendarSubheader>
           <Trans>
-            <strong>Select 3 days</strong> you’re available between July and
+            <strong>Select 3 days</strong> you’re available between August and
             September:
           </Trans>
         </CalendarSubheader>

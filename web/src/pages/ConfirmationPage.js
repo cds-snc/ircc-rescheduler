@@ -33,7 +33,7 @@ class ConfirmationPage extends React.Component {
           </H2>
           <p>
             <Trans>
-              By July 6, 2018, your local{' '}
+              By September 6, 2018, your local{' '}
               <abbr title="Immigration, Refugees and Citizenship Canada">
                 IRCC
               </abbr>{' '}
