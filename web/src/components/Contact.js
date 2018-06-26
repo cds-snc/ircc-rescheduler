@@ -36,19 +36,33 @@ const contact = css`
   margin-bottom: ${theme.spacing.lg};
 `
 
-const Contact = ({ children }) => (
+const Contact = ({ children, phoneFirst = false }) => (
   <div className={contact}>
     {children}
-    <p>
-      <a href="mailto:vancouverIRCC@cic.gc.ca">vancouverIRCC@cic.gc.ca</a>
-    </p>
-    <p>
-      <TelLink tel="1-888-242-2100" />
-    </p>
+    {!phoneFirst ? (
+      <React.Fragment>
+        <p>
+          <a href="mailto:vancouverIRCC@cic.gc.ca">vancouverIRCC@cic.gc.ca</a>
+        </p>
+        <p>
+          <TelLink tel="1-888-242-2100" />
+        </p>
+      </React.Fragment>
+    ) : (
+      <React.Fragment>
+        <p>
+          <TelLink tel="1-888-242-2100" />
+        </p>
+        <p>
+          <a href="mailto:vancouverIRCC@cic.gc.ca">vancouverIRCC@cic.gc.ca</a>
+        </p>
+      </React.Fragment>
+    )}
   </div>
 )
 Contact.propTypes = {
   children: PropTypes.element.isRequired,
+  phoneFirst: PropTypes.bool,
 }
 
 export { Contact as default, TelLink }
