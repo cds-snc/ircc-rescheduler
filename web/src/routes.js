@@ -27,6 +27,13 @@ export default [
     }),
   },
   {
+    path: '/nojscalendar',
+    exact: true,
+    component: asyncComponent({
+      loader: () => import('./pages/NoJSCalendarPage'),
+    }),
+  },
+  {
     path: '/review',
     exact: true,
     component: asyncComponent({
