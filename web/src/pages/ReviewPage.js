@@ -63,7 +63,7 @@ class ReviewPage extends React.Component {
         <TopContainer>
           <NavLink className="chevron-link" to="/calendar">
             <Chevron dir="left" />
-            <Trans>Go Back</Trans>
+            <Trans>Go back</Trans>
           </NavLink>
         </TopContainer>
         <H1>

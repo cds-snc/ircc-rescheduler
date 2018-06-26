@@ -31,7 +31,7 @@ class CancelPage extends React.Component {
       <Layout contentClass={contentClass} headerClass={visuallyhidden}>
         <NavLink className="chevron-link nav-link-top" to="/">
           <Chevron dir="left" />
-          <Trans>Start Over</Trans>
+          <Trans>Start over</Trans>
         </NavLink>
         <H1>
           <Trans>Your request has been cancelled.</Trans>

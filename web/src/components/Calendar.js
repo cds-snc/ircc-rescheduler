@@ -524,17 +524,17 @@ class Calendar extends Component {
           months={date.months}
           weekdaysLong={date.weekdaysLong}
           weekdaysShort={date.weekdaysShort}
-          initialMonth={new Date(2018, 6)}
-          fromMonth={new Date(2018, 6)}
+          initialMonth={new Date(2018, 7)}
+          fromMonth={new Date(2018, 7)}
           toMonth={new Date(2018, 8)}
           numberOfMonths={1}
           disabledDays={[
             {
-              before: new Date(2018, 6, 14),
-              after: new Date(2018, 8, 14),
+              before: new Date(2018, 7, 1),
+              after: new Date(2018, 8, 20),
             },
             {
-              daysOfWeek: [0, 1, 3, 4, 6],
+              daysOfWeek: [0, 1, 2, 5, 6],
             },
           ]}
           onDayClick={this.handleDayClick}
