@@ -81,7 +81,7 @@ const SelectedDayList = withI18n()(({i18n,selectedDays}) => {
     </ul>
   ) : (
     <span className="no-dates-selected">
-      <Trans>No dates selected</Trans>
+      <Trans>No days selected</Trans>
     </span>
   )
 }
