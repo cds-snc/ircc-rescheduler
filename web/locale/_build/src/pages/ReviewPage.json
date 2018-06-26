@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        25
+        29
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        27
+        31
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        29
+        33
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        31
+        35
       ]
     ]
   },
@@ -35,23 +35,23 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        33
+        37
       ]
     ]
   },
-  "Go Back": {
+  "Go back": {
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        44
+        66
       ]
     ]
   },
-  "Review your request": {
+  "Review your request:": {
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        48
+        70
       ]
     ]
   },
@@ -59,15 +59,15 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        76
+        83
       ]
     ]
   },
-  "Send Request": {
+  "Send request": {
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        104
+        114
       ]
     ]
   },
@@ -75,7 +75,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        111
+        121
       ]
     ]
   }

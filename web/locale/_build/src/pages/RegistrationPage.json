@@ -7,7 +7,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        238
+        224
       ]
     ]
   },
@@ -19,7 +19,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        261
+        247
       ]
     ]
   },
@@ -31,7 +31,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        288
+        273
       ]
     ]
   },
@@ -43,11 +43,15 @@
       ]
     ]
   },
-  "Describe why you can’t attend your test": {
+  "Describe why you can’t attend your appointment": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
         86
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        356
       ]
     ]
   },
@@ -55,39 +59,39 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        103
+        108
       ]
     ]
   },
-  "You need to provide an email address so we can send you a confirmation message.": {
+  "We need your email address so we can send you a confirmation message.": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        111
+        116
       ]
     ]
   },
-  "You need to tell us your paper file number so we can confirm your identity.": {
+  "We need your paper file number so we can confirm your identity.": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        119
+        124
       ]
     ]
   },
-  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
+  "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        127
+        132
       ]
     ]
   },
-  "Please tell us a bit more about why you need to reschedule your test.": {
+  "Please tell us a bit more about why you need to reschedule your appointment.": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        135
+        140
       ]
     ]
   },
@@ -95,7 +99,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        178
+        160
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        191
       ]
     ]
   },
@@ -103,15 +111,15 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        249
+        235
       ]
     ]
   },
-  "We will send a confirmation message to this email address.": {
+  "This is where we’ll send a confirmation email when you’re done.": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        272
+        258
       ]
     ]
   },
@@ -119,15 +127,15 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        299
+        284
       ]
     ]
   },
-  "Travel": {
+  "Travel (business or vacation)": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        323
+        308
       ]
     ]
   },
@@ -135,15 +143,15 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        331
+        316
       ]
     ]
   },
-  "Work or School": {
+  "Work or school": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        339
+        324
       ]
     ]
   },
@@ -151,7 +159,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        347
+        332
       ]
     ]
   },
@@ -159,15 +167,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        355
-      ]
-    ]
-  },
-  "Describe why you cannot attend your test": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        371
+        340
       ]
     ]
   },
@@ -175,7 +175,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        382
+        367
       ]
     ]
   },
@@ -183,7 +183,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        395
+        380
       ]
     ]
   },
@@ -191,7 +191,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        400
+        385
       ]
     ]
   }

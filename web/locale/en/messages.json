@@ -1,5 +1,5 @@
 {
-  "Remove date": {
+  "Remove day": {
     "translation": "",
     "origin": [
       [
@@ -8,16 +8,12 @@
       ]
     ]
   },
-  "You have already selected the maximum number of dates!": {
+  "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "translation": "",
     "origin": [
       [
         "src/components/Calendar.js",
         480
-      ],
-      [
-        "src/pages/CalendarPage.js",
-        60
       ]
     ]
   },
@@ -35,7 +31,7 @@
     "origin": [
       [
         "src/components/Layout.js",
-        89
+        98
       ]
     ]
   },
@@ -44,11 +40,11 @@
     "origin": [
       [
         "src/components/Layout.js",
-        93
+        102
       ]
     ]
   },
-  "No dates selected": {
+  "No days selected": {
     "translation": "",
     "origin": [
       [
@@ -79,7 +75,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        238
+        224
       ]
     ]
   },
@@ -105,7 +101,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        288
+        273
       ]
     ]
   },
@@ -144,12 +140,8 @@
         18
       ],
       [
-        "src/pages/RegistrationPage.js",
-        323
-      ],
-      [
         "src/pages/ReviewPage.js",
-        25
+        29
       ]
     ]
   },
@@ -158,7 +150,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        10
+        6
       ]
     ]
   },
@@ -167,7 +159,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        11
+        7
       ]
     ]
   },
@@ -176,7 +168,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        12
+        8
       ]
     ]
   },
@@ -185,7 +177,205 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
+        9
+      ]
+    ]
+  },
+  "May": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        10
+      ]
+    ]
+  },
+  "June": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        11
+      ]
+    ]
+  },
+  "July": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        12
+      ]
+    ]
+  },
+  "August": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
         13
+      ]
+    ]
+  },
+  "September": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        14
+      ]
+    ]
+  },
+  "October": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        15
+      ]
+    ]
+  },
+  "November": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        16
+      ]
+    ]
+  },
+  "December": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        17
+      ]
+    ]
+  },
+  "Sunday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        18
+      ]
+    ]
+  },
+  "Monday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        19
+      ]
+    ]
+  },
+  "Tuesday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        20
+      ]
+    ]
+  },
+  "Wednesday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        21
+      ]
+    ]
+  },
+  "Thursday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        22
+      ]
+    ]
+  },
+  "Friday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        23
+      ]
+    ]
+  },
+  "Saturday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        24
+      ]
+    ]
+  },
+  "Su": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        25
+      ]
+    ]
+  },
+  "Mo": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        26
+      ]
+    ]
+  },
+  "Tu": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        27
+      ]
+    ]
+  },
+  "We": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        28
+      ]
+    ]
+  },
+  "Thu": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        29
+      ]
+    ]
+  },
+  "Fri": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        30
+      ]
+    ]
+  },
+  "Sat": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/forms/CalendarConstants.js",
+        31
       ]
     ]
   },
@@ -194,47 +384,73 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        50
+        51
       ]
     ]
   },
-  "Sorry, there was a problem with the information you submitted.": {
+  "You must select 3 days.": {
     "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        102
+        65
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        83
       ]
     ]
   },
-  "Go Back": {
+  "You must select 3 days. Please select 2 more days to continue.": {
     "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        133
+        70
+      ]
+    ]
+  },
+  "You must select 3 days. Please select 1 more day to continue.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        77
+      ]
+    ]
+  },
+  "Go back": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        126
+      ],
+      [
+        "src/pages/NoJSCalendarPage.js",
+        66
       ],
       [
         "src/pages/ReviewPage.js",
-        44
+        66
       ]
     ]
   },
-  "Citizenship appointments are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
+  "Citizenship appointments are scheduled on <0>Wednesdays</0> and <1>Thursdays</1>.": {
     "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        139
+        132
       ]
     ]
   },
-  "<0>Select 3 days</0> you’re available between July and September:": {
+  "<0>Select 3 days</0> you’re available between August and September:": {
     "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        145
+        138
       ]
     ]
   },
@@ -243,7 +459,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        192
+        185
+      ],
+      [
+        "src/pages/NoJSCalendarPage.js",
+        148
       ]
     ]
   },
@@ -252,7 +472,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        199
+        192
+      ],
+      [
+        "src/pages/NoJSCalendarPage.js",
+        155
       ]
     ]
   },
@@ -261,15 +485,90 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        204
+        197
+      ],
+      [
+        "src/pages/NoJSCalendarPage.js",
+        160
       ],
       [
         "src/pages/RegistrationPage.js",
-        400
+        385
       ],
       [
         "src/pages/ReviewPage.js",
-        111
+        121
+      ]
+    ]
+  },
+  "Start over": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        34
+      ]
+    ]
+  },
+  "Your request has been cancelled.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        37
+      ]
+    ]
+  },
+  "Nothing about your application or appointment has been changed.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        40
+      ]
+    ]
+  },
+  "What happens next?": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        45
+      ],
+      [
+        "src/pages/ConfirmationPage.js",
+        32
+      ]
+    ]
+  },
+  "Please attend your appointment at the date and time specified in the email we sent you.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        48
+      ]
+    ]
+  },
+  "If you missed your appointment, you still need to contact IRCC within 30 days. If you don‘t, your application could be delayed or abandoned.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        54
+      ]
+    ]
+  },
+  "If you have any questions, please contact:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        62
+      ],
+      [
+        "src/pages/ConfirmationPage.js",
+        46
       ]
     ]
   },
@@ -282,16 +581,7 @@
       ]
     ]
   },
-  "What happens next?": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        32
-      ]
-    ]
-  },
-  "By July 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
+  "By September 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
     "translation": "",
     "origin": [
       [
@@ -300,43 +590,16 @@
       ]
     ]
   },
-  "If you have any questions, please contact:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        46
-      ]
-    ]
-  },
-  "Were you satisfied with this service?": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        53
-      ]
-    ]
-  },
-  "Your feedback helps us improve.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        57
-      ]
-    ]
-  },
-  "We're sorry, something went wrong.": {
+  "Sorry, something went wrong.": {
     "translation": "",
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        24
+        26
       ]
     ]
   },
-  "Our team has been notified, but click <0>here</0> to fill out an error report.": {
+  "Your request <0>was not completed</0>. Your appointment or application wasn’t changed in any way.": {
     "translation": "",
     "origin": [
       [
@@ -345,21 +608,30 @@
       ]
     ]
   },
-  "Report a bug": {
+  "Contact <0>IRCC</0> directly to reschedule your appointment:": {
     "translation": "",
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        40
+        38
       ]
     ]
   },
-  "Please contact <0>IRCC</0> directly to reschedule your appointment": {
+  "Our team has been notified of this error, but you can also <0>tell us what went wrong</0>.": {
     "translation": "",
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        48
+        49
+      ]
+    ]
+  },
+  "Tell us what went wrong": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        60
       ]
     ]
   },
@@ -368,11 +640,11 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        59
+        76
       ],
       [
         "src/pages/FourOhFourPage.js",
-        28
+        29
       ]
     ]
   },
@@ -381,7 +653,7 @@
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
-        19
+        20
       ]
     ]
   },
@@ -390,7 +662,7 @@
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
-        22
+        23
       ]
     ]
   },
@@ -399,11 +671,11 @@
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
-        25
+        26
       ]
     ]
   },
-  "Tell IRCC you can't attend your Citizenship appointment, and request a new one.": {
+  "Tell IRCC you can’t attend your Citizenship appointment, and request a new one.": {
     "translation": "",
     "origin": [
       [
@@ -457,12 +729,30 @@
       ]
     ]
   },
-  "Start Now": {
+  "Start now": {
     "translation": "",
     "origin": [
       [
         "src/pages/LandingPage.js",
         108
+      ]
+    ]
+  },
+  "Citizenship appointments are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/NoJSCalendarPage.js",
+        71
+      ]
+    ]
+  },
+  "<0>Select 3 days</0> you’re available:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/NoJSCalendarPage.js",
+        78
       ]
     ]
   },
@@ -475,7 +765,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        261
+        247
       ]
     ]
   },
@@ -488,12 +778,16 @@
       ]
     ]
   },
-  "Describe why you can’t attend your test": {
+  "Describe why you can’t attend your appointment": {
     "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
         86
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        356
       ]
     ]
   },
@@ -502,43 +796,43 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        103
+        108
       ]
     ]
   },
-  "You need to provide an email address so we can send you a confirmation message.": {
+  "We need your email address so we can send you a confirmation message.": {
     "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        111
+        116
       ]
     ]
   },
-  "You need to tell us your paper file number so we can confirm your identity.": {
+  "We need your paper file number so we can confirm your identity.": {
     "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        119
+        124
       ]
     ]
   },
-  "Please tell us why you need to reschedule your test. If none of the options fit your situation, choose ‘Other’.": {
+  "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
     "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        127
+        132
       ]
     ]
   },
-  "Please tell us a bit more about why you need to reschedule your test.": {
+  "Please tell us a bit more about why you need to reschedule your appointment.": {
     "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        135
+        140
       ]
     ]
   },
@@ -547,7 +841,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        178
+        160
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        191
       ]
     ]
   },
@@ -556,16 +854,16 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        249
+        235
       ]
     ]
   },
-  "We will send a confirmation message to this email address.": {
+  "This is where we’ll send a confirmation email when you’re done.": {
     "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        272
+        258
       ]
     ]
   },
@@ -574,7 +872,16 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        299
+        284
+      ]
+    ]
+  },
+  "Travel (business or vacation)": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        308
       ]
     ]
   },
@@ -583,24 +890,20 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        331
+        316
       ],
       [
         "src/pages/ReviewPage.js",
-        29
+        33
       ]
     ]
   },
-  "Work or School": {
+  "Work or school": {
     "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        339
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        31
+        324
       ]
     ]
   },
@@ -609,11 +912,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        347
+        332
       ],
       [
         "src/pages/ReviewPage.js",
-        27
+        31
       ]
     ]
   },
@@ -622,20 +925,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        355
+        340
       ],
       [
         "src/pages/ReviewPage.js",
-        33
-      ]
-    ]
-  },
-  "Describe why you cannot attend your test": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        371
+        37
       ]
     ]
   },
@@ -644,7 +938,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        382
+        367
       ]
     ]
   },
@@ -653,16 +947,25 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        395
+        380
       ]
     ]
   },
-  "Review your request": {
+  "Work or School": {
     "translation": "",
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        48
+        35
+      ]
+    ]
+  },
+  "Review your request:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        70
       ]
     ]
   },
@@ -671,459 +974,17 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        76
+        83
       ]
     ]
   },
-  "Send Request": {
+  "Send request": {
     "translation": "",
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        104
+        114
       ]
     ]
-  },
-  "This is a new service we are constantly improving.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Layout.js",
-        83
-      ]
-    ],
-    "obsolete": true
-  },
-  "Citizenship Tests are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        139
-      ]
-    ],
-    "obsolete": true
-  },
-  "<0>Select three (3) days you are available</0> between July and September": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        145
-      ]
-    ],
-    "obsolete": true
-  },
-  "Review": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        199
-      ]
-    ],
-    "obsolete": true
-  },
-  "Cancel": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        204
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        105
-      ]
-    ],
-    "obsolete": true
-  },
-  "Within six (6) weeks, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        20
-      ]
-    ],
-    "obsolete": true
-  },
-  "Use this service to notify Immigration, Refugees and Citizenship Canada that you cannot attend your Citizenship test, and you need a new appointment.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        54
-      ]
-    ],
-    "obsolete": true
-  },
-  "This is found at the top of your test notice email.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        72
-      ]
-    ],
-    "obsolete": true
-  },
-  "Your full name": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        80
-      ]
-    ],
-    "obsolete": true
-  },
-  "This should match the name on your application.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        83
-      ]
-    ],
-    "obsolete": true
-  },
-  "For more information on rescheduling, <0>read the guidelines</0>.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        92
-      ]
-    ],
-    "obsolete": true
-  },
-  "After that, you will select <0>three (3) days</0> when you’re available for an appointment in the future.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        103
-      ]
-    ],
-    "obsolete": true
-  },
-  "By sending this request to reschedule, you will be <0>cancelling your current appointment</0>. After you complete this process, it could take up to six (6) weeks for IRCC to schedule your new appointment.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        111
-      ]
-    ],
-    "obsolete": true
-  },
-  "Full Name": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        71
-      ]
-    ],
-    "obsolete": true
-  },
-  "Paper File Number": {
-    "translation": "",
-    "origin": [
-      [
-        "src/Layout.js",
-        55
-      ],
-      [
-        "src/components/Layout.js",
-        83
-      ]
-    ],
-    "obsolete": true
-  },
-  "Reason for rescheduling": {
-    "translation": "",
-    "origin": [
-      [
-        "src/Layout.js",
-        61
-      ],
-      [
-        "src/components/Layout.js",
-        87
-      ]
-    ],
-    "obsolete": true
-  },
-  "If you’re not sure if you can reschedule,": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        276
-      ]
-    ],
-    "obsolete": true
-  },
-  "read the guidelines for rescheduling": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        278
-      ]
-    ],
-    "obsolete": true
-  },
-  "Review your request before sending it": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ReviewPage.js",
-        47
-      ]
-    ],
-    "obsolete": true
-  },
-  "By sending this request, you are <0>cancelling your current appointment.</0>": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ReviewPage.js",
-        73
-      ]
-    ],
-    "obsolete": true
-  },
-  "May": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        381
-      ]
-    ],
-    "obsolete": true
-  },
-  "June": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        382
-      ]
-    ],
-    "obsolete": true
-  },
-  "July": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        383
-      ]
-    ],
-    "obsolete": true
-  },
-  "August": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        384
-      ]
-    ],
-    "obsolete": true
-  },
-  "September": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        385
-      ]
-    ],
-    "obsolete": true
-  },
-  "October": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        386
-      ]
-    ],
-    "obsolete": true
-  },
-  "November": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        388
-      ]
-    ],
-    "obsolete": true
-  },
-  "December": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        389
-      ]
-    ],
-    "obsolete": true
-  },
-  "Saturday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        391
-      ]
-    ],
-    "obsolete": true
-  },
-  "Monday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        392
-      ]
-    ],
-    "obsolete": true
-  },
-  "Tuesday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        393
-      ]
-    ],
-    "obsolete": true
-  },
-  "Wednesday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        394
-      ]
-    ],
-    "obsolete": true
-  },
-  "Thursday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        395
-      ]
-    ],
-    "obsolete": true
-  },
-  "Friday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        396
-      ]
-    ],
-    "obsolete": true
-  },
-  "Sunday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        397
-      ]
-    ],
-    "obsolete": true
-  },
-  "Sat": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        399
-      ]
-    ],
-    "obsolete": true
-  },
-  "Mo": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        400
-      ]
-    ],
-    "obsolete": true
-  },
-  "Tu": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        401
-      ]
-    ],
-    "obsolete": true
-  },
-  "We": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        402
-      ]
-    ],
-    "obsolete": true
-  },
-  "Thu": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        403
-      ]
-    ],
-    "obsolete": true
-  },
-  "Fri": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        404
-      ]
-    ],
-    "obsolete": true
-  },
-  "Su": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        405
-      ]
-    ],
-    "obsolete": true
-  },
-  "Sa": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        394
-      ]
-    ],
-    "obsolete": true
   }
 }
