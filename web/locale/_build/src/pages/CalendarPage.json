@@ -3,47 +3,59 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        50
+        51
       ]
     ]
   },
-  "You have already selected the maximum number of dates!": {
+  "You must select 3 days.": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        60
+        65
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        83
       ]
     ]
   },
-  "Sorry, there was a problem with the information you submitted.": {
+  "You must select 3 days. Please select 2 more days to continue.": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        102
+        70
       ]
     ]
   },
-  "Go Back": {
+  "You must select 3 days. Please select 1 more day to continue.": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        133
+        77
       ]
     ]
   },
-  "Citizenship appointments are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
+  "Go back": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        139
+        126
       ]
     ]
   },
-  "<0>Select 3 days</0> you’re available between July and September:": {
+  "Citizenship appointments are scheduled on <0>Wednesdays</0> and <1>Thursdays</1>.": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        145
+        132
+      ]
+    ]
+  },
+  "<0>Select 3 days</0> you’re available between August and September:": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        138
       ]
     ]
   },
@@ -51,7 +63,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        192
+        185
       ]
     ]
   },
@@ -59,7 +71,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        199
+        192
       ]
     ]
   },
@@ -67,7 +79,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        204
+        197
       ]
     ]
   }

@@ -1,0 +1,58 @@
+{
+  "Start over": {
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        34
+      ]
+    ]
+  },
+  "Your request has been cancelled.": {
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        37
+      ]
+    ]
+  },
+  "Nothing about your application or appointment has been changed.": {
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        40
+      ]
+    ]
+  },
+  "What happens next?": {
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        45
+      ]
+    ]
+  },
+  "Please attend your appointment at the date and time specified in the email we sent you.": {
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        48
+      ]
+    ]
+  },
+  "If you missed your appointment, you still need to contact IRCC within 30 days. If you don‘t, your application could be delayed or abandoned.": {
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        54
+      ]
+    ]
+  },
+  "If you have any questions, please contact:": {
+    "origin": [
+      [
+        "src/pages/CancelPage.js",
+        62
+      ]
+    ]
+  }
+}
