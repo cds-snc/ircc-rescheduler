@@ -4,7 +4,7 @@ import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import { theme, mediaQuery, Content } from '../styles'
-import AlphaBanner from './AlphaBanner'
+import PhaseBanner from './PhaseBanner'
 import PageHeader from './PageHeader'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
@@ -35,6 +35,10 @@ injectGlobal`
     margin: 0;
     padding: 0;
     line-height: 1.4;
+  }
+
+  .bannerLink:visited {
+    color: white;
   }
 
   a:focus {
@@ -93,14 +97,22 @@ class Layout extends React.Component {
           }}
           render={() => <ErrorPageContent />}
         >
+          <FederalBanner />
           <div role="banner">
-            <AlphaBanner phase="beta" color="white">
-              <Trans>
-                This is a new service, help us improve by sending your feedback
-              </Trans>
-            </AlphaBanner>
-            <FederalBanner />
             <PageHeader headerClass={this.props.headerClass}>
+              <PhaseBanner phase="beta" color="white">
+                <Trans>
+                  This is a new service, help us improve by{' '}
+                  <a
+                    className="bannerLink"
+                    href="https://docs.google.com/forms/d/1a1bJDF4BmepyMJaYubOSg3IiW4kjCqFrAu_0QXLYQ8Q/edit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    sending your feedback
+                  </a>
+                </Trans>
+              </PhaseBanner>
               <Trans>Request a new Canadian Citizenship appointment</Trans>
             </PageHeader>
           </div>
