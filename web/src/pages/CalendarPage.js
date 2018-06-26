@@ -110,7 +110,7 @@ class CalendarPage extends Component {
           <nav>
             <NavLink className="chevron-link" to="/register">
               <Chevron dir="left" />
-              <Trans>Go Back</Trans>
+              <Trans>Go back</Trans>
             </NavLink>
           </nav>
         </TopContainer>
