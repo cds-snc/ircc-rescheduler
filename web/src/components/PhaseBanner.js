@@ -1,5 +1,6 @@
 import React from 'react'
 import { css } from 'react-emotion'
+import PropTypes from 'prop-types'
 import { theme, mediaQuery } from '../styles'
 import { Trans } from 'lingui-react'
 
@@ -61,6 +62,12 @@ class PhaseBanner extends React.Component {
       </div>
     )
   }
+}
+
+PhaseBanner.propTypes = {
+  children: PropTypes.any.isRequired,
+  phase: PropTypes.string,
+  color: PropTypes.string,
 }
 
 export default PhaseBanner
