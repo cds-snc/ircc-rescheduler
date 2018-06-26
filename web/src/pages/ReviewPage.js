@@ -15,6 +15,7 @@ import { Submission } from '../components/Submission'
 import Reminder from '../components/Reminder'
 import rightArrow from '../assets/rightArrow.svg'
 import { dateToISODateString } from '../components/Time'
+import CancelButton from '../components/CancelButton'
 
 const contentClass = css`
   p {
@@ -117,9 +118,7 @@ class ReviewPage extends React.Component {
               )}
             </Submission>
             <div>
-              <NavLink to="/cancel">
-                <Trans>Cancel request</Trans>
-              </NavLink>
+              <CancelButton />
             </div>
           </BottomContainer>
         </section>

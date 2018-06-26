@@ -26,6 +26,10 @@ server
     res.clearCookie('store')
     return res.send('no more cookies 🍪')
   })
+  .post('/cancel', (req, res) => {
+    res.clearCookie('store')
+    res.redirect('/cancel')
+  })
   .get('/*', async (req, res) => {
     const client = createApolloClient({ ssrMode: true })
     const customRenderer = node => {
