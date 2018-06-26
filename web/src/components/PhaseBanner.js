@@ -8,7 +8,7 @@ const beta = css`
   background-color: #22a7f0;
   border-radius: 5px;
   height: 1.3rem;
-  padding: ${theme.spacing.xxs} ${theme.spacing.sm};
+  padding: 0.2rem ${theme.spacing.sm} 0.2rem ${theme.spacing.sm};
   font-size: ${theme.font.xs};
   color: ${theme.colour.white};
 `
@@ -36,6 +36,14 @@ const container = css`
   `)};
 `
 
+const phaseCheck = (props, propName, componentName) => {
+  if (!props.phase) {
+    return new Error(
+      `Please specify whether your project is in 'alpha' or 'beta' i.e: <PhaseBanner phase="alpha">message</PhaseBanner> `,
+    )
+  }
+}
+
 class PhaseBanner extends React.Component {
   render() {
     return (
@@ -49,7 +57,7 @@ class PhaseBanner extends React.Component {
               {this.props.children}
             </span>
           </div>
-        ) : (
+        ) : this.props.phase === 'alpha' ? (
           <div className={container}>
             <span className={alpha}>
               <Trans>ALPHA</Trans>
@@ -58,6 +66,8 @@ class PhaseBanner extends React.Component {
               {this.props.children}
             </span>
           </div>
+        ) : (
+          ''
         )}
       </div>
     )
@@ -66,7 +76,7 @@ class PhaseBanner extends React.Component {
 
 PhaseBanner.propTypes = {
   children: PropTypes.any.isRequired,
-  phase: PropTypes.string,
+  phase: phaseCheck,
   color: PropTypes.string,
 }
 

@@ -38,7 +38,7 @@ injectGlobal`
   }
 
   .bannerLink:visited {
-    color: white;
+    color: ${theme.colour.white};
   }
 
   a:focus {
@@ -100,7 +100,7 @@ class Layout extends React.Component {
           <FederalBanner />
           <div role="banner">
             <PageHeader headerClass={this.props.headerClass}>
-              <PhaseBanner phase="beta" color="white">
+              <PhaseBanner phase="beta" color={`${theme.colour.white}`}>
                 <Trans>
                   This is a new service, help us improve by{' '}
                   <a
