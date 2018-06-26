@@ -1,17 +1,20 @@
 import React from 'react'
+import { contextPropTypes } from '../context'
+import withProvider from '../withProvider'
+import withContext from '../withContext'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
-import { Query } from 'react-apollo'
 import { NavLink, Redirect } from 'react-router-dom'
 import { H1, theme, BottomContainer, TopContainer, arrow } from '../styles'
 import Chevron from '../components/Chevron'
 import Layout from '../components/Layout'
-import { GET_USER_DATA, SUBMIT } from '../queries'
+import { SUBMIT } from '../queries'
 import Button from '../components/forms/Button'
 import Summary from '../components/Summary'
 import { Submission } from '../components/Submission'
 import Reminder from '../components/Reminder'
 import rightArrow from '../assets/rightArrow.svg'
+import { dateToISODateString } from '../components/Time'
 
 const contentClass = css`
   p {
@@ -38,88 +41,93 @@ class ReviewPage extends React.Component {
   }
 
   render() {
+    let {
+      context: {
+        store: {
+          register: {
+            fullName,
+            email,
+            paperFileNumber,
+            reason,
+            explanation,
+          } = {},
+          calendar: { calendar: selectedDays = [] } = {},
+        } = {},
+      } = {},
+    } = this.props
+
+    /* TODO: handle a NO-JS submission */
+
     return (
       <Layout contentClass={contentClass}>
         <TopContainer>
           <NavLink className="chevron-link" to="/calendar">
-            <Chevron dir="left" /><Trans>Go Back</Trans>
+            <Chevron dir="left" />
+            <Trans>Go Back</Trans>
           </NavLink>
         </TopContainer>
         <H1>
           <Trans>Review your request</Trans>
         </H1>
-        <Query query={GET_USER_DATA}>
-          {({ loading, error, data }) => {
-            if (loading) return 'Loading...'
-            if (error) return `Error! ${error.message}`
-            let {
-              userRegistrationData: {
-                fullName,
-                email,
-                paperFileNumber,
-                explanation,
-                reason,
-              },
-              selectedDays,
-            } = data
 
-            return (
-              <section>
-                <Summary
-                  fullName={fullName}
-                  email={email}
-                  paperFileNumber={paperFileNumber}
-                  explanation={explanation}
-                  reason={this.translateReason(reason)}
-                  selectedDays={selectedDays}
-                />
-                <Reminder>
-                  <Trans>
-                    Sending this request will cancel your current appointment.
-                    <strong> Do not attend your old appointment</strong> after
-                    you send this request.
-                  </Trans>
-                </Reminder>
+        <section>
+          <Summary
+            fullName={fullName}
+            email={email}
+            paperFileNumber={paperFileNumber}
+            explanation={explanation}
+            reason={this.translateReason(reason)}
+            selectedDays={selectedDays}
+          />
+          <Reminder>
+            <Trans>
+              Sending this request will cancel your current appointment.
+              <strong> Do not attend your old appointment</strong> after you
+              send this request.
+            </Trans>
+          </Reminder>
 
-                <BottomContainer>
-                  <Submission
-                    action={SUBMIT}
-                    success={data => <Redirect to="/confirmation" push />}
-                    failure={error => <Redirect to="/error" push />}
-                  >
-                    {submit => (
-                      <Button
-                        onClick={() => {
-                          submit({
-                            variables: {
-                              fullName,
-                              email,
-                              reason,
-                              explanation,
-                              paperFileNumber,
-                              availability: selectedDays,
-                            },
-                          })
-                        }}
-                      >
-                        <Trans>Send Request</Trans>{' '}
-                        <img src={rightArrow} className={arrow} alt="" />
-                      </Button>
-                    )}
-                  </Submission>
-                  <div>
-                    <NavLink to="/cancel">
-                      <Trans>Cancel request</Trans>
-                    </NavLink>
-                  </div>
-                </BottomContainer>
-              </section>
-            )
-          }}
-        </Query>
+          <BottomContainer>
+            <Submission
+              action={SUBMIT}
+              success={data => <Redirect to="/confirmation" push />}
+              failure={error => <Redirect to="/error" push />}
+            >
+              {submit => (
+                <Button
+                  onClick={() => {
+                    submit({
+                      variables: {
+                        fullName,
+                        email,
+                        reason,
+                        explanation,
+                        paperFileNumber,
+                        availability: selectedDays.map(day =>
+                          dateToISODateString(day),
+                        ),
+                      },
+                    })
+                  }}
+                >
+                  <Trans>Send Request</Trans>{' '}
+                  <img src={rightArrow} className={arrow} alt="" />
+                </Button>
+              )}
+            </Submission>
+            <div>
+              <NavLink to="/cancel">
+                <Trans>Cancel request</Trans>
+              </NavLink>
+            </div>
+          </BottomContainer>
+        </section>
       </Layout>
     )
   }
 }
+ReviewPage.propTypes = {
+  ...contextPropTypes,
+}
 
-export default ReviewPage
+export default withProvider(withContext(ReviewPage))

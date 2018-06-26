@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { contextPropTypes } from '../context'
+import withProvider from '../withProvider'
+import withContext from '../withContext'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
 import styled, { css } from 'react-emotion'
@@ -17,9 +20,6 @@ import CalendarAdapter from '../components/Calendar'
 import Chevron from '../components/Chevron'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
-import { withApollo } from 'react-apollo'
-import gql from 'graphql-tag'
-import { GET_USER_DATA } from '../queries'
 import { makeGMTDate } from '../components/Time'
 import Reminder from '../components/Reminder'
 import { ErrorList } from '../components/ErrorMessage'
@@ -54,47 +54,29 @@ const labelNames = id => {
   }
 }
 
-const validate = values => {
-  const errors = {}
-  if (!values.calendar || values.calendar.length < DAY_LIMIT) {
-    errors.calendar = (
-      <Trans>You have already selected the maximum number of dates!</Trans>
-    )
-  }
-  return errors
-}
-
 class CalendarPage extends Component {
+  static get fields() {
+    return ['calendar']
+  }
+
+  static validate(values) {
+    const errors = {}
+    if (!values.calendar || values.calendar.length < DAY_LIMIT) {
+      errors.calendar = (
+        <Trans>You have already selected the maximum number of dates!</Trans>
+      )
+    }
+    return errors
+  }
+
   constructor(props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
-    this.state = { data: {} }
-  }
-
-  async componentDidMount() {
-    try {
-      // 'result' would also be to place to check for potential graphql errors
-      let result = await this.props.client.query({
-        query: GET_USER_DATA,
-      })
-
-      let { data } = result
-
-      /* cast values to Date objects if selectedDays exists and has a length */
-      if (data && data.selectedDays && data.selectedDays.length) {
-        let selectedDays = data.selectedDays.map(day => makeGMTDate(day))
-
-        this.setState({
-          data: { calendar: selectedDays },
-        })
-      }
-    } catch (err) {
-      console.log(err) // eslint-disable-line no-console
-    }
+    this.validate = CalendarPage.validate
   }
 
   async onSubmit(values, event) {
-    const submitErrors = validate(values)
+    const submitErrors = this.validate(values)
 
     if (Object.keys(submitErrors).length) {
       this.errorContainer.focus()
@@ -107,25 +89,21 @@ class CalendarPage extends Component {
       }
     }
 
-    const { client } = this.props
-    try {
-      await client.mutate({
-        mutation: gql`
-          mutation($dates: [String]) {
-            selectDays(data: $dates) @client
-          }
-        `,
-        variables: { dates: values.calendar },
-      })
-    } catch (err) {
-      //should be a logger
-      console.log(err) // eslint-disable-line no-console
-    }
+    // if setState doesn't exist, nothing gets saved between pages
+    await this.props.context.setStore(this.props.match.path.slice(1), values)
 
     await this.props.history.push('/review')
   }
 
   render() {
+    let { context: { store: { calendar = {} } = {} } = {} } = this.props
+    // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
+
+    // cast values to Date objects if calendar.calendar exists and has a length
+    if (calendar && calendar.calendar && calendar.calendar.length) {
+      calendar = { calendar: calendar.calendar.map(day => makeGMTDate(day)) }
+    }
+
     return (
       <Layout>
         <TopContainer>
@@ -152,7 +130,7 @@ class CalendarPage extends Component {
 
         <Form
           onSubmit={this.onSubmit}
-          initialValues={this.state.data}
+          initialValues={calendar}
           render={({
             handleSubmit,
             reset,
@@ -173,7 +151,7 @@ class CalendarPage extends Component {
                   }}
                 >
                   <ErrorList message={submitError || ''}>
-                    {Object.keys(validate(values)).map((formId, i) => (
+                    {Object.keys(this.validate(values)).map((formId, i) => (
                       <a href={`#${formId}`} key={i}>
                         {labelNames(formId) ? labelNames(formId) : formId}
                         <br />
@@ -215,8 +193,8 @@ class CalendarPage extends Component {
   }
 }
 CalendarPage.propTypes = {
-  history: PropTypes.object.isRequired,
-  client: PropTypes.object.isRequired,
+  ...contextPropTypes,
+  history: PropTypes.any,
 }
 
-export default withApollo(CalendarPage)
+export default withProvider(withContext(CalendarPage))
