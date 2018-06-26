@@ -1,8 +1,11 @@
+import React from 'react'
+import { Trans } from 'lingui-react'
+
 export const getDateInfo = i18n => {
   let date = {}
   if (i18n) {
     //dates need to be arrays of strings (react day picker proptype)
-     date = {
+    date = {
       months: [
         i18n._`January`,
         i18n._`February`,
@@ -36,9 +39,8 @@ export const getDateInfo = i18n => {
         i18n._`Sat`,
       ],
     }
-  }
-  else{
-    date={
+  } else {
+    date = {
       months: [
         'January',
         'February',
@@ -62,17 +64,40 @@ export const getDateInfo = i18n => {
         'Friday',
         'Saturday',
       ],
-      weekdaysShort: [
-        'Su',
-        'Mo',
-        'Tu',
-        'We',
-        'Thu',
-        'Fri',
-        'Sat',
-      ],      
-
+      weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Thu', 'Fri', 'Sat'],
     }
   }
   return date
 }
+
+// eslint-disable-next-line no-unused-vars
+const translations = () => (
+  <div>
+    <Trans>January</Trans>
+    <Trans>February</Trans>
+    <Trans>March</Trans>
+    <Trans>April</Trans>
+    <Trans>May</Trans>
+    <Trans>June</Trans>
+    <Trans>July</Trans>
+    <Trans>August</Trans>
+    <Trans>September</Trans>
+    <Trans>October</Trans>
+    <Trans>November</Trans>
+    <Trans>December</Trans>
+    <Trans>Sunday</Trans>
+    <Trans>Monday</Trans>
+    <Trans>Tuesday</Trans>
+    <Trans>Wednesday</Trans>
+    <Trans>Thursday</Trans>
+    <Trans>Friday</Trans>
+    <Trans>Saturday</Trans>
+    <Trans>Su</Trans>
+    <Trans>Mo</Trans>
+    <Trans>Tu</Trans>
+    <Trans>We</Trans>
+    <Trans>Thu</Trans>
+    <Trans>Fri</Trans>
+    <Trans>Sat</Trans>
+  </div>
+)

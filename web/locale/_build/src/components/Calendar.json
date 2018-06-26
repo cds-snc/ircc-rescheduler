@@ -1,5 +1,5 @@
 {
-  "Remove date": {
+  "Remove day": {
     "origin": [
       [
         "src/components/Calendar.js",
@@ -7,7 +7,7 @@
       ]
     ]
   },
-  "You have already selected the maximum number of dates!": {
+  "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "origin": [
       [
         "src/components/Calendar.js",
