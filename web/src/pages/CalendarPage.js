@@ -25,6 +25,7 @@ import Reminder from '../components/Reminder'
 import { ErrorList } from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
+import CancelButton from '../components/CancelButton'
 
 const DAY_LIMIT = 3
 
@@ -100,11 +101,7 @@ const CalBottom = ({ submit }) => {
       </div>
       <BottomContainer>
         {submit()}
-        <div>
-          <NavLink to="/cancel">
-            <Trans>Cancel request</Trans>
-          </NavLink>
-        </div>
+        <CancelButton />
       </BottomContainer>
     </div>
   )
