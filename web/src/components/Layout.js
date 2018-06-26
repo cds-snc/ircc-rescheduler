@@ -94,7 +94,7 @@ class Layout extends React.Component {
           render={() => <ErrorPageContent />}
         >
           <div role="banner">
-            <AlphaBanner phase="beta">
+            <AlphaBanner phase="beta" color="white">
               <Trans>
                 This is a new service, help us improve by sending your feedback
               </Trans>
