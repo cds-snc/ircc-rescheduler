@@ -4,7 +4,6 @@ import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import { theme, mediaQuery, Content } from '../styles'
-import PhaseBanner from './PhaseBanner'
 import PageHeader from './PageHeader'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
@@ -100,19 +99,6 @@ class Layout extends React.Component {
           <FederalBanner />
           <div role="banner">
             <PageHeader headerClass={this.props.headerClass}>
-              <PhaseBanner phase="beta" color={`${theme.colour.white}`}>
-                <Trans>
-                  This is a new service, help us improve by{' '}
-                  <a
-                    className="bannerLink"
-                    href="https://docs.google.com/forms/d/1a1bJDF4BmepyMJaYubOSg3IiW4kjCqFrAu_0QXLYQ8Q/edit"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    sending your feedback
-                  </a>
-                </Trans>
-              </PhaseBanner>
               <Trans>Request a new Canadian Citizenship appointment</Trans>
             </PageHeader>
           </div>
