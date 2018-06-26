@@ -67,7 +67,7 @@ class ReviewPage extends React.Component {
           </NavLink>
         </TopContainer>
         <H1>
-          <Trans>Review your request</Trans>
+          <Trans>Review your request:</Trans>
         </H1>
 
         <section>
@@ -111,7 +111,7 @@ class ReviewPage extends React.Component {
                     })
                   }}
                 >
-                  <Trans>Send Request</Trans>{' '}
+                  <Trans>Send request</Trans>{' '}
                   <img src={rightArrow} className={arrow} alt="" />
                 </Button>
               )}

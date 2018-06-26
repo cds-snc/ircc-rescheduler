@@ -63,7 +63,7 @@ class LandingPage extends React.Component {
         <section>
           <H1Landing>
             <Trans>
-              Tell IRCC you can&#39;t attend your Citizenship appointment, and
+              Tell IRCC you can&rsquo;t attend your Citizenship appointment, and
               request a new one.
             </Trans>
           </H1Landing>
@@ -105,7 +105,7 @@ class LandingPage extends React.Component {
 
         <div className={landingButton}>
           <NavLink to="/register" className={buttonStyles}>
-            <Trans>Start Now</Trans>{' '}
+            <Trans>Start now</Trans>{' '}
             <img src={rightArrow} className={arrow} alt="" />
           </NavLink>
         </div>

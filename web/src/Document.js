@@ -19,7 +19,7 @@ class Document extends React.Component {
         <head>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta charSet="utf-8" />
-          <title>Reschedule your Canadian Citizenship appointment</title>
+          <title>Request a new Canadian Citizenship appointment</title>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           {helmet.meta.toComponent()}
           {helmet.link.toComponent()}

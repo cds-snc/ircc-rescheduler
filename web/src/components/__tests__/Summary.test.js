@@ -35,21 +35,21 @@ describe('<SelectedDayList />', () => {
           .find('li')
           .at(index)
           .text(),
-      ).toEqual(shallow(<Time date={day} locale={'en'}/>).text())
+      ).toEqual(shallow(<Time date={day} locale={'en'} />).text())
     })
   })
 
   it('renders empty message when empty array passed in', () => {
     const wrapper = mount(<SelectedDayList selectedDays={[]} />)
     expect(wrapper.find('.no-dates-selected').text()).toEqual(
-      'No dates selected',
+      'No days selected',
     )
   })
 
   it('renders empty message when no arguments are passed in', () => {
     const wrapper = mount(<SelectedDayList />)
     expect(wrapper.find('.no-dates-selected').text()).toEqual(
-      'No dates selected',
+      'No days selected',
     )
   })
 })

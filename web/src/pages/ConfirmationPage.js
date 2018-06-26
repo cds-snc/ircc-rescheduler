@@ -26,7 +26,7 @@ class ConfirmationPage extends React.Component {
             <Trans>Thank you! Your request has been received.</Trans>
           </H1>
 
-          <p> We&#39;ve sent you a confirmation email. </p>
+          <p> We&rsquo;ve sent you a confirmation email. </p>
 
           <H2>
             <Trans>What happens next?</Trans>
@@ -46,26 +46,6 @@ class ConfirmationPage extends React.Component {
               <Trans>If you have any questions, please contact:</Trans>
             </H2>
           </Contact>
-
-          <hr />
-
-          <H2>
-            <Trans>Were you satisfied with this service?</Trans>
-          </H2>
-
-          <p>
-            <Trans>Your feedback helps us improve.</Trans>
-          </p>
-
-          <p>
-            <a
-              href="https://docs.google.com/forms/d/1a1bJDF4BmepyMJaYubOSg3IiW4kjCqFrAu_0QXLYQ8Q/edit"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Send us feedback.
-            </a>
-          </p>
         </section>
       </Layout>
     )

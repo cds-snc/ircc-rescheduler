@@ -403,11 +403,11 @@ const renderDayBoxes = ({
             onKeyPress={removeDayOnClickOrKeyPress(selectedDay)}
           >
             <div className={removeDateDesktop}>
-              <Trans>Remove date</Trans>
+              <Trans>Remove day</Trans>
             </div>
 
             <div className={removeDateMobile}>
-              <img src={Cancel} alt="Remove Date" />
+              <img src={Cancel} alt="Remove Day" />
             </div>
           </button>
         </li>
@@ -478,7 +478,8 @@ class Calendar extends Component {
         await this.setState({
           errorMessage: (
             <Trans>
-              You have already selected the maximum number of dates!
+              You can&rsquo;t select more than 3 days. To change your
+              selections, remove some days first.
             </Trans>
           ),
         })
@@ -544,7 +545,7 @@ class Calendar extends Component {
           containerProps={{ id, tabIndex }}
         />
         <div className={daySelection}>
-          <h3>Dates selected:</h3>
+          <h3>Your 3 selected days:</h3>
           <div
             className={selectedDaysError}
             tabIndex="-1"
