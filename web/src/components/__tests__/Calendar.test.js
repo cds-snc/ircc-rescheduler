@@ -131,7 +131,7 @@ describe('<CalendarAdapter />', () => {
     clickFirstDate(wrapper)
     expect(getDateStrings(wrapper)).toEqual('Thursday, August 2, 2018')
     expect(getErrorMessageString(wrapper)).toEqual(
-      'You have already selected the maximum number of dates!',
+      'You can’t select more than 3 days. To change your selections, remove some days first.',
     )
   })
 
@@ -148,7 +148,7 @@ describe('<CalendarAdapter />', () => {
     clickFirstDate(wrapper)
     expect(getDateStrings(wrapper)).toEqual('Thursday, August 2, 2018')
     expect(getErrorMessageString(wrapper)).toEqual(
-      'You have already selected the maximum number of dates!',
+      'You can’t select more than 3 days. To change your selections, remove some days first.',
     )
 
     // click first "Remove date" button
