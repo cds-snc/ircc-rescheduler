@@ -1,0 +1,16 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+
+export const contextDefault = {
+  store: {},
+  setStore: null,
+}
+
+export const contextPropTypes = {
+  context: PropTypes.shape({
+    store: PropTypes.object.isRequired,
+    setStore: PropTypes.func.isRequired,
+  }),
+}
+
+export const Context = React.createContext(contextDefault)
