@@ -23,6 +23,8 @@ import { FORM_ERROR } from 'final-form'
 import { makeGMTDate } from '../components/Time'
 import Reminder from '../components/Reminder'
 import { ErrorList } from '../components/ErrorMessage'
+import { windowExists } from '../utils/windowExist'
+import CalendarNoJS from '../components/CalendarNoJS'
 
 const DAY_LIMIT = 3
 
@@ -45,6 +47,11 @@ const CalendarSubheader = styled(H2)`
   ${headerStyles};
 `
 
+const listContainer = css`
+  display: flex;
+  margin-bottom: ${theme.spacing.xxl};
+`
+
 const labelNames = id => {
   switch (id) {
     case 'calendar':
@@ -52,6 +59,59 @@ const labelNames = id => {
     default:
       return ''
   }
+}
+
+const CalHeader = () => {
+  return (
+    <div>
+      <TopContainer>
+        <nav>
+          <NavLink className="chevron-link" to="/register">
+            <Chevron dir="left" />
+            <Trans>Go back</Trans>
+          </NavLink>
+        </nav>
+      </TopContainer>
+      <CalendarHeader>
+        <Trans>
+          Citizenship appointments are scheduled on <strong>Wednesdays</strong>{' '}
+          and <strong>Thursdays</strong>.
+        </Trans>
+      </CalendarHeader>
+      <CalendarSubheader>
+        <Trans>
+          <strong>Select 3 days</strong> you’re available between August and
+          September:
+        </Trans>
+      </CalendarSubheader>
+    </div>
+  )
+}
+
+const CalBottom = ({ submit }) => {
+  return (
+    <div>
+      <div>
+        <Reminder>
+          <Trans>
+            Make sure you stay available on all of the days you select.
+          </Trans>
+        </Reminder>
+      </div>
+      <BottomContainer>
+        {submit()}
+        <div>
+          <NavLink to="/cancel">
+            <Trans>Cancel request</Trans>
+          </NavLink>
+        </div>
+      </BottomContainer>
+    </div>
+  )
+}
+
+CalBottom.propTypes = {
+  submit: PropTypes.func,
 }
 
 class CalendarPage extends Component {
@@ -119,28 +179,7 @@ class CalendarPage extends Component {
 
     return (
       <Layout>
-        <TopContainer>
-          <nav>
-            <NavLink className="chevron-link" to="/register">
-              <Chevron dir="left" />
-              <Trans>Go back</Trans>
-            </NavLink>
-          </nav>
-        </TopContainer>
-
-        <CalendarHeader>
-          <Trans>
-            Citizenship appointments are scheduled on{' '}
-            <strong>Wednesdays</strong> and <strong>Thursdays</strong>.
-          </Trans>
-        </CalendarHeader>
-        <CalendarSubheader>
-          <Trans>
-            <strong>Select 3 days</strong> you’re available between August and
-            September:
-          </Trans>
-        </CalendarSubheader>
-
+        <CalHeader />
         <Form
           onSubmit={this.onSubmit}
           initialValues={calendar}
@@ -180,24 +219,15 @@ class CalendarPage extends Component {
                   dayLimit={DAY_LIMIT}
                 />
               </div>
-              <div>
-                <Reminder>
-                  <Trans>
-                    Make sure you stay available on all of the days you select.
-                  </Trans>
-                </Reminder>
-              </div>
-              <BottomContainer>
-                <Button disabled={submitting}>
-                  <Trans>Review request</Trans>
-                </Button>
-
-                <div>
-                  <NavLink to="/cancel">
-                    <Trans>Cancel request</Trans>
-                  </NavLink>
-                </div>
-              </BottomContainer>
+              <CalBottom
+                submit={() => {
+                  return (
+                    <Button disabled={submitting}>
+                      <Trans>Review request</Trans>
+                    </Button>
+                  )
+                }}
+              />
             </form>
           )}
         />
@@ -205,9 +235,43 @@ class CalendarPage extends Component {
     )
   }
 }
+
 CalendarPage.propTypes = {
   ...contextPropTypes,
   history: PropTypes.any,
+  submit: PropTypes.func,
+}
+class NoJS extends Component {
+  state = {}
+  render() {
+    return (
+      <Layout>
+        <CalHeader />
+        <form>
+          <div className={listContainer}>
+            <CalendarNoJS />
+          </div>
+          <CalBottom
+            submit={() => {
+              return (
+                <Button>
+                  <Trans>Review request</Trans>
+                </Button>
+              )
+            }}
+          />
+        </form>
+      </Layout>
+    )
+  }
 }
 
-export default withProvider(withContext(CalendarPage))
+const WhichCal = () => {
+  if (windowExists()) {
+    return CalendarPage
+  }
+
+  return NoJS
+}
+
+export default withProvider(withContext(WhichCal()))
