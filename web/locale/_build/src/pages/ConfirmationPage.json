@@ -15,7 +15,7 @@
       ]
     ]
   },
-  "By July 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
+  "By September 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
@@ -28,22 +28,6 @@
       [
         "src/pages/ConfirmationPage.js",
         46
-      ]
-    ]
-  },
-  "Were you satisfied with this service?": {
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        53
-      ]
-    ]
-  },
-  "Your feedback helps us improve.": {
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        57
       ]
     ]
   }

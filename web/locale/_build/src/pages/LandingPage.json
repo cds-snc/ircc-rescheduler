@@ -1,5 +1,5 @@
 {
-  "Tell IRCC you can't attend your Citizenship appointment, and request a new one.": {
+  "Tell IRCC you can’t attend your Citizenship appointment, and request a new one.": {
     "origin": [
       [
         "src/pages/LandingPage.js",
@@ -47,7 +47,7 @@
       ]
     ]
   },
-  "Start Now": {
+  "Start now": {
     "origin": [
       [
         "src/pages/LandingPage.js",
