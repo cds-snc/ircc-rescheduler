@@ -131,7 +131,7 @@ class CalendarPage extends Component {
         <CalendarHeader>
           <Trans>
             Citizenship appointments are scheduled on{' '}
-            <strong>Wednesdays</strong> and <strong>Fridays</strong>.
+            <strong>Wednesdays</strong> and <strong>Thursdays</strong>.
           </Trans>
         </CalendarHeader>
         <CalendarSubheader>

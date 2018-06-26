@@ -83,7 +83,7 @@ const labelNames = id => {
     case 'reason':
       return <Trans>Why are you rescheduling?</Trans>
     case 'explanation':
-      return <Trans>Describe why you can’t attend your test</Trans>
+      return <Trans>Describe why you can’t attend your appointment</Trans>
     default:
       return ''
   }
@@ -114,7 +114,7 @@ class RegistrationPage extends React.Component {
     if (!RegistrationPage.validateEmail(values.email)) {
       errors.email = (
         <Trans>
-          You need to provide an email address so we can send you a confirmation
+          We need your email address so we can send you a confirmation
           message.
         </Trans>
       )
@@ -122,7 +122,7 @@ class RegistrationPage extends React.Component {
     if (!values.paperFileNumber) {
       errors.paperFileNumber = (
         <Trans>
-          You need to tell us your paper file number so we can confirm your
+          We need your paper file number so we can confirm your
           identity.
         </Trans>
       )
@@ -130,7 +130,7 @@ class RegistrationPage extends React.Component {
     if (!values.reason) {
       errors.reason = (
         <Trans>
-          Please tell us why you need to reschedule your test. If none of the
+          Please tell us why you need to reschedule your appointment. If none of the
           options fit your situation, choose ‘Other’.
         </Trans>
       )
@@ -138,7 +138,7 @@ class RegistrationPage extends React.Component {
     if (!values.explanation) {
       errors.explanation = (
         <Trans>
-          Please tell us a bit more about why you need to reschedule your test.
+          Please tell us a bit more about why you need to reschedule your appointment.
         </Trans>
       )
     }
@@ -180,7 +180,7 @@ class RegistrationPage extends React.Component {
     return (
       <Layout contentClass={contentClass}>
         <h1 className={visuallyhidden}>
-          First verify your identity and tell us why you need a new appointment.
+          First, supply some personal information and tell us why you need a new appointment.
         </h1>
         <Form
           onSubmit={this.onSubmit}
@@ -256,8 +256,7 @@ class RegistrationPage extends React.Component {
                       />
                       <span id="email-details">
                         <Trans>
-                          We will send a confirmation message to this email
-                          address.
+                        This is where we’ll send a confirmation email when you’re done.
                         </Trans>
                       </span>
                     </label>
@@ -306,7 +305,7 @@ class RegistrationPage extends React.Component {
                     <Field
                       type="radio"
                       component={RadioAdapter}
-                      label={<Trans>Travel</Trans>}
+                      label={<Trans>Travel (business or vacation)</Trans>}
                       value="travel"
                       name="reason"
                       id="reason-0"
@@ -322,7 +321,7 @@ class RegistrationPage extends React.Component {
                     <Field
                       type="radio"
                       component={RadioAdapter}
-                      label={<Trans>Work or School</Trans>}
+                      label={<Trans>Work or school</Trans>}
                       value="workOrSchool"
                       name="reason"
                       id="reason-2"
@@ -354,7 +353,7 @@ class RegistrationPage extends React.Component {
                   >
                     <label htmlFor="explanation" id="explanation-label">
                       <span id="explanation-header">
-                        <Trans>Describe why you cannot attend your test</Trans>
+                        <Trans>Describe why you can’t attend your appointment</Trans>
                       </span>
                       <ValidationMessage
                         id="explanation-error"
