@@ -93,8 +93,9 @@ class ReviewPage extends React.Component {
               success={data => <Redirect to="/confirmation" push />}
               failure={error => <Redirect to="/error" push />}
             >
-              {submit => (
+              {(submit, loading) => (
                 <Button
+                  disabled={loading}
                   onClick={() => {
                     submit({
                       variables: {
