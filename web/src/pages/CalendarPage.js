@@ -61,10 +61,27 @@ class CalendarPage extends Component {
 
   static validate(values) {
     const errors = {}
-    if (!values.calendar || values.calendar.length < DAY_LIMIT) {
-      errors.calendar = (
-        <Trans>You have already selected the maximum number of dates!</Trans>
-      )
+    if (!values.calendar || !values.calendar.length) {
+      errors.calendar = <Trans>You must select 3 days.</Trans>
+    } else if (values.calendar.length < DAY_LIMIT) {
+      switch (values.calendar.length) {
+        case 1:
+          errors.calendar = (
+            <Trans>
+              You must select 3 days. Please select 2 more days to continue.
+            </Trans>
+          )
+          break
+        case 2:
+          errors.calendar = (
+            <Trans>
+              You must select 3 days. Please select 1 more day to continue.
+            </Trans>
+          )
+          break
+        default:
+          errors.calendar = <Trans>You must select 3 days.</Trans>
+      }
     }
     return errors
   }
@@ -81,11 +98,7 @@ class CalendarPage extends Component {
     if (Object.keys(submitErrors).length) {
       this.errorContainer.focus()
       return {
-        [FORM_ERROR]: (
-          <Trans>
-            Sorry, there was a problem with the information you submitted.
-          </Trans>
-        ),
+        [FORM_ERROR]: submitErrors.calendar,
       }
     }
 
