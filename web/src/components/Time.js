@@ -14,9 +14,9 @@ const makeGMTDate = date => {
 
 const dateToHTMLString = (date, locale) => {
   var options = {
-    weekday: 'short',
+    weekday: 'long',
     year: 'numeric',
-    month: 'short',
+    month: 'long',
     day: 'numeric',
   }
   return makeGMTDate(date).toLocaleDateString(locale, options)

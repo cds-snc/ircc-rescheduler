@@ -63,7 +63,7 @@ class NoJSCalendarPage extends React.Component {
         <TopContainer>
           <nav>
             <NavLink to="/register">
-              &#10094; <Trans>Go Back</Trans>
+              &#10094; <Trans>Go back</Trans>
             </NavLink>
           </nav>
         </TopContainer>
