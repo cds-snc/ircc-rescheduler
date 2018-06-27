@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { css } from 'react-emotion'
 import { theme } from '../styles'
+import { NavLink } from 'react-router-dom'
 
 const cancelStyles = css`
   background-color: transparent;
@@ -19,9 +20,9 @@ class CancelButton extends Component {
   render() {
     return (
       <div>
-        <form action="/cancel" method="post">
+        <NavLink to="/clear">
           <button className={cancelStyles}>cancel request</button>
-        </form>
+        </NavLink>
       </div>
     )
   }
