@@ -31,6 +31,7 @@ const container = css`
   display: flex;
   align-items: center;
   margin-bottom: ${theme.spacing.xs};
+  color: ${theme.colour.white};
   ${mediaQuery.sm(css`
     margin-bottom: ${theme.spacing.md};
   `)};
@@ -61,9 +62,7 @@ class PhaseBanner extends React.Component {
             <span className={beta}>
               <Trans>BETA</Trans>
             </span>
-            <span className={message} style={{ color: this.props.color }}>
-              {this.props.children}
-            </span>
+            <span className={message}>{this.props.children}</span>
           </div>
         ) : this.props.phase === 'alpha' ? (
           <div className={container}>
