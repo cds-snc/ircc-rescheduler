@@ -149,6 +149,7 @@ class RegistrationPage extends React.Component {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
     this.validate = RegistrationPage.validate
+    this.fields = RegistrationPage.fields
   }
 
   async onSubmit(values, event) {
@@ -172,8 +173,12 @@ class RegistrationPage extends React.Component {
     let errorsNoJS = {}
 
     // only run this if there's a location.search
-    // this will be the case on no-JS clients when someone presses "continue"
-    if (this.props.location && this.props.location.search) {
+    // AND at least one of our fields exists in the string somewhere
+    // so we know for sure they pressed "submit" on this page
+    if (
+      this.props.location.search &&
+      this.fields.some(field => this.props.location.search.includes(field))
+    ) {
       errorsNoJS = this.validate(register)
     }
 

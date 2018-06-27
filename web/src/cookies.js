@@ -1,38 +1,20 @@
 import cookieEncrypter from 'cookie-encrypter'
 
+const inTenMinutes = () => new Date(new Date().getTime() + 10 * 60 * 1000)
 const inOneWeek = () => new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000)
 
-export const SECRET = 'Immediate convocation of a Party'
-
-const _whitelist = ({ query, fields }) => {
-  /* filter a dict by whitelisted keys
-  https://stackoverflow.com/questions/38750705/filter-object-properties-by-key-in-es6
-  */
-  return Object.keys(query)
-    .filter(key => fields.includes(key))
-    .reduce((obj, key) => {
-      return {
-        ...obj,
-        [key]: query[key], // eslint-disable-line security/detect-object-injection
-      }
-    }, {})
-}
+export const SECRET =
+  process.env.RAZZLE_COOKIE_SECRET ||
+  'Hey I just met you And this is crazy'.slice(0, 32)
 
 export const setStoreCookie = (setCookieFunc, cookie, options = {}) => {
-  if (
-    cookie === null || // if obj is null
-    typeof cookie !== 'object' || // if obj is _not_ an object
-    Object.keys(cookie).length === 0 // if obj is empty
-  ) {
-    throw new Error('setStoreCookie: `cookie` must be a non-empty object')
-  }
-
   cookie = cookieEncrypter.encryptCookie(JSON.stringify(cookie), {
     key: SECRET,
   })
 
   let expires = {
-    expires: inOneWeek(),
+    expires:
+      process.env.NODE_ENV === 'production' ? inOneWeek() : inTenMinutes(),
   }
 
   setCookieFunc('store', cookie, { ...expires, ...options })
@@ -56,34 +38,15 @@ export const getStoreCookie = cookies => {
   return cookie
 }
 
-export const setSSRCookie = (req, res, match, fields = [], validate = null) => {
-  let { query } = req
+export const setSSRCookie = (res, key, val, prevCookie) => {
+  prevCookie = prevCookie || {}
+  let newCookie = { [key]: val }
 
-  if (
-    Object.keys(query).length && // a query was submitted
-    fields.length && // there are fields explicitly defined for the page
-    typeof validate === 'function' // there is a validate function passed-in
-  ) {
-    // whitelist query keys so that arbitrary keys aren't saved to the store
-    query = fields ? _whitelist({ query, fields }) : query
+  // create new cookie by merging with previous values
+  let cookie = { ...prevCookie, ...newCookie }
 
-    // reset values that don't pass validation
-    let errors = validate(query)
-    Object.keys(errors || {}).forEach(field => {
-      query[field] = '' // eslint-disable-line security/detect-object-injection
-    })
+  /* console.log('set cookie! ', cookie) */
+  setStoreCookie(res.cookie.bind(res), cookie)
 
-    let prevCookie = getStoreCookie(req.cookies) || {}
-    // match.path === "/about" or similar
-    let path = match.path.slice(1)
-    let newCookie = { [path]: query }
-
-    // create new cookie by merging with previous values
-    let cookie = { ...prevCookie, ...newCookie }
-
-    /* console.log('set cookie! ', cookie) */
-    setStoreCookie(res.cookie.bind(res), cookie)
-    return cookie
-  }
-  return false
+  return cookie
 }
