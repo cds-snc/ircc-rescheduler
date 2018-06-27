@@ -36,6 +36,7 @@ const container = css`
     margin-bottom: ${theme.spacing.md};
   `)};
 
+  a,
   a:visited {
     color: ${theme.colour.white};
   }
