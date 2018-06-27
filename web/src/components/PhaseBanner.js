@@ -42,6 +42,10 @@ const phaseCheck = (props, propName, componentName) => {
       `Please specify whether your project is in 'alpha' or 'beta' i.e: <PhaseBanner phase="alpha">message</PhaseBanner> `,
     )
   }
+
+  if (!['alpha', 'beta'].includes(props.phase)) {
+    return new Error(`Invalid phase '${props.phase}', try 'alpha' or 'beta'`)
+  }
 }
 
 class PhaseBanner extends React.Component {

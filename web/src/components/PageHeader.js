@@ -42,7 +42,7 @@ const skinnyBanner = css`
 
 const PageHeader = ({ children, headerClass = '' }) => (
   <header className={headerClass ? skinnyBanner : bigBanner}>
-    <PhaseBanner phase="beta" color={`${theme.colour.white}`}>
+    <PhaseBanner phase={true} color={`${theme.colour.white}`}>
       <Trans>
         This is a new service, help us improve by{' '}
         <a
