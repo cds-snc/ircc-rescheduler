@@ -32,6 +32,15 @@ function withProvider(WrappedComponent) {
         val = WithProvider.validateCookie(key, val)
         if (val) {
           newCookie = setSSRCookie(res, key, val, prevCookie)
+
+          console.log('NEW COOKIE', newCookie)
+
+          console.log('REDIRECT', WrappedComponent.redirect)
+          console.log('validateQuery', WithProvider.validateQuery(query))
+          // add redirect if query passes validation and .redirect exists on the page component
+          if (WrappedComponent.redirect && WithProvider.validateQuery(query)) {
+            res.locals.redirect = WrappedComponent.redirect
+          }
         }
       }
 
@@ -186,6 +195,26 @@ function withProvider(WrappedComponent) {
       }
 
       return false
+    }
+
+    static validateQuery(query) {
+      let queryKeys = Object.keys(query)
+      if (!queryKeys.length) {
+        return false
+      }
+
+      let validateFn = WrappedComponent.validate || (() => false)
+      let pageFields = WrappedComponent.fields || []
+
+      let errors = validateFn(query)
+      // check if all of the same keys in the query are on the page
+      // ie, they haven't added any or submitted only half of them
+      let allKeys =
+        queryKeys.length === pageFields.length &&
+        queryKeys.every(key => pageFields.includes(key))
+
+      // check if no errors in query and all of the keys are present
+      return errors === false && allKeys === true ? true : false
     }
   }
   WithProvider.propTypes = {
