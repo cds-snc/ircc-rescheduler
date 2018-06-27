@@ -34,6 +34,10 @@ const container = css`
   ${mediaQuery.sm(css`
     margin-bottom: ${theme.spacing.md};
   `)};
+
+  a:visited {
+    color: ${theme.colour.white};
+  }
 `
 
 const phaseCheck = (props, propName, componentName) => {

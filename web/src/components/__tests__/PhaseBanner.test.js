@@ -4,8 +4,9 @@ import PhaseBanner from '../PhaseBanner'
 
 describe('<PhaseBanner />', () => {
   it('will not render with ONLY children...Console error prompt to specify phase= ', () => {
-    const phaseBanner = shallow(<PhaseBanner>contact us</PhaseBanner>)
-    expect(phaseBanner.find('span').length).toBe(0)
+    const phaseBanner = mount(<PhaseBanner>contact us</PhaseBanner>)
+    expect(phaseBanner.find('span').at(1).length).toBe(0)
+    expect(phaseBanner.find('span').at(2).length).toBe(0)
   })
 
   it('will render an alpha badge + children', () => {
@@ -42,5 +43,13 @@ describe('<PhaseBanner />', () => {
         .at(2)
         .text(),
     ).toMatch(/this is a beta banner./)
+  })
+
+  it('will not render with invalid phase, Error Message will prompt for valid phase value', () => {
+    const phaseBanner = mount(
+      <PhaseBanner phase="omega">This is an omega banner</PhaseBanner>,
+    )
+    expect(phaseBanner.find('span').at(1).length).toBe(0)
+    expect(phaseBanner.find('span').at(2).length).toBe(0)
   })
 })
