@@ -4,19 +4,38 @@ import Cookies from 'js-cookie'
 import { setStoreCookie, getStoreCookie, setSSRCookie } from './cookies'
 import { contextDefault, Context } from './context'
 
+const _whitelist = ({ val, fields }) => {
+  /*
+  filter a dict by whitelisted keys
+  returns new object -- does not mutate passed-in object
+  https://stackoverflow.com/questions/38750705/filter-object-properties-by-key-in-es6
+  */
+  return Object.keys(val)
+    .filter(key => fields.includes(key))
+    .reduce((obj, key) => {
+      return {
+        ...obj,
+        [key]: val[key], // eslint-disable-line security/detect-object-injection
+      }
+    }, {})
+}
+
 function withProvider(WrappedComponent) {
   class WithProvider extends Component {
     static async getInitialProps({ res, req, match }) {
-      let initStore =
-        setSSRCookie(
-          req,
-          res,
-          match,
-          WrappedComponent.fields,
-          WrappedComponent.validate,
-        ) ||
-        getStoreCookie(req.cookies) ||
-        contextDefault.store
+      let { query } = req
+      let prevCookie = getStoreCookie(req.cookies)
+      let newCookie
+
+      if (Object.keys(query).length) {
+        let { key, val } = WithProvider.returnKeyAndValue(query, match)
+        val = WithProvider.validateCookie(key, val)
+        if (val) {
+          newCookie = setSSRCookie(res, key, val, prevCookie)
+        }
+      }
+
+      let initStore = newCookie || prevCookie || contextDefault.store
 
       return {
         context: {
@@ -30,15 +49,9 @@ function withProvider(WrappedComponent) {
       super(props)
 
       this.setStore = (key, obj = null) => {
-        if (typeof key !== 'string') {
-          throw new Error('setStore: `key` must be a string value')
-        }
-        if (
-          obj === null || // if obj is null
-          typeof obj !== 'object' || // if obj is _not_ an object
-          Object.keys(obj).length === 0 // if obj is empty
-        ) {
-          throw new Error('setStore: `obj` must be a non-empty object')
+        obj = WithProvider.validateCookie(key, obj)
+        if (!obj) {
+          return
         }
 
         let newState = { [key]: obj }
@@ -77,6 +90,102 @@ function withProvider(WrappedComponent) {
           <WrappedComponent {...props} />
         </Context.Provider>
       )
+    }
+
+    static get globalFields() {
+      return ['language']
+    }
+
+    static validate(values) {
+      let errors = {}
+      if (!['en', 'fr'].includes(values.language)) {
+        errors.language = true
+      }
+      return Object.keys(errors).length ? errors : false
+    }
+
+    static returnKeyAndValue(query, match) {
+      if (!Object.keys(query).length) {
+        return { key: undefined, val: undefined }
+      }
+
+      /*
+      return the first matching query key that exists in the global fields
+      */
+      let queryKeys = Object.keys(query)
+      for (let i = 0; i < queryKeys.length; i++) {
+        let queryKey = queryKeys[i] // eslint-disable-line security/detect-object-injection
+        for (let j = 0; j < WithProvider.globalFields.length; j++) {
+          // eslint-disable-next-line security/detect-object-injection
+          if (queryKey === WithProvider.globalFields[j]) {
+            // eslint-disable-next-line security/detect-object-injection
+            return { key: queryKey, val: query[queryKey] }
+          }
+        }
+      }
+
+      // match.path === "/about" or similar
+      let key = match.path.slice(1)
+      return { key, val: query }
+    }
+
+    static validateCookie(key, val = null) {
+      /*
+      validation method for both server-side and client-side cookies
+      returns either a sanitised `val` object else false
+      */
+
+      if (typeof key !== 'string' || !key.length) {
+        throw new Error('validate: `key` must be a non-empty string')
+      }
+
+      // check if a global setting
+      if (WithProvider.globalFields.includes(key)) {
+        // val must be a string
+        if (typeof val !== 'string' || !val.length) {
+          throw new Error('validate: `val` must be a non-empty string')
+        }
+
+        // have to pass the key in as well since this value is a string
+        let errors = WithProvider.validate({ [key]: val })
+
+        // return the value if no validation errors
+        return !errors ? val : false
+      }
+
+      const fields = WrappedComponent.fields
+      const validate = WrappedComponent.validate
+
+      // else, check if a non-global setting
+      if (
+        fields &&
+        fields.length && // there are fields explicitly defined
+        typeof validate === 'function' // there is a validate function passed-in
+      ) {
+        // if not a global setting, val must be a non-empty object
+        if (
+          val === null ||
+          typeof val !== 'object' ||
+          Array.isArray(val) ||
+          Object.keys(val).length === 0
+        ) {
+          throw new Error('validate: `val` must be a non-empty object')
+        }
+
+        // whitelist query keys so that arbitrary keys aren't saved to the store
+        val = _whitelist({ val, fields })
+
+        // clear values that don't pass validation
+        let errors = validate(val)
+        Object.keys(errors || {}).forEach(field => {
+          val[field] = '' // eslint-disable-line security/detect-object-injection
+        })
+
+        // return the sanitised val
+        return val
+      }
+
+      return false
     }
   }
   WithProvider.propTypes = {
