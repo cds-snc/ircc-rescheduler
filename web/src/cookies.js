@@ -1,6 +1,6 @@
 import cookieEncrypter from 'cookie-encrypter'
 
-const FIVE_MINUTES = new Date(new Date().getTime() + 5 * 60 * 1000)
+const inOneWeek = () => new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000)
 
 export const SECRET = 'Immediate convocation of a Party'
 
@@ -27,13 +27,15 @@ export const setStoreCookie = (setCookieFunc, cookie, options = {}) => {
     throw new Error('setStoreCookie: `cookie` must be a non-empty object')
   }
 
-  /* Only encrypt cookie when NODE_ENV is *not* 'development' */
-  cookie =
-    process.env.NODE_ENV === 'development'
-      ? JSON.stringify(cookie)
-      : cookieEncrypter.encryptCookie(JSON.stringify(cookie), { key: SECRET })
+  cookie = cookieEncrypter.encryptCookie(JSON.stringify(cookie), {
+    key: SECRET,
+  })
 
-  setCookieFunc('store', cookie, options)
+  let expires = {
+    expires: inOneWeek(),
+  }
+
+  setCookieFunc('store', cookie, { ...expires, ...options })
 }
 
 export const getStoreCookie = cookies => {
@@ -41,10 +43,13 @@ export const getStoreCookie = cookies => {
 
   if (cookie) {
     /* Cookie will only be encryped when NODE_ENV is *not* 'development' */
-    cookie =
-      process.env.NODE_ENV === 'development'
-        ? JSON.parse(cookie)
-        : JSON.parse(cookieEncrypter.decryptCookie(cookie, { key: SECRET }))
+    try {
+      cookie = JSON.parse(
+        cookieEncrypter.decryptCookie(cookie, { key: SECRET }),
+      )
+    } catch (e) {
+      return false
+    }
 
     /* console.log('found cookie! ', cookie) */
   }
@@ -55,9 +60,9 @@ export const setSSRCookie = (req, res, match, fields = [], validate = null) => {
   let { query } = req
 
   if (
-    Object.keys(query).length && // if a query was submitted
-    fields.length && // if there are fields explicitly defined
-    typeof validate === 'function' // if a validate function exists
+    Object.keys(query).length && // a query was submitted
+    fields.length && // there are fields explicitly defined for the page
+    typeof validate === 'function' // there is a validate function passed-in
   ) {
     // whitelist query keys so that arbitrary keys aren't saved to the store
     query = fields ? _whitelist({ query, fields }) : query
@@ -68,7 +73,7 @@ export const setSSRCookie = (req, res, match, fields = [], validate = null) => {
       query[field] = '' // eslint-disable-line security/detect-object-injection
     })
 
-    let prevCookie = getStoreCookie(req.cookies)
+    let prevCookie = getStoreCookie(req.cookies) || {}
     // match.path === "/about" or similar
     let path = match.path.slice(1)
     let newCookie = { [path]: query }
@@ -77,9 +82,7 @@ export const setSSRCookie = (req, res, match, fields = [], validate = null) => {
     let cookie = { ...prevCookie, ...newCookie }
 
     /* console.log('set cookie! ', cookie) */
-    setStoreCookie(res.cookie.bind(res), cookie, {
-      expires: FIVE_MINUTES,
-    })
+    setStoreCookie(res.cookie.bind(res), cookie)
     return cookie
   }
   return false
