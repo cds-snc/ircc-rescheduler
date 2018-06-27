@@ -18,13 +18,17 @@ injectGlobal`
     margin: 0;
     background: ${theme.colour.white};
     height: 100%;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: ${theme.weight.r}, Helvetica;
     font-size: 18px;
     box-sizing: border-box;
 
     ${mediaQuery.sm(css`
       font-size: ${theme.font.md};
     `)};
+  }
+
+  strong {
+    font-family: ${theme.weight.b} , Helvetica;
   }
 
   *, *:before, *:after {
