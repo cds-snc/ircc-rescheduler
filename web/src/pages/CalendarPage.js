@@ -62,7 +62,7 @@ const labelNames = id => {
   }
 }
 
-const CalHeader = () => {
+const CalHeader = ({ props = {} }) => {
   return (
     <div>
       <TopContainer>
@@ -85,6 +85,7 @@ const CalHeader = () => {
           September:
         </Trans>
       </CalendarSubheader>
+      <pre>{JSON.stringify(props.context, null, 2)}</pre>
     </div>
   )
 }
@@ -159,7 +160,7 @@ class CalendarPage extends Component {
       }
     }
 
-    // if setState doesn't exist, nothing gets saved between pages
+    // if setStore doesn't exist, nothing gets saved between pages
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
     await this.props.history.push('/review')
@@ -176,7 +177,7 @@ class CalendarPage extends Component {
 
     return (
       <Layout>
-        <CalHeader />
+        <CalHeader props={this.props} />
         <Form
           onSubmit={this.onSubmit}
           initialValues={calendar}
@@ -239,12 +240,27 @@ CalendarPage.propTypes = {
   submit: PropTypes.func,
 }
 class NoJS extends Component {
+  static get fields() {
+    return ['calendar']
+  }
+
+  static validate(values) {
+    if (values && values.calendar && values.calendar.length === 4) {
+      return {}
+    }
+    return { calendar: <Trans>There is an error</Trans> }
+  }
+
   render() {
+    let { context: { store: { calendar } = {} } = {} } = this.props
+
     return (
       <Layout>
-        <CalHeader />
+        <CalHeader props={this.props} />
         <form>
           <div className={listContainer}>
+            {NoJS.validate(calendar).calendar}
+            <br />
             <CalendarNoJS />
           </div>
           <CalBottom
