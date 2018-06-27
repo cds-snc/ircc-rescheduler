@@ -6,7 +6,6 @@ import isThursday from 'date-fns/is_thursday'
 import addWeeks from 'date-fns/add_weeks'
 import { css } from 'react-emotion'
 import { theme } from '../styles'
-import { Trans } from 'lingui-react'
 import { Checkbox } from '../components/forms/MultipleChoice'
 
 const isValidDate = (
@@ -57,7 +56,7 @@ const Calendar = ({ startDate, endDate }) => {
           monthHeader =
             monthName !== prevMonthName ? (
               <h2>
-                <Trans>{monthName}</Trans>
+               {monthName}
               </h2>
             ) : null
 
