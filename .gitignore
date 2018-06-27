@@ -9,4 +9,5 @@ node_modules
 build
 public/static
 .env.*.local
+.env.local
 api/.env
