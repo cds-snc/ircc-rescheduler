@@ -94,6 +94,10 @@ class RegistrationPage extends React.Component {
     return ['fullName', 'email', 'paperFileNumber', 'reason', 'explanation']
   }
 
+  static get redirect() {
+    return '/calendar'
+  }
+
   static validateEmail(email) {
     /* eslint-disable */
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -114,31 +118,30 @@ class RegistrationPage extends React.Component {
     if (!RegistrationPage.validateEmail(values.email)) {
       errors.email = (
         <Trans>
-          We need your email address so we can send you a confirmation
-          message.
+          We need your email address so we can send you a confirmation message.
         </Trans>
       )
     }
     if (!values.paperFileNumber) {
       errors.paperFileNumber = (
         <Trans>
-          We need your paper file number so we can confirm your
-          identity.
+          We need your paper file number so we can confirm your identity.
         </Trans>
       )
     }
     if (!values.reason) {
       errors.reason = (
         <Trans>
-          Please tell us why you need to reschedule your appointment. If none of the
-          options fit your situation, choose ‘Other’.
+          Please tell us why you need to reschedule your appointment. If none of
+          the options fit your situation, choose ‘Other’.
         </Trans>
       )
     }
     if (!values.explanation) {
       errors.explanation = (
         <Trans>
-          Please tell us a bit more about why you need to reschedule your appointment.
+          Please tell us a bit more about why you need to reschedule your
+          appointment.
         </Trans>
       )
     }
@@ -150,6 +153,7 @@ class RegistrationPage extends React.Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.validate = RegistrationPage.validate
     this.fields = RegistrationPage.fields
+    this.redirect = RegistrationPage.redirect
   }
 
   async onSubmit(values, event) {
@@ -162,10 +166,10 @@ class RegistrationPage extends React.Component {
       }
     }
 
-    // if setState doesn't exist, nothing gets saved between pages
+    // if setStore doesn't exist, nothing gets saved between pages
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
-    await this.props.history.push('/calendar')
+    await this.props.history.push(this.redirect)
   }
 
   render() {
@@ -185,7 +189,8 @@ class RegistrationPage extends React.Component {
     return (
       <Layout contentClass={contentClass}>
         <h1 className={visuallyhidden}>
-          First, supply some personal information and tell us why you need a new appointment.
+          First, supply some personal information and tell us why you need a new
+          appointment.
         </h1>
         <Form
           onSubmit={this.onSubmit}
@@ -261,7 +266,8 @@ class RegistrationPage extends React.Component {
                       />
                       <span id="email-details">
                         <Trans>
-                        This is where we’ll send a confirmation email when you’re done.
+                          This is where we’ll send a confirmation email when
+                          you’re done.
                         </Trans>
                       </span>
                     </label>
@@ -358,7 +364,9 @@ class RegistrationPage extends React.Component {
                   >
                     <label htmlFor="explanation" id="explanation-label">
                       <span id="explanation-header">
-                        <Trans>Describe why you can’t attend your appointment</Trans>
+                        <Trans>
+                          Describe why you can’t attend your appointment
+                        </Trans>
                       </span>
                       <ValidationMessage
                         id="explanation-error"
