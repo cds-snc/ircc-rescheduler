@@ -36,10 +36,6 @@ injectGlobal`
     line-height: 1.4;
   }
 
-  .bannerLink:visited {
-    color: ${theme.colour.white};
-  }
-
   a:focus {
     outline-offset: 2px;
     outline: 3px solid #ffbf47;
