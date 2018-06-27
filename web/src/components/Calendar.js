@@ -6,7 +6,7 @@ import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
 import Time, { makeGMTDate } from './Time'
 import ErrorMessage from './ErrorMessage'
-import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
+import { H3, theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
 import { getDateInfo } from './forms/CalendarConstants'
 
@@ -345,6 +345,7 @@ const daySelection = css`
 
   h3 {
     margin: 0 0 ${theme.spacing.lg} 0;
+    font-family: ${theme.weight.b}, Helvetica;
   }
 `
 
