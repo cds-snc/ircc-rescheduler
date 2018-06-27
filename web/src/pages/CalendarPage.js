@@ -23,7 +23,7 @@ import { FORM_ERROR } from 'final-form'
 import { makeGMTDate } from '../components/Time'
 import Reminder from '../components/Reminder'
 import { ErrorList } from '../components/ErrorMessage'
-import { windowExists } from '../utils/windowExist'
+import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
 
 const DAY_LIMIT = 3
@@ -242,7 +242,6 @@ CalendarPage.propTypes = {
   submit: PropTypes.func,
 }
 class NoJS extends Component {
-  state = {}
   render() {
     return (
       <Layout>
