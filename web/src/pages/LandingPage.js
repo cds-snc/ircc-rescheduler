@@ -13,6 +13,10 @@ const contentClass = css`
   p {
     margin-bottom: ${theme.spacing.xl};
   }
+
+  h2 {
+    font-family: ${theme.weight.b}, Helvetica;
+  }
 `
 
 const list = css`
@@ -32,6 +36,7 @@ const list = css`
 
 const H1Landing = styled(H1)`
   font-size: ${theme.font.xl};
+  font-family: ${theme.weight.b}, Helvetica;
   line-height: 1;
 `
 

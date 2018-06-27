@@ -31,6 +31,7 @@ const DAY_LIMIT = 3
 const headerStyles = css`
   font-weight: 400;
   margin-bottom: ${theme.spacing.xl};
+  margin-top: 0;
 
   strong {
     font-weight: 700;
@@ -39,11 +40,13 @@ const headerStyles = css`
 
 const CalendarHeader = styled(H1)`
   font-size: ${theme.font.xl};
+  font-family: ${theme.weight.r}, Helvetica;
   ${headerStyles};
 `
 
 const CalendarSubheader = styled(H2)`
   font-size: ${theme.font.lg};
+  font-family: ${theme.weight.r}, Helvetica;
   ${headerStyles};
 `
 
