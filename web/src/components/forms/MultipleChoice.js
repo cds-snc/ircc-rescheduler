@@ -213,7 +213,7 @@ const MultipleChoice = ({
 MultipleChoice.propTypes = {
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
-  label: PropTypes.element.isRequired,
+  label: PropTypes.oneOfType(PropTypes.element.isRequired, PropTypes.string),
   value: PropTypes.string.isRequired,
   name: PropTypes.string,
   id: PropTypes.string,
