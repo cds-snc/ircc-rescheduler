@@ -74,7 +74,7 @@ const Calendar = ({ startDate, endDate }) => {
               {monthHeader}
               <li>
                 <Checkbox
-                  name="selectedDays[]"
+                  name="calendar"
                   id={`calendar-${idMonth}-${index}`}
                   value={val}
                   label={label}
