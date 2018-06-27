@@ -6,6 +6,7 @@ import isThursday from 'date-fns/is_thursday'
 import addWeeks from 'date-fns/add_weeks'
 import { css } from 'react-emotion'
 import { theme } from '../styles'
+import { Trans } from 'lingui-react'
 import { Checkbox } from '../components/forms/MultipleChoice'
 
 const isValidDate = (
@@ -39,10 +40,6 @@ const column = css`
 `
 
 const Calendar = ({ startDate, endDate }) => {
-<<<<<<< HEAD
-=======
-  // all days in a month
->>>>>>> update date output + code cleanup
   const days = eachDay(startDate, endDate)
   let prevMonthName = ''
   return (
@@ -54,24 +51,21 @@ const Calendar = ({ startDate, endDate }) => {
         const validDay = isWednesday(date) || isThursday(date)
         let closeTag
         let monthHeader = ''
-<<<<<<< HEAD
-
-        // @todo - endTag and closeTag this logic will get months into columns but unable to pass a conditional close only tag at this point
-
-=======
->>>>>>> update date output + code cleanup
         let endTag = index === days.length - 1 ? <br /> : null
 
         if (validDay) {
           monthHeader =
-            monthName !== prevMonthName ? <h2>{monthName}</h2> : null
+            monthName !== prevMonthName ? (
+              <h2>
+                <Trans>{monthName}</Trans>
+              </h2>
+            ) : null
 
           closeTag = monthHeader && prevMonthName !== '' ? <br /> : null
 
           prevMonthName = monthName
         }
 
-<<<<<<< HEAD
         const val = dateToString(date)
 
         if (validDay) {
@@ -84,18 +78,6 @@ const Calendar = ({ startDate, endDate }) => {
                   name="selectedDays[]"
                   id={`calendar-${idMonth}-${index}`}
                   value={val}
-=======
-        if (validDay) {
-          return (
-            <React.Fragment>
-              {closeTag}
-              {monthHeader}
-              <li key={index}>
-                <Checkbox
-                  name="selectedDays[]"
-                  id={`calendar-${idMonth}-${index}`}
-                  value={dateToString(date)}
->>>>>>> update date output + code cleanup
                   label={label}
                 />
               </li>
@@ -120,15 +102,7 @@ class CalendarNoJs extends Component {
   render() {
     const startDate = dateToString(addWeeks(new Date(), 4))
     const endDate = dateToString(addWeeks(new Date(startDate), 8))
-<<<<<<< HEAD
     return <Calendar startDate={startDate} endDate={endDate} />
-=======
-    return (
-      <React.Fragment>
-        <Calendar startDate={startDate} endDate={endDate} />
-      </React.Fragment>
-    )
->>>>>>> update date output + code cleanup
   }
 }
 
