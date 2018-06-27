@@ -13,8 +13,6 @@ const contentClass = css`
   section {
     margin-bottom: 0;
   }
-
-  padding-bottom: ${theme.spacing.xxxl};
 `
 
 class ConfirmationPage extends React.Component {

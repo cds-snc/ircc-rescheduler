@@ -4,7 +4,6 @@ import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import { theme, mediaQuery, Content } from '../styles'
-import AlphaBanner from './AlphaBanner'
 import PageHeader from './PageHeader'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
@@ -93,11 +92,8 @@ class Layout extends React.Component {
           }}
           render={() => <ErrorPageContent />}
         >
+          <FederalBanner />
           <div role="banner">
-            <AlphaBanner alpha>
-              <Trans>This is a new service we are constantly deploying.</Trans>
-            </AlphaBanner>
-            <FederalBanner />
             <PageHeader headerClass={this.props.headerClass}>
               <Trans>Request a new Canadian Citizenship appointment</Trans>
             </PageHeader>

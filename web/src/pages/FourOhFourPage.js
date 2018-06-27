@@ -3,7 +3,7 @@ import { Trans } from 'lingui-react'
 import Chevron from '../components/Chevron'
 import { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
-import { H1, H2, theme, visuallyhiddenMobile } from '../styles'
+import { H1, H2, theme, visuallyhidden } from '../styles'
 import Layout from '../components/Layout'
 
 const contentClass = css`
@@ -15,7 +15,7 @@ const contentClass = css`
 class FourOhFourPage extends React.Component {
   render() {
     return (
-      <Layout contentClass={contentClass} headerClass={visuallyhiddenMobile}>
+      <Layout contentClass={contentClass} headerClass={visuallyhidden}>
         <H1>
           <Trans>Page not found</Trans>
         </H1>
@@ -26,7 +26,8 @@ class FourOhFourPage extends React.Component {
           <Trans>Return to the home page to reschedule your appointment.</Trans>
         </p>
         <NavLink className="chevron-link" to="/">
-          <Chevron dir="left" /><Trans>Home</Trans>
+          <Chevron dir="left" />
+          <Trans>Home</Trans>
         </NavLink>
       </Layout>
     )

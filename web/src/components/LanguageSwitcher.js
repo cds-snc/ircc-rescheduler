@@ -12,6 +12,7 @@ import {
 
 const link = css`
   font-size: ${theme.font.base};
+  color: ${theme.colour.white};
   text-decoration: underline;
   &:visited {
     color: #7834bc;
