@@ -24,10 +24,6 @@ server
   .get('/clear', (req, res) => {
     /* TODO: this needs improvement */
     res.clearCookie('store')
-    return res.send('no more cookies 🍪')
-  })
-  .post('/cancel', (req, res) => {
-    res.clearCookie('store')
     res.redirect('/cancel')
   })
   .get('/*', async (req, res) => {
