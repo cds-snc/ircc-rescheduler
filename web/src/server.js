@@ -20,8 +20,13 @@ const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
 
 const server = express()
 const client = createApolloClient({ ssrMode: true })
+let helmet = require('helmet')
 
 server
+  .use(helmet.frameguard({ action: 'deny' })) //// Sets "X-Frame-Options: DENY".
+  .use(helmet.noSniff()) // Sets "X-Content-Type-Options: nosniff".
+  .use(helmet.noCache()) // Set Cache-Control, Surrogate-Control, Pragma, and Expires to no.
+  .use(helmet.xssFilter()) // Sets "X-XSS-Protection: 1; mode=block".
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || 'public'))
   .use(cookieParser(SECRET))
