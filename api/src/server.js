@@ -12,9 +12,10 @@ const detector = new LanguageDetector(
 )
 
 i18next.init(messages)
+const isDev = process.env.NODE_ENV !== 'production'
 
 const Server = context => {
-  // TODO: Throw if no mailer and receivingAddress 
+  // TODO: Throw if no mailer and receivingAddress
   return express().use(
     '/graphql',
     graphqlHTTP((request, response) => {
@@ -27,7 +28,7 @@ const Server = context => {
             resolve({
               schema: createSchema(t),
               context,
-              graphiql: true,
+              graphiql: isDev,
             })
           }
         })
