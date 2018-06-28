@@ -22,11 +22,10 @@ import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import { makeGMTDate } from '../components/Time'
 import Reminder from '../components/Reminder'
-import { ErrorList } from '../components/ErrorMessage'
+import { ErrorList, errorList } from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
-import { errorList } from '../components/ErrorMessage'
 
 const DAY_LIMIT = 3
 
@@ -63,7 +62,7 @@ const labelNames = id => {
   }
 }
 
-const CalHeader = ({ props = {} }) => {
+const CalHeader = () => {
   return (
     <div>
       <TopContainer>
@@ -285,6 +284,10 @@ class NoJS extends Component {
       </Layout>
     )
   }
+}
+
+NoJS.propTypes = {
+  context: PropTypes.object,
 }
 
 const WhichCal = () => {
