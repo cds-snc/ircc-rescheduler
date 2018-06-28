@@ -22,7 +22,6 @@ server
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || 'public'))
   .use(cookieParser(SECRET))
   .get('/clear', (req, res) => {
-    /* TODO: this needs improvement */
     res.clearCookie('store')
     res.redirect('/cancel')
   })
@@ -50,7 +49,6 @@ server
       // eslint-disable-next-line no-console
       console.log(error.message, error.stack)
       res.redirect('/error')
-      //res.json({ error: error.message })
     }
   })
 
