@@ -41,6 +41,7 @@ const column = css`
 const Calendar = ({ startDate, endDate }) => {
   const days = eachDay(startDate, endDate)
   let prevMonthName = ''
+
   return (
     <ul className={column}>
       {days.map((date, index) => {

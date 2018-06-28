@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
 import { theme } from '../styles'
 
-const errorMessage = css`
+export const errorMessage = css`
   color: ${theme.colour.red};
   display: block;
 `
 
-const errorList = css`
+export const errorList = css`
   a {
     color: ${theme.colour.red};
     font-weight: 700;
