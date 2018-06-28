@@ -27,7 +27,7 @@ injectGlobal`
   }
 
   strong {
-    font-family: ${theme.weight.b} , Helvetica;
+    font-family: ${theme.weight.b} , Helvetica, Arial, sans-serif;
   }
 
   *, *:before, *:after {
