@@ -5,8 +5,21 @@ import isWednesday from 'date-fns/is_wednesday'
 import isThursday from 'date-fns/is_thursday'
 import addWeeks from 'date-fns/add_weeks'
 import { css } from 'react-emotion'
-import { theme } from '../styles'
+import { theme, mediaQuery } from '../styles'
 import { Checkbox } from '../components/forms/MultipleChoice'
+
+const calList = css`
+  display: flex;
+
+  ${mediaQuery.md(css`
+    flex-direction: column;
+  `)};
+`
+
+const column = css`
+  border-left: 2px solid black;
+  padding: 0 ${theme.spacing.xxxl} 0 ${theme.spacing.lg};
+`
 
 const isValidDate = (
   date,
@@ -33,61 +46,49 @@ const isValidDateString = (props, propName, componentName) => {
 
 const dateToString = date => (date ? format(date, 'YYYY-MM-DD') : '')
 
-const column = css`
-  border-left: 2px solid black;
-  padding: 0 ${theme.spacing.xxxl} 0 ${theme.spacing.lg};
-`
-
 const Calendar = ({ startDate, endDate }) => {
   const days = eachDay(startDate, endDate)
-  let prevMonthName = ''
+  const mapped = {}
+
+  days.forEach((date, index) => {
+    const validDay = isWednesday(date) || isThursday(date)
+
+    if (validDay) {
+      const monthName = format(date, 'MMMM')
+      const label = format(date, 'dddd MMMM D')
+      const idMonth = format(date, 'MM')
+      const val = dateToString(date)
+
+      const el = (
+        <React.Fragment key={val}>
+          <li>
+            <Checkbox
+              name="calendar"
+              id={`calendar-${idMonth}-${index}`}
+              value={val}
+              label={label}
+            />
+          </li>
+        </React.Fragment>
+      )
+
+      let vals = mapped[monthName] || []
+      vals.push(el)
+      mapped[monthName] = vals
+    }
+  })
 
   return (
-    <ul className={column}>
-      {days.map((date, index) => {
-        const monthName = format(date, 'MMMM')
-        const label = format(date, 'dddd MMMM D')
-        const idMonth = format(date, 'MM')
-        const validDay = isWednesday(date) || isThursday(date)
-        let closeTag
-        let monthHeader = ''
-        let endTag = index === days.length - 1 ? <br /> : null
-
-        if (validDay) {
-          monthHeader =
-            monthName !== prevMonthName ? (
-              <h2>
-               {monthName}
-              </h2>
-            ) : null
-
-          closeTag = monthHeader && prevMonthName !== '' ? <br /> : null
-
-          prevMonthName = monthName
-        }
-
-        const val = dateToString(date)
-
-        if (validDay) {
-          return (
-            <React.Fragment key={val}>
-              {closeTag}
-              {monthHeader}
-              <li>
-                <Checkbox
-                  name="calendar"
-                  id={`calendar-${idMonth}-${index}`}
-                  value={val}
-                  label={label}
-                />
-              </li>
-            </React.Fragment>
-          )
-        }
-
-        return endTag
+    <div className={calList}>
+      {Object.keys(mapped).map((keyName, keyIndex) => {
+        return (
+          <ul className={column} key={keyName}>
+            <h2>{keyName}</h2>
+            {mapped[keyName]}
+          </ul>
+        )
       })}
-    </ul>
+    </div>
   )
 }
 
