@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { css } from 'react-emotion'
 import { theme } from '../styles'
 
@@ -14,17 +14,14 @@ const cancelStyles = css`
   }
 `
 
-class CancelButton extends Component {
-  state = {}
-  render() {
-    return (
-      <div>
-        <a href="/clear" className={cancelStyles}>
-          cancel request
-        </a>
-      </div>
-    )
-  }
+const CancelButton = () => {
+  return (
+    <div>
+      <a href="/clear" className={cancelStyles}>
+        cancel request
+      </a>
+    </div>
+  )
 }
 
 export default CancelButton
