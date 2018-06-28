@@ -17,10 +17,6 @@ const contentClass = css`
   h2 {
     font-family: ${theme.weight.b}, Helvetica;
   }
-
-  h2 {
-    font-family: ${theme.weight.b}, Helvetica;
-  }
 `
 
 const list = css`
