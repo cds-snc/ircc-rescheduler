@@ -16,7 +16,7 @@ class FakeComponentWithValidate {
     if (!values.field !== 'value') {
       errors.field = true
     }
-    return Object.keys(errors).length ? errors : false
+    return errors
   }
   constructor() {}
 }
@@ -30,7 +30,7 @@ class FakeComponentWithFieldsAndValidate {
     if (values.field !== 'value') {
       errors.field = true
     }
-    return Object.keys(errors).length ? errors : false
+    return errors
   }
   constructor() {}
 }
@@ -46,10 +46,10 @@ describe('WithProvider', () => {
     it('returns no errors for "en" or "fr" in its validation method', () => {
       let errors
       errors = WithProvider.validate({ language: 'en' })
-      expect(errors).toBe(false)
+      expect(errors).toEqual({})
 
       errors = WithProvider.validate({ language: 'fr' })
-      expect(errors).toBe(false)
+      expect(errors).toEqual({})
     })
 
     it('returns errors for some other value in its validation method', () => {
