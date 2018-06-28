@@ -12,12 +12,14 @@ export const setStoreCookie = (setCookieFunc, cookie, options = {}) => {
     key: SECRET,
   })
 
-  let expires = {
+  let defaults = {
+    secure:
+      !process.env.RAZZLE_COOKIE_HTTP && process.env.NODE_ENV === 'production',
     expires:
       process.env.NODE_ENV === 'production' ? inOneWeek() : inTenMinutes(),
   }
 
-  setCookieFunc('store', cookie, { ...expires, ...options })
+  setCookieFunc('store', cookie, { ...defaults, ...options })
 }
 
 export const getStoreCookie = cookies => {
