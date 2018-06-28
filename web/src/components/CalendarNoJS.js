@@ -5,8 +5,22 @@ import isWednesday from 'date-fns/is_wednesday'
 import isThursday from 'date-fns/is_thursday'
 import addWeeks from 'date-fns/add_weeks'
 import { css } from 'react-emotion'
-import { theme } from '../styles'
+import { theme, mediaQuery } from '../styles'
 import { Checkbox } from '../components/forms/MultipleChoice'
+import PropTypes from 'prop-types'
+
+const calList = css`
+  display: flex;
+
+  ${mediaQuery.md(css`
+    flex-direction: column;
+  `)};
+`
+
+const column = css`
+  border-left: 2px solid black;
+  padding: 0 ${theme.spacing.xxxl} 0 ${theme.spacing.lg};
+`
 
 const isValidDate = (
   date,
@@ -33,76 +47,85 @@ const isValidDateString = (props, propName, componentName) => {
 
 const dateToString = date => (date ? format(date, 'YYYY-MM-DD') : '')
 
-const column = css`
-  border-left: 2px solid black;
-  padding: 0 ${theme.spacing.xxxl} 0 ${theme.spacing.lg};
-`
-
-const Calendar = ({ startDate, endDate }) => {
+const Calendar = ({ startDate, endDate, dates }) => {
   const days = eachDay(startDate, endDate)
-  let prevMonthName = ''
+  const mapped = {}
+
+  days.forEach((date, index) => {
+    const validDay = isWednesday(date) || isThursday(date)
+
+    if (validDay) {
+      const monthName = format(date, 'MMMM')
+      const label = format(date, 'dddd MMMM D')
+      const idMonth = format(date, 'MM')
+      const val = dateToString(date)
+
+      const checked = dates.includes(val)
+
+      const el = (
+        <React.Fragment key={val}>
+          <li>
+            <Checkbox
+              name="calendar"
+              id={`calendar-${idMonth}-${index}`}
+              value={val}
+              label={label}
+              checked={checked}
+            />
+          </li>
+        </React.Fragment>
+      )
+
+      // eslint-disable-next-line security/detect-object-injection
+      let vals = mapped[monthName] || []
+      vals.push(el)
+      // eslint-disable-next-line security/detect-object-injection
+      mapped[monthName] = vals
+    }
+  })
+
+  /*eslint-disable */
   return (
-    <ul className={column}>
-      {days.map((date, index) => {
-        const monthName = format(date, 'MMMM')
-        const label = format(date, 'dddd MMMM D')
-        const idMonth = format(date, 'MM')
-        const validDay = isWednesday(date) || isThursday(date)
-        let closeTag
-        let monthHeader = ''
-        let endTag = index === days.length - 1 ? <br /> : null
-
-        if (validDay) {
-          monthHeader =
-            monthName !== prevMonthName ? (
-              <h2>
-               {monthName}
-              </h2>
-            ) : null
-
-          closeTag = monthHeader && prevMonthName !== '' ? <br /> : null
-
-          prevMonthName = monthName
-        }
-
-        const val = dateToString(date)
-
-        if (validDay) {
-          return (
-            <React.Fragment key={val}>
-              {closeTag}
-              {monthHeader}
-              <li>
-                <Checkbox
-                  name="selectedDays[]"
-                  id={`calendar-${idMonth}-${index}`}
-                  value={val}
-                  label={label}
-                />
-              </li>
-            </React.Fragment>
-          )
-        }
-
-        return endTag
+    <div className={calList}>
+      {Object.keys(mapped).map((keyName, keyIndex) => {
+        return (
+          <ul className={column} key={keyName}>
+            <h2>{keyName}</h2>
+            {mapped[keyName]}
+          </ul>
+        )
       })}
-    </ul>
+    </div>
   )
+  /*eslint-enable */
 }
 
 Calendar.propTypes = {
   startDate: isValidDateString,
   endDate: isValidDateString,
+  dates: PropTypes.array,
 }
 
 // Go 4 weeks from today (ie, add 28 days)
 // Count 8 weeks from that point (ie, add 56 days)
 class CalendarNoJs extends Component {
   render() {
+    const { dates } = this.props
     const startDate = dateToString(addWeeks(new Date(), 4))
     const endDate = dateToString(addWeeks(new Date(startDate), 8))
-    return <Calendar startDate={startDate} endDate={endDate} />
+
+    return (
+      <Calendar
+        dates={dates && dates.calendar ? dates.calendar : []}
+        startDate={startDate}
+        endDate={endDate}
+      />
+    )
   }
+}
+
+CalendarNoJs.propTypes = {
+  dates: PropTypes.array,
 }
 
 export default CalendarNoJs
