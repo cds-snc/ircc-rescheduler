@@ -25,7 +25,11 @@ import Reminder from '../components/Reminder'
 import { ErrorList } from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
+<<<<<<< HEAD
 import CancelButton from '../components/CancelButton'
+=======
+import { errorList } from '../components/ErrorMessage'
+>>>>>>> styled err
 
 const DAY_LIMIT = 3
 
@@ -245,10 +249,16 @@ class NoJS extends Component {
   }
 
   static validate(values) {
-    if (values && values.calendar && values.calendar.length === 4) {
+    if (values && values.calendar && values.calendar.length === 3) {
       return {}
     }
-    return { calendar: <Trans>There is an error</Trans> }
+    return {
+      calendar: (
+        <div className={errorList}>
+          <Trans>You must select 3 days.</Trans>
+        </div>
+      ),
+    }
   }
 
   render() {
@@ -257,10 +267,9 @@ class NoJS extends Component {
     return (
       <Layout>
         <CalHeader props={this.props} />
+        {NoJS.validate(calendar).calendar}
         <form>
           <div className={listContainer}>
-            {NoJS.validate(calendar).calendar}
-            <br />
             <CalendarNoJS />
           </div>
           <CalBottom
