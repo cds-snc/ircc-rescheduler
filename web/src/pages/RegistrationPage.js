@@ -4,7 +4,6 @@ import { contextPropTypes } from '../context'
 import withProvider from '../withProvider'
 import withContext from '../withContext'
 import { Trans } from 'lingui-react'
-import { NavLink } from 'react-router-dom'
 import { css } from 'react-emotion'
 import {
   theme,
@@ -24,6 +23,7 @@ import Button from '../components/forms/Button'
 import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
+import CancelButton from '../components/CancelButton'
 
 const contentClass = css`
   form {
@@ -385,11 +385,7 @@ class RegistrationPage extends React.Component {
                     <Trans>Continue</Trans>
                   </Button>
 
-                  <div>
-                    <NavLink to="/cancel">
-                      <Trans>Cancel request</Trans>
-                    </NavLink>
-                  </div>
+                  <CancelButton />
                 </BottomContainer>
               </form>
             )
