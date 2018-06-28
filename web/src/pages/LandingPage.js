@@ -51,6 +51,11 @@ const LongReminder = styled(Reminder)`
 
 const landingButton = css`
   margin-top: ${theme.spacing.md};
+
+  a,
+  a:visited {
+    color: ${theme.colour.white};
+  }
 `
 
 class LandingPage extends React.Component {

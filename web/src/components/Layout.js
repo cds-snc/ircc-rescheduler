@@ -41,6 +41,10 @@ injectGlobal`
     outline: 3px solid #ffbf47;
   }
 
+  a, a:visited {
+    color: ${theme.colour.link};
+  }
+
   ol, ul {
     list-style: none;
   }
@@ -61,11 +65,11 @@ injectGlobal`
   }
 
   .chevron-link path {
-    fill: #1c2bf0;
+    fill: ${theme.colour.link};
   }
 
   .chevron-link:visited path {
-    fill: #572c94;
+    fill: ${theme.colour.link};
   }
 `
 

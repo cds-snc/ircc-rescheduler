@@ -163,7 +163,7 @@ export const Content = styled.div`
   padding: ${theme.spacing.xl} ${theme.spacing.xxxl} ${theme.spacing.xxl}
     ${theme.spacing.xxxl};
   width: 100%;
-  background-color: ${theme.colour.greyVeryLight};
+  background-color: ${theme.colour.white};
   box-sizing: border-box;
   ${mediaQuery.sm(css`
     padding: ${theme.spacing.xl};
