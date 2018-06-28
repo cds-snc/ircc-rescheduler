@@ -25,11 +25,8 @@ import Reminder from '../components/Reminder'
 import { ErrorList } from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
-<<<<<<< HEAD
 import CancelButton from '../components/CancelButton'
-=======
 import { errorList } from '../components/ErrorMessage'
->>>>>>> styled err
 
 const DAY_LIMIT = 3
 
@@ -89,7 +86,6 @@ const CalHeader = ({ props = {} }) => {
           September:
         </Trans>
       </CalendarSubheader>
-      <pre>{JSON.stringify(props.context, null, 2)}</pre>
     </div>
   )
 }
@@ -248,6 +244,10 @@ class NoJS extends Component {
     return ['calendar']
   }
 
+  static get redirect() {
+    return '/review'
+  }
+
   static validate(values) {
     if (values && values.calendar && values.calendar.length === 3) {
       return {}
@@ -270,7 +270,7 @@ class NoJS extends Component {
         {NoJS.validate(calendar).calendar}
         <form>
           <div className={listContainer}>
-            <CalendarNoJS />
+            <CalendarNoJS dates={calendar} />
           </div>
           <CalBottom
             submit={() => {
