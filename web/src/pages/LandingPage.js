@@ -12,6 +12,10 @@ import rightArrow from '../assets/rightArrow.svg'
 const contentClass = css`
   p {
     margin-bottom: ${theme.spacing.xl};
+
+    ${mediaQuery.md(css`
+      margin-bottom: ${theme.spacing.lg};
+    `)};
   }
 
   h2 {
@@ -41,6 +45,8 @@ const H1Landing = styled(H1)`
 `
 
 const LongReminder = styled(Reminder)`
+  padding: 0;
+
   ${mediaQuery.md(css`
     display: block;
   `)};
@@ -56,6 +62,10 @@ const LongReminder = styled(Reminder)`
 
 const landingButton = css`
   margin-top: ${theme.spacing.md};
+
+  ${mediaQuery.md(css`
+    margin-top: ${theme.spacing.xl};
+  `)};
 `
 
 class LandingPage extends React.Component {
@@ -102,10 +112,9 @@ class LandingPage extends React.Component {
 
         <LongReminder>
           <Trans>
-            Requesting a new appointment will cancel your current one.
-            <strong> Do not attend your old appointment</strong> after you
-            complete this request. It can take up to 9 weeks for us to
-            reschedule you.
+            Requesting a new appointment will cancel your current one. Do not
+            attend your old appointment after you complete this request. It can
+            take up to 9 weeks for us to reschedule you.
           </Trans>
         </LongReminder>
 
