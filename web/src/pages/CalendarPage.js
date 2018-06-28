@@ -55,6 +55,10 @@ const listContainer = css`
   margin-bottom: ${theme.spacing.xxl};
 `
 
+const CalReminder = styled(Reminder)`
+  padding: ${theme.spacing.md} 0;
+`
+
 const labelNames = id => {
   switch (id) {
     case 'calendar':
@@ -95,11 +99,11 @@ const CalBottom = ({ submit }) => {
   return (
     <div>
       <div>
-        <Reminder>
+        <CalReminder>
           <Trans>
             Make sure you stay available on all of the days you select.
           </Trans>
-        </Reminder>
+        </CalReminder>
       </div>
       <BottomContainer>
         {submit()}
