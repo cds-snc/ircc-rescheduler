@@ -60,14 +60,6 @@ const LongReminder = styled(Reminder)`
   }
 `
 
-const landingButton = css`
-  margin-top: ${theme.spacing.md};
-
-  ${mediaQuery.md(css`
-    margin-top: ${theme.spacing.xl};
-  `)};
-`
-
 class LandingPage extends React.Component {
   render() {
     return (

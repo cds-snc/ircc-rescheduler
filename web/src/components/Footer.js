@@ -4,16 +4,6 @@ import { WordMark } from '@cdssnc/gcui'
 import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
 
-const Circle = styled.span`
-  font-size: 0.5em;
-  position: relative;
-  bottom: 2px;
-
-  ${mediaQuery.md(css`
-    display: none;
-  `)};
-`
-
 const footer = css`
   background-color: ${theme.colour.white};
   padding: ${theme.spacing.xl} ${theme.spacing.xxxl};
@@ -53,11 +43,11 @@ const bottomLinks = css`
   display: inline-block;
 
   > * {
-    margin-right: ${theme.spacing.md};
+    margin-right: ${theme.spacing.xl};
 
     ${mediaQuery.md(css`
       margin-right: 0;
-      margin-left: ${theme.spacing.md};
+      margin-left: ${theme.spacing.lg};
     `)};
 
     ${mediaQuery.sm(css`
@@ -66,6 +56,10 @@ const bottomLinks = css`
   }
 
   a {
+    color: ${theme.colour.black};
+  }
+
+  a:nth-of-type(2) {
     color: ${theme.colour.black};
   }
 
@@ -93,6 +87,14 @@ const Footer = ({ topBarBackground }) => (
   <div>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
+      <div className={bottomLinks}>
+        <a href="mailto:cds-snc@tbs-sct.gc.ca">Contact</a>
+        <a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a>
+        <a href="https://digital.canada.ca/legal/terms/">
+          Terms<span className={visuallyhiddenMobile}> and Conditions</span>
+        </a>
+      </div>
+
       <div className="svg-container">
         <WordMark
           width="150px"
@@ -100,16 +102,6 @@ const Footer = ({ topBarBackground }) => (
           flag={theme.colour.redFIP}
           text={theme.colour.black}
         />
-      </div>
-
-      <div className={bottomLinks}>
-        <a href="mailto:cds-snc@tbs-sct.gc.ca">Contact</a>
-        <Circle>&#9679;</Circle>
-        <a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a>
-        <Circle>&#9679;</Circle>
-        <a href="https://digital.canada.ca/legal/terms/">
-          Terms<span className={visuallyhiddenMobile}> and Conditions</span>
-        </a>
       </div>
     </footer>
   </div>
