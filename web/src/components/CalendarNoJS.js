@@ -7,6 +7,7 @@ import addWeeks from 'date-fns/add_weeks'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import { Checkbox } from '../components/forms/MultipleChoice'
+import PropTypes from 'prop-types'
 
 const calList = css`
   display: flex;
@@ -75,12 +76,15 @@ const Calendar = ({ startDate, endDate, dates }) => {
         </React.Fragment>
       )
 
+      // eslint-disable-next-line security/detect-object-injection
       let vals = mapped[monthName] || []
       vals.push(el)
+      // eslint-disable-next-line security/detect-object-injection
       mapped[monthName] = vals
     }
   })
 
+  /*eslint-disable */
   return (
     <div className={calList}>
       {Object.keys(mapped).map((keyName, keyIndex) => {
@@ -93,11 +97,13 @@ const Calendar = ({ startDate, endDate, dates }) => {
       })}
     </div>
   )
+  /*eslint-enable */
 }
 
 Calendar.propTypes = {
   startDate: isValidDateString,
   endDate: isValidDateString,
+  dates: PropTypes.array,
 }
 
 // Go 4 weeks from today (ie, add 28 days)
@@ -107,14 +113,19 @@ class CalendarNoJs extends Component {
     const { dates } = this.props
     const startDate = dateToString(addWeeks(new Date(), 4))
     const endDate = dateToString(addWeeks(new Date(startDate), 8))
+
     return (
       <Calendar
-        dates={dates.calendar}
+        dates={dates && dates.calendar ? dates.calendar : []}
         startDate={startDate}
         endDate={endDate}
       />
     )
   }
+}
+
+CalendarNoJs.propTypes = {
+  dates: PropTypes.array,
 }
 
 export default CalendarNoJs
