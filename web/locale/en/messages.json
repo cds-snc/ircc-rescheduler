@@ -4,7 +4,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        406
+        407
       ]
     ]
   },
@@ -13,7 +13,20 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        480
+        481
+      ]
+    ]
+  },
+  "Cancel request": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/CancelButton.js",
+        22
+      ],
+      [
+        "src/pages/NoJSCalendarPage.js",
+        160
       ]
     ]
   },
@@ -22,25 +35,43 @@
     "origin": [
       [
         "src/components/LanguageSwitcher.js",
-        35
+        36
       ]
     ]
   },
-  "This is a new service we are constantly deploying.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Layout.js",
-        98
-      ]
-    ]
-  },
-  "Request a new Canadian Citizenship appointment": {
+  "Request a new citizenship appointment": {
     "translation": "",
     "origin": [
       [
         "src/components/Layout.js",
         102
+      ]
+    ]
+  },
+  "This is a new service, help us improve by <0>sending your feedback</0>": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/PageHeader.js",
+        47
+      ]
+    ]
+  },
+  "BETA": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/PhaseBanner.js",
+        64
+      ]
+    ]
+  },
+  "ALPHA": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/PhaseBanner.js",
+        71
       ]
     ]
   },
@@ -71,11 +102,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        78
+        79
       ],
       [
         "src/pages/RegistrationPage.js",
-        224
+        235
       ]
     ]
   },
@@ -97,11 +128,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        82
+        83
       ],
       [
         "src/pages/RegistrationPage.js",
-        273
+        285
       ]
     ]
   },
@@ -141,7 +172,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        29
+        30
       ]
     ]
   },
@@ -150,7 +181,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        6
+        76
       ]
     ]
   },
@@ -159,7 +190,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        7
+        77
       ]
     ]
   },
@@ -168,7 +199,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        8
+        78
       ]
     ]
   },
@@ -177,7 +208,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        9
+        79
       ]
     ]
   },
@@ -186,7 +217,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        10
+        80
       ]
     ]
   },
@@ -195,7 +226,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        11
+        81
       ]
     ]
   },
@@ -204,7 +235,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        12
+        82
       ]
     ]
   },
@@ -213,7 +244,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        13
+        83
       ]
     ]
   },
@@ -222,7 +253,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        14
+        84
       ]
     ]
   },
@@ -231,7 +262,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        15
+        85
       ]
     ]
   },
@@ -240,7 +271,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        16
+        86
       ]
     ]
   },
@@ -249,7 +280,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        17
+        87
       ]
     ]
   },
@@ -258,7 +289,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        18
+        88
       ]
     ]
   },
@@ -267,7 +298,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        19
+        89
       ]
     ]
   },
@@ -276,7 +307,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        20
+        90
       ]
     ]
   },
@@ -285,7 +316,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        21
+        91
       ]
     ]
   },
@@ -294,7 +325,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        22
+        92
       ]
     ]
   },
@@ -303,7 +334,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        23
+        93
       ]
     ]
   },
@@ -312,7 +343,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        24
+        94
       ]
     ]
   },
@@ -321,7 +352,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        25
+        95
       ]
     ]
   },
@@ -330,7 +361,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        26
+        96
       ]
     ]
   },
@@ -339,7 +370,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        27
+        97
       ]
     ]
   },
@@ -348,7 +379,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        28
+        98
       ]
     ]
   },
@@ -357,7 +388,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        29
+        99
       ]
     ]
   },
@@ -366,7 +397,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        30
+        100
       ]
     ]
   },
@@ -375,7 +406,7 @@
     "origin": [
       [
         "src/components/forms/CalendarConstants.js",
-        31
+        101
       ]
     ]
   },
@@ -384,38 +415,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        51
-      ]
-    ]
-  },
-  "You must select 3 days.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        65
-      ],
-      [
-        "src/pages/CalendarPage.js",
-        83
-      ]
-    ]
-  },
-  "You must select 3 days. Please select 2 more days to continue.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        70
-      ]
-    ]
-  },
-  "You must select 3 days. Please select 1 more day to continue.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        77
+        66
       ]
     ]
   },
@@ -424,7 +424,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        126
+        79
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -432,7 +432,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        66
+        67
       ]
     ]
   },
@@ -441,7 +441,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        132
+        84
       ]
     ]
   },
@@ -450,7 +450,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        138
+        90
       ]
     ]
   },
@@ -459,11 +459,46 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        185
+        104
       ],
       [
         "src/pages/NoJSCalendarPage.js",
         148
+      ]
+    ]
+  },
+  "You must select 3 days.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        129
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        147
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        264
+      ]
+    ]
+  },
+  "You must select 3 days. Please select 2 more days to continue.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        134
+      ]
+    ]
+  },
+  "You must select 3 days. Please select 1 more day to continue.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        141
       ]
     ]
   },
@@ -472,32 +507,15 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        192
+        230
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        285
       ],
       [
         "src/pages/NoJSCalendarPage.js",
         155
-      ]
-    ]
-  },
-  "Cancel request": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        197
-      ],
-      [
-        "src/pages/NoJSCalendarPage.js",
-        160
-      ],
-      [
-        "src/pages/RegistrationPage.js",
-        385
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        121
       ]
     ]
   },
@@ -537,7 +555,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        32
+        30
       ]
     ]
   },
@@ -568,7 +586,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        46
+        44
       ]
     ]
   },
@@ -577,7 +595,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        26
+        24
       ]
     ]
   },
@@ -586,7 +604,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        35
+        33
       ]
     ]
   },
@@ -644,7 +662,7 @@
       ],
       [
         "src/pages/FourOhFourPage.js",
-        29
+        30
       ]
     ]
   },
@@ -680,7 +698,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        65
+        80
       ]
     ]
   },
@@ -689,7 +707,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        72
+        87
       ]
     ]
   },
@@ -698,7 +716,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        77
+        92
       ]
     ]
   },
@@ -707,7 +725,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        85
+        100
       ]
     ]
   },
@@ -716,16 +734,16 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        91
+        106
       ]
     ]
   },
-  "Requesting a new appointment will cancel your current one.<0> Do not attend your old appointment</0> after you complete this request. It can take up to 9 weeks for us to reschedule you.": {
+  "Requesting a new appointment will cancel your current one. Do not attend your old appointment after you complete this request. It can take up to 9 weeks for us to reschedule you.": {
     "translation": "",
     "origin": [
       [
         "src/pages/LandingPage.js",
-        99
+        114
       ]
     ]
   },
@@ -734,7 +752,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        108
+        123
       ]
     ]
   },
@@ -761,11 +779,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        80
+        81
       ],
       [
         "src/pages/RegistrationPage.js",
-        247
+        258
       ]
     ]
   },
@@ -774,7 +792,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        84
+        85
       ]
     ]
   },
@@ -783,11 +801,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        86
+        87
       ],
       [
         "src/pages/RegistrationPage.js",
-        356
+        368
       ]
     ]
   },
@@ -796,7 +814,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        108
+        113
       ]
     ]
   },
@@ -805,7 +823,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        116
+        121
       ]
     ]
   },
@@ -814,7 +832,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        124
+        128
       ]
     ]
   },
@@ -823,7 +841,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        132
+        135
       ]
     ]
   },
@@ -832,7 +850,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        140
+        143
       ]
     ]
   },
@@ -841,11 +859,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        160
+        166
       ],
       [
         "src/pages/RegistrationPage.js",
-        191
+        202
       ]
     ]
   },
@@ -854,7 +872,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        235
+        246
       ]
     ]
   },
@@ -863,7 +881,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        258
+        269
       ]
     ]
   },
@@ -872,7 +890,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        284
+        296
       ]
     ]
   },
@@ -881,7 +899,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        308
+        320
       ]
     ]
   },
@@ -890,11 +908,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        316
+        328
       ],
       [
         "src/pages/ReviewPage.js",
-        33
+        34
       ]
     ]
   },
@@ -903,7 +921,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        324
+        336
       ]
     ]
   },
@@ -912,11 +930,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        332
+        344
       ],
       [
         "src/pages/ReviewPage.js",
-        31
+        32
       ]
     ]
   },
@@ -925,11 +943,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        340
+        352
       ],
       [
         "src/pages/ReviewPage.js",
-        37
+        38
       ]
     ]
   },
@@ -938,7 +956,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        367
+        381
       ]
     ]
   },
@@ -947,7 +965,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        380
+        394
       ]
     ]
   },
@@ -956,7 +974,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        35
+        36
       ]
     ]
   },
@@ -965,7 +983,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        70
+        71
       ]
     ]
   },
@@ -974,7 +992,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        83
+        84
       ]
     ]
   },
@@ -983,7 +1001,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        114
+        115
       ]
     ]
   }

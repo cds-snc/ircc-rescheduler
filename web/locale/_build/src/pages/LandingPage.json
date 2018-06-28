@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        65
+        80
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        72
+        87
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        77
+        92
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        85
+        100
       ]
     ]
   },
@@ -35,15 +35,15 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        91
+        106
       ]
     ]
   },
-  "Requesting a new appointment will cancel your current one.<0> Do not attend your old appointment</0> after you complete this request. It can take up to 9 weeks for us to reschedule you.": {
+  "Requesting a new appointment will cancel your current one. Do not attend your old appointment after you complete this request. It can take up to 9 weeks for us to reschedule you.": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        99
+        114
       ]
     ]
   },
@@ -51,7 +51,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        108
+        123
       ]
     ]
   }

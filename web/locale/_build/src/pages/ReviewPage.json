@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        29
+        30
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        31
+        32
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        33
+        34
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        35
+        36
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        37
+        38
       ]
     ]
   },
@@ -43,7 +43,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        66
+        67
       ]
     ]
   },
@@ -51,7 +51,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        70
+        71
       ]
     ]
   },
@@ -59,7 +59,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        83
+        84
       ]
     ]
   },
@@ -67,15 +67,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        114
-      ]
-    ]
-  },
-  "Cancel request": {
-    "origin": [
-      [
-        "src/pages/ReviewPage.js",
-        121
+        115
       ]
     ]
   }

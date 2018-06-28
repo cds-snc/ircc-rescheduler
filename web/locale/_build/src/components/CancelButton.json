@@ -1,0 +1,10 @@
+{
+  "Cancel request": {
+    "origin": [
+      [
+        "src/components/CancelButton.js",
+        22
+      ]
+    ]
+  }
+}
