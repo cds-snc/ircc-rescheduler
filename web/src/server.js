@@ -10,6 +10,9 @@ import createApolloClient from './utils/createApolloClient'
 import Document from './Document'
 import path from 'path'
 import { renderStylesToString } from 'emotion-server'
+import { request } from 'graphql-request'
+import bodyParser from 'body-parser'
+import { SUBMIT } from './queries'
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
@@ -21,6 +24,18 @@ server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || 'public'))
   .use(cookieParser(SECRET))
+  .use(bodyParser.urlencoded({ extended: false }))
+  .post('/submit', (req, res) => {
+    //res.redirect('/confirmation')
+    console.log(req.body)
+    request('/graphql', SUBMIT)
+      .then(data => console.log(data))
+      .catch(reason => {
+        console.error('onRejected function called: ', reason)
+      })
+
+    res.json({ hello: 'test' })
+  })
   .get('/clear', (req, res) => {
     res.clearCookie('store')
     res.redirect('/cancel')

@@ -16,12 +16,77 @@ import Reminder from '../components/Reminder'
 import rightArrow from '../assets/rightArrow.svg'
 import { dateToISODateString } from '../components/Time'
 import CancelButton from '../components/CancelButton'
+import { windowExists } from '../utils/windowExists'
 
 const contentClass = css`
   p {
     padding-bottom: ${theme.spacing.lg};
   }
 `
+
+const JSBottomContainer = ({
+  fullName,
+  email,
+  reason,
+  explanation,
+  paperFileNumber,
+  selectedDays,
+}) => {
+  return (
+    <BottomContainer>
+      <Submission
+        action={SUBMIT}
+        success={data => <Redirect to="/confirmation" push />}
+        failure={error => <Redirect to="/error" push />}
+      >
+        {(submit, loading) => (
+          <Button
+            disabled={loading}
+            onClick={() => {
+              submit({
+                variables: {
+                  fullName,
+                  email,
+                  reason,
+                  explanation,
+                  paperFileNumber,
+                  availability: selectedDays.map(day =>
+                    dateToISODateString(day),
+                  ),
+                },
+              })
+            }}
+          >
+            <Trans>Send request</Trans>{' '}
+            <img src={rightArrow} className={arrow} alt="" />
+          </Button>
+        )}
+      </Submission>
+      <div>
+        <CancelButton />
+      </div>
+    </BottomContainer>
+  )
+}
+
+const WhichSubmit = props => {
+  if (windowExists()) {
+    return <JSBottomContainer {...props} />
+  }
+
+  return (
+    <BottomContainer>
+      <form action="/submit" method="post">
+        <input type="hidden" name="fullName" value={props.fullName} />
+        <Button type="submit">
+          <Trans>Send request No JS</Trans>
+          <img src={rightArrow} className={arrow} alt="" />
+        </Button>
+      </form>
+      <CancelButton />
+    </BottomContainer>
+  )
+}
 
 class ReviewPage extends React.Component {
   translateReason(reason) {
@@ -87,40 +152,14 @@ class ReviewPage extends React.Component {
               send this request.
             </Trans>
           </Reminder>
-
-          <BottomContainer>
-            <Submission
-              action={SUBMIT}
-              success={data => <Redirect to="/confirmation" push />}
-              failure={error => <Redirect to="/error" push />}
-            >
-              {(submit, loading) => (
-                <Button
-                  disabled={loading}
-                  onClick={() => {
-                    submit({
-                      variables: {
-                        fullName,
-                        email,
-                        reason,
-                        explanation,
-                        paperFileNumber,
-                        availability: selectedDays.map(day =>
-                          dateToISODateString(day),
-                        ),
-                      },
-                    })
-                  }}
-                >
-                  <Trans>Send request</Trans>{' '}
-                  <img src={rightArrow} className={arrow} alt="" />
-                </Button>
-              )}
-            </Submission>
-            <div>
-              <CancelButton />
-            </div>
-          </BottomContainer>
+          <WhichSubmit
+            fullName={fullName}
+            email={email}
+            paperFileNumber={paperFileNumber}
+            explanation={explanation}
+            reason={this.translateReason(reason)}
+            selectedDays={selectedDays}
+          />
         </section>
       </Layout>
     )
