@@ -4,6 +4,37 @@ class FakeComponentEmpty {
   constructor() {}
 }
 
+class FakeComponentWithFields {
+  static get fields() {
+    return ['field']
+  }
+}
+
+class FakeComponentWithValidate {
+  static validate(values) {
+    let errors = {}
+    if (!values.field !== 'value') {
+      errors.field = true
+    }
+    return errors
+  }
+  constructor() {}
+}
+
+class FakeComponentWithFieldsAndValidate {
+  static get fields() {
+    return ['field']
+  }
+  static validate(values) {
+    let errors = {}
+    if (values.field !== 'value') {
+      errors.field = true
+    }
+    return errors
+  }
+  constructor() {}
+}
+
 describe('WithProvider', () => {
   describe('.globalFields and .validate()', () => {
     const WithProvider = withProvider(FakeComponentEmpty)
@@ -15,10 +46,10 @@ describe('WithProvider', () => {
     it('returns no errors for "en" or "fr" in its validation method', () => {
       let errors
       errors = WithProvider.validate({ language: 'en' })
-      expect(errors).toBe(false)
+      expect(errors).toEqual({})
 
       errors = WithProvider.validate({ language: 'fr' })
-      expect(errors).toBe(false)
+      expect(errors).toEqual({})
     })
 
     it('returns errors for some other value in its validation method', () => {
@@ -78,6 +109,65 @@ describe('WithProvider', () => {
     })
   })
 
+  describe('.validateQuery()', () => {
+    const EmptyWithProvider = withProvider(FakeComponentEmpty)
+    const WithProviderFields = withProvider(FakeComponentWithFields)
+    const WithProviderValidate = withProvider(FakeComponentWithValidate)
+    const WithProvider = withProvider(FakeComponentWithFieldsAndValidate)
+
+    it('returns false when WrappedComponent has no fields or validate functions', () => {
+      let result = EmptyWithProvider.validateQuery({ field: 'value' })
+      expect(result).toBe(false)
+    })
+
+    it('returns false when WrappedComponent has no fields', () => {
+      let result = WithProviderValidate.validateQuery({ field: 'value' })
+      expect(result).toBe(false)
+    })
+
+    it('returns false when WrappedComponent has no fields and no query is passed in', () => {
+      let result = WithProviderValidate.validateQuery({})
+      expect(result).toBe(false)
+    })
+
+    it('returns true when WrappedComponent has a matching field but no validation method', () => {
+      // if we have no validation method we are allowing anything to be saved 🤷‍
+      let result = WithProviderFields.validateQuery({ field: 'value' })
+      expect(result).toBe(true)
+    })
+
+    it('returns true when WrappedComponent has a matching field and validation passes', () => {
+      let result = WithProvider.validateQuery({ field: 'value' })
+      expect(result).toBe(true)
+    })
+
+    it('returns false when query is empty', () => {
+      let result = WithProvider.validateQuery({})
+      expect(result).toBe(false)
+    })
+
+    it('returns false when not all keys submitted', () => {
+      class FakeComponentWithTwoFields {
+        static get fields() {
+          return ['field1', 'field2']
+        }
+      }
+
+      let result = withProvider(FakeComponentWithTwoFields).validateQuery({
+        field1: 'value1',
+      })
+      expect(result).toBe(false)
+    })
+
+    it('returns false when too many keys are submitted', () => {
+      let result = WithProvider.validateQuery({
+        field: 'value',
+        field1: 'value1',
+      })
+      expect(result).toBe(false)
+    })
+  })
+
   describe('.validateCookie() with global field', () => {
     const WithProvider = withProvider(FakeComponentEmpty)
 
@@ -109,23 +199,6 @@ describe('WithProvider', () => {
 
   describe('.validateCookie() with regular field', () => {
     describe('WrappedComponent without `fields` and `validate`', () => {
-      class FakeComponentWithFields {
-        static get fields() {
-          return ['field']
-        }
-      }
-
-      class FakeComponentWithValidate {
-        static validate(values) {
-          let errors = {}
-          if (!values.field !== 'value') {
-            errors.field = true
-          }
-          return Object.keys(errors).length ? errors : false
-        }
-        constructor() {}
-      }
-
       const EmptyWithProvider = withProvider(FakeComponentEmpty)
       const WithProviderFields = withProvider(FakeComponentWithFields)
       const WithProviderValidate = withProvider(FakeComponentWithValidate)
@@ -147,20 +220,6 @@ describe('WithProvider', () => {
     })
 
     describe('WrappedComponent has `fields` and `validate`', () => {
-      class FakeComponentWithFieldsAndValidate {
-        static get fields() {
-          return ['field']
-        }
-        static validate(values) {
-          let errors = {}
-          if (values.field !== 'value') {
-            errors.field = true
-          }
-          return Object.keys(errors).length ? errors : false
-        }
-        constructor() {}
-      }
-
       const WithProvider = withProvider(FakeComponentWithFieldsAndValidate)
 
       it('returns original object when validation passes', () => {

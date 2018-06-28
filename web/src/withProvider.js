@@ -32,6 +32,11 @@ function withProvider(WrappedComponent) {
         val = WithProvider.validateCookie(key, val)
         if (val) {
           newCookie = setSSRCookie(res, key, val, prevCookie)
+
+          // add redirect if query passes validation and .redirect exists on the page component
+          if (WrappedComponent.redirect && WithProvider.validateQuery(query)) {
+            res.locals.redirect = WrappedComponent.redirect
+          }
         }
       }
 
@@ -101,7 +106,7 @@ function withProvider(WrappedComponent) {
       if (!['en', 'fr'].includes(values.language)) {
         errors.language = true
       }
-      return Object.keys(errors).length ? errors : false
+      return errors
     }
 
     static returnKeyAndValue(query, match) {
@@ -150,7 +155,7 @@ function withProvider(WrappedComponent) {
         let errors = WithProvider.validate({ [key]: val })
 
         // return the value if no validation errors
-        return !errors ? val : false
+        return !Object.keys(errors).length ? val : false
       }
 
       const fields = WrappedComponent.fields
@@ -177,7 +182,7 @@ function withProvider(WrappedComponent) {
 
         // clear values that don't pass validation
         let errors = validate(val)
-        Object.keys(errors || {}).forEach(field => {
+        Object.keys(errors).forEach(field => {
           val[field] = '' // eslint-disable-line security/detect-object-injection
         })
 
@@ -186,6 +191,26 @@ function withProvider(WrappedComponent) {
       }
 
       return false
+    }
+
+    static validateQuery(query) {
+      let queryKeys = Object.keys(query)
+      if (!queryKeys.length) {
+        return false
+      }
+
+      let validateFn = WrappedComponent.validate || (() => false)
+      let pageFields = WrappedComponent.fields || []
+
+      let errors = validateFn(query)
+      // check if all of the same keys in the query are on the page
+      // ie, they haven't added any or submitted only half of them
+      let allKeys =
+        queryKeys.length === pageFields.length &&
+        queryKeys.every(key => pageFields.includes(key))
+
+      // check if no errors in query and all of the keys are present
+      return Object.keys(errors).length === 0 && allKeys === true ? true : false
     }
   }
   WithProvider.propTypes = {
