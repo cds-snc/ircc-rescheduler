@@ -46,7 +46,7 @@ const isValidDateString = (props, propName, componentName) => {
 
 const dateToString = date => (date ? format(date, 'YYYY-MM-DD') : '')
 
-const Calendar = ({ startDate, endDate }) => {
+const Calendar = ({ startDate, endDate, dates }) => {
   const days = eachDay(startDate, endDate)
   const mapped = {}
 
@@ -59,6 +59,8 @@ const Calendar = ({ startDate, endDate }) => {
       const idMonth = format(date, 'MM')
       const val = dateToString(date)
 
+      const checked = dates.includes(val)
+
       const el = (
         <React.Fragment key={val}>
           <li>
@@ -67,6 +69,7 @@ const Calendar = ({ startDate, endDate }) => {
               id={`calendar-${idMonth}-${index}`}
               value={val}
               label={label}
+              checked={checked}
             />
           </li>
         </React.Fragment>
@@ -101,9 +104,16 @@ Calendar.propTypes = {
 // Count 8 weeks from that point (ie, add 56 days)
 class CalendarNoJs extends Component {
   render() {
+    const { dates } = this.props
     const startDate = dateToString(addWeeks(new Date(), 4))
     const endDate = dateToString(addWeeks(new Date(startDate), 8))
-    return <Calendar startDate={startDate} endDate={endDate} />
+    return (
+      <Calendar
+        dates={dates.calendar}
+        startDate={startDate}
+        endDate={endDate}
+      />
+    )
   }
 }
 
