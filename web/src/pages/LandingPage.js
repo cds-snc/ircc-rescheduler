@@ -59,10 +59,7 @@ const LongReminder = styled(Reminder)`
     `)};
   }
 `
-<<<<<<< HEAD
-=======
 
->>>>>>> Rebase + Removed Top Margin
 class LandingPage extends React.Component {
   render() {
     return (
