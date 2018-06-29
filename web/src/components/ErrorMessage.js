@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
 import { theme } from '../styles'
 
@@ -56,7 +57,9 @@ class ErrorList extends React.Component {
         ) : (
           <div>
             <h2>{this.props.message}</h2>
-            <p>Please check these sections for errors:</p>
+            <p>
+              <Trans>Please check these sections for errors:</Trans>
+            </p>
             <ul>
               {Array.isArray(this.props.children) ? (
                 this.props.children.map((child, i) => <li key={i}>{child}</li>)
