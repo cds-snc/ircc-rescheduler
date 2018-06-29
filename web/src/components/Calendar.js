@@ -345,6 +345,7 @@ const daySelection = css`
 
   h3 {
     margin: 0 0 ${theme.spacing.lg} 0;
+    font-family: ${theme.weight.b}, Helvetica;
   }
 `
 
