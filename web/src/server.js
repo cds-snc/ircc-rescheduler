@@ -18,6 +18,7 @@ import { request } from 'graphql-request'
 import { execute } from 'apollo-link'
 import { HttpLink } from 'apollo-link-http'
 import cors from 'cors'
+import gql from 'graphql-tag'
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
@@ -97,6 +98,41 @@ server
       console.log(e.message)
       res.json(e.message)
       //res.redirect('/error')
+    }
+  })
+  .post('/email4', async (req, res) => {
+    try {
+      const response = await client.query({
+        query: gql`
+          query {
+            hello
+          }
+        `,
+      })
+
+      res.json(response)
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log(e.message)
+      res.json(e.message)
+    }
+  })
+  .post('/email5', async (req, res) => {
+    try {
+      const response = await client.mutate({
+        mutation: gql`
+          mutation($name: String!) {
+            test(name: $name)
+          }
+        `,
+        variables: { name: 'Paul' },
+      })
+
+      res.json(response)
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log(e.message)
+      res.json(e.message)
     }
   })
   .get('/clear', (req, res) => {
