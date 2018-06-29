@@ -17,6 +17,6 @@
     "shipit-shared": "^4.4.2"
   },
   "dependencies": {
-    
+    "cors": "^2.8.4"
   }
 }
