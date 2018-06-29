@@ -46,7 +46,7 @@ const H1Landing = styled(H1)`
 
 const LongReminder = styled(Reminder)`
   padding: 0;
-
+  margin-bottom: ${theme.spacing.xl} !important;
   ${mediaQuery.md(css`
     display: block;
   `)};
@@ -60,17 +60,6 @@ const LongReminder = styled(Reminder)`
   }
 `
 
-<<<<<<< HEAD
-const landingButton = css`
-  margin-top: ${theme.spacing.md};
-
-  ${mediaQuery.md(css`
-    margin-top: ${theme.spacing.xl};
-  `)};
-`
-
-=======
->>>>>>> link styles
 class LandingPage extends React.Component {
   render() {
     return (
