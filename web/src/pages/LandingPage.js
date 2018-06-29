@@ -60,6 +60,7 @@ const LongReminder = styled(Reminder)`
   }
 `
 
+<<<<<<< HEAD
 const landingButton = css`
   margin-top: ${theme.spacing.md};
 
@@ -68,6 +69,8 @@ const landingButton = css`
   `)};
 `
 
+=======
+>>>>>>> link styles
 class LandingPage extends React.Component {
   render() {
     return (
@@ -118,7 +121,7 @@ class LandingPage extends React.Component {
           </Trans>
         </LongReminder>
 
-        <div className={landingButton}>
+        <div>
           <NavLink to="/register" className={buttonStyles}>
             <Trans>Start now</Trans>{' '}
             <img src={rightArrow} className={arrow} alt="" />
