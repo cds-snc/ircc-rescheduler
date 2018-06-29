@@ -32,6 +32,7 @@ const DAY_LIMIT = 3
 const headerStyles = css`
   font-weight: 400;
   margin-bottom: ${theme.spacing.xl};
+  margin-top: 0;
 
   strong {
     font-weight: 700;
@@ -40,17 +41,23 @@ const headerStyles = css`
 
 const CalendarHeader = styled(H1)`
   font-size: ${theme.font.xl};
+  font-family: ${theme.weight.r}, Helvetica;
   ${headerStyles};
 `
 
 const CalendarSubheader = styled(H2)`
   font-size: ${theme.font.lg};
+  font-family: ${theme.weight.r}, Helvetica;
   ${headerStyles};
 `
 
 const listContainer = css`
   display: flex;
   margin-bottom: ${theme.spacing.xxl};
+`
+
+const CalReminder = styled(Reminder)`
+  padding: ${theme.spacing.md} 0;
 `
 
 const labelNames = id => {
@@ -93,11 +100,11 @@ const CalBottom = ({ submit }) => {
   return (
     <div>
       <div>
-        <Reminder>
+        <CalReminder>
           <Trans>
             Make sure you stay available on all of the days you select.
           </Trans>
-        </Reminder>
+        </CalReminder>
       </div>
       <BottomContainer>
         {submit()}

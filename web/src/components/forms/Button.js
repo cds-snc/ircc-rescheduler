@@ -89,7 +89,7 @@ const govuk_button = css`
 const button = css`
   ${govuk_button};
 
-  font-family: -apple-system, system-ui, Helvetica, Arial, sans-serif;
+  font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
   font-size: ${theme.font.lg};
   font-weight: 600;
   line-height: 2;

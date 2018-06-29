@@ -53,8 +53,9 @@ const contentClass = css`
         display: block;
 
         &[id$='-header'] {
-          font-weight: bold;
+          font-family: ${theme.weight.b}, Helvetica;
           font-size: ${theme.font.lg};
+          font-weight: 700;
         }
       }
     }
