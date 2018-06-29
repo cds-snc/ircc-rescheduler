@@ -3,11 +3,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        78
+        79
       ],
       [
         "src/pages/RegistrationPage.js",
-        224
+        235
       ]
     ]
   },
@@ -15,11 +15,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        80
+        81
       ],
       [
         "src/pages/RegistrationPage.js",
-        247
+        258
       ]
     ]
   },
@@ -27,11 +27,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        82
+        83
       ],
       [
         "src/pages/RegistrationPage.js",
-        273
+        285
       ]
     ]
   },
@@ -39,7 +39,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        84
+        85
       ]
     ]
   },
@@ -47,11 +47,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        86
+        87
       ],
       [
         "src/pages/RegistrationPage.js",
-        356
+        368
       ]
     ]
   },
@@ -59,7 +59,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        108
+        113
       ]
     ]
   },
@@ -67,7 +67,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        116
+        121
       ]
     ]
   },
@@ -75,7 +75,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        124
+        128
       ]
     ]
   },
@@ -83,7 +83,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        132
+        135
       ]
     ]
   },
@@ -91,7 +91,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        140
+        143
       ]
     ]
   },
@@ -99,11 +99,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        160
+        166
       ],
       [
         "src/pages/RegistrationPage.js",
-        191
+        202
       ]
     ]
   },
@@ -111,7 +111,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        235
+        246
       ]
     ]
   },
@@ -119,7 +119,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        258
+        269
       ]
     ]
   },
@@ -127,7 +127,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        284
+        296
       ]
     ]
   },
@@ -135,7 +135,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        308
+        320
       ]
     ]
   },
@@ -143,7 +143,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        316
+        328
       ]
     ]
   },
@@ -151,7 +151,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        324
+        336
       ]
     ]
   },
@@ -159,7 +159,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        332
+        344
       ]
     ]
   },
@@ -167,7 +167,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        340
+        352
       ]
     ]
   },
@@ -175,7 +175,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        367
+        381
       ]
     ]
   },
@@ -183,15 +183,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        380
-      ]
-    ]
-  },
-  "Cancel request": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        385
+        394
       ]
     ]
   }

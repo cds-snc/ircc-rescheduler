@@ -99,7 +99,7 @@ class Layout extends React.Component {
           <FederalBanner />
           <div role="banner">
             <PageHeader headerClass={this.props.headerClass}>
-              <Trans>Request a new Canadian Citizenship appointment</Trans>
+              <Trans>Request a new citizenship appointment</Trans>
             </PageHeader>
           </div>
           <main role="main">

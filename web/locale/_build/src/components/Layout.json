@@ -1,13 +1,5 @@
 {
-  "This is a new service we are constantly deploying.": {
-    "origin": [
-      [
-        "src/components/Layout.js",
-        98
-      ]
-    ]
-  },
-  "Request a new Canadian Citizenship appointment": {
+  "Request a new citizenship appointment": {
     "origin": [
       [
         "src/components/Layout.js",

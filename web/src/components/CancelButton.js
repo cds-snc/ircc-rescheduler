@@ -1,5 +1,6 @@
 import React from 'react'
 import { css } from 'react-emotion'
+import { Trans } from 'lingui-react'
 import { theme } from '../styles'
 
 const cancelStyles = css`
@@ -18,7 +19,7 @@ const CancelButton = () => {
   return (
     <div>
       <a href="/clear" className={cancelStyles}>
-        cancel request
+        <Trans>Cancel request</Trans>
       </a>
     </div>
   )

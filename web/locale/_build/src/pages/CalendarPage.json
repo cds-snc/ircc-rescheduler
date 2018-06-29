@@ -3,35 +3,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        51
-      ]
-    ]
-  },
-  "You must select 3 days.": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        65
-      ],
-      [
-        "src/pages/CalendarPage.js",
-        83
-      ]
-    ]
-  },
-  "You must select 3 days. Please select 2 more days to continue.": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        70
-      ]
-    ]
-  },
-  "You must select 3 days. Please select 1 more day to continue.": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        77
+        66
       ]
     ]
   },
@@ -39,7 +11,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        126
+        79
       ]
     ]
   },
@@ -47,7 +19,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        132
+        84
       ]
     ]
   },
@@ -55,7 +27,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        138
+        90
       ]
     ]
   },
@@ -63,7 +35,39 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        185
+        104
+      ]
+    ]
+  },
+  "You must select 3 days.": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        129
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        147
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        264
+      ]
+    ]
+  },
+  "You must select 3 days. Please select 2 more days to continue.": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        134
+      ]
+    ]
+  },
+  "You must select 3 days. Please select 1 more day to continue.": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        141
       ]
     ]
   },
@@ -71,15 +75,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        192
-      ]
-    ]
-  },
-  "Cancel request": {
-    "origin": [
+        230
+      ],
       [
         "src/pages/CalendarPage.js",
-        197
+        285
       ]
     ]
   }
