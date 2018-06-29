@@ -89,6 +89,11 @@ const WhichSubmit = props => {
     <BottomContainer>
       <form action="/submit" method="post">
         <input type="hidden" name="fullName" value={props.fullName} />
+        <input
+          type="hidden"
+          name="paperFileNumber"
+          value={props.paperFileNumber}
+        />
         <input type="hidden" name="email" value={props.email} />
         <input type="hidden" name="explanation" value={props.explanation} />
         <input type="hidden" name="reason" value={props.reason} />

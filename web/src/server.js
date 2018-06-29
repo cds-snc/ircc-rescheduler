@@ -12,13 +12,7 @@ import path from 'path'
 import { renderStylesToString } from 'emotion-server'
 import bodyParser from 'body-parser'
 import { SUBMIT } from './queries'
-
-import { request } from 'graphql-request'
-
-import { execute } from 'apollo-link'
-import { HttpLink } from 'apollo-link-http'
 import cors from 'cors'
-import gql from 'graphql-tag'
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
@@ -26,16 +20,6 @@ const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
 
 const server = express()
 const client = createApolloClient({ ssrMode: true })
-const endpoint = 'https://rescheduler.cds-snc.ca/graphql'
-
-const data = {
-  fullName: 'John Li',
-  email: 'tim@line37.com',
-  reason: 'Away',
-  explanation: 'Sorry',
-  paperFileNumber: '123446',
-  selectedDays: ['2018-01-01', '2018-01-02', '2018-01-03'],
-}
 
 server
   .disable('x-powered-by')
@@ -43,89 +27,24 @@ server
   .use(cookieParser(SECRET))
   .use(bodyParser.urlencoded({ extended: false }))
   .use(cors())
-  .post('/email1', async (req, res) => {
-    //req.bod
+  .post('/submit', async (req, res) => {
     try {
-      const response = await request(endpoint, SUBMIT, data)
+      const dates = req.body.availability.split(',')
+      req.body.availability = dates
 
-      res.json(response)
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.log(e.message)
-      res.json(e.message)
-    }
-  })
-  .post('/email2', async (req, res) => {
-    try {
+      /*
+      let data = {
+        fullName: 'john li',
+        email: 'john@johnliindustries.com',
+        explanation: 'this is a textbox field with a bunch of freely-formatted text',
+        reason: 'medical',
+        availability: ['2018-09-05', '2018-09-06', '2018-09-12']
+      }
+      */
+
       const response = await client.mutate({
         mutation: SUBMIT,
-        variables: data,
-      })
-
-      res.json(response)
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.log(e.message)
-      res.json(e.message)
-    }
-  })
-  .post('/email3', async (req, res) => {
-    try {
-      const uri = endpoint
-      const link = new HttpLink({ uri })
-
-      const operation = {
-        query: SUBMIT,
-        variables: data,
-      }
-
-      execute(link, operation).subscribe({
-        next: data =>
-          // eslint-disable-next-line no-console
-          console.log(`received data: ${JSON.stringify(data, null, 2)}`),
-        error: error => {
-          // eslint-disable-next-line no-console
-          console.log(`received error ${error}`)
-        },
-        complete: () => console.log(`complete`), // eslint-disable-line no-console,
-      })
-
-      res.json({ response: 'hello' })
-
-      //res.redirect('/confirmation')
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.log(e.message)
-      res.json(e.message)
-      //res.redirect('/error')
-    }
-  })
-  .post('/email4', async (req, res) => {
-    try {
-      const response = await client.query({
-        query: gql`
-          query {
-            hello
-          }
-        `,
-      })
-
-      res.json(response)
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.log(e.message)
-      res.json(e.message)
-    }
-  })
-  .post('/email5', async (req, res) => {
-    try {
-      const response = await client.mutate({
-        mutation: gql`
-          mutation($name: String!) {
-            test(name: $name)
-          }
-        `,
-        variables: { name: 'Paul' },
+        variables: req.body,
       })
 
       res.json(response)
