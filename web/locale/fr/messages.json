@@ -58,7 +58,7 @@
     ]
   },
   "BETA": {
-    "translation": "",
+    "translation": "BÊTA",
     "origin": [
       [
         "src/components/PhaseBanner.js",
