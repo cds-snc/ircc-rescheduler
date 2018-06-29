@@ -78,6 +78,10 @@ const WhichSubmit = props => {
     <BottomContainer>
       <form action="/submit" method="post">
         <input type="hidden" name="fullName" value={props.fullName} />
+        <input type="hidden" name="email" value={props.email} />
+        <input type="hidden" name="explanation" value={props.explanation} />
+        <input type="hidden" name="reason" value={props.reason} />
+        <input type="hidden" name="availability" value={props.selectedDays} />
         <Button type="submit">
           <Trans>Send request No JS</Trans>
           <img src={rightArrow} className={arrow} alt="" />
@@ -157,7 +161,7 @@ class ReviewPage extends React.Component {
             email={email}
             paperFileNumber={paperFileNumber}
             explanation={explanation}
-            reason={this.translateReason(reason)}
+            reason={reason}
             selectedDays={selectedDays}
           />
         </section>

@@ -59,7 +59,6 @@ const Calendar = ({ startDate, endDate, dates }) => {
       const label = format(date, 'dddd MMMM D')
       const idMonth = format(date, 'MM')
       const val = dateToString(date)
-
       const checked = dates.includes(val)
 
       const el = (
@@ -70,6 +69,7 @@ const Calendar = ({ startDate, endDate, dates }) => {
               id={`calendar-${idMonth}-${index}`}
               value={val}
               label={label}
+              onChange={() => {}}
               checked={checked}
             />
           </li>
@@ -103,7 +103,7 @@ const Calendar = ({ startDate, endDate, dates }) => {
 Calendar.propTypes = {
   startDate: isValidDateString,
   endDate: isValidDateString,
-  dates: PropTypes.array,
+  dates: PropTypes.oneOfType(PropTypes.array, PropTypes.object),
 }
 
 // Go 4 weeks from today (ie, add 28 days)
@@ -125,7 +125,7 @@ class CalendarNoJs extends Component {
 }
 
 CalendarNoJs.propTypes = {
-  dates: PropTypes.array,
+  dates: PropTypes.oneOfType(PropTypes.array, PropTypes.object),
 }
 
 export default CalendarNoJs

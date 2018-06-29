@@ -10,39 +10,52 @@ import createApolloClient from './utils/createApolloClient'
 import Document from './Document'
 import path from 'path'
 import { renderStylesToString } from 'emotion-server'
-import { request } from 'graphql-request'
 import bodyParser from 'body-parser'
 import { SUBMIT } from './queries'
+import { request } from 'graphql-request'
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
   path.join(process.cwd(), 'build', 'assets.json'))
 
 const server = express()
+const client = createApolloClient({ ssrMode: true })
 
 server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || 'public'))
   .use(cookieParser(SECRET))
   .use(bodyParser.urlencoded({ extended: false }))
-  .post('/submit', (req, res) => {
-    //res.redirect('/confirmation')
-    console.log(req.body)
-    request('/graphql', SUBMIT)
-      .then(data => console.log(data))
-      .catch(reason => {
-        console.error('onRejected function called: ', reason)
+  .post('/submit', async (req, res) => {
+    try {
+      /*
+      const response = await request(
+        'http://localhost:3001/graphql',
+        SUBMIT,
+        req.body,
+      )
+      */
+
+      const response = await client.mutate({
+        mutation: SUBMIT,
+        variables: req.body,
       })
 
-    res.json({ hello: 'test' })
+      console.log(response)
+
+      res.redirect('/confirmation')
+    } catch (e) {
+      console.log(e.message)
+      res.redirect('/error')
+    }
   })
   .get('/clear', (req, res) => {
     res.clearCookie('store')
     res.redirect('/cancel')
   })
   .get('/*', async (req, res) => {
-    const client = createApolloClient({ ssrMode: true })
     const customRenderer = node => {
+      const client = createApolloClient({ ssrMode: true })
       const App = <ApolloProvider client={client}>{node}</ApolloProvider>
       return getDataFromTree(App).then(() => {
         const initialApolloState = client.extract()
