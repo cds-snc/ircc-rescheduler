@@ -12,7 +12,12 @@ import path from 'path'
 import { renderStylesToString } from 'emotion-server'
 import bodyParser from 'body-parser'
 import { SUBMIT } from './queries'
+
 import { request } from 'graphql-request'
+
+import { execute, makePromise } from 'apollo-link'
+import { HttpLink } from 'apollo-link-http'
+import cors from 'cors'
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
@@ -20,33 +25,73 @@ const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
 
 const server = express()
 const client = createApolloClient({ ssrMode: true })
+const endpoint = 'https://rescheduler.cds-snc.ca/graphql'
+
+const data = {
+  fullName: 'John Li',
+  email: 'tim@line37.com',
+  reason: 'Away',
+  explanation: 'Sorry',
+  paperFileNumber: '123446',
+  selectedDays: ['2018-01-01', '2018-01-02', '2018-01-03'],
+}
 
 server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || 'public'))
   .use(cookieParser(SECRET))
   .use(bodyParser.urlencoded({ extended: false }))
-  .post('/submit', async (req, res) => {
+  .use(cors())
+  .post('/email1', async (req, res) => {
+    //req.bod
     try {
-      /*
-      const response = await request(
-        'http://localhost:3001/graphql',
-        SUBMIT,
-        req.body,
-      )
-      */
+      const response = await request(endpoint, SUBMIT, data)
 
+      res.json(response)
+    } catch (e) {
+      console.log(e.message)
+      res.json(e.message)
+    }
+  })
+  .post('/email2', async (req, res) => {
+    try {
       const response = await client.mutate({
         mutation: SUBMIT,
-        variables: req.body,
+        variables: data,
+      })
+
+      res.json(response)
+    } catch (e) {
+      console.log(e.message)
+      res.json(e.message)
+    }
+  })
+  .post('/email3', async (req, res) => {
+    try {
+      const uri = endpoint
+      const link = new HttpLink({ uri })
+
+      const operation = {
+        query: SUBMIT,
+        variables: data,
+      }
+
+      execute(link, operation).subscribe({
+        next: data =>
+          console.log(`received data: ${JSON.stringify(data, null, 2)}`),
+        error: error => console.log(`received error ${error}`),
+        complete: () => console.log(`complete`),
       })
 
       console.log(response)
 
-      res.redirect('/confirmation')
+      res.json(response)
+
+      //res.redirect('/confirmation')
     } catch (e) {
       console.log(e.message)
-      res.redirect('/error')
+      res.json(e.message)
+      //res.redirect('/error')
     }
   })
   .get('/clear', (req, res) => {
