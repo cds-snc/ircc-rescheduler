@@ -29,25 +29,32 @@ server
   .use(cors())
   .post('/submit', async (req, res) => {
     try {
-      const dates = req.body.availability.split(',')
-      req.body.availability = dates
+      let data = Object.assign({}, req.body) // make a new object
+      data.availability = data.availability.split(',')
 
       /*
       let data = {
         fullName: 'john li',
         email: 'john@johnliindustries.com',
-        explanation: 'this is a textbox field with a bunch of freely-formatted text',
+        paperFileNumber: '123456789'
         reason: 'medical',
+        explanation: 'this is a textbox field with a bunch of freely-formatted text',
         availability: ['2018-09-05', '2018-09-06', '2018-09-12']
       }
       */
 
+      // eslint-disable-next-line no-unused-vars
       const response = await client.mutate({
         mutation: SUBMIT,
-        variables: req.body,
+        variables: data,
       })
 
+      /*
+      TODO: handle response gracefully
       res.json(response)
+      */
+
+      return res.redirect('/confirmation')
     } catch (e) {
       // eslint-disable-next-line no-console
       console.log(e.message)
