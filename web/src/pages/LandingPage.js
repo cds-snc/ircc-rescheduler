@@ -46,7 +46,7 @@ const H1Landing = styled(H1)`
 
 const LongReminder = styled(Reminder)`
   padding: 0;
-
+  margin-bottom: ${theme.spacing.xl} !important;
   ${mediaQuery.md(css`
     display: block;
   `)};
@@ -59,6 +59,10 @@ const LongReminder = styled(Reminder)`
     `)};
   }
 `
+<<<<<<< HEAD
+=======
+
+>>>>>>> Rebase + Removed Top Margin
 class LandingPage extends React.Component {
   render() {
     return (
