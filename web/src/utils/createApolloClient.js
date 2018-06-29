@@ -6,7 +6,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { withClientState } from 'apollo-link-state'
 import gql from 'graphql-tag'
 
-require('isomorphic-fetch') 
+require('isomorphic-fetch')
 
 const cache = new InMemoryCache()
 
@@ -45,12 +45,13 @@ const stateLink = withClientState({
   typeDefs,
 })
 
-const endpoint = 'https://rescheduler.cds-snc.ca/graphql'
+//const endpoint = 'http://localhost:3004/graphql'
+//
 
 const createApolloClient = ({ ssrMode }) =>
   new ApolloClient({
     ssrMode,
-    link: ApolloLink.from([stateLink, new HttpLink({ uri: endpoint, fetch })]), // eslint-disable-line no-undef
+    link: ApolloLink.from([stateLink, new HttpLink({ fetch })]), // eslint-disable-line no-undef
     cache: ssrMode
       ? new InMemoryCache()
       : new InMemoryCache().restore(window.__APOLLO_STATE__),
