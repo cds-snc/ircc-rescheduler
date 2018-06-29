@@ -17,6 +17,7 @@ import rightArrow from '../assets/rightArrow.svg'
 import { dateToISODateString } from '../components/Time'
 import CancelButton from '../components/CancelButton'
 import { windowExists } from '../utils/windowExists'
+import PropTypes from 'prop-types'
 
 const contentClass = css`
   p {
@@ -69,6 +70,16 @@ const JSBottomContainer = ({
   )
 }
 
+JSBottomContainer.propTypes = {
+  fullName: PropTypes.string,
+  email: PropTypes.string,
+  reason: PropTypes.string,
+  explanation: PropTypes.string,
+  paperFileNumber: PropTypes.string,
+  availability: PropTypes.string,
+  selectedDays: PropTypes.array,
+}
+
 const WhichSubmit = props => {
   if (windowExists()) {
     return <JSBottomContainer {...props} />
@@ -90,6 +101,16 @@ const WhichSubmit = props => {
       <CancelButton />
     </BottomContainer>
   )
+}
+
+WhichSubmit.propTypes = {
+  fullName: PropTypes.string,
+  email: PropTypes.string,
+  reason: PropTypes.string,
+  explanation: PropTypes.string,
+  paperFileNumber: PropTypes.string,
+  availability: PropTypes.string,
+  selectedDays: PropTypes.array,
 }
 
 class ReviewPage extends React.Component {

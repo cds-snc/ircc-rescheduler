@@ -15,7 +15,7 @@ import { SUBMIT } from './queries'
 
 import { request } from 'graphql-request'
 
-import { execute, makePromise } from 'apollo-link'
+import { execute } from 'apollo-link'
 import { HttpLink } from 'apollo-link-http'
 import cors from 'cors'
 
@@ -49,6 +49,7 @@ server
 
       res.json(response)
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.log(e.message)
       res.json(e.message)
     }
@@ -62,6 +63,7 @@ server
 
       res.json(response)
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.log(e.message)
       res.json(e.message)
     }
@@ -78,17 +80,20 @@ server
 
       execute(link, operation).subscribe({
         next: data =>
+          // eslint-disable-next-line no-console
           console.log(`received data: ${JSON.stringify(data, null, 2)}`),
-        error: error => console.log(`received error ${error}`),
-        complete: () => console.log(`complete`),
+        error: error => {
+          // eslint-disable-next-line no-console
+          console.log(`received error ${error}`)
+        },
+        complete: () => console.log(`complete`), // eslint-disable-line no-console,
       })
 
-      console.log(response)
-
-      res.json(response)
+      res.json({ response: 'hello' })
 
       //res.redirect('/confirmation')
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.log(e.message)
       res.json(e.message)
       //res.redirect('/error')

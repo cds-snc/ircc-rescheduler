@@ -5,7 +5,8 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 // import fetch from 'node-fetch';
 import { withClientState } from 'apollo-link-state'
 import gql from 'graphql-tag'
-require('isomorphic-fetch')
+
+require('isomorphic-fetch') // eslint-disable-line no-undef
 
 const cache = new InMemoryCache()
 
