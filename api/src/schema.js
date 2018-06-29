@@ -26,15 +26,6 @@ const createSchema = t => {
   var mutation = new GraphQLObjectType({
     name: 'Mutation',
     fields: () => ({
-      test: {
-        type: GraphQLString,
-        args: {
-          name: { type: new GraphQLNonNull(GraphQLString) },
-        },
-        resolve(_, { name }) {
-          return 'test mutation: ' + name
-        },
-      },
       decline: {
         description: t('mutation.fields.decline.description'),
         args: {
