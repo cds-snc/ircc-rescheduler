@@ -11,6 +11,7 @@ export const errorMessage = css`
 
 export const errorList = css`
   a {
+    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
     color: ${theme.colour.red};
     font-weight: 700;
   }
@@ -21,6 +22,7 @@ export const errorList = css`
   }
 
   h2 {
+    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
     margin-top: 0 !important;
     margin-bottom: ${theme.spacing.sm};
   }
