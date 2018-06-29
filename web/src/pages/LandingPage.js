@@ -59,7 +59,6 @@ const LongReminder = styled(Reminder)`
     `)};
   }
 `
-
 class LandingPage extends React.Component {
   render() {
     return (
