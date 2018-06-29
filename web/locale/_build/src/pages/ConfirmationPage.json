@@ -7,11 +7,19 @@
       ]
     ]
   },
+  "We’ve sent you a confirmation email.": {
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        28
+      ]
+    ]
+  },
   "What happens next?": {
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        30
+        32
       ]
     ]
   },
@@ -19,7 +27,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        33
+        35
       ]
     ]
   },
@@ -27,7 +35,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        44
+        46
       ]
     ]
   }

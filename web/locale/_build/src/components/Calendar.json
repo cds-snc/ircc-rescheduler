@@ -14,5 +14,13 @@
         481
       ]
     ]
+  },
+  "Your 3 selected days:": {
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        550
+      ]
+    ]
   }
 }

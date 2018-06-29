@@ -546,7 +546,9 @@ class Calendar extends Component {
           containerProps={{ id, tabIndex }}
         />
         <div className={daySelection}>
-          <h3>Your 3 selected days:</h3>
+          <h3>
+            <Trans>Your 3 selected days:</Trans>
+          </h3>
           <div
             className={selectedDaysError}
             tabIndex="-1"

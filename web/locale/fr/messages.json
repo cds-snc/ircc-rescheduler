@@ -1,6 +1,6 @@
 {
   "Remove day": {
-    "translation": "Supprimer une journée",
+    "translation": "Supprimer cette journée",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -17,6 +17,15 @@
       ]
     ]
   },
+  "Your 3 selected days:": {
+    "translation": "Vos 3 jours sélectionnés :",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        550
+      ]
+    ]
+  },
   "Cancel request": {
     "translation": "Annuler la demande",
     "origin": [
@@ -27,6 +36,51 @@
       [
         "src/pages/NoJSCalendarPage.js",
         160
+      ]
+    ]
+  },
+  "Please check these sections for errors:": {
+    "translation": "Veuillez vérifier les sections suivantes pour des erreurs :",
+    "origin": [
+      [
+        "src/components/ErrorMessage.js",
+        61
+      ]
+    ]
+  },
+  "Contact": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        108
+      ]
+    ]
+  },
+  "Privacy": {
+    "translation": "Confidentialité",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        112
+      ]
+    ]
+  },
+  "Terms": {
+    "translation": "Avis",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        116
+      ]
+    ]
+  },
+  "and Conditions": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        118
       ]
     ]
   },
@@ -555,7 +609,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        30
+        32
       ]
     ]
   },
@@ -568,7 +622,7 @@
       ]
     ]
   },
-  "If you missed your appointment, you still need to contact IRCC within 30 days. If you don‘t, your application could be delayed or abandoned.": {
+  "If you missed your appointment, you still need to contact IRCC within 30 days. If you don’t, your application could be delayed or abandoned.": {
     "translation": "Si vous avez manqué votre rendez-vous, vous devez tout de même contacter IRCC d'ici 30 jours, sinon le traitement de votre demande de citoyenneté pourrait être retardé ou abandonné.",
     "origin": [
       [
@@ -586,7 +640,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        44
+        46
       ]
     ]
   },
@@ -599,12 +653,21 @@
       ]
     ]
   },
+  "We’ve sent you a confirmation email.": {
+    "translation": "Nous vous avons envoyé un courriel de confirmation.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        28
+      ]
+    ]
+  },
   "By September 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
     "translation": "D'ici le 6 septembre 2018, votre bureau local IRCC vous enverra les détails de votre nouveau rendez-vous ou vous communiquera avec vous par courriel pour vous demander des renseignements supplémentaires.",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        33
+        35
       ]
     ]
   },
@@ -693,7 +756,7 @@
       ]
     ]
   },
-  "Tell IRCC you can’t attend your Citizenship appointment, and request a new one.": {
+  "Tell IRCC you can’t attend your citizenship appointment, and request a new one.": {
     "translation": "Avisez IRCC que vous ne pouvez pas vous présenter à votre rendez-vous d'examen de citoyenneté et demandez un nouveau rendez-vous.",
     "origin": [
       [
@@ -788,7 +851,7 @@
     ]
   },
   "Why are you rescheduling?": {
-    "translation": "Pourquoi faites-vous un rééchelonnement?",
+    "translation": "Quelle est la raison du report?",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
