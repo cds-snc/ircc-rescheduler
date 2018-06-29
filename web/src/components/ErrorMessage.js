@@ -7,6 +7,7 @@ import { theme } from '../styles'
 export const errorMessage = css`
   color: ${theme.colour.red};
   display: block;
+  margin-top: ${theme.spacing.sm};
 `
 
 export const errorList = css`
@@ -32,7 +33,7 @@ export const errorList = css`
   margin-bottom: ${theme.spacing.xl};
 `
 
-const noErrorList = css`
+const noError = css`
   display: none;
 `
 
@@ -53,7 +54,7 @@ class ErrorList extends React.Component {
 
   render() {
     return (
-      <div className={this.isEmpty() ? `empty ${noErrorList}` : errorList}>
+      <div className={this.isEmpty() ? `empty ${noError}` : errorList}>
         {this.isEmpty() ? (
           ''
         ) : (
@@ -86,7 +87,9 @@ class ValidationMessage extends React.Component {
   render() {
     return (
       <span
-        className={`${this.props.message ? '' : 'empty '}${errorMessage}`}
+        className={`${
+          this.props.message ? '' : `empty ${noError}`
+        }${errorMessage}`}
         id={this.props.id}
       >
         {this.props.message}
@@ -107,10 +110,19 @@ ValidationMessage.propTypes = {
  * the message to the screen reader user.
  */
 class ErrorMessage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.isEmpty = this.isEmpty.bind(this)
+  }
+
+  isEmpty() {
+    return !(this.props.message ? true : false)
+  }
+
   render() {
     return (
       <span
-        className={`${this.props.message ? '' : 'empty '}${errorMessage}`}
+        className={this.isEmpty() ? `empty ${noError}` : errorMessage}
         id={this.props.id}
         role="alert"
         aria-live="assertive"
