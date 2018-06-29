@@ -8,6 +8,7 @@ import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
+import MobileCancel from '../assets/mobileCancel.svg'
 import { getDateInfo } from '../utils/linguiUtils'
 import { getStartMonth, toMonth, getStartDate } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
@@ -23,7 +24,6 @@ const dayPickerDefault = css`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    padding-bottom: 1rem;
     flex-direction: row;
   }
 
@@ -41,8 +41,6 @@ const dayPickerDefault = css`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    margin: 0 1rem;
-    margin-top: 1rem;
   }
 
   .DayPicker-NavBar {
@@ -84,7 +82,6 @@ const dayPickerDefault = css`
     padding: 0 0.5rem;
     display: table-caption;
     text-align: left;
-    margin-bottom: 0.5rem;
   }
 
   .DayPicker-Caption > div {
@@ -103,15 +100,21 @@ const dayPickerDefault = css`
 
   .DayPicker-Weekday {
     display: table-cell;
-    padding: 0.5rem;
     font-size: 0.875em;
     text-align: center;
-    color: #8b9898;
+    background: #eee;
+    border-radius: 0 !important;
   }
 
   .DayPicker-Weekday abbr[title] {
     border-bottom: none;
     text-decoration: none;
+  }
+
+  .DayPicker-Weekday:nth-of-type(4),
+  .DayPicker-Weekday:nth-of-type(5) {
+    background: ${theme.colour.white};
+    font-family: ${theme.weight.b}, Helvetica;
   }
 
   .DayPicker-Body {
@@ -169,7 +172,6 @@ const dayPickerDefault = css`
   }
 
   .DayPicker-Day--disabled {
-    color: #dce0e0;
     cursor: default;
   }
 `
@@ -179,9 +181,18 @@ const dayPicker = css`
   margin-bottom: ${theme.spacing.xl};
 
   .DayPicker-wrapper {
-    background-color: white;
     font-size: ${theme.font.lg};
-    border: 2px solid ${theme.colour.greyLight};
+    background: ${theme.colour.white};
+    border: 2px solid ${theme.colour.black};
+
+    ${mediaQuery.lg(css`
+      width: 100%;
+      margin-right: 0 !important;
+    `)};
+
+    ${mediaQuery.md(css`
+      width: 100%;
+    `)};
   }
 
   .DayPicker-NavButton {
@@ -198,21 +209,25 @@ const dayPicker = css`
     }
 
     &.DayPicker-NavButton--next {
-      right: 2.5rem;
+      right: 0.5rem;
+      top: 0.6rem;
     }
 
     &.DayPicker-NavButton--prev {
-      left: 2.5rem;
+      left: 0.5rem;
+      top: 0.6rem;
     }
   }
 
-  .DayPicker-Weekday,
   .DayPicker-Day {
-    padding: 0.7rem;
+  }
+
+  .DayPicker-Weekday {
+    padding-top: ${theme.spacing.sm};
   }
 
   .DayPicker-Caption {
-    border-bottom: 2px dotted black;
+    border-bottom: 2px solid black;
     text-align: center;
     padding: ${theme.spacing.sm};
 
@@ -225,6 +240,9 @@ const dayPicker = css`
     /* enabled dates */
     &[aria-disabled='false'] {
       font-weight: 700;
+      font-family: ${theme.weight.b}, Helvetica;
+      background: white;
+      outline: 0px white solid;
 
       &:focus {
         outline: 3px solid ${theme.colour.focus};
@@ -238,6 +256,7 @@ const dayPicker = css`
     /* disabled dates */
     &[aria-disabled='true'] {
       cursor: not-allowed;
+      background: #eee;
 
       &:focus {
         outline: 3px solid ${theme.colour.lightGrey};
@@ -255,6 +274,18 @@ const dayPicker = css`
       background-color: ${incrementColor(theme.colour.blue, 30)};
     }
   }
+
+  .DayPicker-Month {
+    width: 25rem;
+
+    ${mediaQuery.lg(css`
+      width: 100%;
+    `)};
+  }
+`
+
+const noDates = css`
+  display: none;
 `
 
 const calendarContainer = css`
@@ -265,29 +296,29 @@ const calendarContainer = css`
 
   > div:first-of-type {
     width: 25em;
-    margin-right: ${theme.spacing.xxl};
   }
   > div:last-of-type {
-    width: 22em;
+    width: 25em;
   }
 
-  width: 130%;
+  width: 100%;
 
   ${mediaQuery.lg(css`
-    display: block;
-  `)};
-
-  ${mediaQuery.md(css`
-    width: 100%;
-
-    > div:first-of-type,
+    > div:first-of-type {
+      width: 60%;
+    }
     > div:last-of-type {
-      width: 100%;
+      width: 60%;
     }
   `)};
 
-  ${mediaQuery.sm(css`
-    width: 100%;
+  ${mediaQuery.md(css`
+    width: 100% !important;
+    display: block !important;
+    > div:first-of-type,
+    > div:last-of-type {
+      width: 100% !important;
+    }
   `)};
 
   #selectedDays-list {
@@ -300,28 +331,24 @@ const calendarContainer = css`
 `
 
 const dayBox = css`
-  margin-bottom: ${theme.spacing.md};
+  margin-bottom: ${theme.spacing.xs};
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   .day-box {
-    font-size: ${theme.font.lg};
-    width: 11em;
-    display: inline-block;
-    border: 2px solid ${theme.colour.grey};
-    background-color: ${theme.colour.white};
-    padding: ${theme.spacing.sm} 0;
-    text-align: center;
+    font-size: ${theme.font.md};
+    color: ${theme.colour.white};
 
-    ${mediaQuery.sm(css`
-      width: 13em;
+    ${mediaQuery.lg(css`
+      width: 100% !important;
+      color: ${theme.colour.black};
+      font-size: ${theme.font.md};
     `)};
 
     &.empty {
-      background-color: ${theme.colour.greyLight};
-      border: 2px solid ${theme.colour.greyLight};
-
       * {
-        visibility: hidden;
+        display: none;
       }
     }
   }
@@ -343,38 +370,105 @@ const dayBox = css`
 `
 
 const daySelection = css`
+  background: ${theme.colour.blackLight} !important;
   margin-bottom: ${theme.spacing.xl};
+  width: 20rem !important;
+  padding: ${theme.spacing.lg} ${theme.spacing.lg} 0 ${theme.spacing.lg};
+
+  li {
+    border-top: 1px solid #dddddd;
+    padding-bottom: ${theme.spacing.md};
+    padding-top: 1rem;
+    margin-bottom: 0 !important;
+  }
+
+  li:first-of-type {
+    ${mediaQuery.lg(css`
+      padding-top: ${theme.spacing.xs};
+    `)};
+  }
+
+  li:last-of-type {
+    padding-bottom: ${theme.spacing.lg};
+
+    ${mediaQuery.lg(css`
+      padding-bottom: ${theme.spacing.md};
+    `)};
+  }
 
   h3 {
-    margin: 0 0 ${theme.spacing.lg} 0;
+    color: ${theme.colour.white};
     font-family: ${theme.weight.b}, Helvetica;
+    font-size: ${theme.font.md};
+    margin-bottom: ${theme.spacing.sm};
   }
+
+  ${mediaQuery.lg(css`
+    background: ${theme.colour.white} !important;
+    margin-bottom: 0;
+    padding: 0 0 ${theme.spacing.sm} 0;
+    width: 60% !important;
+
+    li {
+      color: ${theme.colour.black} !important;
+      border-top: 0;
+      padding-top: 0;
+      margin-bottom: ${theme.spacing.xs};
+    }
+
+    h3 {
+      color: ${theme.colour.black};
+      font-size: ${theme.font.lg};
+    }
+  `)};
+
+  ${mediaQuery.md(css`
+    width: 100%;
+  `)};
 `
 
 const removeDateMobile = css`
   display: none;
-  height: 2.5rem;
-  width: 2.5rem;
 
-  ${mediaQuery.sm(css`
+  ${mediaQuery.lg(css`
     display: block;
+    width: 1.6rem;
+    height: 1.6rem;
   `)};
 `
 
 const removeDateDesktop = css`
-  width: 7rem;
+  height: 1rem;
+  width: 1rem;
 
-  ${mediaQuery.sm(css`
+  ${mediaQuery.lg(css`
     display: none;
   `)};
 `
+
 const selectedDaysError = css`
-  margin-bottom: ${theme.spacing.lg};
+  margin-bottom: ${theme.spacing.md};
+  padding: 0.2rem ${theme.spacing.sm} ${theme.spacing.md} ${theme.spacing.sm};
+  background: ${theme.colour.white};
 
   &:focus {
     outline-offset: 3px;
     outline: 3px solid ${theme.colour.focus};
   }
+`
+
+const triangle = css`
+  width: 0;
+  height: 0;
+  margin-top: ${theme.spacing.lg};
+  margin-left: ${theme.spacing.md};
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 25px solid ${theme.colour.blackLight};
+
+  ${mediaQuery.lg(css`
+    display: none;
+  `)};
 `
 
 const sortSelectedDays = selectedDays => {
@@ -407,20 +501,16 @@ const renderDayBoxes = ({
             aria-label={`Remove day: ${dateToHTMLString(selectedDay)}`}
           >
             <div className={removeDateDesktop}>
-              <Trans>Remove day</Trans>
+              <img src={Cancel} alt="Remove Day" />
             </div>
 
             <div className={removeDateMobile}>
-              <img src={Cancel} alt="Remove day" />
+              <img src={MobileCancel} alt="Remove Day" />
             </div>
           </button>
         </li>
       ) : (
-        <li key={i} className={dayBox}>
-          <span className="empty day-box">
-            <span>No date selected</span>
-          </span>
-        </li>
+        ''
       ),
     )
   }
@@ -550,12 +640,11 @@ class Calendar extends Component {
           onBlur={() => onBlur(value)}
           containerProps={{ id, tabIndex }}
         />
-        <div className={daySelection}>
-          <h3>
-            <Trans>Your 3 selected days:</Trans>
-          </h3>
+        <div className={value.length ? triangle : noDates} />
+        <div className={value.length ? daySelection : noDates}>
+          <h3>Your 3 selected days:</h3>
           <div
-            className={selectedDaysError}
+            className={this.state.errorMessage ? selectedDaysError : ''}
             tabIndex="-1"
             ref={errorContainer => {
               this.errorContainer = errorContainer

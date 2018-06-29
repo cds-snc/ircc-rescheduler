@@ -54,4 +54,22 @@ describe('<Footer />', () => {
         .text(),
     ).not.toMatch(/and Conditions/)
   })
+
+  it('renders with Canadawordmark in French', () => {
+    const footer = mount(
+      <I18nProvider>
+        <Footer context={getStore('fr')} i18n={i18n} />{' '}
+      </I18nProvider>,
+    )
+    expect(footer.find('img').length).toBe(1)
+  })
+
+  it('renders with Canadawordmark in English', () => {
+    const footer = mount(
+      <I18nProvider>
+        <Footer context={getStore('en')} i18n={i18n} />{' '}
+      </I18nProvider>,
+    )
+    expect(footer.find('img').length).toBe(1)
+  })
 })

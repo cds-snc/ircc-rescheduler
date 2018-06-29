@@ -3,7 +3,7 @@ import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import PropTypes from 'prop-types'
 import { Trans, withI18n } from 'lingui-react'
-import { WordMark } from '@cdssnc/gcui'
+import CanadaWordmark from '../assets/CanadaWordmark.svg'
 import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
 
@@ -18,25 +18,40 @@ const footer = css`
   .svg-container {
     width: 150px;
     height: 40px;
+    padding-top: ${theme.spacing.xs};
+    margin-bottom: ${theme.spacing.sm};
 
     ${mediaQuery.md(css`
-      width: 85px;
+      width: 100px;
       height: 25px;
+      padding-top: 0;
+      margin-bottom: 0;
     `)};
 
     ${mediaQuery.sm(css`
-      width: 65px;
+      width: 80px;
       height: 18px;
+      padding-top: ${theme.spacing.xs};
+      margin-bottom: ${theme.spacing.xs};
+    `)};
+
+    ${mediaQuery.xs(css`
+      width: 70px;
+      height: 15px;
+      padding-top: ${theme.spacing.xs};
+      margin-bottom: ${theme.spacing.xs};
     `)};
   }
 
   ${mediaQuery.md(css`
     align-items: center;
-    padding: ${theme.spacing.xl} ${theme.spacing.xxxl};
+    padding: ${theme.spacing.xl} ${theme.spacing.xxxl} ${theme.spacing.xl}
+      ${theme.spacing.xxxl};
   `)};
 
   ${mediaQuery.sm(css`
-    padding: ${theme.spacing.lg} ${theme.spacing.xl};
+    padding: ${theme.spacing.md} ${theme.spacing.xl} ${theme.spacing.lg}
+      ${theme.spacing.xl};
   `)};
 `
 
@@ -49,8 +64,7 @@ const bottomLinks = css`
     margin-right: ${theme.spacing.xl};
 
     ${mediaQuery.md(css`
-      margin-right: 0;
-      margin-left: ${theme.spacing.lg};
+      margin-right: ${theme.spacing.md};
     `)};
 
     ${mediaQuery.sm(css`
@@ -110,12 +124,13 @@ const Footer = withI18n()(({ topBarBackground, i18n, context = {} }) => (
       </div>
 
       <div className="svg-container">
-        <WordMark
-          width="150px"
-          height="40px"
-          lang={context.store.language}
-          flag={theme.colour.redFIP}
-          text={theme.colour.black}
+        <img
+          src={CanadaWordmark}
+          alt={
+            context.store.language === 'en'
+              ? 'Symbol of the Government of Canada'
+              : 'Symbole du gouvernement du Canada'
+          }
         />
       </div>
     </footer>
