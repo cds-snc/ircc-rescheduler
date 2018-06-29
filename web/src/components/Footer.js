@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Trans } from 'lingui-react'
 import { WordMark } from '@cdssnc/gcui'
 import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
@@ -103,12 +104,19 @@ const Footer = ({ topBarBackground }) => (
       </div>
 
       <div className={bottomLinks}>
-        <a href="mailto:cds-snc@tbs-sct.gc.ca">Contact</a>
+        <a href="mailto:cds-snc@tbs-sct.gc.ca">
+          <Trans>Contact</Trans>
+        </a>
         <Circle>&#9679;</Circle>
-        <a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a>
+        <a href="https://www.canada.ca/en/transparency/privacy.html">
+          <Trans>Privacy</Trans>
+        </a>
         <Circle>&#9679;</Circle>
         <a href="https://digital.canada.ca/legal/terms/">
-          Terms<span className={visuallyhiddenMobile}> and Conditions</span>
+          <Trans>Terms</Trans>
+          <span className={visuallyhiddenMobile}>
+            <Trans> and Conditions</Trans>
+          </span>
         </a>
       </div>
     </footer>
