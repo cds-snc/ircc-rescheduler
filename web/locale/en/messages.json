@@ -17,6 +17,15 @@
       ]
     ]
   },
+  "Your 3 selected days:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        550
+      ]
+    ]
+  },
   "Cancel request": {
     "translation": "",
     "origin": [
@@ -27,6 +36,51 @@
       [
         "src/pages/NoJSCalendarPage.js",
         160
+      ]
+    ]
+  },
+  "Please check these sections for errors:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/ErrorMessage.js",
+        61
+      ]
+    ]
+  },
+  "Contact": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        108
+      ]
+    ]
+  },
+  "Privacy": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        112
+      ]
+    ]
+  },
+  "Terms": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        116
+      ]
+    ]
+  },
+  "and Conditions": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        118
       ]
     ]
   },
@@ -555,7 +609,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        30
+        32
       ]
     ]
   },
@@ -568,7 +622,7 @@
       ]
     ]
   },
-  "If you missed your appointment, you still need to contact IRCC within 30 days. If you don‘t, your application could be delayed or abandoned.": {
+  "If you missed your appointment, you still need to contact IRCC within 30 days. If you don’t, your application could be delayed or abandoned.": {
     "translation": "",
     "origin": [
       [
@@ -586,7 +640,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        44
+        46
       ]
     ]
   },
@@ -599,12 +653,21 @@
       ]
     ]
   },
+  "We’ve sent you a confirmation email.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        28
+      ]
+    ]
+  },
   "By September 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
     "translation": "",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        33
+        35
       ]
     ]
   },
@@ -693,7 +756,7 @@
       ]
     ]
   },
-  "Tell IRCC you can’t attend your Citizenship appointment, and request a new one.": {
+  "Tell IRCC you can’t attend your citizenship appointment, and request a new one.": {
     "translation": "",
     "origin": [
       [
