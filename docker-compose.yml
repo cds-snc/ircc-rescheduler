@@ -1,0 +1,15 @@
+version: '3.6'
+services:
+  web:
+    image: 'cdssnc/ircc-mono:latest'
+    working_dir: /app
+    environment:
+      - RAZZLE_PUBLIC_DIR=/app/web/build/public
+      - NODE_ENV=development
+      - PORT=3004
+      - SITE_URL=''
+    ports:
+      - '3000:80'
+    volumes:
+      - ./:/app:rw
+    command: pm2-runtime start ecosystem.config.js --watch
