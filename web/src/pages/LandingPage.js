@@ -46,6 +46,7 @@ const H1Landing = styled(H1)`
 
 const LongReminder = styled(Reminder)`
   padding: 0;
+  margin-bottom: ${theme.spacing.xl} !important;
 
   ${mediaQuery.md(css`
     display: block;
@@ -58,14 +59,6 @@ const LongReminder = styled(Reminder)`
       margin-right: ${theme.spacing.md};
     `)};
   }
-`
-
-const landingButton = css`
-  margin-top: ${theme.spacing.md};
-
-  ${mediaQuery.md(css`
-    margin-top: ${theme.spacing.xl};
-  `)};
 `
 
 class LandingPage extends React.Component {
@@ -118,7 +111,7 @@ class LandingPage extends React.Component {
           </Trans>
         </LongReminder>
 
-        <div className={landingButton}>
+        <div>
           <NavLink to="/register" className={buttonStyles}>
             <Trans>Start now</Trans>{' '}
             <img src={rightArrow} className={arrow} alt="" />
