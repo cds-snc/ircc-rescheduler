@@ -95,7 +95,7 @@ const button = css`
   line-height: 2;
   text-align: center;
 
-  color: ${theme.colour.white};
+  color: ${theme.colour.white} !important;
   background-color: ${theme.colour.green};
   overflow: hidden;
 
@@ -109,6 +109,7 @@ const button = css`
 
   &:visited {
     background-color: ${theme.colour.green};
+    color: ${theme.colour.white} !important;
   }
 
   &:focus {

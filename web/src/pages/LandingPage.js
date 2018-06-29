@@ -110,7 +110,7 @@ class LandingPage extends React.Component {
           </Trans>
         </LongReminder>
 
-        <div className={landingButton}>
+        <div>
           <NavLink to="/register" className={buttonStyles}>
             <Trans>Start now</Trans>{' '}
             <img src={rightArrow} className={arrow} alt="" />
