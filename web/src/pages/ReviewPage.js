@@ -1,6 +1,5 @@
 import React from 'react'
 import { contextPropTypes } from '../context'
-import withProvider from '../withProvider'
 import withContext from '../withContext'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
@@ -199,4 +198,4 @@ ReviewPage.propTypes = {
   ...contextPropTypes,
 }
 
-export default withProvider(withContext(ReviewPage))
+export default withContext(ReviewPage)
