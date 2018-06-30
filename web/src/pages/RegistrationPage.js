@@ -18,7 +18,7 @@ import {
   TextAreaAdapter,
 } from '../components/forms/TextInput'
 import FieldSet from '../components/forms/FieldSet'
-import { RadioAdapter } from '../components/forms/MultipleChoice'
+import { Radio, RadioAdapter } from '../components/forms/MultipleChoice'
 import Button from '../components/forms/Button'
 import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
@@ -193,6 +193,15 @@ class RegistrationPage extends React.Component {
           First, supply some personal information and tell us why you need a new
           appointment.
         </h1>
+        {/*
+          the first checkbox / radio on the page doesn't have its CSS applied correctly
+          so this is a dummy radio button that nobody should ever see
+          it's also outside of the form so it can't be submitted
+          if it is removed, the first radio button in the list of reasons will disappear
+        */}
+        <div style={{ display: 'none' }}>
+          <Radio id="ignore-me" value="ignore-me" />
+        </div>
         <Form
           onSubmit={this.onSubmit}
           initialValues={register || {}}

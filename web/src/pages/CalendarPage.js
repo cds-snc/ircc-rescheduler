@@ -26,6 +26,7 @@ import { ErrorList, errorList } from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
+import { Checkbox } from '../components/forms/MultipleChoice'
 
 const DAY_LIMIT = 3
 
@@ -274,6 +275,15 @@ class NoJS extends Component {
       <Layout>
         <CalHeader props={this.props} />
         {NoJS.validate(calendar).calendar}
+        {/*
+          the first checkbox / radio on the page doesn't have its CSS applied correctly
+          so this is a dummy checkbox that nobody should ever see
+          it's also outside of the form so it can't be submitted
+          if it is removed, the first checkbox in the list of dates will disappear
+        */}
+        <div style={{ display: 'none' }}>
+          <Checkbox id="ignore-me" value="ignore-me" />
+        </div>
         <form>
           <div className={listContainer}>
             <CalendarNoJS dates={calendar} />
