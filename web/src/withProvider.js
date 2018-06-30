@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Cookies from 'js-cookie'
 import { setStoreCookie, getStoreCookie, setSSRCookie } from './cookies'
 import { contextDefault, Context } from './context'
+import { I18nProvider } from 'lingui-react'
+import { catalogs, linguiDev } from './utils/initLingui'
 
 const _whitelist = ({ val, fields }) => {
   /*
@@ -92,7 +94,13 @@ function withProvider(WrappedComponent) {
       const { context, ...props } = this.props // eslint-disable-line no-unused-vars
       return (
         <Context.Provider value={this.state.context}>
-          <WrappedComponent {...props} />
+          <I18nProvider
+            language={this.state.context.store.language}
+            catalogs={catalogs}
+            development={linguiDev}
+          >
+            <WrappedComponent {...props} />
+          </I18nProvider>
         </Context.Provider>
       )
     }
