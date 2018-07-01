@@ -4,7 +4,7 @@ import { Query } from 'react-apollo'
 import { GET_LANGUAGE_QUERY } from '../queries'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
-import { LanguageSwitcher } from './LanguageSwitcher'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const container = css`
   padding: ${theme.spacing.lg} ${theme.spacing.xxxl} ${theme.spacing.md}

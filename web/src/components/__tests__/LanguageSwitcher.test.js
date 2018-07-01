@@ -1,30 +1,31 @@
 import React from 'react'
-import { mount } from 'enzyme'
-import { ApolloProvider } from 'react-apollo'
-import { LanguageSwitcher } from '../LanguageSwitcher'
-import { testClient } from '../../utils/createTestClient'
+import { shallow } from 'enzyme'
+import { BaseLanguageSwitcher as LanguageSwitcher } from '../LanguageSwitcher'
+
+const getStore = lang => ({
+  store: { language: lang },
+  setStore: () => {},
+})
 
 describe('<LanguageSwitcher />', () => {
-  describe('with {language:"en"} in the client cache', () => {
-    it('displays a link to the French version', () => {
-      const englishClient = testClient({ language: 'en' })
-      const wrapper = mount(
-        <ApolloProvider client={englishClient}>
-          <LanguageSwitcher />
-        </ApolloProvider>,
-      )
-      expect(wrapper.text()).toMatch(/Français/)
+  describe('with { language: "en" } in the app context', () => {
+    it('displays a button with "Français"', () => {
+      const wrapper = shallow(<LanguageSwitcher context={getStore('en')} />)
+      expect(wrapper.find('button').text()).toMatch(/Français/)
     })
   })
 
-  describe('with {language:"fr"} in the client cache', () => {
-    it('displays a link to the English version', () => {
-      const wrapper = mount(
-        <ApolloProvider client={testClient({ language: 'fr' })}>
-          <LanguageSwitcher />
-        </ApolloProvider>,
-      )
-      expect(wrapper.text()).toMatch(/English/)
+  describe('with { language: "fr" } in the app context', () => {
+    it('displays a button with "English"', () => {
+      const wrapper = shallow(<LanguageSwitcher context={getStore('fr')} />)
+      expect(wrapper.find('button').text()).toMatch(/English/)
+    })
+  })
+
+  describe('with { language: "" } in the app context', () => {
+    it('displays a button with "Français"', () => {
+      const wrapper = shallow(<LanguageSwitcher context={getStore('')} />)
+      expect(wrapper.find('button').text()).toMatch(/Français/)
     })
   })
 })
