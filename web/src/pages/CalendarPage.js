@@ -22,7 +22,7 @@ import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import { makeGMTDate } from '../components/Time'
 import Reminder from '../components/Reminder'
-import { ErrorList, errorList } from '../components/ErrorMessage'
+import { ErrorList } from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
@@ -240,12 +240,12 @@ class CalendarPage extends Component {
     )
   }
 }
-
 CalendarPage.propTypes = {
   ...contextPropTypes,
   history: PropTypes.any,
   submit: PropTypes.func,
 }
+
 class NoJS extends Component {
   static get fields() {
     return ['calendar']
@@ -260,21 +260,34 @@ class NoJS extends Component {
       return {}
     }
     return {
-      calendar: (
-        <div className={errorList}>
-          <Trans>You must select 3 days.</Trans>
-        </div>
-      ),
+      calendar: <Trans>You must select 3 days.</Trans>,
     }
   }
 
   render() {
     let { context: { store: { calendar } = {} } = {} } = this.props
+    let errorsNoJS = {}
+
+    // only run this if there's a location.search
+    // AND at least one of our fields exists in the string somewhere
+    // so we know for sure they pressed "submit" on this page
+    if (
+      this.props.location.search &&
+      NoJS.fields.some(field => this.props.location.search.includes(field))
+    ) {
+      errorsNoJS = NoJS.validate(calendar)
+    }
 
     return (
       <Layout>
         <CalHeader props={this.props} />
-        {NoJS.validate(calendar).calendar}
+        {Object.keys(errorsNoJS).length ? (
+          <ErrorList message={errorsNoJS.calendar}>
+            <a href="#selectedDays">Calendar</a>
+          </ErrorList>
+        ) : (
+          ''
+        )}
         {/*
           the first checkbox / radio on the page doesn't have its CSS applied correctly
           so this is a dummy checkbox that nobody should ever see
@@ -302,9 +315,9 @@ class NoJS extends Component {
     )
   }
 }
-
 NoJS.propTypes = {
-  context: PropTypes.object,
+  ...contextPropTypes,
+  location: PropTypes.object.isRequired,
 }
 
 const WhichCal = () => {
