@@ -63,7 +63,7 @@ const CalReminder = styled(Reminder)`
 
 const labelNames = id => {
   switch (id) {
-    case 'calendar':
+    case 'selectedDays':
       return <Trans>Calendar</Trans>
     default:
       return ''
@@ -121,31 +121,31 @@ CalBottom.propTypes = {
 
 class CalendarPage extends Component {
   static get fields() {
-    return ['calendar']
+    return ['selectedDays']
   }
 
   static validate(values) {
     const errors = {}
-    if (!values.calendar || !values.calendar.length) {
-      errors.calendar = <Trans>You must select 3 days.</Trans>
-    } else if (values.calendar.length < DAY_LIMIT) {
-      switch (values.calendar.length) {
+    if (!values.selectedDays || !values.selectedDays.length) {
+      errors.selectedDays = <Trans>You must select 3 days.</Trans>
+    } else if (values.selectedDays.length < DAY_LIMIT) {
+      switch (values.selectedDays.length) {
         case 1:
-          errors.calendar = (
+          errors.selectedDays = (
             <Trans>
               You must select 3 days. Please select 2 more days to continue.
             </Trans>
           )
           break
         case 2:
-          errors.calendar = (
+          errors.selectedDays = (
             <Trans>
               You must select 3 days. Please select 1 more day to continue.
             </Trans>
           )
           break
         default:
-          errors.calendar = <Trans>You must select 3 days.</Trans>
+          errors.selectedDays = <Trans>You must select 3 days.</Trans>
       }
     }
     return errors
@@ -163,7 +163,7 @@ class CalendarPage extends Component {
     if (Object.keys(submitErrors).length) {
       this.errorContainer.focus()
       return {
-        [FORM_ERROR]: submitErrors.calendar,
+        [FORM_ERROR]: submitErrors.selectedDays,
       }
     }
 
@@ -177,14 +177,16 @@ class CalendarPage extends Component {
     let { context: { store: { calendar = {} } = {} } = {} } = this.props
     // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
 
-    // cast values to Date objects if calendar.calendar exists and has a length
-    if (calendar && calendar.calendar && calendar.calendar.length) {
-      calendar = { calendar: calendar.calendar.map(day => makeGMTDate(day)) }
+    // cast values to Date objects if calendar.selectedDays exists and has a length
+    if (calendar && calendar.selectedDays && calendar.selectedDays.length) {
+      calendar = {
+        selectedDays: calendar.selectedDays.map(day => makeGMTDate(day)),
+      }
     }
 
     return (
       <Layout>
-        <CalHeader props={this.props} />
+        <CalHeader />
         <Form
           onSubmit={this.onSubmit}
           initialValues={calendar}
@@ -217,8 +219,8 @@ class CalendarPage extends Component {
                   </ErrorList>
                 </div>
                 <Field
-                  name="calendar"
-                  id="calendar"
+                  name="selectedDays"
+                  id="selectedDays"
                   tabIndex={-1}
                   component={CalendarAdapter}
                   dayLimit={DAY_LIMIT}
@@ -248,7 +250,7 @@ CalendarPage.propTypes = {
 
 class NoJS extends Component {
   static get fields() {
-    return ['calendar']
+    return ['selectedDays']
   }
 
   static get redirect() {
@@ -256,11 +258,11 @@ class NoJS extends Component {
   }
 
   static validate(values) {
-    if (values && values.calendar && values.calendar.length === 3) {
+    if (values && values.selectedDays && values.selectedDays.length === 3) {
       return {}
     }
     return {
-      calendar: <Trans>You must select 3 days.</Trans>,
+      selectedDays: <Trans>You must select 3 days.</Trans>,
     }
   }
 
@@ -280,9 +282,9 @@ class NoJS extends Component {
 
     return (
       <Layout>
-        <CalHeader props={this.props} />
+        <CalHeader />
         {Object.keys(errorsNoJS).length ? (
-          <ErrorList message={errorsNoJS.calendar}>
+          <ErrorList message={errorsNoJS.selectedDays}>
             <a href="#selectedDays">Calendar</a>
           </ErrorList>
         ) : (

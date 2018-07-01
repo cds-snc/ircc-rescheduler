@@ -288,7 +288,7 @@ const calendarContainer = css`
     width: 100%;
   `)};
 
-  #selectedDays {
+  #selectedDays-list {
     margin: 0;
 
     li:last-of-type {
@@ -562,7 +562,7 @@ class Calendar extends Component {
             />
           </div>
 
-          <ul id="selectedDays">
+          <ul id="selectedDays-list">
             {renderDayBoxes({
               dayLimit,
               selectedDays: value,
