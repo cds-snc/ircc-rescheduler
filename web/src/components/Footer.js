@@ -1,4 +1,6 @@
 import React from 'react'
+import withContext from '../withContext'
+import { contextPropTypes } from '../context'
 import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
 import { WordMark } from '@cdssnc/gcui'
@@ -84,7 +86,7 @@ const TopBar = styled.hr(
   props => ({ background: props.background }),
 )
 
-const Footer = ({ topBarBackground }) => (
+const Footer = ({ topBarBackground, context = {} }) => (
   <div>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
@@ -107,6 +109,7 @@ const Footer = ({ topBarBackground }) => (
         <WordMark
           width="150px"
           height="40px"
+          lang={context.store.language}
           flag={theme.colour.redFIP}
           text={theme.colour.black}
         />
@@ -115,7 +118,10 @@ const Footer = ({ topBarBackground }) => (
   </div>
 )
 Footer.propTypes = {
+  ...contextPropTypes,
   topBarBackground: PropTypes.string,
 }
 
-export default Footer
+const FooterContext = withContext(Footer)
+
+export { FooterContext as default, Footer as FooterBase }
