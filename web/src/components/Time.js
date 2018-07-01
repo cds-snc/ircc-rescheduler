@@ -12,7 +12,7 @@ const makeGMTDate = date => {
   )
 }
 
-const dateToHTMLString = (date, locale) => {
+const dateToHTMLString = (date, locale = 'en') => {
   var options = {
     weekday: 'long',
     year: 'numeric',
