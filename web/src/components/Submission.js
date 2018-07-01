@@ -1,6 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Mutation } from 'react-apollo'
+import { ApolloProvider, Mutation } from 'react-apollo'
+
+import createApolloClient from '../utils/createApolloClient'
+
+const client = createApolloClient({ ssrMode: false })
 
 export const Submission = props => (
   <Mutation mutation={props.action} onError={props.onError}>
@@ -24,3 +28,9 @@ Submission.propTypes = {
   failure: PropTypes.func.isRequired,
   onError: PropTypes.func,
 }
+
+export const ApolloSubmission = props => (
+  <ApolloProvider client={client}>
+    <Submission {...props} />
+  </ApolloProvider>
+)

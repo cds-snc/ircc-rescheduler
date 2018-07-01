@@ -3,9 +3,7 @@ import React from 'react'
 import { hydrate } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { ensureReady, After } from '@jaredpalmer/after'
-import { ApolloProvider } from 'react-apollo'
 import routes from './routes'
-import createApolloClient from './utils/createApolloClient'
 
 import Raven from 'raven-js'
 if (window) {
@@ -15,15 +13,11 @@ if (window) {
   ).install()
 }
 
-const client = createApolloClient({ ssrMode: false })
-
 ensureReady(routes).then(data =>
   hydrate(
-    <ApolloProvider client={client}>
-      <BrowserRouter>
-        <After data={data} routes={routes} />
-      </BrowserRouter>
-    </ApolloProvider>,
+    <BrowserRouter>
+      <After data={data} routes={routes} />
+    </BrowserRouter>,
     document.getElementById('root'),
   ),
 )

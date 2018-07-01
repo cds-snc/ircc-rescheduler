@@ -1,10 +1,8 @@
-import React from 'react'
 import express from 'express'
 import cookieParser from 'cookie-parser'
 import { SECRET } from './cookies'
 import { render } from '@jaredpalmer/after'
 import { renderToString } from 'react-dom/server'
-import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import routes from './routes'
 import createApolloClient from './utils/createApolloClient'
 import Document from './Document'
@@ -71,15 +69,9 @@ server
     res.redirect('/cancel')
   })
   .get('/*', async (req, res) => {
-    const customRenderer = node => {
-      const client = createApolloClient({ ssrMode: true })
-      const App = <ApolloProvider client={client}>{node}</ApolloProvider>
-      return getDataFromTree(App).then(() => {
-        const initialApolloState = client.extract()
-        const html = renderStylesToString(renderToString(App))
-        return { html, initialApolloState }
-      })
-    }
+    const customRenderer = node => ({
+      html: renderStylesToString(renderToString(node)),
+    })
     try {
       const html = await render({
         req,

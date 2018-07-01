@@ -9,7 +9,7 @@ class Document extends React.Component {
 
   render() {
     // eslint-disable-next-line react/prop-types
-    const { helmet, assets, data, initialApolloState } = this.props
+    const { helmet, assets, data } = this.props
     // get attributes from React Helmet
     const htmlAttrs = helmet.htmlAttributes.toComponent()
     const bodyAttrs = helmet.bodyAttributes.toComponent()
@@ -27,13 +27,6 @@ class Document extends React.Component {
         <body {...bodyAttrs}>
           <AfterRoot />
           <AfterData data={data} />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `window.__APOLLO_STATE__=${JSON.stringify(
-                initialApolloState,
-              ).replace(/</g, '\\u003c')};`,
-            }}
-          />
           <script
             type="text/javascript"
             src={assets.client.js}
