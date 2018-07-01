@@ -103,7 +103,7 @@ const Calendar = ({ startDate, endDate, dates }) => {
 Calendar.propTypes = {
   startDate: isValidDateString,
   endDate: isValidDateString,
-  dates: PropTypes.oneOfType(PropTypes.array, PropTypes.object),
+  dates: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 }
 
 // Go 4 weeks from today (ie, add 28 days)
@@ -125,7 +125,7 @@ class CalendarNoJs extends Component {
 }
 
 CalendarNoJs.propTypes = {
-  dates: PropTypes.oneOfType(PropTypes.array, PropTypes.object),
+  dates: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 }
 
 export default CalendarNoJs
