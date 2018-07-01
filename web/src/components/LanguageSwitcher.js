@@ -103,5 +103,5 @@ const LanguageSwitcherContext = withContext(LanguageSwitcher)
 
 export {
   LanguageSwitcherContext as default,
-  LanguageSwitcher as BaseLanguageSwitcher,
+  LanguageSwitcher as LanguageSwitcherBase,
 }

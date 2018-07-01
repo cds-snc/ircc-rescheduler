@@ -59,4 +59,6 @@ FederalBanner.propTypes = {
   ...contextPropTypes,
 }
 
-export default withContext(FederalBanner)
+const FederalBannerContext = withContext(FederalBanner)
+
+export { FederalBannerContext as default, FederalBanner as FederalBannerBase }
