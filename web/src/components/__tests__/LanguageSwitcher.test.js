@@ -1,8 +1,8 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { BaseLanguageSwitcher as LanguageSwitcher } from '../LanguageSwitcher'
+import { LanguageSwitcherBase as LanguageSwitcher } from '../LanguageSwitcher'
 
-const getStore = lang => ({
+export const getStore = lang => ({
   store: { language: lang },
   setStore: () => {},
 })
