@@ -288,7 +288,7 @@ class NoJS extends Component {
         <CalHeader />
         {Object.keys(errorsNoJS).length ? (
           <ErrorList message={errorsNoJS.selectedDays}>
-            <a href="#selectedDays">Calendar</a>
+            <a href="#selectedDays-form">Calendar</a>
           </ErrorList>
         ) : (
           ''
@@ -302,7 +302,7 @@ class NoJS extends Component {
         <div style={{ display: 'none' }}>
           <Checkbox id="ignore-me" value="ignore-me" />
         </div>
-        <form>
+        <form id="selectedDays-form">
           <div className={listContainer}>
             <CalendarNoJS dates={calendar} />
           </div>
