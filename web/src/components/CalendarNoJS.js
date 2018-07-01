@@ -64,8 +64,8 @@ const Calendar = ({ startDate, endDate, dates }) => {
       const el = (
         <li key={val}>
           <Checkbox
-            name="calendar"
-            id={`calendar-${idMonth}-${index}`}
+            name="selectedDays"
+            id={`selectedDays-${idMonth}-${index}`}
             value={val}
             label={label}
             onChange={() => {}}
@@ -114,7 +114,7 @@ class CalendarNoJs extends Component {
 
     return (
       <Calendar
-        dates={dates && dates.calendar ? dates.calendar : []}
+        dates={dates && dates.selectedDays ? dates.selectedDays : []}
         startDate={startDate}
         endDate={endDate}
       />
