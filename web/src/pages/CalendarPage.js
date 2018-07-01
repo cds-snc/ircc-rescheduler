@@ -20,7 +20,7 @@ import CalendarAdapter from '../components/Calendar'
 import Chevron from '../components/Chevron'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
-import { makeGMTDate } from '../components/Time'
+import { makeGMTDate, dateToISODateString } from '../components/Time'
 import Reminder from '../components/Reminder'
 import { ErrorList } from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
@@ -167,7 +167,10 @@ class CalendarPage extends Component {
       }
     }
 
-    // if setStore doesn't exist, nothing gets saved between pages
+    // values.selectedDays is an array of dates, so cast them to ISO date strings
+    values = {
+      selectedDays: values.selectedDays.map(date => dateToISODateString(date)),
+    }
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
     await this.props.history.push('/review')
