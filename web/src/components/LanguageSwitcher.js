@@ -1,6 +1,7 @@
 import React from 'react'
 import withContext from '../withContext'
 import { contextPropTypes } from '../context'
+import { Helmet } from 'react-helmet'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import {
@@ -62,6 +63,9 @@ class LanguageSwitcher extends React.Component {
 
     return (
       <form>
+        <Helmet>
+          <html lang={this.state.language} />
+        </Helmet>
         <h2 className={visuallyhidden}>
           <Trans>Language Selection</Trans>
         </h2>
