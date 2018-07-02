@@ -4,7 +4,7 @@ import { Trans, withI18n } from 'lingui-react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
-import Time, { makeGMTDate } from './Time'
+import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
@@ -402,13 +402,14 @@ const renderDayBoxes = ({
             type="button"
             onClick={removeDayOnClickOrKeyPress(selectedDay)}
             onKeyPress={removeDayOnClickOrKeyPress(selectedDay)}
+            aria-label={`Remove day: ${dateToHTMLString(selectedDay)}`}
           >
             <div className={removeDateDesktop}>
               <Trans>Remove day</Trans>
             </div>
 
             <div className={removeDateMobile}>
-              <img src={Cancel} alt="Remove Day" />
+              <img src={Cancel} alt="Remove day" />
             </div>
           </button>
         </li>
