@@ -2,10 +2,10 @@ import React from 'react'
 import { Trans } from 'lingui-react'
 
 export const getDateInfo = i18n => {
-  let date = {}
+  let dateInfo = {}
   if (i18n) {
     //dates need to be arrays of strings (react day picker proptype)
-    date = {
+    dateInfo = {
       months: [
         i18n._`January`,
         i18n._`February`,
@@ -40,7 +40,7 @@ export const getDateInfo = i18n => {
       ],
     }
   } else {
-    date = {
+    dateInfo = {
       months: [
         'January',
         'February',
@@ -67,7 +67,7 @@ export const getDateInfo = i18n => {
       weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Thu', 'Fri', 'Sat'],
     }
   }
-  return date
+  return dateInfo
 }
 
 // eslint-disable-next-line no-unused-vars

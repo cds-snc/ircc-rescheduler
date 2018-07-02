@@ -29,8 +29,11 @@ function withProvider(WrappedComponent) {
       let prevCookie = getStoreCookie(req.cookies)
       let newCookie
 
+      // if a query string exists
       if (Object.keys(query).length) {
         let { key, val } = WithProvider.returnKeyAndValue(query, match)
+        // if _any_ valid values exist, this returns a whitelisted + validated object
+        // else false
         val = WithProvider.validateCookie(key, val)
         if (val) {
           newCookie = setSSRCookie(res, key, val, prevCookie)
