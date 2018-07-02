@@ -18,4 +18,24 @@ describe('<Footer />', () => {
     expect(footer.find('footer').length).toBe(1)
     expect(footer.find('hr').length).toBe(1)
   })
+
+  it('renders "and Conditions" in English', () => {
+    const footer = mount(<Footer context={getStore('en')} />)
+    expect(
+      footer
+        .find('a')
+        .at(2)
+        .text(),
+    ).toMatch(/and Conditions/)
+  })
+
+  it('renders without "and Conditions" in French', () => {
+    const footer = mount(<Footer context={getStore('fr')} />)
+    expect(
+      footer
+        .find('a')
+        .at(2)
+        .text(),
+    ).not.toMatch(/and Conditions/)
+  })
 })
