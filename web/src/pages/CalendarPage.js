@@ -52,13 +52,12 @@ const CalendarSubheader = styled(H2)`
   ${headerStyles};
 `
 
-const listContainer = css`
-  display: flex;
-  margin-bottom: ${theme.spacing.xxl};
-`
-
 const CalReminder = styled(Reminder)`
   padding: ${theme.spacing.md} 0;
+`
+
+const fullWidth = css`
+  width: 100% !important;
 `
 
 const labelNames = id => {
@@ -202,7 +201,7 @@ class CalendarPage extends Component {
             errors,
             submitError,
           }) => (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={fullWidth}>
               <div>
                 <div
                   id="submit-error"
@@ -302,10 +301,8 @@ class NoJS extends Component {
         <div style={{ display: 'none' }}>
           <Checkbox id="ignore-me" value="ignore-me" />
         </div>
-        <form id="selectedDays-form">
-          <div className={listContainer}>
-            <CalendarNoJS dates={calendar} />
-          </div>
+        <form id="selectedDays-form" className={fullWidth}>
+          <CalendarNoJS dates={calendar} />
           <CalBottom
             submit={() => {
               return (

@@ -13,14 +13,25 @@ import Time, { dateToISODateString } from './Time'
 const calList = css`
   display: flex;
 
-  ${mediaQuery.md(css`
+  h2 {
+    margin-top: 0;
+    margin-bottom: ${theme.spacing.md};
+  }
+
+  ${mediaQuery.lg(css`
     flex-direction: column;
   `)};
 `
 
 const column = css`
   border-left: 2px solid black;
-  padding: 0 ${theme.spacing.xxxl} 0 ${theme.spacing.lg};
+  padding-left: ${theme.spacing.lg};
+  margin: 0 ${theme.spacing.xxl} ${theme.spacing.lg} 0;
+
+  /* this is so that the border bottom aligns with the bottom of the checkbox */
+  li:last-of-type label {
+    padding-bottom: 2px;
+  }
 `
 
 const isValidDate = (
@@ -85,10 +96,12 @@ const Calendar = ({ startDate, endDate, dates }) => {
     <div className={calList}>
       {Object.keys(mapped).map((keyName, keyIndex) => {
         return (
-          <ul className={column} key={keyName}>
+          <div key={keyIndex}>
             <h2>{keyName}</h2>
-            {mapped[keyName]}
-          </ul>
+            <ul className={column} key={keyName}>
+              {mapped[keyName]}
+            </ul>
+          </div>
         )
       })}
     </div>
