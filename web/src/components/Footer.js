@@ -105,10 +105,13 @@ const Footer = withI18n()(({ topBarBackground, i18n, context = {} }) => (
         </a>
         <a href={translateText(i18n, 'https://digital.canada.ca/legal/terms/')}>
           <Trans>Terms</Trans>
-          <span className={visuallyhiddenMobile}>
-            {' '}
-            <Trans>and Conditions</Trans>
-          </span>
+          {context.store &&
+          context.store.language &&
+          context.store.language === 'fr' ? (
+            ''
+          ) : (
+            <span className={visuallyhiddenMobile}> and Conditions</span>
+          )}
         </a>
       </div>
 
