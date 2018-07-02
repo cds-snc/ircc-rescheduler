@@ -8,7 +8,7 @@ import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
-import { getDateInfo } from './forms/CalendarConstants'
+import { getDateInfo } from '../utils/linguiUtils'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
