@@ -44,4 +44,4 @@ Time.propTypes = {
   locale: PropTypes.string,
 }
 
-export { Time as default, makeGMTDate, dateToISODateString }
+export { Time as default, makeGMTDate, dateToISODateString, dateToHTMLString }
