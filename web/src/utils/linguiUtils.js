@@ -53,6 +53,7 @@ const translations = () => (
     <Trans>Sat</Trans>
     <Trans>https://www.canada.ca/en/transparency/privacy.html</Trans>
     <Trans>https://digital.canada.ca/legal/terms/</Trans>
+    <Trans>Important message</Trans>
   </React.Fragment>
 )
 
