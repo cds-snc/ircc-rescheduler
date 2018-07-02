@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import { setStoreCookie, getStoreCookie, setSSRCookie } from './cookies'
 import { contextDefault, Context } from './context'
 import { I18nProvider } from 'lingui-react'
-import { catalogs, linguiDev } from './utils/initLingui'
+import { catalogs, linguiDev } from './utils/linguiUtils'
 
 const _whitelist = ({ val, fields }) => {
   /*
