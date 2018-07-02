@@ -72,7 +72,7 @@ export const getDateInfo = i18n => {
 
 // eslint-disable-next-line no-unused-vars
 const translations = () => (
-  <div>
+  <React.Fragment>
     <Trans>January</Trans>
     <Trans>February</Trans>
     <Trans>March</Trans>
@@ -99,5 +99,7 @@ const translations = () => (
     <Trans>Thu</Trans>
     <Trans>Fri</Trans>
     <Trans>Sat</Trans>
-  </div>
+    <Trans>https://www.canada.ca/en/transparency/privacy.html</Trans>
+    <Trans>https://digital.canada.ca/legal/terms/</Trans>
+  </React.Fragment>
 )
