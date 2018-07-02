@@ -1,6 +1,6 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
-import { SECRET } from './cookies'
+import { SECRET, getStoreCookie } from './cookies'
 import { render } from '@jaredpalmer/after'
 import { renderToString } from 'react-dom/server'
 import routes from './routes'
@@ -65,8 +65,10 @@ server
     }
   })
   .get('/clear', (req, res) => {
+    let language = getStoreCookie(req.cookies, 'language') || 'en'
+
     res.clearCookie('store')
-    res.redirect('/cancel')
+    res.redirect(`/cancel?language=${language}`)
   })
   .get('/*', async (req, res) => {
     const customRenderer = node => ({
