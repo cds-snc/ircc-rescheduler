@@ -301,16 +301,18 @@ class NoJS extends Component {
           <Checkbox id="ignore-me" value="ignore-me" />
         </div>
         <form id="selectedDays-form" className={fullWidth}>
-          <CalendarNoJS dates={calendar} />
-          <CalBottom
-            submit={() => {
-              return (
-                <Button>
-                  <Trans>Review request</Trans>
-                </Button>
-              )
-            }}
-          />
+          <span>
+            <CalendarNoJS dates={calendar} />
+            <CalBottom
+              submit={() => {
+                return (
+                  <Button>
+                    <Trans>Review request</Trans>
+                  </Button>
+                )
+              }}
+            />
+          </span>
         </form>
       </Layout>
     )
