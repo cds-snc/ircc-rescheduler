@@ -14,16 +14,6 @@ const bigBanner = css`
     padding-left: ${theme.spacing.xl};
     padding-right: ${theme.spacing.xl};
   `)};
-
-  > * {
-    font-size: ${theme.font.xxl};
-    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
-    font-weight: 700;
-
-    ${mediaQuery.sm(css`
-      font-size: ${theme.font.lg};
-    `)};
-  }
 `
 
 const skinnyBanner = css`
@@ -41,6 +31,16 @@ const skinnyBanner = css`
   }
 `
 
+const pageTitle = css`
+  font-size: ${theme.font.xxl};
+  font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+
+  ${mediaQuery.sm(css`
+    font-size: ${theme.font.lg};
+  `)};
+`
+
 const PageHeader = ({ children, headerClass = '' }) => (
   <header className={headerClass ? skinnyBanner : bigBanner}>
     <PhaseBanner phase="beta">
@@ -55,7 +55,7 @@ const PageHeader = ({ children, headerClass = '' }) => (
         </a>
       </Trans>
     </PhaseBanner>
-    <div className={headerClass}>{children}</div>
+    <div className={headerClass ? headerClass : pageTitle}>{children}</div>
   </header>
 )
 PageHeader.propTypes = {
