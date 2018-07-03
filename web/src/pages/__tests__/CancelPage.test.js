@@ -4,7 +4,7 @@ import React from 'react'
 import { MemoryRouter } from 'react-router'
 
 describe('<CancelPage />', () => {
-  it('can be instantiated', () => {
+  it.skip('can be instantiated', () => {
     const wrapper = mount(
       <MemoryRouter initialEntries={['/cancel']}>
         <div>
