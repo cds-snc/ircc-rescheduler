@@ -8,7 +8,7 @@ const Chevron = ({ width = 8, height = 8, dir = 'right' }) => {
     <svg
       width={height}
       height={width}
-      style={{ display: 'inline-block', marginRight: '5' }}
+      style={{ display: 'inline-block', marginRight: '5px' }}
       transform={flip}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 9.42 15.62"
