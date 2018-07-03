@@ -62,18 +62,16 @@ const Calendar = ({ startDate, endDate, dates }) => {
       const checked = dates.includes(val)
 
       const el = (
-        <React.Fragment key={val}>
-          <li>
-            <Checkbox
-              name="calendar"
-              id={`calendar-${idMonth}-${index}`}
-              value={val}
-              label={label}
-              onChange={() => {}}
-              checked={checked}
-            />
-          </li>
-        </React.Fragment>
+        <li key={val}>
+          <Checkbox
+            name="calendar"
+            id={`calendar-${idMonth}-${index}`}
+            value={val}
+            label={label}
+            onChange={() => {}}
+            checked={checked}
+          />
+        </li>
       )
 
       // eslint-disable-next-line security/detect-object-injection
@@ -103,7 +101,7 @@ const Calendar = ({ startDate, endDate, dates }) => {
 Calendar.propTypes = {
   startDate: isValidDateString,
   endDate: isValidDateString,
-  dates: PropTypes.oneOfType(PropTypes.array, PropTypes.object),
+  dates: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 }
 
 // Go 4 weeks from today (ie, add 28 days)
@@ -125,7 +123,7 @@ class CalendarNoJs extends Component {
 }
 
 CalendarNoJs.propTypes = {
-  dates: PropTypes.oneOfType(PropTypes.array, PropTypes.object),
+  dates: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
 }
 
 export default CalendarNoJs
