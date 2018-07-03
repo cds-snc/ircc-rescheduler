@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import FieldAdapterPropTypes from '../_Field'
 import { css } from 'react-emotion'
-import { theme, roundedEdges, mediaQuery } from '../../styles'
+import { theme, mediaQuery } from '../../styles'
 
 const govuk_multiple_choice = css`
   display: block;
@@ -129,45 +129,13 @@ const govuk_label_pseudo_elements = css`
 `
 
 const cds_multiple_choice = css`
-  padding: 0 0 0 ${theme.spacing.xl};
-  margin-bottom: ${theme.spacing.sm};
-  input {
-    width: 24px;
-    height: 24px;
-  }
-  label {
-    display: inline-block;
-    padding: 0;
-    height: initial;
-    font-size: ${theme.font.lg};
-    > span {
-      padding: 0 ${theme.spacing.sm} 0 ${theme.spacing.xs};
-    }
-  }
-  ${mediaQuery.sm(css`
-    margin-bottom: ${theme.spacing.md};
-    input {
-      width: 22px;
-      height: 22px;
-    }
-    label {
-      font-size: ${theme.font.lg};
-      > span {
-        padding-left: 0;
-      }
-    }
-  `)};
-`
-
-const radio = css`
-  ${govuk_multiple_choice};
-
   label {
     padding-top: 3px;
     font-size: ${theme.font.lg};
   }
 
-  input[type='radio'] + label::before {
+  input[type='radio'] + label::before,
+  input[type='checkbox'] + label::before {
     border: 2px solid ${theme.colour.black};
     background-color: ${theme.colour.white};
   }
@@ -177,6 +145,11 @@ const radio = css`
       padding-top: 4px;
     }
   `)};
+`
+
+const radio = css`
+  ${govuk_multiple_choice};
+  ${cds_multiple_choice};
 `
 
 const MultipleChoice = ({
@@ -213,7 +186,7 @@ const MultipleChoice = ({
 MultipleChoice.propTypes = {
   type: PropTypes.string.isRequired,
   className: PropTypes.string,
-  label: PropTypes.oneOfType([PropTypes.element.isRequired, PropTypes.string]),
+  label: PropTypes.element,
   value: PropTypes.string.isRequired,
   name: PropTypes.string,
   id: PropTypes.string,
@@ -236,22 +209,11 @@ const checkbox = css`
   ${govuk_multiple_choice};
   ${cds_multiple_choice};
 
-  input[type='checkbox'] + label::before {
-    border: 2px solid ${theme.colour.grey};
-    width: 22px;
-    height: 22px;
-    top: 2px;
-    left: 0;
-    background-color: ${theme.colour.white};
-    ${roundedEdges};
-  }
-
   input[type='checkbox'] + label::after {
-    border-width: 0 0 3px 3px;
-    width: 14px;
-    height: 7px;
-    top: 8px;
-    left: 4px;
+    width: 21px;
+    height: 11px;
+    top: 9px;
+    left: 7px;
   }
 `
 

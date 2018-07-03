@@ -20,12 +20,13 @@ import CalendarAdapter from '../components/Calendar'
 import Chevron from '../components/Chevron'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
-import { makeGMTDate } from '../components/Time'
+import { makeGMTDate, dateToISODateString } from '../components/Time'
 import Reminder from '../components/Reminder'
-import { ErrorList, errorList } from '../components/ErrorMessage'
+import { ErrorList } from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
+import { Checkbox } from '../components/forms/MultipleChoice'
 
 const DAY_LIMIT = 3
 
@@ -51,18 +52,17 @@ const CalendarSubheader = styled(H2)`
   ${headerStyles};
 `
 
-const listContainer = css`
-  display: flex;
-  margin-bottom: ${theme.spacing.xxl};
-`
-
 const CalReminder = styled(Reminder)`
   padding: ${theme.spacing.md} 0;
 `
 
+const fullWidth = css`
+  width: 100% !important;
+`
+
 const labelNames = id => {
   switch (id) {
-    case 'calendar':
+    case 'selectedDays':
       return <Trans>Calendar</Trans>
     default:
       return ''
@@ -120,31 +120,31 @@ CalBottom.propTypes = {
 
 class CalendarPage extends Component {
   static get fields() {
-    return ['calendar']
+    return ['selectedDays']
   }
 
   static validate(values) {
     const errors = {}
-    if (!values.calendar || !values.calendar.length) {
-      errors.calendar = <Trans>You must select 3 days.</Trans>
-    } else if (values.calendar.length < DAY_LIMIT) {
-      switch (values.calendar.length) {
+    if (!values.selectedDays || !values.selectedDays.length) {
+      errors.selectedDays = <Trans>You must select 3 days.</Trans>
+    } else if (values.selectedDays.length < DAY_LIMIT) {
+      switch (values.selectedDays.length) {
         case 1:
-          errors.calendar = (
+          errors.selectedDays = (
             <Trans>
               You must select 3 days. Please select 2 more days to continue.
             </Trans>
           )
           break
         case 2:
-          errors.calendar = (
+          errors.selectedDays = (
             <Trans>
               You must select 3 days. Please select 1 more day to continue.
             </Trans>
           )
           break
         default:
-          errors.calendar = <Trans>You must select 3 days.</Trans>
+          errors.selectedDays = <Trans>You must select 3 days.</Trans>
       }
     }
     return errors
@@ -162,11 +162,14 @@ class CalendarPage extends Component {
     if (Object.keys(submitErrors).length) {
       this.errorContainer.focus()
       return {
-        [FORM_ERROR]: submitErrors.calendar,
+        [FORM_ERROR]: submitErrors.selectedDays,
       }
     }
 
-    // if setStore doesn't exist, nothing gets saved between pages
+    // values.selectedDays is an array of dates, so cast them to ISO date strings
+    values = {
+      selectedDays: values.selectedDays.map(date => dateToISODateString(date)),
+    }
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
     await this.props.history.push('/review')
@@ -176,14 +179,16 @@ class CalendarPage extends Component {
     let { context: { store: { calendar = {} } = {} } = {} } = this.props
     // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
 
-    // cast values to Date objects if calendar.calendar exists and has a length
-    if (calendar && calendar.calendar && calendar.calendar.length) {
-      calendar = { calendar: calendar.calendar.map(day => makeGMTDate(day)) }
+    // cast values to Date objects if calendar.selectedDays exists and has a length
+    if (calendar && calendar.selectedDays && calendar.selectedDays.length) {
+      calendar = {
+        selectedDays: calendar.selectedDays.map(day => makeGMTDate(day)),
+      }
     }
 
     return (
       <Layout>
-        <CalHeader props={this.props} />
+        <CalHeader />
         <Form
           onSubmit={this.onSubmit}
           initialValues={calendar}
@@ -196,7 +201,7 @@ class CalendarPage extends Component {
             errors,
             submitError,
           }) => (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={fullWidth}>
               <div>
                 <div
                   id="submit-error"
@@ -216,8 +221,8 @@ class CalendarPage extends Component {
                   </ErrorList>
                 </div>
                 <Field
-                  name="calendar"
-                  id="calendar"
+                  name="selectedDays"
+                  id="selectedDays"
                   tabIndex={-1}
                   component={CalendarAdapter}
                   dayLimit={DAY_LIMIT}
@@ -239,15 +244,15 @@ class CalendarPage extends Component {
     )
   }
 }
-
 CalendarPage.propTypes = {
   ...contextPropTypes,
   history: PropTypes.any,
   submit: PropTypes.func,
 }
+
 class NoJS extends Component {
   static get fields() {
-    return ['calendar']
+    return ['selectedDays']
   }
 
   static get redirect() {
@@ -255,29 +260,49 @@ class NoJS extends Component {
   }
 
   static validate(values) {
-    if (values && values.calendar && values.calendar.length === 3) {
+    if (values && values.selectedDays && values.selectedDays.length === 3) {
       return {}
     }
     return {
-      calendar: (
-        <div className={errorList}>
-          <Trans>You must select 3 days.</Trans>
-        </div>
-      ),
+      selectedDays: <Trans>You must select 3 days.</Trans>,
     }
   }
 
   render() {
     let { context: { store: { calendar } = {} } = {} } = this.props
+    let errorsNoJS = {}
+
+    // only run this if there's a location.search
+    // AND at least one of our fields exists in the string somewhere
+    // so we know for sure they pressed "submit" on this page
+    if (
+      this.props.location.search &&
+      NoJS.fields.some(field => this.props.location.search.includes(field))
+    ) {
+      errorsNoJS = NoJS.validate(calendar)
+    }
 
     return (
       <Layout>
-        <CalHeader props={this.props} />
-        {NoJS.validate(calendar).calendar}
-        <form>
-          <div className={listContainer}>
-            <CalendarNoJS dates={calendar} />
-          </div>
+        <CalHeader />
+        {Object.keys(errorsNoJS).length ? (
+          <ErrorList message={errorsNoJS.selectedDays}>
+            <a href="#selectedDays-form">Calendar</a>
+          </ErrorList>
+        ) : (
+          ''
+        )}
+        {/*
+          the first checkbox / radio on the page doesn't have its CSS applied correctly
+          so this is a dummy checkbox that nobody should ever see
+          it's also outside of the form so it can't be submitted
+          if it is removed, the first checkbox in the list of dates will disappear
+        */}
+        <div style={{ display: 'none' }}>
+          <Checkbox id="ignore-me" value="ignore-me" />
+        </div>
+        <form id="selectedDays-form" className={fullWidth}>
+          <CalendarNoJS dates={calendar} />
           <CalBottom
             submit={() => {
               return (
@@ -292,9 +317,9 @@ class NoJS extends Component {
     )
   }
 }
-
 NoJS.propTypes = {
-  context: PropTypes.object,
+  ...contextPropTypes,
+  location: PropTypes.object.isRequired,
 }
 
 const WhichCal = () => {

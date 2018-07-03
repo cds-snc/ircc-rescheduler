@@ -17,7 +17,7 @@ injectGlobal`
     margin: 0;
     background: ${theme.colour.white};
     height: 100%;
-    font-family: ${theme.weight.r}, Helvetica;
+    font-family: ${theme.weight.r}, Helvetica, Arial, sans-serif;
     font-size: 18px;
     box-sizing: border-box;
 
@@ -27,7 +27,7 @@ injectGlobal`
   }
 
   strong {
-    font-family: ${theme.weight.b} , Helvetica, Arial, sans-serif;
+    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
   }
 
   *, *:before, *:after {
@@ -65,11 +65,7 @@ injectGlobal`
   }
 
   .chevron-link path {
-    fill: #1c2bf0;
-  }
-
-  .chevron-link:visited path {
-    fill: #572c94;
+    fill: ${theme.colour.link};
   }
 `
 

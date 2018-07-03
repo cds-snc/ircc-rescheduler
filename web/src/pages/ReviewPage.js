@@ -89,12 +89,17 @@ const WhichSubmit = props => {
     <BottomContainer>
       <form action="/submit" method="post">
         <input type="hidden" name="fullName" value={props.fullName} />
+        <input
+          type="hidden"
+          name="paperFileNumber"
+          value={props.paperFileNumber}
+        />
         <input type="hidden" name="email" value={props.email} />
         <input type="hidden" name="explanation" value={props.explanation} />
         <input type="hidden" name="reason" value={props.reason} />
         <input type="hidden" name="availability" value={props.selectedDays} />
         <Button type="submit">
-          <Trans>Send request No JS</Trans>
+          <Trans>Send request</Trans>
           <img src={rightArrow} className={arrow} alt="" />
         </Button>
       </form>
@@ -142,12 +147,10 @@ class ReviewPage extends React.Component {
             reason,
             explanation,
           } = {},
-          calendar: { calendar: selectedDays = [] } = {},
+          calendar: { selectedDays = [] } = {},
         } = {},
       } = {},
     } = this.props
-
-    /* TODO: handle a NO-JS submission */
 
     return (
       <Layout contentClass={contentClass}>

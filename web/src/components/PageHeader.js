@@ -17,7 +17,7 @@ const bigBanner = css`
 
   > * {
     font-size: ${theme.font.xxl};
-    font-family: ${theme.weight.b}, Helvetica, sans-serif;
+    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
     font-weight: 700;
 
     ${mediaQuery.sm(css`
