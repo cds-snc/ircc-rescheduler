@@ -98,7 +98,7 @@ const WhichSubmit = props => {
         <input type="hidden" name="reason" value={props.reason} />
         <input type="hidden" name="availability" value={props.selectedDays} />
         <Button type="submit">
-          <Trans>Send request</Trans>
+          <Trans>Send request</Trans>{' '}
           <img src={rightArrow} className={arrow} alt="" />
         </Button>
       </form>
