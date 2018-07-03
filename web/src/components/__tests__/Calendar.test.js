@@ -15,7 +15,7 @@ const clickFirstDate = wrapper => {
 
 const getDateStrings = wrapper => {
   return wrapper
-    .find('#selectedDays time')
+    .find('#selectedDays-list time')
     .map(time => time.text())
     .join(' ')
 }
@@ -153,7 +153,7 @@ describe('<CalendarAdapter />', () => {
 
     // click first "Remove date" button
     wrapper
-      .find('#selectedDays button')
+      .find('#selectedDays-list button')
       .first()
       .simulate('click')
     expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
@@ -245,7 +245,7 @@ describe('<CalendarAdapter />', () => {
       expect(getDateStrings(wrapper)).toEqual('Wednesday, August 1, 2018')
 
       wrapper
-        .find('#selectedDays button')
+        .find('#selectedDays-list button')
         .first()
         .simulate(eventType, options)
       expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)

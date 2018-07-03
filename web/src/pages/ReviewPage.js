@@ -147,12 +147,10 @@ class ReviewPage extends React.Component {
             reason,
             explanation,
           } = {},
-          calendar: { calendar: selectedDays = [] } = {},
+          calendar: { selectedDays = [] } = {},
         } = {},
       } = {},
     } = this.props
-
-    /* TODO: handle a NO-JS submission */
 
     return (
       <Layout contentClass={contentClass}>
