@@ -12,4 +12,4 @@ services:
       - '3000:80'
     volumes:
       - ./:/app:rw
-    command: pm2-runtime start ecosystem.config.js --watch
+    command: /bin/sh -c "nginx && pm2-runtime start ecosystem.config.js --watch"
