@@ -91,10 +91,13 @@ class LandingPage extends React.Component {
           </ul>
 
           <p>
+            <Trans>Then you’ll select</Trans>{' '}
+            <strong>
+              <Trans>3 days</Trans>
+            </strong>{' '}
             <Trans>
-              Then you’ll select <strong>3 days</strong> when you’re available
-              for an appointment in the future.
-            </Trans>
+              when you’re available for an appointment in the future
+            </Trans>.
           </p>
         </section>
 
