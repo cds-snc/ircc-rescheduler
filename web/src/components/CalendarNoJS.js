@@ -3,12 +3,12 @@ import format from 'date-fns/format'
 import eachDay from 'date-fns/each_day'
 import isWednesday from 'date-fns/is_wednesday'
 import isThursday from 'date-fns/is_thursday'
-import addWeeks from 'date-fns/add_weeks'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import { Checkbox } from '../components/forms/MultipleChoice'
 import PropTypes from 'prop-types'
 import Time, { dateToISODateString } from './Time'
+import { getStartDate, getEndDate } from '../utils/calendarDates'
 
 const calList = css`
   display: flex;
@@ -120,8 +120,8 @@ Calendar.propTypes = {
 class CalendarNoJs extends Component {
   render() {
     const { dates } = this.props
-    const startDate = dateToISODateString(addWeeks(new Date(), 4))
-    const endDate = dateToISODateString(addWeeks(new Date(startDate), 8))
+    const startDate = dateToISODateString(getStartDate())
+    const endDate = dateToISODateString(getEndDate())
 
     return (
       <Calendar

@@ -26,6 +26,7 @@ import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
 import { Checkbox } from '../components/forms/MultipleChoice'
+import { getEndMonthName, getStartMonthName } from '../utils/calendarDates'
 
 const DAY_LIMIT = 3
 
@@ -89,7 +90,11 @@ const CalHeader = () => {
         <strong>
           <Trans>3 days</Trans>
         </strong>{' '}
-        <Trans>you’re available between August and September:</Trans>
+        <Trans>you’re available between</Trans>
+        {getStartMonthName()} and
+        {getEndMonthName()}:
+        <div />
+        <div />
       </CalendarSubheader>
     </div>
   )
