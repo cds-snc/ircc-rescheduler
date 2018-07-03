@@ -4,27 +4,39 @@ import PropTypes from 'prop-types'
 import { theme, mediaQuery } from '../styles'
 import { Trans } from 'lingui-react'
 
-const beta = css`
-  background-color: #22a7f0;
+const badge = css`
   border-radius: 5px;
   height: 1.3rem;
-  padding: 0.2rem ${theme.spacing.sm} 0.2rem ${theme.spacing.sm};
   font-size: ${theme.font.xs};
   color: ${theme.colour.white};
+  font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+`
+
+const beta = css`
+  ${badge};
+  background-color: #22a7f0;
+  height: 1.3rem;
+  padding: 0.2rem ${theme.spacing.sm} 0.2rem ${theme.spacing.sm};
 `
 
 const alpha = css`
+  ${badge};
   background-color: #e8026e;
-  border-radius: 5px;
   padding: ${theme.spacing.xxs} ${theme.spacing.xs};
-  font-size: ${theme.font.xs};
-  color: ${theme.colour.white};
 `
 
 const message = css`
   font-size: ${theme.font.xs};
-  margin-left: ${theme.spacing.md};
+  font-family: ${theme.weight.r}, Helvetica, Arial, sans-serif;
   font-weight: 400;
+  margin-left: ${theme.spacing.md};
+  color: ${theme.colour.white};
+
+  a,
+  a:visited {
+    color: ${theme.colour.white};
+  }
 `
 
 const container = css`
@@ -35,11 +47,6 @@ const container = css`
   ${mediaQuery.sm(css`
     margin-bottom: ${theme.spacing.md};
   `)};
-
-  a,
-  a:visited {
-    color: ${theme.colour.white};
-  }
 `
 
 const phaseCheck = (props, propName, componentName) => {
