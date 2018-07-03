@@ -81,15 +81,15 @@ const CalHeader = () => {
       </TopContainer>
       <CalendarHeader>
         <Trans>
-          Citizenship appointments are scheduled on <strong>Wednesdays</strong>{' '}
-          and <strong>Thursdays</strong>.
+          Citizenship appointments are scheduled on Wednesdays and Thursdays.
         </Trans>
       </CalendarHeader>
       <CalendarSubheader>
-        <Trans>
-          <strong>Select 3 days</strong> you’re available between August and
-          September:
-        </Trans>
+        <Trans>Select</Trans>{' '}
+        <strong>
+          <Trans>3 days</Trans>
+        </strong>{' '}
+        <Trans>you’re available between August and September:</Trans>
       </CalendarSubheader>
     </div>
   )

@@ -44,16 +44,14 @@ const pageTitle = css`
 const PageHeader = ({ children, headerClass = '' }) => (
   <header className={headerClass ? skinnyBanner : bigBanner}>
     <PhaseBanner phase="beta">
-      <Trans>
-        This is a new service, help us improve by{' '}
-        <a
-          href="https://docs.google.com/forms/d/1a1bJDF4BmepyMJaYubOSg3IiW4kjCqFrAu_0QXLYQ8Q/edit"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          sending your feedback
-        </a>
-      </Trans>
+      <Trans>This is a new service, help us improve by</Trans>{' '}
+      <a
+        href="https://docs.google.com/forms/d/1a1bJDF4BmepyMJaYubOSg3IiW4kjCqFrAu_0QXLYQ8Q/edit"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Trans>sending your feedback</Trans>
+      </a>.
     </PhaseBanner>
     <div className={headerClass ? headerClass : pageTitle}>{children}</div>
   </header>
