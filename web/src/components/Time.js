@@ -12,7 +12,7 @@ const makeGMTDate = date => {
   )
 }
 
-const dateToHTMLString = (date, locale) => {
+const dateToHTMLString = (date, locale = 'en') => {
   var options = {
     weekday: 'long',
     year: 'numeric',
@@ -44,4 +44,4 @@ Time.propTypes = {
   locale: PropTypes.string,
 }
 
-export { Time as default, makeGMTDate, dateToISODateString }
+export { Time as default, makeGMTDate, dateToISODateString, dateToHTMLString }

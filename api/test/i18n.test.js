@@ -29,7 +29,7 @@ describe('I18n', () => {
     })
   })
 
-  it.skip('shows purchase description in the language specified by the Accept-Language header', async () => {
+  it('shows purchase description in the language specified by the Accept-Language header', async () => {
     let lang = 'fr-CA'
     let response = await request(app)
       .post('/graphql')
@@ -51,7 +51,7 @@ describe('I18n', () => {
     expect(first.description).toEqual(fr('mutation.fields.decline.description'))
   })
 
-  it.skip('it translates the arg descriptions', async () => {
+  it('it translates the arg descriptions', async () => {
     let lang = 'fr-CA'
     let response = await request(app)
       .post('/graphql')
@@ -77,7 +77,7 @@ describe('I18n', () => {
     expect(uci.description).toEqual(fr('mutation.fields.decline.args.uci'))
   })
 
-  it.skip('defaults to the en locale if no Accept-Language header is sent', async () => {
+  it('defaults to the en locale if no Accept-Language header is sent', async () => {
     let response = await request(app)
       .post('/graphql')
       .set('Content-Type', 'application/graphql; charset=utf-8').send(`
