@@ -6,7 +6,6 @@ import Layout from '../components/Layout'
 import Reminder from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
 import { Trans } from 'lingui-react'
-import { Helmet } from 'react-helmet'
 import rightArrow from '../assets/rightArrow.svg'
 
 const contentClass = css`
@@ -65,9 +64,6 @@ class LandingPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass}>
-        <Helmet>
-          <title>Request a new Canadian citizenship appointment</title>
-        </Helmet>
         <section>
           <H1Landing>
             <Trans>

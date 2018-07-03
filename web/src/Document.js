@@ -19,7 +19,11 @@ class Document extends React.Component {
         <head>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta charSet="utf-8" />
-          <title>Request a new Canadian Citizenship appointment</title>
+          {helmet.title.toComponent()[0].key ? (
+            helmet.title.toComponent()
+          ) : (
+            <title>Request a new citizenship appointment</title>
+          )}
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           {helmet.meta.toComponent()}
           {helmet.link.toComponent()}
