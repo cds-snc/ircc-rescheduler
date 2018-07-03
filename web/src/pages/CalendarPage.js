@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
-import withProvider from '../withProvider'
 import withContext from '../withContext'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
@@ -330,4 +329,4 @@ const WhichCal = () => {
   return NoJS
 }
 
-export default withProvider(withContext(WhichCal()))
+export default withContext(WhichCal())

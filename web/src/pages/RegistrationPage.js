@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
-import withProvider from '../withProvider'
 import withContext from '../withContext'
 import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
@@ -418,4 +417,4 @@ RegistrationPage.propTypes = {
   history: PropTypes.any,
 }
 
-export default withProvider(withContext(RegistrationPage))
+export default withContext(RegistrationPage)
