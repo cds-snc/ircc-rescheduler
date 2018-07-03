@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        108
+        96
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        112
+        104
       ]
     ]
   },
@@ -19,15 +19,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        116
-      ]
-    ]
-  },
-  "and Conditions": {
-    "origin": [
-      [
-        "src/components/Footer.js",
-        118
+        107
       ]
     ]
   }

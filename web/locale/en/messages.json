@@ -4,7 +4,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        407
+        408
       ]
     ]
   },
@@ -13,7 +13,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        481
+        482
       ]
     ]
   },
@@ -22,7 +22,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        550
+        551
       ]
     ]
   },
@@ -44,7 +44,7 @@
     "origin": [
       [
         "src/components/ErrorMessage.js",
-        61
+        63
       ]
     ]
   },
@@ -53,7 +53,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        108
+        96
       ]
     ]
   },
@@ -62,7 +62,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        112
+        104
       ]
     ]
   },
@@ -71,16 +71,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        116
-      ]
-    ]
-  },
-  "and Conditions": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Footer.js",
-        118
+        107
       ]
     ]
   },
@@ -89,7 +80,7 @@
     "origin": [
       [
         "src/components/LanguageSwitcher.js",
-        36
+        74
       ]
     ]
   },
@@ -102,12 +93,21 @@
       ]
     ]
   },
-  "This is a new service, help us improve by <0>sending your feedback</0>": {
+  "This is a new service, help us improve by": {
     "translation": "",
     "origin": [
       [
         "src/components/PageHeader.js",
-        47
+        48
+      ]
+    ]
+  },
+  "sending your feedback": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/PageHeader.js",
+        57
       ]
     ]
   },
@@ -116,7 +116,7 @@
     "origin": [
       [
         "src/components/PhaseBanner.js",
-        64
+        71
       ]
     ]
   },
@@ -125,7 +125,7 @@
     "origin": [
       [
         "src/components/PhaseBanner.js",
-        71
+        78
       ]
     ]
   },
@@ -156,11 +156,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        79
+        78
       ],
       [
         "src/pages/RegistrationPage.js",
-        235
+        243
       ]
     ]
   },
@@ -182,11 +182,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        83
+        82
       ],
       [
         "src/pages/RegistrationPage.js",
-        285
+        293
       ]
     ]
   },
@@ -226,241 +226,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        30
-      ]
-    ]
-  },
-  "January": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        76
-      ]
-    ]
-  },
-  "February": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        77
-      ]
-    ]
-  },
-  "March": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        78
-      ]
-    ]
-  },
-  "April": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        79
-      ]
-    ]
-  },
-  "May": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        80
-      ]
-    ]
-  },
-  "June": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        81
-      ]
-    ]
-  },
-  "July": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        82
-      ]
-    ]
-  },
-  "August": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        83
-      ]
-    ]
-  },
-  "September": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        84
-      ]
-    ]
-  },
-  "October": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        85
-      ]
-    ]
-  },
-  "November": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        86
-      ]
-    ]
-  },
-  "December": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        87
-      ]
-    ]
-  },
-  "Sunday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        88
-      ]
-    ]
-  },
-  "Monday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        89
-      ]
-    ]
-  },
-  "Tuesday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        90
-      ]
-    ]
-  },
-  "Wednesday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        91
-      ]
-    ]
-  },
-  "Thursday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        92
-      ]
-    ]
-  },
-  "Friday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        93
-      ]
-    ]
-  },
-  "Saturday": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        94
-      ]
-    ]
-  },
-  "Su": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        95
-      ]
-    ]
-  },
-  "Mo": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        96
-      ]
-    ]
-  },
-  "Tu": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        97
-      ]
-    ]
-  },
-  "We": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        98
-      ]
-    ]
-  },
-  "Thu": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        99
-      ]
-    ]
-  },
-  "Fri": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        100
-      ]
-    ]
-  },
-  "Sat": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/forms/CalendarConstants.js",
-        101
+        124
       ]
     ]
   },
@@ -469,7 +235,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        66
+        65
       ]
     ]
   },
@@ -478,7 +244,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        79
+        78
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -486,25 +252,47 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        67
+        159
       ]
     ]
   },
-  "Citizenship appointments are scheduled on <0>Wednesdays</0> and <1>Thursdays</1>.": {
+  "Citizenship appointments are scheduled on Wednesdays and Thursdays.": {
     "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        84
+        83
       ]
     ]
   },
-  "<0>Select 3 days</0> you’re available between August and September:": {
+  "Select": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        88
+      ]
+    ]
+  },
+  "3 days": {
     "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
         90
+      ],
+      [
+        "src/pages/LandingPage.js",
+        96
+      ]
+    ]
+  },
+  "you’re available between August and September:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        92
       ]
     ]
   },
@@ -513,7 +301,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        104
+        103
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -526,15 +314,15 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        129
+        128
       ],
       [
         "src/pages/CalendarPage.js",
-        147
+        146
       ],
       [
         "src/pages/CalendarPage.js",
-        264
+        266
       ]
     ]
   },
@@ -543,7 +331,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        134
+        133
       ]
     ]
   },
@@ -552,7 +340,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        141
+        140
       ]
     ]
   },
@@ -561,11 +349,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        230
+        234
       ],
       [
         "src/pages/CalendarPage.js",
-        285
+        310
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -680,7 +468,7 @@
       ]
     ]
   },
-  "Your request <0>was not completed</0>. Your appointment or application wasn’t changed in any way.": {
+  "Your request": {
     "translation": "",
     "origin": [
       [
@@ -689,12 +477,30 @@
       ]
     ]
   },
+  "was not completed": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        31
+      ]
+    ]
+  },
+  "Your appointment or application wasn’t changed in any way": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        33
+      ]
+    ]
+  },
   "Contact <0>IRCC</0> directly to reschedule your appointment:": {
     "translation": "",
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        38
+        41
       ]
     ]
   },
@@ -703,7 +509,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        49
+        52
       ]
     ]
   },
@@ -712,7 +518,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        60
+        63
       ]
     ]
   },
@@ -721,7 +527,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        76
+        79
       ],
       [
         "src/pages/FourOhFourPage.js",
@@ -761,7 +567,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        80
+        70
       ]
     ]
   },
@@ -770,16 +576,16 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        87
+        77
       ]
     ]
   },
-  "Your <0>paper file number</0>": {
+  "Your paper file number": {
     "translation": "",
     "origin": [
       [
         "src/pages/LandingPage.js",
-        92
+        82
       ]
     ]
   },
@@ -788,16 +594,25 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        100
+        88
       ]
     ]
   },
-  "Then you’ll select <0>3 days</0> when you’re available for an appointment in the future.": {
+  "Then you’ll select": {
     "translation": "",
     "origin": [
       [
         "src/pages/LandingPage.js",
-        106
+        94
+      ]
+    ]
+  },
+  "when you’re available for an appointment in the future": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        98
       ]
     ]
   },
@@ -806,7 +621,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        114
+        105
       ]
     ]
   },
@@ -815,7 +630,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        123
+        114
       ]
     ]
   },
@@ -842,11 +657,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        81
+        80
       ],
       [
         "src/pages/RegistrationPage.js",
-        258
+        266
       ]
     ]
   },
@@ -855,7 +670,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        85
+        84
       ]
     ]
   },
@@ -864,11 +679,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        87
+        86
       ],
       [
         "src/pages/RegistrationPage.js",
-        368
+        376
       ]
     ]
   },
@@ -877,7 +692,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        113
+        112
       ]
     ]
   },
@@ -886,7 +701,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        121
+        120
       ]
     ]
   },
@@ -895,7 +710,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        128
+        127
       ]
     ]
   },
@@ -904,7 +719,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        135
+        134
       ]
     ]
   },
@@ -913,7 +728,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        143
+        142
       ]
     ]
   },
@@ -922,11 +737,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        166
+        165
       ],
       [
         "src/pages/RegistrationPage.js",
-        202
+        210
       ]
     ]
   },
@@ -935,7 +750,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        246
+        254
       ]
     ]
   },
@@ -944,7 +759,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        269
+        277
       ]
     ]
   },
@@ -953,7 +768,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        296
+        304
       ]
     ]
   },
@@ -962,7 +777,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        320
+        328
       ]
     ]
   },
@@ -971,11 +786,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        328
+        336
       ],
       [
         "src/pages/ReviewPage.js",
-        34
+        128
       ]
     ]
   },
@@ -984,7 +799,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        336
+        344
       ]
     ]
   },
@@ -993,11 +808,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        344
+        352
       ],
       [
         "src/pages/ReviewPage.js",
-        32
+        126
       ]
     ]
   },
@@ -1006,11 +821,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        352
+        360
       ],
       [
         "src/pages/ReviewPage.js",
-        38
+        132
       ]
     ]
   },
@@ -1019,7 +834,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        381
+        389
       ]
     ]
   },
@@ -1028,34 +843,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        394
-      ]
-    ]
-  },
-  "Work or School": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ReviewPage.js",
-        36
-      ]
-    ]
-  },
-  "Review your request:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ReviewPage.js",
-        71
-      ]
-    ]
-  },
-  "Sending this request will cancel your current appointment.<0> Do not attend your old appointment</0> after you send this request.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ReviewPage.js",
-        84
+        402
       ]
     ]
   },
@@ -1064,7 +852,308 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        115
+        60
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        101
+      ]
+    ]
+  },
+  "Work or School": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        130
+      ]
+    ]
+  },
+  "Review your request:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        163
+      ]
+    ]
+  },
+  "Sending this request will cancel your current appointment.<0> Do not attend your old appointment</0> after you send this request.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        176
+      ]
+    ]
+  },
+  "January": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        28
+      ]
+    ]
+  },
+  "February": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        29
+      ]
+    ]
+  },
+  "March": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        30
+      ]
+    ]
+  },
+  "April": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        31
+      ]
+    ]
+  },
+  "May": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        32
+      ]
+    ]
+  },
+  "June": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        33
+      ]
+    ]
+  },
+  "July": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        34
+      ]
+    ]
+  },
+  "August": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        35
+      ]
+    ]
+  },
+  "September": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        36
+      ]
+    ]
+  },
+  "October": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        37
+      ]
+    ]
+  },
+  "November": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        38
+      ]
+    ]
+  },
+  "December": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        39
+      ]
+    ]
+  },
+  "Sunday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        40
+      ]
+    ]
+  },
+  "Monday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        41
+      ]
+    ]
+  },
+  "Tuesday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        42
+      ]
+    ]
+  },
+  "Wednesday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        43
+      ]
+    ]
+  },
+  "Thursday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        44
+      ]
+    ]
+  },
+  "Friday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        45
+      ]
+    ]
+  },
+  "Saturday": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        46
+      ]
+    ]
+  },
+  "Su": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        47
+      ]
+    ]
+  },
+  "Mo": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        48
+      ]
+    ]
+  },
+  "Tu": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        49
+      ]
+    ]
+  },
+  "We": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        50
+      ]
+    ]
+  },
+  "Thu": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        51
+      ]
+    ]
+  },
+  "Fri": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        52
+      ]
+    ]
+  },
+  "Sat": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        53
+      ]
+    ]
+  },
+  "https://www.canada.ca/en/transparency/privacy.html": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        54
+      ]
+    ]
+  },
+  "https://digital.canada.ca/legal/terms/": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        55
+      ]
+    ]
+  },
+  "https://docs.google.com/forms/d/e/1FAIpQLSdEF3D7QCZ1ecPVKdqz_-dQAvlVdwdCQtHHLzg_v2q5q7XBlg/viewform": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        56
+      ]
+    ]
+  },
+  "Important message": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/linguiUtils.js",
+        59
       ]
     ]
   }
