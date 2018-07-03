@@ -53,6 +53,9 @@ const translations = () => (
     <Trans>Sat</Trans>
     <Trans>https://www.canada.ca/en/transparency/privacy.html</Trans>
     <Trans>https://digital.canada.ca/legal/terms/</Trans>
+    <Trans>
+      https://docs.google.com/forms/d/e/1FAIpQLSdEF3D7QCZ1ecPVKdqz_-dQAvlVdwdCQtHHLzg_v2q5q7XBlg/viewform
+    </Trans>
     <Trans>Important message</Trans>
   </React.Fragment>
 )
