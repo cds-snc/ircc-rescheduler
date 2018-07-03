@@ -1,6 +1,5 @@
 import React from 'react'
 import { contextPropTypes } from '../context'
-import withProvider from '../withProvider'
 import withContext from '../withContext'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
@@ -11,7 +10,7 @@ import Layout from '../components/Layout'
 import { SUBMIT } from '../queries'
 import Button from '../components/forms/Button'
 import Summary from '../components/Summary'
-import { Submission } from '../components/Submission'
+import { ApolloSubmission } from '../components/Submission'
 import Reminder from '../components/Reminder'
 import rightArrow from '../assets/rightArrow.svg'
 import { dateToISODateString } from '../components/Time'
@@ -35,7 +34,7 @@ const JSBottomContainer = ({
 }) => {
   return (
     <BottomContainer>
-      <Submission
+      <ApolloSubmission
         action={SUBMIT}
         success={data => <Redirect to="/confirmation" push />}
         failure={error => <Redirect to="/error" push />}
@@ -62,7 +61,7 @@ const JSBottomContainer = ({
             <img src={rightArrow} className={arrow} alt="" />
           </Button>
         )}
-      </Submission>
+      </ApolloSubmission>
       <div>
         <CancelButton />
       </div>
@@ -197,4 +196,4 @@ ReviewPage.propTypes = {
   ...contextPropTypes,
 }
 
-export default withProvider(withContext(ReviewPage))
+export default withContext(ReviewPage)

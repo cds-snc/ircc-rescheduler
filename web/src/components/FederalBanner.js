@@ -1,10 +1,10 @@
 import React from 'react'
+import withContext from '../withContext'
+import { contextPropTypes } from '../context'
 import { GoCSignature } from '@cdssnc/gcui'
-import { Query } from 'react-apollo'
-import { GET_LANGUAGE_QUERY } from '../queries'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
-import { LanguageSwitcher } from './LanguageSwitcher'
+import LanguageSwitcher from './LanguageSwitcher'
 
 const container = css`
   padding: ${theme.spacing.lg} ${theme.spacing.xxxl} ${theme.spacing.md}
@@ -42,22 +42,23 @@ const container = css`
   `)};
 `
 
-const FederalBanner = () => (
+const FederalBanner = ({ context = {} }) => (
   <div className={container}>
-    <Query query={GET_LANGUAGE_QUERY}>
-      {({ data: { language } }) => (
-        <div className="svg-container">
-          <GoCSignature
-            width="250px"
-            lang={language}
-            flag={theme.colour.white}
-            text={theme.colour.white}
-          />
-        </div>
-      )}
-    </Query>
+    <div className="svg-container">
+      <GoCSignature
+        width="250px"
+        lang={context.store.language}
+        flag={theme.colour.white}
+        text={theme.colour.white}
+      />
+    </div>
     <LanguageSwitcher />
   </div>
 )
+FederalBanner.propTypes = {
+  ...contextPropTypes,
+}
 
-export default FederalBanner
+const FederalBannerContext = withContext(FederalBanner)
+
+export { FederalBannerContext as default, FederalBanner as FederalBannerBase }
