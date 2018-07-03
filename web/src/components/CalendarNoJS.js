@@ -8,18 +8,30 @@ import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import { Checkbox } from '../components/forms/MultipleChoice'
 import PropTypes from 'prop-types'
+import Time, { dateToISODateString } from './Time'
 
 const calList = css`
   display: flex;
 
-  ${mediaQuery.md(css`
+  h2 {
+    margin-top: 0;
+    margin-bottom: ${theme.spacing.md};
+  }
+
+  ${mediaQuery.lg(css`
     flex-direction: column;
   `)};
 `
 
 const column = css`
   border-left: 2px solid black;
-  padding: 0 ${theme.spacing.xxxl} 0 ${theme.spacing.lg};
+  padding-left: ${theme.spacing.lg};
+  margin: 0 ${theme.spacing.xxl} ${theme.spacing.lg} 0;
+
+  /* this is so that the border bottom aligns with the bottom of the checkbox */
+  li:last-of-type label {
+    padding-bottom: 2px;
+  }
 `
 
 const isValidDate = (
@@ -45,8 +57,6 @@ const isValidDateString = (props, propName, componentName) => {
   }
 }
 
-const dateToString = date => (date ? format(date, 'YYYY-MM-DD') : '')
-
 const Calendar = ({ startDate, endDate, dates }) => {
   const days = eachDay(startDate, endDate)
   const mapped = {}
@@ -56,18 +66,17 @@ const Calendar = ({ startDate, endDate, dates }) => {
 
     if (validDay) {
       const monthName = format(date, 'MMMM')
-      const label = format(date, 'dddd MMMM D')
       const idMonth = format(date, 'MM')
-      const val = dateToString(date)
+      const val = dateToISODateString(date)
       const checked = dates.includes(val)
 
       const el = (
         <li key={val}>
           <Checkbox
-            name="calendar"
-            id={`calendar-${idMonth}-${index}`}
+            name="selectedDays"
+            id={`selectedDays-${idMonth}-${index}`}
             value={val}
-            label={label}
+            label={<Time date={date} />}
             onChange={() => {}}
             checked={checked}
           />
@@ -87,10 +96,12 @@ const Calendar = ({ startDate, endDate, dates }) => {
     <div className={calList}>
       {Object.keys(mapped).map((keyName, keyIndex) => {
         return (
-          <ul className={column} key={keyName}>
+          <div key={keyIndex}>
             <h2>{keyName}</h2>
-            {mapped[keyName]}
-          </ul>
+            <ul className={column} key={keyName}>
+              {mapped[keyName]}
+            </ul>
+          </div>
         )
       })}
     </div>
@@ -109,12 +120,12 @@ Calendar.propTypes = {
 class CalendarNoJs extends Component {
   render() {
     const { dates } = this.props
-    const startDate = dateToString(addWeeks(new Date(), 4))
-    const endDate = dateToString(addWeeks(new Date(startDate), 8))
+    const startDate = dateToISODateString(addWeeks(new Date(), 4))
+    const endDate = dateToISODateString(addWeeks(new Date(startDate), 8))
 
     return (
       <Calendar
-        dates={dates && dates.calendar ? dates.calendar : []}
+        dates={dates && dates.selectedDays ? dates.selectedDays : []}
         startDate={startDate}
         endDate={endDate}
       />
