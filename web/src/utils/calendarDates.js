@@ -1,4 +1,3 @@
-import { dateToISODateString } from '../components/Time'
 import addWeeks from 'date-fns/add_weeks'
 import parse from 'date-fns/parse'
 import isWednesday from 'date-fns/is_wednesday'
@@ -6,6 +5,7 @@ import isThursday from 'date-fns/is_thursday'
 import startOfMonth from 'date-fns/start_of_month'
 import { addDays } from 'date-fns'
 import format from 'date-fns/format'
+import { makeGMTDate, dateToISODateString } from '../components/Time'
 
 // Go 4 weeks from today (ie, add 28 days)
 const offsetStartWeeks = 4
@@ -42,14 +42,44 @@ export const getStartMonth = (today = new Date()) => {
   return startOfMonth(parse(addDays(baseDate, i)))
 }
 
-export const getStartMonthName = (today = new Date()) => {
+export const getStartMonthName = (today = new Date(), locale = 'fr') => {
   const baseDate = parse(getStartMonth(today))
-  return format(baseDate, 'MMMM')
+
+  const options = {
+    month: 'long',
+  }
+
+  return makeGMTDate(format(baseDate, 'YYYY-MM-DD')).toLocaleDateString(
+    locale,
+    options,
+  )
 }
 
-export const getEndMonthName = (today = new Date()) => {
+export const getEndMonthName = (today = new Date(), locale = 'fr') => {
   const baseDate = parse(getEndDate(today))
-  return format(baseDate, 'MMMM')
+
+  const options = {
+    month: 'long',
+  }
+
+  return makeGMTDate(format(baseDate, 'YYYY-MM-DD')).toLocaleDateString(
+    locale,
+    options,
+  )
+}
+
+export const getMonthNameAndYear = (date, locale = 'fr') => {
+  const baseDate = parse(date)
+
+  const options = {
+    month: 'long',
+    year: 'numeric',
+  }
+
+  return makeGMTDate(format(baseDate, 'YYYY-MM-DD')).toLocaleDateString(
+    locale,
+    options,
+  )
 }
 
 export const toMonth = (today = new Date(), parseToDate = true) => {
