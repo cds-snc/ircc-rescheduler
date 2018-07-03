@@ -40,9 +40,17 @@ injectGlobal`
     line-height: 1.4;
   }
 
+  a:visited {
+    color: ${theme.colour.link};
+  }
+
   a:focus {
     outline-offset: 2px;
     outline: 3px solid #ffbf47;
+  }
+
+  .chevron-link path {
+    fill: ${theme.colour.link};
   }
 
   ol, ul {
@@ -62,10 +70,6 @@ injectGlobal`
    border: 0;
    height: 1px;
    background: #DBDBDB;
-  }
-
-  .chevron-link path {
-    fill: ${theme.colour.link};
   }
 `
 
