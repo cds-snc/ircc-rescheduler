@@ -1,9 +1,21 @@
 {
+  "Send request": {
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        60
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        101
+      ]
+    ]
+  },
   "Travel": {
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        30
+        124
       ]
     ]
   },
@@ -11,7 +23,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        32
+        126
       ]
     ]
   },
@@ -19,7 +31,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        34
+        128
       ]
     ]
   },
@@ -27,7 +39,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        36
+        130
       ]
     ]
   },
@@ -35,7 +47,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        38
+        132
       ]
     ]
   },
@@ -43,7 +55,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        67
+        159
       ]
     ]
   },
@@ -51,7 +63,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        71
+        163
       ]
     ]
   },
@@ -59,15 +71,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        84
-      ]
-    ]
-  },
-  "Send request": {
-    "origin": [
-      [
-        "src/pages/ReviewPage.js",
-        115
+        176
       ]
     ]
   }
