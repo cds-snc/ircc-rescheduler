@@ -1,64 +1,53 @@
-import React from 'react'
+import withProvider from './withProvider'
 
-import { asyncComponent } from '@jaredpalmer/after'
+import LandingPage from './pages/LandingPage'
+import RegistrationPage from './pages/RegistrationPage'
+import CalendarPage from './pages/CalendarPage'
+import ReviewPage from './pages/ReviewPage'
+import ConfirmationPage from './pages/ConfirmationPage'
+import ErrorPage from './pages/ErrorPage'
+import CancelPage from './pages/CancelPage'
+import FourOhFourPage from './pages/FourOhFourPage'
 
 export default [
   {
     path: '/',
     exact: true,
-    component: asyncComponent({
-      loader: () => import('./pages/LandingPage'),
-      // eslint-disable-next-line react/display-name
-      Placeholder: () => <div>...LOADING...</div>, // this is optional, just returns null by default
-    }),
+    component: withProvider(LandingPage),
   },
   {
     path: '/register',
     exact: true,
-    component: asyncComponent({
-      loader: () => import('./pages/RegistrationPage'),
-    }),
+    component: withProvider(RegistrationPage),
   },
   {
     path: '/calendar',
     exact: true,
-    component: asyncComponent({
-      loader: () => import('./pages/CalendarPage'),
-    }),
+    component: withProvider(CalendarPage),
   },
   {
     path: '/review',
     exact: true,
-    component: asyncComponent({
-      loader: () => import('./pages/ReviewPage'),
-    }),
+    component: withProvider(ReviewPage),
   },
   {
     path: '/confirmation',
     exact: true,
-    component: asyncComponent({
-      loader: () => import('./pages/ConfirmationPage'),
-    }),
+    component: withProvider(ConfirmationPage),
   },
   {
     path: '/error',
     exact: true,
-    component: asyncComponent({
-      loader: () => import('./pages/ErrorPage'),
-    }),
+    component: withProvider(ErrorPage),
   },
   {
     path: '/cancel',
     exact: true,
-    component: asyncComponent({
-      loader: () => import('./pages/CancelPage'),
-    }),
+    component: withProvider(CancelPage),
   },
   {
     path: '*',
     exact: true,
-    component: asyncComponent({
-      loader: () => import('./pages/FourOhFourPage'),
-    }),
+    component: withProvider(FourOhFourPage),
   },
 ]

@@ -1,16 +1,11 @@
 import React from 'react'
-import { mount } from 'enzyme'
-import { ApolloProvider } from 'react-apollo'
-import FederalBanner from '../FederalBanner'
-import { testClient } from '../../utils/createTestClient'
+import { shallow } from 'enzyme'
+import { FederalBannerBase as FederalBanner } from '../FederalBanner'
+import { getStore } from './LanguageSwitcher.test.js'
 
 describe('<FederalBanner />', () => {
   it('renders', () => {
-    const federalBanner = mount(
-      <ApolloProvider client={testClient({ language: 'en' })}>
-        <FederalBanner />
-      </ApolloProvider>,
-    )
-    expect(federalBanner.find('svg').length).toBe(1)
+    const federalBanner = shallow(<FederalBanner context={getStore('en')} />)
+    expect(federalBanner.find('.svg-container').length).toBe(1)
   })
 })

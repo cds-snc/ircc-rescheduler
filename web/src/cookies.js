@@ -22,7 +22,7 @@ export const setStoreCookie = (setCookieFunc, cookie, options = {}) => {
   setCookieFunc('store', cookie, { ...defaults, ...options })
 }
 
-export const getStoreCookie = cookies => {
+export const getStoreCookie = (cookies, key) => {
   let cookie = cookies && cookies.store ? cookies.store : false
 
   if (cookie) {
@@ -37,7 +37,8 @@ export const getStoreCookie = cookies => {
 
     /* console.log('found cookie! ', cookie) */
   }
-  return cookie
+  // eslint-disable-next-line security/detect-object-injection
+  return cookie && key && cookie[key] ? cookie[key] : cookie
 }
 
 export const setSSRCookie = (res, key, val, prevCookie) => {
