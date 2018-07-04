@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        66
+        65
       ]
     ]
   },
@@ -11,19 +11,27 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        79
+        78
       ]
     ]
   },
-  "Citizenship appointments are scheduled on <0>Wednesdays</0> and <1>Thursdays</1>.": {
+  "Citizenship appointments are scheduled on Wednesdays and Thursdays.": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        84
+        83
       ]
     ]
   },
-  "<0>Select 3 days</0> you’re available between August and September:": {
+  "Select": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        88
+      ]
+    ]
+  },
+  "3 days": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -31,11 +39,19 @@
       ]
     ]
   },
+  "you’re available between August and September:": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        92
+      ]
+    ]
+  },
   "Make sure you stay available on all of the days you select.": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        104
+        103
       ]
     ]
   },
@@ -43,15 +59,15 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        129
+        128
       ],
       [
         "src/pages/CalendarPage.js",
-        147
+        146
       ],
       [
         "src/pages/CalendarPage.js",
-        264
+        266
       ]
     ]
   },
@@ -59,7 +75,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        134
+        133
       ]
     ]
   },
@@ -67,7 +83,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        141
+        140
       ]
     ]
   },
@@ -75,11 +91,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        230
+        234
       ],
       [
         "src/pages/CalendarPage.js",
-        285
+        310
       ]
     ]
   }

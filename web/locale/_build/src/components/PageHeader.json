@@ -1,9 +1,17 @@
 {
-  "This is a new service, help us improve by <0>sending your feedback</0>": {
+  "This is a new service, help us improve by": {
     "origin": [
       [
         "src/components/PageHeader.js",
-        47
+        48
+      ]
+    ]
+  },
+  "sending your feedback": {
+    "origin": [
+      [
+        "src/components/PageHeader.js",
+        57
       ]
     ]
   }
