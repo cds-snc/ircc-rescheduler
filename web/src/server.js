@@ -16,7 +16,10 @@ const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
   path.join(process.cwd(), 'build', 'assets.json'))
 
 const server = express()
-const client = createApolloClient({ ssrMode: true })
+const client = createApolloClient({
+  ssrMode: true,
+  uri: 'https://rescheduler.cds-snc.ca',
+})
 let helmet = require('helmet')
 
 server
