@@ -16,10 +16,6 @@ const contentClass = css`
       margin-bottom: ${theme.spacing.lg};
     `)};
   }
-
-  h2 {
-    font-family: ${theme.weight.b}, Helvetica;
-  }
 `
 
 const list = css`
@@ -41,6 +37,11 @@ const H1Landing = styled(H1)`
   font-size: ${theme.font.xl};
   font-family: ${theme.weight.b}, Helvetica;
   line-height: 1;
+`
+
+const H2Landing = styled(H2)`
+  font-family: ${theme.weight.r}, Helvetica;
+  font-weight: 400;
 `
 
 const LongReminder = styled(Reminder)`
@@ -72,15 +73,13 @@ class LandingPage extends React.Component {
             </Trans>
           </H1Landing>
 
-          <H2>
+          <H2Landing>
             <Trans>You will need:</Trans>
-          </H2>
+          </H2Landing>
           <ul className={list}>
             <li>
               <p>
-                <Trans>
-                  Your <strong>paper file number</strong>
-                </Trans>
+                <Trans>Your paper file number</Trans>
               </p>
             </li>
 
@@ -92,10 +91,13 @@ class LandingPage extends React.Component {
           </ul>
 
           <p>
+            <Trans>Then you’ll select</Trans>{' '}
+            <strong>
+              <Trans>3 days</Trans>
+            </strong>{' '}
             <Trans>
-              Then you’ll select <strong>3 days</strong> when you’re available
-              for an appointment in the future.
-            </Trans>
+              when you’re available for an appointment in the future
+            </Trans>.
           </p>
         </section>
 

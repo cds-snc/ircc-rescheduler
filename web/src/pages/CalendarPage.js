@@ -81,15 +81,15 @@ const CalHeader = () => {
       </TopContainer>
       <CalendarHeader>
         <Trans>
-          Citizenship appointments are scheduled on <strong>Wednesdays</strong>{' '}
-          and <strong>Thursdays</strong>.
+          Citizenship appointments are scheduled on Wednesdays and Thursdays.
         </Trans>
       </CalendarHeader>
       <CalendarSubheader>
-        <Trans>
-          <strong>Select 3 days</strong> you’re available between August and
-          September:
-        </Trans>
+        <Trans>Select</Trans>{' '}
+        <strong>
+          <Trans>3 days</Trans>
+        </strong>{' '}
+        <Trans>you’re available between August and September:</Trans>
       </CalendarSubheader>
     </div>
   )
@@ -301,16 +301,18 @@ class NoJS extends Component {
           <Checkbox id="ignore-me" value="ignore-me" />
         </div>
         <form id="selectedDays-form" className={fullWidth}>
-          <CalendarNoJS dates={calendar} />
-          <CalBottom
-            submit={() => {
-              return (
-                <Button>
-                  <Trans>Review request</Trans>
-                </Button>
-              )
-            }}
-          />
+          <span>
+            <CalendarNoJS dates={calendar} />
+            <CalBottom
+              submit={() => {
+                return (
+                  <Button>
+                    <Trans>Review request</Trans>
+                  </Button>
+                )
+              }}
+            />
+          </span>
         </form>
       </Layout>
     )
