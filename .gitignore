@@ -11,3 +11,4 @@ public/static
 .env.*.local
 .env.local
 api/.env
+ircc-vm.pem
