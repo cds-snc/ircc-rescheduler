@@ -55,31 +55,21 @@ export const getStartMonthName = (today = new Date(), locale = 'fr') => {
   )
 }
 
-export const getEndMonthName = (today = new Date(), locale = 'fr') => {
-  const baseDate = parse(getEndDate(today))
-
-  const options = {
-    month: 'long',
-  }
-
-  return makeGMTDate(format(baseDate, 'YYYY-MM-DD')).toLocaleDateString(
+const toLocale = (date, options, locale) => {
+  return makeGMTDate(format(date, 'YYYY-MM-DD')).toLocaleDateString(
     locale,
     options,
   )
 }
 
+export const getEndMonthName = (today = new Date(), locale = 'fr') => {
+  const options = { month: 'long' }
+  return toLocale(parse(getEndDate(today)), options, locale)
+}
+
 export const getMonthNameAndYear = (date, locale = 'fr') => {
-  const baseDate = parse(date)
-
-  const options = {
-    month: 'long',
-    year: 'numeric',
-  }
-
-  return makeGMTDate(format(baseDate, 'YYYY-MM-DD')).toLocaleDateString(
-    locale,
-    options,
-  )
+  const options = { month: 'long', year: 'numeric' }
+  return toLocale(format(parse(date), 'YYYY-MM-DD'), options, locale)
 }
 
 export const toMonth = (today = new Date(), parseToDate = true) => {
