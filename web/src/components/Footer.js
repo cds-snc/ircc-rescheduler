@@ -2,7 +2,8 @@ import React from 'react'
 import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import PropTypes from 'prop-types'
-import { Trans } from 'lingui-react'
+import { Trans, withI18n } from 'lingui-react'
+import { translateText } from '../utils/linguiUtils'
 import { WordMark } from '@cdssnc/gcui'
 import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
@@ -86,7 +87,7 @@ const TopBar = styled.hr(
   props => ({ background: props.background }),
 )
 
-const Footer = ({ topBarBackground, context = {} }) => (
+const Footer = withI18n()(({ topBarBackground, i18n, context = {} }) => (
   <div>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
@@ -94,14 +95,23 @@ const Footer = ({ topBarBackground, context = {} }) => (
         <a href="mailto:cds-snc@tbs-sct.gc.ca">
           <Trans>Contact</Trans>
         </a>
-        <a href="https://www.canada.ca/en/transparency/privacy.html">
+        <a
+          href={translateText(
+            i18n,
+            'https://www.canada.ca/en/transparency/privacy.html',
+          )}
+        >
           <Trans>Privacy</Trans>
         </a>
-        <a href="https://digital.canada.ca/legal/terms/">
+        <a href={translateText(i18n, 'https://digital.canada.ca/legal/terms/')}>
           <Trans>Terms</Trans>
-          <span className={visuallyhiddenMobile}>
-            <Trans> and Conditions</Trans>
-          </span>
+          {context.store &&
+          context.store.language &&
+          context.store.language === 'fr' ? (
+            ''
+          ) : (
+            <span className={visuallyhiddenMobile}> and Conditions</span>
+          )}
         </a>
       </div>
 
@@ -116,7 +126,7 @@ const Footer = ({ topBarBackground, context = {} }) => (
       </div>
     </footer>
   </div>
-)
+))
 Footer.propTypes = {
   ...contextPropTypes,
   topBarBackground: PropTypes.string,

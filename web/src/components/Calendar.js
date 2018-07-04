@@ -8,7 +8,7 @@ import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
-import { getDateInfo } from './forms/CalendarConstants'
+import { getDateInfo } from '../utils/linguiUtils'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -514,7 +514,7 @@ class Calendar extends Component {
       tabIndex,
       i18n,
     } = this.props
-    const date = getDateInfo(i18n)
+    const dateInfo = getDateInfo(i18n)
     const locale = i18n !== undefined ? i18n._language : 'en'
     value = value || []
     return (
@@ -524,9 +524,9 @@ class Calendar extends Component {
             ${dayPickerDefault} ${dayPicker};
           `}
           locale={locale}
-          months={date.months}
-          weekdaysLong={date.weekdaysLong}
-          weekdaysShort={date.weekdaysShort}
+          months={dateInfo.months}
+          weekdaysLong={dateInfo.weekdaysLong}
+          weekdaysShort={dateInfo.weekdaysShort}
           initialMonth={new Date(2018, 7)}
           fromMonth={new Date(2018, 7)}
           toMonth={new Date(2018, 8)}
