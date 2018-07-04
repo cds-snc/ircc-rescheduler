@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import CalendarAdapter from '../Calendar'
-import { getStartMonth, toMonth, getStartDate } from '../../utils/calendarDates'
+import { getStartMonth } from '../../utils/calendarDates'
 
 const clickDate = (wrapper, index) => {
   return wrapper
