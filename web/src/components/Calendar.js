@@ -9,7 +9,7 @@ import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
 import { getDateInfo } from '../utils/linguiUtils'
-import { getStartMonth, toMonth } from '../utils/calendarDates'
+import { getStartMonth, toMonth, getStartDate } from '../utils/calendarDates'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -536,7 +536,7 @@ class Calendar extends Component {
           numberOfMonths={1}
           disabledDays={[
             {
-              before: startMonth,
+              before: getStartDate(new Date(), true),
               after: endDate,
             },
             {
