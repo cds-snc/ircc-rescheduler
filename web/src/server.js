@@ -10,7 +10,6 @@ import path from 'path'
 import { renderStylesToString } from 'emotion-server'
 import bodyParser from 'body-parser'
 import { SUBMIT } from './queries'
-import cors from 'cors'
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
