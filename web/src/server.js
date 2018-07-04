@@ -18,7 +18,7 @@ const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
 const server = express()
 const client = createApolloClient({
   ssrMode: true,
-  uri: 'https://rescheduler.cds-snc.ca',
+  uri: 'https://rescheduler.cds-snc.ca/graphql',
 })
 let helmet = require('helmet')
 
