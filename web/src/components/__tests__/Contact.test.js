@@ -42,7 +42,7 @@ describe('<Contact />', () => {
         .find('p')
         .at(0)
         .text(),
-    ).toEqual('vancouverIRCC@cic.gc.ca')
+    ).toEqual('IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca')
 
     expect(
       wrapper
@@ -71,6 +71,6 @@ describe('<Contact />', () => {
         .find('p')
         .at(1)
         .text(),
-    ).toEqual('vancouverIRCC@cic.gc.ca')
+    ).toEqual('IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca')
   })
 })
