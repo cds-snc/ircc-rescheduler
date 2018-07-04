@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
-import { Trans } from 'lingui-react'
+import { Trans, withI18n } from 'lingui-react'
+import { translateText } from '../utils/linguiUtils'
 import PhaseBanner from './PhaseBanner'
 
 const bigBanner = css`
@@ -14,16 +15,6 @@ const bigBanner = css`
     padding-left: ${theme.spacing.xl};
     padding-right: ${theme.spacing.xl};
   `)};
-
-  > * {
-    font-size: ${theme.font.xxl};
-    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
-    font-weight: 700;
-
-    ${mediaQuery.sm(css`
-      font-size: ${theme.font.lg};
-    `)};
-  }
 `
 
 const skinnyBanner = css`
@@ -41,26 +32,40 @@ const skinnyBanner = css`
   }
 `
 
-const PageHeader = ({ children, headerClass = '' }) => (
+const pageTitle = css`
+  font-size: ${theme.font.xxl};
+  font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+
+  ${mediaQuery.sm(css`
+    font-size: ${theme.font.lg};
+  `)};
+`
+
+const PageHeader = ({ children, headerClass = '', i18n }) => (
   <header className={headerClass ? skinnyBanner : bigBanner}>
     <PhaseBanner phase="beta">
-      <Trans>
-        This is a new service, help us improve by{' '}
-        <a
-          href="https://docs.google.com/forms/d/1a1bJDF4BmepyMJaYubOSg3IiW4kjCqFrAu_0QXLYQ8Q/edit"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          sending your feedback
-        </a>
-      </Trans>
+      <Trans>This is a new service, help us improve by</Trans>{' '}
+      <a
+        href={translateText(
+          i18n,
+          'https://docs.google.com/forms/d/e/1FAIpQLSdEF3D7QCZ1ecPVKdqz_-dQAvlVdwdCQtHHLzg_v2q5q7XBlg/viewform',
+        )}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Trans>sending your feedback</Trans>
+      </a>.
     </PhaseBanner>
-    <div className={headerClass}>{children}</div>
+    <div className={headerClass ? headerClass : pageTitle}>{children}</div>
   </header>
 )
 PageHeader.propTypes = {
+  i18n: PropTypes.object,
   children: PropTypes.any.isRequired,
   headerClass: PropTypes.string,
 }
 
-export default PageHeader
+const PageHeaderI18N = withI18n()(PageHeader)
+
+export { PageHeaderI18N as default, PageHeader as PageHeaderBase }

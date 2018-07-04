@@ -7,7 +7,7 @@
       ]
     ]
   },
-  "Your request <0>was not completed</0>. Your appointment or application wasn’t changed in any way.": {
+  "Your request": {
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -15,11 +15,27 @@
       ]
     ]
   },
+  "was not completed": {
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        31
+      ]
+    ]
+  },
+  "Your appointment or application wasn’t changed in any way": {
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        33
+      ]
+    ]
+  },
   "Contact <0>IRCC</0> directly to reschedule your appointment:": {
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        38
+        41
       ]
     ]
   },
@@ -27,7 +43,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        49
+        52
       ]
     ]
   },
@@ -35,7 +51,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        60
+        63
       ]
     ]
   },
@@ -43,7 +59,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        76
+        79
       ]
     ]
   }

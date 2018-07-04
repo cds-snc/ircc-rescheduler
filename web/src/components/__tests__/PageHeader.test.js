@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import PageHeader from '../PageHeader'
+import { PageHeaderBase as PageHeader } from '../PageHeader'
 
 describe('<PageHeader />', () => {
   it('renders', () => {

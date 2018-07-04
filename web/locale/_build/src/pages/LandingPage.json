@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        80
+        70
       ]
     ]
   },
@@ -11,15 +11,15 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        87
+        77
       ]
     ]
   },
-  "Your <0>paper file number</0>": {
+  "Your paper file number": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        92
+        82
       ]
     ]
   },
@@ -27,15 +27,31 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        100
+        88
       ]
     ]
   },
-  "Then you’ll select <0>3 days</0> when you’re available for an appointment in the future.": {
+  "Then you’ll select": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        106
+        94
+      ]
+    ]
+  },
+  "3 days": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        96
+      ]
+    ]
+  },
+  "when you’re available for an appointment in the future": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        98
       ]
     ]
   },
@@ -43,7 +59,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        114
+        105
       ]
     ]
   },
@@ -51,7 +67,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        123
+        114
       ]
     ]
   }

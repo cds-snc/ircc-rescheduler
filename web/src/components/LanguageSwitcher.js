@@ -3,7 +3,8 @@ import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import { Helmet } from 'react-helmet'
 import { css } from 'react-emotion'
-import { Trans } from 'lingui-react'
+import { Trans, withI18n } from 'lingui-react'
+import { translateText } from '../utils/linguiUtils'
 import {
   theme,
   visuallyhidden,
@@ -59,12 +60,15 @@ class LanguageSwitcher extends React.Component {
   }
 
   render() {
-    let { context: { setStore } = {} } = this.props
+    let { context: { setStore } = {}, i18n } = this.props
 
     return (
       <form>
         <Helmet>
           <html lang={this.state.language} />
+          <title>
+            {translateText(i18n, 'Request a new citizenship appointment')}
+          </title>
         </Helmet>
         <h2 className={visuallyhidden}>
           <Trans>Language Selection</Trans>
@@ -103,7 +107,7 @@ LanguageSwitcher.propTypes = {
   ...contextPropTypes,
 }
 
-const LanguageSwitcherContext = withContext(LanguageSwitcher)
+const LanguageSwitcherContext = withContext(withI18n()(LanguageSwitcher))
 
 export {
   LanguageSwitcherContext as default,

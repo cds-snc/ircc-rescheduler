@@ -26,10 +26,13 @@ export class ErrorPageContent extends React.Component {
           <Trans>Sorry, something went wrong.</Trans>
         </ErrorH1>
         <p>
+          <Trans>Your request</Trans>{' '}
+          <strong>
+            <Trans>was not completed</Trans>
+          </strong>.{' '}
           <Trans>
-            Your request <strong>was not completed</strong>. Your appointment or
-            application wasn&rsquo;t changed in any way.
-          </Trans>
+            Your appointment or application wasn&rsquo;t changed in any way
+          </Trans>.
         </p>
 
         <Contact phoneFirst={true}>

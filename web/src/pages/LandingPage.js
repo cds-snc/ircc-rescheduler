@@ -6,7 +6,6 @@ import Layout from '../components/Layout'
 import Reminder from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
 import { Trans } from 'lingui-react'
-import { Helmet } from 'react-helmet'
 import rightArrow from '../assets/rightArrow.svg'
 
 const contentClass = css`
@@ -16,10 +15,6 @@ const contentClass = css`
     ${mediaQuery.md(css`
       margin-bottom: ${theme.spacing.lg};
     `)};
-  }
-
-  h2 {
-    font-family: ${theme.weight.b}, Helvetica;
   }
 `
 
@@ -44,6 +39,11 @@ const H1Landing = styled(H1)`
   line-height: 1;
 `
 
+const H2Landing = styled(H2)`
+  font-family: ${theme.weight.r}, Helvetica;
+  font-weight: 400;
+`
+
 const LongReminder = styled(Reminder)`
   padding: 0;
   margin-bottom: ${theme.spacing.xl} !important;
@@ -65,9 +65,6 @@ class LandingPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass}>
-        <Helmet>
-          <title>Request a new Canadian citizenship appointment</title>
-        </Helmet>
         <section>
           <H1Landing>
             <Trans>
@@ -76,15 +73,13 @@ class LandingPage extends React.Component {
             </Trans>
           </H1Landing>
 
-          <H2>
+          <H2Landing>
             <Trans>You will need:</Trans>
-          </H2>
+          </H2Landing>
           <ul className={list}>
             <li>
               <p>
-                <Trans>
-                  Your <strong>paper file number</strong>
-                </Trans>
+                <Trans>Your paper file number</Trans>
               </p>
             </li>
 
@@ -96,10 +91,13 @@ class LandingPage extends React.Component {
           </ul>
 
           <p>
+            <Trans>Then you’ll select</Trans>{' '}
+            <strong>
+              <Trans>3 days</Trans>
+            </strong>{' '}
             <Trans>
-              Then you’ll select <strong>3 days</strong> when you’re available
-              for an appointment in the future.
-            </Trans>
+              when you’re available for an appointment in the future
+            </Trans>.
           </p>
         </section>
 
