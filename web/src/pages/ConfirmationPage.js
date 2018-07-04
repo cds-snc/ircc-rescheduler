@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import Contact from '../components/Contact'
 import { respondByDate } from '../utils/calendarDates'
 import withContext from '../withContext'
+import { contextPropTypes } from '../context'
 
 const contentClass = css`
   p {
@@ -74,6 +75,10 @@ class ConfirmationPage extends React.Component {
       </Layout>
     )
   }
+}
+
+ConfirmationPage.propTypes = {
+  ...contextPropTypes,
 }
 
 export default withContext(ConfirmationPage)
