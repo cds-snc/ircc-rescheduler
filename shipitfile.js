@@ -22,7 +22,7 @@ module.exports = shipit => {
       servers: 'ircc@ircc-vm-2.canadacentral.cloudapp.azure.com'
     },
     production: {
-      branch: 'new_local_dev',
+      branch: 'master',
       deployTo: '/home/ubuntu/ircc-rescheduler',
       key: 'ircc-vm.pem',
       servers: [
