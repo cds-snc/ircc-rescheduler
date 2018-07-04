@@ -6,10 +6,9 @@ RUN mkdir -p /run/nginx
 
 COPY ./docker/config/nginx.conf /etc/nginx/conf.d/default.conf
 
-# ADD . /app
-# WORKDIR /app
+ADD . /app
+WORKDIR /app
 
-# EXPOSE 3000
+EXPOSE 80
 
-# CMD [ "pm2-runtime", "start", "/app/ecosystem.config.json" ]
-# CMD ["nginx", "-g", "daemon off;"]
+CMD [ "sh", "-c", "nginx && pm2-runtime start ecosystem.config.js"]
