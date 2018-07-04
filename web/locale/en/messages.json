@@ -1,10 +1,28 @@
 {
+  "you’re available between": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        93
+      ]
+    ]
+  },
+  "and": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        94
+      ]
+    ]
+  },
   "Remove day": {
     "translation": "",
     "origin": [
       [
         "src/components/Calendar.js",
-        408
+        409
       ]
     ]
   },
@@ -13,7 +31,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        482
+        483
       ]
     ]
   },
@@ -22,7 +40,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        551
+        554
       ]
     ]
   },
@@ -235,7 +253,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        65
+        66
       ]
     ]
   },
@@ -244,7 +262,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        78
+        79
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -261,7 +279,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        83
+        84
       ]
     ]
   },
@@ -270,7 +288,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        88
+        89
       ]
     ]
   },
@@ -279,20 +297,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        90
+        91
       ],
       [
         "src/pages/LandingPage.js",
         96
-      ]
-    ]
-  },
-  "you’re available between August and September:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        92
       ]
     ]
   },
@@ -301,7 +310,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        103
+        112
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -314,15 +323,15 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        128
+        137
       ],
       [
         "src/pages/CalendarPage.js",
-        146
+        155
       ],
       [
         "src/pages/CalendarPage.js",
-        266
+        288
       ]
     ]
   },
@@ -331,7 +340,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        133
+        142
       ]
     ]
   },
@@ -340,7 +349,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        140
+        149
       ]
     ]
   },
@@ -349,11 +358,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        234
+        255
       ],
       [
         "src/pages/CalendarPage.js",
-        310
+        343
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -1156,5 +1165,15 @@
         59
       ]
     ]
+  },
+  "you’re available between August and September:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        92
+      ]
+    ],
+    "obsolete": true
   }
 }
