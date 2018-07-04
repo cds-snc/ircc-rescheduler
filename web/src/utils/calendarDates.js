@@ -3,18 +3,21 @@ import parse from 'date-fns/parse'
 import isWednesday from 'date-fns/is_wednesday'
 import isThursday from 'date-fns/is_thursday'
 import startOfMonth from 'date-fns/start_of_month'
-import { addDays } from 'date-fns'
+import addDays from 'date-fns/add_days'
+import subWeeks from 'date-fns/sub_weeks'
 import format from 'date-fns/format'
 import { makeGMTDate, dateToISODateString } from '../components/Time'
 
-// Go 4 weeks from today (ie, add 28 days)
-const offsetStartWeeks = 4
+// Go 6 weeks from today (ie, add 28 days)
+const offsetStartWeeks = 6
 // Count 8 weeks from that point (ie, add 56 days)
 const offsetEndWeeks = 8
 
-export const getStartDate = (today = new Date()) => {
-  const startDate = dateToISODateString(addWeeks(today, offsetStartWeeks))
-  return startDate
+const offsetRespondBy = 6 // weeks
+
+export const getStartDate = (today = new Date(), parseToDate = false) => {
+  const date = wedOrThurs(addWeeks(today, offsetStartWeeks))
+  return parseToDate ? parse(date) : dateToISODateString(date)
 }
 
 export const getEndDate = (today = new Date()) => {
@@ -25,13 +28,11 @@ export const getEndDate = (today = new Date()) => {
   return endDate
 }
 
-export const getStartMonth = (today = new Date()) => {
-  const baseDate = parse(getStartDate(today))
-
+export const wedOrThurs = date => {
   let i = 0
   //find the current or next Wed or Thurs
   for (i = 0; i <= 7; i++) {
-    let plusDay = addDays(baseDate, i)
+    let plusDay = addDays(date, i)
     if (isWednesday(plusDay) || isThursday(plusDay)) {
       break
     }
@@ -39,7 +40,12 @@ export const getStartMonth = (today = new Date()) => {
     i++
   }
 
-  return startOfMonth(parse(addDays(baseDate, i)))
+  return parse(addDays(date, i))
+}
+
+export const getStartMonth = (today = new Date()) => {
+  const baseDate = parse(getStartDate(today))
+  return startOfMonth(wedOrThurs(baseDate))
 }
 
 export const getStartMonthName = (today = new Date(), locale = 'fr') => {
@@ -75,6 +81,17 @@ export const getMonthNameAndYear = (date, locale = 'fr') => {
 export const toMonth = (today = new Date(), parseToDate = true) => {
   const endDate = getEndDate(today)
   return parseToDate ? parse(endDate) : endDate
+}
+
+export const respondByDate = (selectedDays = [], locale = 'fr') => {
+  if (!selectedDays[selectedDays.length - 1]) return null
+
+  const baseDate = subWeeks(
+    parse(selectedDays[selectedDays.length - 1]),
+    offsetRespondBy,
+  )
+  const options = { month: 'long', day: 'numeric', year: 'numeric' }
+  return toLocale(format(baseDate, 'YYYY-MM-DD'), options, locale)
 }
 
 export const yearMonthDay = date => {
