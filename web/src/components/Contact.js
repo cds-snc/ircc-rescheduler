@@ -42,7 +42,9 @@ const Contact = ({ children, phoneFirst = false }) => (
     {!phoneFirst ? (
       <React.Fragment>
         <p>
-          <a href="mailto:vancouverIRCC@cic.gc.ca">vancouverIRCC@cic.gc.ca</a>
+          <a href="IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
+            IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca
+          </a>
         </p>
         <p>
           <TelLink tel="1-888-242-2100" />
@@ -54,7 +56,9 @@ const Contact = ({ children, phoneFirst = false }) => (
           <TelLink tel="1-888-242-2100" />
         </p>
         <p>
-          <a href="mailto:vancouverIRCC@cic.gc.ca">vancouverIRCC@cic.gc.ca</a>
+          <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
+            IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca
+          </a>
         </p>
       </React.Fragment>
     )}
