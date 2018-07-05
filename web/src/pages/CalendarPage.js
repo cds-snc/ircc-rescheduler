@@ -92,9 +92,7 @@ const CalHeader = ({ locale = 'en' }) => {
         </strong>{' '}
         <Trans>you’re available between</Trans>{' '}
         {getStartMonthName(new Date(), locale)} <Trans>and</Trans>{' '}
-        {getEndMonthName(new Date(), locale)}:
-        <div />
-        <div />
+        {getEndMonthName(new Date(), locale)}
       </CalendarSubheader>
     </div>
   )
@@ -184,18 +182,9 @@ class CalendarPage extends Component {
   }
 
   render() {
-    let { context: { store: { calendar = {} } = {} } = {} } = this.props
-
-    let locale = 'en'
-
-    if (
-      this.props &&
-      this.props.context &&
-      this.props.context.store &&
-      this.props.context.store.language
-    ) {
-      locale = this.props.context.store.language
-    }
+    let {
+      context: { store: { calendar = {}, language: locale = 'en' } = {} } = {},
+    } = this.props
 
     // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
 
@@ -290,19 +279,10 @@ class NoJS extends Component {
   }
 
   render() {
-    let { context: { store: { calendar } = {} } = {} } = this.props
+    let {
+      context: { store: { calendar = {}, language: locale = 'en' } = {} } = {},
+    } = this.props
     let errorsNoJS = {}
-
-    let locale = 'en'
-
-    if (
-      this.props &&
-      this.props.context &&
-      this.props.context.store &&
-      this.props.context.store.language
-    ) {
-      locale = this.props.context.store.language
-    }
 
     // only run this if there's a location.search
     // AND at least one of our fields exists in the string somewhere

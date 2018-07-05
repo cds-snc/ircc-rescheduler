@@ -22,6 +22,24 @@ describe('<Time />', () => {
     expect(time.props().dateTime).toEqual('1870-04-22')
     expect(time.text()).toEqual('Friday, April 22, 1870')
   })
+
+  it('renders with formated options month name', () => {
+    const time = shallow(
+      <Time date={dateString} locale={'en'} options={{ month: 'long' }} />,
+    )
+    expect(time.text()).toEqual('April')
+  })
+
+  it('renders with formated options month and year', () => {
+    const time = shallow(
+      <Time
+        date={dateString}
+        locale={'en'}
+        options={{ month: 'long', year: 'numeric' }}
+      />,
+    )
+    expect(time.text()).toEqual('April 1870')
+  })
 })
 
 describe('dateToISODateString returns a correctly-formatted ISO date string', () => {
