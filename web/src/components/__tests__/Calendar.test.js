@@ -103,7 +103,6 @@ describe('<CalendarAdapter />', () => {
       'Wednesday, August 15, 2018 Thursday, August 16, 2018',
     )
 
-    // click July 17th, 2018
     clickDate(wrapper, 0)
 
     expect(getDateStrings(wrapper)).toEqual(
