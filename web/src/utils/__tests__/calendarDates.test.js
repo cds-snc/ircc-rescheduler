@@ -30,12 +30,12 @@ describe('Utilities functions CalendarDates.js', () => {
 
   it('gets confirmation date', () => {
     const selectedDays = ['2018-01-31', '2018-01-30', '2018-08-22']
-    expect(respondByDate(selectedDays, 'en')).toEqual('July 13, 2018')
+    expect(respondByDate(selectedDays, 'en')).toEqual('July 27, 2018')
   })
 
   it('gets confirmation date if passed out of order', () => {
     const selectedDays = ['2018-01-31', '2018-08-22', '2018-01-30']
-    expect(respondByDate(selectedDays, 'en')).toEqual('July 13, 2018')
+    expect(respondByDate(selectedDays, 'en')).toEqual('July 27, 2018')
   })
 
   it('returns null if selectedDays value(s) not passed', () => {
