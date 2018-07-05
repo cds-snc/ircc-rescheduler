@@ -26,6 +26,7 @@ import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
 import { Checkbox } from '../components/forms/MultipleChoice'
+import { getEndMonthName, getStartMonthName } from '../utils/calendarDates'
 
 const DAY_LIMIT = 3
 
@@ -68,7 +69,7 @@ const labelNames = id => {
   }
 }
 
-const CalHeader = () => {
+const CalHeader = ({ locale = 'en' }) => {
   return (
     <div>
       <TopContainer>
@@ -89,10 +90,16 @@ const CalHeader = () => {
         <strong>
           <Trans>3 days</Trans>
         </strong>{' '}
-        <Trans>you’re available between August and September:</Trans>
+        <Trans>you’re available between</Trans>{' '}
+        {getStartMonthName(new Date(), locale)} <Trans>and</Trans>{' '}
+        {getEndMonthName(new Date(), locale)}
       </CalendarSubheader>
     </div>
   )
+}
+
+CalHeader.propTypes = {
+  locale: PropTypes.string,
 }
 
 const CalBottom = ({ submit }) => {
@@ -175,7 +182,10 @@ class CalendarPage extends Component {
   }
 
   render() {
-    let { context: { store: { calendar = {} } = {} } = {} } = this.props
+    let {
+      context: { store: { calendar = {}, language: locale = 'en' } = {} } = {},
+    } = this.props
+
     // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
 
     // cast values to Date objects if calendar.selectedDays exists and has a length
@@ -187,7 +197,7 @@ class CalendarPage extends Component {
 
     return (
       <Layout>
-        <CalHeader />
+        <CalHeader locale={locale} />
         <Form
           onSubmit={this.onSubmit}
           initialValues={calendar}
@@ -247,6 +257,7 @@ CalendarPage.propTypes = {
   ...contextPropTypes,
   history: PropTypes.any,
   submit: PropTypes.func,
+  locale: PropTypes.string,
 }
 
 class NoJS extends Component {
@@ -268,7 +279,9 @@ class NoJS extends Component {
   }
 
   render() {
-    let { context: { store: { calendar } = {} } = {} } = this.props
+    let {
+      context: { store: { calendar = {}, language: locale = 'en' } = {} } = {},
+    } = this.props
     let errorsNoJS = {}
 
     // only run this if there's a location.search
@@ -283,7 +296,7 @@ class NoJS extends Component {
 
     return (
       <Layout>
-        <CalHeader />
+        <CalHeader locale={locale} />
         {Object.keys(errorsNoJS).length ? (
           <ErrorList message={errorsNoJS.selectedDays}>
             <a href="#selectedDays-form">Calendar</a>
@@ -302,7 +315,7 @@ class NoJS extends Component {
         </div>
         <form id="selectedDays-form" className={fullWidth}>
           <span>
-            <CalendarNoJS dates={calendar} />
+            <CalendarNoJS dates={calendar} locale={locale} />
             <CalBottom
               submit={() => {
                 return (

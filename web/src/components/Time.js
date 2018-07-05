@@ -12,13 +12,14 @@ const makeGMTDate = date => {
   )
 }
 
-const dateToHTMLString = (date, locale = 'en') => {
-  var options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }
+const defaultOptions = {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}
+
+const dateToHTMLString = (date, locale = 'en', options = defaultOptions) => {
   return makeGMTDate(date).toLocaleDateString(locale, options)
 }
 
@@ -33,15 +34,16 @@ const dateToISODateString = date => {
     .slice(0, 'YYYY-MM-DD'.length)
 }
 
-const Time = ({ date, locale }) => (
+const Time = ({ date, locale, options }) => (
   <time dateTime={dateToISODateString(date)}>
-    {dateToHTMLString(date, locale)}
+    {dateToHTMLString(date, locale, options)}
   </time>
 )
 Time.propTypes = {
   date: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)])
     .isRequired,
   locale: PropTypes.string,
+  options: PropTypes.object,
 }
 
 export { Time as default, makeGMTDate, dateToISODateString, dateToHTMLString }

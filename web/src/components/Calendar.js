@@ -9,6 +9,8 @@ import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
 import { getDateInfo } from '../utils/linguiUtils'
+import { getStartMonth, toMonth, getStartDate } from '../utils/calendarDates'
+import parse from 'date-fns/parse'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -516,6 +518,8 @@ class Calendar extends Component {
     } = this.props
     const dateInfo = getDateInfo(i18n)
     const locale = i18n !== undefined ? i18n._language : 'en'
+    const startMonth = parse(getStartMonth())
+    const endDate = parse(toMonth())
     value = value || []
     return (
       <div className={calendarContainer}>
@@ -527,14 +531,14 @@ class Calendar extends Component {
           months={dateInfo.months}
           weekdaysLong={dateInfo.weekdaysLong}
           weekdaysShort={dateInfo.weekdaysShort}
-          initialMonth={new Date(2018, 7)}
-          fromMonth={new Date(2018, 7)}
-          toMonth={new Date(2018, 8)}
+          initialMonth={startMonth}
+          fromMonth={startMonth}
+          toMonth={endDate}
           numberOfMonths={1}
           disabledDays={[
             {
-              before: new Date(2018, 7, 1),
-              after: new Date(2018, 8, 20),
+              before: parse(getStartDate(new Date())),
+              after: endDate,
             },
             {
               daysOfWeek: [0, 1, 2, 5, 6],

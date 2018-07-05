@@ -7,6 +7,9 @@ import Reminder from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
 import { Trans } from 'lingui-react'
 import rightArrow from '../assets/rightArrow.svg'
+import { getStartMonthName, getEndMonthName } from '../utils/calendarDates'
+import withContext from '../withContext'
+import { contextPropTypes } from '../context'
 
 const contentClass = css`
   p {
@@ -63,6 +66,16 @@ const LongReminder = styled(Reminder)`
 
 class LandingPage extends React.Component {
   render() {
+    let locale = 'en'
+
+    if (
+      this.props &&
+      this.props.context &&
+      this.props.context.store &&
+      this.props.context.store.language
+    ) {
+      locale = this.props.context.store.language
+    }
     return (
       <Layout contentClass={contentClass}>
         <section>
@@ -95,6 +108,8 @@ class LandingPage extends React.Component {
             <strong>
               <Trans>3 days</Trans>
             </strong>{' '}
+            <Trans>between </Trans> {getStartMonthName(new Date(), locale)}{' '}
+            <Trans>to</Trans> {getEndMonthName(new Date(), locale)}{' '}
             <Trans>
               when you’re available for an appointment in the future
             </Trans>.
@@ -120,4 +135,8 @@ class LandingPage extends React.Component {
   }
 }
 
-export default LandingPage
+LandingPage.propTypes = {
+  ...contextPropTypes,
+}
+
+export default withContext(LandingPage)

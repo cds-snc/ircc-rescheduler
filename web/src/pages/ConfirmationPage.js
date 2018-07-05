@@ -4,6 +4,9 @@ import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
+import { respondByDate } from '../utils/calendarDates'
+import withContext from '../withContext'
+import { contextPropTypes } from '../context'
 
 const contentClass = css`
   p {
@@ -17,6 +20,21 @@ const contentClass = css`
 
 class ConfirmationPage extends React.Component {
   render() {
+    let {
+      context: {
+        store: {
+          calendar: { selectedDays = [] } = {},
+          language: locale = 'en',
+        } = {},
+      } = {},
+    } = this.props
+
+    let respondBy = ''
+
+    if (selectedDays) {
+      respondBy = respondByDate(selectedDays, locale)
+    }
+
     return (
       <Layout contentClass={contentClass} headerClass={visuallyhidden}>
         <section>
@@ -32,11 +50,12 @@ class ConfirmationPage extends React.Component {
             <Trans>What happens next?</Trans>
           </H2>
           <p>
+            <Trans>By</Trans> {respondBy}
+            , <Trans>your local</Trans>{' '}
+            <abbr title="Immigration, Refugees and Citizenship Canada">
+              IRCC
+            </abbr>{' '}
             <Trans>
-              By September 6, 2018, your local{' '}
-              <abbr title="Immigration, Refugees and Citizenship Canada">
-                IRCC
-              </abbr>{' '}
               office will send you a new appointment, or email you to ask for
               more information.
             </Trans>
@@ -52,4 +71,8 @@ class ConfirmationPage extends React.Component {
   }
 }
 
-export default ConfirmationPage
+ConfirmationPage.propTypes = {
+  ...contextPropTypes,
+}
+
+export default withContext(ConfirmationPage)
