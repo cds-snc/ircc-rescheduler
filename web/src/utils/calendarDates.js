@@ -13,7 +13,7 @@ const offsetStartWeeks = 5
 // Count 8 weeks from that point (ie, add 56 days)
 const offsetEndWeeks = 8
 
-const offsetRespondBy = 6 // weeks
+const offsetRespondBy = 4 // weeks + respondByDate() will add 2 additional days
 
 export const getStartDate = (today = new Date()) => {
   const date = wedOrThurs(addWeeks(today, offsetStartWeeks))
