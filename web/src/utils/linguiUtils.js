@@ -1,7 +1,6 @@
 import React from 'react'
 import { Trans } from 'lingui-react'
-
-// import 'babel-polyfill'
+import { setupI18n } from '@lingui/core'
 import { unpackCatalog } from 'lingui-i18n'
 import en from '../../locale/en/messages.js'
 import fr from '../../locale/fr/messages.js'
@@ -20,6 +19,31 @@ export const linguiDev =
 export const translateText = (i18n, text) => {
   const translation = i18n === undefined ? text : i18n._(text)
   return translation
+}
+
+/*
+  Our components are being wrapped in withI18n for a very small use case.
+  I think it is needlessly overcomplicating our app, and so I've come up with this function as a solution
+  It accepts a <Trans> tag and a language string (ie, 'en', or 'fr')
+  It creates a new lingui translation object with our catalogue and our passed-in language.
+  The reason it wants a Trans component is so that when we run `lingui extract`, it will find the translation
+  What we were doing previously was creating a useless list of <Trans> objects below
+
+  This function will extract the string from the component and then return the localised version of it.
+  This means we don't have to use `withI18n` anymore to wrap our components
+  As long as we have the current language (which we can get from the context), we can easily translate strings
+  */
+export const translateTextBetter = (TransComponent, language) => {
+  if (TransComponent.type.name !== 'withI18n') {
+    throw new Error(
+      'translateTextBetter: first parameter must be a `<Trans>` component',
+    )
+  }
+  const i18n = setupI18n({
+    language,
+    catalogs,
+  })
+  return i18n._(TransComponent.props.id)
 }
 
 // eslint-disable-next-line no-unused-vars
@@ -51,8 +75,6 @@ const translations = () => (
     <Trans>Thu</Trans>
     <Trans>Fri</Trans>
     <Trans>Sat</Trans>
-    <Trans>https://www.canada.ca/en/transparency/privacy.html</Trans>
-    <Trans>https://digital.canada.ca/legal/terms/</Trans>
     <Trans>
       https://docs.google.com/forms/d/e/1FAIpQLSdEF3D7QCZ1ecPVKdqz_-dQAvlVdwdCQtHHLzg_v2q5q7XBlg/viewform
     </Trans>
