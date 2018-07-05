@@ -3,12 +3,16 @@ import format from 'date-fns/format'
 import eachDay from 'date-fns/each_day'
 import isWednesday from 'date-fns/is_wednesday'
 import isThursday from 'date-fns/is_thursday'
-import addWeeks from 'date-fns/add_weeks'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import { Checkbox } from '../components/forms/MultipleChoice'
 import PropTypes from 'prop-types'
 import Time, { dateToISODateString } from './Time'
+import {
+  getStartDate,
+  getEndDate,
+  getMonthNameAndYear,
+} from '../utils/calendarDates'
 
 const calList = css`
   display: flex;
@@ -57,7 +61,7 @@ const isValidDateString = (props, propName, componentName) => {
   }
 }
 
-const Calendar = ({ startDate, endDate, dates }) => {
+const Calendar = ({ startDate, endDate, dates, locale }) => {
   const days = eachDay(startDate, endDate)
   const mapped = {}
 
@@ -65,7 +69,7 @@ const Calendar = ({ startDate, endDate, dates }) => {
     const validDay = isWednesday(date) || isThursday(date)
 
     if (validDay) {
-      const monthName = format(date, 'MMMM')
+      const monthName = getMonthNameAndYear(date, locale)
       const idMonth = format(date, 'MM')
       const val = dateToISODateString(date)
       const checked = dates.includes(val)
@@ -76,7 +80,13 @@ const Calendar = ({ startDate, endDate, dates }) => {
             name="selectedDays"
             id={`selectedDays-${idMonth}-${index}`}
             value={val}
-            label={<Time date={date} />}
+            label={
+              <Time
+                date={date}
+                locale={locale}
+                options={{ weekday: 'long', day: 'numeric', month: 'long' }}
+              />
+            }
             onChange={() => {}}
             checked={checked}
           />
@@ -113,21 +123,23 @@ Calendar.propTypes = {
   startDate: isValidDateString,
   endDate: isValidDateString,
   dates: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  locale: PropTypes.string,
 }
 
 // Go 4 weeks from today (ie, add 28 days)
 // Count 8 weeks from that point (ie, add 56 days)
 class CalendarNoJs extends Component {
   render() {
-    const { dates } = this.props
-    const startDate = dateToISODateString(addWeeks(new Date(), 4))
-    const endDate = dateToISODateString(addWeeks(new Date(startDate), 8))
+    const { dates, locale } = this.props
+    const startDate = dateToISODateString(getStartDate())
+    const endDate = dateToISODateString(getEndDate())
 
     return (
       <Calendar
         dates={dates && dates.selectedDays ? dates.selectedDays : []}
         startDate={startDate}
         endDate={endDate}
+        locale={locale}
       />
     )
   }
@@ -135,6 +147,7 @@ class CalendarNoJs extends Component {
 
 CalendarNoJs.propTypes = {
   dates: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  locale: PropTypes.string.isRequired,
 }
 
 export default CalendarNoJs

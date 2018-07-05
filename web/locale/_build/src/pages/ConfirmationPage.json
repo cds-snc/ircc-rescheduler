@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        24
+        42
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        28
+        46
       ]
     ]
   },
@@ -19,15 +19,31 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        32
+        50
       ]
     ]
   },
-  "By September 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
+  "By": {
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        35
+        53
+      ]
+    ]
+  },
+  "your local": {
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        54
+      ]
+    ]
+  },
+  "office will send you a new appointment, or email you to ask for more information.": {
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        58
       ]
     ]
   },
@@ -35,7 +51,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        46
+        65
       ]
     ]
   }

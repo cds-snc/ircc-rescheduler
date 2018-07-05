@@ -1,10 +1,73 @@
 {
+  "By": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        53
+      ]
+    ]
+  },
+  "your local": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        54
+      ]
+    ]
+  },
+  "office will send you a new appointment, or email you to ask for more information.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        58
+      ]
+    ]
+  },
+  "between": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        111
+      ]
+    ]
+  },
+  "to": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        112
+      ]
+    ]
+  },
+  "you’re available between": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        93
+      ]
+    ]
+  },
+  "and": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        94
+      ]
+    ]
+  },
   "Remove day": {
     "translation": "",
     "origin": [
       [
         "src/components/Calendar.js",
-        408
+        410
       ]
     ]
   },
@@ -13,7 +76,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        482
+        484
       ]
     ]
   },
@@ -22,7 +85,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        551
+        555
       ]
     ]
   },
@@ -235,7 +298,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        65
+        66
       ]
     ]
   },
@@ -244,7 +307,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        78
+        79
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -261,7 +324,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        83
+        84
       ]
     ]
   },
@@ -270,7 +333,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        88
+        89
       ]
     ]
   },
@@ -279,20 +342,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        90
+        91
       ],
       [
         "src/pages/LandingPage.js",
-        96
-      ]
-    ]
-  },
-  "you’re available between August and September:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        92
+        109
       ]
     ]
   },
@@ -301,7 +355,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        103
+        110
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -314,15 +368,15 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        128
+        135
       ],
       [
         "src/pages/CalendarPage.js",
-        146
+        153
       ],
       [
         "src/pages/CalendarPage.js",
-        266
+        277
       ]
     ]
   },
@@ -331,7 +385,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        133
+        140
       ]
     ]
   },
@@ -340,7 +394,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        140
+        147
       ]
     ]
   },
@@ -349,11 +403,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        234
+        244
       ],
       [
         "src/pages/CalendarPage.js",
-        310
+        323
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -397,7 +451,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        32
+        50
       ]
     ]
   },
@@ -428,7 +482,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        46
+        65
       ]
     ]
   },
@@ -437,7 +491,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        24
+        42
       ]
     ]
   },
@@ -446,16 +500,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        28
-      ]
-    ]
-  },
-  "By September 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        35
+        46
       ]
     ]
   },
@@ -567,7 +612,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        70
+        83
       ]
     ]
   },
@@ -576,7 +621,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        77
+        90
       ]
     ]
   },
@@ -585,7 +630,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        82
+        95
       ]
     ]
   },
@@ -594,7 +639,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        88
+        101
       ]
     ]
   },
@@ -603,7 +648,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        94
+        107
       ]
     ]
   },
@@ -612,7 +657,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        98
+        113
       ]
     ]
   },
@@ -621,7 +666,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        105
+        120
       ]
     ]
   },
@@ -630,7 +675,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        114
+        129
       ]
     ]
   },
@@ -1156,5 +1201,25 @@
         59
       ]
     ]
+  },
+  "By September 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        35
+      ]
+    ],
+    "obsolete": true
+  },
+  "you’re available between August and September:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        92
+      ]
+    ],
+    "obsolete": true
   }
 }
