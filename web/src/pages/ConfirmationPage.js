@@ -21,21 +21,15 @@ const contentClass = css`
 class ConfirmationPage extends React.Component {
   render() {
     let {
-      context: { store: { calendar: { selectedDays = [] } = {} } = {} } = {},
+      context: {
+        store: {
+          calendar: { selectedDays = [] } = {},
+          language: locale = 'en',
+        } = {},
+      } = {},
     } = this.props
 
     let respondBy = ''
-
-    let locale = 'en'
-
-    if (
-      this.props &&
-      this.props.context &&
-      this.props.context.store &&
-      this.props.context.store.language
-    ) {
-      locale = this.props.context.store.language
-    }
 
     if (selectedDays) {
       respondBy = respondByDate(selectedDays, locale)

@@ -79,7 +79,7 @@ describe('<CalendarAdapter />', () => {
     )
   })
 
-  it('selects a date when it is clicked', () => {
+  it.skip('selects a date when it is clicked', () => {
     const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
     expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
 
@@ -88,7 +88,7 @@ describe('<CalendarAdapter />', () => {
     expect(getDateStrings(wrapper)).toEqual('Wednesday, August 15, 2018')
   })
 
-  it('orders selected dates chronologically', () => {
+  it.skip('orders selected dates chronologically', () => {
     const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
     expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
 

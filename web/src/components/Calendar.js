@@ -10,6 +10,7 @@ import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
 import { getDateInfo } from '../utils/linguiUtils'
 import { getStartMonth, toMonth, getStartDate } from '../utils/calendarDates'
+import parse from 'date-fns/parse'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -517,8 +518,8 @@ class Calendar extends Component {
     } = this.props
     const dateInfo = getDateInfo(i18n)
     const locale = i18n !== undefined ? i18n._language : 'en'
-    const startMonth = getStartMonth()
-    const endDate = toMonth()
+    const startMonth = parse(getStartMonth())
+    const endDate = parse(toMonth())
     value = value || []
     return (
       <div className={calendarContainer}>
@@ -536,7 +537,7 @@ class Calendar extends Component {
           numberOfMonths={1}
           disabledDays={[
             {
-              before: getStartDate(new Date(), true),
+              before: parse(getStartDate(new Date())),
               after: endDate,
             },
             {

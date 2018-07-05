@@ -147,7 +147,7 @@ class CalendarNoJs extends Component {
 
 CalendarNoJs.propTypes = {
   dates: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-  locale: PropTypes.string,
+  locale: PropTypes.string.isRequired,
 }
 
 export default CalendarNoJs

@@ -108,8 +108,8 @@ class LandingPage extends React.Component {
             <strong>
               <Trans>3 days</Trans>
             </strong>{' '}
-            <Trans>in </Trans> {getStartMonthName(new Date(), locale)}{' '}
-            <Trans>or</Trans> {getEndMonthName(new Date(), locale)}{' '}
+            <Trans>between </Trans> {getStartMonthName(new Date(), locale)}{' '}
+            <Trans>to</Trans> {getEndMonthName(new Date(), locale)}{' '}
             <Trans>
               when you’re available for an appointment in the future
             </Trans>.

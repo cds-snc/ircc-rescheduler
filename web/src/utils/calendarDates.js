@@ -9,15 +9,15 @@ import format from 'date-fns/format'
 import { makeGMTDate, dateToISODateString } from '../components/Time'
 
 // Go 6 weeks from today (ie, add 28 days)
-const offsetStartWeeks = 6
+const offsetStartWeeks = 5
 // Count 8 weeks from that point (ie, add 56 days)
 const offsetEndWeeks = 8
 
 const offsetRespondBy = 6 // weeks
 
-export const getStartDate = (today = new Date(), parseToDate = false) => {
+export const getStartDate = (today = new Date()) => {
   const date = wedOrThurs(addWeeks(today, offsetStartWeeks))
-  return parseToDate ? parse(date) : dateToISODateString(date)
+  return dateToISODateString(date)
 }
 
 export const getEndDate = (today = new Date()) => {
@@ -29,7 +29,7 @@ export const getEndDate = (today = new Date()) => {
 }
 
 export const wedOrThurs = date => {
-  let i = 0
+  var i = 0
   //find the current or next Wed or Thurs
   for (i = 0; i <= 7; i++) {
     let plusDay = addDays(date, i)
@@ -78,18 +78,19 @@ export const getMonthNameAndYear = (date, locale = 'fr') => {
   return toLocale(format(parse(date), 'YYYY-MM-DD'), options, locale)
 }
 
-export const toMonth = (today = new Date(), parseToDate = true) => {
-  const endDate = getEndDate(today)
-  return parseToDate ? parse(endDate) : endDate
+export const toMonth = (today = new Date()) => {
+  return getEndDate(today)
 }
 
 export const respondByDate = (selectedDays = [], locale = 'fr') => {
+  selectedDays.sort()
   if (!selectedDays[selectedDays.length - 1]) return null
 
-  const baseDate = subWeeks(
-    parse(selectedDays[selectedDays.length - 1]),
-    offsetRespondBy,
+  const baseDate = addDays(
+    subWeeks(parse(selectedDays[selectedDays.length - 1]), offsetRespondBy),
+    2,
   )
+
   const options = { month: 'long', day: 'numeric', year: 'numeric' }
   return toLocale(format(baseDate, 'YYYY-MM-DD'), options, locale)
 }
