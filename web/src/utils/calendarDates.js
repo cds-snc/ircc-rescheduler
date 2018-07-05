@@ -8,11 +8,8 @@ import subWeeks from 'date-fns/sub_weeks'
 import format from 'date-fns/format'
 import { makeGMTDate, dateToISODateString } from '../components/Time'
 
-// Go 6 weeks from today (ie, add 28 days)
 const offsetStartWeeks = 5
-// Count 8 weeks from that point (ie, add 56 days)
 const offsetEndWeeks = 8
-
 const offsetRespondBy = 4 // weeks + respondByDate() will add 2 additional days
 
 export const getStartDate = (today = new Date()) => {
