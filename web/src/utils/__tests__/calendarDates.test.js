@@ -5,6 +5,7 @@ import {
   toMonth,
   yearMonthDay,
   respondByDate,
+  getMonthNameAndYear,
 } from '../calendarDates'
 
 describe('Utilities functions CalendarDates.js', () => {
@@ -18,6 +19,16 @@ describe('Utilities functions CalendarDates.js', () => {
     expect(getEndDate(today)).toEqual('2018-10-04')
   })
 
+  it('gets month and year', () => {
+    const today = new Date('July 05, 2018')
+    expect(getMonthNameAndYear(today, 'en')).toEqual('July 2018')
+  })
+
+  it('gets month and year FR', () => {
+    const today = new Date('July 05, 2018')
+    expect(getMonthNameAndYear(today, 'fr')).toEqual('juillet 2018')
+  })
+
   it('gets start month', () => {
     const today = new Date('September 05, 2018')
     expect(yearMonthDay(getStartMonth(today))).toEqual('2018-10-01')
@@ -25,12 +36,17 @@ describe('Utilities functions CalendarDates.js', () => {
 
   it('gets to month', () => {
     const today = new Date('September 05, 2018')
-    expect(toMonth(today, false)).toEqual('2018-12-05')
+    expect(toMonth(today)).toEqual('2018-12-05')
   })
 
   it('gets confirmation date', () => {
     const selectedDays = ['2018-01-31', '2018-01-30', '2018-08-22']
     expect(respondByDate(selectedDays, 'en')).toEqual('July 27, 2018')
+  })
+
+  it('gets confirmation date FR', () => {
+    const selectedDays = ['2018-01-31', '2018-01-30', '2018-08-22']
+    expect(respondByDate(selectedDays, 'fr')).toEqual('27 juillet 2018')
   })
 
   it('gets confirmation date if passed out of order', () => {
