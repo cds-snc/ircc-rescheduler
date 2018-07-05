@@ -27,7 +27,7 @@ module.exports = shipit => {
       key: 'ircc-vm.pem',
       servers: [
         {
-          host: 'ec2-35-183-87-90.ca-central-1.compute.amazonaws.com',
+          host: '35.183.87.90',
           user: 'ubuntu'
         }
       ]
