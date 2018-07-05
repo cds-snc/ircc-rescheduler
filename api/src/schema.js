@@ -48,6 +48,7 @@ const createSchema = t => {
           const staffOptions = {
             htmlTemplate: 'staff-rich',
             plainTemplate: 'staff-plain',
+            subject: 'IRCC Citizenship Rescheduling Tool',
             formValues: input,
             url: siteUrl,
             receivingAddress,
@@ -57,6 +58,8 @@ const createSchema = t => {
           const applicantOptions = {
             htmlTemplate: 'applicant-rich',
             plainTemplate: 'applicant-plain',
+            subject:
+              'IRCC confirmation of your request / Confirmation d’IRCC de votre demande',
             formValues: input,
             url: siteUrl,
             receivingAddress: input.email,
