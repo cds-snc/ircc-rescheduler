@@ -90,14 +90,14 @@ const buildParams = async options => {
     })
   })
 
-  const { receivingAddress, sendingAddress } = options
+  const { receivingAddress, sendingAddress, subject } = options
   const { html, plain } = markup
 
   const params = {
     from: sendingAddress,
     to: receivingAddress,
     replyTo: sendingAddress,
-    subject: 'IRCC Citizenship Rescheduling Tool',
+    subject,
     text: plain,
     html: html,
     attachments: [
