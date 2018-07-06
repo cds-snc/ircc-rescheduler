@@ -6,11 +6,19 @@ import startOfMonth from 'date-fns/start_of_month'
 import addDays from 'date-fns/add_days'
 import subWeeks from 'date-fns/sub_weeks'
 import format from 'date-fns/format'
+import eachDay from 'date-fns/each_day'
 import { makeGMTDate, dateToISODateString } from '../components/Time'
 
 const offsetStartWeeks = 5
 const offsetEndWeeks = 8
 const offsetRespondBy = 4 // weeks + respondByDate() will add 2 additional days
+
+export const toLocale = (date, options, locale) => {
+  return makeGMTDate(format(date, 'YYYY-MM-DD')).toLocaleDateString(
+    locale,
+    options,
+  )
+}
 
 export const getStartDate = (today = new Date()) => {
   const date = wedOrThurs(addWeeks(today, offsetStartWeeks))
@@ -58,13 +66,6 @@ export const getStartMonthName = (today = new Date(), locale = 'fr') => {
   )
 }
 
-const toLocale = (date, options, locale) => {
-  return makeGMTDate(format(date, 'YYYY-MM-DD')).toLocaleDateString(
-    locale,
-    options,
-  )
-}
-
 export const getEndMonthName = (today = new Date(), locale = 'fr') => {
   const options = { month: 'long' }
   return toLocale(parse(getEndDate(today)), options, locale)
@@ -94,4 +95,17 @@ export const respondByDate = (selectedDays = [], locale = 'fr') => {
 
 export const yearMonthDay = date => {
   return format(date, 'YYYY-MM-DD')
+}
+
+export const getValidDays = (startDate, endDate) => {
+  const days = eachDay(startDate, endDate)
+  const mapped = []
+  days.forEach(date => {
+    const validDay = isWednesday(date) || isThursday(date)
+    if (validDay) {
+      mapped.push(date)
+    }
+  })
+
+  return mapped
 }
