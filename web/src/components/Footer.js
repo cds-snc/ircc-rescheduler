@@ -2,8 +2,8 @@ import React from 'react'
 import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import PropTypes from 'prop-types'
-import { Trans, withI18n } from 'lingui-react'
-import { translateText } from '../utils/linguiUtils'
+import { Trans } from 'lingui-react'
+import { translateTextBetter } from '../utils/linguiUtils'
 import { WordMark } from '@cdssnc/gcui'
 import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
@@ -87,7 +87,7 @@ const TopBar = styled.hr(
   props => ({ background: props.background }),
 )
 
-const Footer = withI18n()(({ topBarBackground, i18n, context = {} }) => (
+const Footer = ({ topBarBackground, context = {} }) => (
   <div>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
@@ -96,14 +96,19 @@ const Footer = withI18n()(({ topBarBackground, i18n, context = {} }) => (
           <Trans>Contact</Trans>
         </a>
         <a
-          href={translateText(
-            i18n,
-            'https://www.canada.ca/en/transparency/privacy.html',
+          href={translateTextBetter(
+            <Trans>https://www.canada.ca/en/transparency/privacy.html</Trans>,
+            context.store.language,
           )}
         >
           <Trans>Privacy</Trans>
         </a>
-        <a href={translateText(i18n, 'https://digital.canada.ca/legal/terms/')}>
+        <a
+          href={translateTextBetter(
+            <Trans>https://digital.canada.ca/legal/terms/</Trans>,
+            context.store.language,
+          )}
+        >
           <Trans>Terms</Trans>
           {context.store &&
           context.store.language &&
@@ -126,7 +131,7 @@ const Footer = withI18n()(({ topBarBackground, i18n, context = {} }) => (
       </div>
     </footer>
   </div>
-))
+)
 Footer.propTypes = {
   ...contextPropTypes,
   topBarBackground: PropTypes.string,
