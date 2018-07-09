@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import { Trans, withI18n } from 'lingui-react'
-import { translateText } from '../utils/linguiUtils'
 import PhaseBanner from './PhaseBanner'
 
 const bigBanner = css`
@@ -47,8 +46,7 @@ const PageHeader = ({ children, headerClass = '', i18n }) => (
     <PhaseBanner phase="beta">
       <Trans>This is a new service, help us improve by</Trans>{' '}
       <a
-        href={translateText(
-          i18n,
+        href={i18n._(
           'https://docs.google.com/forms/d/e/1FAIpQLSdEF3D7QCZ1ecPVKdqz_-dQAvlVdwdCQtHHLzg_v2q5q7XBlg/viewform',
         )}
         target="_blank"
