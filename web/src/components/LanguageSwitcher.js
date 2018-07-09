@@ -4,7 +4,6 @@ import { contextPropTypes } from '../context'
 import { Helmet } from 'react-helmet'
 import { css } from 'react-emotion'
 import { Trans, withI18n } from 'lingui-react'
-import { translateText } from '../utils/linguiUtils'
 import {
   theme,
   visuallyhidden,
@@ -66,9 +65,7 @@ class LanguageSwitcher extends React.Component {
       <form>
         <Helmet>
           <html lang={this.state.language} />
-          <title>
-            {translateText(i18n, 'Request a new citizenship appointment')}
-          </title>
+          <title>{i18n._('Request a new citizenship appointment')}</title>
         </Helmet>
         <h2 className={visuallyhidden}>
           <Trans>Language Selection</Trans>

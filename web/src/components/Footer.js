@@ -3,7 +3,6 @@ import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import PropTypes from 'prop-types'
 import { Trans, withI18n } from 'lingui-react'
-import { translateText } from '../utils/linguiUtils'
 import { WordMark } from '@cdssnc/gcui'
 import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
@@ -95,15 +94,10 @@ const Footer = withI18n()(({ topBarBackground, i18n, context = {} }) => (
         <a href="mailto:cds-snc@tbs-sct.gc.ca">
           <Trans>Contact</Trans>
         </a>
-        <a
-          href={translateText(
-            i18n,
-            'https://www.canada.ca/en/transparency/privacy.html',
-          )}
-        >
+        <a href={i18n._('https://www.canada.ca/en/transparency/privacy.html')}>
           <Trans>Privacy</Trans>
         </a>
-        <a href={translateText(i18n, 'https://digital.canada.ca/legal/terms/')}>
+        <a href={i18n._('https://digital.canada.ca/legal/terms/')}>
           <Trans>Terms</Trans>
           {context.store &&
           context.store.language &&

@@ -4,7 +4,6 @@ import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import importantMessage from '../assets/importantMessage.svg'
 import { withI18n } from 'lingui-react'
-import { translateText } from '../utils/linguiUtils'
 
 const imBanner = css`
   font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
@@ -36,7 +35,7 @@ const Reminder = withI18n()(({ children, i18n, className = '' }) => (
     <img
       src={importantMessage}
       className={icon}
-      alt={translateText(i18n, 'Important message')}
+      alt={i18n._('Important message')}
     />
     <span>{children}</span>
   </div>
