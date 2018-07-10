@@ -96,8 +96,8 @@ class Layout extends React.Component {
           }}
           render={() => <ErrorPageContent />}
         >
-          <FederalBanner />
           <div role="banner">
+            <FederalBanner />
             <PageHeader headerClass={this.props.headerClass}>
               <Trans>Request a new citizenship appointment</Trans>
             </PageHeader>
