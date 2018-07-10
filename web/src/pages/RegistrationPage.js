@@ -11,6 +11,15 @@ import {
   BottomContainer,
   focusRing,
 } from '../styles'
+import {
+  RegistrationFields,
+  getFieldNames,
+  defaultMessages,
+  getFieldErrorStrings,
+} from '../validation'
+
+import Validator from 'validatorjs'
+
 import Layout from '../components/Layout'
 import {
   TextFieldAdapter,
@@ -91,61 +100,21 @@ const labelNames = id => {
 
 class RegistrationPage extends React.Component {
   static get fields() {
-    return ['fullName', 'email', 'paperFileNumber', 'reason', 'explanation']
+    return getFieldNames(RegistrationFields)
   }
 
   static get redirect() {
     return '/calendar'
   }
 
-  static validateEmail(email) {
-    /* eslint-disable */
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    return re.test(String(email).toLowerCase())
-    /* eslint-enable */
-  }
-
   static validate(values) {
-    const errors = {}
-    if (!values.fullName) {
-      errors.fullName = (
-        <Trans>
-          You need to tell us your name so we know who is requesting a new
-          appointment.
-        </Trans>
-      )
+    const validate = new Validator(values, RegistrationFields, defaultMessages)
+
+    if (validate.passes()) {
+      return {}
     }
-    if (!RegistrationPage.validateEmail(values.email)) {
-      errors.email = (
-        <Trans>
-          We need your email address so we can send you a confirmation message.
-        </Trans>
-      )
-    }
-    if (!values.paperFileNumber) {
-      errors.paperFileNumber = (
-        <Trans>
-          We need your paper file number so we can confirm your identity.
-        </Trans>
-      )
-    }
-    if (!values.reason) {
-      errors.reason = (
-        <Trans>
-          Please tell us why you need to reschedule your appointment. If none of
-          the options fit your situation, choose ‘Other’.
-        </Trans>
-      )
-    }
-    if (!values.explanation) {
-      errors.explanation = (
-        <Trans>
-          Please tell us a bit more about why you need to reschedule your
-          appointment.
-        </Trans>
-      )
-    }
-    return errors
+
+    return getFieldErrorStrings(validate)
   }
 
   constructor(props) {
