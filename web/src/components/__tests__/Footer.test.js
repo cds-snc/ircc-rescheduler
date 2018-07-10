@@ -55,21 +55,27 @@ describe('<Footer />', () => {
     ).not.toMatch(/and Conditions/)
   })
 
-  it('renders with Canadawordmark in French', () => {
+  it('renders with Canadawordmark in French with corresponding alt attr', () => {
     const footer = mount(
       <I18nProvider>
         <Footer context={getStore('fr')} i18n={i18n} />{' '}
       </I18nProvider>,
     )
     expect(footer.find('img').length).toBe(1)
+    expect(footer.find('img').prop('alt')).toEqual(
+      'Symbole du gouvernement du Canada',
+    )
   })
 
-  it('renders with Canadawordmark in English', () => {
+  it('renders with Canadawordmark in English with corresponding alt attr', () => {
     const footer = mount(
       <I18nProvider>
         <Footer context={getStore('en')} i18n={i18n} />{' '}
       </I18nProvider>,
     )
     expect(footer.find('img').length).toBe(1)
+    expect(footer.find('img').prop('alt')).toEqual(
+      'Symbol of the Government of Canada',
+    )
   })
 })
