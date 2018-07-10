@@ -85,16 +85,12 @@ class LanguageSwitcher extends React.Component {
             )
           }}
         >
-          {this.getNewLanguage() === 'fr' ? (
-            <span>
-              <span className={visuallyhiddenMobile}>Français</span>
-              <span className={hiddenOnDesktop} aria-hidden="true">
-                FR
-              </span>
-            </span>
-          ) : (
-            'English'
-          )}
+          <span className={visuallyhiddenMobile}>
+            {this.getNewLanguage() === 'fr' ? 'Français' : 'English'}
+          </span>
+          <span className={hiddenOnDesktop} aria-hidden="true">
+            {this.getNewLanguage() === 'fr' ? 'FR' : 'EN'}
+          </span>
         </button>
       </form>
     )
