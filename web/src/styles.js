@@ -48,11 +48,11 @@ export const incrementColor = (col, amt) => {
 }
 
 export const breakpoints = {
-  xs: 481,
+  xs: 330,
   sm: 578,
   md: 764,
   base: 764,
-  lg: 992,
+  lg: 1050,
   xl: 1325,
 }
 
@@ -71,6 +71,7 @@ export const theme = {
     grayVeryLight: '#F5F5F5',
     white: '#FFFFFF',
     black: '#000000',
+    blackLight: '#222222',
     focus: '#FFBF47',
     link: '#0000EE',
     visited: '#551A8B',

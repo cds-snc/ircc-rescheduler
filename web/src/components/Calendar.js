@@ -8,6 +8,7 @@ import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
+import MobileCancel from '../assets/mobileCancel.svg'
 import { getDateInfo } from '../utils/linguiUtils'
 import { getStartMonth, toMonth, getStartDate } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
@@ -15,6 +16,8 @@ import parse from 'date-fns/parse'
 const dayPickerDefault = css`
   /* DayPicker styles */
 
+  ${focusRing};
+  margin-bottom: ${theme.spacing.xl};
   display: inline-block;
 
   .DayPicker-wrapper {
@@ -23,8 +26,19 @@ const dayPickerDefault = css`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    padding-bottom: 1rem;
     flex-direction: row;
+    font-size: ${theme.font.lg};
+    background: ${theme.colour.white};
+    border: 2px solid ${theme.colour.black};
+
+    ${mediaQuery.lg(css`
+      width: 100%;
+      margin-right: 0;
+    `)};
+
+    ${mediaQuery.md(css`
+      width: 100%;
+    `)};
   }
 
   .DayPicker-Months {
@@ -41,8 +55,11 @@ const dayPickerDefault = css`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    margin: 0 1rem;
-    margin-top: 1rem;
+    width: 25rem;
+
+    ${mediaQuery.lg(css`
+      width: 100%;
+    `)};
   }
 
   .DayPicker-NavBar {
@@ -51,16 +68,21 @@ const dayPickerDefault = css`
   .DayPicker-NavButton {
     position: absolute;
     cursor: pointer;
-    top: 1rem;
-    right: 1.5rem;
+    top: 1.5rem;
+    right: auto;
     margin-top: 2px;
-    color: #8b9898;
-    width: 1.25rem;
-    height: 1.25rem;
+    color: ${theme.colour.black};
+    width: 1.35rem;
+    height: 1.35rem;
     display: inline-block;
     background-size: 50%;
     background-repeat: no-repeat;
     background-position: center;
+
+    &:focus {
+      outline: 3px solid ${theme.colour.focus};
+      outline-offset: 2px;
+    }
   }
 
   .DayPicker-NavButton:hover {
@@ -68,11 +90,14 @@ const dayPickerDefault = css`
   }
 
   .DayPicker-NavButton--prev {
-    margin-right: 1.5rem;
+    left: 0.5rem;
+    top: 0.6rem;
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAVVJREFUWAnN2G0KgjAYwPHpGfRkaZeqvgQaK+hY3SUHrk1YzNLay/OiEFp92I+/Mp2F2Mh2lLISWnflFjzH263RQjzMZ19wgs73ez0o1WmtW+dgA01VxrE3p6l2GLsnBy1VYQOtVSEH/atCCgqpQgKKqYIOiq2CBkqtggLKqQIKgqgCBjpJ2Y5CdJ+zrT9A7HHSTA1dxUdHgzCqJIEwq0SDsKsEg6iqBIEoq/wEcVRZBXFV+QJxV5mBtlDFB5VjYTaGZ2sf4R9PM7U9ZU+lLuaetPP/5Die3ToO1+u+MKtHs06qODB2zBnI/jBd4MPQm1VkY79Tb18gB+C62FdBFsZR6yeIo1YQiLJWMIiqVjQIu1YSCLNWFgijVjYIuhYYCKoWKAiiFgoopxYaKLUWOii2FgkophYp6F3r42W5A9s9OcgNvva8xQaysKXlFytoqdYmQH6tF3toSUo0INq9AAAAAElFTkSuQmCC');
   }
 
   .DayPicker-NavButton--next {
+    right: 0.5rem;
+    top: 0.6rem;
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAwCAYAAAB5R9gVAAAABGdBTUEAALGPC/xhBQAAAXRJREFUWAnN119ugjAcwPHWzJ1gnmxzB/BBE0n24m4xfNkTaOL7wOtsl3AXMMb+Vjaa1BG00N8fSEibPpAP3xAKKs2yjzTPH9RAjhEo9WzPr/Vm8zgE0+gXATAxxuxtqeJ9t5tIwv5AtQAApsfT6TPdbp+kUBcgVwvO51KqVhMkXKsVJFXrOkigVhCIs1Y4iKlWZxB1rX4gwlpRIIpa8SDkWmggrFq4IIRaJKCYWnSgnrXIQV1r8YD+1Vrn+bReagysIFfLABRt31v8oBu1xEBttfRbltmfjgEcWh9snUS2kNdBK6WN1vrOWxObWsz+fjxevsxmB1GQDfINWiev83nhaoiB/CoOU438oPrhXS0WpQ9xc1ZQWxWHqUYe0I0qrKCQKjygDlXIQV2r0IF6ViEBxVTBBSFUQQNhVYkHIVeJAtkNsbQ7c1LtzP6FsObhb2rCKv7NBIGoq4SDmKoEgTirXAcJVGkFSVVpgoSrXICGUMUH/QBZNSUy5XWUhwAAAABJRU5ErkJggg==');
   }
 
@@ -81,10 +106,14 @@ const dayPickerDefault = css`
   }
 
   .DayPicker-Caption {
-    padding: 0 0.5rem;
+    padding: ${theme.spacing.sm};
     display: table-caption;
-    text-align: left;
-    margin-bottom: 0.5rem;
+    border-bottom: 2px solid black;
+    text-align: center;
+
+    > div {
+      font-family: ${theme.weight.b}, Helvetica;
+    }
   }
 
   .DayPicker-Caption > div {
@@ -103,15 +132,21 @@ const dayPickerDefault = css`
 
   .DayPicker-Weekday {
     display: table-cell;
-    padding: 0.5rem;
+    padding-top: ${theme.spacing.sm};
     font-size: 0.875em;
     text-align: center;
-    color: #8b9898;
+    background: #eee;
   }
 
   .DayPicker-Weekday abbr[title] {
     border-bottom: none;
     text-decoration: none;
+  }
+
+  .DayPicker-Weekday:nth-of-type(4),
+  .DayPicker-Weekday:nth-of-type(5) {
+    background: ${theme.colour.white};
+    font-family: ${theme.weight.b}, Helvetica;
   }
 
   .DayPicker-Body {
@@ -129,6 +164,31 @@ const dayPickerDefault = css`
     cursor: pointer;
     vertical-align: middle;
     outline: none;
+
+    &[aria-disabled='false'] {
+      font-weight: 700;
+      font-family: ${theme.weight.b}, Helvetica;
+      background: white;
+      outline: 0px white solid;
+
+      &:focus {
+        outline: 3px solid ${theme.colour.focus};
+        outline-offset: -2px;
+      }
+      &:hover {
+        background-color: ${theme.colour.greyLight};
+      }
+    }
+
+    &[aria-disabled='true'] {
+      cursor: not-allowed;
+      background: #eee;
+
+      &:focus {
+        outline: 3px solid ${theme.colour.lightGrey};
+        outline-offset: -2px;
+      }
+    }
   }
 
   .DayPicker-WeekNumber {
@@ -169,84 +229,9 @@ const dayPickerDefault = css`
   }
 
   .DayPicker-Day--disabled {
-    color: #dce0e0;
     cursor: default;
   }
-`
 
-const dayPicker = css`
-  ${focusRing};
-  margin-bottom: ${theme.spacing.xl};
-
-  .DayPicker-wrapper {
-    background-color: white;
-    font-size: ${theme.font.lg};
-    border: 2px solid ${theme.colour.greyLight};
-  }
-
-  .DayPicker-NavButton {
-    top: 1.5rem;
-    right: auto;
-    color: ${theme.colour.black};
-    width: 1.35rem;
-    height: 1.35rem;
-    background-size: 50%;
-
-    &:focus {
-      outline: 3px solid ${theme.colour.focus};
-      outline-offset: 2px;
-    }
-
-    &.DayPicker-NavButton--next {
-      right: 2.5rem;
-    }
-
-    &.DayPicker-NavButton--prev {
-      left: 2.5rem;
-    }
-  }
-
-  .DayPicker-Weekday,
-  .DayPicker-Day {
-    padding: 0.7rem;
-  }
-
-  .DayPicker-Caption {
-    border-bottom: 2px dotted black;
-    text-align: center;
-    padding: ${theme.spacing.sm};
-
-    > div {
-      font-weight: 700;
-    }
-  }
-
-  .DayPicker-Day {
-    /* enabled dates */
-    &[aria-disabled='false'] {
-      font-weight: 700;
-
-      &:focus {
-        outline: 3px solid ${theme.colour.focus};
-        outline-offset: -2px;
-      }
-      &:hover {
-        background-color: ${theme.colour.greyLight};
-      }
-    }
-
-    /* disabled dates */
-    &[aria-disabled='true'] {
-      cursor: not-allowed;
-
-      &:focus {
-        outline: 3px solid ${theme.colour.lightGrey};
-        outline-offset: -2px;
-      }
-    }
-  }
-
-  /* selected dates */
   .DayPicker-Day--selected:not([aria-disabled='true']):not(.DayPicker-Day--outside) {
     background-color: ${theme.colour.blue};
     color: ${theme.colour.white};
@@ -257,6 +242,15 @@ const dayPicker = css`
   }
 `
 
+const dayPicker = css`
+  .DayPicker-Month {
+  }
+`
+
+const noDates = css`
+  display: none;
+`
+
 const calendarContainer = css`
   display: inline-flex;
   flex-direction: row;
@@ -265,29 +259,29 @@ const calendarContainer = css`
 
   > div:first-of-type {
     width: 25em;
-    margin-right: ${theme.spacing.xxl};
   }
   > div:last-of-type {
-    width: 22em;
+    width: 20em;
   }
 
-  width: 130%;
+  width: 100%;
 
   ${mediaQuery.lg(css`
-    display: block;
+    > div:first-of-type {
+      width: 60%;
+    }
+    > div:last-of-type {
+      width: 60%;
+    }
   `)};
 
   ${mediaQuery.md(css`
     width: 100%;
-
+    display: block;
     > div:first-of-type,
     > div:last-of-type {
       width: 100%;
     }
-  `)};
-
-  ${mediaQuery.sm(css`
-    width: 100%;
   `)};
 
   #selectedDays-list {
@@ -300,28 +294,24 @@ const calendarContainer = css`
 `
 
 const dayBox = css`
-  margin-bottom: ${theme.spacing.md};
+  margin-bottom: ${theme.spacing.xs};
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   .day-box {
-    font-size: ${theme.font.lg};
-    width: 11em;
-    display: inline-block;
-    border: 2px solid ${theme.colour.grey};
-    background-color: ${theme.colour.white};
-    padding: ${theme.spacing.sm} 0;
-    text-align: center;
+    font-size: ${theme.font.md};
+    color: ${theme.colour.white};
 
-    ${mediaQuery.sm(css`
-      width: 13em;
+    ${mediaQuery.lg(css`
+      width: 100%;
+      color: ${theme.colour.black};
+      font-size: ${theme.font.md};
     `)};
 
     &.empty {
-      background-color: ${theme.colour.greyLight};
-      border: 2px solid ${theme.colour.greyLight};
-
       * {
-        visibility: hidden;
+        display: none;
       }
     }
   }
@@ -343,38 +333,105 @@ const dayBox = css`
 `
 
 const daySelection = css`
+  background: ${theme.colour.blackLight};
   margin-bottom: ${theme.spacing.xl};
+  width: 20rem;
+  padding: ${theme.spacing.lg} ${theme.spacing.lg} 0 ${theme.spacing.lg};
+
+  li {
+    border-top: 1px solid ${theme.colour.grayLight};
+    padding-bottom: ${theme.spacing.md};
+    padding-top: 1rem;
+    margin-bottom: 0;
+  }
+
+  li:first-of-type {
+    ${mediaQuery.lg(css`
+      padding-top: ${theme.spacing.xs};
+    `)};
+  }
+
+  li:last-of-type {
+    padding-bottom: ${theme.spacing.lg};
+
+    ${mediaQuery.lg(css`
+      padding-bottom: ${theme.spacing.md};
+    `)};
+  }
 
   h3 {
-    margin: 0 0 ${theme.spacing.lg} 0;
+    color: ${theme.colour.white};
     font-family: ${theme.weight.b}, Helvetica;
+    font-size: ${theme.font.md};
+    margin-bottom: ${theme.spacing.sm};
   }
+
+  ${mediaQuery.lg(css`
+    background: ${theme.colour.white};
+    margin-bottom: 0;
+    padding: 0 0 ${theme.spacing.sm} 0;
+    width: 60%;
+
+    li {
+      color: ${theme.colour.black};
+      border-top: 0;
+      padding-top: 0;
+      margin-bottom: ${theme.spacing.xs};
+    }
+
+    h3 {
+      color: ${theme.colour.black};
+      font-size: ${theme.font.lg};
+    }
+  `)};
+
+  ${mediaQuery.md(css`
+    width: 100%;
+  `)};
 `
 
 const removeDateMobile = css`
   display: none;
-  height: 2.5rem;
-  width: 2.5rem;
 
-  ${mediaQuery.sm(css`
+  ${mediaQuery.lg(css`
     display: block;
+    width: 1.6rem;
+    height: 1.6rem;
   `)};
 `
 
 const removeDateDesktop = css`
-  width: 7rem;
+  height: 1rem;
+  width: 1rem;
 
-  ${mediaQuery.sm(css`
+  ${mediaQuery.lg(css`
     display: none;
   `)};
 `
+
 const selectedDaysError = css`
-  margin-bottom: ${theme.spacing.lg};
+  margin-bottom: ${theme.spacing.md};
+  padding: 0.2rem ${theme.spacing.sm} ${theme.spacing.md} ${theme.spacing.sm};
+  background: ${theme.colour.white};
 
   &:focus {
     outline-offset: 3px;
     outline: 3px solid ${theme.colour.focus};
   }
+`
+
+const triangle = css`
+  width: 0;
+  height: 0;
+  margin-top: ${theme.spacing.lg};
+  margin-left: ${theme.spacing.md};
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right: 25px solid ${theme.colour.blackLight};
+
+  ${mediaQuery.lg(css`
+    display: none;
+  `)};
 `
 
 const sortSelectedDays = selectedDays => {
@@ -407,20 +464,16 @@ const renderDayBoxes = ({
             aria-label={`Remove day: ${dateToHTMLString(selectedDay)}`}
           >
             <div className={removeDateDesktop}>
-              <Trans>Remove day</Trans>
+              <img src={Cancel} alt="Remove Day" />
             </div>
 
             <div className={removeDateMobile}>
-              <img src={Cancel} alt="Remove day" />
+              <img src={MobileCancel} alt="Remove Day" />
             </div>
           </button>
         </li>
       ) : (
-        <li key={i} className={dayBox}>
-          <span className="empty day-box">
-            <span>No date selected</span>
-          </span>
-        </li>
+        ''
       ),
     )
   }
@@ -550,12 +603,13 @@ class Calendar extends Component {
           onBlur={() => onBlur(value)}
           containerProps={{ id, tabIndex }}
         />
-        <div className={daySelection}>
+        <div className={value.length ? triangle : noDates} />
+        <div className={value.length ? daySelection : noDates}>
           <h3>
             <Trans>Your 3 selected days:</Trans>
           </h3>
           <div
-            className={selectedDaysError}
+            className={this.state.errorMessage ? selectedDaysError : ''}
             tabIndex="-1"
             ref={errorContainer => {
               this.errorContainer = errorContainer
