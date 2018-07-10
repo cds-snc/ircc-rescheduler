@@ -87,9 +87,7 @@ class ValidationMessage extends React.Component {
   render() {
     return (
       <span
-        className={`${
-          this.props.message ? '' : `empty ${noError}`
-        }${errorMessage}`}
+        className={this.props.message ? errorMessage : `empty ${noError}`}
         id={this.props.id}
       >
         {this.props.message}
@@ -110,19 +108,10 @@ ValidationMessage.propTypes = {
  * the message to the screen reader user.
  */
 class ErrorMessage extends React.Component {
-  constructor(props) {
-    super(props)
-    this.isEmpty = this.isEmpty.bind(this)
-  }
-
-  isEmpty() {
-    return !(this.props.message ? true : false)
-  }
-
   render() {
     return (
       <span
-        className={this.isEmpty() ? `empty ${noError}` : errorMessage}
+        className={this.props.message ? errorMessage : `empty ${noError}`}
         id={this.props.id}
         role="alert"
         aria-live="assertive"
