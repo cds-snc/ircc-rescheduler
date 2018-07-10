@@ -1,11 +1,17 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { mount, render } from 'enzyme'
 import { FooterBase as Footer } from '../Footer'
 import { getStore } from './LanguageSwitcher.test.js'
+import { i18n } from 'lingui-i18n/dist'
+import { I18nProvider } from 'lingui-react'
 
 describe('<Footer />', () => {
   it('renders footer', () => {
-    const footer = mount(<Footer context={getStore('en')} />)
+    const footer = render(
+      <I18nProvider>
+        <Footer context={getStore('en')} i18n={i18n} />
+      </I18nProvider>,
+    )
     expect(footer.find('footer').length).toBe(1)
     expect(footer.find('hr').length).toBe(0)
   })
@@ -13,14 +19,20 @@ describe('<Footer />', () => {
   it('renders footer with topBar', () => {
     // have to use 'mount' instead of 'shallow' to render nested components
     const footer = mount(
-      <Footer topBarBackground="black" context={getStore('en')} />,
+      <I18nProvider>
+        <Footer topBarBackground="black" context={getStore('en')} i18n={i18n} />
+      </I18nProvider>,
     )
     expect(footer.find('footer').length).toBe(1)
     expect(footer.find('hr').length).toBe(1)
   })
 
   it('renders "and Conditions" in English', () => {
-    const footer = mount(<Footer context={getStore('en')} />)
+    const footer = mount(
+      <I18nProvider>
+        <Footer context={getStore('en')} i18n={i18n} />
+      </I18nProvider>,
+    )
     expect(
       footer
         .find('a')
@@ -30,7 +42,11 @@ describe('<Footer />', () => {
   })
 
   it('renders without "and Conditions" in French', () => {
-    const footer = mount(<Footer context={getStore('fr')} />)
+    const footer = mount(
+      <I18nProvider>
+        <Footer context={getStore('fr')} i18n={i18n} />
+      </I18nProvider>,
+    )
     expect(
       footer
         .find('a')

@@ -1,10 +1,16 @@
 import React from 'react'
 import { render } from 'enzyme'
 import Reminder from '../Reminder'
+import { I18nProvider } from 'lingui-react'
+import { i18n } from 'lingui-i18n/dist'
 
 describe('<Reminder />', () => {
   it('renders reminder message', () => {
-    const reminder = render(<Reminder>Message</Reminder>)
+    const reminder = render(
+      <I18nProvider>
+        <Reminder i18n={i18n}>Message</Reminder>
+      </I18nProvider>,
+    )
     expect(reminder.find('img').length).toBe(1)
     expect(reminder.find('span').length).toBe(1)
   })
