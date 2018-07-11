@@ -7,7 +7,7 @@
     "dev": "razzle start",
     "dbg": "node --inspect-brk node_modules/jest/bin/jest.js",
     "lint": "node_modules/eslint/bin/eslint.js src test",
-    "start": "NODE_ENV=production node build/server.js",
+    "start": "NODE_ENV=production node --icu-data-dir=./node_modules/full-icu build/server.js",
     "test": "node --icu-data-dir=./node_modules/full-icu node_modules/jest/bin/jest.js",
     "extract": "NODE_ENV=development lingui extract",
     "compile": "NODE_ENV=development lingui compile",
