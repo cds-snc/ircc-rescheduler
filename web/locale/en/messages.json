@@ -1,82 +1,10 @@
 {
-  "By": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        53
-      ]
-    ]
-  },
-  "your local": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        54
-      ]
-    ]
-  },
-  "office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        58
-      ]
-    ]
-  },
-  "between": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        111
-      ]
-    ]
-  },
-  "to": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        112
-      ]
-    ]
-  },
-  "you’re available between": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        93
-      ]
-    ]
-  },
-  "and": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        94
-      ]
-    ]
-  },
-  "Remove day": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        410
-      ]
-    ]
-  },
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "translation": "",
     "origin": [
       [
         "src/components/Calendar.js",
-        484
+        537
       ]
     ]
   },
@@ -85,7 +13,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        555
+        609
       ]
     ]
   },
@@ -107,7 +35,7 @@
     "origin": [
       [
         "src/components/ErrorMessage.js",
-        63
+        64
       ]
     ]
   },
@@ -116,7 +44,20 @@
     "origin": [
       [
         "src/components/Footer.js",
-        96
+        109
+      ]
+    ]
+  },
+  "https://www.canada.ca/en/transparency/privacy.html": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        111
+      ],
+      [
+        "src/utils/linguiUtils.js",
+        54
       ]
     ]
   },
@@ -125,7 +66,20 @@
     "origin": [
       [
         "src/components/Footer.js",
-        104
+        112
+      ]
+    ]
+  },
+  "https://digital.canada.ca/legal/terms/": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        114
+      ],
+      [
+        "src/utils/linguiUtils.js",
+        55
       ]
     ]
   },
@@ -134,7 +88,20 @@
     "origin": [
       [
         "src/components/Footer.js",
-        107
+        115
+      ]
+    ]
+  },
+  "Request a new citizenship appointment": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/LanguageSwitcher.js",
+        68
+      ],
+      [
+        "src/components/Layout.js",
+        102
       ]
     ]
   },
@@ -143,16 +110,7 @@
     "origin": [
       [
         "src/components/LanguageSwitcher.js",
-        74
-      ]
-    ]
-  },
-  "Request a new citizenship appointment": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Layout.js",
-        102
+        71
       ]
     ]
   },
@@ -161,7 +119,20 @@
     "origin": [
       [
         "src/components/PageHeader.js",
-        48
+        47
+      ]
+    ]
+  },
+  "https://docs.google.com/forms/d/e/1FAIpQLSdEF3D7QCZ1ecPVKdqz_-dQAvlVdwdCQtHHLzg_v2q5q7XBlg/viewform": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/PageHeader.js",
+        49
+      ],
+      [
+        "src/utils/linguiUtils.js",
+        56
       ]
     ]
   },
@@ -170,7 +141,7 @@
     "origin": [
       [
         "src/components/PageHeader.js",
-        57
+        55
       ]
     ]
   },
@@ -189,6 +160,19 @@
       [
         "src/components/PhaseBanner.js",
         78
+      ]
+    ]
+  },
+  "Important message": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Reminder.js",
+        38
+      ],
+      [
+        "src/utils/linguiUtils.js",
+        59
       ]
     ]
   },
@@ -350,6 +334,24 @@
       ]
     ]
   },
+  "you’re available between": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        93
+      ]
+    ]
+  },
+  "and": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        94
+      ]
+    ]
+  },
   "Make sure you stay available on all of the days you select.": {
     "translation": "",
     "origin": [
@@ -504,6 +506,33 @@
       ]
     ]
   },
+  "By": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        53
+      ]
+    ]
+  },
+  "your local": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        54
+      ]
+    ]
+  },
+  "office will send you a new appointment, or email you to ask for more information.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        58
+      ]
+    ]
+  },
   "Sorry, something went wrong.": {
     "translation": "",
     "origin": [
@@ -649,6 +678,24 @@
       [
         "src/pages/LandingPage.js",
         107
+      ]
+    ]
+  },
+  "between": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        111
+      ]
+    ]
+  },
+  "to": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        112
       ]
     ]
   },
@@ -1166,41 +1213,15 @@
       ]
     ]
   },
-  "https://www.canada.ca/en/transparency/privacy.html": {
+  "Remove day": {
     "translation": "",
     "origin": [
       [
-        "src/utils/linguiUtils.js",
-        54
+        "src/components/Calendar.js",
+        410
       ]
-    ]
-  },
-  "https://digital.canada.ca/legal/terms/": {
-    "translation": "",
-    "origin": [
-      [
-        "src/utils/linguiUtils.js",
-        55
-      ]
-    ]
-  },
-  "https://docs.google.com/forms/d/e/1FAIpQLSdEF3D7QCZ1ecPVKdqz_-dQAvlVdwdCQtHHLzg_v2q5q7XBlg/viewform": {
-    "translation": "",
-    "origin": [
-      [
-        "src/utils/linguiUtils.js",
-        56
-      ]
-    ]
-  },
-  "Important message": {
-    "translation": "",
-    "origin": [
-      [
-        "src/utils/linguiUtils.js",
-        59
-      ]
-    ]
+    ],
+    "obsolete": true
   },
   "By September 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
     "translation": "",
