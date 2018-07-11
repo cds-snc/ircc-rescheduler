@@ -42,7 +42,7 @@ const pageTitle = css`
 `
 
 const PageHeader = ({ children, headerClass = '', i18n }) => (
-  <header className={headerClass ? skinnyBanner : bigBanner}>
+  <div className={headerClass ? skinnyBanner : bigBanner}>
     <PhaseBanner phase="beta">
       <Trans>This is a new service, help us improve by</Trans>{' '}
       <a
@@ -56,7 +56,7 @@ const PageHeader = ({ children, headerClass = '', i18n }) => (
       </a>.
     </PhaseBanner>
     <div className={headerClass ? headerClass : pageTitle}>{children}</div>
-  </header>
+  </div>
 )
 PageHeader.propTypes = {
   i18n: PropTypes.object,
