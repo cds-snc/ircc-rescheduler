@@ -19,12 +19,13 @@ it('Gets ar array of field names from Object Keys', () => {
   expect(getFieldNames(CalendarFields)[0]).toEqual('selectedDays')
 })
 
-it('Show correct error message when passing invalid fields', () => {
+it('Show correct error message when passing bad data', () => {
   const vals = {
     fullName: 'John Li',
     email: 'not.an.email',
-    paperFileNumber: 'c13456789',
+    paperFileNumber: '123',
   }
+
   const validate = new Validator(vals, RegistrationFields, defaultMessages)
   const success = validate.passes()
 
@@ -99,10 +100,6 @@ it('Validates when correct amount of dates have been passed', () => {
 
   const validate = new Validator(vals, CalendarFields, defaultMessages)
   expect(validate.passes()).toEqual(true)
-})
-
-it.skip('Gets file # pattern', () => {
-  expect(process.env.RAZZLE_PAPER_FILE_NUMBER_PATTERN).toEqual('hey')
 })
 
 it('Gives back an error object with array of messages', () => {
