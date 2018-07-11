@@ -7,7 +7,7 @@ import { Trans } from 'lingui-react'
  *--------------------------------------------*/
 
 const inputFieldMaxChars = 500
-const textAreaMaxChars = 2000
+const textAreaMaxChars = 1500
 
 /*--------------------------------------------*
  * Error message strings 
@@ -21,14 +21,35 @@ errorMessages.fullNameErrorMessage = (
   </Trans>
 )
 
+errorMessages.fullNameMaxErrorMessage = (
+  <Trans>
+    We're expecting a name that's shorter than 20 words. Please use the name
+    recorded on your application.
+  </Trans>
+)
+
 errorMessages.emailErrorMessage = (
   <Trans>
     We need your email address so we can send you a confirmation message.
   </Trans>
 )
 
+errorMessages.invalidEmailErrorMessage = (
+  <Trans>
+    Please make sure you provide a valid email address. For example,
+    yourname@domain.com
+  </Trans>
+)
+
 errorMessages.paperFileNumberErrorMessage = (
   <Trans>We need your paper file number so we can confirm your identity.</Trans>
+)
+
+errorMessages.invalidPaperFileNumberErrorMessage = (
+  <Trans>
+    We're expecting a number with a different format. Please make sure this is
+    your correct Paper File Number
+  </Trans>
 )
 
 errorMessages.reasonErrorMessage = (
@@ -41,6 +62,12 @@ errorMessages.reasonErrorMessage = (
 errorMessages.explanationErrorMessage = (
   <Trans>
     Please tell us a bit more about why you need to reschedule your appointment.
+  </Trans>
+)
+
+errorMessages.explanationMaxErrorMessage = (
+  <Trans>
+    Sorry, there's a limit of 150 words for this explanation. Please be concise.
   </Trans>
 )
 
@@ -58,12 +85,13 @@ errorMessages.inErrorMessage = <Trans>Invalid information</Trans> //value passed
 
 export const defaultMessages = {
   'required.fullName': 'fullNameErrorMessage',
+  'max.fullName': 'fullNameMaxErrorMessage',
   'required.email': 'emailErrorMessage',
-  'email.email': 'emailErrorMessage',
+  'email.email': 'invalidEmailErrorMessage',
   'required.paperFileNumber': 'paperFileNumberErrorMessage',
-  'regex.paperFileNumber': 'paperFileNumberErrorMessage',
   'required.reason': 'reasonErrorMessage',
   'required.explanation': 'explanationErrorMessage',
+  'max.explanation': 'explanationMaxErrorMessage',
   'required.selectedDays': 'selectedDaysEmptyErrorMessage',
   in: 'inErrorMessage',
 }
@@ -139,5 +167,5 @@ Validator.register(
     const regex = new RegExp('^' + getPaperFileNumberPattern() + '$', 'i')
     return regex.test(value)
   },
-  'paperFileNumberErrorMessage',
+  'invalidPaperFileNumberErrorMessage',
 )
