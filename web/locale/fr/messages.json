@@ -72,7 +72,7 @@
     ]
   },
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
-    "translation": "Vous ne pouvez pas sélectionner plus de 3 journées. Pour modifier vos choix, veuillez d'abord supprimer des journées.",
+    "translation": "Vous ne pouvez pas sélectionner plus de 3 journées. Pour modifier vos choix, veuillez d’abord supprimer des journées.",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -148,7 +148,7 @@
     ]
   },
   "Request a new citizenship appointment": {
-    "translation": "Demander un nouveau rendez-vous d'examen de citoyenneté",
+    "translation": "Demander un nouveau rendez-vous d’examen de citoyenneté",
     "origin": [
       [
         "src/components/Layout.js",
@@ -320,7 +320,7 @@
     ]
   },
   "Citizenship appointments are scheduled on Wednesdays and Thursdays.": {
-    "translation": "Les rendez-vous d'examen de citoyenneté ont lieu les mardis et les vendredis.",
+    "translation": "Les rendez-vous d’examen de citoyenneté ont lieu les mardis et les vendredis.",
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -434,7 +434,7 @@
     ]
   },
   "Nothing about your application or appointment has been changed.": {
-    "translation": "Votre demande de citoyenneté ou votre rendez-vous n'a été modifié(e).",
+    "translation": "Votre demande de citoyenneté ou votre rendez-vous n’a été modifié(e).",
     "origin": [
       [
         "src/pages/CancelPage.js",
@@ -456,7 +456,7 @@
     ]
   },
   "Please attend your appointment at the date and time specified in the email we sent you.": {
-    "translation": "Veuillez vous présenter à votre rendez-vous à la date et à l'heure précisées dans le courriel que nous vous avons envoyé.",
+    "translation": "Veuillez vous présenter à votre rendez-vous à la date et à l’heure précisées dans le courriel que nous vous avons envoyé.",
     "origin": [
       [
         "src/pages/CancelPage.js",
@@ -465,7 +465,7 @@
     ]
   },
   "If you missed your appointment, you still need to contact IRCC within 30 days. If you don’t, your application could be delayed or abandoned.": {
-    "translation": "Si vous avez manqué votre rendez-vous, vous devez tout de même contacter IRCC d'ici 30 jours, sinon le traitement de votre demande de citoyenneté pourrait être retardé ou abandonné.",
+    "translation": "Si vous avez manqué votre rendez-vous, vous devez tout de même contacter IRCC d’ici 30 jours, sinon le traitement de votre demande de citoyenneté pourrait être retardé ou abandonné.",
     "origin": [
       [
         "src/pages/CancelPage.js",
@@ -505,7 +505,7 @@
     ]
   },
   "Sorry, something went wrong.": {
-    "translation": "Désolé, une erreur s'est produite.",
+    "translation": "Désolé, une erreur s’est produite.",
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -523,7 +523,7 @@
     ]
   },
   "was not completed": {
-    "translation": " n'a pas été complétée",
+    "translation": " n’a pas été complétée",
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -532,7 +532,7 @@
     ]
   },
   "Your appointment or application wasn’t changed in any way": {
-    "translation": "Votre demande de citoyenneté ou votre rendez-vous n'a pas été modifié(e).",
+    "translation": "Votre demande de citoyenneté ou votre rendez-vous n’a pas été modifié(e).",
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -550,7 +550,7 @@
     ]
   },
   "Our team has been notified of this error, but you can also <0>tell us what went wrong</0>.": {
-    "translation": "Notre équipe a été avisée de l'erreur, mais vous pouvez nous aider en décrivant ce qui s'est passé.",
+    "translation": "Notre équipe a été avisée de l’erreur, mais vous pouvez nous aider en décrivant ce qui s’est passé.",
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -559,7 +559,7 @@
     ]
   },
   "Tell us what went wrong": {
-    "translation": "Veuillez décrire ce qui s'est passé.",
+    "translation": "Veuillez décrire ce qui s’est passé.",
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -590,7 +590,7 @@
     ]
   },
   "Sorry, the page you are looking for doesn’t exist.": {
-    "translation": "Désolé, la page que vous cherchez n'existe pas.",
+    "translation": "Désolé, la page que vous cherchez n’existe pas.",
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
@@ -599,7 +599,7 @@
     ]
   },
   "Return to the home page to reschedule your appointment.": {
-    "translation": "Veuillez revenir à la page d'accueil pour reporter votre rendez-vous.",
+    "translation": "Veuillez revenir à la page d’accueil pour reporter votre rendez-vous.",
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
@@ -608,7 +608,7 @@
     ]
   },
   "Tell IRCC you can’t attend your citizenship appointment, and request a new one.": {
-    "translation": "Avisez IRCC que vous ne pouvez pas vous présenter à votre rendez-vous d'examen de citoyenneté et demandez un nouveau rendez-vous.",
+    "translation": "Avisez IRCC que vous ne pouvez pas vous présenter à votre rendez-vous d’examen de citoyenneté et demandez un nouveau rendez-vous.",
     "origin": [
       [
         "src/pages/LandingPage.js",
@@ -662,7 +662,7 @@
     ]
   },
   "Requesting a new appointment will cancel your current one. Do not attend your old appointment after you complete this request. It can take up to 9 weeks for us to reschedule you.": {
-    "translation": "En demandant un nouveau rendez-vous, vous annulez votre rendez-vous actuel. Si vous soumettez cette demande, ne vous présentez pas à votre ancien rendez-vous. Le processus de report de votre rendez-vous peut nous prendre jusqu'à 9 semaines.",
+    "translation": "En demandant un nouveau rendez-vous, vous annulez votre rendez-vous actuel. Si vous soumettez cette demande, ne vous présentez pas à votre ancien rendez-vous. Le processus de report de votre rendez-vous peut nous prendre jusqu’à 9 semaines.",
     "origin": [
       [
         "src/pages/LandingPage.js",
@@ -680,7 +680,7 @@
     ]
   },
   "Citizenship appointments are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
-    "translation": "Les rendez-vous d'examen de citoyenneté ont lieu les mardis et les vendredis.",
+    "translation": "Les rendez-vous d’examen de citoyenneté ont lieu les mardis et les vendredis.",
     "origin": [
       [
         "src/pages/NoJSCalendarPage.js",
@@ -760,7 +760,7 @@
     ]
   },
   "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
-    "translation": "Veuillez nous fournir la raison pour laquelle vous voulez reporter votre rendez-vous. Si aucune des raisons énumérées ne s'applique à votre situation, choisissez « Autre raison ».",
+    "translation": "Veuillez nous fournir la raison pour laquelle vous voulez reporter votre rendez-vous. Si aucune des raisons énumérées ne s’applique à votre situation, choisissez « Autre raison ».",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -791,7 +791,7 @@
     ]
   },
   "This is the full name you used on your citizenship application.": {
-    "translation": "Il s'agit du nom complet que vous avez utilisé dans votre demande de citoyenneté.",
+    "translation": "Il s’agit du nom complet que vous avez utilisé dans votre demande de citoyenneté.",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -800,7 +800,7 @@
     ]
   },
   "This is where we’ll send a confirmation email when you’re done.": {
-    "translation": "Il s'agit de l'adresse à laquelle nous enverrons un courriel de confirmation une fois que vous aurez complété le processus.",
+    "translation": "Il s’agit de l’adresse à laquelle nous enverrons un courriel de confirmation une fois que vous aurez complété le processus.",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -809,7 +809,7 @@
     ]
   },
   "This number is at the top of the email we sent you.": {
-    "translation": "Il s'agit du numéro qui est affiché en haut du courriel que nous vous avons envoyé.",
+    "translation": "Il s’agit du numéro qui est affiché en haut du courriel que nous vous avons envoyé.",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -818,7 +818,7 @@
     ]
   },
   "Travel (business or vacation)": {
-    "translation": "Voyage (d'affaires ou vacances)",
+    "translation": "Voyage (d’affaires ou vacances)",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -1203,7 +1203,7 @@
     ]
   },
   "By September 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "D'ici le 6 septembre 2018, votre bureau local IRCC vous enverra les détails de votre nouveau rendez-vous ou vous communiquera avec vous par courriel pour vous demander des renseignements supplémentaires.",
+    "translation": "D’ici le 6 septembre 2018, votre bureau local IRCC vous enverra les détails de votre nouveau rendez-vous ou vous communiquera avec vous par courriel pour vous demander des renseignements supplémentaires.",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
