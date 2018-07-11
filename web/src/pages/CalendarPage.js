@@ -18,6 +18,7 @@ import {
   getFieldNames,
   defaultMessages,
   getFieldErrorStrings,
+  errorMessages,
 } from '../validation'
 
 import Validator from 'validatorjs'
@@ -158,8 +159,11 @@ class CalendarPage extends Component {
 
     if (Object.keys(submitErrors).length) {
       this.errorContainer.focus()
+      const err = errorMessages[submitErrors.selectedDays]
+        ? errorMessages[submitErrors.selectedDays]
+        : submitErrors.selectedDays
       return {
-        [FORM_ERROR]: submitErrors.selectedDays,
+        [FORM_ERROR]: err,
       }
     }
 
