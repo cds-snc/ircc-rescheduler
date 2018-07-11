@@ -3,12 +3,6 @@ import {
   CalendarFields,
   getFieldNames,
   defaultMessages,
-  paperFileNumberErrorMessage,
-  emailErrorMessage,
-  inErrorMessage,
-  selectedDaysEmptyErrorMessage,
-  selectedDaysMinMaxErrorMessage,
-  fullNameErrorMessage,
   getFieldErrorStrings,
 } from '../validation'
 
@@ -31,9 +25,9 @@ it('Show correct error message when passing bad data', () => {
 
   expect(success).toEqual(false)
   expect(validate.errors.first('paperFileNumber')).toEqual(
-    paperFileNumberErrorMessage,
+    'paperFileNumberErrorMessage',
   )
-  expect(validate.errors.first('email')).toEqual(emailErrorMessage)
+  expect(validate.errors.first('email')).toEqual('emailErrorMessage')
 })
 
 it('Show correct error message when passing invalid fields', () => {
@@ -43,7 +37,7 @@ it('Show correct error message when passing invalid fields', () => {
   }
   const validate = new Validator(vals, RegistrationFields, defaultMessages)
   validate.passes()
-  expect(validate.errors.first('reason')).toEqual(inErrorMessage)
+  expect(validate.errors.first('reason')).toEqual('inErrorMessage')
 })
 
 it('Validates empty dates', () => {
@@ -53,7 +47,7 @@ it('Validates empty dates', () => {
   const validate = new Validator(vals, CalendarFields, defaultMessages)
   validate.passes()
   expect(validate.errors.first('selectedDays')).toEqual(
-    selectedDaysEmptyErrorMessage,
+    'selectedDaysEmptyErrorMessage',
   )
 })
 
@@ -75,7 +69,7 @@ it('Validates when not enough dates have been passed', () => {
   const validate = new Validator(vals, CalendarFields, defaultMessages)
   validate.passes()
   expect(validate.errors.first('selectedDays')).toEqual(
-    selectedDaysMinMaxErrorMessage,
+    'selectedDaysMinMaxErrorMessage',
   )
 })
 
@@ -89,7 +83,7 @@ it('Validates when too many dates have been passed', () => {
   validate.passes()
 
   expect(validate.errors.first('selectedDays')).toEqual(
-    selectedDaysMinMaxErrorMessage,
+    'selectedDaysMinMaxErrorMessage',
   )
 })
 
@@ -109,7 +103,7 @@ it('Gives back an error object with array of messages', () => {
 
   const validate = new Validator(vals, RegistrationFields, defaultMessages)
   validate.passes()
-  expect(validate.errors.all().fullName[0]).toEqual(fullNameErrorMessage)
+  expect(validate.errors.all().fullName[0]).toEqual('fullNameErrorMessage')
 })
 
 it('Gives back an first error in the array for each key', () => {
@@ -118,6 +112,6 @@ it('Gives back an first error in the array for each key', () => {
   const validate = new Validator(vals, RegistrationFields, defaultMessages)
   validate.passes()
   expect(getFieldErrorStrings(validate)['fullName']).toEqual(
-    fullNameErrorMessage,
+    'fullNameErrorMessage',
   )
 })

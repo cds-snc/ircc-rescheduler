@@ -1,4 +1,7 @@
+import React from 'react'
 import Validator from 'validatorjs'
+import { Trans } from 'lingui-react'
+
 /*--------------------------------------------*
  * Character limits 
  *--------------------------------------------*/
@@ -9,41 +12,60 @@ const textAreaMaxChars = 2000
 /*--------------------------------------------*
  * Error message strings 
  *--------------------------------------------*/
+export const errorMessages = {}
 
-export const fullNameErrorMessage =
-  'You need to tell us your name so we know who is requesting a new appointment.'
+errorMessages.fullNameErrorMessage = (
+  <Trans>
+    You need to tell us your name so we know who is requesting a new
+    appointment.
+  </Trans>
+)
 
-export const emailErrorMessage =
-  'We need your email address so we can send you a confirmation message.'
+errorMessages.emailErrorMessage = (
+  <Trans>
+    We need your email address so we can send you a confirmation message.
+  </Trans>
+)
 
-export const paperFileNumberErrorMessage =
-  'We need your paper file number so we can confirm your identity.'
+errorMessages.paperFileNumberErrorMessage = (
+  <Trans>We need your paper file number so we can confirm your identity.</Trans>
+)
 
-export const reasonErrorMessage =
-  'Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.'
+errorMessages.reasonErrorMessage = (
+  <Trans>
+    Please tell us why you need to reschedule your appointment. If none of the
+    options fit your situation, choose ‘Other’.
+  </Trans>
+)
 
-export const explanation =
-  'Please tell us a bit more about why you need to reschedule your appointment.'
+errorMessages.explanationErrorMessage = (
+  <Trans>
+    Please tell us a bit more about why you need to reschedule your appointment.
+  </Trans>
+)
 
-export const selectedDaysEmptyErrorMessage =
-  'You must select 3 days. Please select 2 more days to continue.'
+errorMessages.selectedDaysEmptyErrorMessage = (
+  <Trans>You must select 3 days. Please select 2 more days to continue.</Trans>
+)
 
-export const selectedDaysMinMaxErrorMessage =
-  'Exactly three dates must be passed'
+errorMessages.selectedDaysMinMaxErrorMessage = (
+  <Trans>Exactly three dates must be passed</Trans>
+)
 
-export const inErrorMessage = 'Invalid information' //value passed was not in allowed values
+errorMessages.inErrorMessage = <Trans>Invalid information</Trans> //value passed was not in allowed values
 
 /* Error message object */
 
 export const defaultMessages = {
-  'required.fullName': fullNameErrorMessage,
-  'required.email': emailErrorMessage,
-  'email.email': emailErrorMessage,
-  'required.paperFileNumber': paperFileNumberErrorMessage,
-  'regex.paperFileNumber': paperFileNumberErrorMessage,
-  'required.reason': reasonErrorMessage,
-  'required.selectedDays': selectedDaysEmptyErrorMessage,
-  in: inErrorMessage,
+  'required.fullName': 'fullNameErrorMessage',
+  'required.email': 'emailErrorMessage',
+  'email.email': 'emailErrorMessage',
+  'required.paperFileNumber': 'paperFileNumberErrorMessage',
+  'regex.paperFileNumber': 'paperFileNumberErrorMessage',
+  'required.reason': 'reasonErrorMessage',
+  'required.explanation': 'explanationErrorMessage',
+  'required.selectedDays': 'selectedDaysEmptyErrorMessage',
+  in: 'inErrorMessage',
 }
 
 /*--------------------------------------------*
@@ -107,7 +129,7 @@ Validator.register(
     // requirement parameter defaults to null
     return Number(value.length) === 3
   },
-  selectedDaysMinMaxErrorMessage,
+  'selectedDaysMinMaxErrorMessage',
 )
 
 Validator.register(
@@ -117,5 +139,5 @@ Validator.register(
     const regex = new RegExp(getPaperFileNumberPattern(), 'i')
     return regex.test(value)
   },
-  paperFileNumberErrorMessage,
+  'paperFileNumberErrorMessage',
 )
