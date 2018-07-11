@@ -25,9 +25,9 @@ it('Show correct error message when passing bad data', () => {
 
   expect(success).toEqual(false)
   expect(validate.errors.first('paperFileNumber')).toEqual(
-    'paperFileNumberErrorMessage',
+    'invalidPaperFileNumberErrorMessage',
   )
-  expect(validate.errors.first('email')).toEqual('emailErrorMessage')
+  expect(validate.errors.first('email')).toEqual('invalidEmailErrorMessage')
 })
 
 it('Show correct error message when passing invalid fields', () => {
