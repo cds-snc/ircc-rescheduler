@@ -79,7 +79,11 @@ errorMessages.selectedDaysMinMaxErrorMessage = (
   <Trans>Exactly three dates must be passed</Trans>
 )
 
-errorMessages.inErrorMessage = <Trans>Invalid information</Trans> //value passed was not in allowed values
+errorMessages.inErrorMessage = (
+  <Trans>
+    We're expecting a reason from the list provided. Please pick one.
+  </Trans>
+) //value passed was not in allowed values
 
 /* Error message object */
 
