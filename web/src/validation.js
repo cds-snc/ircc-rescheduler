@@ -136,7 +136,7 @@ Validator.register(
   'paper_file_number',
   function(value, requirement, attribute) {
     // eslint-disable-next-line security/detect-non-literal-regexp
-    const regex = new RegExp(getPaperFileNumberPattern(), 'i')
+    const regex = new RegExp('^' + getPaperFileNumberPattern() + '$', 'i')
     return regex.test(value)
   },
   'paperFileNumberErrorMessage',
