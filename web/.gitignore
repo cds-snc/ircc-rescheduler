@@ -3,6 +3,6 @@ dist
 node_modules
 # Vim swap files
 *.swp
-
+.env
 # environment variables used in prod
 .env.production

@@ -1,5 +1,4 @@
 import Validator from 'validatorjs'
-
 /*--------------------------------------------*
  * Character limits 
  *--------------------------------------------*/
@@ -51,11 +50,28 @@ export const defaultMessages = {
  * Form Fields & Rules
  *--------------------------------------------*/
 
+const getPaperFileNumberPattern = () => {
+  if (
+    !process.env.RAZZLE_PAPER_FILE_NUMBER_PATTERN &&
+    !typeof RAZZLE_PAPER_FILE_NUMBER_PATTERN
+  ) {
+    // eslint-disable-next-line no-console
+    console.error('PAPER_FILE_NUMBER_PATTERN must be defined')
+    return null
+  }
+
+  let paperFileNumberPattern =
+    process.env.RAZZLE_PAPER_FILE_NUMBER_PATTERN ||
+    typeof RAZZLE_PAPER_FILE_NUMBER_PATTERN //
+
+  return paperFileNumberPattern
+}
+
 export const RegistrationFields = {
   fullName: `required|max:${inputFieldMaxChars}`,
   email: 'required|email',
   explanation: `required|max:${textAreaMaxChars}`,
-  paperFileNumber: ['required'],
+  paperFileNumber: 'required|paper_file_number',
   reason: 'required|in:travel,medical,workOrSchool,family,other',
 }
 
@@ -92,4 +108,14 @@ Validator.register(
     return Number(value.length) === 3
   },
   selectedDaysMinMaxErrorMessage,
+)
+
+Validator.register(
+  'paper_file_number',
+  function(value, requirement, attribute) {
+    // eslint-disable-next-line security/detect-non-literal-regexp
+    const regex = new RegExp(getPaperFileNumberPattern(), 'i')
+    return regex.test(value)
+  },
+  paperFileNumberErrorMessage,
 )
