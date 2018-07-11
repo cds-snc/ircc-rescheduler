@@ -223,7 +223,7 @@ class RegistrationPage extends React.Component {
                 >
                   <ErrorList message={submitError || ''}>
                     {Object.keys(this.validate(values)).map((formId, i) => (
-                      <a href={`#${formId}`} key={i}>
+                      <a href={`#${formId}-header`} key={i}>
                         {labelNames(formId) ? labelNames(formId) : formId}
                         <br />
                       </a>
