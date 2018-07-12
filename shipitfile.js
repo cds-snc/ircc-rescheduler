@@ -14,12 +14,13 @@ module.exports = shipit => {
           'api/.env',
           'api/src/email_templates/CanWordmark.png',
           'web/.env.production',
+          'web/.env',
         ],
       },
     },
     dev: {
       deployTo: '/home/ircc/ircc-rescheduler',
-      servers: 'ircc@ircc-vm-2.canadacentral.cloudapp.azure.com'
+      servers: 'ircc@ircc-vm-2.canadacentral.cloudapp.azure.com',
     },
     production: {
       branch: 'master',
@@ -28,9 +29,9 @@ module.exports = shipit => {
       servers: [
         {
           host: '35.183.87.90',
-          user: 'ubuntu'
-        }
-      ]
-    }
+          user: 'ubuntu',
+        },
+      ],
+    },
   })
 }
