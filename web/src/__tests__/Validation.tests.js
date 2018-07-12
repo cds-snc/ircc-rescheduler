@@ -25,9 +25,9 @@ it('Show correct error message when passing bad data', () => {
 
   expect(success).toEqual(false)
   expect(validate.errors.first('paperFileNumber')).toEqual(
-    'invalidPaperFileNumberErrorMessage',
+    'paperFileNumberInvalidErrorMessage',
   )
-  expect(validate.errors.first('email')).toEqual('invalidEmailErrorMessage')
+  expect(validate.errors.first('email')).toEqual('emailInvalidErrorMessage')
 })
 
 it('Show correct error message when passing invalid fields', () => {
@@ -114,4 +114,23 @@ it('Gives back an first error in the array for each key', () => {
   expect(getFieldErrorStrings(validate)['fullName']).toEqual(
     'fullNameErrorMessage',
   )
+})
+
+it('Gets ar array of field names from Object Keys', () => {
+  expect(getFieldNames(RegistrationFields)[0]).toEqual('fullName')
+  expect(getFieldNames(CalendarFields)[0]).toEqual('selectedDays')
+})
+
+it('Handles whitespace', () => {
+  const vals = {
+    fullName: 'John Li',
+    email: 'test@test.com ',
+  }
+
+  const validate = new Validator(vals, RegistrationFields, defaultMessages)
+  const success = validate.passes()
+
+  expect(success).toEqual(false)
+
+  expect(validate.errors.first('email')).toEqual('emailInvalidErrorMessage')
 })
