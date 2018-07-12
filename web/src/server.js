@@ -92,7 +92,7 @@ server
       return res.json({ success: '/error' })
     }
 
-    return res.json({ success: '/error' })
+    return res.json({ success: '/confirmation' })
   })
   .post('/submit', async (req, res) => {
     try {

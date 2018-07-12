@@ -25,21 +25,29 @@ function humanReadable(dates) {
   )
 }
 
+let prefix = '../../../'
+
+if (
+  process.env.NODE_ENV === 'production' ||
+  process.env.NODE_ENV === 'development'
+) {
+  prefix += 'web'
+}
+
 // retrieve html markup as a string
 const readFileContent = async filename => {
   const file = path.resolve(
-    __dirname,
-    `./email/email_templates/${filename}.html`,
+    __filename,
+    `${prefix}/email_templates/${filename}.html`,
   )
   const content = await readFile(file, 'utf-8').catch(e => {
-    console.log(e.message)
-    return ''
+    return e.message
   })
   return content
 }
 
 function getWordmarkPath() {
-  return path.resolve(__dirname, './email/email_templates')
+  return path.resolve(__filename, `${prefix}/email_templates`)
 }
 
 // build a dynamic template literal in the proper context
