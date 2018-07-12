@@ -23,8 +23,8 @@ errorMessages.fullNameErrorMessage = (
 
 errorMessages.fullNameMaxErrorMessage = (
   <Trans>
-    We're expecting a name that's shorter than 20 words. Please use the name
-    recorded on your application.
+    Needs to be shorter than 20 words. Please use the name recorded on your
+    application.
   </Trans>
 )
 
@@ -34,10 +34,10 @@ errorMessages.emailErrorMessage = (
   </Trans>
 )
 
-errorMessages.invalidEmailErrorMessage = (
+errorMessages.emailInvalidErrorMessage = (
   <Trans>
     Please make sure you provide a valid email address. For example,
-    yourname@domain.com
+    yourname@example.com
   </Trans>
 )
 
@@ -45,10 +45,10 @@ errorMessages.paperFileNumberErrorMessage = (
   <Trans>We need your paper file number so we can confirm your identity.</Trans>
 )
 
-errorMessages.invalidPaperFileNumberErrorMessage = (
+errorMessages.paperFileNumberInvalidErrorMessage = (
   <Trans>
-    We're expecting a number with a different format. Please make sure this is
-    your correct Paper File Number
+    Needs a number with a different format. Please make sure this is your
+    correct Paper File Number
   </Trans>
 )
 
@@ -67,7 +67,8 @@ errorMessages.explanationErrorMessage = (
 
 errorMessages.explanationMaxErrorMessage = (
   <Trans>
-    Sorry, there's a limit of 150 words for this explanation. Please be concise.
+    Sorry, there‘s a limit of 150 words for this explanation. Please shorten
+    your explanation.
   </Trans>
 )
 
@@ -80,10 +81,8 @@ errorMessages.selectedDaysMinMaxErrorMessage = (
 )
 
 errorMessages.inErrorMessage = (
-  <Trans>
-    We're expecting a reason from the list provided. Please pick one.
-  </Trans>
-) //value passed was not in allowed values
+  <Trans>Reason needs to be on the list provided. Please pick one.</Trans>
+)
 
 /* Error message object */
 
@@ -91,7 +90,7 @@ export const defaultMessages = {
   'required.fullName': 'fullNameErrorMessage',
   'max.fullName': 'fullNameMaxErrorMessage',
   'required.email': 'emailErrorMessage',
-  'email.email': 'invalidEmailErrorMessage',
+  'email.email': 'emailInvalidErrorMessage',
   'required.paperFileNumber': 'paperFileNumberErrorMessage',
   'required.reason': 'reasonErrorMessage',
   'required.explanation': 'explanationErrorMessage',
@@ -109,9 +108,7 @@ const getPaperFileNumberPattern = () => {
     !process.env.RAZZLE_PAPER_FILE_NUMBER_PATTERN &&
     !typeof RAZZLE_PAPER_FILE_NUMBER_PATTERN
   ) {
-    // eslint-disable-next-line no-console
-    console.error('PAPER_FILE_NUMBER_PATTERN must be defined')
-    return null
+    throw new Error('PAPER_FILE_NUMBER_PATTERN must be defined')
   }
 
   let paperFileNumberPattern =
@@ -171,5 +168,5 @@ Validator.register(
     const regex = new RegExp('^' + getPaperFileNumberPattern() + '$', 'i')
     return regex.test(value)
   },
-  'invalidPaperFileNumberErrorMessage',
+  'paperFileNumberInvalidErrorMessage',
 )
