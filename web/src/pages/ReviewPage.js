@@ -3,19 +3,15 @@ import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
-import { NavLink, Redirect } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { H1, theme, BottomContainer, TopContainer, arrow } from '../styles'
 import Chevron from '../components/Chevron'
 import Layout from '../components/Layout'
-import { SUBMIT } from '../queries'
 import Button from '../components/forms/Button'
 import Summary from '../components/Summary'
-import { ApolloSubmission } from '../components/Submission'
 import Reminder from '../components/Reminder'
 import rightArrow from '../assets/rightArrow.svg'
-import { dateToISODateString } from '../components/Time'
 import CancelButton from '../components/CancelButton'
-import { windowExists } from '../utils/windowExists'
 import PropTypes from 'prop-types'
 
 const contentClass = css`
@@ -24,66 +20,7 @@ const contentClass = css`
   }
 `
 
-const JSBottomContainer = ({
-  fullName,
-  email,
-  reason,
-  explanation,
-  paperFileNumber,
-  selectedDays,
-}) => {
-  return (
-    <BottomContainer>
-      <ApolloSubmission
-        action={SUBMIT}
-        success={data => <Redirect to="/confirmation" push />}
-        failure={error => <Redirect to="/error" push />}
-      >
-        {(submit, loading) => (
-          <Button
-            disabled={loading}
-            onClick={() => {
-              submit({
-                variables: {
-                  fullName,
-                  email,
-                  reason,
-                  explanation,
-                  paperFileNumber,
-                  availability: selectedDays.map(day =>
-                    dateToISODateString(day),
-                  ),
-                },
-              })
-            }}
-          >
-            <Trans>Send request</Trans>{' '}
-            <img src={rightArrow} className={arrow} alt="" />
-          </Button>
-        )}
-      </ApolloSubmission>
-      <div>
-        <CancelButton />
-      </div>
-    </BottomContainer>
-  )
-}
-
-JSBottomContainer.propTypes = {
-  fullName: PropTypes.string,
-  email: PropTypes.string,
-  reason: PropTypes.string,
-  explanation: PropTypes.string,
-  paperFileNumber: PropTypes.string,
-  availability: PropTypes.string,
-  selectedDays: PropTypes.array,
-}
-
-const WhichSubmit = props => {
-  if (windowExists()) {
-    return <JSBottomContainer {...props} />
-  }
-
+const Submit = props => {
   return (
     <BottomContainer>
       <form action="/submit" method="post">
@@ -96,7 +33,7 @@ const WhichSubmit = props => {
         <input type="hidden" name="email" value={props.email} />
         <input type="hidden" name="explanation" value={props.explanation} />
         <input type="hidden" name="reason" value={props.reason} />
-        <input type="hidden" name="availability" value={props.selectedDays} />
+        <input type="hidden" name="selectedDays" value={props.selectedDays} />
         <Button type="submit">
           <Trans>Send request</Trans>{' '}
           <img src={rightArrow} className={arrow} alt="" />
@@ -107,13 +44,12 @@ const WhichSubmit = props => {
   )
 }
 
-WhichSubmit.propTypes = {
+Submit.propTypes = {
   fullName: PropTypes.string,
   email: PropTypes.string,
   reason: PropTypes.string,
   explanation: PropTypes.string,
   paperFileNumber: PropTypes.string,
-  availability: PropTypes.string,
   selectedDays: PropTypes.array,
 }
 
@@ -179,7 +115,7 @@ class ReviewPage extends React.Component {
               send this request.
             </Trans>
           </Reminder>
-          <WhichSubmit
+          <Submit
             fullName={fullName}
             email={email}
             paperFileNumber={paperFileNumber}
