@@ -3,14 +3,14 @@ import Validator from 'validatorjs'
 import { Trans } from 'lingui-react'
 
 /*--------------------------------------------*
- * Character limits 
+ * Character limits
  *--------------------------------------------*/
 
 const INPUT_FIELD_MAX_CHARS = 500
 const TEXTAREA_MAX_CHARS = 1500
 
 /*--------------------------------------------*
- * Error message strings 
+ * Error message strings
  *--------------------------------------------*/
 export const errorMessages = {}
 
@@ -37,7 +37,7 @@ errorMessages.emailErrorMessage = (
 errorMessages.emailInvalidErrorMessage = (
   <Trans>
     Please make sure you provide a valid email address. For example,
-    yourname@example.com
+    ‘yourname@example.com’.
   </Trans>
 )
 
@@ -48,7 +48,7 @@ errorMessages.paperFileNumberErrorMessage = (
 errorMessages.paperFileNumberInvalidErrorMessage = (
   <Trans>
     Needs a number with a different format. Please make sure this is your
-    correct Paper File Number
+    correct Paper file number.
   </Trans>
 )
 
