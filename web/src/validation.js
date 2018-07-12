@@ -6,8 +6,8 @@ import { Trans } from 'lingui-react'
  * Character limits 
  *--------------------------------------------*/
 
-const inputFieldMaxChars = 500
-const textAreaMaxChars = 1500
+const INPUT_FIELD_MAX_CHARS = 500
+const TEXTAREA_MAX_CHARS = 1500
 
 /*--------------------------------------------*
  * Error message strings 
@@ -119,9 +119,9 @@ const getPaperFileNumberPattern = () => {
 }
 
 export const RegistrationFields = {
-  fullName: `required|max:${inputFieldMaxChars}`,
+  fullName: `required|max:${INPUT_FIELD_MAX_CHARS}`,
   email: 'required|email',
-  explanation: `required|max:${textAreaMaxChars}`,
+  explanation: `required|max:${TEXTAREA_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
   reason: 'required|in:travel,medical,workOrSchool,family,other',
 }
