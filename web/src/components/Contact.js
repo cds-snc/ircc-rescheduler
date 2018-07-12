@@ -42,7 +42,7 @@ const Contact = ({ children, phoneFirst = false }) => (
     {!phoneFirst ? (
       <React.Fragment>
         <p>
-          <a href="IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
+          <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
             IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca
           </a>
         </p>
