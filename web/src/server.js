@@ -10,7 +10,12 @@ import { renderStylesToString } from 'emotion-server'
 import bodyParser from 'body-parser'
 import { CalendarFields, RegistrationFields } from './validation'
 import Validator from 'validatorjs'
-import { getMailer, getEmailParms, sendMail } from './email/sendmail'
+import {
+  getMailer,
+  getEmailParms,
+  cleanDates,
+  sendMail,
+} from './email/sendmail'
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
@@ -38,7 +43,8 @@ server
   .use(bodyParser.urlencoded({ extended: false }))
   .post('/submit', async (req, res) => {
     let input = Object.assign({}, req.body) // make a new object
-    input.selectedDays = input.selectedDays.split(',')
+
+    cleanDates(input)
 
     const validateReg = new Validator(input, RegistrationFields)
     const validateCal = new Validator(input, CalendarFields)
