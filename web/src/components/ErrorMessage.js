@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Trans } from 'lingui-react'
 import { css } from 'react-emotion'
 import { theme } from '../styles'
+import { errorMessages } from '../validation'
 
 export const errorMessage = css`
   color: ${theme.colour.red};
@@ -90,7 +91,9 @@ class ValidationMessage extends React.Component {
         className={this.props.message ? errorMessage : `empty ${noError}`}
         id={this.props.id}
       >
-        {this.props.message}
+        {errorMessages[this.props.message]
+          ? errorMessages[this.props.message]
+          : this.props.message}
       </span>
     )
   }
