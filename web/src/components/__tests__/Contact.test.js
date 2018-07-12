@@ -37,12 +37,16 @@ describe('<Contact />', () => {
       </Contact>,
     )
 
-    expect(
-      wrapper
-        .find('p')
-        .at(0)
-        .text(),
-    ).toEqual('IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca')
+    let emailLink = wrapper
+      .find('p')
+      .at(0)
+      .find('a')
+    expect(emailLink.text()).toEqual(
+      'IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
+    )
+    expect(emailLink.props().href).toEqual(
+      'mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
+    )
 
     expect(
       wrapper
@@ -66,11 +70,16 @@ describe('<Contact />', () => {
         .text(),
     ).toEqual('<TelLink />')
 
-    expect(
-      wrapper
-        .find('p')
-        .at(1)
-        .text(),
-    ).toEqual('IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca')
+    let emailLink = wrapper
+      .find('p')
+      .at(1)
+      .find('a')
+
+    expect(emailLink.text()).toEqual(
+      'IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
+    )
+    expect(emailLink.props().href).toEqual(
+      'mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
+    )
   })
 })
