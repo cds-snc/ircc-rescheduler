@@ -19,6 +19,15 @@ const contentClass = css`
 `
 
 class ConfirmationPage extends React.Component {
+  hasEmailError() {
+    const { match } = this.props
+    if (match.params.error && match.params.error === 'client-request-issue') {
+      return true
+    }
+
+    return false
+  }
+
   render() {
     let {
       context: {
@@ -42,9 +51,15 @@ class ConfirmationPage extends React.Component {
             <Trans>Thank you! Your request has been received.</Trans>
           </H1>
 
-          <p>
-            <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
-          </p>
+          {!this.hasEmailError() ? (
+            <p>
+              <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
+            </p>
+          ) : (
+            <p>
+              <Trans>Email failed to send</Trans>
+            </p>
+          )}
 
           <H2>
             <Trans>What happens next?</Trans>

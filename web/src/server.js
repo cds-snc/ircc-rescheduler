@@ -77,15 +77,15 @@ server
         applicantResponse.messageId === null
       ) {
         //both emails failed to send
-        return res.json({ success: '/request-failed' })
+        return res.json({ success: '/request-issue/2' })
       }
 
       if (staffResponse.messageId === null) {
-        return res.json({ success: '/internal-failed' })
+        return res.json({ success: '/request-issue/1' })
       }
 
       if (applicantResponse.messageId === null) {
-        return res.json({ success: '/confirmation?email=false' })
+        return res.json({ success: '/confirmation/client-request-issue' })
       }
     } catch (e) {
       console.log(e)
