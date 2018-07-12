@@ -61,7 +61,18 @@ export const getEmailParms = async (
   })
 
   return { staffParams, applicantParams }
-  //
+}
+
+export const cleanDates = (input) => {
+  let split = input.selectedDays.split(',')
+
+  const cleaned = split
+    .map(day => {
+      return day.trim()
+    })
+    .sort()
+
+  input.selectedDays = cleaned
 }
 
 export const sendMail = async (mailer, params) => {
