@@ -1,4 +1,58 @@
 {
+  "Needs to be shorter than 20 words. Please use the name recorded on your application.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        25
+      ]
+    ]
+  },
+  "Please make sure you provide a valid email address. For example, ‘yourname@example.com’.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        38
+      ]
+    ]
+  },
+  "Needs a number with a different format. Please make sure this is your correct Paper file number.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        49
+      ]
+    ]
+  },
+  "Sorry, there‘s a limit of 150 words for this explanation. Please shorten your explanation.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        69
+      ]
+    ]
+  },
+  "Exactly three dates must be passed": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        80
+      ]
+    ]
+  },
+  "Reason needs to be on the list provided. Please pick one.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        84
+      ]
+    ]
+  },
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "translation": "",
     "origin": [
@@ -35,7 +89,7 @@
     "origin": [
       [
         "src/components/ErrorMessage.js",
-        64
+        65
       ]
     ]
   },
@@ -203,11 +257,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        78
+        87
       ],
       [
         "src/pages/RegistrationPage.js",
-        243
+        212
       ]
     ]
   },
@@ -229,11 +283,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        82
+        91
       ],
       [
         "src/pages/RegistrationPage.js",
-        293
+        262
       ]
     ]
   },
@@ -282,7 +336,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        66
+        75
       ]
     ]
   },
@@ -291,7 +345,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        79
+        88
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -308,7 +362,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        84
+        93
       ]
     ]
   },
@@ -317,7 +371,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        89
+        98
       ]
     ]
   },
@@ -326,7 +380,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        91
+        100
       ],
       [
         "src/pages/LandingPage.js",
@@ -339,7 +393,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        93
+        102
       ]
     ]
   },
@@ -348,7 +402,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        94
+        103
       ]
     ]
   },
@@ -357,7 +411,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        110
+        119
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -370,15 +424,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        135
-      ],
-      [
-        "src/pages/CalendarPage.js",
-        153
-      ],
-      [
-        "src/pages/CalendarPage.js",
-        277
+        272
       ]
     ]
   },
@@ -386,17 +432,8 @@
     "translation": "",
     "origin": [
       [
-        "src/pages/CalendarPage.js",
-        140
-      ]
-    ]
-  },
-  "You must select 3 days. Please select 1 more day to continue.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        147
+        "src/validation.js",
+        76
       ]
     ]
   },
@@ -405,11 +442,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        244
+        239
       ],
       [
         "src/pages/CalendarPage.js",
-        323
+        318
       ],
       [
         "src/pages/NoJSCalendarPage.js",
@@ -749,11 +786,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        80
+        89
       ],
       [
         "src/pages/RegistrationPage.js",
-        266
+        235
       ]
     ]
   },
@@ -762,7 +799,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        84
+        93
       ]
     ]
   },
@@ -771,11 +808,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        86
+        95
       ],
       [
         "src/pages/RegistrationPage.js",
-        376
+        345
       ]
     ]
   },
@@ -783,8 +820,8 @@
     "translation": "",
     "origin": [
       [
-        "src/pages/RegistrationPage.js",
-        112
+        "src/validation.js",
+        18
       ]
     ]
   },
@@ -792,8 +829,8 @@
     "translation": "",
     "origin": [
       [
-        "src/pages/RegistrationPage.js",
-        120
+        "src/validation.js",
+        32
       ]
     ]
   },
@@ -801,8 +838,8 @@
     "translation": "",
     "origin": [
       [
-        "src/pages/RegistrationPage.js",
-        127
+        "src/validation.js",
+        45
       ]
     ]
   },
@@ -810,8 +847,8 @@
     "translation": "",
     "origin": [
       [
-        "src/pages/RegistrationPage.js",
-        134
+        "src/validation.js",
+        56
       ]
     ]
   },
@@ -819,8 +856,8 @@
     "translation": "",
     "origin": [
       [
-        "src/pages/RegistrationPage.js",
-        142
+        "src/validation.js",
+        63
       ]
     ]
   },
@@ -829,11 +866,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        165
+        134
       ],
       [
         "src/pages/RegistrationPage.js",
-        210
+        179
       ]
     ]
   },
@@ -842,7 +879,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        254
+        223
       ]
     ]
   },
@@ -851,7 +888,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        277
+        246
       ]
     ]
   },
@@ -860,7 +897,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        304
+        273
       ]
     ]
   },
@@ -869,7 +906,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        328
+        297
       ]
     ]
   },
@@ -878,7 +915,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        336
+        305
       ],
       [
         "src/pages/ReviewPage.js",
@@ -891,7 +928,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        344
+        313
       ]
     ]
   },
@@ -900,7 +937,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        352
+        321
       ],
       [
         "src/pages/ReviewPage.js",
@@ -913,7 +950,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        360
+        329
       ],
       [
         "src/pages/ReviewPage.js",
@@ -926,7 +963,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        389
+        358
       ]
     ]
   },
@@ -935,7 +972,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        402
+        371
       ]
     ]
   },
@@ -1212,6 +1249,16 @@
         53
       ]
     ]
+  },
+  "You must select 3 days. Please select 1 more day to continue.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        147
+      ]
+    ],
+    "obsolete": true
   },
   "Remove day": {
     "translation": "",

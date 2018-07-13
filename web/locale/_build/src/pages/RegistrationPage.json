@@ -3,11 +3,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        78
+        87
       ],
       [
         "src/pages/RegistrationPage.js",
-        243
+        212
       ]
     ]
   },
@@ -15,11 +15,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        80
+        89
       ],
       [
         "src/pages/RegistrationPage.js",
-        266
+        235
       ]
     ]
   },
@@ -27,11 +27,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        82
+        91
       ],
       [
         "src/pages/RegistrationPage.js",
-        293
+        262
       ]
     ]
   },
@@ -39,7 +39,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        84
+        93
       ]
     ]
   },
@@ -47,51 +47,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        86
+        95
       ],
       [
         "src/pages/RegistrationPage.js",
-        376
-      ]
-    ]
-  },
-  "You need to tell us your name so we know who is requesting a new appointment.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        112
-      ]
-    ]
-  },
-  "We need your email address so we can send you a confirmation message.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        120
-      ]
-    ]
-  },
-  "We need your paper file number so we can confirm your identity.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        127
-      ]
-    ]
-  },
-  "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        134
-      ]
-    ]
-  },
-  "Please tell us a bit more about why you need to reschedule your appointment.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        142
+        345
       ]
     ]
   },
@@ -99,11 +59,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        165
+        134
       ],
       [
         "src/pages/RegistrationPage.js",
-        210
+        179
       ]
     ]
   },
@@ -111,7 +71,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        254
+        223
       ]
     ]
   },
@@ -119,7 +79,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        277
+        246
       ]
     ]
   },
@@ -127,7 +87,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        304
+        273
       ]
     ]
   },
@@ -135,7 +95,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        328
+        297
       ]
     ]
   },
@@ -143,7 +103,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        336
+        305
       ]
     ]
   },
@@ -151,7 +111,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        344
+        313
       ]
     ]
   },
@@ -159,7 +119,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        352
+        321
       ]
     ]
   },
@@ -167,7 +127,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        360
+        329
       ]
     ]
   },
@@ -175,7 +135,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        389
+        358
       ]
     ]
   },
@@ -183,7 +143,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        402
+        371
       ]
     ]
   }
