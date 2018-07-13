@@ -68,7 +68,7 @@ server
       )
 
       if (staffResponse.messageId) {
-        // send applicant email if staff email sent
+        // send applicant email only if staff email was sent
         applicantResponse = await sendMail(
           mailer,
           params.applicantParams,
@@ -79,15 +79,17 @@ server
         staffResponse.messageId === null &&
         applicantResponse.messageId === null
       ) {
-        //both emails failed to send
-        return res.redirect('/request-issue')
+        // both emails failed to send
+        return res.redirect('/error')
       }
 
       if (staffResponse.messageId === null) {
+        // staff email failed send user to error page
         return res.redirect('/error')
       }
 
       if (applicantResponse.messageId === null) {
+        // staff email send but applicant email didn't
         return res.redirect('/confirmation/client-request-issue')
       }
     } catch (e) {
