@@ -304,7 +304,7 @@
     ]
   },
   "Citizenship appointments are scheduled on Wednesdays and Thursdays.": {
-    "translation": "Les rendez-vous d’examen de citoyenneté ont lieu les mardis et les vendredis.",
+    "translation": "Les rendez-vous d’examen de citoyenneté ont lieu les mercredis et les jeudis.",
     "origin": [
       [
         "src/pages/CalendarPage.js",
