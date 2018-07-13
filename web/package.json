@@ -11,7 +11,8 @@
     "test": "node --icu-data-dir=./node_modules/full-icu node_modules/jest/bin/jest.js",
     "extract": "NODE_ENV=development lingui extract",
     "compile": "NODE_ENV=development lingui compile",
-    "add-locale": "lingui add-locale"
+    "add-locale": "lingui add-locale", 
+    "stats" : "BUNDLE_CHECK=true yarn dev"
   },
   "dependencies": {
     "@cdssnc/gcui": "^0.0.30",
@@ -80,7 +81,8 @@
     "lingui-cli": "^1.4.4",
     "prettier": "^1.11.1",
     "raf": "^3.4.0",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "webpack-bundle-analyzer": "^2.13.1"
   },
   "jest": {
     "verbose": true,
@@ -90,7 +92,7 @@
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
     },
     "globals": {
-      "RAZZLE_PAPER_FILE_NUMBER_PATTERN": "[a-zA-Z]{1}" 
+      "RAZZLE_PAPER_FILE_NUMBER_PATTERN": "[a-zA-Z]{1}"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/test/setupTests.js",
     "testMatch": [
