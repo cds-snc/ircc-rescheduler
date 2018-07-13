@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        66
+        75
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        79
+        88
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        84
+        93
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        89
+        98
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        91
+        100
       ]
     ]
   },
@@ -43,7 +43,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        93
+        102
       ]
     ]
   },
@@ -51,7 +51,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        94
+        103
       ]
     ]
   },
@@ -59,39 +59,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        110
-      ]
-    ]
-  },
-  "You must select 3 days.": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        135
-      ],
-      [
-        "src/pages/CalendarPage.js",
-        153
-      ],
-      [
-        "src/pages/CalendarPage.js",
-        277
-      ]
-    ]
-  },
-  "You must select 3 days. Please select 2 more days to continue.": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        140
-      ]
-    ]
-  },
-  "You must select 3 days. Please select 1 more day to continue.": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        147
+        119
       ]
     ]
   },
@@ -99,11 +67,19 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        244
+        239
       ],
       [
         "src/pages/CalendarPage.js",
-        323
+        318
+      ]
+    ]
+  },
+  "You must select 3 days.": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        272
       ]
     ]
   }
