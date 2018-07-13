@@ -28,7 +28,7 @@ server
   .use(helmet.noCache()) // Set Cache-Control, Surrogate-Control, Pragma, and Expires to no.
   .use(helmet.xssFilter()) // Sets "X-XSS-Protection: 1; mode=block".
   .disable('x-powered-by')
-  .use(express.static('./public'))
+  .use(express.static(process.env.RAZZLE_PUBLIC_DIR || './public'))
   .use(cookieParser(SECRET))
   .use(bodyParser.urlencoded({ extended: false }))
   .post('/submit', async (req, res) => {
