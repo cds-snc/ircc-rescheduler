@@ -1,12 +1,15 @@
 import React from 'react'
 import { H1, H2, visuallyhidden, theme } from '../styles'
-import { css } from 'react-emotion'
+import styled, { css } from 'react-emotion'
+import { mediaQuery } from '../styles'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
 import { respondByDate } from '../utils/calendarDates'
 import withContext from '../withContext'
 import { contextPropTypes } from '../context'
+import Reminder from '../components/Reminder'
+import { SelectedDayList } from '../components/SelectedDayList'
 
 const contentClass = css`
   p {
@@ -17,6 +20,52 @@ const contentClass = css`
     margin-bottom: 0;
   }
 `
+
+const LongReminder = styled(Reminder)`
+  padding: 0;
+  margin-top: ${theme.spacing.xl} !important;
+  margin-bottom: ${theme.spacing.xl} !important;
+
+  ${mediaQuery.md(css`
+    display: block;
+  `)};
+
+  img {
+    ${mediaQuery.md(css`
+      float: left;
+      margin-top: ${theme.spacing.xs};
+      margin-right: ${theme.spacing.md};
+    `)};
+  }
+`
+
+const Availability = styled('div')`
+  border-left: 2px solid #e1e1e1;
+  padding-left: ${theme.spacing.xl};
+  margin-left: ${theme.spacing.lg};
+`
+
+const EmailError = ({ selectedDays }) => {
+  return (
+    <React.Fragment>
+      <LongReminder>
+        <Trans>
+          'Sorry, something went wrong. We received your request, but you might
+          not get a confirmation email. Please make note of your request
+          information'
+        </Trans>
+      </LongReminder>
+      <Availability>
+        <div>
+          <strong>
+            <Trans>Availability:</Trans>
+          </strong>
+        </div>
+        <SelectedDayList selectedDays={selectedDays} />
+      </Availability>
+    </React.Fragment>
+  )
+}
 
 class ConfirmationPage extends React.Component {
   hasEmailError() {
@@ -56,9 +105,7 @@ class ConfirmationPage extends React.Component {
               <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
             </p>
           ) : (
-            <p>
-              <Trans>Email failed to send</Trans>
-            </p>
+            <EmailError selectedDays={selectedDays} />
           )}
 
           <H2>
