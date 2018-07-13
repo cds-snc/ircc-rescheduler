@@ -1,0 +1,98 @@
+{
+  "You need to tell us your name so we know who is requesting a new appointment.": {
+    "origin": [
+      [
+        "src/validation.js",
+        18
+      ]
+    ]
+  },
+  "Needs to be shorter than 20 words. Please use the name recorded on your application.": {
+    "origin": [
+      [
+        "src/validation.js",
+        25
+      ]
+    ]
+  },
+  "We need your email address so we can send you a confirmation message.": {
+    "origin": [
+      [
+        "src/validation.js",
+        32
+      ]
+    ]
+  },
+  "Please make sure you provide a valid email address. For example, ‘yourname@example.com’.": {
+    "origin": [
+      [
+        "src/validation.js",
+        38
+      ]
+    ]
+  },
+  "We need your paper file number so we can confirm your identity.": {
+    "origin": [
+      [
+        "src/validation.js",
+        45
+      ]
+    ]
+  },
+  "Needs a number with a different format. Please make sure this is your correct Paper file number.": {
+    "origin": [
+      [
+        "src/validation.js",
+        49
+      ]
+    ]
+  },
+  "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
+    "origin": [
+      [
+        "src/validation.js",
+        56
+      ]
+    ]
+  },
+  "Please tell us a bit more about why you need to reschedule your appointment.": {
+    "origin": [
+      [
+        "src/validation.js",
+        63
+      ]
+    ]
+  },
+  "Sorry, there‘s a limit of 150 words for this explanation. Please shorten your explanation.": {
+    "origin": [
+      [
+        "src/validation.js",
+        69
+      ]
+    ]
+  },
+  "You must select 3 days. Please select 2 more days to continue.": {
+    "origin": [
+      [
+        "src/validation.js",
+        76
+      ]
+    ]
+  },
+  "Exactly three dates must be passed": {
+    "origin": [
+      [
+        "src/validation.js",
+        80
+      ]
+    ]
+  },
+  "Reason needs to be on the list provided. Please pick one.": {
+    "origin": [
+      [
+        "src/validation.js",
+        84
+      ]
+    ]
+  }
+}
