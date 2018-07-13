@@ -17,15 +17,6 @@ const contentClass = css`
 `
 
 class SomethingWrongPage extends React.Component {
-  hasEmailError() {
-    const { match } = this.props
-    if (match.params.error) {
-      return true
-    }
-
-    return false
-  }
-
   render() {
     return (
       <Layout contentClass={contentClass} headerClass={visuallyhidden}>
