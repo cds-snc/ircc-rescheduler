@@ -54,10 +54,6 @@
       [
         "src/components/Footer.js",
         111
-      ],
-      [
-        "src/utils/linguiUtils.js",
-        54
       ]
     ]
   },
@@ -76,10 +72,6 @@
       [
         "src/components/Footer.js",
         114
-      ],
-      [
-        "src/utils/linguiUtils.js",
-        55
       ]
     ]
   },
@@ -129,10 +121,6 @@
       [
         "src/components/PageHeader.js",
         49
-      ],
-      [
-        "src/utils/linguiUtils.js",
-        56
       ]
     ]
   },
@@ -169,10 +157,6 @@
       [
         "src/components/Reminder.js",
         38
-      ],
-      [
-        "src/utils/linguiUtils.js",
-        59
       ]
     ]
   },
@@ -984,7 +968,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        28
+        18
       ]
     ]
   },
@@ -993,7 +977,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        29
+        19
       ]
     ]
   },
@@ -1002,7 +986,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        30
+        20
       ]
     ]
   },
@@ -1011,7 +995,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        31
+        21
       ]
     ]
   },
@@ -1020,7 +1004,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        32
+        22
       ]
     ]
   },
@@ -1029,7 +1013,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        33
+        23
       ]
     ]
   },
@@ -1038,7 +1022,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        34
+        24
       ]
     ]
   },
@@ -1047,7 +1031,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        35
+        25
       ]
     ]
   },
@@ -1056,7 +1040,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        36
+        26
       ]
     ]
   },
@@ -1065,7 +1049,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        37
+        27
       ]
     ]
   },
@@ -1074,7 +1058,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        38
+        28
       ]
     ]
   },
@@ -1083,7 +1067,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        39
+        29
       ]
     ]
   },
@@ -1092,7 +1076,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        40
+        32
       ]
     ]
   },
@@ -1101,7 +1085,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        41
+        33
       ]
     ]
   },
@@ -1110,7 +1094,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        42
+        34
       ]
     ]
   },
@@ -1119,7 +1103,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        43
+        35
       ]
     ]
   },
@@ -1128,7 +1112,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        44
+        36
       ]
     ]
   },
@@ -1137,7 +1121,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        45
+        37
       ]
     ]
   },
@@ -1146,7 +1130,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        46
+        38
       ]
     ]
   },
@@ -1155,7 +1139,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        47
+        41
       ]
     ]
   },
@@ -1164,7 +1148,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        48
+        42
       ]
     ]
   },
@@ -1173,7 +1157,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        49
+        43
       ]
     ]
   },
@@ -1182,7 +1166,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        50
+        44
       ]
     ]
   },
@@ -1191,7 +1175,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        51
+        45
       ]
     ]
   },
@@ -1200,7 +1184,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        52
+        46
       ]
     ]
   },
@@ -1209,38 +1193,8 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        53
+        47
       ]
     ]
-  },
-  "Remove day": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        410
-      ]
-    ],
-    "obsolete": true
-  },
-  "By September 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        35
-      ]
-    ],
-    "obsolete": true
-  },
-  "you’re available between August and September:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        92
-      ]
-    ],
-    "obsolete": true
   }
 }

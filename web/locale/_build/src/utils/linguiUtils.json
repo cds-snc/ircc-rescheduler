@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        28
+        18
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        29
+        19
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        30
+        20
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        31
+        21
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        32
+        22
       ]
     ]
   },
@@ -43,7 +43,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        33
+        23
       ]
     ]
   },
@@ -51,7 +51,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        34
+        24
       ]
     ]
   },
@@ -59,7 +59,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        35
+        25
       ]
     ]
   },
@@ -67,7 +67,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        36
+        26
       ]
     ]
   },
@@ -75,7 +75,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        37
+        27
       ]
     ]
   },
@@ -83,7 +83,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        38
+        28
       ]
     ]
   },
@@ -91,7 +91,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        39
+        29
       ]
     ]
   },
@@ -99,7 +99,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        40
+        32
       ]
     ]
   },
@@ -107,7 +107,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        41
+        33
       ]
     ]
   },
@@ -115,7 +115,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        42
+        34
       ]
     ]
   },
@@ -123,7 +123,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        43
+        35
       ]
     ]
   },
@@ -131,7 +131,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        44
+        36
       ]
     ]
   },
@@ -139,7 +139,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        45
+        37
       ]
     ]
   },
@@ -147,7 +147,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        46
+        38
       ]
     ]
   },
@@ -155,7 +155,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        47
+        41
       ]
     ]
   },
@@ -163,7 +163,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        48
+        42
       ]
     ]
   },
@@ -171,7 +171,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        49
+        43
       ]
     ]
   },
@@ -179,7 +179,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        50
+        44
       ]
     ]
   },
@@ -187,7 +187,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        51
+        45
       ]
     ]
   },
@@ -195,7 +195,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        52
+        46
       ]
     ]
   },
@@ -203,39 +203,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        53
-      ]
-    ]
-  },
-  "https://www.canada.ca/en/transparency/privacy.html": {
-    "origin": [
-      [
-        "src/utils/linguiUtils.js",
-        54
-      ]
-    ]
-  },
-  "https://digital.canada.ca/legal/terms/": {
-    "origin": [
-      [
-        "src/utils/linguiUtils.js",
-        55
-      ]
-    ]
-  },
-  "https://docs.google.com/forms/d/e/1FAIpQLSdEF3D7QCZ1ecPVKdqz_-dQAvlVdwdCQtHHLzg_v2q5q7XBlg/viewform": {
-    "origin": [
-      [
-        "src/utils/linguiUtils.js",
-        56
-      ]
-    ]
-  },
-  "Important message": {
-    "origin": [
-      [
-        "src/utils/linguiUtils.js",
-        59
+        47
       ]
     ]
   }
