@@ -13,6 +13,15 @@ import {
   H2,
   focusRing,
 } from '../styles'
+import {
+  CalendarFields,
+  getFieldNames,
+  defaultMessages,
+  getFieldErrorStrings,
+  errorMessages,
+} from '../validation'
+
+import Validator from 'validatorjs'
 import Layout from '../components/Layout'
 import Button from '../components/forms/Button'
 import CalendarAdapter from '../components/Calendar'
@@ -126,34 +135,17 @@ CalBottom.propTypes = {
 
 class CalendarPage extends Component {
   static get fields() {
-    return ['selectedDays']
+    return getFieldNames(CalendarFields)
   }
 
   static validate(values) {
-    const errors = {}
-    if (!values.selectedDays || !values.selectedDays.length) {
-      errors.selectedDays = <Trans>You must select 3 days.</Trans>
-    } else if (values.selectedDays.length < DAY_LIMIT) {
-      switch (values.selectedDays.length) {
-        case 1:
-          errors.selectedDays = (
-            <Trans>
-              You must select 3 days. Please select 2 more days to continue.
-            </Trans>
-          )
-          break
-        case 2:
-          errors.selectedDays = (
-            <Trans>
-              You must select 3 days. Please select 1 more day to continue.
-            </Trans>
-          )
-          break
-        default:
-          errors.selectedDays = <Trans>You must select 3 days.</Trans>
-      }
+    const validate = new Validator(values, CalendarFields, defaultMessages)
+
+    if (validate.passes()) {
+      return {}
     }
-    return errors
+
+    return getFieldErrorStrings(validate)
   }
 
   constructor(props) {
@@ -167,8 +159,11 @@ class CalendarPage extends Component {
 
     if (Object.keys(submitErrors).length) {
       this.errorContainer.focus()
+      const err = errorMessages[submitErrors.selectedDays]
+        ? errorMessages[submitErrors.selectedDays]
+        : submitErrors.selectedDays
       return {
-        [FORM_ERROR]: submitErrors.selectedDays,
+        [FORM_ERROR]: err,
       }
     }
 
