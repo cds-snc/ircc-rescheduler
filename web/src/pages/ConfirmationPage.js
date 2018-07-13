@@ -1,7 +1,7 @@
 import React from 'react'
-import { H1, H2, visuallyhidden, theme } from '../styles'
+import PropTypes from 'prop-types'
+import { H1, H2, visuallyhidden, theme, mediaQuery } from '../styles'
 import styled, { css } from 'react-emotion'
-import { mediaQuery } from '../styles'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
@@ -50,9 +50,9 @@ const EmailError = ({ selectedDays }) => {
     <React.Fragment>
       <LongReminder>
         <Trans>
-          'Sorry, something went wrong. We received your request, but you might
+          Sorry, something went wrong. We received your request, but you might
           not get a confirmation email. Please make note of your request
-          information'
+          information
         </Trans>
       </LongReminder>
       <Availability>
@@ -65,6 +65,10 @@ const EmailError = ({ selectedDays }) => {
       </Availability>
     </React.Fragment>
   )
+}
+
+EmailError.propTypes = {
+  selectedDays: PropTypes.array.isRequired,
 }
 
 class ConfirmationPage extends React.Component {

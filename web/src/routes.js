@@ -7,7 +7,6 @@ import ReviewPage from './pages/ReviewPage'
 import ConfirmationPage from './pages/ConfirmationPage'
 import ErrorPage from './pages/ErrorPage'
 import CancelPage from './pages/CancelPage'
-import SomethingWrongPage from './pages/SomethingWrongPage'
 import FourOhFourPage from './pages/FourOhFourPage'
 
 export default [
@@ -51,11 +50,6 @@ export default [
     path: '/cancel',
     exact: true,
     component: withProvider(CancelPage),
-  },
-  {
-    path: '/request-issue',
-    exact: true,
-    component: withProvider(SomethingWrongPage),
   },
   {
     path: '*',

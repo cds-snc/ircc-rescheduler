@@ -2,7 +2,7 @@ const inlineCss = require('inline-css')
 const fs = require('fs')
 const path = require('path')
 const { promisify } = require('util')
-const readFile = promisify(fs.readFile)
+const readFile = promisify(fs.readFile) // eslint-disable-line security/detect-non-literal-fs-filename
 const format = require('date-fns/format')
 const locales = {
   fr: require('date-fns/locale/fr'),
@@ -18,6 +18,7 @@ export function datesMarkup(dates, newline) {
 }
 
 // form values are in 2018-06-26 format
+/* eslint-disable security/detect-object-injection */
 export function humanReadable(dates, locale = 'en') {
   return dates.map(date => {
     return format(date, 'dddd MMMM DD YYYY', {
@@ -25,6 +26,7 @@ export function humanReadable(dates, locale = 'en') {
     })
   })
 }
+/* eslint-enable security/detect-object-injection */
 
 let prefix = '../../../'
 
@@ -55,11 +57,13 @@ function getWordmarkPath() {
 // standard template literals can't be dynamic / built at runtime
 
 /* eslint-disable no-new-func */
+/* eslint-disable security/detect-object-injection */
 const fillTemplate = function(template, params) {
   const names = Object.keys(params)
   const vals = Object.keys(params).map(key => params[key])
   return new Function(...names, `return \`${template}\`;`)(...vals)
 }
+/* eslint-enable security/detect-object-injection */
 
 // read content from template and replace param placeholders
 const buildMarkup = async options => {
