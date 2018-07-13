@@ -51,6 +51,7 @@
     "react-ga": "^2.5.3",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.2.2",
+    "react-router-hash-link": "^1.2.0",
     "unfetch": "^3.0.0",
     "validatorjs": "^3.14.2"
   },
@@ -90,7 +91,7 @@
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
     },
     "globals": {
-      "RAZZLE_PAPER_FILE_NUMBER_PATTERN": "[a-zA-Z]{1}" 
+      "RAZZLE_PAPER_FILE_NUMBER_PATTERN": "[a-zA-Z]{1}"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/test/setupTests.js",
     "testMatch": [

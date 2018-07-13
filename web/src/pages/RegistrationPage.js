@@ -32,6 +32,7 @@ import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import CancelButton from '../components/CancelButton'
+import { HashLink } from 'react-router-hash-link'
 
 const contentClass = css`
   form {
@@ -192,10 +193,17 @@ class RegistrationPage extends React.Component {
                 >
                   <ErrorList message={submitError || ''}>
                     {Object.keys(this.validate(values)).map((formId, i) => (
-                      <a href={`#${formId}-header`} key={i}>
+                      <HashLink
+                        to={
+                          formId === 'reason'
+                            ? '#reason-header'
+                            : `#${formId}-label`
+                        }
+                        key={i}
+                      >
                         {labelNames(formId) ? labelNames(formId) : formId}
                         <br />
-                      </a>
+                      </HashLink>
                     ))}
                   </ErrorList>
                 </div>
