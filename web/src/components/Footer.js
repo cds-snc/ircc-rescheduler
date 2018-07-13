@@ -100,7 +100,7 @@ const TopBar = styled.hr(
   props => ({ background: props.background }),
 )
 
-const Footer = withI18n()(({ topBarBackground, i18n, context = {} }) => (
+const Footer = ({ topBarBackground, i18n, context = {} }) => (
   <div>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
@@ -135,12 +135,12 @@ const Footer = withI18n()(({ topBarBackground, i18n, context = {} }) => (
       </div>
     </footer>
   </div>
-))
+)
 Footer.propTypes = {
   ...contextPropTypes,
   topBarBackground: PropTypes.string,
 }
 
-const FooterContext = withContext(Footer)
+const FooterContext = withContext(withI18n()(Footer))
 
 export { FooterContext as default, Footer as FooterBase }

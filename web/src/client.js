@@ -9,7 +9,7 @@ import Raven from 'raven-js'
 if (window) {
   window.Raven = Raven
   window.Raven.config(
-    'https://f8b5f68731864265b10502eb0b29c042@sentry.io/1215804',
+    'https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616',
   ).install()
 }
 

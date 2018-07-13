@@ -1,58 +1,4 @@
 {
-  "Needs to be shorter than 20 words. Please use the name recorded on your application.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/validation.js",
-        25
-      ]
-    ]
-  },
-  "Please make sure you provide a valid email address. For example, ‘yourname@example.com’.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/validation.js",
-        38
-      ]
-    ]
-  },
-  "Needs a number with a different format. Please make sure this is your correct Paper file number.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/validation.js",
-        49
-      ]
-    ]
-  },
-  "Sorry, there‘s a limit of 150 words for this explanation. Please shorten your explanation.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/validation.js",
-        69
-      ]
-    ]
-  },
-  "Exactly three dates must be passed": {
-    "translation": "",
-    "origin": [
-      [
-        "src/validation.js",
-        80
-      ]
-    ]
-  },
-  "Reason needs to be on the list provided. Please pick one.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/validation.js",
-        84
-      ]
-    ]
-  },
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "translation": "",
     "origin": [
@@ -77,10 +23,6 @@
       [
         "src/components/CancelButton.js",
         22
-      ],
-      [
-        "src/pages/NoJSCalendarPage.js",
-        160
       ]
     ]
   },
@@ -108,10 +50,6 @@
       [
         "src/components/Footer.js",
         111
-      ],
-      [
-        "src/utils/linguiUtils.js",
-        54
       ]
     ]
   },
@@ -130,10 +68,6 @@
       [
         "src/components/Footer.js",
         114
-      ],
-      [
-        "src/utils/linguiUtils.js",
-        55
       ]
     ]
   },
@@ -183,10 +117,6 @@
       [
         "src/components/PageHeader.js",
         49
-      ],
-      [
-        "src/utils/linguiUtils.js",
-        56
       ]
     ]
   },
@@ -223,10 +153,6 @@
       [
         "src/components/Reminder.js",
         38
-      ],
-      [
-        "src/utils/linguiUtils.js",
-        59
       ]
     ]
   },
@@ -257,11 +183,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        87
+        88
       ],
       [
         "src/pages/RegistrationPage.js",
-        212
+        223
       ]
     ]
   },
@@ -283,11 +209,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        91
+        92
       ],
       [
         "src/pages/RegistrationPage.js",
-        262
+        273
       ]
     ]
   },
@@ -346,10 +272,6 @@
       [
         "src/pages/CalendarPage.js",
         88
-      ],
-      [
-        "src/pages/NoJSCalendarPage.js",
-        66
       ],
       [
         "src/pages/ReviewPage.js",
@@ -412,28 +334,6 @@
       [
         "src/pages/CalendarPage.js",
         119
-      ],
-      [
-        "src/pages/NoJSCalendarPage.js",
-        148
-      ]
-    ]
-  },
-  "You must select 3 days.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        272
-      ]
-    ]
-  },
-  "You must select 3 days. Please select 2 more days to continue.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/validation.js",
-        76
       ]
     ]
   },
@@ -447,10 +347,15 @@
       [
         "src/pages/CalendarPage.js",
         318
-      ],
+      ]
+    ]
+  },
+  "You must select 3 days.": {
+    "translation": "",
+    "origin": [
       [
-        "src/pages/NoJSCalendarPage.js",
-        155
+        "src/pages/CalendarPage.js",
+        272
       ]
     ]
   },
@@ -763,34 +668,16 @@
       ]
     ]
   },
-  "Citizenship appointments are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/NoJSCalendarPage.js",
-        71
-      ]
-    ]
-  },
-  "<0>Select 3 days</0> you’re available:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/NoJSCalendarPage.js",
-        78
-      ]
-    ]
-  },
   "Email address": {
     "translation": "",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        89
+        90
       ],
       [
         "src/pages/RegistrationPage.js",
-        235
+        246
       ]
     ]
   },
@@ -799,7 +686,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        93
+        94
       ]
     ]
   },
@@ -808,56 +695,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        95
+        96
       ],
       [
         "src/pages/RegistrationPage.js",
-        345
-      ]
-    ]
-  },
-  "You need to tell us your name so we know who is requesting a new appointment.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/validation.js",
-        18
-      ]
-    ]
-  },
-  "We need your email address so we can send you a confirmation message.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/validation.js",
-        32
-      ]
-    ]
-  },
-  "We need your paper file number so we can confirm your identity.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/validation.js",
-        45
-      ]
-    ]
-  },
-  "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/validation.js",
-        56
-      ]
-    ]
-  },
-  "Please tell us a bit more about why you need to reschedule your appointment.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/validation.js",
-        63
+        356
       ]
     ]
   },
@@ -866,11 +708,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        134
+        138
       ],
       [
         "src/pages/RegistrationPage.js",
-        179
+        183
       ]
     ]
   },
@@ -879,7 +721,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        223
+        234
       ]
     ]
   },
@@ -888,7 +730,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        246
+        257
       ]
     ]
   },
@@ -897,7 +739,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        273
+        284
       ]
     ]
   },
@@ -906,7 +748,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        297
+        308
       ]
     ]
   },
@@ -915,7 +757,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        305
+        316
       ],
       [
         "src/pages/ReviewPage.js",
@@ -928,7 +770,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        313
+        324
       ]
     ]
   },
@@ -937,7 +779,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        321
+        332
       ],
       [
         "src/pages/ReviewPage.js",
@@ -950,7 +792,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        329
+        340
       ],
       [
         "src/pages/ReviewPage.js",
@@ -963,7 +805,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        358
+        369
       ]
     ]
   },
@@ -972,7 +814,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        371
+        382
       ]
     ]
   },
@@ -1021,7 +863,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        28
+        18
       ]
     ]
   },
@@ -1030,7 +872,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        29
+        19
       ]
     ]
   },
@@ -1039,7 +881,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        30
+        20
       ]
     ]
   },
@@ -1048,7 +890,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        31
+        21
       ]
     ]
   },
@@ -1057,7 +899,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        32
+        22
       ]
     ]
   },
@@ -1066,7 +908,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        33
+        23
       ]
     ]
   },
@@ -1075,7 +917,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        34
+        24
       ]
     ]
   },
@@ -1084,7 +926,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        35
+        25
       ]
     ]
   },
@@ -1093,7 +935,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        36
+        26
       ]
     ]
   },
@@ -1102,7 +944,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        37
+        27
       ]
     ]
   },
@@ -1111,7 +953,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        38
+        28
       ]
     ]
   },
@@ -1120,7 +962,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        39
+        29
       ]
     ]
   },
@@ -1129,7 +971,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        40
+        32
       ]
     ]
   },
@@ -1138,7 +980,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        41
+        33
       ]
     ]
   },
@@ -1147,7 +989,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        42
+        34
       ]
     ]
   },
@@ -1156,7 +998,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        43
+        35
       ]
     ]
   },
@@ -1165,7 +1007,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        44
+        36
       ]
     ]
   },
@@ -1174,7 +1016,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        45
+        37
       ]
     ]
   },
@@ -1183,7 +1025,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        46
+        38
       ]
     ]
   },
@@ -1192,7 +1034,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        47
+        41
       ]
     ]
   },
@@ -1201,7 +1043,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        48
+        42
       ]
     ]
   },
@@ -1210,7 +1052,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        49
+        43
       ]
     ]
   },
@@ -1219,7 +1061,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        50
+        44
       ]
     ]
   },
@@ -1228,7 +1070,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        51
+        45
       ]
     ]
   },
@@ -1237,7 +1079,7 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        52
+        46
       ]
     ]
   },
@@ -1246,48 +1088,116 @@
     "origin": [
       [
         "src/utils/linguiUtils.js",
-        53
+        47
       ]
     ]
   },
-  "You must select 3 days. Please select 1 more day to continue.": {
+  "You need to tell us your name so we know who is requesting a new appointment.": {
     "translation": "",
     "origin": [
       [
-        "src/pages/CalendarPage.js",
-        147
+        "src/validation.js",
+        18
       ]
-    ],
-    "obsolete": true
+    ]
   },
-  "Remove day": {
+  "Needs to be shorter than 20 words. Please use the name recorded on your application.": {
     "translation": "",
     "origin": [
       [
-        "src/components/Calendar.js",
-        410
+        "src/validation.js",
+        25
       ]
-    ],
-    "obsolete": true
+    ]
   },
-  "By September 6, 2018, your local <0>IRCC</0> office will send you a new appointment, or email you to ask for more information.": {
+  "We need your email address so we can send you a confirmation message.": {
     "translation": "",
     "origin": [
       [
-        "src/pages/ConfirmationPage.js",
-        35
+        "src/validation.js",
+        32
       ]
-    ],
-    "obsolete": true
+    ]
   },
-  "you’re available between August and September:": {
+  "Please make sure you provide a valid email address. For example, ‘yourname@example.com’.": {
     "translation": "",
     "origin": [
       [
-        "src/pages/CalendarPage.js",
-        92
+        "src/validation.js",
+        38
       ]
-    ],
-    "obsolete": true
+    ]
+  },
+  "We need your paper file number so we can confirm your identity.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        45
+      ]
+    ]
+  },
+  "Needs a number with a different format. Please make sure this is your correct Paper file number.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        49
+      ]
+    ]
+  },
+  "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        56
+      ]
+    ]
+  },
+  "Please tell us a bit more about why you need to reschedule your appointment.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        63
+      ]
+    ]
+  },
+  "Sorry, there‘s a limit of 150 words for this explanation. Please shorten your explanation.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        69
+      ]
+    ]
+  },
+  "You must select 3 days. Please select 2 more days to continue.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        76
+      ]
+    ]
+  },
+  "Exactly three dates must be passed": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        80
+      ]
+    ]
+  },
+  "Reason needs to be on the list provided. Please pick one.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        84
+      ]
+    ]
   }
 }
