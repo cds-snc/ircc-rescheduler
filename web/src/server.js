@@ -66,20 +66,25 @@ server
       staffResponse = await sendMail(mailer, params.staffParams).catch(
         handleMailError,
       )
-      applicantResponse = await sendMail(mailer, params.applicantParams).catch(
-        handleMailError,
-      )
+
+      if (staffResponse.messageId) {
+        // send applicant email if staff email sent
+        applicantResponse = await sendMail(
+          mailer,
+          params.applicantParams,
+        ).catch(handleMailError)
+      }
 
       if (
         staffResponse.messageId === null &&
         applicantResponse.messageId === null
       ) {
         //both emails failed to send
-        return res.redirect('/request-issue/2')
+        return res.redirect('/request-issue')
       }
 
       if (staffResponse.messageId === null) {
-        return res.redirect('/request-issue/1')
+        return res.redirect('/error')
       }
 
       if (applicantResponse.messageId === null) {

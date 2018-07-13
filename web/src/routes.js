@@ -53,7 +53,7 @@ export default [
     component: withProvider(CancelPage),
   },
   {
-    path: '/request-issue/:error(1|2)',
+    path: '/request-issue',
     exact: true,
     component: withProvider(SomethingWrongPage),
   },
