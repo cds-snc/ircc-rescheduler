@@ -40,7 +40,7 @@
     ]
   },
   "Contact": {
-    "translation": "",
+    "translation": "Contact",
     "origin": [
       [
         "src/components/Footer.js",
@@ -155,7 +155,7 @@
     ]
   },
   "ALPHA": {
-    "translation": "",
+    "translation": "ALPHA",
     "origin": [
       [
         "src/components/PhaseBanner.js",
@@ -353,7 +353,7 @@
     ]
   },
   "Make sure you stay available on all of the days you select.": {
-    "translation": "Assurez-vous de demeurer disponible les jours sélectionnés.",
+    "translation": "Assurez-vous de demeurer disponible tous les jours sélectionnés.",
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -366,7 +366,7 @@
     ]
   },
   "You must select 3 days.": {
-    "translation": "Vous devez sélectionner 3 journées.",
+    "translation": "Vous devez sélectionner 3 jours.",
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -552,7 +552,7 @@
     ]
   },
   "was not completed": {
-    "translation": " n’a pas été complétée",
+    "translation": "n’a pas été complétée",
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -570,7 +570,7 @@
     ]
   },
   "Contact <0>IRCC</0> directly to reschedule your appointment:": {
-    "translation": "Veuillez communiquer directement avec IRCC pour reporter votre rendez-vous :",
+    "translation": "Veuillez communiquer directement avec <0>IRCC</0> pour reporter votre rendez-vous :",
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -579,7 +579,7 @@
     ]
   },
   "Our team has been notified of this error, but you can also <0>tell us what went wrong</0>.": {
-    "translation": "Notre équipe a été avisée de l’erreur, mais vous pouvez nous aider en décrivant ce qui s’est passé.",
+    "translation": "Notre équipe a été avisée de l’erreur, mais vous pouvez nous aider <0>en décrivant ce qui s’est passé</0>.",
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -727,7 +727,7 @@
     ]
   },
   "Citizenship appointments are scheduled on <0>Tuesdays</0> and <1>Fridays</1>.": {
-    "translation": "Les rendez-vous d’examen de citoyenneté ont lieu les mardis et les vendredis.",
+    "translation": "Les rendez-vous d’examen de citoyenneté ont lieu les <0>mardis</0> et les <1>vendredis</1>.",
     "origin": [
       [
         "src/pages/NoJSCalendarPage.js",
@@ -736,7 +736,7 @@
     ]
   },
   "<0>Select 3 days</0> you’re available:": {
-    "translation": "Choisissez 3 jours où vous serez disponible :",
+    "translation": "<0>Choisissez 3 jours</0> où vous serez disponible :",
     "origin": [
       [
         "src/pages/NoJSCalendarPage.js",
@@ -971,7 +971,7 @@
     ]
   },
   "Sending this request will cancel your current appointment.<0> Do not attend your old appointment</0> after you send this request.": {
-    "translation": "Si vous envoyez cette demande, votre rendez-vous actuel sera annulé. Ne vous présentez pas à votre ancien rendez-vous après avoir envoyé cette demande.",
+    "translation": "Si vous envoyez cette demande, votre rendez-vous actuel sera annulé. <0>Ne vous présentez pas à votre ancien rendez-vous</0> après avoir envoyé cette demande.",
     "origin": [
       [
         "src/pages/ReviewPage.js",
