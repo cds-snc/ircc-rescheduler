@@ -43,18 +43,17 @@ server
   .use(bodyParser.urlencoded({ extended: false }))
   .post('/submit', async (req, res) => {
     let input = Object.assign({}, req.body) // make a new object
-
-    cleanDates(input)
+    input.selectedDays = cleanDates(input.selectedDays)
 
     const validateReg = new Validator(input, RegistrationFields)
     const validateCal = new Validator(input, CalendarFields)
 
     if (!validateReg.passes()) {
-      return res.json({ success: validateReg.errors })
+      return res.redirect('/register')
     }
 
     if (!validateCal.passes()) {
-      return res.json({ success: validateReg.errors })
+      return res.redirect('/calendar')
     }
 
     try {

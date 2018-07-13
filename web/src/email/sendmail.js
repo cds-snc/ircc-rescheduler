@@ -63,8 +63,8 @@ export const getEmailParms = async (
   return { staffParams, applicantParams }
 }
 
-export const cleanDates = (input) => {
-  let split = input.selectedDays.split(',')
+export const cleanDates = days => {
+  let split = days.split(',')
 
   const cleaned = split
     .map(day => {
@@ -72,7 +72,7 @@ export const cleanDates = (input) => {
     })
     .sort()
 
-  input.selectedDays = cleaned
+  return cleaned
 }
 
 export const sendMail = async (mailer, params) => {

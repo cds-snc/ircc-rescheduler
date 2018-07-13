@@ -3,9 +3,10 @@ const fs = require('fs')
 const path = require('path')
 const { promisify } = require('util')
 const readFile = promisify(fs.readFile)
+const format = require('date-fns/format')
 
 // add newlines formatting plain and html emails
-function datesMarkup(dates, newline) {
+export function datesMarkup(dates, newline) {
   const arr = dates.map(date => {
     return `${date} ${newline}`
   })
@@ -14,15 +15,10 @@ function datesMarkup(dates, newline) {
 }
 
 // form values are in 2018-06-26 format
-function humanReadable(dates) {
-  return dates.map(date =>
-    new Date(date).toLocaleDateString('en-CA', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }),
-  )
+export function humanReadable(dates) {
+  return dates.map(date => {
+    return format(date, 'dddd MMMM DD YYYY')
+  })
 }
 
 let prefix = '../../../'
