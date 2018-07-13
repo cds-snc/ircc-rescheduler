@@ -130,8 +130,7 @@ class RegistrationPage extends React.Component {
     const submitErrors = this.validate(values)
 
     if (Object.keys(submitErrors).length) {
-      var y = this.errorContainer.offsetTop
-      window.scrollTo(0, y - 20)
+      window.scrollTo(0, this.errorContainer.offsetTop - 20)
       this.errorContainer.focus()
 
       return {
