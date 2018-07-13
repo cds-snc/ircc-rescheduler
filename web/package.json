@@ -7,7 +7,7 @@
     "dev": "razzle start",
     "dbg": "node --inspect-brk node_modules/jest/bin/jest.js",
     "lint": "node_modules/eslint/bin/eslint.js src test",
-    "start": "NODE_ENV=production node build/server.js",
+    "start": "NODE_ENV=production node --icu-data-dir=./node_modules/full-icu build/server.js",
     "test": "node --icu-data-dir=./node_modules/full-icu node_modules/jest/bin/jest.js",
     "extract": "NODE_ENV=development lingui extract",
     "compile": "NODE_ENV=development lingui compile",
@@ -51,7 +51,8 @@
     "react-ga": "^2.5.3",
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.2.2",
-    "unfetch": "^3.0.0"
+    "unfetch": "^3.0.0",
+    "validatorjs": "^3.14.2"
   },
   "devDependencies": {
     "@types/graphql": "^0.13.0",
@@ -87,6 +88,9 @@
       "^.+\\.(js|jsx)$": "<rootDir>/node_modules/razzle/config/jest/babelTransform.js",
       "^.+\\.css$": "<rootDir>/node_modules/razzle/config/jest/cssTransform.js",
       "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
+    },
+    "globals": {
+      "RAZZLE_PAPER_FILE_NUMBER_PATTERN": "[a-zA-Z]{1}" 
     },
     "setupTestFrameworkScriptFile": "<rootDir>/test/setupTests.js",
     "testMatch": [

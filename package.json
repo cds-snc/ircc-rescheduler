@@ -7,7 +7,7 @@
   "scripts": {
     "build_web": "yarn --cwd ./web && yarn --cwd ./web build",
     "build_api": "yarn --cwd ./api",
-    "restart": "yarn build_web && yarn build_api && pm2 kill && pm2 startOrRestart ecosystem.config.js",
+    "restart": "yarn build_web && yarn build_api && pm2 kill && pm2 startOrRestart ecosystem.config.js --env production --update-env",
     "postinstall": "yarn restart"
   },
   "devDependencies": {

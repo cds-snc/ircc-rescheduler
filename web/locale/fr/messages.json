@@ -964,7 +964,7 @@
     ]
   },
   "January": {
-    "translation": "Janvier",
+    "translation": "janvier",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -973,7 +973,7 @@
     ]
   },
   "February": {
-    "translation": "Février",
+    "translation": "février",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -982,7 +982,7 @@
     ]
   },
   "March": {
-    "translation": "Mars",
+    "translation": "mars",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -991,7 +991,7 @@
     ]
   },
   "April": {
-    "translation": "Avril",
+    "translation": "avril",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1000,7 +1000,7 @@
     ]
   },
   "May": {
-    "translation": "Mai",
+    "translation": "mai",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1009,7 +1009,7 @@
     ]
   },
   "June": {
-    "translation": "Juin",
+    "translation": "juin",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1018,7 +1018,7 @@
     ]
   },
   "July": {
-    "translation": "Juillet",
+    "translation": "juillet",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1027,7 +1027,7 @@
     ]
   },
   "August": {
-    "translation": "Août",
+    "translation": "août",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1036,7 +1036,7 @@
     ]
   },
   "September": {
-    "translation": "Septembre",
+    "translation": "septembre",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1045,7 +1045,7 @@
     ]
   },
   "October": {
-    "translation": "Octobre",
+    "translation": "octobre",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1054,7 +1054,7 @@
     ]
   },
   "November": {
-    "translation": "Novembre",
+    "translation": "novembre",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1063,7 +1063,7 @@
     ]
   },
   "December": {
-    "translation": "Décembre",
+    "translation": "décembre",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1072,7 +1072,7 @@
     ]
   },
   "Sunday": {
-    "translation": "Dimanche",
+    "translation": "dimanche",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1081,7 +1081,7 @@
     ]
   },
   "Monday": {
-    "translation": "Lundi",
+    "translation": "lundi",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1090,7 +1090,7 @@
     ]
   },
   "Tuesday": {
-    "translation": "Mardi",
+    "translation": "mardi",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1099,7 +1099,7 @@
     ]
   },
   "Wednesday": {
-    "translation": "Mercredi",
+    "translation": "mercredi",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1108,7 +1108,7 @@
     ]
   },
   "Thursday": {
-    "translation": "Jeudi",
+    "translation": "jeudi",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1117,7 +1117,7 @@
     ]
   },
   "Friday": {
-    "translation": "Vendredi",
+    "translation": "vendredi",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1126,7 +1126,7 @@
     ]
   },
   "Saturday": {
-    "translation": "Samedi",
+    "translation": "samedi",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1135,7 +1135,7 @@
     ]
   },
   "Su": {
-    "translation": "Di",
+    "translation": "di",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1144,7 +1144,7 @@
     ]
   },
   "Mo": {
-    "translation": "Lu",
+    "translation": "lu",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1153,7 +1153,7 @@
     ]
   },
   "Tu": {
-    "translation": "Ma",
+    "translation": "ma",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1162,7 +1162,7 @@
     ]
   },
   "We": {
-    "translation": "Me",
+    "translation": "me",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1171,7 +1171,7 @@
     ]
   },
   "Thu": {
-    "translation": "Je",
+    "translation": "je",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1180,7 +1180,7 @@
     ]
   },
   "Fri": {
-    "translation": "Ve",
+    "translation": "ve",
     "origin": [
       [
         "src/utils/linguiUtils.js",
@@ -1189,7 +1189,7 @@
     ]
   },
   "Sat": {
-    "translation": "Sa",
+    "translation": "sa",
     "origin": [
       [
         "src/utils/linguiUtils.js",
