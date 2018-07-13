@@ -25,7 +25,7 @@ const server = express()
 let helmet = require('helmet')
 
 const handleMailError = e => {
-  console.log(e.message)
+  console.log(e.message) // eslint-disable-line no-console
   return {
     messageId: null,
     errorMessage: e.message,
@@ -93,7 +93,7 @@ server
         return res.redirect('/confirmation/client-request-issue')
       }
     } catch (e) {
-      console.log(e)
+      console.log(e) // eslint-disable-line no-console
       return res.redirect('/error')
     }
 
@@ -123,8 +123,7 @@ server
         ? res.redirect(res.locals.redirect)
         : res.send(html)
     } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error.message, error.stack)
+      console.log(error.message, error.stack) // eslint-disable-line no-console
       res.redirect('/error')
     }
   })
