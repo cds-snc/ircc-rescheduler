@@ -57,10 +57,20 @@ describe('Handles Input Data for Email', () => {
     )
   })
 
+  it('it handles selected days locale', async () => {
+    const selectedDays = '2018-08-23,2018-08-30,2018-09-06'
+    let cleaned = cleanDates(selectedDays)
+    const dates = humanReadable(cleaned, 'fr')
+    const formatted = datesMarkup(dates, '').trim()
+    expect(formatted).toEqual(
+      'jeudi août 23 2018 jeudi août 30 2018 jeudi septembre 06 2018',
+    )
+  })
+
   it('Handles selected days with whitespace', async () => {
     const selectedDays = '2018-08-23 ,2018-08-30, 2018-09-06 '
     let cleaned = cleanDates(selectedDays)
-    const dates = humanReadable(cleaned)
+    const dates = humanReadable(cleaned, 'en')
     const formatted = datesMarkup(dates, '').trim()
     expect(formatted).toEqual(
       'Thursday August 23 2018 Thursday August 30 2018 Thursday September 06 2018',

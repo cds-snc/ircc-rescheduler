@@ -4,6 +4,9 @@ const path = require('path')
 const { promisify } = require('util')
 const readFile = promisify(fs.readFile)
 const format = require('date-fns/format')
+const locales = {
+  fr: require('date-fns/locale/fr'),
+}
 
 // add newlines formatting plain and html emails
 export function datesMarkup(dates, newline) {
@@ -15,9 +18,11 @@ export function datesMarkup(dates, newline) {
 }
 
 // form values are in 2018-06-26 format
-export function humanReadable(dates) {
+export function humanReadable(dates, locale = 'en') {
   return dates.map(date => {
-    return format(date, 'dddd MMMM DD YYYY')
+    return format(date, 'dddd MMMM DD YYYY', {
+      locale: locales[locale],
+    })
   })
 }
 
@@ -89,8 +94,21 @@ export const buildParams = async options => {
     humanReadable(selectedDays),
     '<br>',
   )
+
+  // French HTML Dates
+  options.formValues.datesHtmlFR = datesMarkup(
+    humanReadable(selectedDays, 'fr'),
+    '<br>',
+  )
+
   options.formValues.datesPlain = datesMarkup(
     humanReadable(selectedDays),
+    '\r\n',
+  )
+
+  // French Plain Dates
+  options.formValues.datesPlainFR = datesMarkup(
+    humanReadable(selectedDays, 'fr'),
     '\r\n',
   )
 
