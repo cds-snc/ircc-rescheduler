@@ -4,3 +4,4 @@ node_modules
 # Vim swap files
 *.swp
 .env*
+reports
