@@ -17,9 +17,8 @@ import {
   defaultMessages,
   getFieldErrorStrings,
 } from '../validation'
-
 import Validator from 'validatorjs'
-
+import { trimInput } from '../utils/cleanInput'
 import Layout from '../components/Layout'
 import {
   TextFieldAdapter,
@@ -109,7 +108,11 @@ class RegistrationPage extends React.Component {
   }
 
   static validate(values) {
-    const validate = new Validator(values, RegistrationFields, defaultMessages)
+    const validate = new Validator(
+      trimInput(values),
+      RegistrationFields,
+      defaultMessages,
+    )
 
     if (validate.passes()) {
       return {}
