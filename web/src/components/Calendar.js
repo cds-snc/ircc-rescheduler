@@ -301,7 +301,7 @@ const dayBox = css`
 
   .day-box {
     font-size: ${theme.font.md};
-    color: ${theme.colour.white};
+    color: ${theme.colour.black};
 
     ${mediaQuery.lg(css`
       width: 100%;
@@ -333,13 +333,13 @@ const dayBox = css`
 `
 
 const daySelection = css`
-  background: ${theme.colour.blackLight};
+  background: #e1e1e1;
   margin-bottom: ${theme.spacing.xl};
   width: 20rem;
   padding: ${theme.spacing.lg} ${theme.spacing.lg} 0 ${theme.spacing.lg};
 
   li {
-    border-top: 1px solid ${theme.colour.grayLight};
+    border-top: 1px solid ${theme.colour.black};
     padding-bottom: ${theme.spacing.md};
     padding-top: 1rem;
     margin-bottom: 0;
@@ -360,7 +360,7 @@ const daySelection = css`
   }
 
   h3 {
-    color: ${theme.colour.white};
+    color: ${theme.colour.black};
     font-family: ${theme.weight.b}, Helvetica;
     font-size: ${theme.font.md};
     margin-bottom: ${theme.spacing.sm};
@@ -390,22 +390,14 @@ const daySelection = css`
   `)};
 `
 
-const removeDateMobile = css`
-  display: none;
+const removeDate = css`
+  width: 1rem;
+  height: 1rem;
 
   ${mediaQuery.lg(css`
     display: block;
     width: 1.6rem;
     height: 1.6rem;
-  `)};
-`
-
-const removeDateDesktop = css`
-  height: 1rem;
-  width: 1rem;
-
-  ${mediaQuery.lg(css`
-    display: none;
   `)};
 `
 
@@ -427,7 +419,7 @@ const triangle = css`
   margin-left: ${theme.spacing.md};
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-right: 25px solid ${theme.colour.blackLight};
+  border-right: 25px solid #e1e1e1;
 
   ${mediaQuery.lg(css`
     display: none;
@@ -467,12 +459,8 @@ const renderDayBoxes = ({
               locale,
             )}`}
           >
-            <div className={removeDateDesktop}>
-              <img src={Cancel} alt={removeDayAltText} />
-            </div>
-
-            <div className={removeDateMobile}>
-              <img src={MobileCancel} alt={removeDayAltText} />
+            <div className={removeDate}>
+              <img src={MobileCancel} alt="Remove Day" />
             </div>
           </button>
         </li>
