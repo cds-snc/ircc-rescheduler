@@ -163,6 +163,8 @@ const dayPickerDefault = css`
     cursor: pointer;
     vertical-align: middle;
     outline: none;
+    height: 3.5rem;
+    width: 3.5rem;
 
     &[aria-disabled='false'] {
       font-weight: 700;
@@ -266,11 +268,8 @@ const calendarContainer = css`
   width: 100%;
 
   ${mediaQuery.lg(css`
-    > div:first-of-type {
-      width: 60%;
-    }
     > div:last-of-type {
-      width: 60%;
+      width: 25em;
     }
   `)};
 
@@ -334,8 +333,8 @@ const dayBox = css`
 const daySelection = css`
   background: #e1e1e1;
   margin-bottom: ${theme.spacing.xl};
-  width: 20rem;
   padding: ${theme.spacing.lg} ${theme.spacing.lg} 0 ${theme.spacing.lg};
+  width: 20rem;
 
   li {
     border-top: 1px solid ${theme.colour.black};
@@ -344,18 +343,8 @@ const daySelection = css`
     margin-bottom: 0;
   }
 
-  li:first-of-type {
-    ${mediaQuery.lg(css`
-      padding-top: ${theme.spacing.xs};
-    `)};
-  }
-
   li:last-of-type {
     padding-bottom: ${theme.spacing.lg};
-
-    ${mediaQuery.lg(css`
-      padding-bottom: ${theme.spacing.md};
-    `)};
   }
 
   h3 {
@@ -369,13 +358,21 @@ const daySelection = css`
     background: ${theme.colour.white};
     margin-bottom: 0;
     padding: 0 0 ${theme.spacing.sm} 0;
-    width: 60%;
 
     li {
       color: ${theme.colour.black};
       border-top: 0;
       padding-top: 0;
       margin-bottom: ${theme.spacing.xs};
+    }
+
+    li:last-of-type {
+      padding-bottom: ${theme.spacing.lg};
+      padding-bottom: ${theme.spacing.md};
+    }
+
+    li:first-of-type {
+      padding-top: ${theme.spacing.xs};
     }
 
     h3 {
