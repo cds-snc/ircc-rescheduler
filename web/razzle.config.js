@@ -1,3 +1,4 @@
+console.log('rzzle runs')
 module.exports = {
   modify: (config, { target, dev }, webpack) => {
     if (process.env.CI) config.performance = { hints: false }
@@ -14,7 +15,14 @@ module.exports = {
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',
           generateStatsFile: true,
-          reportFilename: '../../reports/report.html',
+          reportFilename:
+            target === 'web'
+              ? '../../reports/sourceReport.html'
+              : '../reports/modulesReport.html',
+          statsFilename:
+            target === 'web'
+              ? '../../reports/sourceStats.json'
+              : '../reports/modulesStats.json',
         }),
       )
     }
