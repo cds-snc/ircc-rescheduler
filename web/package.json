@@ -13,7 +13,6 @@
     "compile": "NODE_ENV=development lingui compile",
     "add-locale": "lingui add-locale", 
     "stats": "mkdir -p reports && BUNDLE_CHECK=true yarn build"
-
   },
   "dependencies": {
     "@cdssnc/gcui": "^0.0.30",
