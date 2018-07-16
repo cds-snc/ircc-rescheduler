@@ -36,6 +36,7 @@ import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
 import { Checkbox } from '../components/forms/MultipleChoice'
 import { getEndMonthName, getStartMonthName } from '../utils/calendarDates'
+import { HashLink } from 'react-router-hash-link'
 
 const DAY_LIMIT = 3
 
@@ -158,7 +159,9 @@ class CalendarPage extends Component {
     const submitErrors = this.validate(values)
 
     if (Object.keys(submitErrors).length) {
+      window.scrollTo(0, this.errorContainer.offsetTop - 20)
       this.errorContainer.focus()
+
       const err = errorMessages[submitErrors.selectedDays]
         ? errorMessages[submitErrors.selectedDays]
         : submitErrors.selectedDays
@@ -217,10 +220,10 @@ class CalendarPage extends Component {
                 >
                   <ErrorList message={submitError || ''}>
                     {Object.keys(this.validate(values)).map((formId, i) => (
-                      <a href={`#${formId}`} key={i}>
+                      <HashLink to={`#${formId}`} key={i}>
                         {labelNames(formId) ? labelNames(formId) : formId}
                         <br />
-                      </a>
+                      </HashLink>
                     ))}
                   </ErrorList>
                 </div>
