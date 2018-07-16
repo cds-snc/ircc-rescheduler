@@ -5,6 +5,7 @@ import { setStoreCookie, getStoreCookie, setSSRCookie } from './cookies'
 import { contextDefault, Context } from './context'
 import { I18nProvider } from 'lingui-react'
 import { catalogs, linguiDev } from './utils/linguiUtils'
+import { trimInput } from './utils/cleanInput'
 
 const _whitelist = ({ val, fields }) => {
   /*
@@ -190,6 +191,8 @@ function withProvider(WrappedComponent) {
 
         // whitelist query keys so that arbitrary keys aren't saved to the store
         val = _whitelist({ val, fields })
+
+        val = trimInput(val)
 
         // clear values that don't pass validation
         let errors = validate(val)
