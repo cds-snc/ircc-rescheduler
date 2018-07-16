@@ -54,7 +54,7 @@ const dayPickerDefault = css`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width: 25rem;
+    width: 24.8rem;
 
     ${mediaQuery.lg(css`
       width: 100%;
