@@ -30,16 +30,6 @@ const dayPickerDefault = css`
     background: ${theme.colour.white};
     border: 2px solid ${theme.colour.black};
 
-    ${mediaQuery.lg(css`
-      width: 100%;
-      margin-right: 0;
-    `)};
-
-    ${mediaQuery.md(css`
-      width: 100%;
-    `)};
-  }
-
   .DayPicker-Months {
     display: flex;
     flex-wrap: wrap;
@@ -56,7 +46,7 @@ const dayPickerDefault = css`
     user-select: none;
     width: 24.8rem;
 
-    ${mediaQuery.lg(css`
+    ${mediaQuery.md(css`
       width: 100%;
     `)};
   }
@@ -166,6 +156,21 @@ const dayPickerDefault = css`
     height: 3.5rem;
     width: 3.5rem;
 
+    ${mediaQuery.md(css`
+      height: 4rem;
+      width: 4rem;
+    `)};
+
+    ${mediaQuery.sm(css`
+      height: 2.8rem;
+      width: 2.8rem;
+    `)};
+
+    ${mediaQuery.xs(css`
+      height: 2.6rem;
+      width: 2.6rem;
+    `)};
+
     &[aria-disabled='false'] {
       font-weight: 700;
       font-family: ${theme.weight.b}, Helvetica;
@@ -274,9 +279,18 @@ const calendarContainer = css`
   `)};
 
   ${mediaQuery.md(css`
-    width: 100%;
-    display: block;
-    > div:first-of-type,
+    > div:first-of-type {
+      width: 100%;
+    }
+    > div:last-of-type {
+      width: 100%;
+    }
+  `)};
+
+  ${mediaQuery.sm(css`
+    > div:first-of-type {
+      width: 100%;
+    }
     > div:last-of-type {
       width: 100%;
     }
@@ -302,7 +316,6 @@ const dayBox = css`
     color: ${theme.colour.black};
 
     ${mediaQuery.lg(css`
-      width: 100%;
       color: ${theme.colour.black};
       font-size: ${theme.font.md};
     `)};
@@ -379,10 +392,6 @@ const daySelection = css`
       color: ${theme.colour.black};
       font-size: ${theme.font.lg};
     }
-  `)};
-
-  ${mediaQuery.md(css`
-    width: 100%;
   `)};
 `
 
