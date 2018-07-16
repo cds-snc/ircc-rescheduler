@@ -1,4 +1,3 @@
-console.log('rzzle runs')
 module.exports = {
   modify: (config, { target, dev }, webpack) => {
     if (process.env.CI) config.performance = { hints: false }
