@@ -14,6 +14,7 @@ module.exports = {
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',
           generateStatsFile: true,
+          reportFilename: '../../reports/report.html',
         }),
       )
     }

@@ -12,7 +12,7 @@
     "extract": "NODE_ENV=development lingui extract",
     "compile": "NODE_ENV=development lingui compile",
     "add-locale": "lingui add-locale", 
-    "stats" : "BUNDLE_CHECK=true yarn dev"
+    "stats": "mkdir -p reports && BUNDLE_CHECK=true yarn dev"
   },
   "dependencies": {
     "@cdssnc/gcui": "^0.0.30",
