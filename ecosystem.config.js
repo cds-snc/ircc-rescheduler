@@ -2,7 +2,8 @@ module.exports = {
     apps : [{
       name        : "api",
       cwd         : "./api",
-      script      : "index.js",
+      script      : "npm",
+      args        : "start",
       watch       : true,
       env: {
         "NODE_ENV": "development"
@@ -12,8 +13,9 @@ module.exports = {
       }
     },{
       name       : "web",
-      cwd        : "./web/build",
-      script     : "server.js",
+      cwd        : "./web",
+      script     : "npm",
+      args       : "start",
       instances  : "max",
       exec_mode  : "cluster",
       watch      : true,
