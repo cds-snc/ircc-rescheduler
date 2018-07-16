@@ -20,8 +20,8 @@ import {
   getFieldErrorStrings,
   errorMessages,
 } from '../validation'
-
 import Validator from 'validatorjs'
+import { trimInput } from '../utils/cleanInput'
 import Layout from '../components/Layout'
 import Button from '../components/forms/Button'
 import CalendarAdapter from '../components/Calendar'
@@ -139,7 +139,11 @@ class CalendarPage extends Component {
   }
 
   static validate(values) {
-    const validate = new Validator(values, CalendarFields, defaultMessages)
+    const validate = new Validator(
+      trimInput(values),
+      CalendarFields,
+      defaultMessages,
+    )
 
     if (validate.passes()) {
       return {}
