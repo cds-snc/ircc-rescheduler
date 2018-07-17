@@ -107,18 +107,24 @@ class RegistrationPage extends React.Component {
     return '/calendar'
   }
 
-  static validate(values) {
-    const validate = new Validator(
-      trimInput(values),
-      RegistrationFields,
-      defaultMessages,
-    )
+ static validate(values, submitted) {
+    // only validate on submit
+    if (submitted) {
+      const validate = new Validator(
+        trimInput(values),
+        RegistrationFields,
+        defaultMessages,
+      )
 
-    if (validate.passes()) {
-      return {}
+      if (validate.passes()) {
+        return {}
+      }
+
+      this.errStrings = getFieldErrorStrings(validate)
     }
 
-    return getFieldErrorStrings(validate)
+    // return existing errors from last submit
+    return this.errStrings
   }
 
   constructor(props) {
@@ -127,10 +133,11 @@ class RegistrationPage extends React.Component {
     this.validate = RegistrationPage.validate
     this.fields = RegistrationPage.fields
     this.redirect = RegistrationPage.redirect
+    this.errStrings = ''
   }
 
   async onSubmit(values, event) {
-    const submitErrors = this.validate(values)
+    const submitErrors = this.validate(values, true)
 
     if (Object.keys(submitErrors).length) {
       window.scrollTo(0, this.errorContainer.offsetTop - 20)
