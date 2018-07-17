@@ -35,4 +35,26 @@ module.exports = shipit => {
       ],
     },
   })
+
+  shipit.blTask('installDeps', function() {
+    shipit.log('Building the stuff in ' + shipit.releasePath)
+    shipit.remote('cd ' + shipit.releasePath + ' && yarn build_web')
+  })
+
+  shipit.blTask('startOrRestart', function() {
+    var path = shipit.config.deployTo + '/current'
+    return shipit.remote(
+      'cd ' +
+        path +
+        ' && pwd && pm2 startOrRestart ecosystem.config.js --env production --update-env',
+    )
+  })
+
+  shipit.on('updated', function() {
+    return shipit.start(['installDeps'])
+  })
+
+  shipit.on('deployed', function() {
+    return shipit.start('startOrRestart')
+  })
 }
