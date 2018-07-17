@@ -213,7 +213,14 @@ class CalendarPage extends Component {
                     this.errorContainer = errorContainer
                   }}
                 >
-                  <ErrorCalendar message={submitError} id="fewerDays-error" />
+                  <ErrorCalendar
+                    message={
+                      submitError && this.validate(values).selectedDays
+                        ? submitError
+                        : ''
+                    }
+                    id="fewerDays-error"
+                  />{' '}
                 </div>
                 <Field
                   name="selectedDays"
