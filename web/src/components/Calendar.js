@@ -446,6 +446,7 @@ const renderDayBoxes = ({
   selectedDays,
   removeDayOnClickOrKeyPress,
   locale,
+  removeDayAltText,
 }) => {
   let dayBoxes = []
   let selectedDaysSorted = sortSelectedDays(selectedDays)
@@ -461,14 +462,17 @@ const renderDayBoxes = ({
             type="button"
             onClick={removeDayOnClickOrKeyPress(selectedDay)}
             onKeyPress={removeDayOnClickOrKeyPress(selectedDay)}
-            aria-label={`Remove day: ${dateToHTMLString(selectedDay)}`}
+            aria-label={`${removeDayAltText}: ${dateToHTMLString(
+              selectedDay,
+              locale,
+            )}`}
           >
             <div className={removeDateDesktop}>
-              <img src={Cancel} alt="Remove Day" />
+              <img src={Cancel} alt={removeDayAltText} />
             </div>
 
             <div className={removeDateMobile}>
-              <img src={MobileCancel} alt="Remove Day" />
+              <img src={MobileCancel} alt={removeDayAltText} />
             </div>
           </button>
         </li>
@@ -627,6 +631,8 @@ class Calendar extends Component {
               selectedDays: value,
               removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
               locale,
+              removeDayAltText:
+                i18n !== undefined ? i18n._('Remove day') : 'Remove day',
             })}
           </ul>
         </div>
