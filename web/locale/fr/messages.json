@@ -1,6 +1,6 @@
 {
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
-    "translation": "Vous ne pouvez pas sélectionner plus de 3 journées. Pour modifier vos choix, veuillez d’abord supprimer des journées.",
+    "translation": "Vous ne pouvez pas sélectionner plus de 3 dates. Pour modifier vos choix, veuillez d’abord supprimer des dates.",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -9,7 +9,7 @@
     ]
   },
   "Your 3 selected days:": {
-    "translation": "Vos 3 jours sélectionnés :",
+    "translation": "Vos 3 jours sélectionnés\u00a0:",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -27,7 +27,7 @@
     ]
   },
   "Please check these sections for errors:": {
-    "translation": "Veuillez vérifier les sections suivantes pour des erreurs :",
+    "translation": "Veuillez vérifier les sections suivantes pour des erreurs\u00a0:",
     "origin": [
       [
         "src/components/ErrorMessage.js",
@@ -187,7 +187,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        223
+        222
       ]
     ]
   },
@@ -213,7 +213,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        273
+        272
       ]
     ]
   },
@@ -262,7 +262,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        75
+        76
       ]
     ]
   },
@@ -271,7 +271,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        88
+        89
       ],
       [
         "src/pages/ReviewPage.js",
@@ -284,7 +284,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        93
+        94
       ]
     ]
   },
@@ -293,7 +293,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        98
+        99
       ]
     ]
   },
@@ -302,7 +302,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        100
+        101
       ],
       [
         "src/pages/LandingPage.js",
@@ -315,7 +315,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        102
+        103
       ]
     ]
   },
@@ -324,7 +324,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        103
+        104
       ]
     ]
   },
@@ -333,7 +333,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        119
+        120
       ]
     ]
   },
@@ -342,11 +342,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        239
+        242
       ],
       [
         "src/pages/CalendarPage.js",
-        318
+        321
       ]
     ]
   },
@@ -355,7 +355,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        272
+        275
       ]
     ]
   },
@@ -369,7 +369,7 @@
     ]
   },
   "Your request has been cancelled.": {
-    "translation": "Votre demande a été annulée",
+    "translation": "Votre demande a été annulée.",
     "origin": [
       [
         "src/pages/CancelPage.js",
@@ -378,7 +378,7 @@
     ]
   },
   "Nothing about your application or appointment has been changed.": {
-    "translation": "Votre demande de citoyenneté ou votre rendez-vous n’a été modifié(e).",
+    "translation": "Votre demande de citoyenneté ou votre rendez-vous n’a pas été modifié(e).",
     "origin": [
       [
         "src/pages/CancelPage.js",
@@ -418,7 +418,7 @@
     ]
   },
   "If you have any questions, please contact:": {
-    "translation": "Si vous avez des questions, communiquez avec :",
+    "translation": "Si vous avez des questions, communiquez avec\u00a0:",
     "origin": [
       [
         "src/pages/CancelPage.js",
@@ -467,7 +467,7 @@
     ]
   },
   "office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "vous enverra les détails de votre nouveau rendez-vous ou vous communiquera avec vous par courriel pour vous demander des renseignements supplémentaires.",
+    "translation": "vous enverra les détails de votre nouveau rendez-vous ou communiquera avec vous par courriel pour vous demander des renseignements supplémentaires.",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
@@ -512,7 +512,7 @@
     ]
   },
   "Contact <0>IRCC</0> directly to reschedule your appointment:": {
-    "translation": "Veuillez communiquer directement avec IRCC pour reporter votre rendez-vous :",
+    "translation": "Veuillez communiquer directement avec IRCC pour reporter votre rendez-vous\u00a0:",
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -588,7 +588,7 @@
     ]
   },
   "You will need:": {
-    "translation": "Vous devez :",
+    "translation": "Vous devez\u00a0:",
     "origin": [
       [
         "src/pages/LandingPage.js",
@@ -677,7 +677,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        246
+        245
       ]
     ]
   },
@@ -699,7 +699,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        356
+        355
       ]
     ]
   },
@@ -708,11 +708,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        138
+        137
       ],
       [
         "src/pages/RegistrationPage.js",
-        183
+        182
       ]
     ]
   },
@@ -721,7 +721,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        234
+        233
       ]
     ]
   },
@@ -730,7 +730,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        257
+        256
       ]
     ]
   },
@@ -739,7 +739,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        284
+        283
       ]
     ]
   },
@@ -748,7 +748,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        308
+        307
       ]
     ]
   },
@@ -757,7 +757,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        316
+        315
       ],
       [
         "src/pages/ReviewPage.js",
@@ -770,7 +770,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        324
+        323
       ]
     ]
   },
@@ -779,7 +779,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        332
+        331
       ],
       [
         "src/pages/ReviewPage.js",
@@ -792,7 +792,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        340
+        339
       ],
       [
         "src/pages/ReviewPage.js",
@@ -805,7 +805,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        369
+        368
       ]
     ]
   },
@@ -814,7 +814,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        382
+        381
       ]
     ]
   },
@@ -841,7 +841,7 @@
     ]
   },
   "Review your request:": {
-    "translation": "Revoir votre demande :",
+    "translation": "Revoir votre demande\u00a0:",
     "origin": [
       [
         "src/pages/ReviewPage.js",
@@ -1102,7 +1102,7 @@
     ]
   },
   "Needs to be shorter than 20 words. Please use the name recorded on your application.": {
-    "translation": "Ceci doit être moins de 20 mots. Veuillez utiliser le nom inclus dans votre demande de citoyenneté.",
+    "translation": "Maximum de 20 mots. Veuillez utiliser le nom inclus dans votre demande de citoyenneté.",
     "origin": [
       [
         "src/validation.js",
@@ -1120,7 +1120,7 @@
     ]
   },
   "Please make sure you provide a valid email address. For example, ‘yourname@example.com’.": {
-    "translation": "Veuillez vous assurez que l'adresse courriel est valide. Par exemple, « votrenom@exemple.com »",
+    "translation": "Veuillez vous assurez que l'adresse courriel est valide. Par exemple, «\u00a0votrenom@exemple.com\u00a0».",
     "origin": [
       [
         "src/validation.js",
@@ -1138,7 +1138,7 @@
     ]
   },
   "Needs a number with a different format. Please make sure this is your correct Paper file number.": {
-    "translation": "Le numéro doit avoir un format différent. Veuillez vous assurer que ceci est votre numéro de dossier papier exact",
+    "translation": "Le numéro doit avoir un format différent. Veuillez vérifier que votre numéro de dossier papier est exact.",
     "origin": [
       [
         "src/validation.js",
@@ -1147,7 +1147,7 @@
     ]
   },
   "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
-    "translation": "Veuillez nous fournir la raison pour laquelle vous voulez reporter votre rendez-vous. Si aucune des raisons énumérées ne s’applique à votre situation, choisissez « Autre raison ».",
+    "translation": "Veuillez nous fournir la raison pour laquelle vous voulez reporter votre rendez-vous. Si aucune des raisons énumérées ne s’applique à votre situation, choisissez «\u00a0Autre raison\u00a0».",
     "origin": [
       [
         "src/validation.js",
@@ -1183,7 +1183,7 @@
     ]
   },
   "Exactly three dates must be passed": {
-    "translation": "Exactement trois dates doivent être sélectionnées",
+    "translation": "Il faut sélectionner trois dates.",
     "origin": [
       [
         "src/validation.js",
