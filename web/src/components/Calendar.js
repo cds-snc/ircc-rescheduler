@@ -153,12 +153,12 @@ const dayPickerDefault = css`
     cursor: pointer;
     vertical-align: middle;
     outline: none;
-    height: 3.5rem;
-    width: 3.5rem;
+    height: 3.4rem;
+    width: 3.4rem;
 
     ${mediaQuery.md(css`
-      height: 4rem;
-      width: 4rem;
+      height: 4.5rem;
+      width: 4.5rem;
     `)};
 
     ${mediaQuery.sm(css`
@@ -167,8 +167,8 @@ const dayPickerDefault = css`
     `)};
 
     ${mediaQuery.xs(css`
-      height: 2.6rem;
-      width: 2.6rem;
+      height: 2.5rem;
+      width: 2.5rem;
     `)};
 
     &[aria-disabled='false'] {
