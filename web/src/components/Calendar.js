@@ -644,5 +644,5 @@ Calendar.propTypes = {
   ...FieldAdapterPropTypes,
   dayLimit: PropTypes.number.isRequired,
 }
-const CalendarAdapter = Calendar
-export default withI18n()(CalendarAdapter)
+const CalendarAdapter = withI18n()(Calendar)
+export { CalendarAdapter as default, renderDayBoxes }
