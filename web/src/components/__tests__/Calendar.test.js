@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import CalendarAdapter from '../Calendar'
+import CalendarAdapter, { renderDayBoxes } from '../Calendar'
 import {
   getMonthNameAndYear,
   getStartMonth,
@@ -282,5 +282,61 @@ describe('<CalendarAdapter />', () => {
         .simulate(eventType, options)
       expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
     })
+  })
+})
+
+describe('renderDayBoxes', () => {
+  let defaultVals = {
+    dayLimit: 1,
+    selectedDays: [new Date('1957-11-03T00:00:00.000Z')],
+    removeDayOnClickOrKeyPress: () => {},
+  }
+
+  it('renders days in english', () => {
+    const wrapper = mount(
+      <ul>
+        {renderDayBoxes({
+          ...defaultVals,
+          locale: 'en',
+          removeDayAltText: 'Remove day',
+        })}
+      </ul>,
+    )
+    let listItem = wrapper.find('ul li')
+    expect(listItem.text()).toEqual('Sunday, November 3, 1957')
+
+    let button = listItem.find('button')
+    expect(button.props()['aria-label']).toEqual(
+      'Remove day: Sunday, November 3, 1957',
+    )
+
+    let imgs = button.find('img')
+    expect(imgs.length).toBe(2)
+    expect(imgs.at(0).props().alt).toEqual('Remove day')
+    expect(imgs.at(1).props().alt).toEqual('Remove day')
+  })
+
+  it('renders days in french', () => {
+    const wrapper = mount(
+      <ul>
+        {renderDayBoxes({
+          ...defaultVals,
+          locale: 'fr',
+          removeDayAltText: 'Supprimer cette journée',
+        })}
+      </ul>,
+    )
+    let listItem = wrapper.find('ul li')
+    expect(listItem.text()).toEqual('dimanche 3 novembre 1957')
+
+    let button = listItem.find('button')
+    expect(button.props()['aria-label']).toEqual(
+      'Supprimer cette journée: dimanche 3 novembre 1957',
+    )
+
+    let imgs = button.find('img')
+    expect(imgs.length).toBe(2)
+    expect(imgs.at(0).props().alt).toEqual('Supprimer cette journée')
+    expect(imgs.at(1).props().alt).toEqual('Supprimer cette journée')
   })
 })
