@@ -22,4 +22,5 @@ export const SelectedDayList = withI18n()(({ i18n, selectedDays }) => {
 })
 SelectedDayList.propTypes = {
   selectedDays: PropTypes.array,
+  i18n: PropTypes.object,
 }
