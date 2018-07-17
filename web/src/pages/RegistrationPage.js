@@ -284,7 +284,7 @@ class RegistrationPage extends React.Component {
                       />
                       <span id="paperFileNumber-details">
                         <Trans>
-                          This number is at the top of the email we sent you.
+                          This number is at the top of the email attachment we sent you.
                         </Trans>
                       </span>
                     </label>
