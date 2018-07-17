@@ -2,10 +2,14 @@ const inlineCss = require('inline-css')
 const fs = require('fs')
 const path = require('path')
 const { promisify } = require('util')
-const readFile = promisify(fs.readFile)
+const readFile = promisify(fs.readFile) // eslint-disable-line security/detect-non-literal-fs-filename
+const format = require('date-fns/format')
+const locales = {
+  fr: require('date-fns/locale/fr'),
+}
 
 // add newlines formatting plain and html emails
-function datesMarkup(dates, newline) {
+export function datesMarkup(dates, newline) {
   const arr = dates.map(date => {
     return `${date} ${newline}`
   })
@@ -14,37 +18,52 @@ function datesMarkup(dates, newline) {
 }
 
 // form values are in 2018-06-26 format
-function humanReadable(dates) {
-  return dates.map(date =>
-    new Date(date).toLocaleDateString('en-CA', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    }),
-  )
+/* eslint-disable security/detect-object-injection */
+export function humanReadable(dates, locale = 'en') {
+  return dates.map(date => {
+    return format(date, 'dddd MMMM DD YYYY', {
+      locale: locales[locale],
+    })
+  })
+}
+/* eslint-enable security/detect-object-injection */
+
+let prefix = '../../../'
+
+if (
+  process.env.NODE_ENV === 'production' ||
+  process.env.NODE_ENV === 'development'
+) {
+  prefix += 'web'
 }
 
 // retrieve html markup as a string
 const readFileContent = async filename => {
-  const file = path.resolve(__dirname, `./email_templates/${filename}.html`)
-  const content = await readFile(file, 'utf-8')
+  const file = path.resolve(
+    __filename,
+    `${prefix}/email_templates/${filename}.html`,
+  )
+  const content = await readFile(file, 'utf-8').catch(e => {
+    return e.message
+  })
   return content
 }
 
 function getWordmarkPath() {
-  return path.resolve(__dirname, './email_templates')
+  return path.resolve(__filename, `${prefix}/email_templates`)
 }
 
 // build a dynamic template literal in the proper context
 // standard template literals can't be dynamic / built at runtime
 
 /* eslint-disable no-new-func */
+/* eslint-disable security/detect-object-injection */
 const fillTemplate = function(template, params) {
   const names = Object.keys(params)
   const vals = Object.keys(params).map(key => params[key])
   return new Function(...names, `return \`${template}\`;`)(...vals)
 }
+/* eslint-enable security/detect-object-injection */
 
 // read content from template and replace param placeholders
 const buildMarkup = async options => {
@@ -71,16 +90,29 @@ const renderMarkup = async options => {
   ])
 }
 
-const buildParams = async options => {
-  const { availability } = options.formValues
+export const buildParams = async options => {
+  const { selectedDays } = options.formValues
 
   // add line breaks to dates available
   options.formValues.datesHtml = datesMarkup(
-    humanReadable(availability),
+    humanReadable(selectedDays),
     '<br>',
   )
+
+  // French HTML Dates
+  options.formValues.datesHtmlFR = datesMarkup(
+    humanReadable(selectedDays, 'fr'),
+    '<br>',
+  )
+
   options.formValues.datesPlain = datesMarkup(
-    humanReadable(availability),
+    humanReadable(selectedDays),
+    '\r\n',
+  )
+
+  // French Plain Dates
+  options.formValues.datesPlainFR = datesMarkup(
+    humanReadable(selectedDays, 'fr'),
     '\r\n',
   )
 
@@ -111,5 +143,3 @@ const buildParams = async options => {
 
   return params
 }
-
-module.exports = buildParams
