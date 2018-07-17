@@ -115,7 +115,7 @@ SummaryRow.propTypes = {
   summaryLabel: PropTypes.string,
 }
 
-export const Summary = ({
+const Summary = ({
   fullName,
   email,
   paperFileNumber,
@@ -171,6 +171,7 @@ Summary.propTypes = {
   explanation: PropTypes.string,
   paperFileNumber: PropTypes.string,
   selectedDays: PropTypes.array,
+  i18n: PropTypes.object,
 }
 
 const SummaryI18n = withI18n()(Summary)

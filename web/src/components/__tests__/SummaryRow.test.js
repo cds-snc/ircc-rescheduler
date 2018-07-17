@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react'
-import { shallow, mount } from 'enzyme'
+import React from 'react'
+import { mount } from 'enzyme'
 import { SummaryRow } from '../Summary'
 import MemoryRouter from 'react-router-dom/MemoryRouter'
 
