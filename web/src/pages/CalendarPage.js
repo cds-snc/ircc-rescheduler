@@ -36,7 +36,6 @@ import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
 import { Checkbox } from '../components/forms/MultipleChoice'
 import { getEndMonthName, getStartMonthName } from '../utils/calendarDates'
-import { HashLink } from 'react-router-hash-link'
 
 const DAY_LIMIT = 3
 
