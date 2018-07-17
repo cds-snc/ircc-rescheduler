@@ -70,7 +70,7 @@ describe('Validation', () => {
     const validate = new Validator(vals, CalendarFields, defaultMessages)
     validate.passes()
     expect(validate.errors.first('selectedDays')).toEqual(
-      'selectedDaysMinMaxErrorMessage',
+      'selectedDaysCountErrorMessage',
     )
   })
 
@@ -84,7 +84,7 @@ describe('Validation', () => {
     validate.passes()
 
     expect(validate.errors.first('selectedDays')).toEqual(
-      'selectedDaysMinMaxErrorMessage',
+      'selectedDaysCountErrorMessage',
     )
   })
 
@@ -155,6 +155,30 @@ describe('Validation', () => {
     const passed = validate.passes()
     expect(validate.errors.first('selectedDays')).toEqual(
       'selectedDaysEmptyErrorMessage',
+    )
+  })
+
+  it('Shows correct error message for 1 date passed', () => {
+    const vals = {
+      selectedDays: ['2018-01-02'],
+    }
+
+    const validate = new Validator(vals, CalendarFields, defaultMessages)
+    const passed = validate.passes()
+    expect(validate.errors.first('selectedDays')).toEqual(
+      'selectedDaysCountErrorMessage',
+    )
+  })
+
+  it('Shows correct error message for 2 dates passed', () => {
+    const vals = {
+      selectedDays: ['2018-01-02','2018-01-03'],
+    }
+
+    const validate = new Validator(vals, CalendarFields, defaultMessages)
+    const passed = validate.passes()
+    expect(validate.errors.first('selectedDays')).toEqual(
+      'selectedDaysCountErrorMessage',
     )
   })
 })
