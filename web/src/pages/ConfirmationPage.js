@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { H1, H2, visuallyhidden, theme, mediaQuery } from '../styles'
+import { H1, H2, visuallyhidden, theme } from '../styles'
 import styled, { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
@@ -8,7 +8,7 @@ import Contact from '../components/Contact'
 import { respondByDate } from '../utils/calendarDates'
 import withContext from '../withContext'
 import { contextPropTypes } from '../context'
-import Reminder from '../components/Reminder'
+import { LongReminder } from '../components/Reminder'
 import { SelectedDayList } from '../components/SelectedDayList'
 
 const contentClass = css`
@@ -21,26 +21,12 @@ const contentClass = css`
   }
 `
 
-const LongReminder = styled(Reminder)`
-  padding: 0;
-  margin-top: ${theme.spacing.xl} !important;
+const Reminder = styled(LongReminder)`
   margin-bottom: ${theme.spacing.xl} !important;
-
-  ${mediaQuery.md(css`
-    display: block;
-  `)};
-
-  img {
-    ${mediaQuery.md(css`
-      float: left;
-      margin-top: ${theme.spacing.xs};
-      margin-right: ${theme.spacing.md};
-    `)};
-  }
 `
 
 const Availability = styled('div')`
-  border-left: 2px solid #e1e1e1;
+  border-left: 2px solid ${theme.colour.greyLight};
   padding-left: ${theme.spacing.xl};
   margin-left: ${theme.spacing.lg};
 `
@@ -48,13 +34,13 @@ const Availability = styled('div')`
 const EmailError = ({ selectedDays }) => {
   return (
     <React.Fragment>
-      <LongReminder>
+      <Reminder>
         <Trans>
           Sorry, something went wrong. We received your request, but you might
           not get a confirmation email. Please make note of your request
           information
         </Trans>
-      </LongReminder>
+      </Reminder>
       <Availability>
         <div>
           <strong>

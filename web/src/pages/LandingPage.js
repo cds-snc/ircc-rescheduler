@@ -3,7 +3,7 @@ import styled, { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, H2, theme, mediaQuery, arrow } from '../styles'
 import Layout from '../components/Layout'
-import Reminder from '../components/Reminder'
+import { LongReminder } from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
 import { Trans } from 'lingui-react'
 import rightArrow from '../assets/rightArrow.svg'
@@ -45,23 +45,6 @@ const H1Landing = styled(H1)`
 const H2Landing = styled(H2)`
   font-family: ${theme.weight.r}, Helvetica;
   font-weight: 400;
-`
-
-const LongReminder = styled(Reminder)`
-  padding: 0;
-  margin-bottom: ${theme.spacing.xl} !important;
-
-  ${mediaQuery.md(css`
-    display: block;
-  `)};
-
-  img {
-    ${mediaQuery.md(css`
-      float: left;
-      margin-top: ${theme.spacing.xs};
-      margin-right: ${theme.spacing.md};
-    `)};
-  }
 `
 
 class LandingPage extends React.Component {

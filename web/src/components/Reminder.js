@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from 'react-emotion'
+import styled, { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import importantMessage from '../assets/importantMessage.svg'
 import { withI18n } from 'lingui-react'
@@ -44,5 +44,22 @@ Reminder.propTypes = {
   children: PropTypes.any.isRequired,
   className: PropTypes.string,
 }
+
+export const LongReminder = styled(Reminder)`
+  padding: 0;
+  margin-bottom: ${theme.spacing.xl} !important;
+
+  ${mediaQuery.md(css`
+    display: block;
+  `)};
+
+  img {
+    ${mediaQuery.md(css`
+      float: left;
+      margin-top: ${theme.spacing.xs};
+      margin-right: ${theme.spacing.md};
+    `)};
+  }
+`
 
 export default Reminder
