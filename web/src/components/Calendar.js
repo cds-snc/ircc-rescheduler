@@ -121,7 +121,7 @@ const dayPickerDefault = css`
 
   .DayPicker-Weekday {
     display: table-cell;
-    padding-top: ${theme.spacing.sm};
+    padding: ${theme.spacing.sm} 0 ${theme.spacing.sm} 0;
     font-size: 0.875em;
     text-align: center;
     background: #eee;
