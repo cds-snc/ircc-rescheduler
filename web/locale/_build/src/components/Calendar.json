@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        537
+        541
       ]
     ]
   },
@@ -11,7 +11,15 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        609
+        613
+      ]
+    ]
+  },
+  "Remove day": {
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        635
       ]
     ]
   }
