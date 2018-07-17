@@ -36,14 +36,14 @@ module.exports = shipit => {
     },
   })
 
-  shipit.blTask('installDeps', function() {
-    shipit.log('Building the stuff in ' + shipit.releasePath)
-    shipit.remote('cd ' + shipit.releasePath + ' && yarn build_web')
+  shipit.blTask('installDependencies', async () => {
+    await shipit.log('Building the stuff in ' + shipit.releasePath)
+    await shipit.remote('cd ' + shipit.releasePath + '/web && yarn && yarn build')
   })
 
-  shipit.blTask('startOrRestart', function() {
+  shipit.blTask('startOrRestart', async () => {
     var path = shipit.config.deployTo + '/current'
-    return shipit.remote(
+    await shipit.remote(
       'cd ' +
         path +
         ' && pwd && pm2 startOrRestart ecosystem.config.js --env production --update-env',
@@ -51,7 +51,7 @@ module.exports = shipit => {
   })
 
   shipit.on('updated', function() {
-    return shipit.start(['installDeps'])
+    return shipit.start(['installDependencies'])
   })
 
   shipit.on('deployed', function() {
