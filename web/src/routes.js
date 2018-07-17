@@ -31,10 +31,16 @@ export default [
     component: withProvider(ReviewPage),
   },
   {
+    path: '/confirmation/:error',
+    exact: true,
+    component: withProvider(ConfirmationPage),
+  },
+  {
     path: '/confirmation',
     exact: true,
     component: withProvider(ConfirmationPage),
   },
+
   {
     path: '/error',
     exact: true,

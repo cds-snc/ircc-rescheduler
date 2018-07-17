@@ -10,12 +10,7 @@ module.exports = shipit => {
       repositoryUrl: 'https://github.com/cds-snc/ircc-rescheduler.git',
       shared: {
         overwrite: true,
-        files: [
-          'api/.env',
-          'api/src/email_templates/CanWordmark.png',
-          'web/.env.production',
-          'web/.env',
-        ],
+        files: ['web/.env.production', 'web/.env'],
       },
     },
     dev: {
@@ -24,9 +19,9 @@ module.exports = shipit => {
       servers: [
         {
           host: '35.183.124.35',
-          user: 'ubuntu'
-        }
-      ]
+          user: 'ubuntu',
+        },
+      ],
     },
     production: {
       branch: 'master',
