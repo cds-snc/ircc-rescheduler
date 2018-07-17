@@ -230,18 +230,34 @@ export const BottomContainer = styled.div`
     margin-left: ${theme.spacing.xxxl};
   }
 
-  ${mediaQuery.xs(css`
+  ${mediaQuery.lg(css`
+    > div {
+      margin-left: ${theme.spacing.xxl};
+    }
+  `)};
+
+  ${mediaQuery.md(css`
+    align-items: flex-start;
+    flex-direction: column;
+
+    > div {
+      margin-left: ${theme.spacing.lg};
+      margin-top: ${theme.spacing.xl};
+    }
+  `)};
+
+  ${mediaQuery.sm(css`
+    align-items: center;
     text-align: center;
     flex-direction: column;
 
-    > a,
+    > form,
     > div {
       width: 100%;
     }
 
     > div {
       margin-left: 0;
-      margin-top: ${theme.spacing.xl};
     }
   `)};
 `
