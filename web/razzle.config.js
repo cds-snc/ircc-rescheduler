@@ -14,7 +14,14 @@ module.exports = {
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',
           generateStatsFile: true,
-          reportFilename: '../../reports/report.html',
+          reportFilename:
+            target === 'web'
+              ? '../../reports/sourceReport.html'
+              : '../reports/modulesReport.html',
+          statsFilename:
+            target === 'web'
+              ? '../../reports/sourceStats.json'
+              : '../reports/modulesStats.json',
         }),
       )
     }
