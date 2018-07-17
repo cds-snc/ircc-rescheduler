@@ -5,7 +5,7 @@ import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils } from 'react-day-picker'
 import { css } from 'emotion'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
-import ErrorMessage from './ErrorMessage'
+import { ErrorCalendar } from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import MobileCancel from '../assets/mobileCancel.svg'
 import { getDateInfo } from '../utils/linguiUtils'
@@ -406,17 +406,6 @@ const removeDate = css`
   `)};
 `
 
-const selectedDaysError = css`
-  margin-bottom: ${theme.spacing.md};
-  padding: 0.2rem ${theme.spacing.sm} ${theme.spacing.md} ${theme.spacing.sm};
-  background: ${theme.colour.white};
-
-  &:focus {
-    outline-offset: 3px;
-    outline: 3px solid ${theme.colour.focus};
-  }
-`
-
 const triangle = css`
   width: 0;
   height: 0;
@@ -572,62 +561,63 @@ class Calendar extends Component {
     const endDate = parse(toMonth())
     value = value || []
     return (
-      <div className={calendarContainer}>
-        <DayPicker
-          className={css`
-            ${dayPickerDefault} ${dayPicker};
-          `}
-          locale={locale}
-          months={dateInfo.months}
-          weekdaysLong={dateInfo.weekdaysLong}
-          weekdaysShort={dateInfo.weekdaysShort}
-          initialMonth={startMonth}
-          fromMonth={startMonth}
-          toMonth={endDate}
-          numberOfMonths={1}
-          disabledDays={[
-            {
-              before: parse(getStartDate(new Date())),
-              after: endDate,
-            },
-            {
-              daysOfWeek: [0, 1, 2, 5, 6],
-            },
-          ]}
-          onDayClick={this.handleDayClick}
-          selectedDays={value}
-          onFocus={() => onFocus(value)}
-          onBlur={() => onBlur(value)}
-          containerProps={{ id, tabIndex }}
-        />
-        <div className={value.length ? triangle : noDates} />
-        <div className={value.length ? daySelection : noDates}>
-          <h3>
-            <Trans>Your 3 selected days:</Trans>
-          </h3>
-          <div
-            className={this.state.errorMessage ? selectedDaysError : ''}
-            tabIndex="-1"
-            ref={errorContainer => {
-              this.errorContainer = errorContainer
-            }}
-          >
-            <ErrorMessage
-              message={this.state.errorMessage}
-              id="selectedDays-error"
-            />
-          </div>
+      <div>
+        <div
+          tabIndex="-1"
+          ref={errorContainer => {
+            this.errorContainer = errorContainer
+          }}
+        >
+          <ErrorCalendar
+            message={this.state.errorMessage}
+            id="selectedDays-error"
+          />
+        </div>
+        <div className={calendarContainer}>
+          <DayPicker
+            className={css`
+              ${dayPickerDefault} ${dayPicker};
+            `}
+            locale={locale}
+            months={dateInfo.months}
+            weekdaysLong={dateInfo.weekdaysLong}
+            weekdaysShort={dateInfo.weekdaysShort}
+            initialMonth={startMonth}
+            fromMonth={startMonth}
+            toMonth={endDate}
+            numberOfMonths={1}
+            disabledDays={[
+              {
+                before: parse(getStartDate(new Date())),
+                after: endDate,
+              },
+              {
+                daysOfWeek: [0, 1, 2, 5, 6],
+              },
+            ]}
+            onDayClick={this.handleDayClick}
+            selectedDays={value}
+            onFocus={() => onFocus(value)}
+            onBlur={() => onBlur(value)}
+            containerProps={{ id, tabIndex }}
+          />
+          <div className={value.length ? triangle : noDates} />
+          <div className={value.length ? daySelection : noDates}>
+            <h3>
+              <Trans>Your 3 selected days:</Trans>
+            </h3>
 
-          <ul id="selectedDays-list">
-            {renderDayBoxes({
-              dayLimit,
-              selectedDays: value,
-              removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
-              locale,
-              removeDayAltText:
-                i18n !== undefined ? i18n._('Remove day') : 'Remove day',
-            })}
-          </ul>
+            <ul id="selectedDays-list">
+              {renderDayBoxes({
+                dayLimit,
+                selectedDays: value,
+                removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
+                locale,
+                removeDayAltText:
+                  i18n !== undefined ? i18n._('Remove day') : 'Remove day',
+              })}
+            </ul>
+          </div>
         </div>
       </div>
     )

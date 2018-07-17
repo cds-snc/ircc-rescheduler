@@ -30,7 +30,7 @@ import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import { makeGMTDate, dateToISODateString } from '../components/Time'
 import Reminder from '../components/Reminder'
-import { ErrorList } from '../components/ErrorMessage'
+import { ErrorList, ErrorCalendar } from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
@@ -69,15 +69,6 @@ const CalReminder = styled(Reminder)`
 const fullWidth = css`
   width: 100% !important;
 `
-
-const labelNames = id => {
-  switch (id) {
-    case 'selectedDays':
-      return <Trans>Calendar</Trans>
-    default:
-      return ''
-  }
-}
 
 const CalHeader = ({ locale = 'en' }) => {
   return (
@@ -222,14 +213,7 @@ class CalendarPage extends Component {
                     this.errorContainer = errorContainer
                   }}
                 >
-                  <ErrorList message={submitError || ''}>
-                    {Object.keys(this.validate(values)).map((formId, i) => (
-                      <HashLink to={`#${formId}`} key={i}>
-                        {labelNames(formId) ? labelNames(formId) : formId}
-                        <br />
-                      </HashLink>
-                    ))}
-                  </ErrorList>
+                  <ErrorCalendar message={submitError} id="fewerDays-error" />
                 </div>
                 <Field
                   name="selectedDays"
