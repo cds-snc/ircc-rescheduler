@@ -311,9 +311,8 @@ describe('renderDayBoxes', () => {
     )
 
     let imgs = button.find('img')
-    expect(imgs.length).toBe(2)
+    expect(imgs.length).toBe(1)
     expect(imgs.at(0).props().alt).toEqual('Remove day')
-    expect(imgs.at(1).props().alt).toEqual('Remove day')
   })
 
   it('renders days in french', () => {
@@ -335,8 +334,7 @@ describe('renderDayBoxes', () => {
     )
 
     let imgs = button.find('img')
-    expect(imgs.length).toBe(2)
+    expect(imgs.length).toBe(1)
     expect(imgs.at(0).props().alt).toEqual('Supprimer cette journée')
-    expect(imgs.at(1).props().alt).toEqual('Supprimer cette journée')
   })
 })

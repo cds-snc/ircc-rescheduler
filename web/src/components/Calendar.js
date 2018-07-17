@@ -458,7 +458,10 @@ const renderDayBoxes = ({
             )}`}
           >
             <div className={removeDate}>
-              <img src={MobileCancel} alt="Remove Day" />
+              <img
+                src={MobileCancel}
+                alt={locale === 'en' ? 'Remove day' : 'Supprimer cette journée'}
+              />
             </div>
           </button>
         </li>
