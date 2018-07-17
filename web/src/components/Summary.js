@@ -89,7 +89,7 @@ SelectedDayList.propTypes = {
   selectedDays: PropTypes.array,
 }
 
-const SummaryRow = ({
+export const SummaryRow = ({
   summaryHeader,
   summaryBody,
   summaryLink,
@@ -112,10 +112,10 @@ SummaryRow.propTypes = {
   summaryHeader: PropTypes.object.isRequired,
   summaryBody: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   summaryLink: PropTypes.string.isRequired,
-  summaryLabel: PropTypes.string.isRequired,
+  summaryLabel: PropTypes.string,
 }
 
-const Summary = ({
+export const Summary = ({
   fullName,
   email,
   paperFileNumber,
@@ -129,37 +129,37 @@ const Summary = ({
       summaryHeader={<Trans>Full name</Trans>}
       summaryBody={fullName}
       summaryLink={'/register#fullName-label'}
-      summaryLabel={i18n._('Change Full name')}
+      summaryLabel={i18n && i18n._('Change Full name')}
     />
     <SummaryRow
       summaryHeader={<Trans>Email</Trans>}
       summaryBody={email}
       summaryLink={'/register#email-label'}
-      summaryLabel={i18n._('Change Email')}
+      summaryLabel={i18n && i18n._('Change Email')}
     />
     <SummaryRow
       summaryHeader={<Trans>Paper file number</Trans>}
       summaryBody={paperFileNumber}
       summaryLink={'/register#paperFileNumber-label'}
-      summaryLabel={i18n._('Change Paper file number')}
+      summaryLabel={i18n && i18n._('Change Paper file number')}
     />
     <SummaryRow
       summaryHeader={<Trans>Reason</Trans>}
       summaryBody={reason}
       summaryLink={'/register#reason-header'}
-      summaryLabel={i18n._('Change Reason')}
+      summaryLabel={i18n && i18n._('Change Reason')}
     />
     <SummaryRow
       summaryHeader={<Trans>Explanation</Trans>}
       summaryBody={explanation}
       summaryLink={'/register#explanation-label'}
-      summaryLabel={i18n._('Change Explanation')}
+      summaryLabel={i18n && i18n._('Change Explanation')}
     />
     <SummaryRow
       summaryHeader={<Trans>Availability</Trans>}
       summaryBody={<SelectedDayList selectedDays={selectedDays} />}
       summaryLink={'/calendar#calendar-sub-header'}
-      summaryLabel={i18n._('Change Availability')}
+      summaryLabel={i18n && i18n._('Change Availability')}
     />
   </TableContainer>
 )
