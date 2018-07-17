@@ -95,7 +95,7 @@ const CalHeader = ({ locale = 'en' }) => {
           Citizenship appointments are scheduled on Wednesdays and Thursdays.
         </Trans>
       </CalendarHeader>
-      <CalendarSubheader>
+      <CalendarSubheader id="calendar-sub-header">
         <Trans>Select</Trans>{' '}
         <strong>
           <Trans>3 days</Trans>

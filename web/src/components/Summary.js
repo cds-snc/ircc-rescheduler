@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, H2 } from '../styles'
 import { Trans, withI18n } from 'lingui-react'
 import Time from './Time'
-import { NavLink } from 'react-router-dom'
+import { HashLink as NavLink } from 'react-router-hash-link'
 
 const TableContainer = styled.div`
   margin: ${theme.spacing.lg} 0;
@@ -68,14 +68,14 @@ const SummaryLink = styled.div`
 const SummaryH2 = styled(H2)`
   margin-bottom: ${theme.spacing.sm};
 `
-const SelectedDayList = withI18n()(({i18n,selectedDays}) => {
+const SelectedDayList = withI18n()(({ i18n, selectedDays }) => {
   const locale = i18n !== undefined ? i18n._language : 'en'
 
   return selectedDays && selectedDays.length > 0 ? (
     <ul>
       {selectedDays.map((day, index) => (
         <li key={index}>
-          <Time date={day} locale={locale}/>
+          <Time date={day} locale={locale} />
         </li>
       ))}
     </ul>
@@ -84,13 +84,17 @@ const SelectedDayList = withI18n()(({i18n,selectedDays}) => {
       <Trans>No days selected</Trans>
     </span>
   )
-}
-)
+})
 SelectedDayList.propTypes = {
   selectedDays: PropTypes.array,
 }
 
-const SummaryRow = ({ summaryHeader, summaryBody, summaryLink }) => (
+const SummaryRow = ({
+  summaryHeader,
+  summaryBody,
+  summaryLink,
+  summaryLabel,
+}) => (
   <Row>
     <SummaryHeader>
       <SummaryH2>{summaryHeader}</SummaryH2>
@@ -98,7 +102,7 @@ const SummaryRow = ({ summaryHeader, summaryBody, summaryLink }) => (
     </SummaryHeader>
 
     <SummaryLink>
-      <NavLink to={summaryLink}>
+      <NavLink to={summaryLink} aria-label={summaryLabel}>
         <Trans>Change</Trans>
       </NavLink>
     </SummaryLink>
@@ -108,6 +112,7 @@ SummaryRow.propTypes = {
   summaryHeader: PropTypes.object.isRequired,
   summaryBody: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   summaryLink: PropTypes.string.isRequired,
+  summaryLabel: PropTypes.string.isRequired,
 }
 
 const Summary = ({
@@ -117,37 +122,44 @@ const Summary = ({
   reason,
   explanation,
   selectedDays,
+  i18n,
 }) => (
   <TableContainer>
     <SummaryRow
       summaryHeader={<Trans>Full name</Trans>}
       summaryBody={fullName}
-      summaryLink={'/register'}
+      summaryLink={'/register#fullName-label'}
+      summaryLabel={i18n._('Change Full name')}
     />
     <SummaryRow
       summaryHeader={<Trans>Email</Trans>}
       summaryBody={email}
-      summaryLink={'/register'}
+      summaryLink={'/register#email-label'}
+      summaryLabel={i18n._('Change Email')}
     />
     <SummaryRow
       summaryHeader={<Trans>Paper file number</Trans>}
       summaryBody={paperFileNumber}
-      summaryLink={'/register'}
+      summaryLink={'/register#paperFileNumber-label'}
+      summaryLabel={i18n._('Change Paper file number')}
     />
     <SummaryRow
       summaryHeader={<Trans>Reason</Trans>}
       summaryBody={reason}
-      summaryLink={'/register'}
+      summaryLink={'/register#reason-header'}
+      summaryLabel={i18n._('Change Reason')}
     />
     <SummaryRow
       summaryHeader={<Trans>Explanation</Trans>}
       summaryBody={explanation}
-      summaryLink={'/register'}
+      summaryLink={'/register#explanation-label'}
+      summaryLabel={i18n._('Change Explanation')}
     />
     <SummaryRow
       summaryHeader={<Trans>Availability</Trans>}
       summaryBody={<SelectedDayList selectedDays={selectedDays} />}
-      summaryLink={'/calendar'}
+      summaryLink={'/calendar#calendar-sub-header'}
+      summaryLabel={i18n._('Change Availability')}
     />
   </TableContainer>
 )
@@ -161,4 +173,6 @@ Summary.propTypes = {
   selectedDays: PropTypes.array,
 }
 
-export { Summary as default, SelectedDayList }
+const SummaryI18n = withI18n()(Summary)
+
+export { SummaryI18n as default, SelectedDayList }
