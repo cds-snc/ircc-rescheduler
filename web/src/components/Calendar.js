@@ -30,6 +30,10 @@ const dayPickerDefault = css`
     background: ${theme.colour.white};
     border: 2px solid ${theme.colour.black};
 
+    ${mediaQuery.sm(css`
+      font-size: ${theme.font.md};
+    `)};
+
   .DayPicker-Months {
     display: flex;
     flex-wrap: wrap;
@@ -44,7 +48,7 @@ const dayPickerDefault = css`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    width: 24.8rem;
+    width: 24.75rem;
 
     ${mediaQuery.md(css`
       width: 100%;
@@ -167,8 +171,8 @@ const dayPickerDefault = css`
     `)};
 
     ${mediaQuery.xs(css`
-      height: 2.5rem;
-      width: 2.5rem;
+      height: 1rem;
+      width: 1rem;
     `)};
 
     &[aria-disabled='false'] {
