@@ -28,7 +28,7 @@ export const getMailer = async () => {
 
 export const getEmailParms = async (
   input,
-  url = process.env.SITE_URL,
+  url = process.env.SITE_URL || ' ',
   receivingAddress = process.env.IRCC_RECEIVING_ADDRESS,
   sendingAddress = process.env.SENDING_ADDRESS,
 ) => {
