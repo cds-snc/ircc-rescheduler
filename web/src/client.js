@@ -4,9 +4,10 @@ import { hydrate } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { ensureReady, After } from '@jaredpalmer/after'
 import routes from './routes'
+import { windowExists } from './utils/windowExists'
 
 import Raven from 'raven-js'
-if (window) {
+if (windowExists() && process.env.NODE_ENV === 'production') {
   window.Raven = Raven
   window.Raven.config(
     'https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616',
