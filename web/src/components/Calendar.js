@@ -10,7 +10,12 @@ import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
 import MobileCancel from '../assets/mobileCancel.svg'
 import { getDateInfo } from '../utils/linguiUtils'
-import { getStartMonth, toMonth, getStartDate } from '../utils/calendarDates'
+import {
+  getStartMonth,
+  toMonth,
+  getMonthNameAndYear,
+  getStartDate,
+} from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 
 const dayPickerDefault = css`
@@ -484,6 +489,19 @@ const renderDayBoxes = ({
   return dayBoxes
 }
 
+const renderMonthName = ({ date, locale }) => {
+  return (
+    <div className="DayPicker-Caption" role="heading" aria-level="3">
+      <div>{getMonthNameAndYear(date, locale)}</div>
+    </div>
+  )
+}
+
+renderMonthName.propTypes = {
+  date: PropTypes.object.isRequired,
+  locale: PropTypes.string.isRequired,
+}
+
 class Calendar extends Component {
   constructor(props) {
     super(props)
@@ -584,6 +602,7 @@ class Calendar extends Component {
           className={css`
             ${dayPickerDefault} ${dayPicker};
           `}
+          captionElement={renderMonthName}
           locale={locale}
           months={dateInfo.months}
           weekdaysLong={dateInfo.weekdaysLong}
