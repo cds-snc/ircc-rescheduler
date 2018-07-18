@@ -46,7 +46,7 @@ const iconContainer = css`
   width: 3.45rem;
   height: 3.35rem;
 
-  margin-right: ${theme.spacing.lg};
+  margin-right: ${theme.spacing.md};
 
   ${mediaQuery.md(css`
     width: 3.1rem;
