@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Trans, withI18n } from 'lingui-react'
 import FieldAdapterPropTypes from './_Field'
-import DayPicker, { DateUtils } from 'react-day-picker'
+import DayPicker, { DateUtils, LocaleUtils } from 'react-day-picker'
 import { css } from 'emotion'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
@@ -489,6 +489,11 @@ const renderDayBoxes = ({
   return dayBoxes
 }
 
+// format aria-label for Day cell
+const formatDay = (day, locale) => {
+  return dateToHTMLString(day, locale)
+}
+
 const renderMonthName = ({ date, locale }) => {
   return (
     <div className="DayPicker-Caption" role="heading" aria-level="3">
@@ -602,6 +607,7 @@ class Calendar extends Component {
           className={css`
             ${dayPickerDefault} ${dayPicker};
           `}
+          localeUtils={{ ...LocaleUtils, formatDay }}
           captionElement={renderMonthName}
           locale={locale}
           months={dateInfo.months}
