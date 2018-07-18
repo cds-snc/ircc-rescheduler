@@ -1,9 +1,25 @@
 {
+  "Sorry, something went wrong. We received your request, but you might not get a confirmation email. Please make note of your request information": {
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        38
+      ]
+    ]
+  },
+  "Availability:": {
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        47
+      ]
+    ]
+  },
   "Thank you! Your request has been received.": {
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        42
+        90
       ]
     ]
   },
@@ -11,7 +27,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        46
+        95
       ]
     ]
   },
@@ -19,7 +35,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        50
+        102
       ]
     ]
   },
@@ -27,7 +43,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        53
+        105
       ]
     ]
   },
@@ -35,7 +51,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        54
+        106
       ]
     ]
   },
@@ -43,7 +59,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        58
+        110
       ]
     ]
   },
@@ -51,7 +67,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        65
+        117
       ]
     ]
   }

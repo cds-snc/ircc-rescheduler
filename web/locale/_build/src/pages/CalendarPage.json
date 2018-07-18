@@ -63,15 +63,31 @@
       ]
     ]
   },
+  "Please select 2 more days to continue.": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        223
+      ]
+    ]
+  },
+  "Please select 1 more day to continue.": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        231
+      ]
+    ]
+  },
   "Review request": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        246
+        272
       ],
       [
         "src/pages/CalendarPage.js",
-        325
+        352
       ]
     ]
   },
@@ -79,7 +95,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        279
+        306
       ]
     ]
   }
