@@ -31,6 +31,21 @@ class Document extends React.Component {
         <body {...bodyAttrs}>
           <AfterRoot />
           <AfterData data={data} />
+          {process.env.NODE_ENV === 'production' && (
+            <script
+              src="https://cdn.ravenjs.com/3.26.2/raven.min.js"
+              crossorigin="anonymous"
+            />
+          )}
+
+          {process.env.NODE_ENV === 'production' && (
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616').install()`,
+              }}
+            />
+          )}
+
           <script
             type="text/javascript"
             src={assets.client.js}
