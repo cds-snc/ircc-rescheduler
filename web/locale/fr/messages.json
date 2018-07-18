@@ -743,8 +743,8 @@
       ]
     ]
   },
-  "This number is at the top of the email we sent you.": {
-    "translation": "Il s’agit du numéro qui est affiché en haut du courriel que nous vous avons envoyé.",
+  "This number is at the top of the email attachment we sent you.": {
+    "translation": "Il s’agit du numéro qui est affiché en haut du fichier que nous vous avons envoyé par courriel.",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
