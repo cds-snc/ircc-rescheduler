@@ -71,11 +71,15 @@
       ]
     ]
   },
-  "You must select 3 days. Please select 2 more days to continue.": {
+  "You must select 3 days.": {
     "origin": [
       [
         "src/validation.js",
         76
+      ],
+      [
+        "src/validation.js",
+        80
       ]
     ]
   },
@@ -83,7 +87,7 @@
     "origin": [
       [
         "src/validation.js",
-        80
+        84
       ]
     ]
   },
@@ -91,7 +95,7 @@
     "origin": [
       [
         "src/validation.js",
-        84
+        88
       ]
     ]
   }
