@@ -15,7 +15,7 @@ const badge = css`
 
 const beta = css`
   ${badge};
-  background-color: #22a7f0;
+  background-color: #006de4;
   height: 1.3rem;
   padding: 0.2rem ${theme.spacing.sm} 0.2rem ${theme.spacing.sm};
 `
