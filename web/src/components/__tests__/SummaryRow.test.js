@@ -10,12 +10,13 @@ describe('<SummaryRow />', () => {
         <SummaryRow
           summaryHeader={<div>The header</div>}
           summaryBody="The body"
-          summaryLink="https://google.ca"
+          summaryLink="/register#fullName-label"
           summaryLabel="The Label"
         />
       </MemoryRouter>,
     )
     expect(wrapper.find('h2 div').text()).toEqual('The header')
     expect(wrapper.find('a').prop('aria-label')).toEqual('The Label')
+    expect(wrapper.find('a').prop('href')).toEqual('/register#fullName-label')
   })
 })
