@@ -48,7 +48,7 @@
     "razzle": "^2.1.0",
     "react": "16.3.1",
     "react-apollo": "^2.1.2",
-    "react-day-picker": "^7.1.4",
+    "react-day-picker": "^7.1.10",
     "react-dom": "^16.4.0",
     "react-emotion": "^9.2.3",
     "react-final-form": "^3.6.4",
