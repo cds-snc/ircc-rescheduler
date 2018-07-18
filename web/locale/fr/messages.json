@@ -4,7 +4,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        541
+        559
       ]
     ]
   },
@@ -13,7 +13,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        613
+        632
       ]
     ]
   },
@@ -22,7 +22,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        635
+        654
       ]
     ]
   },
@@ -169,8 +169,8 @@
     "translation": "Aucune journée sélectionnée",
     "origin": [
       [
-        "src/components/Summary.js",
-        84
+        "src/components/SelectedDayList.js",
+        19
       ]
     ]
   },
@@ -179,7 +179,31 @@
     "origin": [
       [
         "src/components/Summary.js",
-        102
+        85
+      ],
+      [
+        "src/components/Summary.js",
+        111
+      ],
+      [
+        "src/components/Summary.js",
+        117
+      ],
+      [
+        "src/components/Summary.js",
+        124
+      ],
+      [
+        "src/components/Summary.js",
+        131
+      ],
+      [
+        "src/components/Summary.js",
+        137
+      ],
+      [
+        "src/components/Summary.js",
+        143
       ]
     ]
   },
@@ -188,7 +212,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        123
+        108
+      ],
+      [
+        "src/components/Summary.js",
+        111
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -205,7 +233,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        128
+        114
+      ],
+      [
+        "src/components/Summary.js",
+        117
       ]
     ]
   },
@@ -214,7 +246,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        133
+        120
+      ],
+      [
+        "src/components/Summary.js",
+        124
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -231,7 +267,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        138
+        128
+      ],
+      [
+        "src/components/Summary.js",
+        131
       ]
     ]
   },
@@ -240,7 +280,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        143
+        134
+      ],
+      [
+        "src/components/Summary.js",
+        137
       ]
     ]
   },
@@ -249,7 +293,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        148
+        140
+      ],
+      [
+        "src/components/Summary.js",
+        143
       ]
     ]
   },
@@ -258,11 +306,11 @@
     "origin": [
       [
         "src/components/__tests__/Summary.test.js",
-        18
+        19
       ],
       [
         "src/pages/ReviewPage.js",
-        124
+        60
       ]
     ]
   },
@@ -284,7 +332,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        159
+        95
       ]
     ]
   },
@@ -315,7 +363,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        109
+        92
       ]
     ]
   },
@@ -346,16 +394,34 @@
       ]
     ]
   },
+  "Please select 2 more days to continue.": {
+    "translation": "Veuillez sélectionner 2 autres jours pour continuer.",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        223
+      ]
+    ]
+  },
+  "Please select 1 more day to continue.": {
+    "translation": "Veuillez sélectionner 1 autre jour pour continuer.",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        231
+      ]
+    ]
+  },
   "Review request": {
     "translation": "Revoir la demande",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        246
+        272
       ],
       [
         "src/pages/CalendarPage.js",
-        325
+        352
       ]
     ]
   },
@@ -364,7 +430,15 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        279
+        306
+      ],
+      [
+        "src/validation.js",
+        76
+      ],
+      [
+        "src/validation.js",
+        80
       ]
     ]
   },
@@ -404,7 +478,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        50
+        102
       ]
     ]
   },
@@ -435,7 +509,25 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        65
+        117
+      ]
+    ]
+  },
+  "Sorry, something went wrong. We received your request, but you might not get a confirmation email. Please make note of your request information": {
+    "translation": "Désolé, une erreur s’est produite. Nous avons reçu votre demande, mais il se peut que vous ne recevrez pas le courriel de confirmation. Veuillez prendre note des renseignements de votre demande.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        38
+      ]
+    ]
+  },
+  "Availability:": {
+    "translation": "Disponibilité",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        47
       ]
     ]
   },
@@ -444,7 +536,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        42
+        90
       ]
     ]
   },
@@ -453,7 +545,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        46
+        95
       ]
     ]
   },
@@ -462,7 +554,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        53
+        105
       ]
     ]
   },
@@ -471,7 +563,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        54
+        106
       ]
     ]
   },
@@ -480,7 +572,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        58
+        110
       ]
     ]
   },
@@ -592,7 +684,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        83
+        66
       ]
     ]
   },
@@ -601,7 +693,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        90
+        73
       ]
     ]
   },
@@ -610,7 +702,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        95
+        78
       ]
     ]
   },
@@ -619,7 +711,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        101
+        84
       ]
     ]
   },
@@ -628,7 +720,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        107
+        90
       ]
     ]
   },
@@ -637,7 +729,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        111
+        94
       ]
     ]
   },
@@ -646,7 +738,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        112
+        95
       ]
     ]
   },
@@ -655,7 +747,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        113
+        96
       ]
     ]
   },
@@ -664,7 +756,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        120
+        103
       ]
     ]
   },
@@ -673,7 +765,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        129
+        112
       ]
     ]
   },
@@ -770,7 +862,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        128
+        64
       ]
     ]
   },
@@ -792,7 +884,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        126
+        62
       ]
     ]
   },
@@ -805,7 +897,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        132
+        68
       ]
     ]
   },
@@ -832,11 +924,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        60
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        101
+        38
       ]
     ]
   },
@@ -845,7 +933,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        130
+        66
       ]
     ]
   },
@@ -854,7 +942,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        163
+        99
       ]
     ]
   },
@@ -863,7 +951,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        176
+        112
       ]
     ]
   },
@@ -1182,21 +1270,12 @@
       ]
     ]
   },
-  "You must select 3 days. Please select 2 more days to continue.": {
-    "translation": "Vous devez sélectionner 3 journées. Veuillez sélectionner 2 autres journées pour continuer.",
-    "origin": [
-      [
-        "src/validation.js",
-        76
-      ]
-    ]
-  },
   "Exactly three dates must be passed": {
     "translation": "Il faut sélectionner trois dates.",
     "origin": [
       [
         "src/validation.js",
-        80
+        84
       ]
     ]
   },
@@ -1205,7 +1284,7 @@
     "origin": [
       [
         "src/validation.js",
-        84
+        88
       ]
     ]
   }
