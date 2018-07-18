@@ -10,12 +10,7 @@ module.exports = shipit => {
       repositoryUrl: 'https://github.com/cds-snc/ircc-rescheduler.git',
       shared: {
         overwrite: true,
-        files: [
-          'api/.env',
-          'api/src/email_templates/CanWordmark.png',
-          'web/.env.production',
-          'web/.env',
-        ],
+        files: ['web/.env.production', 'web/.env'],
       },
     },
     dev: {
@@ -24,9 +19,9 @@ module.exports = shipit => {
       servers: [
         {
           host: '35.183.124.35',
-          user: 'ubuntu'
-        }
-      ]
+          user: 'ubuntu',
+        },
+      ],
     },
     production: {
       branch: 'master',
@@ -39,5 +34,27 @@ module.exports = shipit => {
         },
       ],
     },
+  })
+
+  shipit.blTask('installDependencies', async () => {
+    await shipit.log('Building the stuff in ' + shipit.releasePath)
+    await shipit.remote('cd ' + shipit.releasePath + '/web && yarn && yarn build')
+  })
+
+  shipit.blTask('startOrRestart', async () => {
+    var path = shipit.config.deployTo + '/current'
+    await shipit.remote(
+      'cd ' +
+        path +
+        ' && pwd && pm2 startOrRestart ecosystem.config.js --env production --update-env',
+    )
+  })
+
+  shipit.on('updated', function() {
+    return shipit.start(['installDependencies'])
+  })
+
+  shipit.on('deployed', function() {
+    return shipit.start('startOrRestart')
   })
 }

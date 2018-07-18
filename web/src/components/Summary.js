@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, H2 } from '../styles'
 import { Trans, withI18n } from 'lingui-react'
-import Time from './Time'
-import { HashLink as NavLink } from 'react-router-hash-link'
+import { SelectedDayList } from './SelectedDayList'
+import { NavLink } from 'react-router-dom'
 
 const TableContainer = styled.div`
   margin: ${theme.spacing.lg} 0;
@@ -68,27 +68,6 @@ const SummaryLink = styled.div`
 const SummaryH2 = styled(H2)`
   margin-bottom: ${theme.spacing.sm};
 `
-const SelectedDayList = withI18n()(({ i18n, selectedDays }) => {
-  const locale = i18n !== undefined ? i18n._language : 'en'
-
-  return selectedDays && selectedDays.length > 0 ? (
-    <ul>
-      {selectedDays.map((day, index) => (
-        <li key={index}>
-          <Time date={day} locale={locale} />
-        </li>
-      ))}
-    </ul>
-  ) : (
-    <span className="no-dates-selected">
-      <Trans>No days selected</Trans>
-    </span>
-  )
-})
-SelectedDayList.propTypes = {
-  selectedDays: PropTypes.array,
-}
-
 export const SummaryRow = ({
   summaryHeader,
   summaryBody,

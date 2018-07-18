@@ -37,32 +37,6 @@ jobs:
       - run: yarn build
       - run: yarn test
       - run: yarn lint
-  api:
-    docker:
-      - image: circleci/node:9
-    working_directory: ~/repo/app/api
-    steps:
-      - checkout:
-          path: ~/repo/app
-      - attach_workspace:
-          at: /tmp/workspace
-      - restore_cache:
-          keys:
-          - api-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - api-dependencies-
-      - run: yarn
-      - save_cache:
-          paths:
-            - node_modules
-          key: api-dependencies-{{ checksum "package.json" }}
-      - run: yarn test
-      - run: yarn lint
-      - persist_to_workspace:
-          root: ~/repo
-          paths:
-            - app
-
 
   deploy_web:
     docker:
@@ -77,19 +51,6 @@ jobs:
       - run: docker push "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}"
       - run: docker push "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:latest"
 
-  deploy_api:
-    docker:
-      - image: docker
-    working_directory: /tmp/workspace/app/api
-    steps:
-      - attach_workspace:
-          at: /tmp/workspace
-      - setup_remote_docker
-      - run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - run: docker build  -t "${DOCKER_REGISTRY}/${NAMESPACE}/ircc-rescheduler-api:${CIRCLE_SHA1}" -t "${DOCKER_REGISTRY}/${NAMESPACE}/ircc-rescheduler-api:latest" .
-      - run: docker push "${DOCKER_REGISTRY}/${NAMESPACE}/ircc-rescheduler-api:${CIRCLE_SHA1}"
-      - run: docker push "${DOCKER_REGISTRY}/${NAMESPACE}/ircc-rescheduler-api:latest"
-
 workflows:
   version: 2
   build_and_deploy:
@@ -98,15 +59,6 @@ workflows:
       - deploy_web:
           requires:
             - web
-          filters:
-            branches:
-              only:
-                - master
-                - add-deploy
-      - api
-      - deploy_api:
-          requires:
-            - api
           filters:
             branches:
               only:

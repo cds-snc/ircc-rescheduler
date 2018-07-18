@@ -10,7 +10,12 @@ import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import Cancel from '../assets/cancel.svg'
 import MobileCancel from '../assets/mobileCancel.svg'
 import { getDateInfo } from '../utils/linguiUtils'
-import { getStartMonth, toMonth, getStartDate } from '../utils/calendarDates'
+import {
+  getStartMonth,
+  toMonth,
+  getMonthNameAndYear,
+  getStartDate,
+} from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 
 const dayPickerDefault = css`
@@ -446,6 +451,7 @@ const renderDayBoxes = ({
   selectedDays,
   removeDayOnClickOrKeyPress,
   locale,
+  removeDayAltText,
 }) => {
   let dayBoxes = []
   let selectedDaysSorted = sortSelectedDays(selectedDays)
@@ -461,14 +467,17 @@ const renderDayBoxes = ({
             type="button"
             onClick={removeDayOnClickOrKeyPress(selectedDay)}
             onKeyPress={removeDayOnClickOrKeyPress(selectedDay)}
-            aria-label={`Remove day: ${dateToHTMLString(selectedDay)}`}
+            aria-label={`${removeDayAltText}: ${dateToHTMLString(
+              selectedDay,
+              locale,
+            )}`}
           >
             <div className={removeDateDesktop}>
-              <img src={Cancel} alt="Remove Day" />
+              <img src={Cancel} alt={removeDayAltText} />
             </div>
 
             <div className={removeDateMobile}>
-              <img src={MobileCancel} alt="Remove Day" />
+              <img src={MobileCancel} alt={removeDayAltText} />
             </div>
           </button>
         </li>
@@ -478,6 +487,19 @@ const renderDayBoxes = ({
     )
   }
   return dayBoxes
+}
+
+const renderMonthName = ({ date, locale }) => {
+  return (
+    <div className="DayPicker-Caption" role="heading" aria-level="3">
+      <div>{getMonthNameAndYear(date, locale)}</div>
+    </div>
+  )
+}
+
+renderMonthName.propTypes = {
+  date: PropTypes.object.isRequired,
+  locale: PropTypes.string.isRequired,
 }
 
 class Calendar extends Component {
@@ -580,6 +602,7 @@ class Calendar extends Component {
           className={css`
             ${dayPickerDefault} ${dayPicker};
           `}
+          captionElement={renderMonthName}
           locale={locale}
           months={dateInfo.months}
           weekdaysLong={dateInfo.weekdaysLong}
@@ -627,6 +650,8 @@ class Calendar extends Component {
               selectedDays: value,
               removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
               locale,
+              removeDayAltText:
+                i18n !== undefined ? i18n._('Remove day') : 'Remove day',
             })}
           </ul>
         </div>
@@ -638,5 +663,5 @@ Calendar.propTypes = {
   ...FieldAdapterPropTypes,
   dayLimit: PropTypes.number.isRequired,
 }
-const CalendarAdapter = Calendar
-export default withI18n()(CalendarAdapter)
+const CalendarAdapter = withI18n()(Calendar)
+export { CalendarAdapter as default, renderDayBoxes }

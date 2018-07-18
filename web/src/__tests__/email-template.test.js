@@ -1,4 +1,4 @@
-const buildParams = require('../src/email')
+import { buildParams } from '../email/email-template'
 
 const options = {
   htmlTemplate: '_test-rich',
@@ -6,7 +6,7 @@ const options = {
   formValues: {
     fullName: 'John Li',
     paperFileNumber: '123456',
-    availability: ['2018-06-26', '2018-06-29', '2018-07-31'],
+    selectedDays: ['2018-06-26', '2018-06-29', '2018-07-31'],
   },
   subject: 'ircc christmas party invitation',
   url: 'http://test.com',
