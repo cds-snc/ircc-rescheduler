@@ -6,6 +6,7 @@ import Layout from '../components/Layout'
 import Contact from '../components/Contact'
 import Chevron from '../components/Chevron'
 import styled, { css } from 'react-emotion'
+import { windowExists } from '../utils/windowExists'
 
 const ErrorH1 = styled(H1)`
   margin-bottom: ${theme.spacing.sm};
@@ -50,21 +51,23 @@ export class ErrorPageContent extends React.Component {
         </Contact>
         <p>
           <Trans>
-            Our team has been notified of this error, but you can also{' '}
+            Our team has been notified of this error, but you can also
+          </Trans>{' '}
+          {windowExists() && window.Raven && window.Raven.lastEventId() ? (
             <a
-              tabIndex="0"
-              href="#bug-report"
+              href="mailto:cds-snc@tbs-sct.gc.ca"
               onClick={e => {
                 e.preventDefault()
-                window &&
-                  window.Raven.lastEventId() &&
-                  window.Raven.showReportDialog()
+                window.Raven.showReportDialog()
               }}
-              aria-label={<Trans>Tell us what went wrong</Trans>}
             >
-              tell us what went wrong
-            </a>.
-          </Trans>
+              <Trans>let us know what happened</Trans>
+            </a>
+          ) : (
+            <a href="mailto:cds-snc@tbs-sct.gc.ca">
+              <Trans>send an email to let us know what happened</Trans>
+            </a>
+          )}.
         </p>
       </React.Fragment>
     )
