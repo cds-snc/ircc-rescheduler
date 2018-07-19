@@ -34,7 +34,7 @@ class Document extends React.Component {
           {process.env.NODE_ENV === 'production' && (
             <script
               src="https://cdn.ravenjs.com/3.26.2/raven.min.js"
-              crossorigin="anonymous"
+              crossOrigin="anonymous"
             />
           )}
 
