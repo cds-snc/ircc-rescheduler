@@ -37,7 +37,7 @@ class Document extends React.Component {
               crossOrigin="anonymous"
             />
           )}
-
+          {/* dangerouslySetInnerHTML is used here to avoid the markup being escaped by After.js */}
           {process.env.NODE_ENV === 'production' && (
             <script
               dangerouslySetInnerHTML={{
