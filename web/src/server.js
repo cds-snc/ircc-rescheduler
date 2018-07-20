@@ -16,6 +16,10 @@ import {
   cleanDates,
   sendMail,
 } from './email/sendmail'
+import Raven from 'raven'
+Raven.config(
+  'https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616',
+).install()
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
@@ -25,7 +29,9 @@ const server = express()
 let helmet = require('helmet')
 
 const handleMailError = e => {
-  console.log(e.message) // eslint-disable-line no-console
+  Raven.captureException(e)
+
+  // eslint-disable-line no-console
   return {
     messageId: null,
     errorMessage: e.message,

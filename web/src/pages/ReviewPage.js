@@ -4,15 +4,12 @@ import withContext from '../withContext'
 import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
-import { H1, theme, BottomContainer, TopContainer, arrow } from '../styles'
+import { H1, theme, TopContainer } from '../styles'
 import Chevron from '../components/Chevron'
 import Layout from '../components/Layout'
-import Button from '../components/forms/Button'
 import Summary from '../components/Summary'
 import Reminder from '../components/Reminder'
-import rightArrow from '../assets/rightArrow.svg'
-import CancelButton from '../components/CancelButton'
-import PropTypes from 'prop-types'
+import SubmissionForm from '../components/SubmissionForm'
 
 const contentClass = css`
   p {
@@ -20,40 +17,17 @@ const contentClass = css`
   }
 `
 
-const Submit = props => {
-  return (
-    <BottomContainer>
-      <form action="/submit" method="post">
-        <input type="hidden" name="fullName" value={props.fullName} />
-        <input
-          type="hidden"
-          name="paperFileNumber"
-          value={props.paperFileNumber}
-        />
-        <input type="hidden" name="email" value={props.email} />
-        <input type="hidden" name="explanation" value={props.explanation} />
-        <input type="hidden" name="reason" value={props.reason} />
-        <input type="hidden" name="selectedDays" value={props.selectedDays} />
-        <Button type="submit">
-          <Trans>Send request</Trans>{' '}
-          <img src={rightArrow} className={arrow} alt="" />
-        </Button>
-      </form>
-      <CancelButton />
-    </BottomContainer>
-  )
-}
-
-Submit.propTypes = {
-  fullName: PropTypes.string,
-  email: PropTypes.string,
-  reason: PropTypes.string,
-  explanation: PropTypes.string,
-  paperFileNumber: PropTypes.string,
-  selectedDays: PropTypes.array,
-}
-
 class ReviewPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { sending: false }
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit() {
+    this.setState({ sending: true })
+  }
+
   translateReason(reason) {
     switch (reason) {
       case 'travel':
@@ -87,6 +61,8 @@ class ReviewPage extends React.Component {
       } = {},
     } = this.props
 
+    const { sending } = this.state
+
     return (
       <Layout contentClass={contentClass}>
         <TopContainer>
@@ -115,13 +91,15 @@ class ReviewPage extends React.Component {
               send this request.
             </Trans>
           </Reminder>
-          <Submit
+          <SubmissionForm
             fullName={fullName}
             email={email}
             paperFileNumber={paperFileNumber}
             explanation={explanation}
             reason={reason}
             selectedDays={selectedDays}
+            sending={sending}
+            onSubmit={this.handleSubmit}
           />
         </section>
       </Layout>
