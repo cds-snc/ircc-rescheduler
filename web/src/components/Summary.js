@@ -57,14 +57,10 @@ const SummaryLink = styled.div`
 
 const SummaryLinkExplanation = styled.div`
   position: absolute;
-  bottom: ${theme.spacing.md};
+  top: ${theme.spacing.md};
   right: 0;
   width: 6em;
   text-align: right;
-
-  ${mediaQuery.sm(css`
-    top: ${theme.spacing.md};
-  `)};
 `
 
 const SummaryH2 = styled(H2)`
