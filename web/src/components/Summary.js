@@ -55,6 +55,18 @@ const SummaryLink = styled.div`
   text-align: right;
 `
 
+const SummaryLinkExplanation = styled.div`
+  position: absolute;
+  bottom: ${theme.spacing.md};
+  right: 0;
+  width: 6em;
+  text-align: right;
+
+  ${mediaQuery.sm(css`
+    top: ${theme.spacing.md};
+  `)};
+`
+
 const SummaryH2 = styled(H2)`
   margin-bottom: ${theme.spacing.sm};
 `
@@ -69,12 +81,19 @@ export const SummaryRow = ({
       <SummaryH2>{summaryHeader}</SummaryH2>
       <SummaryBody>{summaryBody}</SummaryBody>
     </SummaryHeader>
-
-    <SummaryLink>
-      <NavLink to={summaryLink} aria-label={summaryLabel}>
-        <Trans>Change</Trans>
-      </NavLink>
-    </SummaryLink>
+    {summaryLink === '/register#explanation-label' ? (
+      <SummaryLinkExplanation>
+        <NavLink to={summaryLink} aria-label={summaryLabel}>
+          <Trans>Change</Trans>
+        </NavLink>
+      </SummaryLinkExplanation>
+    ) : (
+      <SummaryLink>
+        <NavLink to={summaryLink} aria-label={summaryLabel}>
+          <Trans>Change</Trans>
+        </NavLink>
+      </SummaryLink>
+    )}
   </Row>
 )
 SummaryRow.propTypes = {
