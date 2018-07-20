@@ -73,7 +73,11 @@ errorMessages.explanationMaxErrorMessage = (
 )
 
 errorMessages.selectedDaysEmptyErrorMessage = (
-  <Trans>You must select 3 days. Please select 2 more days to continue.</Trans>
+  <Trans>You must select 3 days.</Trans>
+)
+
+errorMessages.selectedDaysCountErrorMessage = (
+  <Trans>You must select 3 days.</Trans>
 )
 
 errorMessages.selectedDaysMinMaxErrorMessage = (
@@ -152,14 +156,11 @@ export const getFieldErrorStrings = validate => {
  * Custom Validation
  *--------------------------------------------*/
 
-Validator.register(
-  'date_count',
-  function(value, requirement, attribute) {
-    // requirement parameter defaults to null
-    return Number(value.length) === 3
-  },
-  'selectedDaysMinMaxErrorMessage',
-)
+const dateCount = (value, requirement, attribute) => {
+  return Number(value.length) === 3
+}
+
+Validator.register('date_count', dateCount, 'selectedDaysCountErrorMessage')
 
 Validator.register(
   'paper_file_number',

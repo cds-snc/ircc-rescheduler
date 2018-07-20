@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme'
 import Summary, { SelectedDayList } from '../Summary'
 import { Trans } from 'lingui-react'
 import Time from '../Time'
+import MemoryRouter from 'react-router-dom/MemoryRouter'
 
 const selectedDays = [
   new Date('2018-06-01T12:00:00.000'),
@@ -56,8 +57,13 @@ describe('<SelectedDayList />', () => {
 
 describe('<Summary />', () => {
   it('renders with correct data', () => {
-    const wrapper = shallow(<Summary {...defaultProps} />)
-    const numOfSummaryRows = wrapper.children()
+    const wrapper = mount(
+      <MemoryRouter>
+        <Summary {...defaultProps} />
+      </MemoryRouter>,
+    )
+
+    const numOfSummaryRows = wrapper.find('SummaryRow')
 
     expect(numOfSummaryRows.length).toBe(6)
     expect(numOfSummaryRows.at(0).prop('summaryBody')).toEqual('Test1')
@@ -67,8 +73,8 @@ describe('<Summary />', () => {
       'Travel',
     )
     expect(numOfSummaryRows.at(4).prop('summaryBody')).toEqual('feeling lazy')
-    expect(numOfSummaryRows.at(5).prop('summaryBody')).toMatchObject(
-      <SelectedDayList selectedDays={selectedDays} />,
-    )
+    expect(
+      numOfSummaryRows.at(5).prop('summaryBody').props.selectedDays,
+    ).toMatchObject(selectedDays)
   })
 })

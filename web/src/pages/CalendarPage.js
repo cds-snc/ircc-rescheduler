@@ -85,7 +85,7 @@ const CalHeader = ({ locale = 'en' }) => {
           Citizenship appointments are scheduled on Wednesdays and Thursdays.
         </Trans>
       </CalendarHeader>
-      <CalendarSubheader>
+      <CalendarSubheader id="calendar-sub-header">
         <Trans>Select</Trans>{' '}
         <strong>
           <Trans>3 days</Trans>
@@ -201,45 +201,68 @@ class CalendarPage extends Component {
             values,
             errors,
             submitError,
-          }) => (
-            <form onSubmit={handleSubmit} className={fullWidth}>
-              <div>
-                <div
-                  id="submit-error"
-                  tabIndex="-1"
-                  className={focusRing}
-                  ref={errorContainer => {
-                    this.errorContainer = errorContainer
-                  }}
-                >
-                  <ErrorCalendar
-                    message={
-                      submitError && this.validate(values).selectedDays
-                        ? submitError
-                        : ''
-                    }
-                    id="fewerDays-error"
-                  />{' '}
-                </div>
-                <Field
-                  name="selectedDays"
-                  id="selectedDays"
-                  tabIndex={-1}
-                  component={CalendarAdapter}
-                  dayLimit={DAY_LIMIT}
-                />
-              </div>
-              <CalBottom
-                submit={() => {
-                  return (
-                    <Button disabled={submitting}>
-                      <Trans>Review request</Trans>
-                    </Button>
+          }) => {
+            let err
+
+            if (submitError && values && values.selectedDays) {
+              switch (values.selectedDays.length) {
+                case 1:
+                  err = (
+                    <React.Fragment>
+                      {submitError}{' '}
+                      <Trans>Please select 2 more days to continue.</Trans>
+                    </React.Fragment>
                   )
-                }}
-              />
-            </form>
-          )}
+                  break
+                case 2:
+                  err = (
+                    <React.Fragment>
+                      {submitError}{' '}
+                      <Trans>Please select 1 more day to continue.</Trans>
+                    </React.Fragment>
+                  )
+                  break
+                default:
+                  err = submitError
+              }
+            }
+
+            return (
+              <form onSubmit={handleSubmit} className={fullWidth}>
+                <div>
+                  <div
+                    id="submit-error"
+                    tabIndex="-1"
+                    className={focusRing}
+                    ref={errorContainer => {
+                      this.errorContainer = errorContainer
+                    }}
+                  >
+                    <ErrorCalendar
+                      message={err ? err : ''}
+                      id="fewerDays-error"
+                    />
+                  </div>
+                  <Field
+                    name="selectedDays"
+                    id="selectedDays"
+                    tabIndex={-1}
+                    component={CalendarAdapter}
+                    dayLimit={DAY_LIMIT}
+                  />
+                </div>
+                <CalBottom
+                  submit={() => {
+                    return (
+                      <Button disabled={submitting}>
+                        <Trans>Review request</Trans>
+                      </Button>
+                    )
+                  }}
+                />
+              </form>
+            )
+          }}
         />
       </Layout>
     )
