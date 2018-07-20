@@ -130,10 +130,12 @@ describe('<CalendarAdapter />', () => {
     const count = wrapper.find('.DayPicker-Day[aria-disabled=false]').length
 
     if (count < 3) {
+      // eslint-disable-next-line no-console
       console.log(
         'switched months so we have more days in month to work with',
         count,
       )
+
       wrapper.find('.DayPicker-NavButton--next').simulate('click')
     }
     /* update the days to look for as we've now switched months */
@@ -218,10 +220,12 @@ describe('<CalendarAdapter />', () => {
     let dates = days
 
     if (count < 2) {
+      // eslint-disable-next-line no-console
       console.log(
         'switched months so we have more days in month to work with',
         count,
       )
+
       /* update the days to look for as we've now switched months */
       dates = calDays(firstDayNextMonth())
     }
