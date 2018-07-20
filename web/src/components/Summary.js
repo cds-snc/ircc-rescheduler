@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, H2 } from '../styles'
 import { Trans, withI18n } from 'lingui-react'
 import { SelectedDayList } from './SelectedDayList'
-import { HashLink as NavLink } from 'react-router-hash-link';
+import { HashLink as NavLink } from 'react-router-hash-link'
 
 const TableContainer = styled.div`
   margin: ${theme.spacing.lg} 0;
@@ -45,10 +45,6 @@ const SummaryBody = styled.div`
   width: 80%;
   overflow-wrap: break-word;
   word-wrap: break-word;
-
-  ${mediaQuery.sm(css`
-    width: 100%;
-  `)};
 `
 
 const SummaryLink = styled.div`
@@ -57,12 +53,6 @@ const SummaryLink = styled.div`
   right: 0;
   width: 6em;
   text-align: right;
-
-  ${mediaQuery.sm(css`
-    position: static;
-    margin-top: ${theme.spacing.md};
-    text-align: left;
-  `)};
 `
 
 const SummaryH2 = styled(H2)`
