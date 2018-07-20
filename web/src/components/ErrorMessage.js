@@ -34,6 +34,28 @@ export const errorList = css`
   margin-bottom: ${theme.spacing.xl};
 `
 
+export const errorCalendar = css`
+  a {
+    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
+    color: ${theme.colour.red};
+    font-weight: 700;
+  }
+
+  p {
+    font-size: ${theme.font.md};
+    margin-bottom: ${theme.spacing.sm};
+  }
+
+  h2 {
+    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
+    margin-top: 0 !important;
+  }
+
+  border: solid 2px red;
+  padding: ${theme.spacing.lg};
+  margin-bottom: ${theme.spacing.xl};
+`
+
 const noError = css`
   display: none;
 `
@@ -120,7 +142,7 @@ class ErrorMessage extends React.Component {
         aria-live="assertive"
         aria-atomic="true"
       >
-        {this.props.message}
+        <h2>{this.props.message}</h2>
       </span>
     )
   }
@@ -131,4 +153,25 @@ ErrorMessage.propTypes = {
   id: PropTypes.string,
 }
 
-export { ErrorMessage as default, ValidationMessage, ErrorList }
+class ErrorCalendar extends React.Component {
+  render() {
+    return (
+      <div
+        className={this.props.message ? errorCalendar : `empty ${noError}`}
+        id={this.props.id}
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <h2>{this.props.message}</h2>
+      </div>
+    )
+  }
+}
+
+ErrorCalendar.propTypes = {
+  message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  id: PropTypes.string,
+}
+
+export { ErrorMessage as default, ValidationMessage, ErrorList, ErrorCalendar }
