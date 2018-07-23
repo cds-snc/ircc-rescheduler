@@ -125,6 +125,7 @@ server
   })
   .get('/*', async (req, res) => {
     const customRenderer = node => ({
+      path: req.url,
       html: renderStylesToString(renderToString(node)),
     })
     try {
