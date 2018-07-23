@@ -5,7 +5,7 @@ import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils, LocaleUtils } from 'react-day-picker'
 import { css } from 'emotion'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
-import { ErrorCalendar } from './ErrorMessage'
+import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import MobileCancel from '../assets/mobileCancel.svg'
 import { getDateInfo } from '../utils/linguiUtils'
@@ -579,11 +579,12 @@ class Calendar extends Component {
       <div>
         <div
           tabIndex="-1"
+          className={focusRing}
           ref={errorContainer => {
             this.errorContainer = errorContainer
           }}
         >
-          <ErrorCalendar
+          <ErrorMessage
             message={this.state.errorMessage}
             id="selectedDays-error"
           />
