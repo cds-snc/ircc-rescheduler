@@ -1,10 +1,46 @@
 {
+  "Immigration, Refugees and Citizenship Canada": {
+    "translation": "Immigration, Réfugiés et Citoyenneté Canada",
+    "origin": [
+      [
+        "src/components/Abbreviation.js",
+        23
+      ]
+    ]
+  },
+  "Our team has been notified of this error, but you can also": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        53
+      ]
+    ]
+  },
+  "let us know what happened": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        64
+      ]
+    ]
+  },
+  "send an email to let us know what happened": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        68
+      ]
+    ]
+  },
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "translation": "Vous ne pouvez pas sélectionner plus de 3 dates. Pour modifier vos choix, veuillez d’abord supprimer des dates.",
     "origin": [
       [
         "src/components/Calendar.js",
-        559
+        553
       ]
     ]
   },
@@ -13,7 +49,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        632
+        639
       ]
     ]
   },
@@ -22,7 +58,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        654
+        649
       ]
     ]
   },
@@ -40,7 +76,7 @@
     "origin": [
       [
         "src/components/ErrorMessage.js",
-        65
+        87
       ]
     ]
   },
@@ -174,36 +210,49 @@
       ]
     ]
   },
+  "Send request": {
+    "translation": "Envoyer la demande",
+    "origin": [
+      [
+        "src/components/SubmissionForm.js",
+        25
+      ]
+    ]
+  },
   "Change": {
     "translation": "Modifier",
     "origin": [
       [
         "src/components/Summary.js",
-        85
+        83
       ],
       [
         "src/components/Summary.js",
-        111
+        89
       ],
       [
         "src/components/Summary.js",
-        117
+        116
       ],
       [
         "src/components/Summary.js",
-        124
+        122
       ],
       [
         "src/components/Summary.js",
-        131
+        129
       ],
       [
         "src/components/Summary.js",
-        137
+        136
       ],
       [
         "src/components/Summary.js",
-        143
+        142
+      ],
+      [
+        "src/components/Summary.js",
+        148
       ]
     ]
   },
@@ -212,11 +261,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        108
+        113
       ],
       [
         "src/components/Summary.js",
-        111
+        116
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -233,11 +282,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        114
+        119
       ],
       [
         "src/components/Summary.js",
-        117
+        122
       ]
     ]
   },
@@ -246,11 +295,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        120
+        125
       ],
       [
         "src/components/Summary.js",
-        124
+        129
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -267,11 +316,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        128
+        133
       ],
       [
         "src/components/Summary.js",
-        131
+        136
       ]
     ]
   },
@@ -280,11 +329,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        134
+        139
       ],
       [
         "src/components/Summary.js",
-        137
+        142
       ]
     ]
   },
@@ -293,11 +342,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        140
+        145
       ],
       [
         "src/components/Summary.js",
-        143
+        148
       ]
     ]
   },
@@ -310,16 +359,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        60
-      ]
-    ]
-  },
-  "Calendar": {
-    "translation": "Calendrier",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        76
+        34
       ]
     ]
   },
@@ -328,11 +368,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        89
+        79
       ],
       [
         "src/pages/ReviewPage.js",
-        95
+        71
       ]
     ]
   },
@@ -341,7 +381,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        94
+        84
       ]
     ]
   },
@@ -350,7 +390,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        99
+        89
       ]
     ]
   },
@@ -359,11 +399,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        101
+        91
       ],
       [
         "src/pages/LandingPage.js",
-        92
+        128
       ]
     ]
   },
@@ -372,7 +412,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        103
+        93
+      ],
+      [
+        "src/pages/LandingPage.js",
+        130
       ]
     ]
   },
@@ -381,7 +425,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        104
+        94
+      ],
+      [
+        "src/pages/LandingPage.js",
+        131
       ]
     ]
   },
@@ -390,7 +438,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        120
+        110
       ]
     ]
   },
@@ -399,7 +447,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        223
+        213
       ]
     ]
   },
@@ -408,7 +456,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        231
+        221
       ]
     ]
   },
@@ -417,11 +465,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        272
+        258
       ],
       [
         "src/pages/CalendarPage.js",
-        352
+        338
       ]
     ]
   },
@@ -430,7 +478,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        306
+        292
       ],
       [
         "src/validation.js",
@@ -478,7 +526,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        102
+        103
       ]
     ]
   },
@@ -509,7 +557,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        117
+        115
       ]
     ]
   },
@@ -518,7 +566,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        38
+        39
       ]
     ]
   },
@@ -527,7 +575,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        47
+        48
       ]
     ]
   },
@@ -536,7 +584,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        90
+        91
       ]
     ]
   },
@@ -545,7 +593,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        95
+        96
       ]
     ]
   },
@@ -554,7 +602,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        105
+        106
       ]
     ]
   },
@@ -563,7 +611,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        106
+        107
       ]
     ]
   },
@@ -572,7 +620,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        110
+        108
       ]
     ]
   },
@@ -581,7 +629,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        26
+        27
       ]
     ]
   },
@@ -590,7 +638,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        29
+        30
       ]
     ]
   },
@@ -599,7 +647,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        31
+        32
       ]
     ]
   },
@@ -608,7 +656,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        33
+        34
       ]
     ]
   },
@@ -617,25 +665,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        41
-      ]
-    ]
-  },
-  "Our team has been notified of this error, but you can also <0>tell us what went wrong</0>.": {
-    "translation": "Notre équipe a été avisée de l’erreur, mais vous pouvez nous aider en décrivant ce qui s’est passé.",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        52
-      ]
-    ]
-  },
-  "Tell us what went wrong": {
-    "translation": "Veuillez décrire ce qui s’est passé.",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        63
+        42
       ]
     ]
   },
@@ -644,7 +674,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        79
+        82
       ],
       [
         "src/pages/FourOhFourPage.js",
@@ -684,7 +714,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        66
+        99
       ]
     ]
   },
@@ -693,7 +723,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        73
+        106
       ]
     ]
   },
@@ -702,7 +732,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        78
+        111
       ]
     ]
   },
@@ -711,7 +741,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        84
+        117
       ]
     ]
   },
@@ -720,34 +750,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        90
-      ]
-    ]
-  },
-  "between": {
-    "translation": "entre",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        94
-      ]
-    ]
-  },
-  "to": {
-    "translation": "à",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        95
-      ]
-    ]
-  },
-  "when you’re available for an appointment in the future": {
-    "translation": "où vous serez disponible pour vous présenter à un rendez-vous",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        96
+        126
       ]
     ]
   },
@@ -756,7 +759,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        103
+        138
       ]
     ]
   },
@@ -765,7 +768,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        112
+        147
       ]
     ]
   },
@@ -862,7 +865,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        64
+        38
       ]
     ]
   },
@@ -884,7 +887,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        62
+        36
       ]
     ]
   },
@@ -897,7 +900,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        68
+        42
       ]
     ]
   },
@@ -919,21 +922,12 @@
       ]
     ]
   },
-  "Send request": {
-    "translation": "Envoyer la demande",
-    "origin": [
-      [
-        "src/pages/ReviewPage.js",
-        38
-      ]
-    ]
-  },
   "Work or School": {
     "translation": "Travail ou études",
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        66
+        40
       ]
     ]
   },
@@ -942,7 +936,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        99
+        75
       ]
     ]
   },
@@ -951,7 +945,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        112
+        88
       ]
     ]
   },
@@ -1287,5 +1281,65 @@
         88
       ]
     ]
+  },
+  "Calendar": {
+    "translation": "Calendrier",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        76
+      ]
+    ],
+    "obsolete": true
+  },
+  "Our team has been notified of this error, but you can also <0>tell us what went wrong</0>.": {
+    "translation": "Notre équipe a été avisée de l’erreur, mais vous pouvez nous aider en décrivant ce qui s’est passé.",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        52
+      ]
+    ],
+    "obsolete": true
+  },
+  "Tell us what went wrong": {
+    "translation": "Veuillez décrire ce qui s’est passé.",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        63
+      ]
+    ],
+    "obsolete": true
+  },
+  "between": {
+    "translation": "entre",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        94
+      ]
+    ],
+    "obsolete": true
+  },
+  "to": {
+    "translation": "à",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        95
+      ]
+    ],
+    "obsolete": true
+  },
+  "when you’re available for an appointment in the future": {
+    "translation": "où vous serez disponible pour vous présenter à un rendez-vous",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        96
+      ]
+    ],
+    "obsolete": true
   }
 }

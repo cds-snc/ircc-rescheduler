@@ -3,31 +3,35 @@
     "origin": [
       [
         "src/components/Summary.js",
-        85
+        83
       ],
       [
         "src/components/Summary.js",
-        111
+        89
       ],
       [
         "src/components/Summary.js",
-        117
+        116
       ],
       [
         "src/components/Summary.js",
-        124
+        122
       ],
       [
         "src/components/Summary.js",
-        131
+        129
       ],
       [
         "src/components/Summary.js",
-        137
+        136
       ],
       [
         "src/components/Summary.js",
-        143
+        142
+      ],
+      [
+        "src/components/Summary.js",
+        148
       ]
     ]
   },
@@ -35,11 +39,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        108
+        113
       ],
       [
         "src/components/Summary.js",
-        111
+        116
       ]
     ]
   },
@@ -47,11 +51,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        114
+        119
       ],
       [
         "src/components/Summary.js",
-        117
+        122
       ]
     ]
   },
@@ -59,11 +63,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        120
+        125
       ],
       [
         "src/components/Summary.js",
-        124
+        129
       ]
     ]
   },
@@ -71,11 +75,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        128
+        133
       ],
       [
         "src/components/Summary.js",
-        131
+        136
       ]
     ]
   },
@@ -83,11 +87,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        134
+        139
       ],
       [
         "src/components/Summary.js",
-        137
+        142
       ]
     ]
   },
@@ -95,11 +99,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        140
+        145
       ],
       [
         "src/components/Summary.js",
-        143
+        148
       ]
     ]
   }
