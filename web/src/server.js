@@ -17,9 +17,21 @@ import {
   sendMail,
 } from './email/sendmail'
 import Raven from 'raven'
-Raven.config(
-  'https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616',
-).install()
+Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
+  dataCallback: function(data) {
+    var stacktrace = data.exception && data.exception[0].stacktrace
+
+    if (stacktrace && stacktrace.frames) {
+      stacktrace.frames.forEach(function(frame) {
+        if (frame.filename.startsWith('/')) {
+          frame.filename = 'app:///' + path.basename(frame.filename)
+        }
+      })
+    }
+
+    return data
+  },
+}).install()
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
@@ -113,6 +125,7 @@ server
   })
   .get('/*', async (req, res) => {
     const customRenderer = node => ({
+      path: req.url,
       html: renderStylesToString(renderToString(node)),
     })
     try {
