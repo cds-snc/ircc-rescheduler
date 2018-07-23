@@ -288,18 +288,7 @@ const calendarContainer = css`
   `)};
 
   ${mediaQuery.md(css`
-    > div:first-of-type {
-      width: 100%;
-    }
-    > div:last-of-type {
-      width: 100%;
-    }
-  `)};
-
-  ${mediaQuery.sm(css`
-    > div:first-of-type {
-      width: 100%;
-    }
+    > div:first-of-type,
     > div:last-of-type {
       width: 100%;
     }
@@ -353,7 +342,7 @@ const dayBox = css`
 `
 
 const daySelection = css`
-  background: #e1e1e1;
+  background: ${theme.colour.greyLight};
   margin-bottom: ${theme.spacing.xl};
   padding: ${theme.spacing.lg} ${theme.spacing.lg} 0 ${theme.spacing.lg};
   width: 20rem;
@@ -389,7 +378,6 @@ const daySelection = css`
     }
 
     li:last-of-type {
-      padding-bottom: ${theme.spacing.lg};
       padding-bottom: ${theme.spacing.md};
     }
 
@@ -422,7 +410,7 @@ const triangle = css`
   margin-left: ${theme.spacing.md};
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  border-right: 25px solid #e1e1e1;
+  border-right: 25px solid ${theme.colour.greyLight};
 
   ${mediaQuery.lg(css`
     display: none;
@@ -463,10 +451,7 @@ const renderDayBoxes = ({
             )}`}
           >
             <div className={removeDate}>
-              <img
-                src={MobileCancel}
-                alt={locale === 'en' ? 'Remove day' : 'Supprimer cette journée'}
-              />
+              <img src={MobileCancel} alt={removeDayAltText} />
             </div>
           </button>
         </li>
