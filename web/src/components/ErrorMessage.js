@@ -5,36 +5,26 @@ import { css } from 'react-emotion'
 import { theme } from '../styles'
 import { errorMessages } from '../validation'
 
-export const errorMessage = css`
+const validationMessage = css`
   color: ${theme.colour.red};
   display: block;
   margin-top: ${theme.spacing.sm};
 `
 
-export const errorList = css`
-  a {
-    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
-    color: ${theme.colour.red};
-    font-weight: 700;
-  }
-
-  p {
-    font-size: ${theme.font.md};
-    margin-bottom: ${theme.spacing.sm};
-  }
+const errorMessage = css`
+  margin-bottom: ${theme.spacing.xl};
+  border: solid 2px red;
+  padding: ${theme.spacing.lg};
 
   h2 {
     font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
     margin-top: 0 !important;
-    margin-bottom: ${theme.spacing.sm};
   }
-
-  border: solid 2px red;
-  padding: ${theme.spacing.lg};
-  margin-bottom: ${theme.spacing.xl};
 `
 
-export const errorCalendar = css`
+const errorList = css`
+  ${errorMessage};
+
   a {
     font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
     color: ${theme.colour.red};
@@ -45,15 +35,6 @@ export const errorCalendar = css`
     font-size: ${theme.font.md};
     margin-bottom: ${theme.spacing.sm};
   }
-
-  h2 {
-    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
-    margin-top: 0 !important;
-  }
-
-  border: solid 2px red;
-  padding: ${theme.spacing.lg};
-  margin-bottom: ${theme.spacing.xl};
 `
 
 const noError = css`
@@ -110,7 +91,7 @@ class ValidationMessage extends React.Component {
   render() {
     return (
       <span
-        className={this.props.message ? errorMessage : `empty ${noError}`}
+        className={this.props.message ? validationMessage : `empty ${noError}`}
         id={this.props.id}
       >
         {errorMessages[this.props.message]
@@ -135,29 +116,8 @@ ValidationMessage.propTypes = {
 class ErrorMessage extends React.Component {
   render() {
     return (
-      <span
-        className={this.props.message ? errorMessage : `empty ${noError}`}
-        id={this.props.id}
-        role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
-      >
-        <h2>{this.props.message}</h2>
-      </span>
-    )
-  }
-}
-
-ErrorMessage.propTypes = {
-  message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  id: PropTypes.string,
-}
-
-class ErrorCalendar extends React.Component {
-  render() {
-    return (
       <div
-        className={this.props.message ? errorCalendar : `empty ${noError}`}
+        className={this.props.message ? errorMessage : `empty ${noError}`}
         id={this.props.id}
         role="alert"
         aria-live="assertive"
@@ -169,9 +129,9 @@ class ErrorCalendar extends React.Component {
   }
 }
 
-ErrorCalendar.propTypes = {
+ErrorMessage.propTypes = {
   message: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   id: PropTypes.string,
 }
 
-export { ErrorMessage as default, ValidationMessage, ErrorList, ErrorCalendar }
+export { ErrorMessage as default, ValidationMessage, ErrorList }
