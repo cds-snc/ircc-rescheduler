@@ -5,6 +5,7 @@ import styled, { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
+import Abbreviation from '../components/abbreviation'
 import { respondByDate } from '../utils/calendarDates'
 import withContext from '../withContext'
 import { contextPropTypes } from '../context'
@@ -103,10 +104,7 @@ class ConfirmationPage extends React.Component {
           </H2>
           <p>
             <Trans>By</Trans> {respondBy}
-            , <Trans>your local</Trans>{' '}
-            <abbr title="Immigration, Refugees and Citizenship Canada">
-              IRCC
-            </abbr>{' '}
+            , <Trans>your local</Trans> <Abbreviation />{' '}
             <Trans>
               office will send you a new appointment, or email you to ask for
               more information.
