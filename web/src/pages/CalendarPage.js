@@ -348,7 +348,7 @@ class NoJS extends Component {
 }
 NoJS.propTypes = {
   ...contextPropTypes,
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object,
 }
 
 const WhichCal = () => {

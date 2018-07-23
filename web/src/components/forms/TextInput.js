@@ -60,7 +60,7 @@ const TextField = ({
   </div>
 )
 
-TextField.propTypes = {
+const textProps = {
   children: PropTypes.any.isRequired,
   id: PropTypes.string.isRequired,
   labelledby: PropTypes.string,
@@ -70,6 +70,8 @@ TextField.propTypes = {
   onFocus: PropTypes.func,
   value: PropTypes.string,
 }
+
+TextField.propTypes = textProps
 
 const TextFieldAdapter = ({ input, ...rest }) => (
   <TextField {...input} {...rest} />
@@ -102,7 +104,7 @@ const TextArea = ({
   </div>
 )
 
-TextArea.propTypes = TextField.propTypes
+TextArea.propTypes = textProps
 
 const TextAreaAdapter = ({ input, ...rest }) => (
   <TextArea {...input} {...rest} />
