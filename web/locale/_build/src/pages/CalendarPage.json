@@ -1,17 +1,9 @@
 {
-  "Calendar": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        76
-      ]
-    ]
-  },
   "Go back": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        89
+        79
       ]
     ]
   },
@@ -19,7 +11,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        94
+        84
       ]
     ]
   },
@@ -27,7 +19,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        99
+        89
       ]
     ]
   },
@@ -35,7 +27,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        101
+        91
       ]
     ]
   },
@@ -43,7 +35,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        103
+        93
       ]
     ]
   },
@@ -51,7 +43,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        104
+        94
       ]
     ]
   },
@@ -59,7 +51,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        120
+        110
       ]
     ]
   },
@@ -67,7 +59,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        223
+        213
       ]
     ]
   },
@@ -75,7 +67,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        231
+        221
       ]
     ]
   },
@@ -83,11 +75,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        272
+        258
       ],
       [
         "src/pages/CalendarPage.js",
-        352
+        338
       ]
     ]
   },
@@ -95,7 +87,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        306
+        292
       ]
     ]
   }

@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        26
+        27
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        29
+        30
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        31
+        32
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        33
+        34
       ]
     ]
   },
@@ -35,23 +35,31 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        41
+        42
       ]
     ]
   },
-  "Our team has been notified of this error, but you can also <0>tell us what went wrong</0>.": {
+  "Our team has been notified of this error, but you can also": {
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        52
+        53
       ]
     ]
   },
-  "Tell us what went wrong": {
+  "let us know what happened": {
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        63
+        64
+      ]
+    ]
+  },
+  "send an email to let us know what happened": {
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        68
       ]
     ]
   },
@@ -59,7 +67,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        79
+        82
       ]
     ]
   }
