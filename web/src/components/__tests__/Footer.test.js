@@ -20,6 +20,19 @@ describe('<Footer />', () => {
     expect(footer.find('hr').length).toBe(1)
   })
 
+  it('renders footer with IRCC email in contact information', () => {
+    const footer = render(<Footer context={getStore('en')} i18n={i18n} />)
+    expect(footer.find('footer').length).toBe(1)
+    expect(
+      footer
+        .find('a')
+        .first()
+        .prop('href'),
+    ).toEqual(
+      'mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
+    )
+  })
+
   it('renders "and Conditions" in English', () => {
     const footer = mount(<Footer context={getStore('en')} i18n={i18n} />)
     expect(
