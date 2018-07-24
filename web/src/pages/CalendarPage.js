@@ -30,7 +30,7 @@ import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import { makeGMTDate, dateToISODateString } from '../components/Time'
 import Reminder from '../components/Reminder'
-import { ErrorList, ErrorCalendar } from '../components/ErrorMessage'
+import ErrorMessage, { ErrorList } from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
@@ -204,8 +204,13 @@ class CalendarPage extends Component {
           }) => {
             let err
 
-            if (submitError && values && values.selectedDays) {
-              switch (values.selectedDays.length) {
+            if (submitError && this.validate(values).selectedDays) {
+              let valuesLength =
+                values && values.selectedDays && values.selectedDays.length
+                  ? values.selectedDays.length
+                  : 0
+
+              switch (valuesLength) {
                 case 1:
                   err = (
                     <React.Fragment>
@@ -238,7 +243,7 @@ class CalendarPage extends Component {
                       this.errorContainer = errorContainer
                     }}
                   >
-                    <ErrorCalendar
+                    <ErrorMessage
                       message={err ? err : ''}
                       id="fewerDays-error"
                     />

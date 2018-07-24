@@ -7,19 +7,21 @@ const messages = [
     component: ValidationMessage,
     toString: '<ValidationMessage />',
     alert: false,
+    wrappingEl: 'span',
   },
   {
     component: ErrorMessage,
     toString: '<ErrorMessage />',
     alert: true,
+    wrappingEl: 'div',
   },
 ]
-messages.map(({ component, alert, toString }) => {
+messages.map(({ component, alert, toString, wrappingEl }) => {
   describe(`${toString}`, () => {
     it('renders without a message or id', () => {
       const wrapper = shallow(React.createElement(component))
-      expect(wrapper.find('span').length).toBe(1)
-      expect(wrapper.find('span').text()).toEqual('')
+      expect(wrapper.find(wrappingEl).length).toBe(1)
+      expect(wrapper.find(wrappingEl).text()).toEqual('')
       expect(wrapper.props().id).toBe(undefined)
       expect(wrapper.props().className).toMatch(/^empty/)
     })
@@ -31,7 +33,7 @@ messages.map(({ component, alert, toString }) => {
           id: 'order-227',
         }),
       )
-      expect(wrapper.find('span').text()).toEqual('Not one step backwards!')
+      expect(wrapper.find(wrappingEl).text()).toEqual('Not one step backwards!')
       expect(wrapper.props().id).toEqual('order-227')
       expect(wrapper.props().className).not.toMatch(/^empty/)
     })
@@ -43,7 +45,9 @@ messages.map(({ component, alert, toString }) => {
           id: 'order-227',
         }),
       )
-      expect(wrapper.find('span p').text()).toEqual('Not one step backwards!')
+      expect(wrapper.find(`${wrappingEl} p`).text()).toEqual(
+        'Not one step backwards!',
+      )
       expect(wrapper.props().id).toEqual('order-227')
     })
 
@@ -54,7 +58,7 @@ messages.map(({ component, alert, toString }) => {
           id: 'order-227',
         }),
       )
-      expect(wrapper.find('span').text()).toEqual('Not one step backwards!')
+      expect(wrapper.find(wrappingEl).text()).toEqual('Not one step backwards!')
       if (alert) {
         expect(wrapper.props()).toHaveProperty('role', 'alert')
         expect(wrapper.props()).toHaveProperty('aria-live', 'assertive')
