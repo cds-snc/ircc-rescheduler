@@ -32,6 +32,7 @@ import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import CancelButton from '../components/CancelButton'
 import { HashLink } from 'react-router-hash-link'
+import { windowExists } from '../utils/windowExists'
 
 const contentClass = css`
   form {
@@ -99,6 +100,8 @@ const labelNames = id => {
 }
 
 class RegistrationPage extends React.Component {
+  static errStrings = {}
+
   static get fields() {
     return getFieldNames(RegistrationFields)
   }
@@ -107,9 +110,8 @@ class RegistrationPage extends React.Component {
     return '/calendar'
   }
 
- static validate(values, submitted) {
-    // only validate on submit
-    if (submitted) {
+  static validate(values, submitted) {
+    if (submitted || !windowExists()) {
       const validate = new Validator(
         trimInput(values),
         RegistrationFields,
@@ -120,11 +122,10 @@ class RegistrationPage extends React.Component {
         return {}
       }
 
-      this.errStrings = getFieldErrorStrings(validate)
+      RegistrationPage.errStrings = getFieldErrorStrings(validate)
     }
 
-    // return existing errors from last submit
-    return this.errStrings
+    return RegistrationPage.errStrings
   }
 
   constructor(props) {
@@ -133,7 +134,6 @@ class RegistrationPage extends React.Component {
     this.validate = RegistrationPage.validate
     this.fields = RegistrationPage.fields
     this.redirect = RegistrationPage.redirect
-    this.errStrings = ''
   }
 
   async onSubmit(values, event) {
@@ -165,7 +165,7 @@ class RegistrationPage extends React.Component {
       this.props.location.search &&
       this.fields.some(field => this.props.location.search.includes(field))
     ) {
-      errorsNoJS = this.validate(register)
+      errorsNoJS = this.validate(register, true)
     }
 
     return (
@@ -291,7 +291,8 @@ class RegistrationPage extends React.Component {
                       />
                       <span id="paperFileNumber-details">
                         <Trans>
-                          This number is at the top of the email attachment we sent you.
+                          This number is at the top of the email attachment we
+                          sent you.
                         </Trans>
                       </span>
                     </label>
