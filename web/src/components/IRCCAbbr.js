@@ -4,14 +4,14 @@ import { css } from 'react-emotion'
 import { mediaQuery } from '../styles'
 
 const abbreviation = css`
-  abbr[title] {
+  abbr {
     text-decoration: none;
     border-bottom: 2.5px dotted #999;
     cursor: help;
   }
 
   ${mediaQuery.sm(css`
-    abbr[title]:after {
+    abbr:after {
       content: ' (' attr(title) ')';
       font-size: 0.85em;
     }
