@@ -6,6 +6,7 @@ import {
   yearMonthDay,
   respondByDate,
   getMonthNameAndYear,
+  getInitialMonth,
 } from '../calendarDates'
 
 describe('Utilities functions CalendarDates.js', () => {
@@ -57,5 +58,30 @@ describe('Utilities functions CalendarDates.js', () => {
   it('returns null if selectedDays value(s) not passed', () => {
     const selectedDays = []
     expect(respondByDate(selectedDays, 'en')).toEqual(null)
+  })
+
+  it('defaults to startMonth if no dates are passed', () => {
+    const today = new Date()
+    const result = getInitialMonth([], today)
+    expect(result).toEqual(today)
+  })
+
+  it('return startMonth if bad date is passed', () => {
+    const today = new Date()
+    const result = getInitialMonth('hey', today)
+    expect(result).toEqual(today)
+  })
+
+  it('returns startMonth if bad date is passed as array', () => {
+    const today = new Date()
+    const result = getInitialMonth(['hey'], today)
+    expect(result).toEqual(today)
+  })
+
+  it('returns startMonth if bad date is passed as array', () => {
+    const today = new Date()
+    const selected = new Date('Aug 1, 2018');
+    const result = getInitialMonth([selected], today)
+    expect(result).toEqual(selected)
   })
 })

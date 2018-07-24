@@ -14,6 +14,8 @@ import {
   toMonth,
   getMonthNameAndYear,
   getStartDate,
+  getInitialMonth,
+  sortSelectedDays,
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 
@@ -429,13 +431,6 @@ const triangle = css`
   `)};
 `
 
-const sortSelectedDays = selectedDays => {
-  // create a new array because .sort() modifies our original array
-  let temp = selectedDays.slice()
-  temp.sort((date1, date2) => date1.getTime() - date2.getTime())
-  return temp
-}
-
 const renderDayBoxes = ({
   dayLimit,
   selectedDays,
@@ -590,6 +585,9 @@ class Calendar extends Component {
     const startMonth = parse(getStartMonth())
     const endDate = parse(toMonth())
     value = value || []
+
+    const initialMonth = getInitialMonth(value, startMonth)
+
     return (
       <div>
         <div
@@ -614,7 +612,7 @@ class Calendar extends Component {
             months={dateInfo.months}
             weekdaysLong={dateInfo.weekdaysLong}
             weekdaysShort={dateInfo.weekdaysShort}
-            initialMonth={startMonth}
+            initialMonth={initialMonth}
             fromMonth={startMonth}
             toMonth={endDate}
             numberOfMonths={1}

@@ -109,3 +109,24 @@ export const getValidDays = (startDate, endDate) => {
 
   return mapped
 }
+
+export const sortSelectedDays = selectedDays => {
+  // create a new array because .sort() modifies our original array
+  let temp = selectedDays.slice()
+  temp.sort((date1, date2) => date1.getTime() - date2.getTime())
+  return temp
+}
+
+export const getInitialMonth = (selectedDates, startMonth) => {
+  if (!selectedDates || !Array.isArray(selectedDates)) {
+    return startMonth
+  }
+
+  const dates = sortSelectedDays(selectedDates)
+
+  if (!dates[0] || isNaN(dates[0].valueOf())) {
+    return startMonth
+  }
+
+  return dates[0]
+}
