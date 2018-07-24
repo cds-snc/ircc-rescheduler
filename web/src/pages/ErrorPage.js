@@ -2,6 +2,7 @@ import React from 'react'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
 import { H1, visuallyhidden, theme } from '../styles'
+import IRCCAbbr from '../components/IRCCAbbr'
 import Layout from '../components/Layout'
 import Contact from '../components/Contact'
 import Chevron from '../components/Chevron'
@@ -15,7 +16,7 @@ const ErrorH1 = styled(H1)`
 `
 
 const contentClass = css`
-  p:last-of-type {
+  p {
     margin-bottom: ${theme.spacing.md};
   }
 `
@@ -39,13 +40,8 @@ export class ErrorPageContent extends React.Component {
         <Contact phoneFirst={true}>
           <div>
             <p>
-              <Trans>
-                Contact{' '}
-                <abbr title="Immigration, Refugees and Citizenship Canada">
-                  IRCC
-                </abbr>{' '}
-                directly to reschedule your appointment:
-              </Trans>
+              <Trans>Please contact </Trans> <IRCCAbbr />{' '}
+              <Trans>directly to reschedule your appointment:</Trans>
             </p>
           </div>
         </Contact>

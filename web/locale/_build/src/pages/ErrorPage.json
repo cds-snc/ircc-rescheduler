@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        26
+        28
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        29
+        31
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        31
+        33
       ]
     ]
   },
@@ -27,31 +27,47 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        33
+        35
       ]
     ]
   },
-  "Contact <0>IRCC</0> directly to reschedule your appointment:": {
+  "Please contact": {
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        41
+        43
       ]
     ]
   },
-  "Our team has been notified of this error, but you can also <0>tell us what went wrong</0>.": {
+  "directly to reschedule your appointment:": {
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        52
+        44
       ]
     ]
   },
-  "Tell us what went wrong": {
+  "Our team has been notified of this error, but you can also": {
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        63
+        49
+      ]
+    ]
+  },
+  "let us know what happened": {
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        60
+      ]
+    ]
+  },
+  "send an email to let us know what happened": {
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        64
       ]
     ]
   },
@@ -59,7 +75,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        79
+        78
       ]
     ]
   }

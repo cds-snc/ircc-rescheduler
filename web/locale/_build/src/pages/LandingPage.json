@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        66
+        99
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        73
+        106
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        78
+        111
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        84
+        117
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        90
+        126
       ]
     ]
   },
@@ -43,31 +43,23 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        92
+        128
       ]
     ]
   },
-  "between": {
+  "you’re available between": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        94
+        130
       ]
     ]
   },
-  "to": {
+  "and": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        95
-      ]
-    ]
-  },
-  "when you’re available for an appointment in the future": {
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        96
+        131
       ]
     ]
   },
@@ -75,7 +67,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        103
+        138
       ]
     ]
   },
@@ -83,7 +75,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        112
+        147
       ]
     ]
   }
