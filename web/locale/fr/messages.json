@@ -1,13 +1,4 @@
 {
-  "Please contact": {
-    "translation": "Veuillez communiquer directement avec",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        43
-      ]
-    ]
-  },
   "Immigration, Refugees and Citizenship Canada": {
     "translation": "Immigration, Réfugiés et Citoyenneté Canada",
     "origin": [
@@ -26,7 +17,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        553
+        538
       ]
     ]
   },
@@ -35,7 +26,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        639
+        625
       ]
     ]
   },
@@ -44,7 +35,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        649
+        635
       ]
     ]
   },
@@ -62,7 +53,7 @@
     "origin": [
       [
         "src/components/ErrorMessage.js",
-        87
+        68
       ]
     ]
   },
@@ -433,7 +424,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        213
+        218
       ]
     ]
   },
@@ -442,7 +433,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        221
+        226
       ]
     ]
   },
@@ -451,11 +442,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        258
+        263
       ],
       [
         "src/pages/CalendarPage.js",
-        338
+        343
       ]
     ]
   },
@@ -464,7 +455,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        292
+        297
       ],
       [
         "src/validation.js",
@@ -646,6 +637,15 @@
       ]
     ]
   },
+  "Please contact": {
+    "translation": "Veuillez communiquer directement avec",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        43
+      ]
+    ]
+  },
   "directly to reschedule your appointment:": {
     "translation": "pour reporter votre rendez-vous :",
     "origin": [
@@ -767,8 +767,8 @@
       ]
     ]
   },
-  "Requesting a new appointment will cancel your current one. Do not attend your old appointment after you complete this request. It can take up to 9 weeks for us to reschedule you.": {
-    "translation": "En demandant un nouveau rendez-vous, vous annulez votre rendez-vous actuel. Si vous soumettez cette demande, ne vous présentez pas à votre ancien rendez-vous. Le processus de report de votre rendez-vous peut nous prendre jusqu’à 9 semaines.",
+  "Requesting a new appointment will cancel your current one. Do not attend your old appointment after you complete this request.": {
+    "translation": "En demandant un nouveau rendez-vous, vous annulez votre rendez-vous actuel. Si vous soumettez cette demande, ne vous présentez pas à votre ancien rendez-vous.",
     "origin": [
       [
         "src/pages/LandingPage.js",
@@ -781,7 +781,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        147
+        146
       ]
     ]
   },
@@ -1294,75 +1294,5 @@
         88
       ]
     ]
-  },
-  "Contact <0>IRCC</0> directly to reschedule your appointment:": {
-    "translation": "Veuillez communiquer directement avec IRCC pour reporter votre rendez-vous :",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        42
-      ]
-    ],
-    "obsolete": true
-  },
-  "Calendar": {
-    "translation": "Calendrier",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        76
-      ]
-    ],
-    "obsolete": true
-  },
-  "Our team has been notified of this error, but you can also <0>tell us what went wrong</0>.": {
-    "translation": "Notre équipe a été avisée de l’erreur, mais vous pouvez nous aider en décrivant ce qui s’est passé.",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        52
-      ]
-    ],
-    "obsolete": true
-  },
-  "Tell us what went wrong": {
-    "translation": "Veuillez décrire ce qui s’est passé.",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        63
-      ]
-    ],
-    "obsolete": true
-  },
-  "between": {
-    "translation": "entre",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        94
-      ]
-    ],
-    "obsolete": true
-  },
-  "to": {
-    "translation": "à",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        95
-      ]
-    ],
-    "obsolete": true
-  },
-  "when you’re available for an appointment in the future": {
-    "translation": "où vous serez disponible pour vous présenter à un rendez-vous",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        96
-      ]
-    ],
-    "obsolete": true
   }
 }

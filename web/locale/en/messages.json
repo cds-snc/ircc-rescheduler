@@ -1,13 +1,4 @@
 {
-  "Please contact": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        43
-      ]
-    ]
-  },
   "Immigration, Refugees and Citizenship Canada": {
     "translation": "",
     "origin": [
@@ -26,7 +17,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        553
+        538
       ]
     ]
   },
@@ -35,7 +26,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        639
+        625
       ]
     ]
   },
@@ -44,7 +35,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        649
+        635
       ]
     ]
   },
@@ -62,7 +53,7 @@
     "origin": [
       [
         "src/components/ErrorMessage.js",
-        87
+        68
       ]
     ]
   },
@@ -433,7 +424,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        213
+        218
       ]
     ]
   },
@@ -442,7 +433,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        221
+        226
       ]
     ]
   },
@@ -451,11 +442,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        258
+        263
       ],
       [
         "src/pages/CalendarPage.js",
-        338
+        343
       ]
     ]
   },
@@ -464,7 +455,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        292
+        297
       ],
       [
         "src/validation.js",
@@ -646,6 +637,15 @@
       ]
     ]
   },
+  "Please contact": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        43
+      ]
+    ]
+  },
   "directly to reschedule your appointment:": {
     "translation": "",
     "origin": [
@@ -767,7 +767,7 @@
       ]
     ]
   },
-  "Requesting a new appointment will cancel your current one. Do not attend your old appointment after you complete this request. It can take up to 9 weeks for us to reschedule you.": {
+  "Requesting a new appointment will cancel your current one. Do not attend your old appointment after you complete this request.": {
     "translation": "",
     "origin": [
       [
@@ -781,7 +781,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        147
+        146
       ]
     ]
   },
@@ -1294,75 +1294,5 @@
         88
       ]
     ]
-  },
-  "Contact <0>IRCC</0> directly to reschedule your appointment:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        42
-      ]
-    ],
-    "obsolete": true
-  },
-  "Calendar": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        76
-      ]
-    ],
-    "obsolete": true
-  },
-  "Our team has been notified of this error, but you can also <0>tell us what went wrong</0>.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        52
-      ]
-    ],
-    "obsolete": true
-  },
-  "Tell us what went wrong": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        63
-      ]
-    ],
-    "obsolete": true
-  },
-  "between": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        94
-      ]
-    ],
-    "obsolete": true
-  },
-  "to": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        95
-      ]
-    ],
-    "obsolete": true
-  },
-  "when you’re available for an appointment in the future": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        96
-      ]
-    ],
-    "obsolete": true
   }
 }
