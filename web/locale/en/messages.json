@@ -1,37 +1,23 @@
 {
+  "Please contact": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        43
+      ]
+    ]
+  },
   "Immigration, Refugees and Citizenship Canada": {
     "translation": "",
     "origin": [
       [
         "src/components/Abbreviation.js",
         23
-      ]
-    ]
-  },
-  "Our team has been notified of this error, but you can also": {
-    "translation": "",
-    "origin": [
+      ],
       [
-        "src/pages/ErrorPage.js",
-        53
-      ]
-    ]
-  },
-  "let us know what happened": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        64
-      ]
-    ]
-  },
-  "send an email to let us know what happened": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ErrorPage.js",
-        68
+        "src/components/IRCCAbbr.js",
+        23
       ]
     ]
   },
@@ -557,7 +543,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        115
+        116
       ]
     ]
   },
@@ -607,7 +593,7 @@
     ]
   },
   "your local": {
-    "translation": "",
+    "translation": "your local ",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
@@ -620,7 +606,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        108
+        109
       ]
     ]
   },
@@ -629,7 +615,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        27
+        28
       ]
     ]
   },
@@ -638,7 +624,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        30
+        31
       ]
     ]
   },
@@ -647,7 +633,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        32
+        33
       ]
     ]
   },
@@ -656,16 +642,43 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        34
+        35
       ]
     ]
   },
-  "Contact <0>IRCC</0> directly to reschedule your appointment:": {
+  "directly to reschedule your appointment:": {
     "translation": "",
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        42
+        44
+      ]
+    ]
+  },
+  "Our team has been notified of this error, but you can also": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        49
+      ]
+    ]
+  },
+  "let us know what happened": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        60
+      ]
+    ]
+  },
+  "send an email to let us know what happened": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        64
       ]
     ]
   },
@@ -674,7 +687,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        82
+        78
       ],
       [
         "src/pages/FourOhFourPage.js",
@@ -1281,6 +1294,16 @@
         88
       ]
     ]
+  },
+  "Contact <0>IRCC</0> directly to reschedule your appointment:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        42
+      ]
+    ],
+    "obsolete": true
   },
   "Calendar": {
     "translation": "",

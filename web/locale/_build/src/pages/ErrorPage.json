@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        27
+        28
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        30
+        31
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        32
+        33
       ]
     ]
   },
@@ -27,15 +27,23 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        34
+        35
       ]
     ]
   },
-  "Contact <0>IRCC</0> directly to reschedule your appointment:": {
+  "Please contact": {
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        42
+        43
+      ]
+    ]
+  },
+  "directly to reschedule your appointment:": {
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        44
       ]
     ]
   },
@@ -43,7 +51,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        53
+        49
       ]
     ]
   },
@@ -51,7 +59,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        64
+        60
       ]
     ]
   },
@@ -59,7 +67,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        68
+        64
       ]
     ]
   },
@@ -67,7 +75,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        82
+        78
       ]
     ]
   }
