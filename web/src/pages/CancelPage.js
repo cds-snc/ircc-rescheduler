@@ -4,6 +4,7 @@ import { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, H2, theme, visuallyhidden } from '../styles'
 import Layout from '../components/Layout'
+import Title, { matchPropTypes } from '../components/Title'
 import Contact from '../components/Contact'
 import Chevron from '../components/Chevron'
 
@@ -29,6 +30,7 @@ class CancelPage extends React.Component {
   render() {
     return (
       <Layout contentClass={contentClass} headerClass={visuallyhidden}>
+        <Title path={this.props.match.path} />
         <NavLink className="chevron-link nav-link-top" to="/">
           <Chevron dir="left" />
           <Trans>Start over</Trans>
@@ -66,5 +68,6 @@ class CancelPage extends React.Component {
     )
   }
 }
+CancelPage.propTypes = matchPropTypes
 
 export default CancelPage
