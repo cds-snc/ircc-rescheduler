@@ -3,6 +3,7 @@ import styled, { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, H2, theme, mediaQuery, arrow } from '../styles'
 import Layout from '../components/Layout'
+import Title, { matchPropTypes } from '../components/Title'
 import { LongReminder } from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
 import { Trans } from 'lingui-react'
@@ -94,6 +95,7 @@ class LandingPage extends React.Component {
     }
     return (
       <Layout contentClass={contentClass}>
+        <Title path={this.props.match.path} />
         <section>
           <H1Landing>
             <Trans>
@@ -154,6 +156,7 @@ class LandingPage extends React.Component {
 
 LandingPage.propTypes = {
   ...contextPropTypes,
+  ...matchPropTypes,
 }
 
 export default withContext(LandingPage)

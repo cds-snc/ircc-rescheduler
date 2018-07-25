@@ -3,6 +3,12 @@ import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { withI18n } from 'lingui-react'
 
+const matchPropTypes = {
+  match: PropTypes.shape({
+    path: PropTypes.string.isRequired,
+  }),
+}
+
 const Title = ({ i18n, path }) => {
   let title = `${i18n._('Request a new citizenship appointment')}`
   let divider = '—'
@@ -48,4 +54,4 @@ Title.propTypes = {
 }
 
 const I18nTitle = withI18n()(Title)
-export { I18nTitle as default, Title as BaseTitle }
+export { I18nTitle as default, Title as BaseTitle, matchPropTypes }
