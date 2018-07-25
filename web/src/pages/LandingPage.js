@@ -137,8 +137,7 @@ class LandingPage extends React.Component {
         <LongReminder>
           <Trans>
             Requesting a new appointment will cancel your current one. Do not
-            attend your old appointment after you complete this request. It can
-            take up to 9 weeks for us to reschedule you.
+            attend your old appointment after you complete this request.
           </Trans>
         </LongReminder>
 

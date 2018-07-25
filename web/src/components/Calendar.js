@@ -14,6 +14,8 @@ import {
   toMonth,
   getMonthNameAndYear,
   getStartDate,
+  getInitialMonth,
+  sortSelectedDays,
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 
@@ -619,6 +621,9 @@ class Calendar extends Component {
     const startMonth = parse(getStartMonth())
     const endDate = parse(toMonth())
     value = value || []
+
+    const initialMonth = getInitialMonth(value, startMonth)
+
     return (
       <div>
         <div
@@ -648,7 +653,7 @@ class Calendar extends Component {
             months={dateInfo.months}
             weekdaysLong={dateInfo.weekdaysLong}
             weekdaysShort={dateInfo.weekdaysShort}
-            initialMonth={startMonth}
+            initialMonth={initialMonth}
             fromMonth={startMonth}
             toMonth={endDate}
             numberOfMonths={1}

@@ -1,10 +1,23 @@
 {
+  "Immigration, Refugees and Citizenship Canada": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Abbreviation.js",
+        23
+      ],
+      [
+        "src/components/IRCCAbbr.js",
+        23
+      ]
+    ]
+  },
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "translation": "",
     "origin": [
       [
         "src/components/Calendar.js",
-        559
+        538
       ]
     ]
   },
@@ -13,7 +26,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        632
+        625
       ]
     ]
   },
@@ -22,7 +35,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        654
+        635
       ]
     ]
   },
@@ -40,7 +53,7 @@
     "origin": [
       [
         "src/components/ErrorMessage.js",
-        65
+        68
       ]
     ]
   },
@@ -174,36 +187,49 @@
       ]
     ]
   },
+  "Send request": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/SubmissionForm.js",
+        25
+      ]
+    ]
+  },
   "Change": {
     "translation": "",
     "origin": [
       [
         "src/components/Summary.js",
-        85
+        83
       ],
       [
         "src/components/Summary.js",
-        111
+        89
       ],
       [
         "src/components/Summary.js",
-        117
+        116
       ],
       [
         "src/components/Summary.js",
-        124
+        122
       ],
       [
         "src/components/Summary.js",
-        131
+        129
       ],
       [
         "src/components/Summary.js",
-        137
+        136
       ],
       [
         "src/components/Summary.js",
-        143
+        142
+      ],
+      [
+        "src/components/Summary.js",
+        148
       ]
     ]
   },
@@ -212,11 +238,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        108
+        113
       ],
       [
         "src/components/Summary.js",
-        111
+        116
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -233,11 +259,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        114
+        119
       ],
       [
         "src/components/Summary.js",
-        117
+        122
       ]
     ]
   },
@@ -246,11 +272,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        120
+        125
       ],
       [
         "src/components/Summary.js",
-        124
+        129
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -267,11 +293,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        128
+        133
       ],
       [
         "src/components/Summary.js",
-        131
+        136
       ]
     ]
   },
@@ -280,11 +306,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        134
+        139
       ],
       [
         "src/components/Summary.js",
-        137
+        142
       ]
     ]
   },
@@ -293,11 +319,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        140
+        145
       ],
       [
         "src/components/Summary.js",
-        143
+        148
       ]
     ]
   },
@@ -310,16 +336,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        60
-      ]
-    ]
-  },
-  "Calendar": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        76
+        34
       ]
     ]
   },
@@ -328,11 +345,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        89
+        79
       ],
       [
         "src/pages/ReviewPage.js",
-        95
+        71
       ]
     ]
   },
@@ -341,7 +358,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        94
+        84
       ]
     ]
   },
@@ -350,7 +367,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        99
+        89
       ]
     ]
   },
@@ -359,11 +376,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        101
+        91
       ],
       [
         "src/pages/LandingPage.js",
-        92
+        128
       ]
     ]
   },
@@ -372,7 +389,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        103
+        93
+      ],
+      [
+        "src/pages/LandingPage.js",
+        130
       ]
     ]
   },
@@ -381,7 +402,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        104
+        94
+      ],
+      [
+        "src/pages/LandingPage.js",
+        131
       ]
     ]
   },
@@ -390,7 +415,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        120
+        110
       ]
     ]
   },
@@ -399,7 +424,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        223
+        218
       ]
     ]
   },
@@ -408,7 +433,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        231
+        226
       ]
     ]
   },
@@ -417,11 +442,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        272
+        263
       ],
       [
         "src/pages/CalendarPage.js",
-        352
+        343
       ]
     ]
   },
@@ -430,7 +455,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        306
+        297
       ],
       [
         "src/validation.js",
@@ -478,7 +503,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        102
+        103
       ]
     ]
   },
@@ -509,7 +534,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        117
+        116
       ]
     ]
   },
@@ -518,7 +543,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        38
+        39
       ]
     ]
   },
@@ -527,7 +552,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        47
+        48
       ]
     ]
   },
@@ -536,7 +561,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        90
+        91
       ]
     ]
   },
@@ -545,7 +570,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        95
+        96
       ]
     ]
   },
@@ -554,16 +579,16 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        105
+        106
       ]
     ]
   },
   "your local": {
-    "translation": "",
+    "translation": "your local ",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        106
+        107
       ]
     ]
   },
@@ -572,7 +597,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        110
+        109
       ]
     ]
   },
@@ -581,7 +606,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        26
+        28
       ]
     ]
   },
@@ -590,7 +615,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        29
+        31
       ]
     ]
   },
@@ -599,7 +624,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        31
+        33
       ]
     ]
   },
@@ -608,34 +633,52 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        33
+        35
       ]
     ]
   },
-  "Contact <0>IRCC</0> directly to reschedule your appointment:": {
+  "Please contact": {
     "translation": "",
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        41
+        43
       ]
     ]
   },
-  "Our team has been notified of this error, but you can also <0>tell us what went wrong</0>.": {
+  "directly to reschedule your appointment:": {
     "translation": "",
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        52
+        44
       ]
     ]
   },
-  "Tell us what went wrong": {
+  "Our team has been notified of this error, but you can also": {
     "translation": "",
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        63
+        49
+      ]
+    ]
+  },
+  "let us know what happened": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        60
+      ]
+    ]
+  },
+  "send an email to let us know what happened": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ErrorPage.js",
+        64
       ]
     ]
   },
@@ -644,7 +687,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        79
+        78
       ],
       [
         "src/pages/FourOhFourPage.js",
@@ -684,7 +727,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        66
+        99
       ]
     ]
   },
@@ -693,7 +736,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        73
+        106
       ]
     ]
   },
@@ -702,7 +745,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        78
+        111
       ]
     ]
   },
@@ -711,7 +754,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        84
+        117
       ]
     ]
   },
@@ -720,43 +763,16 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        90
+        126
       ]
     ]
   },
-  "between": {
+  "Requesting a new appointment will cancel your current one. Do not attend your old appointment after you complete this request.": {
     "translation": "",
     "origin": [
       [
         "src/pages/LandingPage.js",
-        94
-      ]
-    ]
-  },
-  "to": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        95
-      ]
-    ]
-  },
-  "when you’re available for an appointment in the future": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        96
-      ]
-    ]
-  },
-  "Requesting a new appointment will cancel your current one. Do not attend your old appointment after you complete this request. It can take up to 9 weeks for us to reschedule you.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        103
+        138
       ]
     ]
   },
@@ -765,7 +781,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        112
+        146
       ]
     ]
   },
@@ -862,7 +878,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        64
+        38
       ]
     ]
   },
@@ -884,7 +900,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        62
+        36
       ]
     ]
   },
@@ -897,7 +913,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        68
+        42
       ]
     ]
   },
@@ -919,21 +935,12 @@
       ]
     ]
   },
-  "Send request": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/ReviewPage.js",
-        38
-      ]
-    ]
-  },
   "Work or School": {
     "translation": "",
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        66
+        40
       ]
     ]
   },
@@ -942,7 +949,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        99
+        75
       ]
     ]
   },
@@ -951,7 +958,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        112
+        88
       ]
     ]
   },
