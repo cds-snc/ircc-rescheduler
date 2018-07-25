@@ -194,7 +194,7 @@ class RegistrationPage extends React.Component {
                 submitError
               )
             return (
-              <form onSubmit={handleSubmit}>
+              <form id="register-form" onSubmit={handleSubmit}>
                 <div
                   id="submit-error"
                   className={forNowSubmitErrorStyles}
