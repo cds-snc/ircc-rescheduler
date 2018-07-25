@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        66
+        99
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        73
+        106
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        78
+        111
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        84
+        117
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        90
+        126
       ]
     ]
   },
@@ -43,39 +43,31 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        92
+        128
       ]
     ]
   },
-  "between": {
+  "you’re available between": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        94
+        130
       ]
     ]
   },
-  "to": {
+  "and": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        95
+        131
       ]
     ]
   },
-  "when you’re available for an appointment in the future": {
+  "Requesting a new appointment will cancel your current one. Do not attend your old appointment after you complete this request.": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        96
-      ]
-    ]
-  },
-  "Requesting a new appointment will cancel your current one. Do not attend your old appointment after you complete this request. It can take up to 9 weeks for us to reschedule you.": {
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        103
+        138
       ]
     ]
   },
@@ -83,7 +75,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        112
+        146
       ]
     ]
   }

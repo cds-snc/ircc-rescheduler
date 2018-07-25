@@ -105,7 +105,7 @@ const Footer = ({ topBarBackground, i18n, context = {} }) => (
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
       <div className={bottomLinks}>
-        <a href="mailto:cds-snc@tbs-sct.gc.ca">
+        <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
           <Trans>Contact</Trans>
         </a>
         <a href={i18n._('https://www.canada.ca/en/transparency/privacy.html')}>
