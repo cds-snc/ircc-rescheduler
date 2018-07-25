@@ -347,6 +347,10 @@ const daySelection = css`
   padding: ${theme.spacing.lg} ${theme.spacing.lg} 0 ${theme.spacing.lg};
   width: 20rem;
 
+  button {
+    padding: 0;
+  }
+
   li {
     border-top: 1px solid ${theme.colour.black};
     padding-bottom: ${theme.spacing.md};
@@ -415,6 +419,45 @@ const triangle = css`
   ${mediaQuery.lg(css`
     display: none;
   `)};
+`
+
+const reviewContainer = css`
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  > div:first-of-type {
+    width: 25em;
+  }
+  > div:last-of-type {
+    width: 20em;
+  }
+
+  width: 100%;
+
+  ${mediaQuery.lg(css`
+    flex-direction: column-reverse;
+
+    > div:last-of-type {
+      width: 25em;
+    }
+  `)};
+
+  ${mediaQuery.md(css`
+    > div:first-of-type,
+    > div:last-of-type {
+      width: 100%;
+    }
+  `)};
+
+  #selectedDays-list {
+    margin: 0;
+
+    li:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 `
 
 const sortSelectedDays = selectedDays => {
@@ -489,6 +532,7 @@ class Calendar extends Component {
     this.state = {
       errorMessage: null,
     }
+    this.threeDatesArePicked = this.props.input.value.length === 3
   }
 
   removeDayOnClickOrKeyPress = day => e => {
@@ -589,7 +633,11 @@ class Calendar extends Component {
             id="selectedDays-error"
           />
         </div>
-        <div className={calendarContainer}>
+        <div
+          className={
+            this.threeDatesArePicked ? reviewContainer : calendarContainer
+          }
+        >
           <DayPicker
             className={css`
               ${dayPickerDefault} ${dayPicker};
