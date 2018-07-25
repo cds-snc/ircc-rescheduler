@@ -423,43 +423,11 @@ const triangle = css`
   `)};
 `
 
-const reviewContainer = css`
-  display: inline-flex;
-  flex-direction: row;
-  align-items: flex-start;
-  flex-wrap: wrap;
-
-  > div:first-of-type {
-    width: 25em;
-  }
-  > div:last-of-type {
-    width: 20em;
-  }
-
-  width: 100%;
-
+const calendarContainerTop = css`
+  ${calendarContainer};
   ${mediaQuery.lg(css`
     flex-direction: column-reverse;
-
-    > div:last-of-type {
-      width: 25em;
-    }
   `)};
-
-  ${mediaQuery.md(css`
-    > div:first-of-type,
-    > div:last-of-type {
-      width: 100%;
-    }
-  `)};
-
-  #selectedDays-list {
-    margin: 0;
-
-    li:last-of-type {
-      margin-bottom: 0;
-    }
-  }
 `
 
 const renderDayBoxes = ({
@@ -527,7 +495,10 @@ class Calendar extends Component {
     this.state = {
       errorMessage: null,
     }
-    this.threeDatesArePicked = this.props.input.value.length === 3
+    this.threeDatesArePicked =
+      this.props.input.value &&
+      Array.isArray(this.props.input.value) &&
+      this.props.input.value.length === 3
   }
 
   removeDayOnClickOrKeyPress = day => e => {
@@ -633,7 +604,7 @@ class Calendar extends Component {
         </div>
         <div
           className={
-            this.threeDatesArePicked ? reviewContainer : calendarContainer
+            this.threeDatesArePicked ? calendarContainerTop : calendarContainer
           }
         >
           <DayPicker
