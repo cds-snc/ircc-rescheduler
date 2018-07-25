@@ -78,10 +78,10 @@ describe('Utilities functions CalendarDates.js', () => {
     expect(result).toEqual(today)
   })
 
-  it('returns startMonth if bad date is passed as array', () => {
+  it('returns startMonth if date is in the past', () => {
     const today = new Date()
-    const selected = new Date('Aug 1, 2018');
+    const selected = new Date('Sunday, November 3, 1957')
     const result = getInitialMonth([selected], today)
-    expect(result).toEqual(selected)
+    expect(result).toEqual(today)
   })
 })

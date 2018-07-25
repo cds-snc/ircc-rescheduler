@@ -7,6 +7,7 @@ import addDays from 'date-fns/add_days'
 import subWeeks from 'date-fns/sub_weeks'
 import format from 'date-fns/format'
 import eachDay from 'date-fns/each_day'
+import isPast from 'date-fns/is_past'
 import { makeGMTDate, dateToISODateString } from '../components/Time'
 
 const offsetStartWeeks = 5
@@ -124,7 +125,7 @@ export const getInitialMonth = (selectedDates, startMonth) => {
 
   const dates = sortSelectedDays(selectedDates)
 
-  if (!dates[0] || isNaN(dates[0].valueOf())) {
+  if (!dates[0] || isNaN(dates[0].valueOf()) || isPast(dates[0])) {
     return startMonth
   }
 
