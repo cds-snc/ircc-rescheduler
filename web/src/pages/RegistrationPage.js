@@ -32,6 +32,7 @@ import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import CancelButton from '../components/CancelButton'
 import { HashLink } from 'react-router-hash-link'
+import { windowExists } from '../utils/windowExists'
 
 const contentClass = css`
   form {
@@ -99,6 +100,8 @@ const labelNames = id => {
 }
 
 class RegistrationPage extends React.Component {
+  static errStrings = {}
+
   static get fields() {
     return getFieldNames(RegistrationFields)
   }
@@ -107,18 +110,22 @@ class RegistrationPage extends React.Component {
     return '/calendar'
   }
 
-  static validate(values) {
-    const validate = new Validator(
-      trimInput(values),
-      RegistrationFields,
-      defaultMessages,
-    )
+  static validate(values, submitted) {
+    if (submitted || !windowExists()) {
+      const validate = new Validator(
+        trimInput(values),
+        RegistrationFields,
+        defaultMessages,
+      )
 
-    if (validate.passes()) {
-      return {}
+      if (validate.passes()) {
+        return {}
+      }
+
+      RegistrationPage.errStrings = getFieldErrorStrings(validate)
     }
 
-    return getFieldErrorStrings(validate)
+    return RegistrationPage.errStrings
   }
 
   constructor(props) {
@@ -130,7 +137,7 @@ class RegistrationPage extends React.Component {
   }
 
   async onSubmit(values, event) {
-    const submitErrors = this.validate(values)
+    const submitErrors = this.validate(values, true)
 
     if (Object.keys(submitErrors).length) {
       window.scrollTo(0, this.errorContainer.offsetTop - 20)
@@ -158,7 +165,7 @@ class RegistrationPage extends React.Component {
       this.props.location.search &&
       this.fields.some(field => this.props.location.search.includes(field))
     ) {
-      errorsNoJS = this.validate(register)
+      errorsNoJS = this.validate(register, true)
     }
 
     return (
@@ -284,7 +291,8 @@ class RegistrationPage extends React.Component {
                       />
                       <span id="paperFileNumber-details">
                         <Trans>
-                          This number is at the top of the email attachment we sent you.
+                          This number is at the top of the email attachment we
+                          sent you.
                         </Trans>
                       </span>
                     </label>
