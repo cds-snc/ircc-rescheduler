@@ -37,12 +37,7 @@ jobs:
       - run: yarn build
       - run: yarn test
       - run: yarn lint
-      - run:
-          name: Running E2E tests 
-          command: |
-            yarn build 
-            yarn start &  
-            yarn cypress:run
+      - run: yarn ci:prod
 
   deploy_web:
     docker:
