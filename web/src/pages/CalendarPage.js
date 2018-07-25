@@ -147,10 +147,6 @@ class CalendarPage extends Component {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
     this.validate = CalendarPage.validate
-
-    let { context: { store: { calendar = {} } = {} } = {} } = this.props
-    this.threeDatesArePicked =
-      calendar && calendar.selectedDays && calendar.selectedDays.length === 3
   }
 
   async onSubmit(values, event) {
@@ -193,12 +189,6 @@ class CalendarPage extends Component {
 
     return (
       <Layout>
-        <pre>
-          three dates:{' '}
-          {this.threeDatesArePicked
-            ? 'yes three days are picked'
-            : 'no three days are NOT picked'}
-        </pre>
         <CalHeader locale={locale} />
         <Form
           onSubmit={this.onSubmit}
