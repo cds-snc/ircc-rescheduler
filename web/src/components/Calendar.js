@@ -462,13 +462,6 @@ const reviewContainer = css`
   }
 `
 
-const sortSelectedDays = selectedDays => {
-  // create a new array because .sort() modifies our original array
-  let temp = selectedDays.slice()
-  temp.sort((date1, date2) => date1.getTime() - date2.getTime())
-  return temp
-}
-
 const renderDayBoxes = ({
   dayLimit,
   selectedDays,
