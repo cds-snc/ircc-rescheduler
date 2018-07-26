@@ -8,6 +8,8 @@ describe('<FourOhFourPage />', () => {
   it('can be instantiated', () => {
     const wrapper = shallow(<FourOhFourPage match={{ path: '/404' }} />)
     // this is because our custom H1 component has a Trans component inside of it
-    expect(wrapper.find(H1).props().children.props.id).toEqual('Page not found')
+    expect(wrapper.find(H1).props().children.props.id).toEqual(
+      'Page not found.',
+    )
   })
 })
