@@ -13,9 +13,10 @@
     "compile": "NODE_ENV=development lingui compile",
     "add-locale": "lingui add-locale",
     "stats": "BUNDLE_CHECK=true yarn build",
-    "cypress": "cypress open",
-    "ci:dev": "start-server-and-test dev http://localhost:3004 cypress",
-    "ci:prod": "start-server-and-test start http://localhost:3004 cypress"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "ci:dev": "start-server-and-test dev http://localhost:3004 cypress:open",
+    "ci:prod": "start-server-and-test start http://localhost:3004 cypress:run"
   },
   "dependencies": {
     "@cdssnc/gcui": "^0.0.30",
