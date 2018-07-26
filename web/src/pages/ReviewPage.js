@@ -5,8 +5,9 @@ import { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
 import { H1, theme, TopContainer } from '../styles'
-import Chevron from '../components/Chevron'
 import Layout from '../components/Layout'
+import Title, { matchPropTypes } from '../components/Title'
+import Chevron from '../components/Chevron'
 import Summary from '../components/Summary'
 import Reminder from '../components/Reminder'
 import SubmissionForm from '../components/SubmissionForm'
@@ -65,6 +66,7 @@ class ReviewPage extends React.Component {
 
     return (
       <Layout contentClass={contentClass}>
+        <Title path={this.props.match.path} />
         <TopContainer>
           <NavLink className="chevron-link" to="/calendar">
             <Chevron dir="left" />
@@ -108,6 +110,7 @@ class ReviewPage extends React.Component {
 }
 ReviewPage.propTypes = {
   ...contextPropTypes,
+  ...matchPropTypes,
 }
 
 export default withContext(ReviewPage)

@@ -23,6 +23,7 @@ import {
 import Validator from 'validatorjs'
 import { trimInput } from '../utils/cleanInput'
 import Layout from '../components/Layout'
+import Title, { matchPropTypes } from '../components/Title'
 import Button from '../components/forms/Button'
 import CalendarAdapter from '../components/Calendar'
 import Chevron from '../components/Chevron'
@@ -69,9 +70,10 @@ const fullWidth = css`
   width: 100% !important;
 `
 
-const CalHeader = ({ locale = 'en' }) => {
+const CalHeader = ({ locale = 'en', path }) => {
   return (
     <div>
+      <Title path={path} />
       <TopContainer>
         <nav>
           <NavLink className="chevron-link" to="/register">
@@ -100,6 +102,7 @@ const CalHeader = ({ locale = 'en' }) => {
 
 CalHeader.propTypes = {
   locale: PropTypes.string,
+  path: PropTypes.string.isRequired,
 }
 
 const CalBottom = ({ submit }) => {
@@ -189,7 +192,7 @@ class CalendarPage extends Component {
 
     return (
       <Layout>
-        <CalHeader locale={locale} />
+        <CalHeader locale={locale} path={this.props.match.path} />
         <Form
           onSubmit={this.onSubmit}
           initialValues={calendar}
@@ -275,6 +278,7 @@ class CalendarPage extends Component {
 }
 CalendarPage.propTypes = {
   ...contextPropTypes,
+  ...matchPropTypes,
   history: PropTypes.any,
   submit: PropTypes.func,
   locale: PropTypes.string,
@@ -316,7 +320,7 @@ class NoJS extends Component {
 
     return (
       <Layout>
-        <CalHeader locale={locale} />
+        <CalHeader locale={locale} path={this.props.match.path} />
         {Object.keys(errorsNoJS).length ? (
           <ErrorList message={errorsNoJS.selectedDays}>
             <a href="#selectedDays-form">Calendar</a>
@@ -353,6 +357,7 @@ class NoJS extends Component {
 }
 NoJS.propTypes = {
   ...contextPropTypes,
+  ...matchPropTypes,
   location: PropTypes.object,
 }
 
