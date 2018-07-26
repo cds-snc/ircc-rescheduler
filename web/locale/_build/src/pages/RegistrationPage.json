@@ -7,7 +7,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        234
+        233
       ]
     ]
   },
@@ -19,7 +19,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        257
+        256
       ]
     ]
   },
@@ -31,7 +31,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        284
+        283
       ]
     ]
   },
@@ -51,7 +51,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        368
+        367
       ]
     ]
   },
@@ -63,7 +63,15 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        194
+        193
+      ]
+    ]
+  },
+  "First, provide some basic information:": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        176
       ]
     ]
   },
@@ -71,7 +79,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        245
+        244
       ]
     ]
   },
@@ -79,7 +87,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        268
+        267
       ]
     ]
   },
@@ -87,7 +95,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        295
+        294
       ]
     ]
   },
@@ -95,7 +103,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        320
+        319
       ]
     ]
   },
@@ -103,7 +111,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        328
+        327
       ]
     ]
   },
@@ -111,7 +119,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        336
+        335
       ]
     ]
   },
@@ -119,7 +127,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        344
+        343
       ]
     ]
   },
@@ -127,7 +135,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        352
+        351
       ]
     ]
   },
@@ -135,7 +143,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        381
+        380
       ]
     ]
   },
@@ -143,7 +151,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        394
+        393
       ]
     ]
   }
