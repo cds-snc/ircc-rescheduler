@@ -1,17 +1,9 @@
 {
-  "Request a new citizenship appointment": {
-    "origin": [
-      [
-        "src/components/LanguageSwitcher.js",
-        68
-      ]
-    ]
-  },
   "Language Selection": {
     "origin": [
       [
         "src/components/LanguageSwitcher.js",
-        71
+        70
       ]
     ]
   }

@@ -17,7 +17,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        538
+        533
       ]
     ]
   },
@@ -26,7 +26,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        625
+        623
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        635
+        633
       ]
     ]
   },
@@ -102,25 +102,25 @@
       ]
     ]
   },
-  "Request a new citizenship appointment": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/LanguageSwitcher.js",
-        68
-      ],
-      [
-        "src/components/Layout.js",
-        102
-      ]
-    ]
-  },
   "Language Selection": {
     "translation": "",
     "origin": [
       [
         "src/components/LanguageSwitcher.js",
-        71
+        70
+      ]
+    ]
+  },
+  "Request a new citizenship appointment": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Layout.js",
+        102
+      ],
+      [
+        "src/components/Title.js",
+        13
       ]
     ]
   },
@@ -246,11 +246,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        87
+        89
       ],
       [
         "src/pages/RegistrationPage.js",
-        225
+        234
       ]
     ]
   },
@@ -280,11 +280,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        91
+        93
       ],
       [
         "src/pages/RegistrationPage.js",
-        275
+        284
       ]
     ]
   },
@@ -327,6 +327,73 @@
       ]
     ]
   },
+  "Provide some basic information": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Title.js",
+        21
+      ]
+    ]
+  },
+  "Select 3 days you’re available": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Title.js",
+        24
+      ]
+    ]
+  },
+  "Review your request": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Title.js",
+        27
+      ]
+    ]
+  },
+  "Request received": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Title.js",
+        30
+      ]
+    ]
+  },
+  "Request cancelled": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Title.js",
+        33
+      ]
+    ]
+  },
+  "Something went wrong": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Title.js",
+        37
+      ]
+    ]
+  },
+  "Page not found": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Title.js",
+        41
+      ],
+      [
+        "src/pages/FourOhFourPage.js",
+        22
+      ]
+    ]
+  },
   "Travel": {
     "translation": "",
     "origin": [
@@ -336,7 +403,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        34
+        35
       ]
     ]
   },
@@ -345,11 +412,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        79
+        81
       ],
       [
         "src/pages/ReviewPage.js",
-        71
+        73
       ]
     ]
   },
@@ -358,7 +425,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        84
+        86
       ]
     ]
   },
@@ -367,24 +434,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        89
+        91
       ]
     ]
   },
   "3 days": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        91
-      ],
-      [
-        "src/pages/LandingPage.js",
-        128
-      ]
-    ]
-  },
-  "you’re available between": {
     "translation": "",
     "origin": [
       [
@@ -397,16 +451,29 @@
       ]
     ]
   },
+  "you’re available between": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        95
+      ],
+      [
+        "src/pages/LandingPage.js",
+        132
+      ]
+    ]
+  },
   "and": {
     "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        94
+        96
       ],
       [
         "src/pages/LandingPage.js",
-        131
+        133
       ]
     ]
   },
@@ -415,7 +482,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        110
+        113
       ]
     ]
   },
@@ -424,7 +491,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        218
+        221
       ]
     ]
   },
@@ -433,7 +500,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        226
+        229
       ]
     ]
   },
@@ -442,11 +509,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        263
+        266
       ],
       [
         "src/pages/CalendarPage.js",
-        343
+        347
       ]
     ]
   },
@@ -455,7 +522,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        297
+        301
       ],
       [
         "src/validation.js",
@@ -472,7 +539,7 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        34
+        36
       ]
     ]
   },
@@ -481,7 +548,7 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        37
+        39
       ]
     ]
   },
@@ -490,7 +557,7 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        40
+        42
       ]
     ]
   },
@@ -499,11 +566,11 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        45
+        47
       ],
       [
         "src/pages/ConfirmationPage.js",
-        103
+        105
       ]
     ]
   },
@@ -512,7 +579,7 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        48
+        50
       ]
     ]
   },
@@ -521,7 +588,7 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        54
+        56
       ]
     ]
   },
@@ -530,11 +597,11 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        62
+        64
       ],
       [
         "src/pages/ConfirmationPage.js",
-        116
+        118
       ]
     ]
   },
@@ -543,7 +610,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        39
+        40
       ]
     ]
   },
@@ -552,7 +619,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        48
+        49
       ]
     ]
   },
@@ -561,7 +628,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        91
+        93
       ]
     ]
   },
@@ -570,7 +637,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        96
+        98
       ]
     ]
   },
@@ -579,7 +646,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        106
+        108
       ]
     ]
   },
@@ -588,7 +655,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        107
+        109
       ]
     ]
   },
@@ -597,7 +664,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        109
+        111
       ]
     ]
   },
@@ -606,7 +673,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        28
+        29
       ]
     ]
   },
@@ -615,7 +682,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        31
+        32
       ]
     ]
   },
@@ -624,7 +691,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        33
+        34
       ]
     ]
   },
@@ -633,7 +700,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        35
+        36
       ]
     ]
   },
@@ -642,7 +709,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        43
+        44
       ]
     ]
   },
@@ -651,7 +718,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        44
+        45
       ]
     ]
   },
@@ -660,7 +727,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        49
+        50
       ]
     ]
   },
@@ -669,7 +736,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        60
+        61
       ]
     ]
   },
@@ -678,7 +745,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        64
+        65
       ]
     ]
   },
@@ -687,20 +754,11 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        78
+        80
       ],
       [
         "src/pages/FourOhFourPage.js",
-        30
-      ]
-    ]
-  },
-  "Page not found": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/FourOhFourPage.js",
-        20
+        32
       ]
     ]
   },
@@ -709,7 +767,7 @@
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
-        23
+        25
       ]
     ]
   },
@@ -718,7 +776,7 @@
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
-        26
+        28
       ]
     ]
   },
@@ -727,7 +785,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        99
+        101
       ]
     ]
   },
@@ -736,7 +794,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        106
+        108
       ]
     ]
   },
@@ -745,7 +803,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        111
+        113
       ]
     ]
   },
@@ -754,7 +812,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        117
+        119
       ]
     ]
   },
@@ -763,7 +821,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        126
+        128
       ]
     ]
   },
@@ -772,7 +830,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        138
+        140
       ]
     ]
   },
@@ -781,7 +839,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        146
+        148
       ]
     ]
   },
@@ -790,11 +848,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        89
+        91
       ],
       [
         "src/pages/RegistrationPage.js",
-        248
+        257
       ]
     ]
   },
@@ -803,7 +861,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        93
+        95
       ]
     ]
   },
@@ -812,11 +870,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        95
+        97
       ],
       [
         "src/pages/RegistrationPage.js",
-        358
+        368
       ]
     ]
   },
@@ -825,11 +883,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        140
+        148
       ],
       [
         "src/pages/RegistrationPage.js",
-        185
+        194
       ]
     ]
   },
@@ -838,7 +896,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        236
+        245
       ]
     ]
   },
@@ -847,7 +905,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        259
+        268
       ]
     ]
   },
@@ -856,7 +914,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        286
+        295
       ]
     ]
   },
@@ -865,7 +923,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        310
+        320
       ]
     ]
   },
@@ -874,11 +932,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        318
+        328
       ],
       [
         "src/pages/ReviewPage.js",
-        38
+        39
       ]
     ]
   },
@@ -887,7 +945,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        326
+        336
       ]
     ]
   },
@@ -896,11 +954,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        334
+        344
       ],
       [
         "src/pages/ReviewPage.js",
-        36
+        37
       ]
     ]
   },
@@ -909,11 +967,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        342
+        352
       ],
       [
         "src/pages/ReviewPage.js",
-        42
+        43
       ]
     ]
   },
@@ -922,7 +980,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        371
+        381
       ]
     ]
   },
@@ -931,7 +989,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        384
+        394
       ]
     ]
   },
@@ -940,7 +998,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        40
+        41
       ]
     ]
   },
@@ -949,7 +1007,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        75
+        77
       ]
     ]
   },
@@ -958,7 +1016,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        88
+        90
       ]
     ]
   },
