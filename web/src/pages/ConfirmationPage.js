@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { H1, H2, visuallyhidden, theme } from '../styles'
+import { H1, H2, theme } from '../styles'
 import styled, { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
@@ -86,7 +86,7 @@ class ConfirmationPage extends React.Component {
     }
 
     return (
-      <Layout contentClass={contentClass} headerClass={visuallyhidden}>
+      <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <section>
           <H1>
