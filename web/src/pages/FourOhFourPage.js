@@ -19,7 +19,7 @@ class FourOhFourPage extends React.Component {
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <H1>
-          <Trans>Page not found</Trans>
+          <Trans>Page not found.</Trans>
         </H1>
         <H2>
           <Trans>Sorry, the page you are looking for doesn’t exist.</Trans>
