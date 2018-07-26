@@ -1,7 +1,7 @@
 import React from 'react'
 import { Trans } from 'lingui-react'
 import { NavLink } from 'react-router-dom'
-import { H1, visuallyhidden, theme } from '../styles'
+import { H1, theme } from '../styles'
 import IRCCAbbr from '../components/IRCCAbbr'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
@@ -74,7 +74,7 @@ export class ErrorPageContent extends React.Component {
 class ErrorPage extends React.Component {
   render() {
     return (
-      <Layout contentClass={contentClass} headerClass={visuallyhidden}>
+      <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <NavLink className="chevron-link" to="/">
           <Chevron dir="left" /> <Trans>Home</Trans>
