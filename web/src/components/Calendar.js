@@ -349,6 +349,10 @@ const daySelection = css`
   padding: ${theme.spacing.lg} ${theme.spacing.lg} 0 ${theme.spacing.lg};
   width: 20rem;
 
+  button {
+    padding: 0;
+  }
+
   li {
     border-top: 1px solid ${theme.colour.black};
     padding-bottom: ${theme.spacing.md};
@@ -419,6 +423,13 @@ const triangle = css`
   `)};
 `
 
+const calendarContainerTop = css`
+  ${calendarContainer};
+  ${mediaQuery.lg(css`
+    flex-direction: column-reverse;
+  `)};
+`
+
 const renderDayBoxes = ({
   dayLimit,
   selectedDays,
@@ -484,6 +495,10 @@ class Calendar extends Component {
     this.state = {
       errorMessage: null,
     }
+    this.threeDatesArePicked =
+      this.props.input.value &&
+      Array.isArray(this.props.input.value) &&
+      this.props.input.value.length === 3
   }
 
   removeDayOnClickOrKeyPress = day => e => {
@@ -587,7 +602,11 @@ class Calendar extends Component {
             id="selectedDays-error"
           />
         </div>
-        <div className={calendarContainer}>
+        <div
+          className={
+            this.threeDatesArePicked ? calendarContainerTop : calendarContainer
+          }
+        >
           <DayPicker
             className={css`
               ${dayPickerDefault} ${dayPicker};
