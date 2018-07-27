@@ -1,6 +1,6 @@
 {
   "name": "ircc-rescheduler",
-  "version": "1.5.0",
+  "version": "1.0.2",
   "license": "MIT",
   "scripts": {
     "build": "razzle build",
