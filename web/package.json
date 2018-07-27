@@ -14,7 +14,7 @@
     "add-locale": "lingui add-locale",
     "stats": "BUNDLE_CHECK=true yarn build",
     "sentry-map": "sentry-cli releases -o canadian-digital-service -p ircc-rescheduler files  $RAZZLE_STAGE  upload-sourcemaps ./build/ --rewrite",
-    "sm:dev": "RAZZLE_STAGE=development yarn sentry-map",
+    "sm:stg": "RAZZLE_STAGE=staging yarn sentry-map",
     "sm:prod": "RAZZLE_STAGE=production yarn sentry-map"
 
   },
