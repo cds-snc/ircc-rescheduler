@@ -173,8 +173,7 @@ class RegistrationPage extends React.Component {
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <h1 className={visuallyhidden}>
-          First, supply some personal information and tell us why you need a new
-          appointment.
+          <Trans>First, provide some basic information:</Trans>
         </h1>
         {/*
           the first checkbox / radio on the page doesn't have its CSS applied correctly

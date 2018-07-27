@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { injectGlobal } from 'emotion'
 import { css } from 'react-emotion'
-import { Trans } from 'lingui-react'
 import { theme, mediaQuery, Content } from '../styles'
 import PageHeader from './PageHeader'
 import FederalBanner from './FederalBanner'
@@ -98,9 +97,7 @@ class Layout extends React.Component {
         >
           <div role="banner">
             <FederalBanner />
-            <PageHeader headerClass={this.props.headerClass}>
-              <Trans>Request a new citizenship appointment</Trans>
-            </PageHeader>
+            <PageHeader>{this.props.header}</PageHeader>
           </div>
           <main role="main">
             <Content className={this.props.contentClass || ''}>
@@ -117,7 +114,7 @@ class Layout extends React.Component {
 Layout.propTypes = {
   children: PropTypes.any.isRequired,
   contentClass: PropTypes.string,
-  headerClass: PropTypes.string,
+  header: PropTypes.element,
 }
 
 export default Layout

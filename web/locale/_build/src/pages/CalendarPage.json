@@ -7,7 +7,7 @@
       ]
     ]
   },
-  "Citizenship appointments are scheduled on Wednesdays and Thursdays.": {
+  "Select": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -15,19 +15,11 @@
       ]
     ]
   },
-  "Select": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        91
-      ]
-    ]
-  },
   "3 days": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        93
+        88
       ]
     ]
   },
@@ -35,11 +27,19 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        95
+        90
       ]
     ]
   },
   "and": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        91
+      ]
+    ]
+  },
+  "Citizenship appointments are scheduled on Wednesdays and Thursdays.": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -51,7 +51,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        113
+        114
       ]
     ]
   },
@@ -59,7 +59,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        221
+        222
       ]
     ]
   },
@@ -67,7 +67,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        229
+        230
       ]
     ]
   },
@@ -75,11 +75,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        266
+        267
       ],
       [
         "src/pages/CalendarPage.js",
-        347
+        348
       ]
     ]
   },
@@ -87,7 +87,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        301
+        302
       ]
     ]
   }
