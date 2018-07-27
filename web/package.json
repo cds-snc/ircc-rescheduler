@@ -13,7 +13,7 @@
     "compile": "NODE_ENV=development lingui compile",
     "add-locale": "lingui add-locale",
     "stats": "BUNDLE_CHECK=true yarn build",
-    "push-source-map": "sentry-cli releases  -o canadian-digital-service -p ircc-rescheduler files  RAZZLE_STAGE  upload-sourcemaps ../build/"
+    "push-source-map": "sentry-cli releases -o canadian-digital-service -p ircc-rescheduler files  RAZZLE_STAGE  upload-sourcemaps ./build/ --rewrite"
   },
   "dependencies": {
     "@cdssnc/gcui": "^0.0.30",
