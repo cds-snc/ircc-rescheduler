@@ -31,7 +31,10 @@ Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
 
     return data
   },
-  release: process.env.RAZZLE_STAGE,
+  release:
+    process.env.RAZZLE_STAGE === undefined
+      ? 'release-not-defined'
+      : process.env.RAZZLE_STAGE,
 }).install()
 
 // eslint-disable-next-line security/detect-non-literal-require
