@@ -24,6 +24,7 @@ messages.map(({ component, alert, toString, wrappingEl }) => {
       expect(wrapper.find(wrappingEl).text()).toEqual('')
       expect(wrapper.props().id).toBe(undefined)
       expect(wrapper.props().className).toMatch(/^empty/)
+      expect(wrapper.find('h2').length).toBe(0)
     })
 
     it('renders with a string message and an id', () => {
