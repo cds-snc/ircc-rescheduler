@@ -123,7 +123,7 @@ class ErrorMessage extends React.Component {
         aria-live="assertive"
         aria-atomic="true"
       >
-        <h2>{this.props.message}</h2>
+        {this.props.message ? <h2>{this.props.message}</h2> : ''}
       </div>
     )
   }

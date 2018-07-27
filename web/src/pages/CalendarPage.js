@@ -82,19 +82,20 @@ const CalHeader = ({ locale = 'en', path }) => {
           </NavLink>
         </nav>
       </TopContainer>
-      <CalendarHeader>
-        <Trans>
-          Citizenship appointments are scheduled on Wednesdays and Thursdays.
-        </Trans>
-      </CalendarHeader>
-      <CalendarSubheader id="calendar-sub-header">
+      <CalendarHeader id="calendar-header">
         <Trans>Select</Trans>{' '}
         <strong>
           <Trans>3 days</Trans>
         </strong>{' '}
         <Trans>you’re available between</Trans>{' '}
         {getStartMonthName(new Date(), locale)} <Trans>and</Trans>{' '}
-        {getEndMonthName(new Date(), locale)}
+        {getEndMonthName(new Date(), locale)}.
+      </CalendarHeader>
+
+      <CalendarSubheader>
+        <Trans>
+          Citizenship appointments are scheduled on Wednesdays and Thursdays.
+        </Trans>
       </CalendarSubheader>
     </div>
   )

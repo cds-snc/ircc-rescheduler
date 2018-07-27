@@ -41,8 +41,8 @@ const pageTitle = css`
   `)};
 `
 
-const PageHeader = ({ children, headerClass = '', i18n }) => (
-  <div className={headerClass ? skinnyBanner : bigBanner}>
+const PageHeader = ({ children, i18n }) => (
+  <div className={children ? bigBanner : skinnyBanner}>
     <PhaseBanner phase="beta">
       <Trans>This is a new service, help us improve by</Trans>{' '}
       <a
@@ -55,13 +55,12 @@ const PageHeader = ({ children, headerClass = '', i18n }) => (
         <Trans>sending your feedback</Trans>
       </a>.
     </PhaseBanner>
-    <div className={headerClass ? headerClass : pageTitle}>{children}</div>
+    {children ? <div className={pageTitle}>{children}</div> : ''}
   </div>
 )
 PageHeader.propTypes = {
   i18n: PropTypes.object,
-  children: PropTypes.any.isRequired,
-  headerClass: PropTypes.string,
+  children: PropTypes.any,
 }
 
 const PageHeaderI18N = withI18n()(PageHeader)

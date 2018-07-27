@@ -17,7 +17,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        533
+        548
       ]
     ]
   },
@@ -26,7 +26,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        623
+        642
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        633
+        652
       ]
     ]
   },
@@ -121,6 +121,10 @@
       [
         "src/components/Title.js",
         13
+      ],
+      [
+        "src/pages/LandingPage.js",
+        100
       ]
     ]
   },
@@ -250,7 +254,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        234
+        233
       ]
     ]
   },
@@ -284,7 +288,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        284
+        283
       ]
     ]
   },
@@ -387,10 +391,6 @@
       [
         "src/components/Title.js",
         41
-      ],
-      [
-        "src/pages/FourOhFourPage.js",
-        22
       ]
     ]
   },
@@ -420,21 +420,12 @@
       ]
     ]
   },
-  "Citizenship appointments are scheduled on Wednesdays and Thursdays.": {
-    "translation": "Les rendez-vous d’examen de citoyenneté ont lieu les mercredis et les jeudis.",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        86
-      ]
-    ]
-  },
   "Select": {
     "translation": "Choisissez",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        91
+        86
       ]
     ]
   },
@@ -443,11 +434,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        93
+        88
       ],
       [
         "src/pages/LandingPage.js",
-        130
+        136
       ]
     ]
   },
@@ -456,11 +447,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        95
+        90
       ],
       [
         "src/pages/LandingPage.js",
-        132
+        138
       ]
     ]
   },
@@ -469,11 +460,20 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        96
+        91
       ],
       [
         "src/pages/LandingPage.js",
-        133
+        139
+      ]
+    ]
+  },
+  "Citizenship appointments are scheduled on Wednesdays and Thursdays.": {
+    "translation": "Les rendez-vous d’examen de citoyenneté ont lieu les mercredis et les jeudis.",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        96
       ]
     ]
   },
@@ -482,7 +482,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        113
+        114
       ]
     ]
   },
@@ -491,7 +491,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        221
+        222
       ]
     ]
   },
@@ -500,7 +500,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        229
+        230
       ]
     ]
   },
@@ -509,11 +509,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        266
+        267
       ],
       [
         "src/pages/CalendarPage.js",
-        347
+        348
       ]
     ]
   },
@@ -522,7 +522,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        301
+        302
       ],
       [
         "src/validation.js",
@@ -762,6 +762,15 @@
       ]
     ]
   },
+  "Page not found.": {
+    "translation": "Page non trouvée.",
+    "origin": [
+      [
+        "src/pages/FourOhFourPage.js",
+        22
+      ]
+    ]
+  },
   "Sorry, the page you are looking for doesn’t exist.": {
     "translation": "Désolé, la page que vous cherchez n’existe pas.",
     "origin": [
@@ -785,7 +794,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        101
+        107
       ]
     ]
   },
@@ -794,7 +803,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        108
+        114
       ]
     ]
   },
@@ -803,7 +812,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        113
+        119
       ]
     ]
   },
@@ -812,7 +821,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        119
+        125
       ]
     ]
   },
@@ -821,7 +830,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        128
+        134
       ]
     ]
   },
@@ -830,7 +839,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        140
+        146
       ]
     ]
   },
@@ -839,7 +848,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        148
+        154
       ]
     ]
   },
@@ -852,7 +861,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        257
+        256
       ]
     ]
   },
@@ -874,7 +883,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        368
+        367
       ]
     ]
   },
@@ -887,7 +896,16 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        194
+        193
+      ]
+    ]
+  },
+  "First, provide some basic information:": {
+    "translation": "D'abord, veuillez fournir quelques renseignements de base :",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        176
       ]
     ]
   },
@@ -896,7 +914,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        245
+        244
       ]
     ]
   },
@@ -905,7 +923,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        268
+        267
       ]
     ]
   },
@@ -914,7 +932,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        295
+        294
       ]
     ]
   },
@@ -923,7 +941,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        320
+        319
       ]
     ]
   },
@@ -932,7 +950,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        328
+        327
       ],
       [
         "src/pages/ReviewPage.js",
@@ -945,7 +963,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        336
+        335
       ]
     ]
   },
@@ -954,7 +972,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        344
+        343
       ],
       [
         "src/pages/ReviewPage.js",
@@ -967,7 +985,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        352
+        351
       ],
       [
         "src/pages/ReviewPage.js",
@@ -980,7 +998,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        381
+        380
       ]
     ]
   },
@@ -989,7 +1007,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        394
+        393
       ]
     ]
   },
