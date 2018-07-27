@@ -25,19 +25,6 @@ module.exports = {
         }),
       )
     }
-    /* if (process.env.RAZZLE_SENTRY_API) {
-      const SentryPlugin = require('@sentry/webpack-plugin')
-      config.plugins.push(
-        new SentryPlugin({
-          organization: 'canadian-digital-service',
-          project: 'ircc-rescheduler',
-          release: 'process.env.RAZZLE_SENTRY_STAGE',
-          include: '.',
-          ignore: ['node_modules', 'webpack.config.js'],
-          apiKey: process.env.RAZZLE_SENTRY_API,
-        }),
-      )
-    }*/
     return config
   },
 }
