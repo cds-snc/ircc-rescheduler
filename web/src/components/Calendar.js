@@ -542,20 +542,7 @@ class Calendar extends Component {
     if (!selected) {
       // If we have already selected the maximum number of days,
       // add an error message to the internal state and then return early
-
-      console.log(
-        'Show too many days err?',
-        selectedDays,
-        selectedDays.length >= dayLimit,
-      )
-
       if (selectedDays.length >= dayLimit) {
-        console.log(
-          'Show too many days err',
-          selectedDays,
-          selectedDays.length,
-          dayLimit,
-        )
         await this.setState({
           errorMessage: (
             <Trans>
