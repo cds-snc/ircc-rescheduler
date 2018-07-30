@@ -13,6 +13,11 @@
     "compile": "NODE_ENV=development lingui compile",
     "add-locale": "lingui add-locale",
     "stats": "BUNDLE_CHECK=true yarn build",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "ci:start": "yarn build && yarn start",
+    "ci:dev": "start-server-and-test dev http://localhost:3004 cypress:open",
+    "ci:prod": "start-server-and-test ci:start http://localhost:3004 cypress:run",
     "sentry-map": "sentry-cli releases -o canadian-digital-service -p ircc-rescheduler files  $RAZZLE_STAGE  upload-sourcemaps ./build/ --rewrite",
     "sm:stg": "RAZZLE_STAGE=staging yarn sentry-map",
     "sm:prod": "RAZZLE_STAGE=production yarn sentry-map"
@@ -61,6 +66,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-lingui-react": "^1.0.13",
+    "cypress": "^3.0.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^5.2.0",
@@ -78,6 +84,7 @@
     "lingui-cli": "^1.4.4",
     "prettier": "^1.13.7",
     "raf": "^3.4.0",
+    "start-server-and-test": "^1.5.0",
     "supertest": "^3.1.0",
     "webpack-bundle-analyzer": "^2.13.1"
   },

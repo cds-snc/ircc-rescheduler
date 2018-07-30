@@ -5,3 +5,4 @@ node_modules
 *.swp
 .env*
 reports
+cypress/screenshots
