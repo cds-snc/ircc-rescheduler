@@ -1,40 +1,4 @@
 {
-  "Please select another date": {
-    "translation": "Veuillez sélectionner une autre date",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        462
-      ]
-    ]
-  },
-  "Your 2 selected days, select 1 more:": {
-    "translation": "Vos 2 jours sélectionnés, sélectionnez-en 1 autre :",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        645
-      ]
-    ]
-  },
-  "Your 1 selected day, select 2 more:": {
-    "translation": "Votre jour sélectionné, sélectionnez-en 2 autres :",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        647
-      ]
-    ]
-  },
-  "Select 3 days:": {
-    "translation": "Sélectionnez 3 jours",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        649
-      ]
-    ]
-  },
   "Immigration, Refugees and Citizenship Canada": {
     "translation": "Immigration, Réfugiés et Citoyenneté Canada",
     "origin": [
@@ -48,12 +12,21 @@
       ]
     ]
   },
+  "Please select another date": {
+    "translation": "Veuillez sélectionner une autre date",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        461
+      ]
+    ]
+  },
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "translation": "Vous ne pouvez pas sélectionner plus de 3 dates. Pour modifier vos choix, veuillez d’abord supprimer des dates.",
     "origin": [
       [
         "src/components/Calendar.js",
-        548
+        546
       ]
     ]
   },
@@ -62,7 +35,34 @@
     "origin": [
       [
         "src/components/Calendar.js",
+        641
+      ]
+    ]
+  },
+  "Your 2 selected days, select 1 more:": {
+    "translation": "Vos 2 jours sélectionnés, sélectionnez-en 1 autre :",
+    "origin": [
+      [
+        "src/components/Calendar.js",
         643
+      ]
+    ]
+  },
+  "Your 1 selected day, select 2 more:": {
+    "translation": "Votre jour sélectionné, sélectionnez-en 2 autres :",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        645
+      ]
+    ]
+  },
+  "Select 3 days:": {
+    "translation": "Sélectionnez 3 jours",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        647
       ]
     ]
   },
@@ -71,7 +71,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        660
+        658
       ]
     ]
   },
