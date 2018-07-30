@@ -18,7 +18,7 @@ const registerActions = [
 
 const visit = [
   { url: '/' },
-  { url: '/register', registerActions },
+  { url: '/register', actions: registerActions },
   { url: '/calendar' },
   { url: '/review' },
   { url: '/confirmation' },
