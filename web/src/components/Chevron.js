@@ -12,6 +12,7 @@ const Chevron = ({ width = 8, height = 8, dir = 'right' }) => {
       transform={flip}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 9.42 15.62"
+      aria-hidden="true"
     >
       <g>
         <path d="M6.63,7.81,1,.5H3.17L8.79,7.81,3.17,15.12H1.05Z" />
