@@ -319,11 +319,6 @@ const dayBox = css`
       color: ${theme.colour.black};
       font-size: ${theme.font.md};
     `)};
-
-    &.empty {
-      * {
-      }
-    }
   }
 
   button {
