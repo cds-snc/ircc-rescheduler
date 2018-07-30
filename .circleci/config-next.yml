@@ -57,11 +57,3 @@ workflows:
   build_and_deploy:
     jobs:
       - web
-      - deploy_web:
-          requires:
-            - web
-          filters:
-            branches:
-              only:
-                - master
-                - add-deploy
