@@ -1,9 +1,17 @@
 {
+  "Please select another date": {
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        461
+      ]
+    ]
+  },
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "origin": [
       [
         "src/components/Calendar.js",
-        548
+        546
       ]
     ]
   },
@@ -11,7 +19,31 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        642
+        641
+      ]
+    ]
+  },
+  "Your 2 selected days, select 1 more:": {
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        643
+      ]
+    ]
+  },
+  "Your 1 selected day, select 2 more:": {
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        645
+      ]
+    ]
+  },
+  "Select 3 days:": {
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        647
       ]
     ]
   },
@@ -19,7 +51,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        652
+        658
       ]
     ]
   }
