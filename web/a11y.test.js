@@ -21,6 +21,11 @@ const visit = [
   { url: '/register', registerActions },
   { url: '/calendar' },
   { url: '/review' },
+  { url: '/confirmation' },
+  { url: '/confirmation/error' },
+  { url: '/cancel' },
+  { url: '/error' },
+  { url: '/404' },
 ]
 
 async function run() {
