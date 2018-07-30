@@ -457,7 +457,7 @@ const renderDayBoxes = ({
             )}`}
           >
             <div className={removeDate}>
-              <img src={MobileCancel} alt={removeDayAltText} />
+              <img src={MobileCancel} alt="" />
             </div>
           </button>
         </li>
