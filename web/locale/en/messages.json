@@ -1,4 +1,40 @@
 {
+  "Please select another date": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        462
+      ]
+    ]
+  },
+  "Your 2 selected days, select 1 more:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        645
+      ]
+    ]
+  },
+  "Your 1 selected day, select 2 more:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        647
+      ]
+    ]
+  },
+  "Select 3 days:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        649
+      ]
+    ]
+  },
   "Immigration, Refugees and Citizenship Canada": {
     "translation": "",
     "origin": [
@@ -26,7 +62,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        642
+        643
       ]
     ]
   },
@@ -35,7 +71,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        652
+        660
       ]
     ]
   },
