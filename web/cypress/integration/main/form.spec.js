@@ -35,7 +35,7 @@ context('Full Run-through', () => {
         .eq(2)
         .click({ force: true })
 
-      cy.get('#cal-form').submit({ force: true })
+      cy.get('#calendar-form').submit({ force: true })
 
       cy.url().should('contain', '/review')
 
