@@ -151,6 +151,11 @@ class CalendarPage extends Component {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
     this.validate = CalendarPage.validate
+    this.forceRender = this.forceRender.bind(this)
+  }
+
+  forceRender() {
+    this.forceUpdate()
   }
 
   async onSubmit(values, event) {
@@ -256,8 +261,15 @@ class CalendarPage extends Component {
                     name="selectedDays"
                     id="selectedDays"
                     tabIndex={-1}
-                    component={CalendarAdapter}
-                    dayLimit={DAY_LIMIT}
+                    render={({ input }) => {
+                      return (
+                        <CalendarAdapter
+                          forceRender={this.forceRender}
+                          input={input}
+                          dayLimit={DAY_LIMIT}
+                        />
+                      )
+                    }}
                   />
                 </div>
                 <CalBottom

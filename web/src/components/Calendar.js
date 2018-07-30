@@ -566,10 +566,14 @@ class Calendar extends Component {
     }
 
     this.props.input.value = selectedDays
+
     this.props.input.onChange(this.props.input.value)
+
     await this.setState({
       errorMessage: null,
     })
+
+    this.props.forceRender()
   }
 
   render() {
@@ -661,6 +665,7 @@ class Calendar extends Component {
 Calendar.propTypes = {
   ...FieldAdapterPropTypes,
   dayLimit: PropTypes.number.isRequired,
+  forceRender: PropTypes.function,
 }
 const CalendarAdapter = withI18n()(Calendar)
 export { CalendarAdapter as default, renderDayBoxes }
