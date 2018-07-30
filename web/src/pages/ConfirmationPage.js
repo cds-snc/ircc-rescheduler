@@ -106,7 +106,7 @@ class ConfirmationPage extends React.Component {
           </H2>
           <p>
             <Trans>By</Trans> {respondBy}
-            , <Trans>your local</Trans>
+            , <Trans>your local</Trans>{' '}
             <IRCCAbbr />{' '}
             <Trans>
               office will send you a new appointment, or email you to ask for
