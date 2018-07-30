@@ -7,12 +7,10 @@ jobs:
   web:
     docker:
       # specify the version you desire here
-      - image: circleci/node:9
-
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
+      - image: cypress/base:10
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
 
     working_directory: ~/repo/web
 
@@ -26,17 +24,20 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v2-dependencies-
 
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
 
       - save_cache:
-          paths:
-            - node_modules
           key: v2-dependencies-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
+            - /home/circleci/.cache
 
       # run tests!
       - run: yarn build
       - run: yarn test
       - run: yarn lint
+      - run: yarn ci:prod
 
   deploy_web:
     docker:
@@ -56,11 +57,3 @@ workflows:
   build_and_deploy:
     jobs:
       - web
-      - deploy_web:
-          requires:
-            - web
-          filters:
-            branches:
-              only:
-                - master
-                - add-deploy
