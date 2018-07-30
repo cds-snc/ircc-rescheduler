@@ -12,11 +12,6 @@ import {
 import parse from 'date-fns/parse'
 import addMonths from 'date-fns/add_months'
 import format from 'date-fns/format'
-import startOfMonth from 'date-fns/start_of_month'
-
-const firstDayNextMonth = () => {
-  return startOfMonth(addMonths(new Date(), 1))
-}
 
 const getDateAtIndex = (wrapper, index) => {
   return wrapper.find('.DayPicker-Day[aria-disabled=false]').at(index)
@@ -58,10 +53,41 @@ const dayMonthYear = date => {
   return format(parse(date), 'dddd, MMMM D, YYYY')
 }
 
+/* eslint-disable security/detect-object-injection */
+const collectDates = (accumulator, currentValue) => {
+  const index = getMonthNameAndYear(currentValue, 'en')
+  if (typeof accumulator[index] === 'undefined') {
+    accumulator[index] = []
+  }
+
+  accumulator[index].push(currentValue)
+
+  return accumulator
+}
+
+// find a month that has at least 3 dates we can use for tests
+const useMonth = dates => {
+  const groupedDates = dates.reduce(collectDates, {})
+
+  let month = false
+
+  Object.keys(groupedDates).forEach(function(key) {
+    if (month) {
+      return
+    }
+    if (groupedDates[key].length >= 3) {
+      month = groupedDates[key]
+    }
+  })
+
+  return month
+}
+/* eslint-enable security/detect-object-injection */
+
 const calDays = (date = new Date()) => {
   const startDate = parse(getStartDate(date))
   const endDate = parse(getEndDate(date))
-  return getValidDays(startDate, endDate)
+  return useMonth(getValidDays(startDate, endDate))
 }
 
 describe('<CalendarAdapter />', () => {
@@ -118,47 +144,51 @@ describe('<CalendarAdapter />', () => {
 
   it('selects a date when it is clicked', () => {
     const days = calDays()
-    const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
-    expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
+    const day1 = dayMonthYear(days[0])
+    const day2 = dayMonthYear(days[1])
 
+    const wrapper = mount(
+      <CalendarAdapter
+        {...defaultProps({
+          value: [new Date(days[1])],
+        })}
+      />,
+    )
+
+    expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
     clickFirstDate(wrapper)
-    expect(getDateStrings(wrapper)).toEqual(dayMonthYear(days[0]))
+    expect(getDateStrings(wrapper)).toEqual(`${day1} ${day2}`)
   })
 
   it('orders selected dates chronologically', () => {
-    const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
-    const count = wrapper.find('.DayPicker-Day[aria-disabled=false]').length
+    const days = calDays()
+    const day1 = dayMonthYear(days[0])
+    const day2 = dayMonthYear(days[1])
+    const day3 = dayMonthYear(days[2])
 
-    if (count < 3) {
-      // eslint-disable-next-line no-console
-      console.log(
-        'switched months so we have more days in month to work with',
-        count,
-      )
-
-      wrapper.find('.DayPicker-NavButton--next').simulate('click')
-    }
-    /* update the days to look for as we've now switched months */
-    let dates = calDays(firstDayNextMonth())
-
-    const day1 = dayMonthYear(dates[0])
-    const day2 = dayMonthYear(dates[1])
-    const day3 = dayMonthYear(dates[2])
+    const wrapper = mount(
+      <CalendarAdapter
+        {...defaultProps({
+          value: [new Date(days[0])],
+        })}
+      />,
+    )
 
     expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
 
     clickDate(wrapper, 2)
 
-    expect(getDateStrings(wrapper)).toEqual(day3)
+    expect(getDateStrings(wrapper)).toEqual(`${day1} ${day3}`)
 
     clickDate(wrapper, 1)
 
-    expect(getDateStrings(wrapper)).toEqual(`${day2} ${day3}`)
+    expect(getDateStrings(wrapper)).toEqual(`${day1} ${day2} ${day3}`)
 
     clickDate(wrapper, 0)
 
-    expect(getDateStrings(wrapper)).toEqual(`${day1} ${day2} ${day3}`)
+    expect(getDateStrings(wrapper)).toEqual(`${day2} ${day3}`)
   })
+
   it('unselects a date when it is clicked twice', () => {
     const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
 
@@ -171,30 +201,11 @@ describe('<CalendarAdapter />', () => {
   })
 
   it('will not select more days once the limit is reached', () => {
-    //
-    const tempWrapper = mount(<CalendarAdapter {...defaultProps()} />)
-    const count = tempWrapper.find('.DayPicker-Day[aria-disabled=false]').length
-
-    let dates = days
-
-    if (count < 2) {
-      // eslint-disable-next-line no-console
-      console.log(
-        'switched months so we have more days in month to work with',
-        count,
-      )
-
-      /* update the days to look for as we've now switched months */
-      dates = calDays(firstDayNextMonth())
-    }
-    //
-
-    // const day1 = dayMonthYear(dates[0])
-    const day2 = dayMonthYear(dates[1])
+    const day2 = dayMonthYear(days[1])
 
     const wrapper = mount(
       <CalendarAdapter
-        {...defaultProps({ value: [new Date(dates[1])], dayLimit: 1 })}
+        {...defaultProps({ value: [new Date(days[1])], dayLimit: 1 })}
       />,
     )
 
@@ -208,28 +219,12 @@ describe('<CalendarAdapter />', () => {
   })
 
   it('will remove maximum date error message if a date is unselected', () => {
-    const tempWrapper = mount(<CalendarAdapter {...defaultProps()} />)
-    const count = tempWrapper.find('.DayPicker-Day[aria-disabled=false]').length
-
-    let dates = days
-
-    if (count < 2) {
-      // eslint-disable-next-line no-console
-      console.log(
-        'switched months so we have more days in month to work with',
-        count,
-      )
-
-      /* update the days to look for as we've now switched months */
-      dates = calDays(firstDayNextMonth())
-    }
-
-    const day2 = dayMonthYear(dates[1])
+    const day2 = dayMonthYear(days[1])
 
     const wrapper = mount(
       <CalendarAdapter
         {...defaultProps({
-          value: [new Date(dates[1])],
+          value: [new Date(days[1])],
           dayLimit: 1,
         })}
       />,
@@ -249,45 +244,18 @@ describe('<CalendarAdapter />', () => {
     expect(getErrorMessageString(wrapper)).toEqual('')
   })
 
-  it.skip('will allow more days to be selected once a day is unselected', () => {
-    let dates = days
-
-    const tempWrapper = mount(
-      <CalendarAdapter
-        {...defaultProps({
-          value: [new Date(dates[1])],
-          dayLimit: 1,
-        })}
-      />,
-    )
-    const count = tempWrapper.find('.DayPicker-Day[aria-disabled=false]').length
-
-    if (count < 2) {
-      // eslint-disable-next-line no-console
-      console.log(
-        'switched months so we have more days in month to work with',
-        count,
-      )
-
-      /* update the days to look for as we've now switched months */
-      dates = calDays(firstDayNextMonth())
-    }
-
-    const day1 = dayMonthYear(dates[0])
-    const day2 = dayMonthYear(dates[1])
+  it('will allow more days to be selected once a day is unselected', () => {
+    const day1 = dayMonthYear(days[0])
+    const day2 = dayMonthYear(days[1])
 
     const wrapper = mount(
       <CalendarAdapter
         {...defaultProps({
-          value: [new Date(dates[1])],
+          value: [new Date(days[1])],
           dayLimit: 1,
         })}
       />,
     )
-
-    if (count < 2) {
-      wrapper.find('.DayPicker-NavButton--next').simulate('click')
-    }
 
     expect(getDateStrings(wrapper)).toEqual(day2)
 
@@ -299,7 +267,7 @@ describe('<CalendarAdapter />', () => {
     expect(getDateStrings(wrapper)).toEqual(day1)
   })
 
-  it.skip('will keep pre-filled dates when clicking new ones', () => {
+  it('will keep pre-filled dates when clicking new ones', () => {
     const day1 = dayMonthYear(days[0])
     const day2 = dayMonthYear(days[1])
     const day3 = dayMonthYear(days[2])
@@ -352,13 +320,20 @@ describe('<CalendarAdapter />', () => {
   events.map(({ eventType, options, toString }) => {
     days = calDays()
     const day1 = dayMonthYear(days[0])
+    const day2 = dayMonthYear(days[1])
 
     it(`will remove a date when its "Remove date" button is triggered by a ${toString}`, () => {
-      const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
+      const wrapper = mount(
+        <CalendarAdapter
+          {...defaultProps({
+            value: [new Date(days[1])],
+          })}
+        />,
+      )
       expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
 
       clickFirstDate(wrapper)
-      expect(getDateStrings(wrapper)).toEqual(day1)
+      expect(getDateStrings(wrapper)).toEqual(`${day1} ${day2}`)
 
       wrapper
         .find('#selectedDays-list button')

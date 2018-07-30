@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { H1, H2, visuallyhidden, theme } from '../styles'
+import { H1, H2, theme } from '../styles'
 import styled, { css } from 'react-emotion'
 import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
+import Title, { matchPropTypes } from '../components/Title'
 import Contact from '../components/Contact'
 import IRCCAbbr from '../components/IRCCAbbr'
 import { respondByDate } from '../utils/calendarDates'
@@ -85,7 +86,8 @@ class ConfirmationPage extends React.Component {
     }
 
     return (
-      <Layout contentClass={contentClass} headerClass={visuallyhidden}>
+      <Layout contentClass={contentClass}>
+        <Title path={this.props.match.path} />
         <section>
           <H1>
             <Trans>Thank you! Your request has been received.</Trans>
@@ -124,6 +126,7 @@ class ConfirmationPage extends React.Component {
 
 ConfirmationPage.propTypes = {
   ...contextPropTypes,
+  ...matchPropTypes,
 }
 
 export default withContext(ConfirmationPage)

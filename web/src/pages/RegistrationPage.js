@@ -20,6 +20,7 @@ import {
 import Validator from 'validatorjs'
 import { trimInput } from '../utils/cleanInput'
 import Layout from '../components/Layout'
+import Title, { matchPropTypes } from '../components/Title'
 import {
   TextFieldAdapter,
   TextAreaAdapter,
@@ -170,9 +171,9 @@ class RegistrationPage extends React.Component {
 
     return (
       <Layout contentClass={contentClass}>
+        <Title path={this.props.match.path} />
         <h1 className={visuallyhidden}>
-          First, supply some personal information and tell us why you need a new
-          appointment.
+          <Trans>First, provide some basic information:</Trans>
         </h1>
         {/*
           the first checkbox / radio on the page doesn't have its CSS applied correctly
@@ -404,6 +405,7 @@ class RegistrationPage extends React.Component {
 }
 RegistrationPage.propTypes = {
   ...contextPropTypes,
+  ...matchPropTypes,
   history: PropTypes.any,
 }
 
