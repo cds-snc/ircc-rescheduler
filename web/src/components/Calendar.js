@@ -322,7 +322,6 @@ const dayBox = css`
 
     &.empty {
       * {
-        display: none;
       }
     }
   }
@@ -462,7 +461,11 @@ const renderDayBoxes = ({
           </button>
         </li>
       ) : (
-        ''
+        <li key={i} className={dayBox}>
+          <span className="empty day-box">
+            <span>Please select another date</span>
+          </span>
+        </li>
       ),
     )
   }
@@ -639,7 +642,15 @@ class Calendar extends Component {
           <div className={value.length ? triangle : noDates} />
           <div className={value.length ? daySelection : noDates}>
             <h3>
-              <Trans>Your 3 selected days:</Trans>
+              {value.length === 3 ? (
+                <Trans>Your 3 selected days:</Trans>
+              ) : value.length === 2 ? (
+                <Trans>Your 2 selected days, select 1 more:</Trans>
+              ) : value.length === 1 ? (
+                <Trans>Your 1 selected day, select 2 more:</Trans>
+              ) : (
+                <Trans>Select 3 days:</Trans>
+              )}
             </h3>
 
             <ul id="selectedDays-list">
