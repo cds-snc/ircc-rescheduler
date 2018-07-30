@@ -17,7 +17,7 @@
     "a11y:test" : "start-server-and-test build:start http://localhost:3004 a11y:run",
     "a11y:run" : "node a11y.test.js",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
+    "cypress:run": "cypress run --record --key 5d4b52ef-e27d-4e34-a1a3-89a9a43390f0",
     "ci:dev": "start-server-and-test dev http://localhost:3004 cypress:open",
     "ci:prod": "start-server-and-test build:start http://localhost:3004 cypress:run",
     "sentry-map": "sentry-cli releases -o canadian-digital-service -p ircc-rescheduler files  $RAZZLE_STAGE  upload-sourcemaps ./build/ --rewrite",
