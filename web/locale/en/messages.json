@@ -1,40 +1,4 @@
 {
-  "Please select another date": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        462
-      ]
-    ]
-  },
-  "Your 2 selected days, select 1 more:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        645
-      ]
-    ]
-  },
-  "Your 1 selected day, select 2 more:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        647
-      ]
-    ]
-  },
-  "Select 3 days:": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        649
-      ]
-    ]
-  },
   "Immigration, Refugees and Citizenship Canada": {
     "translation": "",
     "origin": [
@@ -48,12 +12,21 @@
       ]
     ]
   },
+  "Please select another date": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        461
+      ]
+    ]
+  },
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "translation": "",
     "origin": [
       [
         "src/components/Calendar.js",
-        548
+        546
       ]
     ]
   },
@@ -62,7 +35,34 @@
     "origin": [
       [
         "src/components/Calendar.js",
+        641
+      ]
+    ]
+  },
+  "Your 2 selected days, select 1 more:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Calendar.js",
         643
+      ]
+    ]
+  },
+  "Your 1 selected day, select 2 more:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        645
+      ]
+    ]
+  },
+  "Select 3 days:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        647
       ]
     ]
   },
@@ -71,7 +71,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        660
+        658
       ]
     ]
   },
