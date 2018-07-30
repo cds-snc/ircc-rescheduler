@@ -8,11 +8,14 @@
     "dbg": "node --inspect-brk node_modules/jest/bin/jest.js",
     "lint": "node_modules/eslint/bin/eslint.js src test",
     "start": "NODE_ENV=production node --icu-data-dir=./node_modules/full-icu build/server.js",
+    "build:start": "yarn build && yarn start",
     "test": "node --icu-data-dir=./node_modules/full-icu node_modules/jest/bin/jest.js",
     "extract": "NODE_ENV=development lingui extract",
     "compile": "NODE_ENV=development lingui compile",
     "add-locale": "lingui add-locale",
-    "stats": "BUNDLE_CHECK=true yarn build"
+    "stats": "BUNDLE_CHECK=true yarn build",
+    "a11y:test" : "start-server-and-test build:start http://localhost:3004 a11y:run",
+    "a11y:run" : "node a11y.test.js"
   },
   "dependencies": {
     "@cdssnc/gcui": "^0.0.30",
@@ -71,8 +74,10 @@
     "jest": "^23.4.1",
     "jest-cli": "^23.4.1",
     "lingui-cli": "^1.4.4",
-    "prettier": "^1.13.7",
+    "pa11y": "^5.0.4",
+    "prettier": "^1.14.0",
     "raf": "^3.4.0",
+    "start-server-and-test": "^1.7.0",
     "supertest": "^3.1.0",
     "webpack-bundle-analyzer": "^2.13.1"
   },
