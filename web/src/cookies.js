@@ -1,7 +1,7 @@
 import cookieEncrypter from 'cookie-encrypter'
 
 const inTenMinutes = () => new Date(new Date().getTime() + 10 * 60 * 1000)
-const inOneWeek = () => new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000)
+const inOneDay = () => new Date(new Date().getTime() + 1 * 24 * 60 * 60 * 1000)
 
 export const SECRET =
   process.env.RAZZLE_COOKIE_SECRET ||
@@ -16,7 +16,7 @@ export const setStoreCookie = (setCookieFunc, cookie, options = {}) => {
     secure:
       !process.env.RAZZLE_COOKIE_HTTP && process.env.NODE_ENV === 'production',
     expires:
-      process.env.NODE_ENV === 'production' ? inOneWeek() : inTenMinutes(),
+      process.env.NODE_ENV === 'production' ? inOneDay() : inTenMinutes(),
   }
 
   setCookieFunc('store', cookie, { ...defaults, ...options })
