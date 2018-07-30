@@ -10,7 +10,7 @@ const SubmissionForm = props => {
   const { sending, onSubmit } = props
   return (
     <BottomContainer>
-      <form action="/submit" method="post" onSubmit={onSubmit}>
+      <form id="review-form" action="/submit" method="post" onSubmit={onSubmit}>
         <input type="hidden" name="fullName" value={props.fullName} />
         <input
           type="hidden"

@@ -237,7 +237,7 @@ class CalendarPage extends Component {
             }
 
             return (
-              <form onSubmit={handleSubmit} className={fullWidth}>
+              <form id="calendar-form" onSubmit={handleSubmit} className={fullWidth}>
                 <div>
                   <div
                     id="submit-error"

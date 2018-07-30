@@ -16,6 +16,10 @@
     "stats": "BUNDLE_CHECK=true yarn build",
     "a11y:test" : "start-server-and-test build:start http://localhost:3004 a11y:run",
     "a11y:run" : "node a11y.test.js",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "ci:dev": "start-server-and-test dev http://localhost:3004 cypress:open",
+    "ci:prod": "start-server-and-test build:start http://localhost:3004 cypress:run",
     "sentry-map": "sentry-cli releases -o canadian-digital-service -p ircc-rescheduler files  $RAZZLE_STAGE  upload-sourcemaps ./build/ --rewrite",
     "sm:stg": "RAZZLE_STAGE=staging yarn sentry-map",
     "sm:prod": "RAZZLE_STAGE=production yarn sentry-map"
@@ -64,6 +68,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-lingui-react": "^1.0.13",
+    "cypress": "^3.0.2",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^5.2.0",
