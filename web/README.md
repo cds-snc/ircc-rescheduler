@@ -30,6 +30,8 @@ These options are set in all environments (except during tests).
 
 - `RAZZLE_SITE_URL`: Used by [`inline-css`](https://www.npmjs.com/package/inline-css) to generate links in emails. Leaving this blank (`' '`) is recommended. Required on startup.
 
+- `RAZZLE_STAGE`: Used to introspect where the app is running. One of `production`, `staging`, or `development`.
+
 ##### sample `web/.env` file
 
 ```
@@ -42,6 +44,7 @@ RAZZLE_AWS_SECRET_ACCESS_KEY=someAccessKey
 RAZZLE_IRCC_RECEIVING_ADDRESS=your.name@example.com
 RAZZLE_SENDING_ADDRESS=justin@canada.ca
 RAZZLE_SITE_URL=' '
+RAZZLE_STAGE='development'
 ```
 
 #### 2. `web/.env.local`

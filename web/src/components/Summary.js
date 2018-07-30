@@ -144,7 +144,7 @@ const Summary = ({
     <SummaryRow
       summaryHeader={<Trans>Availability</Trans>}
       summaryBody={<SelectedDayList selectedDays={selectedDays} />}
-      summaryLink={'/calendar#calendar-sub-header'}
+      summaryLink={'/calendar#calendar-header'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
     />
   </TableContainer>

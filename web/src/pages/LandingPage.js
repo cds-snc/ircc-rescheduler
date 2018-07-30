@@ -3,6 +3,7 @@ import styled, { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, H2, theme, mediaQuery, arrow } from '../styles'
 import Layout from '../components/Layout'
+import Title, { matchPropTypes } from '../components/Title'
 import { LongReminder } from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
 import { Trans } from 'lingui-react'
@@ -69,13 +70,12 @@ const list = css`
   }
 `
 
-const H1Landing = styled(H1)`
+const H2Landing = styled(H2)`
   font-size: ${theme.font.xl};
-  font-family: ${theme.weight.b}, Helvetica;
-  line-height: 1;
+  margin-top: 0 !important;
 `
 
-const H2Landing = styled(H2)`
+const H2List = styled(H2)`
   font-family: ${theme.weight.r}, Helvetica;
   font-weight: 400;
 `
@@ -93,18 +93,26 @@ class LandingPage extends React.Component {
       locale = this.props.context.store.language
     }
     return (
-      <Layout contentClass={contentClass}>
+      <Layout
+        contentClass={contentClass}
+        header={
+          <H1>
+            <Trans>Request a new citizenship appointment</Trans>
+          </H1>
+        }
+      >
+        <Title path={this.props.match.path} />
         <section>
-          <H1Landing>
+          <H2Landing>
             <Trans>
               Tell IRCC you can&rsquo;t attend your citizenship appointment, and
               request a new one.
             </Trans>
-          </H1Landing>
-
-          <H2Landing>
-            <Trans>You will need:</Trans>
           </H2Landing>
+
+          <H2List>
+            <Trans>You will need:</Trans>
+          </H2List>
           <ul className={list}>
             <li>
               <p>
@@ -154,6 +162,7 @@ class LandingPage extends React.Component {
 
 LandingPage.propTypes = {
   ...contextPropTypes,
+  ...matchPropTypes,
 }
 
 export default withContext(LandingPage)
