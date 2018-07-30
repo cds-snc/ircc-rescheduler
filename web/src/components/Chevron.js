@@ -2,16 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Chevron = ({ width = 8, height = 8, dir = 'right' }) => {
-  const flip = dir === 'right' ? '' : 'scale(-2, 2) translate(0,-1)'
+  const flip =
+    dir === 'right' ? {} : { transform: 'scale(-2, 2) translate(0px, -1px)' }
 
   return (
     <svg
       width={height}
       height={width}
-      style={{ display: 'inline-block', marginRight: '5px' }}
-      transform={flip}
+      style={{ display: 'inline-block', marginRight: '5px', ...flip }}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 9.42 15.62"
+      aria-hidden="true"
     >
       <g>
         <path d="M6.63,7.81,1,.5H3.17L8.79,7.81,3.17,15.12H1.05Z" />

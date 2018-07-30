@@ -39,6 +39,7 @@ injectGlobal`
     line-height: 1.4;
   }
 
+  a,
   a:visited {
     color: ${theme.colour.link};
   }
