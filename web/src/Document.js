@@ -69,7 +69,11 @@ class Document extends React.Component {
           {process.env.NODE_ENV === 'production' && (
             <script
               dangerouslySetInnerHTML={{
-                __html: `Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616').install()`,
+                __html: `Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {release: ${
+                  typeof process.env.RAZZLE_STAGE === typeof undefined
+                    ? 'release-not-defined'
+                    : process.env.RAZZLE_STAGE
+                }}).install()`,
               }}
             />
           )}
