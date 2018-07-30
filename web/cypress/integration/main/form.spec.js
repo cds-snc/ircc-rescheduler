@@ -1,11 +1,9 @@
-/// <reference types="Cypress" />
-
-context('Actions', () => {
+context('Full Run-through', () => {
   beforeEach(() => {
     cy.visit('/')
   })
 
-  it('should be able to fill in a profile', () => {
+  it('should be able to fill in a profile and reach the confirmation page', () => {
     cy.get('main a span').should('have.text', 'Start now')
     cy.get('main a').click({ force: true })
 
