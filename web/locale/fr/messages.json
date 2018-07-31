@@ -1,4 +1,13 @@
 {
+  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment": {
+    "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        109
+      ]
+    ]
+  },
   "Immigration, Refugees and Citizenship Canada": {
     "translation": "Immigration, Réfugiés et Citoyenneté Canada",
     "origin": [
@@ -35,7 +44,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        641
+        645
       ]
     ]
   },
@@ -44,7 +53,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        643
+        647
       ]
     ]
   },
@@ -53,7 +62,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        645
+        649
       ]
     ]
   },
@@ -62,7 +71,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        647
+        651
       ]
     ]
   },
@@ -71,7 +80,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        658
+        662
       ]
     ]
   },
@@ -439,7 +448,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        35
+        37
       ]
     ]
   },
@@ -452,7 +461,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        73
+        81
       ]
     ]
   },
@@ -527,7 +536,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        222
+        227
       ]
     ]
   },
@@ -536,7 +545,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        230
+        235
       ]
     ]
   },
@@ -545,11 +554,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        267
+        273
       ],
       [
         "src/pages/CalendarPage.js",
-        348
+        354
       ]
     ]
   },
@@ -558,7 +567,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        302
+        308
       ],
       [
         "src/validation.js",
@@ -606,7 +615,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        105
+        104
       ]
     ]
   },
@@ -637,7 +646,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        118
+        116
       ]
     ]
   },
@@ -646,7 +655,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        40
+        39
       ]
     ]
   },
@@ -655,7 +664,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        49
+        48
       ]
     ]
   },
@@ -664,7 +673,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        93
+        92
       ]
     ]
   },
@@ -673,7 +682,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        98
+        97
       ]
     ]
   },
@@ -682,25 +691,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        108
-      ]
-    ]
-  },
-  "your local": {
-    "translation": "votre bureau local d’",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        109
-      ]
-    ]
-  },
-  "office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "vous enverra les détails de votre nouveau rendez-vous ou communiquera avec vous par courriel pour vous demander des renseignements supplémentaires.",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        111
+        107
       ]
     ]
   },
@@ -990,7 +981,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        39
+        41
       ]
     ]
   },
@@ -1012,7 +1003,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        37
+        39
       ]
     ]
   },
@@ -1025,7 +1016,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        43
+        45
       ]
     ]
   },
@@ -1052,7 +1043,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        41
+        43
       ]
     ]
   },
@@ -1061,7 +1052,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        77
+        85
       ]
     ]
   },
@@ -1070,7 +1061,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        90
+        98
       ]
     ]
   },
@@ -1406,5 +1397,25 @@
         88
       ]
     ]
+  },
+  "your local": {
+    "translation": "votre bureau local d’",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        109
+      ]
+    ],
+    "obsolete": true
+  },
+  "office will send you a new appointment, or email you to ask for more information.": {
+    "translation": "vous enverra les détails de votre nouveau rendez-vous ou communiquera avec vous par courriel pour vous demander des renseignements supplémentaires.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        111
+      ]
+    ],
+    "obsolete": true
   }
 }
