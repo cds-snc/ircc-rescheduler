@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'emotion'
 import { theme, mediaQuery } from '../styles'
+import { Trans } from 'lingui-react'
 
 const telStyles = css`
   > span {
@@ -59,22 +60,32 @@ const Contact = ({ children, phoneFirst = false }) => (
     {!phoneFirst ? (
       <React.Fragment>
         <p>
-          <strong>Email —</strong>{' '}
+          <strong>
+            <Trans>Email —</Trans>
+          </strong>{' '}
           <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
             IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca
           </a>
         </p>
         <p>
-          <strong>Phone —</strong> <TelLink tel="1-888-242-2100" />
+          <strong>
+            <Trans>Phone —</Trans>
+          </strong>{' '}
+          <TelLink tel="1-888-242-2100" />
         </p>
       </React.Fragment>
     ) : (
       <React.Fragment>
         <p>
-          <strong>Phone —</strong> <TelLink tel="1-888-242-2100" />
+          <strong>
+            <Trans>Phone —</Trans>
+          </strong>{' '}
+          <TelLink tel="1-888-242-2100" />
         </p>
         <p>
-          <strong>Email —</strong>{' '}
+          <strong>
+            <Trans>Email —</Trans>
+          </strong>{' '}
           <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
             IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca
           </a>
