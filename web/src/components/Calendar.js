@@ -662,10 +662,16 @@ class Calendar extends Component {
     )
   }
 }
+
+Calendar.defaultProps = {
+  forceRender: () => {}, //used to for a parent re-render after clicking on a day
+}
+
 Calendar.propTypes = {
   ...FieldAdapterPropTypes,
   dayLimit: PropTypes.number.isRequired,
-  forceRender: PropTypes.function,
+  forceRender: PropTypes.func,
 }
+
 const CalendarAdapter = withI18n()(Calendar)
 export { CalendarAdapter as default, renderDayBoxes }

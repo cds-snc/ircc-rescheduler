@@ -261,15 +261,9 @@ class CalendarPage extends Component {
                     name="selectedDays"
                     id="selectedDays"
                     tabIndex={-1}
-                    render={({ input }) => {
-                      return (
-                        <CalendarAdapter
-                          forceRender={this.forceRender}
-                          input={input}
-                          dayLimit={DAY_LIMIT}
-                        />
-                      )
-                    }}
+                    component={CalendarAdapter}
+                    dayLimit={DAY_LIMIT}
+                    forceRender={this.forceRender}
                   />
                 </div>
                 <CalBottom
