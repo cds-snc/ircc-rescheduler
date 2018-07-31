@@ -32,7 +32,7 @@ context('Calendar Date selections', () => {
         .click({ force: true })
 
       // check the selected day count
-      cy.get('#selectedDays-list li').then(el => {
+      cy.get('#selectedDays-list li .day-box:not(.empty)').then(el => {
         const count = el.length
         expect(count).eq(2)
       })
@@ -43,7 +43,7 @@ context('Calendar Date selections', () => {
         .click({ force: true })
 
       // check the selected day count
-      cy.get('#selectedDays-list li').then(el => {
+      cy.get('#selectedDays-list li .day-box:not(.empty)').then(el => {
         const count = el.length
         expect(count).eq(1)
       })
