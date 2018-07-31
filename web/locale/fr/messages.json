@@ -1,10 +1,27 @@
 {
-  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment": {
-    "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+  "Email —": {
+    "translation": "Adresse courriel —",
     "origin": [
       [
-        "src/pages/ConfirmationPage.js",
-        109
+        "src/components/Contact.js",
+        64
+      ],
+      [
+        "src/components/Contact.js",
+        87
+      ]
+    ]
+  },
+  "Phone —": {
+    "translation": "Téléphone —",
+    "origin": [
+      [
+        "src/components/Contact.js",
+        72
+      ],
+      [
+        "src/components/Contact.js",
+        81
       ]
     ]
   },
@@ -615,7 +632,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        104
+        108
       ]
     ]
   },
@@ -646,7 +663,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        116
+        120
       ]
     ]
   },
@@ -655,7 +672,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        39
+        43
       ]
     ]
   },
@@ -664,7 +681,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        48
+        52
       ]
     ]
   },
@@ -673,7 +690,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        92
+        96
       ]
     ]
   },
@@ -682,7 +699,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        97
+        101
       ]
     ]
   },
@@ -691,7 +708,16 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        107
+        111
+      ]
+    ]
+  },
+  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment": {
+    "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        113
       ]
     ]
   },
