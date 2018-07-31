@@ -40,8 +40,8 @@ module.exports = shipit => {
     await shipit.log('Building the stuff in ' + shipit.releasePath)
     let uploadSourceMaps =
       shipit.environment === 'production'
-        ? ' && yarn sm:prod'
-        : ' && yarn sm:stg'
+        ? ' && yarn sm:production'
+        : ' && yarn sm:staging'
     await shipit.remote(
       `cd ${shipit.releasePath}/web && yarn && yarn build ${uploadSourceMaps}`,
     )
