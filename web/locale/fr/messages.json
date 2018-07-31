@@ -377,7 +377,7 @@
     ]
   },
   "Select 3 days you’re available": {
-    "translation": "Choisissez 3 jours vous êtes disponible",
+    "translation": "Choisissez 3 jours où vous serez disponible :",
     "origin": [
       [
         "src/components/Title.js",
