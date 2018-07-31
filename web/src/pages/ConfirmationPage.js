@@ -20,6 +20,10 @@ const contentClass = css`
   section {
     margin-bottom: 0;
   }
+
+  h2:last-of-type {
+    margin-bottom: ${theme.spacing.sm};
+  }
 `
 
 const Reminder = styled(LongReminder)`

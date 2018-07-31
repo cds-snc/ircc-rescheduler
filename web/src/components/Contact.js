@@ -47,6 +47,10 @@ const contact = css`
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+
+  p:first-of-type {
+    margin-bottom: ${theme.spacing.sm};
+  }
 `
 
 const Contact = ({ children, phoneFirst = false }) => (
@@ -55,20 +59,22 @@ const Contact = ({ children, phoneFirst = false }) => (
     {!phoneFirst ? (
       <React.Fragment>
         <p>
+          <strong>Email —</strong>{' '}
           <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
             IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca
           </a>
         </p>
         <p>
-          <TelLink tel="1-888-242-2100" />
+          <strong>Phone —</strong> <TelLink tel="1-888-242-2100" />
         </p>
       </React.Fragment>
     ) : (
       <React.Fragment>
         <p>
-          <TelLink tel="1-888-242-2100" />
+          <strong>Phone —</strong> <TelLink tel="1-888-242-2100" />
         </p>
         <p>
+          <strong>Email —</strong>{' '}
           <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
             IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca
           </a>
