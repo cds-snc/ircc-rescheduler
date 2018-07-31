@@ -38,7 +38,13 @@ module.exports = shipit => {
 
   shipit.blTask('installDependencies', async () => {
     await shipit.log('Building the stuff in ' + shipit.releasePath)
-    await shipit.remote('cd ' + shipit.releasePath + '/web && yarn && yarn build')
+    let uploadSourceMaps =
+      shipit.environment === 'production'
+        ? ' && yarn sm:prod'
+        : ' && yarn sm:stg'
+    await shipit.remote(
+      `cd ${shipit.releasePath} /web && yarn && yarn build ${uploadSourceMaps}`,
+    )
   })
 
   shipit.blTask('startOrRestart', async () => {
