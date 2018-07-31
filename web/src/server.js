@@ -16,6 +16,7 @@ import {
   cleanDates,
   sendMail,
 } from './email/sendmail'
+import gitHash from './utils/gitHash'
 import Raven from 'raven'
 Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
   dataCallback: function(data) {
@@ -33,8 +34,8 @@ Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
   },
   release:
     typeof process.env.RAZZLE_STAGE === typeof undefined
-      ? 'release-not-defined'
-      : process.env.RAZZLE_STAGE,
+      ? ''
+      : `${process.env.RAZZLE_STAGE}-${gitHash()}`,
 }).install()
 
 // eslint-disable-next-line security/detect-non-literal-require
@@ -129,6 +130,7 @@ server
   })
   .get('/*', async (req, res) => {
     const customRenderer = node => ({
+      gitHashString: gitHash(),
       path: req.url,
       html: renderStylesToString(renderToString(node)),
     })

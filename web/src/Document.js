@@ -33,7 +33,7 @@ class Document extends React.Component {
 
   render() {
     // eslint-disable-next-line react/prop-types
-    const { helmet, assets, data, path } = this.props
+    const { helmet, assets, data, path, gitHashString } = this.props
 
     // get attributes from React Helmet
     const htmlAttrs = helmet.htmlAttributes.toComponent()
@@ -66,17 +66,16 @@ class Document extends React.Component {
             />
           )}
           {/* dangerouslySetInnerHTML is used here to avoid the markup being escaped by After.js */}
-          {process.env.NODE_ENV === 'production' && (
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {release: '${
-                  typeof process.env.RAZZLE_STAGE === typeof undefined
-                    ? 'release-not-defined'
-                    : process.env.RAZZLE_STAGE
-                }'}).install()`,
-              }}
-            />
-          )}
+          {process.env.NODE_ENV === 'production' &&
+            process.env.RAZZLE_STAGE && (
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {release: '${`${
+                    process.env.RAZZLE_STAGE
+                  }-${gitHashString}`}'}).install()`,
+                }}
+              />
+            )}
 
           <script
             type="text/javascript"
