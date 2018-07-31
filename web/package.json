@@ -12,7 +12,7 @@
     "test": "node --icu-data-dir=./node_modules/full-icu node_modules/jest/bin/jest.js",
     "extract": "NODE_ENV=development lingui extract",
     "compile": "NODE_ENV=development lingui compile",
-    "add-locale": "lingui add-locale",
+    "add_locale": "lingui add-locale",
     "stats": "BUNDLE_CHECK=true yarn build",
     "a11y:test" : "start-server-and-test build:start http://localhost:3004 a11y:run",
     "a11y:run" : "node a11y.test.js",
@@ -20,9 +20,10 @@
     "cypress:run": "cypress run --record",
     "ci:dev": "start-server-and-test dev http://localhost:3004 cypress:open",
     "ci:prod": "start-server-and-test build:start http://localhost:3004 cypress:run",
-    "sentry-map": "sentry-cli releases -o canadian-digital-service -p ircc-rescheduler files  $RAZZLE_STAGE  upload-sourcemaps ./build/ --rewrite",
-    "sm:stg": "source .env.production && SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN RAZZLE_STAGE=staging yarn sentry-map",
-    "sm:prod": "source .env.production && SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN RAZZLE_STAGE=production yarn sentry-map"
+    "sentry_auth": "COMMIT_HASH=`git rev-parse --short HEAD` && . $(readlink .env.production) && SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN ",
+    "sentry_map": "sentry-cli releases -o canadian-digital-service -p ircc-rescheduler files  $RAZZLE_STAGE  upload-sourcemaps ./build/ --rewrite",
+    "sm:stg": "yarn sentry_auth RAZZLE_STAGE=staging-$COMMIT_HASH yarn sentry_map",
+    "sm:prod": "yarn sentry_auth RAZZLE_STAGE=production-$COMMIT_HASH yarn sentry_map"
   },
   "dependencies": {
     "@cdssnc/gcui": "^0.0.30",

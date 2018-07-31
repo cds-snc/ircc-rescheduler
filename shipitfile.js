@@ -43,7 +43,7 @@ module.exports = shipit => {
         ? ' && yarn sm:prod'
         : ' && yarn sm:stg'
     await shipit.remote(
-      `cd ${shipit.releasePath} /web && yarn && yarn build ${uploadSourceMaps}`,
+      `cd ${shipit.releasePath}/web && yarn && yarn build ${uploadSourceMaps}`,
     )
   })
 
