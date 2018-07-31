@@ -11,6 +11,8 @@ import Chevron from '../components/Chevron'
 import Summary from '../components/Summary'
 import Reminder from '../components/Reminder'
 import SubmissionForm from '../components/SubmissionForm'
+import { sortSelectedDays } from '../utils/calendarDates'
+import { dateToISODateString } from '../components/Time'
 
 const contentClass = css`
   p {
@@ -64,6 +66,12 @@ class ReviewPage extends React.Component {
 
     const { sending } = this.state
 
+    const days = sortSelectedDays(
+      selectedDays.map(day => {
+        return new Date(dateToISODateString(day))
+      }),
+    )
+
     return (
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
@@ -84,7 +92,7 @@ class ReviewPage extends React.Component {
             paperFileNumber={paperFileNumber}
             explanation={explanation}
             reason={this.translateReason(reason)}
-            selectedDays={selectedDays}
+            selectedDays={days}
           />
           <Reminder>
             <Trans>
