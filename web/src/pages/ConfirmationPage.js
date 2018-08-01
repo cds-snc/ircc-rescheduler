@@ -108,11 +108,10 @@ class ConfirmationPage extends React.Component {
             <Trans>What happens next?</Trans>
           </H2>
           <p>
-            <Trans>By</Trans> {respondBy}
-            ,{' '}
+            <Trans>By</Trans> {respondBy},{' '}
             <Trans>
               we’ll send you a new appointment. You will always be contacted at
-              least 3 weeks before your appointment
+              least 3 weeks before your appointment.
             </Trans>
           </p>
           <Contact>

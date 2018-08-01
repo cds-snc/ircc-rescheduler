@@ -1,27 +1,10 @@
 {
-  "Email —": {
-    "translation": "Adresse courriel —",
+  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
+    "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
     "origin": [
       [
-        "src/components/Contact.js",
-        64
-      ],
-      [
-        "src/components/Contact.js",
-        87
-      ]
-    ]
-  },
-  "Phone —": {
-    "translation": "Téléphone —",
-    "origin": [
-      [
-        "src/components/Contact.js",
-        72
-      ],
-      [
-        "src/components/Contact.js",
-        81
+        "src/pages/ConfirmationPage.js",
+        112
       ]
     ]
   },
@@ -107,6 +90,32 @@
       [
         "src/components/CancelButton.js",
         22
+      ]
+    ]
+  },
+  "Email —": {
+    "translation": "Adresse courriel —",
+    "origin": [
+      [
+        "src/components/Contact.js",
+        64
+      ],
+      [
+        "src/components/Contact.js",
+        87
+      ]
+    ]
+  },
+  "Phone —": {
+    "translation": "Téléphone —",
+    "origin": [
+      [
+        "src/components/Contact.js",
+        72
+      ],
+      [
+        "src/components/Contact.js",
+        81
       ]
     ]
   },
@@ -663,7 +672,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        120
+        119
       ]
     ]
   },
@@ -709,15 +718,6 @@
       [
         "src/pages/ConfirmationPage.js",
         111
-      ]
-    ]
-  },
-  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment": {
-    "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        113
       ]
     ]
   },
@@ -1423,6 +1423,16 @@
         88
       ]
     ]
+  },
+  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment": {
+    "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        113
+      ]
+    ],
+    "obsolete": true
   },
   "your local": {
     "translation": "votre bureau local d’",
