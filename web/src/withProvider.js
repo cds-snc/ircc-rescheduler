@@ -46,6 +46,15 @@ function withProvider(WrappedComponent) {
         }
       }
 
+      // if no cookies exist, check for default accept-language header
+      if (!newCookie && !prevCookie) {
+        let language = WithProvider.getDefaultLanguageFromHeader(req.headers)
+        // if default language found, set a new cookie
+        newCookie = language
+          ? setSSRCookie(res, 'language', language, prevCookie)
+          : newCookie
+      }
+
       let initStore = newCookie || prevCookie || contextDefault.store
 
       return {
@@ -144,6 +153,18 @@ function withProvider(WrappedComponent) {
       // match.path === "/about" or similar
       let key = match.path.slice(1)
       return { key, val: query }
+    }
+
+    static getDefaultLanguageFromHeader(headers) {
+      if (headers && headers['accept-language']) {
+        // grab the first two characters
+        let val = headers['accept-language'].slice(0, 2)
+        let errors = WithProvider.validate({ language: val })
+
+        return !Object.keys(errors).length ? val : false
+      }
+
+      return false
     }
 
     static validateCookie(key, val = null) {

@@ -109,6 +109,70 @@ describe('WithProvider', () => {
     })
   })
 
+  describe('.getDefaultLanguageFromHeader()', () => {
+    const WithProvider = withProvider(FakeComponentEmpty)
+
+    let emptyHeaders = [undefined, false, null, '', {}]
+    emptyHeaders.map(v => {
+      it(`returns false when an empty header is passed in: ${v}`, () => {
+        expect(WithProvider.getDefaultLanguageFromHeader(v)).toBe(false)
+      })
+    })
+
+    let nonMatchingHeaders = [
+      { 'accept-encoding': 'gzip, deflate' },
+      { accept: 'text/html' },
+      // in express, they all come through as lower-case, so we aren't matching this
+      { 'Accept-Language': 'en' },
+    ]
+    nonMatchingHeaders.map(v => {
+      it(`returns false when header passed in without 'accept-language': ${JSON.stringify(
+        v,
+      )}`, () => {
+        expect(WithProvider.getDefaultLanguageFromHeader(v)).toBe(false)
+      })
+    })
+
+    let nonMatchingLanguages = [
+      { 'accept-language': 'de' },
+      { 'accept-language': 'es-MX,es,en;' },
+      { 'accept-language': 'zh,en;q=0.9,fr;q=0.8' },
+    ]
+    nonMatchingLanguages.map(v => {
+      it(`returns false when 'accept-language' header passed in that doesn't start with "en" or "fr"': ${
+        v['accept-language']
+      }`, () => {
+        expect(WithProvider.getDefaultLanguageFromHeader(v)).toBe(false)
+      })
+    })
+
+    let enLanguages = [
+      { 'accept-language': 'en' },
+      { 'accept-language': 'en-CA,en-US,en' },
+      { 'accept-language': 'en-US,en;q=0.9,fr;q=0.8' },
+    ]
+    enLanguages.map(v => {
+      it(`returns "en" when 'accept-language' header passed in that starts with "en"': ${
+        v['accept-language']
+      }`, () => {
+        expect(WithProvider.getDefaultLanguageFromHeader(v)).toBe('en')
+      })
+    })
+
+    let frLanguages = [
+      { 'accept-language': 'fr' },
+      { 'accept-language': 'fr-CA,fr-FR,fr' },
+      { 'accept-language': 'fr-CA,fr;q=0.9,en;q=0.6' },
+    ]
+    frLanguages.map(v => {
+      it(`returns "fr" when 'accept-language' header passed in that starts with "fr"': ${
+        v['accept-language']
+      }`, () => {
+        expect(WithProvider.getDefaultLanguageFromHeader(v)).toBe('fr')
+      })
+    })
+  })
+
   describe('.validateQuery()', () => {
     const EmptyWithProvider = withProvider(FakeComponentEmpty)
     const WithProviderFields = withProvider(FakeComponentWithFields)
