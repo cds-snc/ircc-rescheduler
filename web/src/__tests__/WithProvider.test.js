@@ -227,6 +227,14 @@ describe('WithProvider', () => {
         expect(result).toEqual({ field: 'value' })
       })
 
+      it('returns trimmed string values when validation passes trimmed value', () => {
+        let result = WithProvider.validateCookie('page', { field: ' value ' })
+        expect(result).toEqual({ field: 'value' })
+
+        let result2 = WithProvider.validateCookie('page', { field: 'value   ' })
+        expect(result2).toEqual({ field: 'value' })
+      })
+
       let invalidVals = [0, false, {}, ['value'], null, '', 'value']
       invalidVals.map(v => {
         it(`throws error for regular field with a non-empty object value: ${v}`, () => {
