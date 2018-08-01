@@ -10,6 +10,7 @@ const options = {
   chromeLaunchConfig: {
     args: ['--no-sandbox'], // pass sandbox flag for ci
   },
+  ignore: ['WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Span.Name'],
 }
 const registerActions = [
   'set field #fullName to John Doe',
