@@ -1,0 +1,26 @@
+{
+  "Email —": {
+    "origin": [
+      [
+        "src/components/Contact.js",
+        64
+      ],
+      [
+        "src/components/Contact.js",
+        87
+      ]
+    ]
+  },
+  "Phone —": {
+    "origin": [
+      [
+        "src/components/Contact.js",
+        72
+      ],
+      [
+        "src/components/Contact.js",
+        81
+      ]
+    ]
+  }
+}

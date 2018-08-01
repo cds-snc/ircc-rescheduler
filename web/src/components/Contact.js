@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'emotion'
 import { theme, mediaQuery } from '../styles'
+import { Trans } from 'lingui-react'
 
 const telStyles = css`
   > span {
@@ -34,6 +35,23 @@ TelLink.propTypes = {
 
 const contact = css`
   margin-bottom: ${theme.spacing.lg};
+
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+
+  p:first-of-type {
+    margin-bottom: ${theme.spacing.sm};
+  }
 `
 
 const Contact = ({ children, phoneFirst = false }) => (
@@ -42,20 +60,32 @@ const Contact = ({ children, phoneFirst = false }) => (
     {!phoneFirst ? (
       <React.Fragment>
         <p>
+          <strong>
+            <Trans>Email —</Trans>
+          </strong>{' '}
           <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
             IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca
           </a>
         </p>
         <p>
+          <strong>
+            <Trans>Phone —</Trans>
+          </strong>{' '}
           <TelLink tel="1-888-242-2100" />
         </p>
       </React.Fragment>
     ) : (
       <React.Fragment>
         <p>
+          <strong>
+            <Trans>Phone —</Trans>
+          </strong>{' '}
           <TelLink tel="1-888-242-2100" />
         </p>
         <p>
+          <strong>
+            <Trans>Email —</Trans>
+          </strong>{' '}
           <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
             IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca
           </a>

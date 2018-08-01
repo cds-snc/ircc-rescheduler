@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        40
+        43
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        49
+        52
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        93
+        96
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        98
+        101
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        105
+        108
       ]
     ]
   },
@@ -43,23 +43,15 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        108
-      ]
-    ]
-  },
-  "your local": {
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        109
-      ]
-    ]
-  },
-  "office will send you a new appointment, or email you to ask for more information.": {
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
         111
+      ]
+    ]
+  },
+  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        112
       ]
     ]
   },
@@ -67,7 +59,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        118
+        119
       ]
     ]
   }
