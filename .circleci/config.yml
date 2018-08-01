@@ -35,6 +35,7 @@ jobs:
 
       # run tests!
       - run: yarn build
+      - run: yarn a11y:test
       - run: yarn test
       - run: yarn lint
       - run: yarn ci:prod
