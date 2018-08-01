@@ -11,6 +11,7 @@ import {
   mediaQuery,
   focusRing,
 } from '../styles'
+import { logEvent } from '../utils/analytics'
 
 import { logEvent } from '../utils/analytics'
 
@@ -57,7 +58,9 @@ class LanguageSwitcher extends React.Component {
   }
 
   getNewLanguage() {
-    return this.state.language === 'fr' ? 'en' : 'fr'
+    const lang = this.state.language === 'fr' ? 'en' : 'fr'
+    logEvent('Navigation', 'Toggle Language', lang)
+    return lang
   }
 
   render() {
