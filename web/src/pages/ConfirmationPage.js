@@ -6,7 +6,6 @@ import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import Contact from '../components/Contact'
-import IRCCAbbr from '../components/IRCCAbbr'
 import { respondByDate } from '../utils/calendarDates'
 import withContext from '../withContext'
 import { contextPropTypes } from '../context'
@@ -20,6 +19,10 @@ const contentClass = css`
 
   section {
     margin-bottom: 0;
+  }
+
+  h2:last-of-type {
+    margin-bottom: ${theme.spacing.sm};
   }
 `
 
@@ -105,12 +108,10 @@ class ConfirmationPage extends React.Component {
             <Trans>What happens next?</Trans>
           </H2>
           <p>
-            <Trans>By</Trans> {respondBy}
-            , <Trans>your local</Trans>
-            <IRCCAbbr />{' '}
+            <Trans>By</Trans> {respondBy},{' '}
             <Trans>
-              office will send you a new appointment, or email you to ask for
-              more information.
+              we’ll send you a new appointment. You will always be contacted at
+              least 3 weeks before your appointment.
             </Trans>
           </p>
           <Contact>

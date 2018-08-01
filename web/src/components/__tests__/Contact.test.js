@@ -53,7 +53,7 @@ describe('<Contact />', () => {
         .find('p')
         .at(1)
         .text(),
-    ).toEqual('<TelLink />')
+    ).toEqual('<withI18n /> <TelLink />')
   })
 
   it('renders with the email first and the telephone number second', () => {
@@ -68,7 +68,7 @@ describe('<Contact />', () => {
         .find('p')
         .at(0)
         .text(),
-    ).toEqual('<TelLink />')
+    ).toEqual('<withI18n /> <TelLink />')
 
     let emailLink = wrapper
       .find('p')
