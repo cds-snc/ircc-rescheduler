@@ -12,6 +12,8 @@ import {
   focusRing,
 } from '../styles'
 
+import { logEvent } from '../utils/analytics'
+
 const button = css`
   ${focusRing};
   display: inline-block;
@@ -79,9 +81,11 @@ class LanguageSwitcher extends React.Component {
           className={button}
           onClick={e => {
             e.preventDefault()
-            this.setState({ language: this.getNewLanguage() }, () =>
+            const lang = this.getNewLanguage()
+            this.setState({ language: lang }, () =>
               setStore('language', this.state.language),
             )
+            logEvent('Navigation', 'Toggle Language', lang)
           }}
         >
           <span className={visuallyhiddenMobile}>
