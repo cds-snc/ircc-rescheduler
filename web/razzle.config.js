@@ -4,6 +4,12 @@ module.exports = {
     if (config.devServer) {
       config.devServer.host = '0.0.0.0'
     }
+    if (
+      process.env.RAZZLE_STAGE === 'production' ||
+      process.env.RAZZLE_STAGE === 'staging'
+    ) {
+      config.devtool = 'source-map'
+    }
     if (process.env.BUNDLE_CHECK) {
       /* This allows us to analyze the the webpack bundle of all our apis and imports. 
         You can change the analyzerMode to be 'server' and this may let you see more info like
