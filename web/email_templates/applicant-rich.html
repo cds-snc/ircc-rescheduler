@@ -1,68 +1,74 @@
 <style>
-    body {
-      font-family: Helvetica, Arial, sans-serif;
-    }
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+  }
 
-    hr {
-      border: none;
-      border-bottom: 2px black solid;
-      margin: 30px 0;
-      max-width: 750px;
-    }
+  hr {
+    border: none;
+    border-bottom: 2px black solid;
+    margin: 30px 0;
+    max-width: 750px;
+  }
 
-    p {
-      margin: 10px 0;
-    }
+  p {
+    margin: 10px 0;
+  }
 
-    h3 {
-      margin-top: 30px;
-      margin-bottom: 10px;
-    }
+  h3 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
 
-    .wrap {
-      margin: 0 5%;
-    }
+  .wrap {
+    margin: 0 5%;
+  }
 
-    .margin-top {
-      margin-top: 30px;
-    }
+  .margin-top {
+    margin-top: 30px;
+  }
 
-    .align-right {
-      text-align: right;
-      padding-top: 10px;
-      max-width: 750px;
-    }
+  .align-right {
+    text-align: right;
+    padding-top: 10px;
+    max-width: 750px;
+  }
 </style>
 <div class="wrap">
-    <p><em>(le français suit)</em></p>
-    <p class="margin-top">Hello ${fullName},</p>
-    <p>We received your request for a new citizenship appointment.<p>
-    <h3>These are the days you selected:</h3>
-    <div>
+  <p>
+    <em>(le français suit)</em>
+  </p>
+  <p class="margin-top">Hello ${fullName},</p>
+  <p>We received your request for a new citizenship appointment.
+    <p>
+      <h3>These are the days you selected:</h3>
+      <div>
         ${datesHtml}
-    </div>
-    <h3>What's next?</h3>
-    <p>Your local IRCC office will send you a new appointment, or email you to ask for more information.</p>
+      </div>
 
-    <h3>If you have any questions, please contact:</h3>
-    <p>IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca</p>
-    <p>1-888-242-2100</p>
+      <h3>What happens next?</h3>
+      <p>By ${respondByDate} we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment.</p>
 
-    <hr />
-    <p class="margin-top">Bonjour ${fullName},</p>
-    <p>Nous avons bien reçu votre demande de nouveau rendez-vous d’examen de citoyenneté.</p>
-    <h3>Voici les journées que vous avez sélectionnées :</h3>
-    <div>
+      <h3>If you have any questions, please contact:</h3>
+      <p>IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca</p>
+      <p>1-888-242-2100</p>
+
+      <hr />
+      <p class="margin-top">Bonjour ${fullName},</p>
+      <p>Nous avons bien reçu votre demande de nouveau rendez-vous d’examen de citoyenneté.</p>
+      <h3>Voici les journées que vous avez sélectionnées :</h3>
+      <div>
         ${datesHtmlFR}
-    </div>
-    <h3>Quelles sont les étapes suivantes?</h3>
-    <p>Votre bureau local d’IRCC vous enverra les détails de votre nouveau rendez-vous ou communiquera <br />avec vous par courriel pour vous demander des renseignements supplémentaires.</p>
-    <h3>Si vous avez des questions, communiquez avec:</h3>
-    <p>IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca</p>
-    <p>1-888-242-2100</p>
+      </div>
 
-    <hr />
-    <div class="align-right">
+      <h3>Quelles sont les étapes suivantes?</h3>
+      <p>D’ici le ${respondByDateFR}, nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.</p>
+
+      <h3>Si vous avez des questions, communiquez avec:</h3>
+      <p>IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca</p>
+      <p>1-888-242-2100</p>
+
+      <hr />
+      <div class="align-right">
         <img width="150" src="cid:ircc-wordmark@cds" />
-    </div>
+      </div>
 </div>

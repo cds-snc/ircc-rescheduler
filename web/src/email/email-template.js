@@ -1,3 +1,4 @@
+import { respondByDate } from '../utils/calendarDates'
 const inlineCss = require('inline-css')
 const fs = require('fs')
 const path = require('path')
@@ -92,6 +93,9 @@ const renderMarkup = async options => {
 
 export const buildParams = async options => {
   const { selectedDays } = options.formValues
+
+  options.formValues.respondByDate = respondByDate(selectedDays, 'en')
+  options.formValues.respondByDateFR = respondByDate(selectedDays, 'fr')
 
   // add line breaks to dates available
   options.formValues.datesHtml = datesMarkup(
