@@ -11,7 +11,6 @@ import {
   mediaQuery,
   focusRing,
 } from '../styles'
-
 import { logEvent } from '../utils/analytics'
 
 const button = css`

@@ -37,6 +37,7 @@ import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
 import { Checkbox } from '../components/forms/MultipleChoice'
 import { getEndMonthName, getStartMonthName } from '../utils/calendarDates'
+import { logEvent } from '../utils/analytics'
 
 const DAY_LIMIT = 3
 
@@ -165,6 +166,12 @@ class CalendarPage extends Component {
       window.scrollTo(0, this.errorContainer.offsetTop - 20)
       this.errorContainer.focus()
 
+      logEvent(
+        'Calendar',
+        'Submit',
+        `Error: ${values.selectedDays.length} Day(s) selected`,
+      )
+
       const err = errorMessages[submitErrors.selectedDays]
         ? errorMessages[submitErrors.selectedDays]
         : submitErrors.selectedDays
@@ -242,7 +249,11 @@ class CalendarPage extends Component {
             }
 
             return (
-              <form id="calendar-form" onSubmit={handleSubmit} className={fullWidth}>
+              <form
+                id="calendar-form"
+                onSubmit={handleSubmit}
+                className={fullWidth}
+              >
                 <div>
                   <div
                     id="submit-error"
