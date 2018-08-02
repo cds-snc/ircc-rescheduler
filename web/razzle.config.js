@@ -4,10 +4,7 @@ module.exports = {
     if (config.devServer) {
       config.devServer.host = '0.0.0.0'
     }
-    if (
-      process.env.RAZZLE_STAGE === 'production' ||
-      process.env.RAZZLE_STAGE === 'staging'
-    ) {
+    if (process.env.RAZZLE_STAGE) {
       config.devtool = 'source-map'
     }
     if (process.env.BUNDLE_CHECK) {
