@@ -24,7 +24,7 @@ const telStyles = css`
 const TelLink = ({ tel }) => (
   <span className={telStyles}>
     <span>{tel}</span>
-    <a name="telephone" href={`tel:+${tel}`} rel="nofollow">
+    <a id="telephone" href={`tel:+${tel}`} rel="nofollow">
       {tel}
     </a>
   </span>
@@ -42,9 +42,9 @@ const contact = css`
     display: none;
   }
 
-  ${mediaQuery.sm(css`
-    a[name='email'],
-    a[name='telephone'] {
+  ${mediaQuery.xs(css`
+    a[id='email'],
+    a[id='telephone'] {
       display: block;
     }
     wbr {
@@ -63,7 +63,7 @@ const Contact = ({ children, phoneFirst = false }) => (
             <Trans>Email —</Trans>
           </strong>{' '}
           <a
-            name="email"
+            id="email"
             href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca"
           >
             IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC
@@ -91,7 +91,7 @@ const Contact = ({ children, phoneFirst = false }) => (
             <Trans>Email —</Trans>
           </strong>{' '}
           <a
-            name="email"
+            idea="email"
             href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca"
           >
             IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC
