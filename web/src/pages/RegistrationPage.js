@@ -34,6 +34,7 @@ import { FORM_ERROR } from 'final-form'
 import CancelButton from '../components/CancelButton'
 import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
+import { trackRegistrationErrors } from '../utils/analytics'
 
 const contentClass = css`
   form {
@@ -139,6 +140,8 @@ class RegistrationPage extends React.Component {
 
   async onSubmit(values, event) {
     const submitErrors = this.validate(values, true)
+
+    trackRegistrationErrors(submitErrors)
 
     if (Object.keys(submitErrors).length) {
       window.scrollTo(0, this.errorContainer.offsetTop - 20)

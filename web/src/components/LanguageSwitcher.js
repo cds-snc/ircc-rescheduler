@@ -13,8 +13,6 @@ import {
 } from '../styles'
 import { logEvent } from '../utils/analytics'
 
-import { logEvent } from '../utils/analytics'
-
 const button = css`
   ${focusRing};
   display: inline-block;
@@ -58,9 +56,7 @@ class LanguageSwitcher extends React.Component {
   }
 
   getNewLanguage() {
-    const lang = this.state.language === 'fr' ? 'en' : 'fr'
-    logEvent('Navigation', 'Toggle Language', lang)
-    return lang
+    return this.state.language === 'fr' ? 'en' : 'fr'
   }
 
   render() {
