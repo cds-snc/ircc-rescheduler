@@ -571,7 +571,7 @@ class Calendar extends Component {
       errorMessage: null,
     })
 
-    this.props.forceRender()
+    //this.props.forceRender()
   }
 
   render() {
