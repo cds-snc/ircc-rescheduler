@@ -162,11 +162,15 @@ class CalendarPage extends Component {
   async onSubmit(values, event) {
     const submitErrors = this.validate(values)
 
-    logEvent('Calendar', 'Submit', `Error: ${values.selectedDays.length} Day(s) selected`)
-
     if (Object.keys(submitErrors).length) {
       window.scrollTo(0, this.errorContainer.offsetTop - 20)
       this.errorContainer.focus()
+
+      logEvent(
+        'Calendar',
+        'Submit',
+        `Error: ${values.selectedDays.length} Day(s) selected`,
+      )
 
       const err = errorMessages[submitErrors.selectedDays]
         ? errorMessages[submitErrors.selectedDays]

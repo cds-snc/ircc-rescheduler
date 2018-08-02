@@ -141,11 +141,11 @@ class RegistrationPage extends React.Component {
   async onSubmit(values, event) {
     const submitErrors = this.validate(values, true)
 
-    trackRegistrationErrors(submitErrors)
-
     if (Object.keys(submitErrors).length) {
       window.scrollTo(0, this.errorContainer.offsetTop - 20)
       this.errorContainer.focus()
+
+      trackRegistrationErrors(submitErrors)
 
       return {
         [FORM_ERROR]: <Trans>Some information is missing.</Trans>,
