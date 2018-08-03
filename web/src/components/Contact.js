@@ -24,7 +24,7 @@ const telStyles = css`
 const TelLink = ({ tel }) => (
   <span className={telStyles}>
     <span>{tel}</span>
-    <a href={`tel:+${tel}`} rel="nofollow">
+    <a id="telephone" href={`tel:+${tel}`} rel="nofollow">
       {tel}
     </a>
   </span>
@@ -35,23 +35,22 @@ TelLink.propTypes = {
 
 const contact = css`
   margin-bottom: ${theme.spacing.lg};
-
-  /* These are technically the same, but use both */
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-
-  -ms-word-break: break-all;
-  word-break: break-word;
-
-  /* Adds a hyphen where the word breaks, if supported (No Blink) */
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
-
   p:first-of-type {
     margin-bottom: ${theme.spacing.sm};
   }
+  wbr {
+    display: none;
+  }
+
+  ${mediaQuery.xs(css`
+    a#email,
+    a#telephone {
+      display: block;
+    }
+    wbr {
+      display: inline;
+    }
+  `)};
 `
 
 const Contact = ({ children, phoneFirst = false }) => (
@@ -63,8 +62,13 @@ const Contact = ({ children, phoneFirst = false }) => (
           <strong>
             <Trans>Email —</Trans>
           </strong>{' '}
-          <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
-            IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca
+          <a
+            id="email"
+            href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca"
+          >
+            IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC
+            <wbr />
+            @cic.gc.ca
           </a>
         </p>
         <p>
@@ -86,8 +90,13 @@ const Contact = ({ children, phoneFirst = false }) => (
           <strong>
             <Trans>Email —</Trans>
           </strong>{' '}
-          <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
-            IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca
+          <a
+            idea="email"
+            href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca"
+          >
+            IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC
+            <wbr />
+            @cic.gc.ca
           </a>
         </p>
       </React.Fragment>
