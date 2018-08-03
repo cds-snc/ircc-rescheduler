@@ -1,7 +1,9 @@
 {
   "name": "ircc-rescheduler",
   "description": "",
-  "scripts": {},
+  "scripts": {
+    "postdeploy": "yarn build"
+  },
   "env": {
     "PORT": { "required": true },
     "PROJECT_PATH": { "required": true },
@@ -11,7 +13,7 @@
     "RAZZLE_IRCC_RECEIVING_ADDRESS": { "required": true },
     "RAZZLE_PAPER_FILE_NUMBER_PATTERN": { "required": true },
     "RAZZLE_SENDING_ADDRESS": { "required": true },
-    "RAZZLE_SITE_URL": { "required": true }
+    "RAZZLE_SITE_URL": { "required": false }
   },
   "formation": {},
   "addons": [],
