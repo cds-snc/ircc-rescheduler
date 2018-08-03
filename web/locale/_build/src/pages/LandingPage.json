@@ -39,7 +39,7 @@
       ]
     ]
   },
-  "Then you’ll select": {
+  "Next, you’ll select": {
     "origin": [
       [
         "src/pages/LandingPage.js",
@@ -71,11 +71,19 @@
       ]
     ]
   },
+  "Then we’ll review your request and send you a new appointment for one of the days you selected.": {
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        145
+      ]
+    ]
+  },
   "Requesting a new appointment will cancel your current one. Do not attend your old appointment after you complete this request.": {
     "origin": [
       [
         "src/pages/LandingPage.js",
-        146
+        153
       ]
     ]
   },
@@ -83,7 +91,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        154
+        161
       ]
     ]
   }
