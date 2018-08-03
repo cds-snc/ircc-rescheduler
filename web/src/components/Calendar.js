@@ -575,7 +575,8 @@ class Calendar extends Component {
       errorMessage: null,
     })
 
-    //this.props.forceRender()
+    // force a render to keep calendar errors in sync
+    this.props.forceRender(selectedDays)
   }
 
   render() {
