@@ -43,8 +43,8 @@ const contact = css`
   }
 
   ${mediaQuery.xs(css`
-    a[id='email'],
-    a[id='telephone'] {
+    a#email,
+    a#telephone {
       display: block;
     }
     wbr {
