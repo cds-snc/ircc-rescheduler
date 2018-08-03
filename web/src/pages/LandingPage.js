@@ -37,7 +37,7 @@ const CalendarIcon = styled.div`
 const messageContainer = css`
   display: flex;
   align-items: center;
-
+  margin-bottom: ${theme.spacing.lg};
   p {
     margin-bottom: 0;
   }
@@ -131,7 +131,7 @@ class LandingPage extends React.Component {
               <CalendarIcon />
             </div>
             <p>
-              <Trans>Then you’ll select</Trans>{' '}
+              <Trans>Next, you’ll select</Trans>{' '}
               <strong>
                 <Trans>3 days</Trans>
               </strong>{' '}
@@ -140,6 +140,13 @@ class LandingPage extends React.Component {
               {getEndMonthName(new Date(), locale)}.
             </p>
           </div>
+
+          <p>
+            <Trans>
+              Then we’ll review your request and send you a new appointment for
+              one of the days you selected.
+            </Trans>
+          </p>
         </section>
 
         <LongReminder>
