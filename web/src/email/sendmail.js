@@ -30,6 +30,8 @@ export const getMailer = async () => {
   return mailer
 }
 
+console.log('RAZZLE_SITE_URL: ', process.env.RAZZLE_SITE_URL)
+console.log('RAZZLE_SITE_URL typeof ', typeof process.env.RAZZLE_SITE_URL)
 export const getEmailParms = async (
   input,
   url = process.env.RAZZLE_SITE_URL || ' ',
