@@ -1,9 +1,6 @@
 {
   "name": "ircc-rescheduler",
   "description": "",
-  "scripts": {
-    "postdeploy": "yarn build"
-  },
   "env": {
     "PORT": { "required": true },
     "PROJECT_PATH": { "required": true },
