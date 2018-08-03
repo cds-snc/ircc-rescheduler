@@ -1,10 +1,10 @@
 {
-  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
-    "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+  "Then we’ll review your request and send you a new appointment for one of the days you selected.": {
+    "translation": "Puis, nous examinerons votre demande et nous vous enverrons un nouveau rendez-vous pour l'un des jours que vous avez sélectionnés.",
     "origin": [
       [
-        "src/pages/ConfirmationPage.js",
-        112
+        "src/pages/LandingPage.js",
+        145
       ]
     ]
   },
@@ -26,7 +26,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        461
+        462
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        546
+        547
       ]
     ]
   },
@@ -44,7 +44,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        645
+        649
       ]
     ]
   },
@@ -53,7 +53,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        647
+        651
       ]
     ]
   },
@@ -62,7 +62,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        649
+        653
       ]
     ]
   },
@@ -71,7 +71,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        651
+        655
       ]
     ]
   },
@@ -80,7 +80,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        662
+        666
       ]
     ]
   },
@@ -98,11 +98,11 @@
     "origin": [
       [
         "src/components/Contact.js",
-        64
+        63
       ],
       [
         "src/components/Contact.js",
-        87
+        91
       ]
     ]
   },
@@ -111,11 +111,11 @@
     "origin": [
       [
         "src/components/Contact.js",
-        72
+        76
       ],
       [
         "src/components/Contact.js",
-        81
+        85
       ]
     ]
   },
@@ -178,7 +178,7 @@
     "origin": [
       [
         "src/components/LanguageSwitcher.js",
-        70
+        71
       ]
     ]
   },
@@ -321,11 +321,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        89
+        90
       ],
       [
         "src/pages/RegistrationPage.js",
-        233
+        236
       ]
     ]
   },
@@ -355,11 +355,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        93
+        94
       ],
       [
         "src/pages/RegistrationPage.js",
-        283
+        286
       ]
     ]
   },
@@ -483,7 +483,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        81
+        82
       ],
       [
         "src/pages/ReviewPage.js",
@@ -496,7 +496,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        86
+        87
       ]
     ]
   },
@@ -505,7 +505,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        88
+        89
       ],
       [
         "src/pages/LandingPage.js",
@@ -518,7 +518,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        90
+        91
       ],
       [
         "src/pages/LandingPage.js",
@@ -531,7 +531,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        91
+        92
       ],
       [
         "src/pages/LandingPage.js",
@@ -544,7 +544,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        96
+        97
       ]
     ]
   },
@@ -553,7 +553,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        114
+        115
       ]
     ]
   },
@@ -562,7 +562,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        227
+        234
       ]
     ]
   },
@@ -571,7 +571,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        235
+        242
       ]
     ]
   },
@@ -580,11 +580,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        273
+        284
       ],
       [
         "src/pages/CalendarPage.js",
-        354
+        365
       ]
     ]
   },
@@ -593,7 +593,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        308
+        319
       ],
       [
         "src/validation.js",
@@ -718,6 +718,15 @@
       [
         "src/pages/ConfirmationPage.js",
         111
+      ]
+    ]
+  },
+  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
+    "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        112
       ]
     ]
   },
@@ -878,7 +887,7 @@
       ]
     ]
   },
-  "Then you’ll select": {
+  "Next, you’ll select": {
     "translation": "Ensuite, vous aurez à choisir",
     "origin": [
       [
@@ -892,7 +901,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        146
+        153
       ]
     ]
   },
@@ -901,7 +910,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        154
+        161
       ]
     ]
   },
@@ -910,11 +919,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        91
+        92
       ],
       [
         "src/pages/RegistrationPage.js",
-        256
+        259
       ]
     ]
   },
@@ -923,7 +932,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        95
+        96
       ]
     ]
   },
@@ -932,11 +941,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        97
+        98
       ],
       [
         "src/pages/RegistrationPage.js",
-        367
+        370
       ]
     ]
   },
@@ -945,11 +954,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        148
+        151
       ],
       [
         "src/pages/RegistrationPage.js",
-        193
+        196
       ]
     ]
   },
@@ -958,7 +967,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        176
+        179
       ]
     ]
   },
@@ -967,7 +976,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        244
+        247
       ]
     ]
   },
@@ -976,7 +985,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        267
+        270
       ]
     ]
   },
@@ -985,7 +994,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        294
+        297
       ]
     ]
   },
@@ -994,7 +1003,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        319
+        322
       ]
     ]
   },
@@ -1003,7 +1012,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        327
+        330
       ],
       [
         "src/pages/ReviewPage.js",
@@ -1016,7 +1025,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        335
+        338
       ]
     ]
   },
@@ -1025,7 +1034,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        343
+        346
       ],
       [
         "src/pages/ReviewPage.js",
@@ -1038,7 +1047,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        351
+        354
       ],
       [
         "src/pages/ReviewPage.js",
@@ -1051,7 +1060,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        380
+        383
       ]
     ]
   },
@@ -1060,7 +1069,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        393
+        396
       ]
     ]
   },
@@ -1423,6 +1432,16 @@
         88
       ]
     ]
+  },
+  "Then you’ll select": {
+    "translation": "Ensuite, vous aurez à choisir",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        134
+      ]
+    ],
+    "obsolete": true
   },
   "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment": {
     "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
