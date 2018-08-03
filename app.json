@@ -2,7 +2,6 @@
   "name": "ircc-rescheduler",
   "description": "",
   "env": {
-    "PORT": { "required": true },
     "PROJECT_PATH": { "required": true },
     "RAZZLE_AWS_ACCESS_KEY_ID": { "required": true },
     "RAZZLE_AWS_REGION": { "required": true },
