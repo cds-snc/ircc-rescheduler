@@ -538,6 +538,7 @@ class Calendar extends Component {
 
     // !selected means that this current day is not marked as 'selected' on the calendar
     if (!selected) {
+      console.log('force render', selectedDays.length)
       // If we have already selected the maximum number of days,
       // add an error message to the internal state and then return early
       if (selectedDays.length >= dayLimit) {
@@ -571,7 +572,7 @@ class Calendar extends Component {
       errorMessage: null,
     })
 
-    //this.props.forceRender()
+    this.props.forceRender()
   }
 
   render() {
