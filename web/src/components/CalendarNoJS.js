@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 import format from 'date-fns/format'
-import eachDay from 'date-fns/each_day'
-import isWednesday from 'date-fns/is_wednesday'
-import isThursday from 'date-fns/is_thursday'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import { Checkbox } from '../components/forms/MultipleChoice'
@@ -12,6 +9,7 @@ import {
   getStartDate,
   getEndDate,
   getMonthNameAndYear,
+  getValidDays,
 } from '../utils/calendarDates'
 
 const calList = css`
@@ -62,43 +60,40 @@ const isValidDateString = (props, propName, componentName) => {
 }
 
 const Calendar = ({ startDate, endDate, dates, locale }) => {
-  const days = eachDay(startDate, endDate)
+  //const days = eachDay(startDate, endDate)
+  const days = getValidDays(startDate, endDate)
   const mapped = {}
 
   days.forEach((date, index) => {
-    const validDay = isWednesday(date) || isThursday(date)
+    const monthName = getMonthNameAndYear(date, locale)
+    const idMonth = format(date, 'MM')
+    const val = dateToISODateString(date)
+    const checked = dates.includes(val)
 
-    if (validDay) {
-      const monthName = getMonthNameAndYear(date, locale)
-      const idMonth = format(date, 'MM')
-      const val = dateToISODateString(date)
-      const checked = dates.includes(val)
+    const el = (
+      <li key={val}>
+        <Checkbox
+          name="selectedDays"
+          id={`selectedDays-${idMonth}-${index}`}
+          value={val}
+          label={
+            <Time
+              date={date}
+              locale={locale}
+              options={{ weekday: 'long', day: 'numeric', month: 'long' }}
+            />
+          }
+          onChange={() => {}}
+          checked={checked}
+        />
+      </li>
+    )
 
-      const el = (
-        <li key={val}>
-          <Checkbox
-            name="selectedDays"
-            id={`selectedDays-${idMonth}-${index}`}
-            value={val}
-            label={
-              <Time
-                date={date}
-                locale={locale}
-                options={{ weekday: 'long', day: 'numeric', month: 'long' }}
-              />
-            }
-            onChange={() => {}}
-            checked={checked}
-          />
-        </li>
-      )
-
-      // eslint-disable-next-line security/detect-object-injection
-      let vals = mapped[monthName] || []
-      vals.push(el)
-      // eslint-disable-next-line security/detect-object-injection
-      mapped[monthName] = vals
-    }
+    // eslint-disable-next-line security/detect-object-injection
+    let vals = mapped[monthName] || []
+    vals.push(el)
+    // eslint-disable-next-line security/detect-object-injection
+    mapped[monthName] = vals
   })
 
   /*eslint-disable */

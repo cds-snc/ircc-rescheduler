@@ -16,6 +16,8 @@ import {
   getStartDate,
   getInitialMonth,
   sortSelectedDays,
+  getDisabledDays,
+  getDaysOfWeekForLocation,
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 import { logEvent } from '../utils/analytics'
@@ -142,12 +144,6 @@ const dayPickerDefault = css`
   .DayPicker-Weekday abbr[title] {
     border-bottom: none;
     text-decoration: none;
-  }
-
-  .DayPicker-Weekday:nth-of-type(4),
-  .DayPicker-Weekday:nth-of-type(5) {
-    background: ${theme.colour.white};
-    font-family: ${theme.weight.b}, Helvetica;
   }
 
   .DayPicker-Body {
@@ -493,6 +489,7 @@ class Calendar extends Component {
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
     this.state = {
       errorMessage: null,
+      daysOfWeek: false,
     }
     this.threeDatesArePicked =
       this.props.input.value &&
@@ -595,6 +592,21 @@ class Calendar extends Component {
 
     const initialMonth = getInitialMonth(value, startMonth)
 
+    let dayOfWeek1, dayOfWeek2
+    ;[dayOfWeek1, dayOfWeek2] = this.state.daysOfWeek
+      ? this.state.daysOfWeek
+      : getDaysOfWeekForLocation(undefined, initialMonth)
+
+    const styles = css`
+      ${dayPickerDefault};
+
+      .DayPicker-Weekday:nth-of-type(${dayOfWeek1}),
+      .DayPicker-Weekday:nth-of-type(${dayOfWeek2}) {
+        background: ${theme.colour.white};
+        font-family: ${theme.weight.b}, Helvetica;
+      }
+    `
+
     return (
       <div>
         <div
@@ -616,7 +628,7 @@ class Calendar extends Component {
         >
           <DayPicker
             className={css`
-              ${dayPickerDefault} ${dayPicker};
+              ${styles} ${dayPicker};
             `}
             localeUtils={{ ...LocaleUtils, formatDay }}
             captionElement={renderMonthName}
@@ -628,14 +640,20 @@ class Calendar extends Component {
             fromMonth={startMonth}
             toMonth={endDate}
             numberOfMonths={1}
+            onMonthChange={month => {
+              this.setState({
+                daysOfWeek: getDaysOfWeekForLocation(undefined, month),
+              })
+
+              this.props.changeMonth(month)
+            }}
             disabledDays={[
               {
                 before: parse(getStartDate(new Date())),
                 after: endDate,
               },
-              {
-                daysOfWeek: [0, 1, 2, 5, 6],
-              },
+
+              ...getDisabledDays(),
             ]}
             onDayClick={this.handleDayClick}
             selectedDays={value}
@@ -675,7 +693,8 @@ class Calendar extends Component {
 }
 
 Calendar.defaultProps = {
-  forceRender: () => {}, //used to for a parent re-render after clicking on a day
+  forceRender: () => {},
+  changeMonth: () => {}, //used to for a parent re-render after clicking on a day
 }
 
 Calendar.propTypes = {

@@ -36,9 +36,19 @@ import { windowExists } from '../utils/windowExists'
 import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
 import { Checkbox } from '../components/forms/MultipleChoice'
-import { getEndMonthName, getStartMonthName } from '../utils/calendarDates'
 import { checkURLParams } from '../utils/url'
 import { logEvent } from '../utils/analytics'
+import {
+  getEndMonthName,
+  getStartMonthName,
+  getDaysOfWeekForLocation,
+  dayFromDayNumber,
+  getStartMonth,
+  getInitialMonth,
+  getMonthName,
+} from '../utils/calendarDates'
+
+import parse from 'date-fns/parse'
 
 const DAY_LIMIT = 3
 
@@ -72,7 +82,12 @@ const fullWidth = css`
   width: 100% !important;
 `
 
-const CalHeader = ({ locale = 'en', path }) => {
+const CalHeader = ({
+  locale = 'en',
+  path,
+  headerMonth = '',
+  headerNote = [],
+}) => {
   return (
     <div>
       <Title path={path} />
@@ -94,11 +109,13 @@ const CalHeader = ({ locale = 'en', path }) => {
         {getEndMonthName(new Date(), locale)}.
       </CalendarHeader>
 
-      <CalendarSubheader>
-        <Trans>
-          Citizenship appointments are scheduled on Wednesdays and Thursdays.
-        </Trans>
-      </CalendarSubheader>
+      {windowExists() && (
+        <CalendarSubheader>
+          <Trans>Citizenship appointments in</Trans> {headerMonth}{' '}
+          <Trans>are scheduled on </Trans>
+          {headerNote}.
+        </CalendarSubheader>
+      )}
     </div>
   )
 }
@@ -106,6 +123,8 @@ const CalHeader = ({ locale = 'en', path }) => {
 CalHeader.propTypes = {
   locale: PropTypes.string,
   path: PropTypes.string.isRequired,
+  headerMonth: PropTypes.string,
+  headerNote: PropTypes.array,
 }
 
 const CalBottom = ({ submit }) => {
@@ -154,12 +173,59 @@ class CalendarPage extends Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.validate = CalendarPage.validate
     this.forceRender = this.forceRender.bind(this)
-    this.state = { calValues: false }
+    this.changeMonth = this.changeMonth.bind(this)
+    this.initialMonth = this.initialMonth.bind(this)
+    this.state = { headerMonth: '', headerNote: [], calValues: false }
+  }
+
+  componentDidMount() {
+    this.changeMonth(this.initialMonth())
   }
 
   forceRender(values) {
     // call setState to force a render
     this.setState({ calValues: values })
+  }
+
+  initialMonth() {
+    let { context: { store: { calendar = {} } = {} } = {} } = this.props
+
+    // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
+
+    // cast values to Date objects if calendar.selectedDays exists and has a length
+    if (calendar && calendar.selectedDays && calendar.selectedDays.length) {
+      calendar = {
+        selectedDays: calendar.selectedDays.map(day => makeGMTDate(day)),
+      }
+    }
+
+    const startMonth = parse(getStartMonth())
+    const initialMonth = getInitialMonth(calendar.selectedDays, startMonth)
+    return initialMonth
+  }
+
+  changeMonth(month) {
+    let {
+      context: { store: { language: locale = 'en' } = {} } = {},
+    } = this.props
+    const days = getDaysOfWeekForLocation(undefined, month)
+    const dayText = days.map((day, i) => {
+      return (
+        <React.Fragment key={day}>
+          {i !== 0 && (
+            <React.Fragment>
+              {' '}
+              <Trans>and</Trans>{' '}
+            </React.Fragment>
+          )}{' '}
+          {dayFromDayNumber(day).plural}
+        </React.Fragment>
+      )
+    })
+    this.setState({
+      headerMonth: getMonthName(month, locale),
+      headerNote: dayText,
+    })
   }
 
   async onSubmit(values, event) {
@@ -215,7 +281,12 @@ class CalendarPage extends Component {
 
     return (
       <Layout>
-        <CalHeader locale={locale} path={this.props.match.path} />
+        <CalHeader
+          locale={locale}
+          path={this.props.match.path}
+          headerMonth={this.state.headerMonth}
+          headerNote={this.state.headerNote}
+        />
         <Form
           onSubmit={this.onSubmit}
           initialValues={calValues}
@@ -285,6 +356,7 @@ class CalendarPage extends Component {
                     component={CalendarAdapter}
                     dayLimit={DAY_LIMIT}
                     forceRender={this.forceRender}
+                    changeMonth={this.changeMonth}
                   />
                 </div>
                 <CalBottom
