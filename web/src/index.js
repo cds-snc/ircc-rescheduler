@@ -19,12 +19,19 @@ const port = () =>
     10,
   )
 
-server.listen(port(), error => {
+console.log('RAZZLE_PORT', env.RAZZLE_PORT)
+console.log('PORT', env.PORT)
+console.log('process.env.RAZZLE_PORT', process.env.RAZZLE_PORT)
+console.log('process.env.PORT', process.env.PORT)
+
+const _port = port()
+
+server.listen(_port, error => {
   if (error) {
     console.log(error)
   }
 
-  console.log(`🚀 started on port ${port}`)
+  console.log(`🚀 started on port ${_port}`)
 })
 
 if (module.hot) {
