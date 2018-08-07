@@ -3,6 +3,7 @@
   "version": "1.0.3",
   "license": "MIT",
   "scripts": {
+    "postinstall": "razzle build",
     "build": "razzle build",
     "dev": "razzle start",
     "dbg": "node --inspect-brk node_modules/jest/bin/jest.js",
