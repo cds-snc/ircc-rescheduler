@@ -13,8 +13,6 @@ if (process.env.NODE_ENV !== 'test') {
     throw new Error('process.env.RAZZLE_IRCC_RECEIVING_ADDRESS was not found')
   if (!process.env.RAZZLE_SENDING_ADDRESS)
     throw new Error('process.env.RAZZLE_SENDING_ADDRESS was not found')
-  if (typeof process.env.RAZZLE_SITE_URL === 'undefined')
-    throw new Error('process.env.RAZZLE_SITE_URL was not found')
 }
 
 export const getMailer = async () => {

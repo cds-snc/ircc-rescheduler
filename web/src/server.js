@@ -18,6 +18,7 @@ import {
 } from './email/sendmail'
 import gitHash from './utils/gitHash'
 import Raven from 'raven'
+console.log('RAZZLE_STAGE', process.env.RAZZLE_STAGE)
 Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
   dataCallback: function(data) {
     var stacktrace = data.exception && data.exception[0].stacktrace
