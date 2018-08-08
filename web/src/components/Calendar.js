@@ -468,7 +468,9 @@ const renderDayBoxes = ({
         </li>
       ) : (
         <li key={i} className={dayBox}>
-          <span className="empty day-box" />
+          <span className="empty day-box">
+            <Trans>Please select another date</Trans>
+          </span>
         </li>
       ),
     )
