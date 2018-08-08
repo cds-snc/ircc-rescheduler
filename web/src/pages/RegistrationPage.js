@@ -35,6 +35,7 @@ import CancelButton from '../components/CancelButton'
 import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { checkURLParams } from '../utils/url'
+import { trackRegistrationErrors } from '../utils/analytics'
 
 const contentClass = css`
   form {
@@ -144,6 +145,8 @@ class RegistrationPage extends React.Component {
     if (Object.keys(submitErrors).length) {
       window.scrollTo(0, this.errorContainer.offsetTop - 20)
       this.errorContainer.focus()
+
+      trackRegistrationErrors(submitErrors)
 
       return {
         [FORM_ERROR]: <Trans>Some information is missing.</Trans>,

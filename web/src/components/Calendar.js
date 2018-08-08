@@ -18,6 +18,7 @@ import {
   sortSelectedDays,
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
+import { logEvent } from '../utils/analytics'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -550,6 +551,9 @@ class Calendar extends Component {
           ),
         })
         this.errorContainer.focus()
+
+        logEvent('Calendar', 'Select', 'Error: More than 3 days')
+
         return
       }
 
@@ -571,7 +575,8 @@ class Calendar extends Component {
       errorMessage: null,
     })
 
-    //this.props.forceRender()
+    // force a render to keep calendar errors in sync
+    this.props.forceRender(selectedDays)
   }
 
   render() {

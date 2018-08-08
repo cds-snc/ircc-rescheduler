@@ -23,3 +23,11 @@ export const logException = (description = '', fatal = false) => {
     ReactGA.exception({ description, fatal })
   }
 }
+
+export const trackRegistrationErrors = errObj => {
+  const errs = Object.keys(errObj).map(key => {
+    return key
+  })
+
+  logEvent('Registration', 'Submit', 'Error(s): ' + errs.join(', '))
+}

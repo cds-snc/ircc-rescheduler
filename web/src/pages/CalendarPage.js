@@ -38,6 +38,7 @@ import CancelButton from '../components/CancelButton'
 import { Checkbox } from '../components/forms/MultipleChoice'
 import { getEndMonthName, getStartMonthName } from '../utils/calendarDates'
 import { checkURLParams } from '../utils/url'
+import { logEvent } from '../utils/analytics'
 
 const DAY_LIMIT = 3
 
@@ -153,10 +154,12 @@ class CalendarPage extends Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.validate = CalendarPage.validate
     this.forceRender = this.forceRender.bind(this)
+    this.state = { calValues: [] }
   }
 
-  forceRender() {
-    this.forceUpdate()
+  forceRender(values) {
+    // call setState to force a render
+    this.setState({ calValues: values })
   }
 
   async onSubmit(values, event) {
@@ -165,6 +168,12 @@ class CalendarPage extends Component {
     if (Object.keys(submitErrors).length) {
       window.scrollTo(0, this.errorContainer.offsetTop - 20)
       this.errorContainer.focus()
+
+      logEvent(
+        'Calendar',
+        'Submit',
+        `Error: ${values.selectedDays.length} Day(s) selected`,
+      )
 
       const err = errorMessages[submitErrors.selectedDays]
         ? errorMessages[submitErrors.selectedDays]
@@ -197,12 +206,19 @@ class CalendarPage extends Component {
       }
     }
 
+    let calValues = calendar
+
+    // use values from state if this is a forced render
+    if (this.state.calValues.length) {
+      calValues.selectedDays = this.state.calValues
+    }
+
     return (
       <Layout>
         <CalHeader locale={locale} path={this.props.match.path} />
         <Form
           onSubmit={this.onSubmit}
-          initialValues={calendar}
+          initialValues={calValues}
           render={({
             handleSubmit,
             reset,
