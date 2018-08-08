@@ -97,8 +97,8 @@ class ConfirmationPage extends React.Component {
           </H2>
           <p>
             <Trans>
-              You will always be contacted at least 3 weeks before your
-              appointment.
+              IRCC will send you a new appointment. You will always be contacted
+              at least 3 weeks before your appointment.
             </Trans>
           </p>
           <Contact>

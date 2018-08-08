@@ -1,5 +1,5 @@
 {
-  "You will always be contacted at least 3 weeks before your appointment.": {
+  "IRCC will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
     "translation": "",
     "origin": [
       [
@@ -21,12 +21,21 @@
       ]
     ]
   },
+  "Please select another date": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        472
+      ]
+    ]
+  },
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "translation": "",
     "origin": [
       [
         "src/components/Calendar.js",
-        555
+        557
       ]
     ]
   },
@@ -35,7 +44,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        658
+        660
       ]
     ]
   },
@@ -44,7 +53,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        660
+        662
       ]
     ]
   },
@@ -53,7 +62,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        662
+        664
       ]
     ]
   },
@@ -62,7 +71,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        664
+        666
       ]
     ]
   },
@@ -71,7 +80,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        676
+        678
       ]
     ]
   },
@@ -312,11 +321,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        90
+        91
       ],
       [
         "src/pages/RegistrationPage.js",
-        236
+        238
       ]
     ]
   },
@@ -346,11 +355,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        94
+        95
       ],
       [
         "src/pages/RegistrationPage.js",
-        286
+        288
       ]
     ]
   },
@@ -474,7 +483,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        82
+        83
       ],
       [
         "src/pages/ReviewPage.js",
@@ -487,7 +496,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        87
+        88
       ]
     ]
   },
@@ -496,7 +505,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        89
+        90
       ],
       [
         "src/pages/LandingPage.js",
@@ -509,7 +518,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        91
+        92
       ],
       [
         "src/pages/LandingPage.js",
@@ -522,7 +531,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        92
+        93
       ],
       [
         "src/pages/LandingPage.js",
@@ -535,7 +544,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        97
+        98
       ]
     ]
   },
@@ -544,7 +553,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        115
+        116
       ]
     ]
   },
@@ -553,7 +562,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        243
+        244
       ]
     ]
   },
@@ -562,7 +571,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        251
+        252
       ]
     ]
   },
@@ -571,11 +580,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        293
+        294
       ],
       [
         "src/pages/CalendarPage.js",
-        374
+        376
       ]
     ]
   },
@@ -584,7 +593,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        328
+        329
       ],
       [
         "src/validation.js",
@@ -901,11 +910,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        92
+        93
       ],
       [
         "src/pages/RegistrationPage.js",
-        259
+        261
       ]
     ]
   },
@@ -914,7 +923,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        96
+        97
       ]
     ]
   },
@@ -923,11 +932,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        98
+        99
       ],
       [
         "src/pages/RegistrationPage.js",
-        370
+        372
       ]
     ]
   },
@@ -936,11 +945,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        151
+        152
       ],
       [
         "src/pages/RegistrationPage.js",
-        196
+        198
       ]
     ]
   },
@@ -949,7 +958,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        179
+        181
       ]
     ]
   },
@@ -958,7 +967,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        247
+        249
       ]
     ]
   },
@@ -967,7 +976,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        270
+        272
       ]
     ]
   },
@@ -976,7 +985,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        297
+        299
       ]
     ]
   },
@@ -985,7 +994,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        322
+        324
       ]
     ]
   },
@@ -994,7 +1003,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        330
+        332
       ],
       [
         "src/pages/ReviewPage.js",
@@ -1007,7 +1016,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        338
+        340
       ]
     ]
   },
@@ -1016,7 +1025,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        346
+        348
       ],
       [
         "src/pages/ReviewPage.js",
@@ -1029,7 +1038,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        354
+        356
       ],
       [
         "src/pages/ReviewPage.js",
@@ -1042,7 +1051,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        383
+        385
       ]
     ]
   },
@@ -1051,7 +1060,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        396
+        398
       ]
     ]
   },
@@ -1415,12 +1424,12 @@
       ]
     ]
   },
-  "Please select another date": {
+  "You will always be contacted at least 3 weeks before your appointment.": {
     "translation": "",
     "origin": [
       [
-        "src/components/Calendar.js",
-        462
+        "src/pages/ConfirmationPage.js",
+        99
       ]
     ],
     "obsolete": true
