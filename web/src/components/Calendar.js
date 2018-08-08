@@ -7,7 +7,7 @@ import { css } from 'emotion'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
-import MobileCancel from '../assets/mobileCancel.svg'
+import MobileCancel from './MobileCancel'
 import { getDateInfo } from '../utils/linguiUtils'
 import {
   getStartMonth,
@@ -315,6 +315,7 @@ const dayBox = css`
   .day-box {
     font-size: ${theme.font.md};
     color: ${theme.colour.black};
+    height: 1.3rem;
 
     ${mediaQuery.lg(css`
       color: ${theme.colour.black};
@@ -397,6 +398,10 @@ const removeDate = css`
   width: 1rem;
   height: 1rem;
 
+  img circle {
+    fill: red;
+  }
+
   ${mediaQuery.lg(css`
     display: block;
     width: 1.6rem;
@@ -430,6 +435,7 @@ const renderDayBoxes = ({
   selectedDays,
   removeDayOnClickOrKeyPress,
   locale,
+  errorMessage,
   removeDayAltText,
 }) => {
   let dayBoxes = []
@@ -452,15 +458,17 @@ const renderDayBoxes = ({
             )}`}
           >
             <div className={removeDate}>
-              <img src={MobileCancel} alt="" />
+              <MobileCancel
+                circleColour={
+                  errorMessage ? theme.colour.red : theme.colour.blackLight
+                }
+              />
             </div>
           </button>
         </li>
       ) : (
         <li key={i} className={dayBox}>
-          <span className="empty day-box">
-            <Trans>Please select another date</Trans>
-          </span>
+          <span className="empty day-box" />
         </li>
       ),
     )
@@ -660,6 +668,7 @@ class Calendar extends Component {
             <ul id="selectedDays-list">
               {renderDayBoxes({
                 dayLimit,
+                errorMessage: this.state.errorMessage,
                 selectedDays: value,
                 removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
                 locale,
