@@ -37,6 +37,7 @@ import CalendarNoJS from '../components/CalendarNoJS'
 import CancelButton from '../components/CancelButton'
 import { Checkbox } from '../components/forms/MultipleChoice'
 import { getEndMonthName, getStartMonthName } from '../utils/calendarDates'
+import { checkURLParams } from '../utils/url'
 
 const DAY_LIMIT = 3
 
@@ -242,7 +243,11 @@ class CalendarPage extends Component {
             }
 
             return (
-              <form id="calendar-form" onSubmit={handleSubmit} className={fullWidth}>
+              <form
+                id="calendar-form"
+                onSubmit={handleSubmit}
+                className={fullWidth}
+              >
                 <div>
                   <div
                     id="submit-error"
@@ -316,11 +321,12 @@ class NoJS extends Component {
     let errorsNoJS = {}
 
     // only run this if there's a location.search
-    // AND at least one of our fields exists in the string somewhere
+    // AND at least one of our fields exists in the url keys somewhere
     // so we know for sure they pressed "submit" on this page
     if (
       this.props.location.search &&
-      NoJS.fields.some(field => this.props.location.search.includes(field))
+      this.props.location.pathname === '/calendar' &&
+      checkURLParams(this.props.location.search, NoJS.fields)
     ) {
       errorsNoJS = NoJS.validate(calendar)
     }

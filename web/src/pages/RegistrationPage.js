@@ -34,6 +34,7 @@ import { FORM_ERROR } from 'final-form'
 import CancelButton from '../components/CancelButton'
 import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
+import { checkURLParams } from '../utils/url'
 
 const contentClass = css`
   form {
@@ -160,11 +161,12 @@ class RegistrationPage extends React.Component {
     let errorsNoJS = {}
 
     // only run this if there's a location.search
-    // AND at least one of our fields exists in the string somewhere
+    // AND at least one of our fields exists in the url keys somewhere
     // so we know for sure they pressed "submit" on this page
     if (
       this.props.location.search &&
-      this.fields.some(field => this.props.location.search.includes(field))
+      this.props.location.pathname === '/register' &&
+      checkURLParams(this.props.location.search, this.fields)
     ) {
       errorsNoJS = this.validate(register, true)
     }
