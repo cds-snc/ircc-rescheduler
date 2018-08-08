@@ -8,6 +8,7 @@ const MobileCancel = ({ circleColour = theme.colour.blackLight }) => {
       xmlns="http://www.w3.org/2000/svg"
       data-name="Layer 1"
       viewBox="0 0 21.62 21.62"
+      alt=""
     >
       <g data-name="Layer 2">
         <g data-name="Layer 1-2">
