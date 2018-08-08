@@ -56,6 +56,9 @@ const handleMailError = e => {
   }
 }
 
+console.log('RAZZLE_PUBLIC_DIR', process.env.RAZZLE_PUBLIC_DIR)
+console.log('NODE', process.env.NODE)
+
 server
   .use(helmet.frameguard({ action: 'deny' })) //// Sets "X-Frame-Options: DENY".
   .use(helmet.noSniff()) // Sets "X-Content-Type-Options: nosniff".
