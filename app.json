@@ -8,6 +8,7 @@
     "RAZZLE_AWS_SECRET_ACCESS_KEY": { "required": true },
     "RAZZLE_IRCC_RECEIVING_ADDRESS": { "required": true },
     "RAZZLE_PAPER_FILE_NUMBER_PATTERN": { "required": true },
+    "RAZZLE_PUBLIC_DIR": { "required": true },
     "RAZZLE_SENDING_ADDRESS": { "required": true }
   },
   "formation": {},
