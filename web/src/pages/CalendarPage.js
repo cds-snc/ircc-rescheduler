@@ -154,7 +154,7 @@ class CalendarPage extends Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.validate = CalendarPage.validate
     this.forceRender = this.forceRender.bind(this)
-    this.state = { calValues: [] }
+    this.state = { calValues: false }
   }
 
   forceRender(values) {
@@ -209,7 +209,7 @@ class CalendarPage extends Component {
     let calValues = calendar
 
     // use values from state if this is a forced render
-    if (this.state.calValues.length) {
+    if (this.state.calValues) {
       calValues.selectedDays = this.state.calValues
     }
 
