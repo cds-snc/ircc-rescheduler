@@ -18,6 +18,7 @@ import {
 } from './email/sendmail'
 import gitHash from './utils/gitHash'
 import Raven from 'raven'
+console.log('RAZZLE_STAGE', process.env.RAZZLE_STAGE)
 Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
   dataCallback: function(data) {
     var stacktrace = data.exception && data.exception[0].stacktrace
@@ -54,6 +55,9 @@ const handleMailError = e => {
     errorMessage: e.message,
   }
 }
+
+console.log('RAZZLE_PUBLIC_DIR', process.env.RAZZLE_PUBLIC_DIR)
+console.log('NODE', process.env.NODE)
 
 server
   .use(helmet.frameguard({ action: 'deny' })) //// Sets "X-Frame-Options: DENY".
