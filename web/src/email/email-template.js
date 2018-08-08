@@ -38,6 +38,14 @@ if (
   prefix += 'web'
 }
 
+/*
+ when running on heroku, our prefix is different
+ if check found here: https://stackoverflow.com/a/28489160/9728185
+*/
+if (process.env.NODE && ~process.env.NODE.indexOf('heroku')) {
+  prefix = '../../'
+}
+
 // retrieve html markup as a string
 const readFileContent = async filename => {
   const file = path.resolve(
