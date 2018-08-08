@@ -401,7 +401,7 @@ describe('renderDayBoxes', () => {
       'Remove day: Sunday, November 3, 1957',
     )
 
-    let imgs = button.find('img')
+    let imgs = button.find('svg')
     expect(imgs.length).toBe(1)
     expect(imgs.at(0).props().alt).toEqual('')
   })
@@ -424,7 +424,7 @@ describe('renderDayBoxes', () => {
       'Supprimer cette journée: dimanche 3 novembre 1957',
     )
 
-    let imgs = button.find('img')
+    let imgs = button.find('svg')
     expect(imgs.length).toBe(1)
     expect(imgs.at(0).props().alt).toEqual('')
   })
