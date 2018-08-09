@@ -67,12 +67,14 @@ These options are set when running in production mode (`yarn start`), whether lo
 
 - `RAZZLE_GA_ID`: Our Google Analytics ID code. If left unset, the app won’t send pageviews to Google. Not generally needed during local development but can be turned on to test functionality.
 
+- `SENTRY_AUTH_TOKEN`: In order to upload our sourcemaps to sentry, we have to set an auth token. We upload source maps as part of deploys so that we can trace errors back to specific versions. This is not used once the app is running, so it doesn't use the `RAZZLE_` prefix.
 
 ##### sample `web/.env.production` file
 
 ```
 RAZZLE_COOKIE_SECRET='DONE_KEPT_IT_REAL_FROM_THE_JUMP_'
 RAZZLE_GA_ID='UA-111111111-1'
+SENTRY_AUTH_TOKEN='notARealAuthToken'
 ```
 
 ## How to use
