@@ -72,11 +72,11 @@ server
     const validateCal = new Validator(input, CalendarFields)
 
     if (!validateReg.passes()) {
-      return res.redirect('/register')
+      return res.redirect('/register?not-valid=true')
     }
 
     if (!validateCal.passes()) {
-      return res.redirect('/calendar')
+      return res.redirect('/calendar?not-valid=true')
     }
 
     try {
