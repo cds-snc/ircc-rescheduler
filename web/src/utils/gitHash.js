@@ -3,7 +3,7 @@ const { execSync } = require('child_process')
 export default () => {
   try {
     return execSync('git rev-parse --short HEAD', {
-      stdio: [process.stdin, process.stdout, null],
+      stdio: ['pipe', 'pipe', null],
     })
       .toString()
       .trim()
