@@ -78,6 +78,7 @@ class LanguageSwitcher extends React.Component {
         />
         <button
           className={button}
+          id="language-toggle"
           onClick={e => {
             e.preventDefault()
             const lang = this.getNewLanguage()
