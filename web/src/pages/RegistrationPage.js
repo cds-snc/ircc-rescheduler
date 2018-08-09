@@ -122,7 +122,8 @@ class RegistrationPage extends React.Component {
       )
 
       if (validate.passes()) {
-        return {}
+        RegistrationPage.errStrings = {}
+        return RegistrationPage.errStrings
       }
 
       RegistrationPage.errStrings = getFieldErrorStrings(validate)
