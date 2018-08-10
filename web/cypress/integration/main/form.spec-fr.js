@@ -1,4 +1,4 @@
-import { fullRun } from './full-run-fr'
+import { fullRun } from './full-run'
 
 context('Full Run-through', () => {
   beforeEach(() => {
@@ -6,6 +6,6 @@ context('Full Run-through', () => {
   })
 
   it('should be able to fill in a profile and reach the confirmation page', () => {
-    fullRun(cy)
+    fullRun(cy, 'fr')
   })
 })

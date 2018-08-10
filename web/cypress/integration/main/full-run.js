@@ -1,8 +1,21 @@
-export const fullRun = cy => {
-  cy.get('main a span').should('have.text', 'Start now')
+export const fullRun = (cy, locale = 'en') => {
+  let startText = 'Start now'
+
+  if (locale === 'fr') {
+    cy.get('#language-toggle').click({ force: true })
+    startText = 'Commencer'
+  }
+
+  cy.get('main a span').should('have.text', startText)
   cy.get('main a').click({ force: true })
 
-  cy.fixture('user').then(data => {
+  let fixture = 'user'
+
+  if (locale === 'fr') {
+    fixture = 'user-fr'
+  }
+
+  cy.fixture(fixture).then(data => {
     cy.get('#fullName').type(data.fullName, { force: true })
     cy.get('#email').type(data.email, { force: true })
     cy.get('#paperFileNumber').type(data.paperFileNumber, { force: true })
@@ -34,7 +47,7 @@ export const fullRun = cy => {
 
     cy.url().should('contain', '/review')
 
-    cy.fixture('user').then(data => {
+    cy.fixture(fixture).then(data => {
       cy.get('main').should('contain', data.fullName)
       cy.get('main').should('contain', data.email)
       cy.get('main').should('contain', data.explanation)
