@@ -8,5 +8,6 @@ export const vancouver = {
     sep: ['wed', 'thurs'],
     oct: ['tues', 'wed'],
     nov: ['tues', 'wed'],
+    dec: ['tues', 'wed'],
   },
 }

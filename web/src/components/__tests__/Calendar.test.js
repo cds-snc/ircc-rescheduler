@@ -5,7 +5,6 @@ import {
   getMonthNameAndYear,
   getStartMonth,
   getStartDate,
-  getDisabledDays,
   getEnabledDays,
   getEndDate,
 } from '../../utils/calendarDates'
