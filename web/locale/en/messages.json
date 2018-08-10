@@ -1,67 +1,4 @@
 {
-  "Citizenship appointments in": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        114
-      ]
-    ]
-  },
-  "are scheduled on": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        115
-      ]
-    ]
-  },
-  "Mondays": {
-    "translation": "",
-    "origin": [
-      [
-        "src/utils/calendarDates.js",
-        221
-      ]
-    ]
-  },
-  "Tuesdays": {
-    "translation": "",
-    "origin": [
-      [
-        "src/utils/calendarDates.js",
-        225
-      ]
-    ]
-  },
-  "Wednesdays": {
-    "translation": "",
-    "origin": [
-      [
-        "src/utils/calendarDates.js",
-        230
-      ]
-    ]
-  },
-  "Thursdays": {
-    "translation": "",
-    "origin": [
-      [
-        "src/utils/calendarDates.js",
-        235
-      ]
-    ]
-  },
-  "Fridays": {
-    "translation": "",
-    "origin": [
-      [
-        "src/utils/calendarDates.js",
-        238
-      ]
-    ]
-  },
   "Immigration, Refugees and Citizenship Canada": {
     "translation": "",
     "origin": [
@@ -594,6 +531,24 @@
       [
         "src/pages/LandingPage.js",
         139
+      ]
+    ]
+  },
+  "Citizenship appointments in": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        114
+      ]
+    ]
+  },
+  "are scheduled on": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        115
       ]
     ]
   },
@@ -1162,6 +1117,15 @@
       ]
     ]
   },
+  "Mondays": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        221
+      ]
+    ]
+  },
   "Tuesday": {
     "translation": "",
     "origin": [
@@ -1172,6 +1136,15 @@
       [
         "src/utils/linguiUtils.js",
         34
+      ]
+    ]
+  },
+  "Tuesdays": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        225
       ]
     ]
   },
@@ -1188,6 +1161,15 @@
       ]
     ]
   },
+  "Wednesdays": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        230
+      ]
+    ]
+  },
   "Thursday": {
     "translation": "",
     "origin": [
@@ -1201,6 +1183,15 @@
       ]
     ]
   },
+  "Thursdays": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        235
+      ]
+    ]
+  },
   "Friday": {
     "translation": "",
     "origin": [
@@ -1211,6 +1202,15 @@
       [
         "src/utils/linguiUtils.js",
         37
+      ]
+    ]
+  },
+  "Fridays": {
+    "translation": "",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        238
       ]
     ]
   },
