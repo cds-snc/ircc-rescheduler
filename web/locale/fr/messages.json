@@ -1,10 +1,64 @@
 {
-  "will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
-    "translation": " vous enverra un nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+  "Citizenship appointments in": {
+    "translation": "Nominations à la citoyenneté dans",
     "origin": [
       [
-        "src/pages/ConfirmationPage.js",
-        101
+        "src/pages/CalendarPage.js",
+        114
+      ]
+    ]
+  },
+  "are scheduled on": {
+    "translation": "sont programmés sur",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        115
+      ]
+    ]
+  },
+  "Mondays": {
+    "translation": "Les lundis",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        221
+      ]
+    ]
+  },
+  "Tuesdays": {
+    "translation": "Les mardis",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        225
+      ]
+    ]
+  },
+  "Wednesdays": {
+    "translation": "Les mercredis",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        230
+      ]
+    ]
+  },
+  "Thursdays": {
+    "translation": "Les jeudis",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        235
+      ]
+    ]
+  },
+  "Fridays": {
+    "translation": "Les vendredis",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        238
       ]
     ]
   },
@@ -26,7 +80,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        468
+        459
       ]
     ]
   },
@@ -35,7 +89,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        553
+        545
       ]
     ]
   },
@@ -44,7 +98,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        656
+        673
       ]
     ]
   },
@@ -53,7 +107,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        658
+        675
       ]
     ]
   },
@@ -62,7 +116,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        660
+        677
       ]
     ]
   },
@@ -71,7 +125,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        662
+        679
       ]
     ]
   },
@@ -80,7 +134,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        674
+        691
       ]
     ]
   },
@@ -325,7 +379,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        238
+        239
       ]
     ]
   },
@@ -359,7 +413,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        288
+        289
       ]
     ]
   },
@@ -483,7 +537,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        83
+        98
       ],
       [
         "src/pages/ReviewPage.js",
@@ -496,7 +550,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        88
+        103
       ]
     ]
   },
@@ -505,7 +559,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        90
+        105
       ],
       [
         "src/pages/LandingPage.js",
@@ -518,7 +572,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        92
+        107
       ],
       [
         "src/pages/LandingPage.js",
@@ -531,20 +585,15 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        93
+        108
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        218
       ],
       [
         "src/pages/LandingPage.js",
         139
-      ]
-    ]
-  },
-  "Citizenship appointments are scheduled on Wednesdays and Thursdays.": {
-    "translation": "Les rendez-vous d’examen de citoyenneté ont lieu les mercredis et les jeudis.",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        98
       ]
     ]
   },
@@ -553,7 +602,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        116
+        135
       ]
     ]
   },
@@ -562,7 +611,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        244
+        315
       ]
     ]
   },
@@ -571,7 +620,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        252
+        323
       ]
     ]
   },
@@ -580,11 +629,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        294
+        366
       ],
       [
         "src/pages/CalendarPage.js",
-        376
+        448
       ]
     ]
   },
@@ -593,7 +642,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        329
+        401
       ],
       [
         "src/validation.js",
@@ -709,6 +758,15 @@
       [
         "src/pages/ConfirmationPage.js",
         90
+      ]
+    ]
+  },
+  "will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
+    "translation": " vous enverra un nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        101
       ]
     ]
   },
@@ -914,7 +972,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        261
+        262
       ]
     ]
   },
@@ -936,7 +994,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        372
+        373
       ]
     ]
   },
@@ -945,11 +1003,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        152
+        153
       ],
       [
         "src/pages/RegistrationPage.js",
-        198
+        199
       ]
     ]
   },
@@ -958,7 +1016,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        181
+        182
       ]
     ]
   },
@@ -967,7 +1025,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        249
+        250
       ]
     ]
   },
@@ -976,7 +1034,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        272
+        273
       ]
     ]
   },
@@ -985,7 +1043,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        299
+        300
       ]
     ]
   },
@@ -994,7 +1052,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        324
+        325
       ]
     ]
   },
@@ -1003,7 +1061,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        332
+        333
       ],
       [
         "src/pages/ReviewPage.js",
@@ -1016,7 +1074,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        340
+        341
       ]
     ]
   },
@@ -1025,7 +1083,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        348
+        349
       ],
       [
         "src/pages/ReviewPage.js",
@@ -1038,7 +1096,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        356
+        357
       ],
       [
         "src/pages/ReviewPage.js",
@@ -1051,7 +1109,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        385
+        386
       ]
     ]
   },
@@ -1060,7 +1118,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        398
+        399
       ]
     ]
   },
@@ -1088,6 +1146,71 @@
       [
         "src/pages/ReviewPage.js",
         98
+      ]
+    ]
+  },
+  "Monday": {
+    "translation": "lundi",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        221
+      ],
+      [
+        "src/utils/linguiUtils.js",
+        33
+      ]
+    ]
+  },
+  "Tuesday": {
+    "translation": "mardi",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        224
+      ],
+      [
+        "src/utils/linguiUtils.js",
+        34
+      ]
+    ]
+  },
+  "Wednesday": {
+    "translation": "mercredi",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        229
+      ],
+      [
+        "src/utils/linguiUtils.js",
+        35
+      ]
+    ]
+  },
+  "Thursday": {
+    "translation": "jeudi",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        234
+      ],
+      [
+        "src/utils/linguiUtils.js",
+        36
+      ]
+    ]
+  },
+  "Friday": {
+    "translation": "vendredi",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        238
+      ],
+      [
+        "src/utils/linguiUtils.js",
+        37
       ]
     ]
   },
@@ -1205,51 +1328,6 @@
       [
         "src/utils/linguiUtils.js",
         32
-      ]
-    ]
-  },
-  "Monday": {
-    "translation": "lundi",
-    "origin": [
-      [
-        "src/utils/linguiUtils.js",
-        33
-      ]
-    ]
-  },
-  "Tuesday": {
-    "translation": "mardi",
-    "origin": [
-      [
-        "src/utils/linguiUtils.js",
-        34
-      ]
-    ]
-  },
-  "Wednesday": {
-    "translation": "mercredi",
-    "origin": [
-      [
-        "src/utils/linguiUtils.js",
-        35
-      ]
-    ]
-  },
-  "Thursday": {
-    "translation": "jeudi",
-    "origin": [
-      [
-        "src/utils/linguiUtils.js",
-        36
-      ]
-    ]
-  },
-  "Friday": {
-    "translation": "vendredi",
-    "origin": [
-      [
-        "src/utils/linguiUtils.js",
-        37
       ]
     ]
   },
@@ -1423,6 +1501,16 @@
         88
       ]
     ]
+  },
+  "Citizenship appointments are scheduled on Wednesdays and Thursdays.": {
+    "translation": "Les rendez-vous d’examen de citoyenneté ont lieu les mercredis et les jeudis.",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        98
+      ]
+    ],
+    "obsolete": true
   },
   "<0/> will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
     "translation": "vous enverra un nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
