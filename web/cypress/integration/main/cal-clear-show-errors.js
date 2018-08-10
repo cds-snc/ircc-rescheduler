@@ -15,7 +15,7 @@ context('Calendar Errors clear when selecting incorrect amount of days', () => {
     cy.get('.DayPicker-Day[aria-disabled=false]').then(el => {
       const count = el.length
       // make sure we're on a month that has 3 selectable days
-      if (count < 3) {
+      if (count < 4) {
         cy.get('.DayPicker-NavButton--next').click({ force: true })
       }
     })
