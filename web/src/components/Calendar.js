@@ -398,10 +398,6 @@ const removeDate = css`
   width: 1rem;
   height: 1rem;
 
-  img circle {
-    fill: red;
-  }
-
   ${mediaQuery.lg(css`
     display: block;
     width: 1.6rem;

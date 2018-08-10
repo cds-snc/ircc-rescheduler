@@ -1,10 +1,10 @@
 {
-  "IRCC will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
-    "translation": "IRCC vous enverra un nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+  "will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
+    "translation": " vous enverra un nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        99
+        101
       ]
     ]
   },
@@ -26,7 +26,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        472
+        468
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        557
+        553
       ]
     ]
   },
@@ -44,7 +44,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        660
+        656
       ]
     ]
   },
@@ -53,7 +53,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        662
+        658
       ]
     ]
   },
@@ -62,7 +62,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        664
+        660
       ]
     ]
   },
@@ -71,7 +71,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        666
+        662
       ]
     ]
   },
@@ -80,7 +80,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        678
+        674
       ]
     ]
   },
@@ -641,7 +641,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        96
+        97
       ]
     ]
   },
@@ -672,7 +672,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        106
+        108
       ]
     ]
   },
@@ -681,7 +681,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        42
+        43
       ]
     ]
   },
@@ -690,7 +690,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        51
+        52
       ]
     ]
   },
@@ -699,7 +699,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        84
+        85
       ]
     ]
   },
@@ -708,7 +708,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        89
+        90
       ]
     ]
   },
@@ -1423,6 +1423,26 @@
         88
       ]
     ]
+  },
+  "<0/> will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
+    "translation": "vous enverra un nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        100
+      ]
+    ],
+    "obsolete": true
+  },
+  "IRCC will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
+    "translation": "IRCC vous enverra un nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        99
+      ]
+    ],
+    "obsolete": true
   },
   "You will always be contacted at least 3 weeks before your appointment.": {
     "translation": "Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",

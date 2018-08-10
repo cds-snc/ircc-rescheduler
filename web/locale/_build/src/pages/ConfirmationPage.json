@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        42
+        43
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        51
+        52
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        84
+        85
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        89
+        90
       ]
     ]
   },
@@ -35,15 +35,15 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        96
+        97
       ]
     ]
   },
-  "IRCC will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
+  "will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        99
+        101
       ]
     ]
   },
@@ -51,7 +51,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        106
+        108
       ]
     ]
   }
