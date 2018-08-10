@@ -18,7 +18,7 @@
     ]
   },
   "Mondays": {
-    "translation": "Les lundis",
+    "translation": "les lundis",
     "origin": [
       [
         "src/utils/calendarDates.js",
@@ -27,7 +27,7 @@
     ]
   },
   "Tuesdays": {
-    "translation": "Les mardis",
+    "translation": "les mardis",
     "origin": [
       [
         "src/utils/calendarDates.js",
@@ -36,7 +36,7 @@
     ]
   },
   "Wednesdays": {
-    "translation": "Les mercredis",
+    "translation": "les mercredis",
     "origin": [
       [
         "src/utils/calendarDates.js",
@@ -45,7 +45,7 @@
     ]
   },
   "Thursdays": {
-    "translation": "Les jeudis",
+    "translation": "les jeudis",
     "origin": [
       [
         "src/utils/calendarDates.js",
@@ -54,7 +54,7 @@
     ]
   },
   "Fridays": {
-    "translation": "Les vendredis",
+    "translation": "les vendredis",
     "origin": [
       [
         "src/utils/calendarDates.js",
