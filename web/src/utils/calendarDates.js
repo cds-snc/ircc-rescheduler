@@ -129,7 +129,19 @@ export const getDaysOfWeekForLocation = (
   return []
 }
 
-export const getValidDays = (
+export const getDisabledDays = (location = vancouver, date = new Date()) => {
+  const startDate = parse(getStartDate(date))
+  const endDate = parse(getEndDate(date))
+  return getAllowedDays(location, startDate, endDate, true)
+}
+
+export const getEnabledDays = (location = vancouver, date = new Date()) => {
+  const startDate = parse(getStartDate(date))
+  const endDate = parse(getEndDate(date))
+  return getAllowedDays(location, startDate, endDate)
+}
+
+const getAllowedDays = (
   location = vancouver,
   startDate,
   endDate,
@@ -228,12 +240,6 @@ export const dayFromDayNumber = num => {
     default:
       return false
   }
-}
-
-export const getDisabledDays = (date = new Date()) => {
-  const startDate = parse(getStartDate(date))
-  const endDate = parse(getEndDate(date))
-  return getValidDays(undefined, startDate, endDate, true)
 }
 
 export const sortSelectedDays = selectedDays => {

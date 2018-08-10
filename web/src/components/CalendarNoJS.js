@@ -6,10 +6,8 @@ import { Checkbox } from '../components/forms/MultipleChoice'
 import PropTypes from 'prop-types'
 import Time, { dateToISODateString } from './Time'
 import {
-  getStartDate,
-  getEndDate,
   getMonthNameAndYear,
-  getValidDays,
+  getEnabledDays,
 } from '../utils/calendarDates'
 
 const calList = css`
@@ -36,31 +34,8 @@ const column = css`
   }
 `
 
-const isValidDate = (
-  date,
-  propName = 'startDate',
-  componentName = 'CalendarNoJS',
-) => {
-  const regEx = /^\d{4}-\d{2}-\d{2}$/
-
-  return regEx.test(date)
-}
-
-const isValidDateString = (props, propName, componentName) => {
-  if (!isValidDate(props['startDate'], propName, componentName)) {
-    return new Error(
-      'Invalid prop `' +
-        propName +
-        '` supplied to' +
-        ' `' +
-        componentName +
-        '`. Validation failed.',
-    )
-  }
-}
-
-const Calendar = ({ startDate, endDate, dates, locale }) => {
-  const days = getValidDays(undefined, startDate, endDate)
+const Calendar = ({ dates, locale }) => {
+  const days = getEnabledDays()
   const mapped = {}
 
   days.forEach((date, index) => {
@@ -114,8 +89,6 @@ const Calendar = ({ startDate, endDate, dates, locale }) => {
 }
 
 Calendar.propTypes = {
-  startDate: isValidDateString,
-  endDate: isValidDateString,
   dates: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   locale: PropTypes.string,
 }
@@ -125,14 +98,9 @@ Calendar.propTypes = {
 class CalendarNoJs extends Component {
   render() {
     const { dates, locale } = this.props
-    const startDate = dateToISODateString(getStartDate())
-    const endDate = dateToISODateString(getEndDate())
-
     return (
       <Calendar
         dates={dates && dates.selectedDays ? dates.selectedDays : []}
-        startDate={startDate}
-        endDate={endDate}
         locale={locale}
       />
     )

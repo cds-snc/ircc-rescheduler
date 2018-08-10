@@ -5,7 +5,8 @@ import {
   getMonthNameAndYear,
   getStartMonth,
   getStartDate,
-  getValidDays,
+  getDisabledDays,
+  getEnabledDays,
   getEndDate,
 } from '../../utils/calendarDates'
 
@@ -87,7 +88,7 @@ const useMonth = dates => {
 const calDays = (date = new Date()) => {
   const startDate = parse(getStartDate(date))
   const endDate = parse(getEndDate(date))
-  return useMonth(getValidDays(undefined, startDate, endDate))
+  return useMonth(getEnabledDays(undefined, startDate, endDate))
 }
 
 describe('<CalendarAdapter />', () => {
