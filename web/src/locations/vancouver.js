@@ -6,7 +6,7 @@ export const vancouver = {
     jul: ['wed', 'thurs'],
     aug: ['wed', 'thurs'],
     sep: ['wed', 'thurs'],
-    oct: ['tues', 'thurs'],
-    nov: ['mon', 'fri'],
+    oct: ['tues', 'wed'],
+    nov: ['tues', 'wed'],
   },
 }
