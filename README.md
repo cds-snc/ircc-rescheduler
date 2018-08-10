@@ -6,3 +6,6 @@ This is a repo service allows users to reschedule their language tests during th
 
 # Package Dependencies
 [Updating the package dependencies](docs/upgrade.md)
+
+# Error Monitoring
+[Error tracking procedures](docs/error-tracking.md)
