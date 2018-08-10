@@ -1,67 +1,4 @@
 {
-  "Citizenship appointments in": {
-    "translation": "Nominations à la citoyenneté dans",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        114
-      ]
-    ]
-  },
-  "are scheduled on": {
-    "translation": "sont programmés sur",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        115
-      ]
-    ]
-  },
-  "Mondays": {
-    "translation": "les lundis",
-    "origin": [
-      [
-        "src/utils/calendarDates.js",
-        221
-      ]
-    ]
-  },
-  "Tuesdays": {
-    "translation": "les mardis",
-    "origin": [
-      [
-        "src/utils/calendarDates.js",
-        225
-      ]
-    ]
-  },
-  "Wednesdays": {
-    "translation": "les mercredis",
-    "origin": [
-      [
-        "src/utils/calendarDates.js",
-        230
-      ]
-    ]
-  },
-  "Thursdays": {
-    "translation": "les jeudis",
-    "origin": [
-      [
-        "src/utils/calendarDates.js",
-        235
-      ]
-    ]
-  },
-  "Fridays": {
-    "translation": "les vendredis",
-    "origin": [
-      [
-        "src/utils/calendarDates.js",
-        238
-      ]
-    ]
-  },
   "Immigration, Refugees and Citizenship Canada": {
     "translation": "Immigration, Réfugiés et Citoyenneté Canada",
     "origin": [
@@ -466,7 +403,7 @@
     ]
   },
   "Select 3 days you’re available": {
-    "translation": "Choisissez 3 jours où vous serez disponible :",
+    "translation": "Choisissez 3 jours où vous serez disponible",
     "origin": [
       [
         "src/components/Title.js",
@@ -568,7 +505,7 @@
     ]
   },
   "you’re available between": {
-    "translation": "vous êtes disponible entre",
+    "translation": "où vous serez disponible entre",
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -594,6 +531,24 @@
       [
         "src/pages/LandingPage.js",
         139
+      ]
+    ]
+  },
+  "Citizenship appointments in": {
+    "translation": "Nominations à la citoyenneté dans",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        114
+      ]
+    ]
+  },
+  "are scheduled on": {
+    "translation": "sont programmés sur",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        115
       ]
     ]
   },
@@ -1162,6 +1117,15 @@
       ]
     ]
   },
+  "Mondays": {
+    "translation": "les lundis",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        221
+      ]
+    ]
+  },
   "Tuesday": {
     "translation": "mardi",
     "origin": [
@@ -1172,6 +1136,15 @@
       [
         "src/utils/linguiUtils.js",
         34
+      ]
+    ]
+  },
+  "Tuesdays": {
+    "translation": "les mardis",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        225
       ]
     ]
   },
@@ -1188,6 +1161,15 @@
       ]
     ]
   },
+  "Wednesdays": {
+    "translation": "les mercredis",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        230
+      ]
+    ]
+  },
   "Thursday": {
     "translation": "jeudi",
     "origin": [
@@ -1201,6 +1183,15 @@
       ]
     ]
   },
+  "Thursdays": {
+    "translation": "les jeudis",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        235
+      ]
+    ]
+  },
   "Friday": {
     "translation": "vendredi",
     "origin": [
@@ -1211,6 +1202,15 @@
       [
         "src/utils/linguiUtils.js",
         37
+      ]
+    ]
+  },
+  "Fridays": {
+    "translation": "les vendredis",
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        238
       ]
     ]
   },
