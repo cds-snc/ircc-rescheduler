@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        96
+        85
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        101
+        90
       ]
     ]
   },
@@ -35,23 +35,15 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        108
+        97
       ]
     ]
   },
-  "By": {
+  "will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        111
-      ]
-    ]
-  },
-  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        112
+        101
       ]
     ]
   },
@@ -59,7 +51,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        119
+        108
       ]
     ]
   }

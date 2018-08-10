@@ -6,7 +6,7 @@ import { Trans } from 'lingui-react'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import Contact from '../components/Contact'
-import { respondByDate } from '../utils/calendarDates'
+import IRCCAbbr from '../components/IRCCAbbr'
 import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import { LongReminder } from '../components/Reminder'
@@ -74,19 +74,8 @@ class ConfirmationPage extends React.Component {
 
   render() {
     let {
-      context: {
-        store: {
-          calendar: { selectedDays = [] } = {},
-          language: locale = 'en',
-        } = {},
-      } = {},
+      context: { store: { calendar: { selectedDays = [] } = {} } = {} } = {},
     } = this.props
-
-    let respondBy = ''
-
-    if (selectedDays) {
-      respondBy = respondByDate(selectedDays, locale)
-    }
 
     return (
       <Layout contentClass={contentClass}>
@@ -108,9 +97,9 @@ class ConfirmationPage extends React.Component {
             <Trans>What happens next?</Trans>
           </H2>
           <p>
-            <Trans>By</Trans> {respondBy},{' '}
+            <IRCCAbbr />{' '}
             <Trans>
-              we’ll send you a new appointment. You will always be contacted at
+              will send you a new appointment. You will always be contacted at
               least 3 weeks before your appointment.
             </Trans>
           </p>
