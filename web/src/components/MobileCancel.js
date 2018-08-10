@@ -24,7 +24,7 @@ const MobileCancel = ({ circleColour = theme.colour.blackLight }) => {
 }
 
 MobileCancel.propTypes = {
-  circleColour: PropTypes.string, //left or right
+  circleColour: PropTypes.string,
 }
 
 export default MobileCancel
