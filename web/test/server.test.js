@@ -20,7 +20,7 @@ describe('Server Side Rendering', () => {
 
   it('renders the calendar page at /calendar', async () => {
     let response = await request(server).get('/calendar')
-    expect(response.text).toMatch(/Citizenship appointments are scheduled on/)
+    expect(response.text).toMatch(/Make sure you stay available on all of the days you select/)
   })
 
   it('renders the review page at /review', async () => {
