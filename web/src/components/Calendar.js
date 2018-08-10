@@ -632,7 +632,7 @@ class Calendar extends Component {
         >
           <DayPicker
             className={css`
-              ${weekdayStyles} ${dayPicker};
+              ${weekdayStyles};
             `}
             localeUtils={{ ...LocaleUtils, formatDay }}
             captionElement={renderMonthName}

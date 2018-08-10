@@ -45,8 +45,7 @@ export const getEndDate = (today = new Date()) => {
 }
 
 export const getStartMonth = (today = new Date()) => {
-  const baseDate = parse(getStartDate(today))
-  return startOfMonth(firstValidDay(undefined, baseDate))
+  return startOfMonth(parse(getStartDate(today)))
 }
 
 export const getInitialMonth = (selectedDates, startMonth) => {
