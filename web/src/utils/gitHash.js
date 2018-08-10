@@ -1,3 +1,4 @@
+// eslint-disable-next-line security/detect-child-process
 const { execSync } = require('child_process')
 
 export default () => {

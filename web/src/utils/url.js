@@ -4,6 +4,7 @@ const getQueryStringParams = query => {
         .split('&')
         .reduce((params, param) => {
           let [key, value] = param.split('=')
+          // eslint-disable-next-line security/detect-object-injection
           params[key] = value
             ? decodeURIComponent(value.replace(/\+/g, ' '))
             : ''

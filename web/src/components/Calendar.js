@@ -11,11 +11,13 @@ import MobileCancel from '../assets/mobileCancel.svg'
 import { getDateInfo } from '../utils/linguiUtils'
 import {
   getStartMonth,
-  toMonth,
+  getEndDate,
   getMonthNameAndYear,
   getStartDate,
   getInitialMonth,
   sortSelectedDays,
+  getDisabledDays,
+  getDaysOfWeekForLocation,
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 import { logEvent } from '../utils/analytics'
@@ -144,12 +146,6 @@ const dayPickerDefault = css`
     text-decoration: none;
   }
 
-  .DayPicker-Weekday:nth-of-type(4),
-  .DayPicker-Weekday:nth-of-type(5) {
-    background: ${theme.colour.white};
-    font-family: ${theme.weight.b}, Helvetica;
-  }
-
   .DayPicker-Body {
     display: table-row-group;
   }
@@ -257,11 +253,6 @@ const dayPickerDefault = css`
     &:hover {
       background-color: ${incrementColor(theme.colour.blue, 30)};
     }
-  }
-`
-
-const dayPicker = css`
-  .DayPicker-Month {
   }
 `
 
@@ -493,6 +484,7 @@ class Calendar extends Component {
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
     this.state = {
       errorMessage: null,
+      daysOfWeek: false,
     }
     this.threeDatesArePicked =
       this.props.input.value &&
@@ -590,10 +582,29 @@ class Calendar extends Component {
     const dateInfo = getDateInfo(i18n)
     const locale = i18n !== undefined ? i18n._language : 'en'
     const startMonth = parse(getStartMonth())
-    const endDate = parse(toMonth())
+    const endDate = parse(getEndDate())
     value = value || []
 
     const initialMonth = getInitialMonth(value, startMonth)
+
+    /* 
+    We need the highlighted day of the week to be dynamic 
+    as the month changes
+    */
+
+    let [dayOfWeek1 = undefined, dayOfWeek2 = undefined] = this.state.daysOfWeek
+      ? this.state.daysOfWeek
+      : getDaysOfWeekForLocation(undefined, initialMonth)
+
+    const weekdayStyles = css`
+      ${dayPickerDefault};
+
+      .DayPicker-Weekday:nth-of-type(${dayOfWeek1}),
+      .DayPicker-Weekday:nth-of-type(${dayOfWeek2}) {
+        background: ${theme.colour.white};
+        font-family: ${theme.weight.b}, Helvetica;
+      }
+    `
 
     return (
       <div>
@@ -616,7 +627,7 @@ class Calendar extends Component {
         >
           <DayPicker
             className={css`
-              ${dayPickerDefault} ${dayPicker};
+              ${weekdayStyles};
             `}
             localeUtils={{ ...LocaleUtils, formatDay }}
             captionElement={renderMonthName}
@@ -628,14 +639,20 @@ class Calendar extends Component {
             fromMonth={startMonth}
             toMonth={endDate}
             numberOfMonths={1}
+            onMonthChange={month => {
+              this.setState({
+                daysOfWeek: getDaysOfWeekForLocation(undefined, month),
+              })
+
+              this.props.changeMonth(month)
+            }}
             disabledDays={[
               {
                 before: parse(getStartDate(new Date())),
                 after: endDate,
               },
-              {
-                daysOfWeek: [0, 1, 2, 5, 6],
-              },
+
+              ...getDisabledDays(),
             ]}
             onDayClick={this.handleDayClick}
             selectedDays={value}
@@ -676,6 +693,7 @@ class Calendar extends Component {
 
 Calendar.defaultProps = {
   forceRender: () => {}, //used to for a parent re-render after clicking on a day
+  changeMonth: () => {},
 }
 
 Calendar.propTypes = {
