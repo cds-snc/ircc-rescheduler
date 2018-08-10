@@ -1,4 +1,4 @@
-import { checkURLParams } from '../../utils/url'
+import { checkURLParams } from '../url'
 
 describe('Checks query params', () => {
   it("Will ignore params that don't exists in fields", () => {
