@@ -1,6 +1,6 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
-import { SECRET, getStoreCookie } from './cookies'
+import { getStoreCookie } from './cookies'
 import { render } from '@jaredpalmer/after'
 import { renderToString } from 'react-dom/server'
 import routes from './routes'
@@ -62,7 +62,7 @@ server
   .use(helmet.xssFilter()) // Sets "X-XSS-Protection: 1; mode=block".
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || './public'))
-  .use(cookieParser(SECRET))
+  .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
   .post('/submit', async (req, res) => {
     let input = Object.assign({}, req.body) // make a new object

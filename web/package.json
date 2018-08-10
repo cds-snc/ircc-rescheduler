@@ -35,7 +35,6 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-lingui-react": "^1.0.13",
     "body-parser": "^1.18.3",
-    "cookie-encrypter": "^1.0.1",
     "cookie-parser": "^1.4.3",
     "date-fns": "^1.29.0",
     "emotion": "^9.2.6",
