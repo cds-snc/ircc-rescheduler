@@ -256,11 +256,6 @@ const dayPickerDefault = css`
   }
 `
 
-const dayPicker = css`
-  .DayPicker-Month {
-  }
-`
-
 const noDates = css`
   display: none;
 `
