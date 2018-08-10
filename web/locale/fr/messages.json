@@ -1,10 +1,10 @@
 {
-  "Then we’ll review your request and send you a new appointment for one of the days you selected.": {
-    "translation": "Puis, nous examinerons votre demande et nous vous enverrons un nouveau rendez-vous pour l'un des jours que vous avez sélectionnés.",
+  "You will always be contacted at least 3 weeks before your appointment.": {
+    "translation": "Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
     "origin": [
       [
-        "src/pages/LandingPage.js",
-        145
+        "src/pages/ConfirmationPage.js",
+        99
       ]
     ]
   },
@@ -21,21 +21,12 @@
       ]
     ]
   },
-  "Please select another date": {
-    "translation": "Veuillez sélectionner une autre date",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        462
-      ]
-    ]
-  },
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "translation": "Vous ne pouvez pas sélectionner plus de 3 dates. Pour modifier vos choix, veuillez d’abord supprimer des dates.",
     "origin": [
       [
         "src/components/Calendar.js",
-        547
+        555
       ]
     ]
   },
@@ -44,7 +35,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        649
+        658
       ]
     ]
   },
@@ -53,7 +44,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        651
+        660
       ]
     ]
   },
@@ -62,7 +53,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        653
+        662
       ]
     ]
   },
@@ -71,7 +62,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        655
+        664
       ]
     ]
   },
@@ -80,7 +71,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        666
+        676
       ]
     ]
   },
@@ -562,7 +553,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        234
+        243
       ]
     ]
   },
@@ -571,7 +562,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        242
+        251
       ]
     ]
   },
@@ -580,11 +571,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        284
+        293
       ],
       [
         "src/pages/CalendarPage.js",
-        365
+        374
       ]
     ]
   },
@@ -593,7 +584,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        319
+        328
       ],
       [
         "src/validation.js",
@@ -641,7 +632,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        108
+        96
       ]
     ]
   },
@@ -672,7 +663,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        119
+        106
       ]
     ]
   },
@@ -681,7 +672,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        43
+        42
       ]
     ]
   },
@@ -690,7 +681,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        52
+        51
       ]
     ]
   },
@@ -699,7 +690,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        96
+        84
       ]
     ]
   },
@@ -708,25 +699,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        101
-      ]
-    ]
-  },
-  "By": {
-    "translation": "D’ici le ",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        111
-      ]
-    ]
-  },
-  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
-    "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        112
+        89
       ]
     ]
   },
@@ -893,6 +866,15 @@
       [
         "src/pages/LandingPage.js",
         134
+      ]
+    ]
+  },
+  "Then we’ll review your request and send you a new appointment for one of the days you selected.": {
+    "translation": "Puis, nous examinerons votre demande et nous vous enverrons un nouveau rendez-vous pour l'un des jours que vous avez sélectionnés.",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        145
       ]
     ]
   },
@@ -1432,6 +1414,36 @@
         88
       ]
     ]
+  },
+  "Please select another date": {
+    "translation": "Veuillez sélectionner une autre date",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        462
+      ]
+    ],
+    "obsolete": true
+  },
+  "By": {
+    "translation": "D’ici le ",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        111
+      ]
+    ],
+    "obsolete": true
+  },
+  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
+    "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        112
+      ]
+    ],
+    "obsolete": true
   },
   "Then you’ll select": {
     "translation": "Ensuite, vous aurez à choisir",

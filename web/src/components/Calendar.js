@@ -7,7 +7,7 @@ import { css } from 'emotion'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
-import MobileCancel from '../assets/mobileCancel.svg'
+import MobileCancel from './MobileCancel'
 import { getDateInfo } from '../utils/linguiUtils'
 import {
   getStartMonth,
@@ -306,6 +306,7 @@ const dayBox = css`
   .day-box {
     font-size: ${theme.font.md};
     color: ${theme.colour.black};
+    height: 1.3rem;
 
     ${mediaQuery.lg(css`
       color: ${theme.colour.black};
@@ -421,6 +422,7 @@ const renderDayBoxes = ({
   selectedDays,
   removeDayOnClickOrKeyPress,
   locale,
+  errorMessage,
   removeDayAltText,
 }) => {
   let dayBoxes = []
@@ -443,15 +445,13 @@ const renderDayBoxes = ({
             )}`}
           >
             <div className={removeDate}>
-              <img src={MobileCancel} alt="" />
+              <MobileCancel circleColour={theme.colour.blackLight} />
             </div>
           </button>
         </li>
       ) : (
         <li key={i} className={dayBox}>
-          <span className="empty day-box">
-            <Trans>Please select another date</Trans>
-          </span>
+          <span className="empty day-box" />
         </li>
       ),
     )
@@ -663,20 +663,13 @@ class Calendar extends Component {
           <div className={value.length ? triangle : noDates} />
           <div className={value.length ? daySelection : noDates}>
             <h3>
-              {value.length === 3 ? (
-                <Trans>Your 3 selected days:</Trans>
-              ) : value.length === 2 ? (
-                <Trans>Your 2 selected days, select 1 more:</Trans>
-              ) : value.length === 1 ? (
-                <Trans>Your 1 selected day, select 2 more:</Trans>
-              ) : (
-                <Trans>Select 3 days:</Trans>
-              )}
+              <Trans>Your 3 selected days:</Trans>
             </h3>
 
             <ul id="selectedDays-list">
               {renderDayBoxes({
                 dayLimit,
+                errorMessage: this.state.errorMessage,
                 selectedDays: value,
                 removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
                 locale,

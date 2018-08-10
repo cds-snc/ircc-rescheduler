@@ -189,38 +189,6 @@ describe('<CalendarAdapter />', () => {
     expect(getDateStrings(wrapper)).toEqual(`${day2} ${day3}`)
   })
 
-  it('renders header message corresponding to number of selected days', () => {
-    const days = calDays()
-    const day1 = dayMonthYear(days[0])
-    const day2 = dayMonthYear(days[1])
-    const day3 = dayMonthYear(days[2])
-
-    const wrapper = mount(
-      <CalendarAdapter
-        {...defaultProps({
-          value: [new Date(days[0])],
-        })}
-      />,
-    )
-
-    expect(wrapper.find('#selectedDays-list .empty.day-box').length).toBe(2)
-    expect(wrapper.find('h3').text()).toEqual(
-      'Your 1 selected day, select 2 more:',
-    )
-
-    clickDate(wrapper, 1)
-    expect(getDateStrings(wrapper)).toEqual(`${day1} ${day2}`)
-    expect(wrapper.find('#selectedDays-list .empty.day-box').length).toBe(1)
-    expect(wrapper.find('h3').text()).toEqual(
-      'Your 2 selected days, select 1 more:',
-    )
-
-    clickDate(wrapper, 2)
-    expect(getDateStrings(wrapper)).toEqual(`${day1} ${day2} ${day3}`)
-    expect(wrapper.find('#selectedDays-list .empty.day-box').length).toBe(0)
-    expect(wrapper.find('h3').text()).toEqual('Your 3 selected days:')
-  })
-
   it('unselects a date when it is clicked twice', () => {
     const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
 
@@ -401,7 +369,7 @@ describe('renderDayBoxes', () => {
       'Remove day: Sunday, November 3, 1957',
     )
 
-    let imgs = button.find('img')
+    let imgs = button.find('svg')
     expect(imgs.length).toBe(1)
     expect(imgs.at(0).props().alt).toEqual('')
   })
@@ -424,7 +392,7 @@ describe('renderDayBoxes', () => {
       'Supprimer cette journée: dimanche 3 novembre 1957',
     )
 
-    let imgs = button.find('img')
+    let imgs = button.find('svg')
     expect(imgs.length).toBe(1)
     expect(imgs.at(0).props().alt).toEqual('')
   })
