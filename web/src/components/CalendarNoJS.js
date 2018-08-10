@@ -60,8 +60,7 @@ const isValidDateString = (props, propName, componentName) => {
 }
 
 const Calendar = ({ startDate, endDate, dates, locale }) => {
-  //const days = eachDay(startDate, endDate)
-  const days = getValidDays(startDate, endDate)
+  const days = getValidDays(undefined, startDate, endDate)
   const mapped = {}
 
   days.forEach((date, index) => {

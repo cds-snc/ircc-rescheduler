@@ -87,7 +87,7 @@ const useMonth = dates => {
 const calDays = (date = new Date()) => {
   const startDate = parse(getStartDate(date))
   const endDate = parse(getEndDate(date))
-  return useMonth(getValidDays(startDate, endDate))
+  return useMonth(getValidDays(undefined, startDate, endDate))
 }
 
 describe('<CalendarAdapter />', () => {

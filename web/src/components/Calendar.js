@@ -11,7 +11,7 @@ import MobileCancel from '../assets/mobileCancel.svg'
 import { getDateInfo } from '../utils/linguiUtils'
 import {
   getStartMonth,
-  toMonth,
+  getEndDate,
   getMonthNameAndYear,
   getStartDate,
   getInitialMonth,
@@ -587,17 +587,21 @@ class Calendar extends Component {
     const dateInfo = getDateInfo(i18n)
     const locale = i18n !== undefined ? i18n._language : 'en'
     const startMonth = parse(getStartMonth())
-    const endDate = parse(toMonth())
+    const endDate = parse(getEndDate())
     value = value || []
 
     const initialMonth = getInitialMonth(value, startMonth)
 
-    let dayOfWeek1, dayOfWeek2
-    ;[dayOfWeek1, dayOfWeek2] = this.state.daysOfWeek
+    /* 
+    We need the highlighted day of the week to be dynamic 
+    as the month changes
+    */
+
+    let [dayOfWeek1 = undefined, dayOfWeek2 = undefined] = this.state.daysOfWeek
       ? this.state.daysOfWeek
       : getDaysOfWeekForLocation(undefined, initialMonth)
 
-    const styles = css`
+    const weekdayStyles = css`
       ${dayPickerDefault};
 
       .DayPicker-Weekday:nth-of-type(${dayOfWeek1}),
@@ -628,7 +632,7 @@ class Calendar extends Component {
         >
           <DayPicker
             className={css`
-              ${styles} ${dayPicker};
+              ${weekdayStyles} ${dayPicker};
             `}
             localeUtils={{ ...LocaleUtils, formatDay }}
             captionElement={renderMonthName}
@@ -693,8 +697,8 @@ class Calendar extends Component {
 }
 
 Calendar.defaultProps = {
-  forceRender: () => {},
-  changeMonth: () => {}, //used to for a parent re-render after clicking on a day
+  forceRender: () => {}, //used to for a parent re-render after clicking on a day
+  changeMonth: () => {},
 }
 
 Calendar.propTypes = {

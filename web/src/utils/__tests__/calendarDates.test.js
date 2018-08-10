@@ -2,7 +2,6 @@ import {
   getStartDate,
   getEndDate,
   getStartMonth,
-  toMonth,
   yearMonthDay,
   respondByDate,
   getMonthNameAndYear,
@@ -35,11 +34,6 @@ describe('Utilities functions CalendarDates.js', () => {
   it('gets start month', () => {
     const today = new Date('September 05, 2018')
     expect(yearMonthDay(getStartMonth(today))).toEqual('2018-10-01')
-  })
-
-  it('gets to month', () => {
-    const today = new Date('September 05, 2018')
-    expect(toMonth(today)).toEqual('2018-12-11')
   })
 
   it('gets confirmation date', () => {

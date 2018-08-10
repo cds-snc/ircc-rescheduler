@@ -27,8 +27,12 @@ export const toLocale = (date, options, locale) => {
   )
 }
 
+/*--------------------------------------------*
+ * General Date Checks 
+ *--------------------------------------------*/
+
 export const getStartDate = (today = new Date()) => {
-  const date = firstValidDay(addWeeks(today, offsetStartWeeks))
+  const date = firstValidDay(undefined, addWeeks(today, offsetStartWeeks))
   return dateToISODateString(date)
 }
 
@@ -40,9 +44,35 @@ export const getEndDate = (today = new Date()) => {
   return endDate
 }
 
-export const firstValidDay = (date, location = vancouver) => {
+export const getStartMonth = (today = new Date()) => {
+  const baseDate = parse(getStartDate(today))
+  return startOfMonth(firstValidDay(undefined, baseDate))
+}
+
+export const getInitialMonth = (selectedDates, startMonth) => {
+  if (!selectedDates || !Array.isArray(selectedDates)) {
+    return startMonth
+  }
+
+  const dates = sortSelectedDays(selectedDates)
+
+  if (!dates[0] || isNaN(dates[0].valueOf()) || isPast(dates[0])) {
+    return startMonth
+  }
+
+  return dates[0]
+}
+
+/*--------------------------------------------*
+ * Day Checks 
+ *--------------------------------------------*/
+
+/* 
+   Looks for first day in a month that 
+   is valid for a location 
+*/
+export const firstValidDay = (location = vancouver, date) => {
   var i = 0
-  //find the current or next Wed or Thurs
   for (i = 0; i <= 7; i++) {
     let plusDay = addDays(date, i)
     //check for valid day for the location
@@ -56,64 +86,6 @@ export const firstValidDay = (date, location = vancouver) => {
   }
 
   return parse(addDays(date, i))
-}
-
-export const getStartMonth = (today = new Date()) => {
-  const baseDate = parse(getStartDate(today))
-  return startOfMonth(firstValidDay(baseDate))
-}
-
-export const getShortMonthName = (date = new Date()) => {
-  return format(parse(date), 'MMM').toLowerCase()
-}
-
-export const getStartMonthName = (today = new Date(), locale = 'fr') => {
-  const baseDate = parse(getStartMonth(today))
-
-  const options = {
-    month: 'long',
-  }
-
-  return makeGMTDate(format(baseDate, 'YYYY-MM-DD')).toLocaleDateString(
-    locale,
-    options,
-  )
-}
-
-export const getEndMonthName = (today = new Date(), locale = 'fr') => {
-  const options = { month: 'long' }
-  return toLocale(parse(getEndDate(today)), options, locale)
-}
-
-export const getMonthNameAndYear = (date, locale = 'fr') => {
-  const options = { month: 'long', year: 'numeric' }
-  return toLocale(format(parse(date), 'YYYY-MM-DD'), options, locale)
-}
-
-export const getMonthName = (date, locale = 'fr') => {
-  const options = { month: 'long' }
-  return toLocale(format(parse(date)), options, locale)
-}
-
-export const toMonth = (today = new Date()) => {
-  return getEndDate(today)
-}
-
-export const respondByDate = (selectedDays = [], locale = 'fr') => {
-  selectedDays.sort()
-  if (!selectedDays[selectedDays.length - 1]) return null
-
-  const baseDate = addDays(
-    subWeeks(parse(selectedDays[selectedDays.length - 1]), offsetRespondBy),
-    2,
-  )
-
-  const options = { month: 'long', day: 'numeric', year: 'numeric' }
-  return toLocale(format(baseDate, 'YYYY-MM-DD'), options, locale)
-}
-
-export const yearMonthDay = date => {
-  return format(date, 'YYYY-MM-DD')
 }
 
 const isValidDayForLocation = (
@@ -130,14 +102,22 @@ const isValidDayForLocation = (
   return false
 }
 
-export const getDaysOfWeekForLocation = (location = vancouver, date = {}) => {
+/* 
+ Turns month input ['wed', 'thurs'] 
+ into numeric equivalent [ 4, 5 ]
+ */
+export const getDaysOfWeekForLocation = (
+  location = vancouver,
+  date = new Date(),
+) => {
   const month = getShortMonthName(date)
   const daysOfWeek = []
   // eslint-disable-next-line security/detect-object-injection
   if (location && location.recurring[month]) {
     // eslint-disable-next-line security/detect-object-injection
     location.recurring[month].forEach(day => {
-      const result = isDay(day, date)
+      /* pass in a day string 'wed' and get a day number 4 */
+      const result = isValidDayString(day)
       if (result.dayOfWeek) {
         daysOfWeek.push(result.dayOfWeek)
       }
@@ -149,17 +129,18 @@ export const getDaysOfWeekForLocation = (location = vancouver, date = {}) => {
   return []
 }
 
-const isValidDay = (date, location = vancouver) => {
-  const month = getShortMonthName(date)
-  return isValidDayForLocation(location, month, date)
-}
-
-export const getValidDays = (startDate, endDate, disabledDays = false) => {
+export const getValidDays = (
+  location = vancouver,
+  startDate,
+  endDate,
+  disabledDays = false,
+) => {
   const days = eachDay(startDate, endDate)
   const mapped = []
   const disabled = []
   days.forEach(date => {
-    const validDay = isValidDay(date)
+    const month = getShortMonthName(date)
+    const validDay = isValidDayForLocation(location, month, date)
     if (validDay) {
       mapped.push(date)
     } else {
@@ -176,30 +157,48 @@ export const getValidDays = (startDate, endDate, disabledDays = false) => {
 
 export const checkLocationDays = (location, month, date) => {
   let valid = false
-   // eslint-disable-next-line security/detect-object-injection
+  // eslint-disable-next-line security/detect-object-injection
   location.recurring[month].forEach(day => {
-    const result = isDay(day, date)
+    /* 
+      Check the date against the day check functions
+      isMonday, isTuesday
+    */
+    const result = isDayValid(day, date)
 
     if (result.valid) {
-      valid = true
+      valid = result.valid
     }
   })
 
   return { valid }
 }
 
+/* 
+  Check to see if day input is in the correct format 
+  thurs not thursday
+
+  ['wed', 'thurs'],
+*/
+const isValidDayString = day => {
+  return isDay(day)
+}
+
+const isDayValid = (day, date) => {
+  return isDay(day, date)
+}
+
 export const isDay = (day, date) => {
   switch (day) {
     case 'mon':
-      return { valid: isMonday(date), dayOfWeek: 2 }
+      return { dayOfWeek: 2, valid: date ? isMonday(date) : undefined }
     case 'tues':
-      return { valid: isTuesday(date), dayOfWeek: 3 }
+      return { dayOfWeek: 3, valid: date ? isTuesday(date) : undefined }
     case 'wed':
-      return { valid: isWednesday(date), dayOfWeek: 4 }
+      return { dayOfWeek: 4, valid: date ? isWednesday(date) : undefined }
     case 'thurs':
-      return { valid: isThursday(date), dayOfWeek: 5 }
+      return { dayOfWeek: 5, valid: date ? isThursday(date) : undefined }
     case 'fri':
-      return { valid: isFriday(date), dayOfWeek: 6 }
+      return { dayOfWeek: 6, valid: date ? isFriday(date) : undefined }
     default:
       return false
   }
@@ -234,7 +233,7 @@ export const dayFromDayNumber = num => {
 export const getDisabledDays = (date = new Date()) => {
   const startDate = parse(getStartDate(date))
   const endDate = parse(getEndDate(date))
-  return getValidDays(startDate, endDate, true)
+  return getValidDays(undefined, startDate, endDate, true)
 }
 
 export const sortSelectedDays = selectedDays => {
@@ -244,16 +243,59 @@ export const sortSelectedDays = selectedDays => {
   return temp
 }
 
-export const getInitialMonth = (selectedDates, startMonth) => {
-  if (!selectedDates || !Array.isArray(selectedDates)) {
-    return startMonth
+/*--------------------------------------------*
+ * Response Date
+ *--------------------------------------------*/
+
+export const respondByDate = (selectedDays = [], locale = 'fr') => {
+  selectedDays.sort()
+  if (!selectedDays[selectedDays.length - 1]) return null
+
+  const baseDate = addDays(
+    subWeeks(parse(selectedDays[selectedDays.length - 1]), offsetRespondBy),
+    2,
+  )
+
+  const options = { month: 'long', day: 'numeric', year: 'numeric' }
+  return toLocale(format(baseDate, 'YYYY-MM-DD'), options, locale)
+}
+
+/*--------------------------------------------*
+ * Date Formatting 
+ *--------------------------------------------*/
+
+export const getStartMonthName = (today = new Date(), locale = 'fr') => {
+  const baseDate = parse(getStartMonth(today))
+
+  const options = {
+    month: 'long',
   }
 
-  const dates = sortSelectedDays(selectedDates)
+  return makeGMTDate(format(baseDate, 'YYYY-MM-DD')).toLocaleDateString(
+    locale,
+    options,
+  )
+}
 
-  if (!dates[0] || isNaN(dates[0].valueOf()) || isPast(dates[0])) {
-    return startMonth
-  }
+export const getEndMonthName = (today = new Date(), locale = 'fr') => {
+  const options = { month: 'long' }
+  return toLocale(parse(getEndDate(today)), options, locale)
+}
 
-  return dates[0]
+export const getMonthNameAndYear = (date, locale = 'fr') => {
+  const options = { month: 'long', year: 'numeric' }
+  return toLocale(format(parse(date), 'YYYY-MM-DD'), options, locale)
+}
+
+export const getMonthName = (date, locale = 'fr') => {
+  const options = { month: 'long' }
+  return toLocale(format(parse(date)), options, locale)
+}
+
+export const getShortMonthName = (date = new Date()) => {
+  return format(parse(date), 'MMM').toLowerCase()
+}
+
+export const yearMonthDay = date => {
+  return format(date, 'YYYY-MM-DD')
 }
