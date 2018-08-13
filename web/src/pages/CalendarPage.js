@@ -155,6 +155,10 @@ class CalendarPage extends Component {
   }
 
   static validate(values) {
+    if (values.selectedDays === undefined) {
+      values.selectedDays = []
+    }
+
     const validate = new Validator(
       trimInput(values),
       CalendarFields,
@@ -397,6 +401,7 @@ class NoJS extends Component {
     if (values && values.selectedDays && values.selectedDays.length === 3) {
       return {}
     }
+
     return {
       selectedDays: <Trans>You must select 3 days.</Trans>,
     }
