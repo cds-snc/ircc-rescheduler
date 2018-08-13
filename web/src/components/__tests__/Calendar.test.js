@@ -85,9 +85,7 @@ const useMonth = dates => {
 /* eslint-enable security/detect-object-injection */
 
 const calDays = (date = new Date()) => {
-  const startDate = parse(getStartDate(date))
-  const endDate = parse(getEndDate(date))
-  return useMonth(getEnabledDays(undefined, startDate, endDate))
+  return getEnabledDays(undefined, date)
 }
 
 describe('<CalendarAdapter />', () => {
