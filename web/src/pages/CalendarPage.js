@@ -155,6 +155,9 @@ class CalendarPage extends Component {
   }
 
   static validate(values) {
+    if (values.selectedDays === undefined) {
+      values.selectedDays = []
+    }
     const validate = new Validator(
       trimInput(values),
       CalendarFields,
