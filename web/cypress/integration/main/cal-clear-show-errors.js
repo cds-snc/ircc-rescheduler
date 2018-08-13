@@ -20,6 +20,12 @@ context('Calendar Errors clear when selecting incorrect amount of days', () => {
       }
     })
 
+    // submit the form with no dates
+    cy.get('#selectedDays-form').submit({ force: true })
+
+    // trigger the not enough days error
+    cy.get('#submit-error h2 span').should('contain', 'You must select 3 days.')
+
     // select 2 days
     cy.get('.DayPicker-Day[aria-disabled=false]')
       .eq(0)
