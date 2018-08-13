@@ -10,6 +10,7 @@ import { renderStylesToString } from 'emotion-server'
 import bodyParser from 'body-parser'
 import { CalendarFields, RegistrationFields } from './validation'
 import Validator from 'validatorjs'
+import cache from 'memory-cache'
 import {
   getMailer,
   getEmailParms,
@@ -145,6 +146,14 @@ server
     res.redirect(`/cancel?language=${language}`)
   })
   .get('/*', async (req, res) => {
+    if (req.url === '/') {
+      /* check if we have a cached version of the homepage */
+      let cachedIndex = cache.get('index')
+      if (cachedIndex && !res.locals.redirect) {
+        return res.send(cachedIndex)
+      }
+    }
+
     const customRenderer = node => ({
       gitHashString: gitHash(),
       path: req.url,
@@ -159,6 +168,10 @@ server
         customRenderer,
         document: Document,
       })
+
+      if (req.url === '/') {
+        cache.put('cachedIndex', html)
+      }
 
       return res.locals.redirect
         ? res.redirect(res.locals.redirect)
