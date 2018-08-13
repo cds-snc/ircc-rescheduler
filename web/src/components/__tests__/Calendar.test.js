@@ -6,7 +6,6 @@ import {
   getStartMonth,
   getStartDate,
   getEnabledDays,
-  getEndDate,
 } from '../../utils/calendarDates'
 
 import parse from 'date-fns/parse'
@@ -53,37 +52,7 @@ const dayMonthYear = date => {
   return format(parse(date), 'dddd, MMMM D, YYYY')
 }
 
-/* eslint-disable security/detect-object-injection */
-const collectDates = (accumulator, currentValue) => {
-  const index = getMonthNameAndYear(currentValue, 'en')
-  if (typeof accumulator[index] === 'undefined') {
-    accumulator[index] = []
-  }
-
-  accumulator[index].push(currentValue)
-
-  return accumulator
-}
-
-// find a month that has at least 3 dates we can use for tests
-const useMonth = dates => {
-  const groupedDates = dates.reduce(collectDates, {})
-
-  let month = false
-
-  Object.keys(groupedDates).forEach(function(key) {
-    if (month) {
-      return
-    }
-    if (groupedDates[key].length >= 3) {
-      month = groupedDates[key]
-    }
-  })
-
-  return month
-}
 /* eslint-enable security/detect-object-injection */
-
 const calDays = (date = new Date()) => {
   return getEnabledDays(undefined, date)
 }
