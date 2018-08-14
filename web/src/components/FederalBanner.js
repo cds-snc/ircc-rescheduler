@@ -44,7 +44,7 @@ const container = css`
 
 const FederalBanner = ({ context = {} }) => (
   <div className={container}>
-    <div className="svg-container">
+    <div className="svg-container canada-flag">
       <GoCSignature
         width="250px"
         lang={context.store.language}

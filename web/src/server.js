@@ -133,6 +133,7 @@ server
     if (req.url === '/') {
       /* check if we have a cached version of the homepage */
       let cachedIndex = cache.get('index')
+
       if (cachedIndex && !res.locals.redirect) {
         return res.send(cachedIndex)
       }
@@ -154,7 +155,7 @@ server
       })
 
       if (req.url === '/') {
-        cache.put('cachedIndex', html)
+        cache.put('index', html)
       }
 
       return res.locals.redirect
