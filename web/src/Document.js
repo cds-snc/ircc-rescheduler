@@ -59,12 +59,6 @@ class Document extends React.Component {
           ) : null}
           <AfterRoot />
           <AfterData data={data} />
-          {process.env.NODE_ENV === 'production' && (
-            <script
-              src="https://cdn.ravenjs.com/3.26.2/raven.min.js"
-              crossOrigin="anonymous"
-            />
-          )}
           {/* dangerouslySetInnerHTML is used here to avoid the markup being escaped by After.js */}
           {process.env.NODE_ENV === 'production' &&
             process.env.RAZZLE_STAGE && (
