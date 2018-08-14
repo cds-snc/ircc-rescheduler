@@ -42,6 +42,12 @@ class Document extends React.Component {
     return (
       <html {...htmlAttrs}>
         <head>
+          <link
+            rel="preload"
+            href="/fonts/SourceSansPro-Regular.woff"
+            as="font"
+          />
+          <link rel="preload" href="/fonts/SourceSansPro-Bold.woff" as="font" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta charSet="utf-8" />
           {helmet.title.toComponent()[0].key ? (
