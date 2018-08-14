@@ -16,7 +16,7 @@ injectGlobal`
     margin: 0;
     background: ${theme.colour.white};
     height: 100%;
-    font-family: ${theme.weight.r}, Helvetica, Arial, sans-serif;
+    font-family: SourceSansPro-Regular, Helvetica, Arial, sans-serif;
     font-size: 18px;
     box-sizing: border-box;
 
@@ -26,7 +26,7 @@ injectGlobal`
   }
 
   strong {
-    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
+    font-family: SourceSansPro-Bold, Helvetica, Arial, sans-serif;
   }
 
   *, *:before, *:after {
@@ -86,7 +86,15 @@ class Layout extends React.Component {
 
   render() {
     return (
-      <div>
+      <html>
+        <head>
+          <link
+            rel="preload"
+            href="/fonts/SourceSansPro-Regular.woff"
+            as="font"
+          />
+          <link rel="preload" href="/fonts/SourceSansPro-Bold.woff" as="font" />
+        </head>
         <ErrorBoundary
           onError={(error, errorInfo) => {
             if (!window || !window.Raven) return
@@ -107,7 +115,7 @@ class Layout extends React.Component {
           </main>
           <Footer topBarBackground="black" />
         </ErrorBoundary>
-      </div>
+      </html>
     )
   }
 }

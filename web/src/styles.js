@@ -5,22 +5,6 @@ import styled, { css } from 'react-emotion'
   amt: is how much you want to darken or lighten, 20 is a good start.
 */
 
-export const fontFace = css`
-  @font-face {
-    font-family: 'sourceBold';
-    src: url(/fonts/SourceSansPro-Bold.woff) format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'sourceRegular';
-    src: url(/fonts/SourceSansPro-Regular.woff) format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-`
-
 export const incrementColor = (col, amt) => {
   let usePound = false
 
@@ -85,8 +69,8 @@ export const theme = {
     xxxl: '1.602rem',
   },
   weight: {
-    b: 'sourceBold, sans serif',
-    r: 'sourceRegular, sans serif',
+    b: 'SourceSansPro-Bold, sans serif',
+    r: 'SourceSansPro-Regular, sans serif',
   },
   spacing: {
     xxs: '0.17rem',
