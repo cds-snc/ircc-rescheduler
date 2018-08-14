@@ -535,7 +535,7 @@
     ]
   },
   "Citizenship appointments in": {
-    "translation": "Nominations à la citoyenneté dans",
+    "translation": "Les rendez-vous d’examen de citoyenneté en",
     "origin": [
       [
         "src/pages/CalendarPage.js",
@@ -544,7 +544,7 @@
     ]
   },
   "are scheduled on": {
-    "translation": "sont programmés sur",
+    "translation": "ont lieu",
     "origin": [
       [
         "src/pages/CalendarPage.js",
