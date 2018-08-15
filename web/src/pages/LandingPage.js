@@ -76,7 +76,6 @@ const H2Landing = styled(H2)`
 `
 
 const H2List = styled(H2)`
-  font-family: ${theme.weight.r}, Helvetica;
   font-weight: 400;
 `
 

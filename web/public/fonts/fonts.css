@@ -1,0 +1,10 @@
+@font-face {
+  font-family: SourceSans;
+  src: url(/fonts/SourceSansPro-Regular.woff) format('woff');
+  font-weight: 400;
+}
+@font-face {
+  font-family: SourceSans;
+  src: url(/fonts/SourceSansPro-Bold.woff) format('woff');
+  font-weight: 700;
+}

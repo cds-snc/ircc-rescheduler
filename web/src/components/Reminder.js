@@ -6,7 +6,6 @@ import importantMessage from '../assets/importantMessage.svg'
 import { withI18n } from 'lingui-react'
 
 const imBanner = css`
-  font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
   font-weight: 700;
   color: ${theme.colour.black};
   display: inline-flex;
