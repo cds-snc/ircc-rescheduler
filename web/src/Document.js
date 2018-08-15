@@ -48,6 +48,7 @@ class Document extends React.Component {
             as="font"
           />
           <link rel="preload" href="/fonts/SourceSansPro-Bold.woff" as="font" />
+          <link href="/fonts/fonts.css" rel="stylesheet" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta charSet="utf-8" />
           {helmet.title.toComponent()[0].key ? (
