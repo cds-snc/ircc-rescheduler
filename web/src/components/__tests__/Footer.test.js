@@ -3,6 +3,7 @@ import { mount, render } from 'enzyme'
 import { FooterBase as Footer } from '../Footer'
 import { getStore } from './LanguageSwitcher.test.js'
 import { i18n } from 'lingui-i18n/dist'
+import { getEmail } from '../../locations/vancouver'
 
 describe('<Footer />', () => {
   it('renders footer', () => {
@@ -28,9 +29,7 @@ describe('<Footer />', () => {
         .find('a')
         .first()
         .prop('href'),
-    ).toEqual(
-      'mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
-    )
+    ).toEqual(`mailto:${getEmail()}`)
   })
 
   it('renders "and Conditions" in English', () => {
