@@ -119,6 +119,7 @@
     "srcPathIgnorePatterns": [
       "/node_modules/",
       "build"
-    ]
+    ],
+    "sourceLocale": "en"
   }
 }
