@@ -110,7 +110,7 @@ const CalHeader = ({
       </CalendarHeader>
 
       {windowExists() && (
-        <CalendarSubheader>
+        <CalendarSubheader id="calendar-intro">
           <Trans>Citizenship appointments in</Trans> {headerMonth}{' '}
           <Trans>are scheduled on </Trans>
           {headerNote}.
@@ -178,11 +178,24 @@ class CalendarPage extends Component {
     this.forceRender = this.forceRender.bind(this)
     this.changeMonth = this.changeMonth.bind(this)
     this.initialMonth = this.initialMonth.bind(this)
-    this.state = { headerMonth: '', headerNote: [], calValues: false }
+    this.state = {
+      month: this.initialMonth(),
+      headerMonth: '',
+      headerNote: [],
+      calValues: false,
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (
+      this.props.context.store.language !== prevProps.context.store.language
+    ) {
+      this.changeMonth()
+    }
   }
 
   componentDidMount() {
-    this.changeMonth(this.initialMonth())
+    this.changeMonth()
   }
 
   forceRender(values) {
@@ -207,10 +220,11 @@ class CalendarPage extends Component {
     return initialMonth
   }
 
-  changeMonth(month) {
+  changeMonth(month = this.state.month) {
     let {
       context: { store: { language: locale = 'en' } = {} } = {},
     } = this.props
+
     const days = getDaysOfWeekForLocation(undefined, month)
     const dayText = days.map((day, i) => {
       return (
@@ -225,7 +239,9 @@ class CalendarPage extends Component {
         </React.Fragment>
       )
     })
+
     this.setState({
+      month: month,
       headerMonth: getMonthName(month, locale),
       headerNote: dayText,
     })
