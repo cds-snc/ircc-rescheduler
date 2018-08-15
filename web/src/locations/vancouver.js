@@ -11,3 +11,21 @@ export const vancouver = {
     dec: ['tues', 'wed'],
   },
 }
+
+export const getEmail = (location = vancouver) => {
+  if (location && location.email) {
+    return location.email
+  }
+}
+
+export const getEmailParts = (location = vancouver) => {
+  const email = getEmail(location)
+  let split = email.split('@')
+  return split
+}
+
+export const getPhone = (location = vancouver) => {
+  if (location && location.phone) {
+    return location.phone
+  }
+}

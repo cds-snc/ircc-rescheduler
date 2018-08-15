@@ -1,4 +1,5 @@
 import { respondByDate } from '../utils/calendarDates'
+import { getEmail, getPhone } from '../locations/vancouver'
 const inlineCss = require('inline-css')
 const fs = require('fs')
 const path = require('path')
@@ -127,6 +128,9 @@ export const buildParams = async options => {
     humanReadable(selectedDays, 'fr'),
     '\r\n',
   )
+
+  options.formValues.email = getEmail()
+  options.formValues.phone = getPhone()
 
   const markup = await new Promise(resolve => {
     renderMarkup(options).then(results => {

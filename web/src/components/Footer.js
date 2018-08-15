@@ -6,6 +6,7 @@ import { Trans, withI18n } from 'lingui-react'
 import CanadaWordmark from '../assets/CanadaWordmark.svg'
 import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
+import { getEmail } from '../locations/vancouver'
 
 const footer = css`
   background-color: ${theme.colour.white};
@@ -105,7 +106,7 @@ const Footer = ({ topBarBackground, i18n, context = {} }) => (
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer className={footer}>
       <div className={bottomLinks}>
-        <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
+        <a href={`mailto:${getEmail()}`}>
           <Trans>Contact</Trans>
         </a>
         <a href={i18n._('https://www.canada.ca/en/transparency/privacy.html')}>
