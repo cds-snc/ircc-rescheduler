@@ -11,6 +11,6 @@ context('Calendar intro text', () => {
     const monthFr = getStartMonthName(new Date(), 'fr')
     cy.get('#calendar-intro').should('contain', `in ${monthEn}`)
     cy.get('#language-toggle').click({ force: true })
-    cy.get('#calendar-intro').should('contain', `dans ${monthFr}`)
+    cy.get('#calendar-intro').should('contain', `en ${monthFr}`)
   })
 })
