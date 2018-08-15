@@ -69,7 +69,7 @@ export const theme = {
     xxxl: '1.602rem',
   },
   weight: {
-    b: 'Source Sans, sans serif',
+    b: 'Source Sans Bold, sans serif',
     r: 'Source Sans, sans serif',
   },
   spacing: {
