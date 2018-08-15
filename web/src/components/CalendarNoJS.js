@@ -45,7 +45,7 @@ const Calendar = ({ dates, locale }) => {
     const checked = dates.includes(val)
 
     const el = (
-      <li key={val}>
+      <li key={val} className='day-check'>
         <Checkbox
           name="selectedDays"
           id={`selectedDays-${idMonth}-${index}`}
