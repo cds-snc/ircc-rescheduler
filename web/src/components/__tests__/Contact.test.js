@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Contact, { TelLink } from '../Contact'
+import { getEmail } from '../../locations/vancouver'
 
 describe('<TelLink />', () => {
   it('renders span and an anchor link', () => {
@@ -41,12 +42,8 @@ describe('<Contact />', () => {
       .find('p')
       .at(0)
       .find('a')
-    expect(emailLink.text()).toEqual(
-      'IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
-    )
-    expect(emailLink.props().href).toEqual(
-      'mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
-    )
+    expect(emailLink.text()).toEqual(getEmail())
+    expect(emailLink.props().href).toEqual(`mailto:${getEmail()}`)
 
     expect(
       wrapper
@@ -75,11 +72,7 @@ describe('<Contact />', () => {
       .at(1)
       .find('a')
 
-    expect(emailLink.text()).toEqual(
-      'IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
-    )
-    expect(emailLink.props().href).toEqual(
-      'mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
-    )
+    expect(emailLink.text()).toEqual(getEmail())
+    expect(emailLink.props().href).toEqual(`mailto:${getEmail()}`)
   })
 })
