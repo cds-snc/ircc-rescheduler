@@ -72,10 +72,16 @@ server
     const validateCal = new Validator(input, CalendarFields)
 
     if (!validateReg.passes()) {
+      Raven.captureMessage('Missing Data - Register Page', {
+        level: 'info', // one of 'info', 'warning', or 'error'
+      })
       return res.redirect('/register?not-valid=true')
     }
 
     if (!validateCal.passes()) {
+      Raven.captureMessage('Missing Data - Calendar Page', {
+        level: 'info', // one of 'info', 'warning', or 'error'
+      })
       return res.redirect('/calendar?not-valid=true')
     }
 
