@@ -292,7 +292,7 @@ export const getMonthNameAndYear = (date, locale = 'fr') => {
   return toLocale(format(parse(date), 'YYYY-MM-DD'), options, locale)
 }
 
-export const getMonthName = (date, locale = 'fr') => {
+export const getMonthName = (date = new Date(), locale = 'fr') => {
   const options = { month: 'long' }
   return toLocale(format(parse(date)), options, locale)
 }
