@@ -77,14 +77,14 @@ injectGlobal`
    font-style: normal;
    font-weight: 400;
    src: local('SourceSans'), local('Source-Sans'), url(/fonts/SourceSansPro-Regular.woff) format('woff');
-}
+  }
 
-@font-face {
- font-family: 'Source Sans Bold';
- font-style: normal;
- font-weight: 400;
- src: local('SourceSansBold'), local('Source-Sans-Bold'), url(/fonts/SourceSansPro-Bold.woff) format('woff');
-}
+  @font-face {
+   font-family: 'Source Sans Bold';
+   font-style: normal;
+   font-weight: 400;
+   src: local('SourceSansBold'), local('Source-Sans-Bold'), url(/fonts/SourceSansPro-Bold.woff) format('woff');
+  }
 `
 
 class Layout extends React.Component {
