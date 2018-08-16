@@ -10,6 +10,7 @@
     "postinstall": "razzle build",
     "start": "NODE_ENV=production node --icu-data-dir=./node_modules/full-icu build/server.js",
     "build:start": "yarn build && yarn start",
+    "test:full":"start-server-and-test build:start http://localhost:3004 test",
     "test": "node --icu-data-dir=./node_modules/full-icu node_modules/jest/bin/jest.js",
     "extract": "NODE_ENV=development lingui extract",
     "compile": "NODE_ENV=development lingui compile",
