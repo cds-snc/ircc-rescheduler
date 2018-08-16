@@ -18,7 +18,6 @@ const button = css`
   display: inline-block;
   font-size: ${theme.font.base};
   color: ${theme.colour.white};
-  font-family: ${theme.weight.r}, Helvetica, Arial, sans-serif;
   padding: 0;
 
   text-decoration: underline;
