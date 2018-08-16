@@ -55,6 +55,20 @@ const handleMailError = e => {
   }
 }
 
+const gatherFieldErrors = errObj => {
+  const errs = Object.keys(errObj).map(key => {
+    return key
+  })
+  return errs.join(', ')
+}
+
+const captureMessage = (title = '', validate) => {
+  const errStr = gatherFieldErrors(validate.errors.errors)
+  Raven.captureMessage(`${title} = ${errStr}`, {
+    level: 'warning',
+  })
+}
+
 server
   .use(helmet.frameguard({ action: 'deny' })) //// Sets "X-Frame-Options: DENY".
   .use(helmet.noSniff()) // Sets "X-Content-Type-Options: nosniff".
@@ -72,16 +86,12 @@ server
     const validateCal = new Validator(input, CalendarFields)
 
     if (!validateReg.passes()) {
-      Raven.captureMessage('Missing Data - Register Page', {
-        level: 'info', // one of 'info', 'warning', or 'error'
-      })
+      captureMessage('Register Page', validateReg)
       return res.redirect('/register?not-valid=true')
     }
 
     if (!validateCal.passes()) {
-      Raven.captureMessage('Missing Data - Calendar Page', {
-        level: 'info', // one of 'info', 'warning', or 'error'
-      })
+      captureMessage('Calendar Page', validateCal)
       return res.redirect('/calendar?not-valid=true')
     }
 
