@@ -1,21 +1,30 @@
 const puppeteer = require('puppeteer')
-const devices = require('puppeteer/DeviceDescriptors')
-const iPhone = devices['iPhone 8']
 
 const isDebugging = () => {
   let debugging_mode = {
     headless: false,
     slowMo: 25,
-    devtools: true,
+    devtools: false,
   }
-  return process.env.NODE_ENV === 'debug' ? debugging_mode : {}
+
+  return debugging_mode
+  //return process.env.NODE_ENV === 'debug' ? debugging_mode : {}
 }
 
 let browser
 let page
 const baseUrl = 'http://localhost:3004'
 
-const user = {
+const fr = true
+
+const user_fr = {
+  fullName: 'Dominique Henri',
+  email: 'snc@exemple.com',
+  paperFileNumber: '123456',
+  explanation: "Voyage d'affaires!",
+}
+
+const user_en = {
   fullName: 'Leanne Graham',
   email: 'cdc@example.com',
   paperFileNumber: '123456',
@@ -26,18 +35,28 @@ const user = {
 beforeAll(async () => {
   browser = await puppeteer.launch(isDebugging())
   page = await browser.newPage()
-  await page.goto(baseUrl)
-  await page.emulate(iPhone)
   page.setJavaScriptEnabled(false)
+  page.emulate({ viewport: { width: 800, height: 550 } })
+  await page.goto(baseUrl)
 })
 
 describe('NoJS Flow', () => {
   it(
     'Can do full run through in NoJS mode',
     async () => {
+      let user = user_en
+
+      if (fr) {
+        user = user_fr
+        await page.click('#language-toggle')
+      }
+
       // landing page
-      const html = await page.$eval('h1 span', e => e.innerHTML)
-      expect(html).toBe('Request a new citizenship appointment')
+      if (!fr) {
+        const html = await page.$eval('h1 span', e => e.innerHTML)
+        expect(html).toBe('Request a new citizenship appointment')
+      }
+
       await page.click('main a')
 
       // register page
@@ -45,7 +64,14 @@ describe('NoJS Flow', () => {
         '#fullName-header span',
         e => e.innerHTML,
       )
-      expect(fullName).toBe('Full name')
+
+      let label = 'Full name'
+
+      if (fr) {
+        label = 'Nom complet'
+      }
+
+      expect(fullName).toBe(label)
       await page.type('#fullName', user.fullName)
       await page.type('#email', user.email)
       await page.type('#paperFileNumber', user.paperFileNumber)
