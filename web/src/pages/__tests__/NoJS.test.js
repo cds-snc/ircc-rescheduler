@@ -7,7 +7,9 @@ const isDebugging = () => {
     devtools: false,
   }
 
-  return process.env.NOJS && process.env.NOJS === 'debug' ? debugging_mode : {}
+  return process.env.NOJS && process.env.NOJS === 'debug'
+    ? debugging_mode
+    : { args: ['--no-sandbox'] }
 }
 
 let browser
