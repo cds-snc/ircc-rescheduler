@@ -38,6 +38,7 @@ jobs:
       - run: yarn a11y:test
       - run: yarn test
       - run: yarn lint
+      - run: yarn extract && yarn compile --strict
       - run: yarn ci:prod
 
   deploy_web:
