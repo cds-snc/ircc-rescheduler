@@ -81,7 +81,7 @@ class ReviewPage extends React.Component {
             <Trans>Go back</Trans>
           </NavLink>
         </TopContainer>
-        <H1>
+        <H1 id="review-header">
           <Trans>Review your request:</Trans>
         </H1>
 

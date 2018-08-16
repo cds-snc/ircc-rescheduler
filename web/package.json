@@ -18,7 +18,7 @@
     "a11y:test": "start-server-and-test build:start http://localhost:3004 a11y:run",
     "a11y:run": "node a11y.test.js",
     "nojs:test": "start-server-and-test build:start http://localhost:3004 nojs:run",
-    "nojs:run": "node nojs.test.js",
+    "nojs:run": "jest 'NoJS'",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run --record",
     "ci:dev": "start-server-and-test dev http://localhost:3004 cypress:open",
