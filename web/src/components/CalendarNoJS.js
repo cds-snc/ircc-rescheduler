@@ -75,7 +75,7 @@ const Calendar = ({ dates, locale }) => {
     <div className={calList}>
       {Object.keys(mapped).map((keyName, keyIndex) => {
         return (
-          <div key={keyIndex}>
+          <div key={keyIndex} id="calendar-checkboxes">
             <h2>{keyName}</h2>
             <ul className={column} key={keyName}>
               {mapped[keyName]}
