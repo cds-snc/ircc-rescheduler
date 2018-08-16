@@ -115,13 +115,9 @@ const dayPickerDefault = css`
     text-align: center;
 
     > div {
-      font-family: ${theme.weight.b}, Helvetica;
+      font-size: 1.15rem;
+      font-weight: 700;
     }
-  }
-
-  .DayPicker-Caption > div {
-    font-size: 1.15rem;
-    font-weight: 500;
   }
 
   .DayPicker-Weekdays {
@@ -181,7 +177,6 @@ const dayPickerDefault = css`
 
     &[aria-disabled='false'] {
       font-weight: 700;
-      font-family: ${theme.weight.b}, Helvetica;
       background: white;
       outline: 0px white solid;
 
@@ -353,7 +348,6 @@ const daySelection = css`
 
   h3 {
     color: ${theme.colour.black};
-    font-family: ${theme.weight.b}, Helvetica;
     font-size: ${theme.font.md};
     margin-bottom: ${theme.spacing.sm};
   }
@@ -593,8 +587,8 @@ class Calendar extends Component {
 
     const initialMonth = getInitialMonth(value, startMonth)
 
-    /* 
-    We need the highlighted day of the week to be dynamic 
+    /*
+    We need the highlighted day of the week to be dynamic
     as the month changes
     */
 
@@ -608,7 +602,7 @@ class Calendar extends Component {
       .DayPicker-Weekday:nth-of-type(${dayOfWeek1}),
       .DayPicker-Weekday:nth-of-type(${dayOfWeek2}) {
         background: ${theme.colour.white};
-        font-family: ${theme.weight.b}, Helvetica;
+        font-weight: 700;
       }
     `
 

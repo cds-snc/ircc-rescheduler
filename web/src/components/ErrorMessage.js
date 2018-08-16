@@ -17,7 +17,6 @@ const errorMessage = css`
   padding: ${theme.spacing.lg};
 
   h2 {
-    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
     margin-top: 0 !important;
   }
 `
@@ -26,7 +25,6 @@ const errorList = css`
   ${errorMessage};
 
   a {
-    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
     color: ${theme.colour.red};
     font-weight: 700;
   }

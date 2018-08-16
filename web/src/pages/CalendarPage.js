@@ -64,13 +64,11 @@ const headerStyles = css`
 
 const CalendarHeader = styled(H1)`
   font-size: ${theme.font.xl};
-  font-family: ${theme.weight.r}, Helvetica;
   ${headerStyles};
 `
 
 const CalendarSubheader = styled(H2)`
   font-size: ${theme.font.lg};
-  font-family: ${theme.weight.r}, Helvetica;
   ${headerStyles};
 `
 

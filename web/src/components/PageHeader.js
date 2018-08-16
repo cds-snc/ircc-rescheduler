@@ -33,8 +33,6 @@ const skinnyBanner = css`
 
 const pageTitle = css`
   font-size: ${theme.font.xxl};
-  font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
-  font-weight: 700;
 
   ${mediaQuery.sm(css`
     font-size: ${theme.font.lg};
@@ -53,7 +51,8 @@ const PageHeader = ({ children, i18n }) => (
         rel="noopener noreferrer"
       >
         <Trans>sending your feedback</Trans>
-      </a>.
+      </a>
+      .
     </PhaseBanner>
     {children ? <div className={pageTitle}>{children}</div> : ''}
   </div>
