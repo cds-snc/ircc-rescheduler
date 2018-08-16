@@ -89,11 +89,11 @@
     "origin": [
       [
         "src/components/Contact.js",
-        63
+        64
       ],
       [
         "src/components/Contact.js",
-        91
+        89
       ]
     ]
   },
@@ -102,11 +102,11 @@
     "origin": [
       [
         "src/components/Contact.js",
-        76
+        74
       ],
       [
         "src/components/Contact.js",
-        85
+        83
       ]
     ]
   },
@@ -124,7 +124,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        109
+        110
       ]
     ]
   },
@@ -133,7 +133,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        111
+        112
       ]
     ]
   },
@@ -142,7 +142,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        112
+        113
       ]
     ]
   },
@@ -151,7 +151,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        114
+        115
       ]
     ]
   },
@@ -160,7 +160,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        115
+        116
       ]
     ]
   },
@@ -526,7 +526,7 @@
       ],
       [
         "src/pages/CalendarPage.js",
-        218
+        235
       ],
       [
         "src/pages/LandingPage.js",
@@ -566,7 +566,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        315
+        334
       ]
     ]
   },
@@ -575,7 +575,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        323
+        342
       ]
     ]
   },
@@ -584,11 +584,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        366
+        385
       ],
       [
         "src/pages/CalendarPage.js",
-        448
+        467
       ]
     ]
   },
@@ -597,7 +597,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        401
+        420
       ],
       [
         "src/validation.js",
@@ -1501,105 +1501,5 @@
         88
       ]
     ]
-  },
-  "Citizenship appointments are scheduled on Wednesdays and Thursdays.": {
-    "translation": "Les rendez-vous d’examen de citoyenneté ont lieu les mercredis et les jeudis.",
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        98
-      ]
-    ],
-    "obsolete": true
-  },
-  "<0/> will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
-    "translation": "vous enverra un nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        100
-      ]
-    ],
-    "obsolete": true
-  },
-  "IRCC will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
-    "translation": "IRCC vous enverra un nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        99
-      ]
-    ],
-    "obsolete": true
-  },
-  "You will always be contacted at least 3 weeks before your appointment.": {
-    "translation": "Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        99
-      ]
-    ],
-    "obsolete": true
-  },
-  "By": {
-    "translation": "D’ici le ",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        111
-      ]
-    ],
-    "obsolete": true
-  },
-  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
-    "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        112
-      ]
-    ],
-    "obsolete": true
-  },
-  "Then you’ll select": {
-    "translation": "Ensuite, vous aurez à choisir",
-    "origin": [
-      [
-        "src/pages/LandingPage.js",
-        134
-      ]
-    ],
-    "obsolete": true
-  },
-  "we’ll send you a new appointment. You will always be contacted at least 3 weeks before your appointment": {
-    "translation": "nous vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        113
-      ]
-    ],
-    "obsolete": true
-  },
-  "your local": {
-    "translation": "votre bureau local d’",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        109
-      ]
-    ],
-    "obsolete": true
-  },
-  "office will send you a new appointment, or email you to ask for more information.": {
-    "translation": "vous enverra les détails de votre nouveau rendez-vous ou communiquera avec vous par courriel pour vous demander des renseignements supplémentaires.",
-    "origin": [
-      [
-        "src/pages/ConfirmationPage.js",
-        111
-      ]
-    ],
-    "obsolete": true
   }
 }

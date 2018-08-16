@@ -96,7 +96,7 @@ class LandingPage extends React.Component {
         contentClass={contentClass}
         header={
           <H1>
-            <Trans>Request a new citizenship appointment</Trans>
+            <Trans>Get a new citizenship appointment</Trans>
           </H1>
         }
       >
