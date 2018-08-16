@@ -46,8 +46,16 @@ class Document extends React.Component {
             rel="preload"
             href="/fonts/SourceSansPro-Regular.woff"
             as="font"
+            type="font/woff"
+            crossOrigin="anonymous"
           />
-          <link rel="preload" href="/fonts/SourceSansPro-Bold.woff" as="font" />
+          <link
+            rel="preload"
+            href="/fonts/SourceSansPro-Bold.woff"
+            as="font"
+            type="font/woff"
+            crossOrigin="anonymous"
+          />
           <link href="/fonts/fonts.css" rel="stylesheet" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <meta charSet="utf-8" />
