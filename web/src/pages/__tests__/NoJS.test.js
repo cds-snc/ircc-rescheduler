@@ -7,15 +7,14 @@ const isDebugging = () => {
     devtools: false,
   }
 
-  return debugging_mode
-  //return process.env.NODE_ENV === 'debug' ? debugging_mode : {}
+  return process.env.NOJS && process.env.NOJS === 'debug' ? debugging_mode : {}
 }
 
 let browser
 let page
 const baseUrl = 'http://localhost:3004'
 
-const fr = true
+const fr = false
 
 const user_fr = {
   fullName: 'Dominique Henri',
@@ -36,7 +35,6 @@ beforeAll(async () => {
   browser = await puppeteer.launch(isDebugging())
   page = await browser.newPage()
   page.setJavaScriptEnabled(false)
-  page.emulate({ viewport: { width: 800, height: 550 } })
   await page.goto(baseUrl)
 })
 
@@ -118,5 +116,7 @@ describe('NoJS Flow', () => {
 })
 
 afterAll(() => {
-  browser.close()
+  if (browser && browser.close) {
+    browser.close()
+  }
 })
