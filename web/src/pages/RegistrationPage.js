@@ -137,20 +137,35 @@ class RegistrationPage extends React.Component {
     this.validate = RegistrationPage.validate
     this.fields = RegistrationPage.fields
     this.redirect = RegistrationPage.redirect
+    this.hasNotValid = this.hasNotValid.bind(this)
+    this.generalErrorMessage = this.generalErrorMessage.bind(this)
     this.form = null
+  }
+
+  generalErrorMessage() {
+    return this.hasNotValid() ? (
+      <Trans>Not Valid Some information is missing.</Trans>
+    ) : (
+      <Trans>Some information is missing.</Trans>
+    )
+  }
+
+  hasNotValid() {
+    return this.props.location.search.indexOf('not-valid') !== -1
   }
 
   async onSubmit(values, event) {
     const submitErrors = this.validate(values, true)
 
     if (Object.keys(submitErrors).length) {
+      const generalMessage = this.generalErrorMessage()
       window.scrollTo(0, this.errorContainer.offsetTop - 20)
       this.errorContainer.focus()
 
       trackRegistrationErrors(submitErrors)
 
       return {
-        [FORM_ERROR]: <Trans>Some information is missing.</Trans>,
+        [FORM_ERROR]: generalMessage,
       }
     }
 
@@ -194,20 +209,18 @@ class RegistrationPage extends React.Component {
           onSubmit={this.onSubmit}
           initialValues={register || {}}
           render={({ handleSubmit, submitError, submitting, values }) => {
+            const notValid = this.hasNotValid()
+            const generalMessage = this.generalErrorMessage()
+
             submitError =
-              Object.keys(errorsNoJS).length && !submitError ? (
-                <Trans>Some information is missing.</Trans>
-              ) : (
-                submitError
-              )
+              Object.keys(errorsNoJS).length && !submitError
+                ? generalMessage
+                : submitError
             return (
               <form
                 id="register-form"
                 ref={el => {
-                  if (
-                    !this.form &&
-                    this.props.location.search.indexOf('not-valid') !== -1
-                  ) {
+                  if (!this.form && notValid) {
                     el.dispatchEvent(new Event('submit'))
                     this.form = el
                   }
