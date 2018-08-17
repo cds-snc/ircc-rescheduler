@@ -210,6 +210,11 @@ function withProvider(WrappedComponent) {
           throw new Error('validate: `val` must be a non-empty object')
         }
 
+        // return false unless at least one query param key exists in fields
+        if (!Object.keys(val).some(k => fields.includes(k))) {
+          return false
+        }
+
         // whitelist query keys so that arbitrary keys aren't saved to the store
         val = _whitelist({ val, fields })
 

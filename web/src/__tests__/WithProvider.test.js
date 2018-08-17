@@ -323,6 +323,14 @@ describe('WithProvider', () => {
         expect(result).toEqual({ field: '' })
       })
 
+      it('returns false when no keys are valid', () => {
+        let result = WithProvider.validateCookie('page', {
+          field2: 'value2',
+          field3: 'value3',
+        })
+        expect(result).toEqual(false)
+      })
+
       it('does not mutate original object', () => {
         // original object has too many keys
         let val1 = { field: 'value', field2: 'value2' }
