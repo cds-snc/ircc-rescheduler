@@ -10,3 +10,4 @@ build
 public/static
 .env*
 ircc-vm.pem
+web/screenshot.png
