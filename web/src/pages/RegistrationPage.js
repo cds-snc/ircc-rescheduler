@@ -140,17 +140,31 @@ class RegistrationPage extends React.Component {
     this.hasNotValid = this.hasNotValid.bind(this)
     this.generalErrorMessage = this.generalErrorMessage.bind(this)
     this.form = null
+    this.state = { submitClicked: false }
   }
 
   generalErrorMessage() {
+    // custom not valid message will go here
     return this.hasNotValid() ? (
-      <Trans>Not Valid Some information is missing.</Trans>
+      <Trans>Some information is missing.</Trans>
     ) : (
       <Trans>Some information is missing.</Trans>
     )
   }
 
+  /* 
+  Checks for existence of not-valid param
+  to show a custom message to assist the user.
+
+  If the user has pressed submit we don't want to
+  show the custom message as we're not in a regular 
+  form submit scenario
+  */
+
   hasNotValid() {
+    if (this.state.submitClicked) {
+      return false
+    }
     return this.props.location.search.indexOf('not-valid') !== -1
   }
 
@@ -221,7 +235,7 @@ class RegistrationPage extends React.Component {
                 id="register-form"
                 ref={el => {
                   if (!this.form && notValid) {
-                    el.dispatchEvent(new Event('submit'))
+                    el.dispatchEvent(new Event('submit')) // eslint-disable-line no-undef
                     this.form = el
                   }
                 }}
@@ -420,7 +434,12 @@ class RegistrationPage extends React.Component {
                Button is disabled if form has been submitted (and is waiting)
               */}
                 <BottomContainer>
-                  <Button disabled={submitting}>
+                  <Button
+                    onClick={() => {
+                      this.setState({ submitClicked: true })
+                    }}
+                    disabled={submitting}
+                  >
                     <Trans>Continue</Trans>
                   </Button>
 
