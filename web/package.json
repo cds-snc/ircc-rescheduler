@@ -50,6 +50,7 @@
     "inline-css": "^2.4.0",
     "js-cookie": "^2.2.0",
     "lingui-react": "^1.4.1",
+    "memory-cache": "^0.2.0",
     "nodemailer": "^4.6.7",
     "prop-types": "^15.6.2",
     "raven": "^2.6.3",
@@ -63,7 +64,6 @@
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
     "react-router-hash-link": "^1.2.0",
-    "unfetch": "^3.1.1",
     "validatorjs": "^3.14.2"
   },
   "devDependencies": {
