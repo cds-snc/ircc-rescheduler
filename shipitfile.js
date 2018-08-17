@@ -15,6 +15,7 @@ module.exports = shipit => {
     },
     dev: {
       deployTo: '/home/ubuntu/ircc-rescheduler',
+      keepReleases: 3,
       key: 'ircc-vm.pem',
       servers: [
         {
@@ -26,6 +27,7 @@ module.exports = shipit => {
     production: {
       branch: 'master',
       deployTo: '/home/ubuntu/ircc-rescheduler',
+      keepReleases: 3,
       key: 'ircc-vm.pem',
       servers: [
         {
