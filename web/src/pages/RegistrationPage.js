@@ -137,6 +137,7 @@ class RegistrationPage extends React.Component {
     this.validate = RegistrationPage.validate
     this.fields = RegistrationPage.fields
     this.redirect = RegistrationPage.redirect
+    this.form = null
   }
 
   async onSubmit(values, event) {
@@ -200,7 +201,19 @@ class RegistrationPage extends React.Component {
                 submitError
               )
             return (
-              <form id="register-form" onSubmit={handleSubmit}>
+              <form
+                id="register-form"
+                ref={el => {
+                  if (
+                    !this.form &&
+                    this.props.location.search.indexOf('not-valid') !== -1
+                  ) {
+                    el.dispatchEvent(new Event('submit'))
+                    this.form = el
+                  }
+                }}
+                onSubmit={handleSubmit}
+              >
                 <div
                   id="submit-error"
                   className={forNowSubmitErrorStyles}
