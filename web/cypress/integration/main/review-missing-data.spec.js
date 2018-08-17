@@ -1,5 +1,5 @@
 context('Review Page with Missing Data', () => {
-  it('should be redirect to register page if data is missing', () => {
+  it('should be redirected to register page if data is missing', () => {
     cy.visit('/review')
     // submit with no data filled in
     cy.get('#review-form').submit({ force: true })
@@ -8,7 +8,7 @@ context('Review Page with Missing Data', () => {
     cy.url().should('contain', '/register?not-valid')
   })
 
-  it('should be redirect to calendar page if data is missing', () => {
+  it('should be redirected to calendar page if data is missing', () => {
     cy.visit('/register')
 
     // fill in first page with data
