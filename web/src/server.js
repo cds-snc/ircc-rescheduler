@@ -146,9 +146,10 @@ server
     res.redirect(`/cancel?language=${language}`)
   })
   .get('/*', async (req, res) => {
+    let language = getStoreCookie(req.cookies, 'language') || 'en'
     if (req.url === '/') {
       /* check if we have a cached version of the homepage */
-      let cachedIndex = cache.get('index')
+      let cachedIndex = cache.get(`index_${language}`)
 
       if (cachedIndex && !res.locals.redirect) {
         return res.send(cachedIndex)
@@ -171,7 +172,7 @@ server
       })
 
       if (req.url === '/') {
-        cache.put('index', html)
+        cache.put(`index_${language}`, html)
       }
 
       return res.locals.redirect
