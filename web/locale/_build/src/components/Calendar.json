@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        459
+        462
       ]
     ]
   },
@@ -11,7 +11,15 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        545
+        554
+      ]
+    ]
+  },
+  "To change your selections, remove some days first": {
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        642
       ]
     ]
   },
@@ -19,7 +27,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        673
+        692
       ]
     ]
   },
@@ -27,7 +35,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        675
+        694
       ]
     ]
   },
@@ -35,7 +43,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        677
+        696
       ]
     ]
   },
@@ -43,7 +51,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        679
+        698
       ]
     ]
   },
@@ -51,7 +59,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        691
+        710
       ]
     ]
   }
