@@ -10,6 +10,7 @@ const options = {
   chromeLaunchConfig: {
     args: ['--no-sandbox'], // pass sandbox flag for ci
   },
+  hideElements: '.canada-flag',
   ignore: ['WCAG2AA.Principle4.Guideline4_1.4_1_2.H91.Span.Name'],
 }
 const registerActions = [

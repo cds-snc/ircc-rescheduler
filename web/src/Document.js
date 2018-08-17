@@ -94,12 +94,14 @@ class Document extends React.Component {
               />
             )}
 
-          <script
-            type="text/javascript"
-            src={assets.client.js}
-            defer
-            crossOrigin="anonymous"
-          />
+          {path !== '/' && (
+            <script
+              type="text/javascript"
+              src={assets.client.js}
+              defer
+              crossOrigin="anonymous"
+            />
+          )}
         </body>
       </html>
     )
