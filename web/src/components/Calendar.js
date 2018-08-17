@@ -411,6 +411,15 @@ const calendarContainerTop = css`
   `)};
 `
 
+const removeDateMessage = css`
+  margin-bottom: ${theme.spacing.xl};
+  padding: 0 ${theme.spacing.lg} 0 0;
+
+  h2 {
+    margin-top: 0 !important;
+  }
+`
+
 const renderDayBoxes = ({
   dayLimit,
   selectedDays,
@@ -485,6 +494,7 @@ class Calendar extends Component {
     this.state = {
       errorMessage: null,
       daysOfWeek: false,
+      daysModified: false,
     }
     this.threeDatesArePicked =
       this.props.input.value &&
@@ -522,12 +532,17 @@ class Calendar extends Component {
     if (disabled) {
       return
     }
+
     /* Cast all Dates to 12 noon GMT */
     day = makeGMTDate(day)
 
     let { dayLimit } = this.props
 
     const selectedDays = this.props.input.value || []
+
+    if (selected) {
+      this.setState({ daysModified: true })
+    }
 
     // !selected means that this current day is not marked as 'selected' on the calendar
     if (!selected) {
@@ -620,6 +635,14 @@ class Calendar extends Component {
             id="selectedDays-error"
           />
         </div>
+
+        {this.threeDatesArePicked && this.state.daysModified === false ? (
+          <div className={removeDateMessage}>
+            <h2>
+              <Trans>To change your selections, remove some days first</Trans>
+            </h2>
+          </div>
+        ) : null}
         <div
           className={
             this.threeDatesArePicked ? calendarContainerTop : calendarContainer
