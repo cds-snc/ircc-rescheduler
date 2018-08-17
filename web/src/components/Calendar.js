@@ -549,6 +549,17 @@ class Calendar extends Component {
       // If we have already selected the maximum number of days,
       // add an error message to the internal state and then return early
       if (selectedDays.length >= dayLimit) {
+        if (this.threeDatesArePicked && !this.state.daysModified) {
+          await this.setState({
+            errorMessage: (
+              <Trans>You can&rsquo;t select more than 3 days.</Trans>
+            ),
+          })
+
+          this.errorContainer.focus()
+          return
+        }
+
         await this.setState({
           errorMessage: (
             <Trans>
@@ -557,6 +568,7 @@ class Calendar extends Component {
             </Trans>
           ),
         })
+
         this.errorContainer.focus()
 
         logEvent('Calendar', 'Select', 'Error: More than 3 days')
