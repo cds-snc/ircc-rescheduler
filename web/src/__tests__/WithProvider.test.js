@@ -1,4 +1,4 @@
-import withProvider from '../withProvider'
+import withProvider, { _isNonEmptyObject } from '../withProvider'
 
 class FakeComponentEmpty {
   constructor() {}
@@ -34,6 +34,22 @@ class FakeComponentWithFieldsAndValidate {
   }
   constructor() {}
 }
+
+describe('_isNonEmptyObject', () => {
+  let invalidVals = [0, false, {}, ['value'], null, '', 'value']
+  invalidVals.map(v => {
+    it(`returns false for non-empty object value: ${JSON.stringify(v)}`, () => {
+      expect(_isNonEmptyObject(v)).toEqual(false)
+    })
+  })
+
+  let validVals = [{ a: 'b' }, { a: '' }, { a: null }]
+  validVals.map(v => {
+    it(`returns true for non-empty object value: ${JSON.stringify(v)}`, () => {
+      expect(_isNonEmptyObject(v)).toEqual(true)
+    })
+  })
+})
 
 describe('WithProvider', () => {
   describe('.globalFields and .validate()', () => {
@@ -301,10 +317,10 @@ describe('WithProvider', () => {
 
       let invalidVals = [0, false, {}, ['value'], null, '', 'value']
       invalidVals.map(v => {
-        it(`throws error for regular field with a non-empty object value: ${v}`, () => {
-          expect(() => {
-            WithProvider.validateCookie('page', v)
-          }).toThrowError(/^validate: `val` must be a non-empty object$/)
+        it(`returns false for regular field with a non-empty object value: ${JSON.stringify(
+          v,
+        )}`, () => {
+          expect(WithProvider.validateCookie('page', v)).toBe(false)
         })
       })
 

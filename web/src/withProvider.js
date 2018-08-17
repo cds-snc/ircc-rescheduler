@@ -23,6 +23,19 @@ const _whitelist = ({ val, fields }) => {
     }, {})
 }
 
+export const _isNonEmptyObject = val => {
+  /* make sure passed-in value is a non-empty object */
+  if (
+    val === null ||
+    typeof val !== 'object' ||
+    Array.isArray(val) ||
+    Object.keys(val).length === 0
+  ) {
+    return false
+  }
+  return true
+}
+
 function withProvider(WrappedComponent) {
   class WithProvider extends Component {
     static async getInitialProps({ res, req, match }) {
@@ -198,23 +211,10 @@ function withProvider(WrappedComponent) {
       if (
         fields &&
         fields.length && // there are fields explicitly defined
-        typeof validate === 'function' // there is a validate function passed-in
+        typeof validate === 'function' && // there is a validate function passed-in
+        _isNonEmptyObject(val) && // val is a non-empty object
+        Object.keys(val).some(k => fields.includes(k)) // at least one query param key exists in fields
       ) {
-        // if not a global setting, val must be a non-empty object
-        if (
-          val === null ||
-          typeof val !== 'object' ||
-          Array.isArray(val) ||
-          Object.keys(val).length === 0
-        ) {
-          throw new Error('validate: `val` must be a non-empty object')
-        }
-
-        // return false unless at least one query param key exists in fields
-        if (!Object.keys(val).some(k => fields.includes(k))) {
-          return false
-        }
-
         // whitelist query keys so that arbitrary keys aren't saved to the store
         val = _whitelist({ val, fields })
 
