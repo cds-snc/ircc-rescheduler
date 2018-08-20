@@ -412,12 +412,13 @@ const calendarContainerTop = css`
 `
 
 const removeDateMessage = css`
-  margin-bottom: ${theme.spacing.xl};
-  padding: 0 ${theme.spacing.lg} 0 0;
-
+  margin: -${theme.spacing.md} 0 ${theme.spacing.lg} 0;
+  padding: ${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.md} 0;
+  display: inline-block;
   h2 {
     margin-top: 0 !important;
   }
+  ${focusRing};
 `
 
 const renderDayBoxes = ({
@@ -502,6 +503,13 @@ class Calendar extends Component {
       this.props.input.value.length === 3
   }
 
+  componentDidMount() {
+    if (this.threeDatesArePicked && this.props.input.value.length === 3) {
+      window.scrollTo(0, this.errorContainer2.offsetTop)
+      this.errorContainer2.focus()
+    }
+  }
+
   removeDayOnClickOrKeyPress = day => e => {
     /*
       Remove the selected day from the internal state when
@@ -549,17 +557,6 @@ class Calendar extends Component {
       // If we have already selected the maximum number of days,
       // add an error message to the internal state and then return early
       if (selectedDays.length >= dayLimit) {
-        if (this.threeDatesArePicked && !this.state.daysModified) {
-          await this.setState({
-            errorMessage: (
-              <Trans>You can&rsquo;t select more than 3 days.</Trans>
-            ),
-          })
-
-          this.errorContainer.focus()
-          return
-        }
-
         await this.setState({
           errorMessage: (
             <Trans>
@@ -570,6 +567,8 @@ class Calendar extends Component {
         })
 
         this.errorContainer.focus()
+
+        window.scrollTo(0, this.errorContainer.offsetTop - 20)
 
         logEvent('Calendar', 'Select', 'Error: More than 3 days')
 
@@ -648,8 +647,17 @@ class Calendar extends Component {
           />
         </div>
 
-        {this.threeDatesArePicked && this.state.daysModified === false ? (
-          <div className={removeDateMessage}>
+        {this.threeDatesArePicked &&
+        this.state.daysModified === false &&
+        !this.state.errorMessage ? (
+          <div
+            tabIndex="-1"
+            className={removeDateMessage}
+            id="removeDateMessage"
+            ref={errorContainer2 => {
+              this.errorContainer2 = errorContainer2
+            }}
+          >
             <h2>
               <Trans>To change your selections, remove some days first</Trans>
             </h2>
