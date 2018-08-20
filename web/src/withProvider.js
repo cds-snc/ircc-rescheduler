@@ -164,7 +164,7 @@ function withProvider(WrappedComponent) {
       }
 
       // match.path === "/about" or similar
-      let key = match.path.slice(1)
+      let key = match.path.length > 1 ? match.path.slice(1) : match.path
       return { key, val: query }
     }
 

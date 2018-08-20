@@ -123,6 +123,16 @@ describe('WithProvider', () => {
       expect(key).toBe('about')
       expect(val).toEqual({ field: 'value' })
     })
+
+    it('path key remains "/" when root path and no global key exists ', () => {
+      // other fields will be ignored
+      let { key, val } = WithProvider.returnKeyAndValue(
+        { field: 'value' },
+        { path: '/' },
+      )
+      expect(key).toBe('/')
+      expect(val).toEqual({ field: 'value' })
+    })
   })
 
   describe('.getDefaultLanguageFromHeader()', () => {
