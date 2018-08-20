@@ -5,7 +5,7 @@ import routes from '../routes'
 import { mount } from 'enzyme'
 
 describe('After.js', () => {
-  it.skip('renders without exploding', () => {
+  it('renders without exploding', () => {
     expect(() => {
       mount(
         <MemoryRouter>
