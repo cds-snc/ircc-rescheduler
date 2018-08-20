@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { css } from 'emotion'
 import { theme, mediaQuery } from '../styles'
 import { Trans } from 'lingui-react'
-import { getEmail, getEmailParts, getPhone } from '../locations/vancouver'
+import { getEmail, getEmailParts, getPhone } from '../locations'
 
 const telStyles = css`
   > span {

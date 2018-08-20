@@ -6,7 +6,7 @@ import { Trans, withI18n } from 'lingui-react'
 import CanadaWordmark from '../assets/CanadaWordmark.svg'
 import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
-import { getEmail } from '../locations/vancouver'
+import { getEmail } from '../locations'
 
 const footer = css`
   background-color: ${theme.colour.white};

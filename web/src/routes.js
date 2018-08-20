@@ -8,12 +8,18 @@ import ConfirmationPage from './pages/ConfirmationPage'
 import ErrorPage from './pages/ErrorPage'
 import CancelPage from './pages/CancelPage'
 import FourOhFourPage from './pages/FourOhFourPage'
+import SetLocationPage from './pages/SetLocationPage'
 
 export default [
   {
     path: '/',
     exact: true,
     component: withProvider(LandingPage),
+  },
+  {
+    path: '/set-location',
+    exact: true,
+    component: withProvider(SetLocationPage),
   },
   {
     path: '/register',
