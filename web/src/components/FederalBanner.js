@@ -50,6 +50,7 @@ const FederalBanner = ({ context = {} }) => (
         lang={context.store.language}
         flag={theme.colour.white}
         text={theme.colour.white}
+        focusable="false"
       />
     </div>
     <LanguageSwitcher />

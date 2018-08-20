@@ -107,9 +107,9 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@cdssnc/gcui@^0.0.30":
-  version "0.0.30"
-  resolved "https://registry.yarnpkg.com/@cdssnc/gcui/-/gcui-0.0.30.tgz#29f7668ce0e0acc8f614fcc9f027064d7129194a"
+"@cdssnc/gcui@^0.0.31":
+  version "0.0.31"
+  resolved "https://registry.yarnpkg.com/@cdssnc/gcui/-/gcui-0.0.31.tgz#44e5710d0602e419ba3994f71f888adcf39eaea8"
   dependencies:
     core-js "^2.5.7"
     emotion "^9.1.3"
