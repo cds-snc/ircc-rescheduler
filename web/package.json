@@ -10,8 +10,9 @@
     "postinstall": "razzle build",
     "start": "NODE_ENV=production node --icu-data-dir=./node_modules/full-icu build/server.js",
     "build:start": "yarn build && yarn start",
-    "test:full": "start-server-and-test build:start http://localhost:3004 test",
-    "test": "node --icu-data-dir=./node_modules/full-icu node_modules/jest/bin/jest.js",
+    "test:full": "start-server-and-test build:start http://localhost:3004 test:base",
+    "test": "yarn test:base -c jest-no-js.config.js",
+    "test:base": "node --icu-data-dir=./node_modules/full-icu node_modules/jest/bin/jest.js",
     "extract": "NODE_ENV=development lingui extract",
     "compile": "NODE_ENV=development lingui compile",
     "add_locale": "lingui add-locale",
@@ -94,31 +95,6 @@
     "start-server-and-test": "^1.7.0",
     "supertest": "^3.1.0",
     "webpack-bundle-analyzer": "^2.13.1"
-  },
-  "jest": {
-    "verbose": true,
-    "transform": {
-      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/razzle/config/jest/babelTransform.js",
-      "^.+\\.css$": "<rootDir>/node_modules/razzle/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/node_modules/razzle/config/jest/fileTransform.js"
-    },
-    "globals": {
-      "RAZZLE_PAPER_FILE_NUMBER_PATTERN": "[a-zA-Z]{1}"
-    },
-    "setupTestFrameworkScriptFile": "<rootDir>/test/setupTests.js",
-    "testMatch": [
-      "<rootDir>/**/__tests__/**/*.js",
-      "<rootDir>/src/**/?(*.)(spec|test).js",
-      "<rootDir>/test/**/?(*.)(spec|test).js"
-    ],
-    "moduleFileExtensions": [
-      "jsx",
-      "js",
-      "json"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ]
   },
   "lingui": {
     "srcPathIgnorePatterns": [
