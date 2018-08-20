@@ -3,7 +3,7 @@ import { mount, render } from 'enzyme'
 import { FooterBase as Footer } from '../Footer'
 import { getStore } from './LanguageSwitcher.test.js'
 import { i18n } from 'lingui-i18n/dist'
-import { getEmail } from '../../locations/vancouver'
+import { getEmail } from '../../locations'
 
 describe('<Footer />', () => {
   it('renders footer', () => {

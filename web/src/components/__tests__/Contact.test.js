@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Contact, { TelLink } from '../Contact'
-import { getEmail } from '../../locations/vancouver'
+import { getEmail } from '../../locations'
 
 describe('<TelLink />', () => {
   it('renders span and an anchor link', () => {

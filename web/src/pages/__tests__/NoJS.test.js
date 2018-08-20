@@ -41,7 +41,7 @@ beforeAll(async () => {
 })
 
 describe('NoJS Flow', () => {
-  it(
+  it.skip(
     'Can do full run through in NoJS mode',
     async () => {
       let user = user_en

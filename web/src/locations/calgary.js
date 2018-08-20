@@ -1,8 +1,8 @@
 module.exports = {
-  email: 'IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
+  email: 'calgaryC@cic.gc.ca',
   phone: '1-888-242-2100',
   recurring: {
-    jun: ['wed', 'thurs'],
+    jun: ['mon', 'thurs'],
     jul: ['wed', 'thurs'],
     aug: ['wed', 'thurs'],
     sep: ['wed', 'thurs'],
@@ -10,5 +10,4 @@ module.exports = {
     nov: ['tues', 'wed'],
     dec: ['tues', 'wed'],
   },
-  blocked: '', // use CSV format => 2018-10-02, 2018-10-03, 2018-11-21
 }

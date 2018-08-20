@@ -13,7 +13,7 @@ import isWednesday from 'date-fns/is_wednesday'
 import isThursday from 'date-fns/is_thursday'
 import isFriday from 'date-fns/is_friday'
 import { makeGMTDate, dateToISODateString } from '../components/Time'
-import { vancouver } from '../locations/vancouver'
+import { getGlobalLocation } from '../locations/'
 import { Trans } from 'lingui-react'
 
 const offsetStartWeeks = 5
@@ -28,7 +28,7 @@ export const toLocale = (date, options, locale) => {
 }
 
 /*--------------------------------------------*
- * General Date Checks 
+ * General Date Checks
  *--------------------------------------------*/
 
 export const getStartDate = (today = new Date()) => {
@@ -63,14 +63,14 @@ export const getInitialMonth = (selectedDates, startMonth) => {
 }
 
 /*--------------------------------------------*
- * Day Checks 
+ * Day Checks
  *--------------------------------------------*/
 
-/* 
-   Looks for first day in a month that 
-   is valid for a location 
+/*
+   Looks for first day in a month that
+   is valid for a location
 */
-export const firstValidDay = (location = vancouver, date) => {
+export const firstValidDay = (location = getGlobalLocation(), date) => {
   var i = 0
   for (i = 0; i <= 7; i++) {
     let plusDay = addDays(date, i)
@@ -97,12 +97,12 @@ const isValidDayForLocation = (location, month = '', date = new Date()) => {
   return false
 }
 
-/* 
- Turns month input ['wed', 'thurs'] 
+/*
+ Turns month input ['wed', 'thurs']
  into numeric equivalent [ 4, 5 ]
  */
 export const getDaysOfWeekForLocation = (
-  location = vancouver,
+  location = getGlobalLocation(),
   date = new Date(),
 ) => {
   const month = getShortMonthName(date)
@@ -124,20 +124,26 @@ export const getDaysOfWeekForLocation = (
   return []
 }
 
-export const getDisabledDays = (location = vancouver, date = new Date()) => {
+export const getDisabledDays = (
+  location = getGlobalLocation(),
+  date = new Date(),
+) => {
   const startDate = parse(getStartDate(date))
   const endDate = parse(getEndDate(date))
   return getAllowedDays(location, startDate, endDate, true)
 }
 
-export const getEnabledDays = (location = vancouver, date = new Date()) => {
+export const getEnabledDays = (
+  location = getGlobalLocation(),
+  date = new Date(),
+) => {
   const startDate = parse(getStartDate(date))
   const endDate = parse(getEndDate(date))
   return getAllowedDays(location, startDate, endDate)
 }
 
 const getAllowedDays = (
-  location = vancouver,
+  location = getGlobalLocation(),
   startDate,
   endDate,
   disabledDays = false,
@@ -169,7 +175,7 @@ export const checkLocationDays = (location, month, date) => {
 
   // eslint-disable-next-line security/detect-object-injection
   location.recurring[month].forEach(day => {
-    /* 
+    /*
       Check the date against the day check functions
       isMonday, isTuesday
     */
@@ -186,8 +192,8 @@ export const checkLocationDays = (location, month, date) => {
   return { valid }
 }
 
-/* 
-  Check to see if day input is in the correct format 
+/*
+  Check to see if day input is in the correct format
   thurs not thursday
 
   ['wed', 'thurs'],
@@ -268,7 +274,7 @@ export const respondByDate = (selectedDays = [], locale = 'fr') => {
 }
 
 /*--------------------------------------------*
- * Date Formatting 
+ * Date Formatting
  *--------------------------------------------*/
 
 export const getStartMonthName = (today = new Date(), locale = 'fr') => {
