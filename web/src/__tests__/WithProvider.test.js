@@ -85,33 +85,33 @@ describe('WithProvider', () => {
       expect(val).toBe(undefined)
     })
 
-    it('"language" key and "en" val when global field passed in', () => {
+    it('"GLOBALS" key and {language: "en"} val when global language field passed in', () => {
       let { key, val } = WithProvider.returnKeyAndValue(
         { language: 'en' },
         match,
       )
-      expect(key).toBe('language')
-      expect(val).toBe('en')
+      expect(key).toBe('GLOBALS')
+      expect(val).toEqual({ language: 'en' })
     })
 
-    it('"language" key and "portuguese" val when global field passed in', () => {
+    it('"GLOBALS" key and {language: "portuguese"} val when global language field passed in', () => {
       // ie, it's not running the validateCookie function
       let { key, val } = WithProvider.returnKeyAndValue(
         { language: 'portuguese' },
         match,
       )
-      expect(key).toBe('language')
-      expect(val).toBe('portuguese')
+      expect(key).toBe('GLOBALS')
+      expect(val).toEqual({ language: 'portuguese' })
     })
 
-    it('"language" key and "en" val when global field passed in as well as other keys', () => {
+    it('"GLOBALS" key and {language: "en"} val when global language field passed in as well as other keys', () => {
       // other fields will be ignored
       let { key, val } = WithProvider.returnKeyAndValue(
         { language: 'en', field: 'value' },
         match,
       )
-      expect(key).toBe('language')
-      expect(val).toBe('en')
+      expect(key).toBe('GLOBALS')
+      expect(val).toEqual({ language: 'en' })
     })
 
     it('path key and query value when no global key exists ', () => {
@@ -263,26 +263,30 @@ describe('WithProvider', () => {
 
     // static validateCookie(key, val = null, fields = [], validate = null)
     it('returns correct language for "en"', () => {
-      let result = WithProvider.validateCookie('language', 'en')
-      expect(result).toEqual('en')
+      let result = WithProvider.validateCookie('GLOBALS', { language: 'en' })
+      expect(result).toEqual({ language: 'en' })
     })
 
     it('returns correct language for "fr"', () => {
-      let result = WithProvider.validateCookie('language', 'fr')
-      expect(result).toEqual('fr')
+      let result = WithProvider.validateCookie('GLOBALS', { language: 'fr' })
+      expect(result).toEqual({ language: 'fr' })
     })
 
     it('returns false for different language', () => {
-      let result = WithProvider.validateCookie('language', 'portuguese')
+      let result = WithProvider.validateCookie('GLOBALS', {
+        language: 'portuguese',
+      })
       expect(result).toBe(false)
     })
 
-    let invalidVals = [0, false, { language: 'en' }, ['en'], null, '']
+    let invalidVals = [0, false, {}, ['en'], null, '']
     invalidVals.map(v => {
-      it(`throws error for global field with a non-empty string value: ${v}`, () => {
+      it(`throws error for global field with a non-empty object: ${JSON.stringify(
+        v,
+      )}`, () => {
         expect(() => {
-          WithProvider.validateCookie('language', v)
-        }).toThrowError(/^validate: `val` must be a non-empty string$/)
+          WithProvider.validateCookie('GLOBALS', v)
+        }).toThrowError(/^validate: `val` must be a non-empty object/)
       })
     })
   })
@@ -294,17 +298,23 @@ describe('WithProvider', () => {
       const WithProviderValidate = withProvider(FakeComponentWithValidate)
 
       it('returns false if WrappedComponent does not have `fields` or `validate`', () => {
-        let result = EmptyWithProvider.validateCookie('field', 'value')
+        let result = EmptyWithProvider.validateCookie('page', {
+          field: 'value',
+        })
         expect(result).toBe(false)
       })
 
       it('returns false if WrappedComponent does not have `validate`', () => {
-        let result = WithProviderFields.validateCookie('field', 'value')
+        let result = WithProviderFields.validateCookie('page', {
+          field: 'value',
+        })
         expect(result).toBe(false)
       })
 
       it('returns false if WrappedComponent does not have `fields`', () => {
-        let result = WithProviderValidate.validateCookie('field', 'value')
+        let result = WithProviderValidate.validateCookie('page', {
+          field: 'value',
+        })
         expect(result).toBe(false)
       })
     })
@@ -330,7 +340,9 @@ describe('WithProvider', () => {
         it(`returns false for regular field with a non-empty object value: ${JSON.stringify(
           v,
         )}`, () => {
-          expect(WithProvider.validateCookie('page', v)).toBe(false)
+          expect(() => {
+            WithProvider.validateCookie('page', v)
+          }).toThrowError(/^validate: `val` must be a non-empty object/)
         })
       })
 
