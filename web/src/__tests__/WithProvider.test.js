@@ -55,23 +55,54 @@ describe('WithProvider', () => {
   describe('.globalFields and .validate()', () => {
     const WithProvider = withProvider(FakeComponentEmpty)
 
-    it('has only "language" as a global field', () => {
-      expect(WithProvider.globalFields).toEqual(['language'])
+    it('has only "language" and "location" as global fields', () => {
+      expect(WithProvider.globalFields).toEqual(['language', 'location'])
     })
 
-    it('returns no errors for "en" or "fr" in its validation method', () => {
-      let errors
-      errors = WithProvider.validate({ language: 'en' })
-      expect(errors).toEqual({})
+    describe('global field "language"', () => {
+      it('returns no errors for "en" or "fr" in its validation method', () => {
+        let errors
+        errors = WithProvider.validate({ language: 'en' })
+        expect(errors).toEqual({})
 
-      errors = WithProvider.validate({ language: 'fr' })
-      expect(errors).toEqual({})
+        errors = WithProvider.validate({ language: 'fr' })
+        expect(errors).toEqual({})
+      })
+
+      it('returns errors for some other value in its validation method', () => {
+        let errors
+        errors = WithProvider.validate({ language: 'portuguese' })
+        expect(errors).toEqual({ language: true })
+      })
+
+      it('returns errors for an empty language value', () => {
+        let errors
+        errors = WithProvider.validate({ language: '' })
+        expect(errors).toEqual({ language: true })
+      })
     })
 
-    it('returns errors for some other value in its validation method', () => {
-      let errors
-      errors = WithProvider.validate({ language: 'portuguese' })
-      expect(errors).toEqual({ language: true })
+    describe('global field "location"', () => {
+      it('returns no errors for "montreal" or "vancouver" in its validation method', () => {
+        let errors
+        errors = WithProvider.validate({ location: 'montreal' })
+        expect(errors).toEqual({})
+
+        errors = WithProvider.validate({ location: 'vancouver' })
+        expect(errors).toEqual({})
+      })
+
+      it('returns errors for some other value in its validation method', () => {
+        let errors
+        errors = WithProvider.validate({ location: 'toronto' })
+        expect(errors).toEqual({ location: true })
+      })
+
+      it('returns errors for an empty location value', () => {
+        let errors
+        errors = WithProvider.validate({ location: '' })
+        expect(errors).toEqual({ location: true })
+      })
     })
   })
 
@@ -85,33 +116,45 @@ describe('WithProvider', () => {
       expect(val).toBe(undefined)
     })
 
-    it('"GLOBALS" key and {language: "en"} val when global language field passed in', () => {
-      let { key, val } = WithProvider.returnKeyAndValue(
-        { language: 'en' },
-        match,
-      )
-      expect(key).toBe('GLOBALS')
-      expect(val).toEqual({ language: 'en' })
-    })
+    const globals = [
+      {
+        valid: { language: 'en' },
+        invalid: { language: 'portuguese' },
+      },
+      {
+        valid: { location: 'montreal' },
+        invalid: { location: 'lisbon' },
+      },
+    ]
+    globals.map(v => {
+      it(`"GLOBALS" key and "${JSON.stringify(
+        v.valid,
+      )}" val when global field passed in`, () => {
+        let { key, val } = WithProvider.returnKeyAndValue(v.valid, match)
+        expect(key).toBe('GLOBALS')
+        expect(val).toEqual(v.valid)
+      })
 
-    it('"GLOBALS" key and {language: "portuguese"} val when global language field passed in', () => {
-      // ie, it's not running the validateCookie function
-      let { key, val } = WithProvider.returnKeyAndValue(
-        { language: 'portuguese' },
-        match,
-      )
-      expect(key).toBe('GLOBALS')
-      expect(val).toEqual({ language: 'portuguese' })
-    })
+      it(`"GLOBALS" key and "${JSON.stringify(
+        v.invalid,
+      )}" val when global language field passed in`, () => {
+        // ie, it's not running the validateCookie function
+        let { key, val } = WithProvider.returnKeyAndValue(v.invalid, match)
+        expect(key).toBe('GLOBALS')
+        expect(val).toEqual(v.invalid)
+      })
 
-    it('"GLOBALS" key and {language: "en"} val when global language field passed in as well as other keys', () => {
-      // other fields will be ignored
-      let { key, val } = WithProvider.returnKeyAndValue(
-        { language: 'en', field: 'value' },
-        match,
-      )
-      expect(key).toBe('GLOBALS')
-      expect(val).toEqual({ language: 'en' })
+      it(`"GLOBALS" key and "${JSON.stringify(
+        v.valid,
+      )}" val when global language field passed in as well as other keys`, () => {
+        // other fields will be ignored
+        let { key, val } = WithProvider.returnKeyAndValue(
+          { ...v.valid, field: 'value' },
+          match,
+        )
+        expect(key).toBe('GLOBALS')
+        expect(val).toEqual(v.valid)
+      })
     })
 
     it('path key and query value when no global key exists ', () => {
@@ -261,22 +304,30 @@ describe('WithProvider', () => {
   describe('.validateCookie() with global field', () => {
     const WithProvider = withProvider(FakeComponentEmpty)
 
-    // static validateCookie(key, val = null, fields = [], validate = null)
-    it('returns correct language for "en"', () => {
-      let result = WithProvider.validateCookie('GLOBALS', { language: 'en' })
-      expect(result).toEqual({ language: 'en' })
-    })
-
-    it('returns correct language for "fr"', () => {
-      let result = WithProvider.validateCookie('GLOBALS', { language: 'fr' })
-      expect(result).toEqual({ language: 'fr' })
-    })
-
-    it('returns false for different language', () => {
-      let result = WithProvider.validateCookie('GLOBALS', {
-        language: 'portuguese',
+    const globals = [
+      {
+        valid: { language: 'en' },
+        invalid: { language: 'portuguese' },
+      },
+      {
+        valid: { location: 'montreal' },
+        invalid: { location: 'lisbon' },
+      },
+    ]
+    globals.map(v => {
+      it(`returns correct object for valid value: "${JSON.stringify(
+        v.valid,
+      )}"`, () => {
+        let result = WithProvider.validateCookie('GLOBALS', v.valid)
+        expect(result).toEqual(v.valid)
       })
-      expect(result).toBe(false)
+
+      it(`returns false for invalid value: "${JSON.stringify(
+        v.invalid,
+      )}"`, () => {
+        let result = WithProvider.validateCookie('GLOBALS', v.invalid)
+        expect(result).toBe(false)
+      })
     })
 
     let invalidVals = [0, false, {}, ['en'], null, '']
