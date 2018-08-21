@@ -412,13 +412,14 @@ const calendarContainerTop = css`
 `
 
 const removeDateMessage = css`
-  margin: -${theme.spacing.md} 0 ${theme.spacing.lg} 0;
-  padding: ${theme.spacing.md} ${theme.spacing.md} ${theme.spacing.md} 0;
+  margin-bottom: calc(${theme.spacing.lg} + ${theme.spacing.md});
+
   display: inline-block;
   h2 {
     margin-top: 0 !important;
   }
   ${focusRing};
+  outline-offset: ${theme.spacing.md};
 `
 
 const renderDayBoxes = ({
@@ -505,8 +506,8 @@ class Calendar extends Component {
 
   componentDidMount() {
     if (this.threeDatesArePicked && this.props.input.value.length === 3) {
-      window.scrollTo(0, this.errorContainer2.offsetTop)
-      this.errorContainer2.focus()
+      // window.scrollTo(0, this.removeDateContainer.offsetTop)
+      this.removeDateContainer.focus()
     }
   }
 
@@ -654,12 +655,12 @@ class Calendar extends Component {
             tabIndex="-1"
             className={removeDateMessage}
             id="removeDateMessage"
-            ref={errorContainer2 => {
-              this.errorContainer2 = errorContainer2
+            ref={removeDateContainer => {
+              this.removeDateContainer = removeDateContainer
             }}
           >
             <h2>
-              <Trans>To change your selections, remove some days first</Trans>
+              <Trans>To change your selections, remove some days first</Trans>.
             </h2>
           </div>
         ) : null}
