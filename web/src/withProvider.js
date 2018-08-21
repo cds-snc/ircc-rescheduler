@@ -121,7 +121,7 @@ function withProvider(WrappedComponent) {
       return (
         <Context.Provider value={this.state.context}>
           <I18nProvider
-            language={this.state.context.store.language}
+            language={this.state.context.store.GLOBALS.language}
             catalogs={catalogs}
             development={linguiDev}
           >

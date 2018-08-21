@@ -115,10 +115,9 @@ const Footer = ({ topBarBackground, i18n, context = {} }) => (
         <a href={i18n._('https://digital.canada.ca/legal/terms/')}>
           <Trans>Terms</Trans>
           {context.store &&
-          context.store.language &&
-          context.store.language === 'fr' ? (
-            ''
-          ) : (
+          context.store.GLOBALS &&
+          context.store.GLOBALS.language &&
+          context.store.GLOBALS.language === 'fr' ? null : (
             <span className={visuallyhiddenMobile}> and Conditions</span>
           )}
         </a>
@@ -128,7 +127,7 @@ const Footer = ({ topBarBackground, i18n, context = {} }) => (
         <img
           src={CanadaWordmark}
           alt={
-            context.store.language === 'en'
+            context.store.GLOBALS.language === 'en'
               ? 'Symbol of the Government of Canada'
               : 'Symbole du gouvernement du Canada'
           }

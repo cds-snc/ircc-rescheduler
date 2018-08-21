@@ -186,7 +186,8 @@ class CalendarPage extends Component {
 
   componentDidUpdate(prevProps) {
     if (
-      this.props.context.store.language !== prevProps.context.store.language
+      this.props.context.store.GLOBALS.language !==
+      prevProps.context.store.GLOBALS.language
     ) {
       this.changeMonth()
     }
@@ -220,7 +221,9 @@ class CalendarPage extends Component {
 
   changeMonth(month = this.state.month) {
     let {
-      context: { store: { language: locale = 'en' } = {} } = {},
+      context: {
+        store: { GLOBALS: { language: locale = 'en' } = {} } = {},
+      } = {},
     } = this.props
 
     const days = getDaysOfWeekForLocation(undefined, month)
@@ -277,7 +280,12 @@ class CalendarPage extends Component {
 
   render() {
     let {
-      context: { store: { calendar = {}, language: locale = 'en' } = {} } = {},
+      context: {
+        store: {
+          calendar = {},
+          GLOBALS: { language: locale = 'en' } = {},
+        } = {},
+      } = {},
     } = this.props
 
     // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
@@ -421,7 +429,12 @@ class NoJS extends Component {
 
   render() {
     let {
-      context: { store: { calendar = {}, language: locale = 'en' } = {} } = {},
+      context: {
+        store: {
+          calendar = {},
+          GLOBALS: { language: locale = 'en' } = {},
+        } = {},
+      } = {},
     } = this.props
     let errorsNoJS = {}
 

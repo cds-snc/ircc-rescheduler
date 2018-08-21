@@ -140,13 +140,13 @@ server
     return res.redirect('/confirmation')
   })
   .get('/clear', (req, res) => {
-    let language = getStoreCookie(req.cookies, 'language') || 'en'
+    let language = getStoreCookie(req.cookies, 'GLOBALS').language || 'en'
 
     res.clearCookie('store')
     res.redirect(`/cancel?language=${language}`)
   })
   .get('/*', async (req, res) => {
-    let language = getStoreCookie(req.cookies, 'language') || 'en'
+    let language = getStoreCookie(req.cookies, 'GLOBALS').language || 'en'
     if (req.url === '/') {
       /* check if we have a cached version of the homepage */
       let cachedIndex = cache.get(`index_${language}`)
