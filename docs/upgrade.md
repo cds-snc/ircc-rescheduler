@@ -25,9 +25,9 @@ yarn ci:dev
 
 5. Submit a Pull Request with the updates
 
-<hr>
-
 Note: Ensure the --latest flag is passed or the updates will not be saved to the package.json file
+
+<hr>
 
 ## Vulnerability process
 
