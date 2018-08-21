@@ -1,3 +1,5 @@
+import merge from 'deepmerge'
+
 const inTenMinutes = () => new Date(new Date().getTime() + 10 * 60 * 1000)
 const inOneDay = () => new Date(new Date().getTime() + 1 * 24 * 60 * 60 * 1000)
 
@@ -33,7 +35,7 @@ export const setSSRCookie = (res, key, val, prevCookie) => {
   let newCookie = { [key]: val }
 
   // create new cookie by merging with previous values
-  let cookie = { ...prevCookie, ...newCookie }
+  let cookie = merge(prevCookie, newCookie)
 
   setStoreCookie(res.cookie.bind(res), cookie)
 

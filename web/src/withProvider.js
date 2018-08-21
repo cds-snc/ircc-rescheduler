@@ -6,6 +6,7 @@ import { contextDefault, Context } from './context'
 import { I18nProvider } from 'lingui-react'
 import { catalogs, linguiDev } from './utils/linguiUtils'
 import { trimInput } from './utils/cleanInput'
+import merge from 'deepmerge'
 
 const _whitelist = ({ val, fields }) => {
   /*
@@ -92,7 +93,7 @@ function withProvider(WrappedComponent) {
         this.setState(
           state => ({
             context: {
-              store: { ...state.context.store, ...newState },
+              store: merge(state.context.store, newState),
               setStore: state.context.setStore,
             },
           }),

@@ -41,6 +41,7 @@
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "date-fns": "^1.29.0",
+    "deepmerge": "^2.1.1",
     "emotion": "^9.2.6",
     "emotion-server": "^9.2.6",
     "express": "^4.16.3",
