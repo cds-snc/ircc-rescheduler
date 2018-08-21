@@ -160,19 +160,10 @@ function withProvider(WrappedComponent) {
         return { key: undefined, val: undefined }
       }
 
-      /*
-      return the first matching query key that exists in the global fields
-      */
-      let queryKeys = Object.keys(query)
-      for (let i = 0; i < queryKeys.length; i++) {
-        let queryKey = queryKeys[i] // eslint-disable-line security/detect-object-injection
-        for (let j = 0; j < WithProvider.globalFields.length; j++) {
-          // eslint-disable-next-line security/detect-object-injection
-          if (queryKey === WithProvider.globalFields[j]) {
-            // eslint-disable-next-line security/detect-object-injection
-            return { key: 'GLOBALS', val: { [queryKey]: query[queryKey] } }
-          }
-        }
+      // object that only includes keys in the global fields
+      let val = _whitelist({ val: query, fields: WithProvider.globalFields })
+      if (Object.keys(val).length) {
+        return { key: 'GLOBALS', val }
       }
 
       // match.path === "/about" or similar
@@ -194,9 +185,9 @@ function withProvider(WrappedComponent) {
 
     static validateCookie(key, val = null) {
       /*
-          validation method for both server-side and client-side cookies
-          returns either a sanitised `val` object else false
-          */
+      validation method for both server-side and client-side cookies
+      returns either a sanitised `val` object else false
+      */
 
       if (typeof key !== 'string' || !key.length) {
         throw new Error('validate: `key` must be a non-empty string')
@@ -209,8 +200,11 @@ function withProvider(WrappedComponent) {
       // check if a global setting
       if (
         key === 'GLOBALS' &&
-        WithProvider.globalFields.includes(Object.keys(val)[0]) // get first key passed-in values
+        Object.keys(val).some(k => WithProvider.globalFields.includes(k)) // at least one query key is a global fields
       ) {
+        // whitelist query keys so that only global keys are left
+        val = _whitelist({ val, fields: WithProvider.globalFields })
+
         // have to pass the key in as well since this value is a string
         let errors = WithProvider.validate(val)
 
