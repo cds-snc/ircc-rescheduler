@@ -140,7 +140,6 @@ class RegistrationPage extends React.Component {
     this.hasNotValid = this.hasNotValid.bind(this)
     this.generalErrorMessage = this.generalErrorMessage.bind(this)
     this.form = null
-    this.state = { submitClicked: false }
   }
 
   generalErrorMessage() {
@@ -148,15 +147,10 @@ class RegistrationPage extends React.Component {
   }
 
   /* 
-  If the user has pressed submit we want to ignore the
-  not-valid param i.e. we're in a regular 
-  form submit scenario
+  Check if the form was redirected from the server
   */
 
   hasNotValid() {
-    if (this.state.submitClicked) {
-      return false
-    }
     return this.props.location.search.indexOf('not-valid') !== -1
   }
 
@@ -227,8 +221,8 @@ class RegistrationPage extends React.Component {
                 id="register-form"
                 ref={el => {
                   if (!this.form && notValid) {
-                    el.dispatchEvent(new Event('submit')) // eslint-disable-line no-undef
                     this.form = el
+                    el.dispatchEvent(new Event('submit')) // eslint-disable-line no-undef
                   }
                 }}
                 onSubmit={handleSubmit}
