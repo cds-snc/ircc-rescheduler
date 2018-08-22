@@ -144,20 +144,12 @@ class RegistrationPage extends React.Component {
   }
 
   generalErrorMessage() {
-    // custom not valid message will go here
-    return this.hasNotValid() ? (
-      <Trans>Some information is missing.</Trans>
-    ) : (
-      <Trans>Some information is missing.</Trans>
-    )
+    return <Trans>Some information is missing.</Trans>
   }
 
   /* 
-  Checks for existence of not-valid param
-  to show a custom message to assist the user.
-
-  If the user has pressed submit we don't want to
-  show the custom message as we're not in a regular 
+  If the user has pressed submit we want to ignore the
+  not-valid param i.e. we're in a regular 
   form submit scenario
   */
 
