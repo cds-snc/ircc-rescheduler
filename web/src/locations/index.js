@@ -1,21 +1,9 @@
-const cachedLocation = () => {
-  let cache = {}
-
-  // pull from cookie here
-  let locationStr = 'calgary'
-
-  return () => {
-    if (locationStr in cache) {
-      return cache[locationStr]
-    } else {
-      const result = require(`./${locationStr}`)
-      cache[locationStr] = result
-      return result
-    }
-  }
+export const getGlobalLocation = () => {
+  //@ todo this will return the location object from context
+  // .i.e. calgary.js
+  // return context.location
+  return null
 }
-
-export const getGlobalLocation = cachedLocation()
 
 export const getEmail = (location = getGlobalLocation()) => {
   if (location && location.email) {
