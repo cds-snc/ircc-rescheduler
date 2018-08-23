@@ -6,6 +6,7 @@ import { contextDefault, Context } from './context'
 import { I18nProvider } from 'lingui-react'
 import { catalogs, linguiDev } from './utils/linguiUtils'
 import { trimInput } from './utils/cleanInput'
+import { returnLocationFromSubdomain } from './utils/readLocation'
 
 const _whitelist = ({ val, fields }) => {
   /*
@@ -70,10 +71,13 @@ function withProvider(WrappedComponent) {
 
       let initStore = newCookie || prevCookie || contextDefault.store
 
+      let location = returnLocationFromSubdomain(req) || {}
+
       return {
         context: {
           store: initStore,
           setStore: contextDefault.setStore,
+          location,
         },
       }
     }
@@ -107,10 +111,15 @@ function withProvider(WrappedComponent) {
         ? props.context.store
         : getStoreCookie(Cookies.get()) || contextDefault.store
 
+      let initLocation = props.context
+        ? { location: props.context.location }
+        : {}
+
       this.state = {
         context: {
           store: initStore,
           setStore: this.setStore,
+          ...initLocation,
         },
       }
     }
@@ -119,15 +128,21 @@ function withProvider(WrappedComponent) {
       // don't pass in the context as props -- we're passing the state instead
       const { context, ...props } = this.props // eslint-disable-line no-unused-vars
       return (
-        <Context.Provider value={this.state.context}>
-          <I18nProvider
-            language={this.state.context.store.language}
-            catalogs={catalogs}
-            development={linguiDev}
-          >
-            <WrappedComponent {...props} />
-          </I18nProvider>
-        </Context.Provider>
+        <Context.Consumer>
+          {context => {
+            return (
+              <Context.Provider value={{ ...context, ...this.state.context }}>
+                <I18nProvider
+                  language={this.state.context.store.language}
+                  catalogs={catalogs}
+                  development={linguiDev}
+                >
+                  <WrappedComponent {...props} />
+                </I18nProvider>
+              </Context.Provider>
+            )
+          }}
+        </Context.Consumer>
       )
     }
 
