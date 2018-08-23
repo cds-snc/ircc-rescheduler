@@ -83,7 +83,7 @@ const getPrimarySubdomain = function(req, res, next) {
 
   if (
     !domainOptions.whitelist.includes(req.subdomain) &&
-    req.url !== '/not-found'
+    req.url.indexOf('not-found') === -1
   ) {
     // redirect to generic not found page
     /*
@@ -91,8 +91,10 @@ const getPrimarySubdomain = function(req, res, next) {
     so they don't end up at the wrong location 
     */
 
-    // Todo: Would rather not introduce another env variable here  
-    return res.redirect(process.env.SITE_URL + '/not-found')
+    // Todo: Would rather not introduce another env variable here
+    // hard code for testing
+    return res.redirect('https://rescheduler-dev.cds-snc.ca/not-found')
+    //return res.redirect(process.env.SITE_URL + '/not-found')
   }
 
   next()
