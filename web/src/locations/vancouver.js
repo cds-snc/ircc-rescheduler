@@ -1,4 +1,5 @@
 module.exports = {
+  id: 'vancouver',
   email: 'IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
   phone: '1-888-242-2100',
   recurring: {

@@ -1,4 +1,5 @@
 module.exports = {
+  id: 'calgary',
   email: 'calgaryC@cic.gc.ca',
   phone: '1-888-242-2100',
   recurring: {
