@@ -1,4 +1,22 @@
 {
+  "You can’t select more than 3 days.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        555
+      ]
+    ]
+  },
+  "To change your selections, remove some days first": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        654
+      ]
+    ]
+  },
   "Immigration, Refugees and Citizenship Canada": {
     "translation": "",
     "origin": [
@@ -17,7 +35,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        459
+        462
       ]
     ]
   },
@@ -26,7 +44,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        545
+        565
       ]
     ]
   },
@@ -35,7 +53,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        673
+        702
       ]
     ]
   },
@@ -44,7 +62,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        675
+        704
       ]
     ]
   },
@@ -53,7 +71,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        677
+        706
       ]
     ]
   },
@@ -62,7 +80,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        679
+        708
       ]
     ]
   },
@@ -71,7 +89,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        691
+        720
       ]
     ]
   },
@@ -115,7 +133,7 @@
     "origin": [
       [
         "src/components/ErrorMessage.js",
-        68
+        66
       ]
     ]
   },
@@ -169,7 +187,7 @@
     "origin": [
       [
         "src/components/LanguageSwitcher.js",
-        71
+        70
       ]
     ]
   },
@@ -186,7 +204,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        100
+        99
       ]
     ]
   },
@@ -195,7 +213,7 @@
     "origin": [
       [
         "src/components/PageHeader.js",
-        47
+        45
       ]
     ]
   },
@@ -204,7 +222,7 @@
     "origin": [
       [
         "src/components/PageHeader.js",
-        49
+        47
       ]
     ]
   },
@@ -213,7 +231,7 @@
     "origin": [
       [
         "src/components/PageHeader.js",
-        55
+        53
       ]
     ]
   },
@@ -222,7 +240,7 @@
     "origin": [
       [
         "src/components/PhaseBanner.js",
-        71
+        68
       ]
     ]
   },
@@ -231,7 +249,7 @@
     "origin": [
       [
         "src/components/PhaseBanner.js",
-        78
+        75
       ]
     ]
   },
@@ -240,7 +258,7 @@
     "origin": [
       [
         "src/components/Reminder.js",
-        38
+        37
       ]
     ]
   },
@@ -312,11 +330,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        91
+        90
       ],
       [
         "src/pages/RegistrationPage.js",
-        239
+        238
       ]
     ]
   },
@@ -346,11 +364,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        95
+        94
       ],
       [
         "src/pages/RegistrationPage.js",
-        289
+        288
       ]
     ]
   },
@@ -474,7 +492,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        98
+        96
       ],
       [
         "src/pages/ReviewPage.js",
@@ -487,7 +505,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        103
+        101
       ]
     ]
   },
@@ -496,11 +514,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        105
+        103
       ],
       [
         "src/pages/LandingPage.js",
-        136
+        135
       ]
     ]
   },
@@ -509,11 +527,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        107
+        105
       ],
       [
         "src/pages/LandingPage.js",
-        138
+        137
       ]
     ]
   },
@@ -522,15 +540,15 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        108
+        106
       ],
       [
         "src/pages/CalendarPage.js",
-        235
+        233
       ],
       [
         "src/pages/LandingPage.js",
-        139
+        138
       ]
     ]
   },
@@ -539,7 +557,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        114
+        112
       ]
     ]
   },
@@ -548,7 +566,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        115
+        113
       ]
     ]
   },
@@ -557,7 +575,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        135
+        133
       ]
     ]
   },
@@ -566,7 +584,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        334
+        332
       ]
     ]
   },
@@ -575,7 +593,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        342
+        340
       ]
     ]
   },
@@ -584,11 +602,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        385
+        383
       ],
       [
         "src/pages/CalendarPage.js",
-        467
+        465
       ]
     ]
   },
@@ -597,7 +615,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        420
+        418
       ],
       [
         "src/validation.js",
@@ -851,7 +869,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        107
+        106
       ]
     ]
   },
@@ -860,7 +878,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        114
+        113
       ]
     ]
   },
@@ -869,7 +887,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        119
+        118
       ]
     ]
   },
@@ -878,7 +896,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        125
+        124
       ]
     ]
   },
@@ -887,7 +905,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        134
+        133
       ]
     ]
   },
@@ -896,7 +914,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        145
+        144
       ]
     ]
   },
@@ -905,7 +923,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        153
+        152
       ]
     ]
   },
@@ -914,7 +932,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        161
+        160
       ]
     ]
   },
@@ -923,11 +941,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        93
+        92
       ],
       [
         "src/pages/RegistrationPage.js",
-        262
+        261
       ]
     ]
   },
@@ -936,7 +954,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        97
+        96
       ]
     ]
   },
@@ -945,11 +963,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        99
+        98
       ],
       [
         "src/pages/RegistrationPage.js",
-        373
+        372
       ]
     ]
   },
@@ -958,11 +976,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        153
+        152
       ],
       [
         "src/pages/RegistrationPage.js",
-        199
+        198
       ]
     ]
   },
@@ -971,7 +989,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        182
+        181
       ]
     ]
   },
@@ -980,7 +998,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        250
+        249
       ]
     ]
   },
@@ -989,7 +1007,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        273
+        272
       ]
     ]
   },
@@ -998,7 +1016,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        300
+        299
       ]
     ]
   },
@@ -1007,7 +1025,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        325
+        324
       ]
     ]
   },
@@ -1016,7 +1034,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        333
+        332
       ],
       [
         "src/pages/ReviewPage.js",
@@ -1029,7 +1047,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        341
+        340
       ]
     ]
   },
@@ -1038,7 +1056,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        349
+        348
       ],
       [
         "src/pages/ReviewPage.js",
@@ -1051,7 +1069,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        357
+        356
       ],
       [
         "src/pages/ReviewPage.js",
@@ -1064,7 +1082,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        386
+        385
       ]
     ]
   },
@@ -1073,7 +1091,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        399
+        398
       ]
     ]
   },

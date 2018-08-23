@@ -159,7 +159,10 @@ class RegistrationPage extends React.Component {
 
     if (Object.keys(submitErrors).length) {
       const generalMessage = this.generalErrorMessage()
-      window.scrollTo(0, this.errorContainer.offsetTop - 20)
+      
+      if (windowExists()) {
+        window.scrollTo(0, this.errorContainer.offsetTop - 20)
+      }
       this.errorContainer.focus()
 
       trackRegistrationErrors(submitErrors)

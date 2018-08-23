@@ -259,7 +259,10 @@ class CalendarPage extends Component {
     const submitErrors = this.validate(values)
 
     if (Object.keys(submitErrors).length) {
-      window.scrollTo(0, this.errorContainer.offsetTop - 20)
+      if (windowExists()) {
+        window.scrollTo(0, this.errorContainer.offsetTop - 20)
+      }
+
       this.errorContainer.focus()
 
       logEvent(

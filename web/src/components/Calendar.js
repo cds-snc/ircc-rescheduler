@@ -21,6 +21,7 @@ import {
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 import { logEvent } from '../utils/analytics'
+import { windowExists } from '../utils/windowExists'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -411,6 +412,17 @@ const calendarContainerTop = css`
   `)};
 `
 
+const removeDateMessage = css`
+  margin-bottom: calc(${theme.spacing.lg} + ${theme.spacing.md});
+
+  display: inline-block;
+  h2 {
+    margin-top: 0 !important;
+  }
+  ${focusRing};
+  outline-offset: ${theme.spacing.md};
+`
+
 const renderDayBoxes = ({
   dayLimit,
   selectedDays,
@@ -485,11 +497,18 @@ class Calendar extends Component {
     this.state = {
       errorMessage: null,
       daysOfWeek: false,
+      daysModified: false,
     }
     this.threeDatesArePicked =
       this.props.input.value &&
       Array.isArray(this.props.input.value) &&
       this.props.input.value.length === 3
+  }
+
+  componentDidMount() {
+    if (this.threeDatesArePicked && this.props.input.value.length === 3) {
+      this.removeDateContainer.focus()
+    }
   }
 
   removeDayOnClickOrKeyPress = day => e => {
@@ -522,12 +541,17 @@ class Calendar extends Component {
     if (disabled) {
       return
     }
+
     /* Cast all Dates to 12 noon GMT */
     day = makeGMTDate(day)
 
     let { dayLimit } = this.props
 
     const selectedDays = this.props.input.value || []
+
+    if (selected) {
+      this.setState({ daysModified: true })
+    }
 
     // !selected means that this current day is not marked as 'selected' on the calendar
     if (!selected) {
@@ -542,7 +566,11 @@ class Calendar extends Component {
             </Trans>
           ),
         })
+
         this.errorContainer.focus()
+        if (windowExists()) {
+          window.scrollTo(0, this.errorContainer.offsetTop - 20)
+        }
 
         logEvent('Calendar', 'Select', 'Error: More than 3 days')
 
@@ -620,6 +648,23 @@ class Calendar extends Component {
             id="selectedDays-error"
           />
         </div>
+
+        {this.threeDatesArePicked &&
+        this.state.daysModified === false &&
+        !this.state.errorMessage ? (
+          <div
+            tabIndex="-1"
+            className={removeDateMessage}
+            id="removeDateMessage"
+            ref={removeDateContainer => {
+              this.removeDateContainer = removeDateContainer
+            }}
+          >
+            <h2>
+              <Trans>To change your selections, remove some days first</Trans>.
+            </h2>
+          </div>
+        ) : null}
         <div
           className={
             this.threeDatesArePicked ? calendarContainerTop : calendarContainer
