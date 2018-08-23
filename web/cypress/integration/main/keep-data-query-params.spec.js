@@ -24,7 +24,7 @@ context('Keep user submitted data around', () => {
     })
 
     // Visit same page with additional query parameter
-    cy.visit('/register?not-valid=true')
+    cy.visit('/register?someparam=true')
     // Make sure data is still on the page
     cy.fixture('user').then(data => {
       cy.get('#fullName').should('have.value', data.fullName)
