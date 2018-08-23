@@ -21,6 +21,7 @@ import {
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 import { logEvent } from '../utils/analytics'
+import { windowExists } from '../utils/windowExists'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -506,7 +507,6 @@ class Calendar extends Component {
 
   componentDidMount() {
     if (this.threeDatesArePicked && this.props.input.value.length === 3) {
-      // window.scrollTo(0, this.removeDateContainer.offsetTop)
       this.removeDateContainer.focus()
     }
   }
@@ -568,8 +568,9 @@ class Calendar extends Component {
         })
 
         this.errorContainer.focus()
-
-        window.scrollTo(0, this.errorContainer.offsetTop - 20)
+        if (windowExists()) {
+          window.scrollTo(0, this.errorContainer.offsetTop - 20)
+        }
 
         logEvent('Calendar', 'Select', 'Error: More than 3 days')
 
