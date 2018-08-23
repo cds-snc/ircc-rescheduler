@@ -176,6 +176,8 @@ class CalendarPage extends Component {
     this.forceRender = this.forceRender.bind(this)
     this.changeMonth = this.changeMonth.bind(this)
     this.initialMonth = this.initialMonth.bind(this)
+    this.hasNotValid = this.hasNotValid.bind(this)
+    this.form = null
     this.state = {
       month: this.initialMonth(),
       headerMonth: '',
@@ -194,6 +196,14 @@ class CalendarPage extends Component {
 
   componentDidMount() {
     this.changeMonth()
+  }
+
+  /* 
+  Check if the form was redirected from the server
+  */
+
+  hasNotValid() {
+    return this.props.location.search.indexOf('not-valid') !== -1
   }
 
   forceRender(values) {
@@ -321,6 +331,8 @@ class CalendarPage extends Component {
           }) => {
             let err
 
+            const notValid = this.hasNotValid()
+
             if (submitError && this.validate(values).selectedDays) {
               let valuesLength =
                 values && values.selectedDays && values.selectedDays.length
@@ -354,6 +366,12 @@ class CalendarPage extends Component {
                 id="calendar-form"
                 onSubmit={handleSubmit}
                 className={fullWidth}
+                ref={el => {
+                  if (!this.form && notValid) {
+                    this.form = el
+                    el.dispatchEvent(new Event('submit')) // eslint-disable-line no-undef
+                  }
+                }}
               >
                 <div>
                   <div
@@ -422,6 +440,15 @@ class NoJS extends Component {
     }
   }
 
+  constructor(props) {
+    super(props)
+    this.hasNotValid = this.hasNotValid.bind(this)
+  }
+
+  hasNotValid() {
+    return this.props.location.search.indexOf('not-valid') !== -1
+  }
+
   render() {
     let {
       context: { store: { calendar = {}, language: locale = 'en' } = {} } = {},
@@ -432,9 +459,10 @@ class NoJS extends Component {
     // AND at least one of our fields exists in the url keys somewhere
     // so we know for sure they pressed "submit" on this page
     if (
-      this.props.location.search &&
-      this.props.location.pathname === '/calendar' &&
-      checkURLParams(this.props.location.search, NoJS.fields)
+      (this.props.location.search &&
+        this.props.location.pathname === '/calendar' &&
+        checkURLParams(this.props.location.search, NoJS.fields)) ||
+      this.hasNotValid()
     ) {
       errorsNoJS = NoJS.validate(calendar)
     }
