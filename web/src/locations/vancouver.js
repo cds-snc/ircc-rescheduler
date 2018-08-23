@@ -10,6 +10,7 @@ export const vancouver = {
     nov: ['tues', 'wed'],
     dec: ['tues', 'wed'],
   },
+  blocked: '', // use CSV format => 2018-10-02, 2018-10-03, 2018-11-21
 }
 
 export const getEmail = (location = vancouver) => {

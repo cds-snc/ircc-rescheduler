@@ -12,6 +12,21 @@ import parse from 'date-fns/parse'
 import addMonths from 'date-fns/add_months'
 import format from 'date-fns/format'
 
+const test_location = {
+  email: 'test@cic.gc.ca',
+  phone: '1-888-000-0000',
+  recurring: {
+    jun: ['wed', 'thurs'],
+    jul: ['wed', 'thurs'],
+    aug: ['wed', 'thurs'],
+    sep: ['wed', 'thurs'],
+    oct: ['tues', 'wed'],
+    nov: ['tues', 'wed'],
+    dec: ['tues', 'wed'],
+  },
+  blocked: '2018-10-02, 2018-10-03, 2018-10-10', // use CSV format => 2018-10-02, 2018-10-03, 2018-11-21
+}
+
 const getDateAtIndex = (wrapper, index) => {
   return wrapper.find('.DayPicker-Day[aria-disabled=false]').at(index)
 }
@@ -52,8 +67,8 @@ const dayMonthYear = date => {
   return format(parse(date), 'dddd, MMMM D, YYYY')
 }
 
-const calDays = (date = new Date()) => {
-  return useMonth(getEnabledDays(undefined, date))
+const calDays = (date = new Date(), location) => {
+  return useMonth(getEnabledDays(location, date))
 }
 
 /* eslint-disable security/detect-object-injection */
@@ -423,5 +438,25 @@ describe('renderDayBoxes', () => {
     let imgs = button.find('svg')
     expect(imgs.length).toBe(1)
     expect(imgs.at(0).props().alt).toEqual('')
+  })
+
+  it('will block days on calendar', () => {
+    // force a given date here so we can ensure we have blocked days
+    const days = calDays('August 27, 2018', test_location)
+    const day1 = dayMonthYear(days[0])
+    const day2 = dayMonthYear(days[1])
+
+    const wrapper = mount(
+      <CalendarAdapter
+        {...defaultProps({
+          value: [new Date(days[1]), new Date(days[0])],
+        })}
+      />,
+    )
+
+    // Oct 2nd, 3 + 10th should be blocked
+    expect(dayMonthYear(days[0])).toEqual('Tuesday, October 9, 2018')
+    expect(dayMonthYear(days[1])).toEqual('Tuesday, October 16, 2018')
+    expect(getDateStrings(wrapper)).toEqual(`${day1} ${day2}`)
   })
 })
