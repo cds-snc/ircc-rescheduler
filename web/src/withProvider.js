@@ -6,7 +6,7 @@ import { contextDefault, Context } from './context'
 import { I18nProvider } from 'lingui-react'
 import { catalogs, linguiDev } from './utils/linguiUtils'
 import { trimInput } from './utils/cleanInput'
-import { returnLocationFromSubdomain } from './utils/readLocation'
+import { getGlobalLocation } from './locations'
 
 const _whitelist = ({ val, fields }) => {
   /*
@@ -71,7 +71,8 @@ function withProvider(WrappedComponent) {
 
       let initStore = newCookie || prevCookie || contextDefault.store
 
-      let location = returnLocationFromSubdomain(req) || {}
+      // TODO: add location from subdomain
+      let location = getGlobalLocation('vancouver') || {}
 
       return {
         context: {
