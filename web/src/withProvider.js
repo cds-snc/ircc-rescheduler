@@ -71,14 +71,11 @@ function withProvider(WrappedComponent) {
 
       let initStore = newCookie || prevCookie || contextDefault.store
 
-      // TODO: add location from subdomain
-      let location = getGlobalLocation('vancouver') || {}
-
       return {
         context: {
           store: initStore,
           setStore: contextDefault.setStore,
-          location,
+          locationString: req.subdomain,
         },
       }
     }
@@ -112,15 +109,10 @@ function withProvider(WrappedComponent) {
         ? props.context.store
         : getStoreCookie(Cookies.get()) || contextDefault.store
 
-      let initLocation = props.context
-        ? { location: props.context.location }
-        : {}
-
       this.state = {
         context: {
           store: initStore,
           setStore: this.setStore,
-          ...initLocation,
         },
       }
     }
@@ -128,22 +120,31 @@ function withProvider(WrappedComponent) {
     render() {
       // don't pass in the context as props -- we're passing the state instead
       const { context, ...props } = this.props // eslint-disable-line no-unused-vars
+
+      /*
+      context will be available
+      - on the server
+      - on the client (only on the first page that's rendered)
+        - we only need to set this once in each environment
+          (location is cached once it is set),
+          so it's fine to return `undefined` on subsequent client pageloads
+      */
+      const locationString = context ? context.locationString : undefined
+
+      const location = {
+        location: getGlobalLocation(locationString),
+      }
+
       return (
-        <Context.Consumer>
-          {context => {
-            return (
-              <Context.Provider value={{ ...context, ...this.state.context }}>
-                <I18nProvider
-                  language={this.state.context.store.language}
-                  catalogs={catalogs}
-                  development={linguiDev}
-                >
-                  <WrappedComponent {...props} />
-                </I18nProvider>
-              </Context.Provider>
-            )
-          }}
-        </Context.Consumer>
+        <Context.Provider value={{ ...location, ...this.state.context }}>
+          <I18nProvider
+            language={this.state.context.store.language}
+            catalogs={catalogs}
+            development={linguiDev}
+          >
+            <WrappedComponent {...props} />
+          </I18nProvider>
+        </Context.Provider>
       )
     }
 
