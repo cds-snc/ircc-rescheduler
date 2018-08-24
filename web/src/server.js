@@ -18,7 +18,6 @@ import {
   sendMail,
 } from './email/sendmail'
 import gitHash from './utils/gitHash'
-import wildcardSubdomains from 'wildcard-subdomains'
 import Raven from 'raven'
 Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
   dataCallback: function(data) {
@@ -71,7 +70,7 @@ const captureMessage = (title = '', validate) => {
   })
 }
 
-const domainOptions = { namespace: '', whitelist: ['vancouver', 'calgary'] }
+const domainOptions = { whitelist: ['vancouver', 'calgary'] }
 
 const getPrimarySubdomain = function(req, res, next) {
   req.subdomain = req.subdomains.slice(-1).pop()
@@ -107,7 +106,6 @@ server
   .use(helmet.xssFilter()) // Sets "X-XSS-Protection: 1; mode=block".
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || './public'))
-  .use(wildcardSubdomains(domainOptions))
   .use(getPrimarySubdomain)
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
