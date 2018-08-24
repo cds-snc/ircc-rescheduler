@@ -71,14 +71,14 @@ const captureMessage = (title = '', validate) => {
   })
 }
 
-const domainOptions = { namespace: '', whitelist: ['van', 'cal', 'mtrl'] }
+const domainOptions = { namespace: '', whitelist: ['vancouver', 'calgary'] }
 
 const getPrimarySubdomain = function(req, res, next) {
   req.subdomain = req.subdomains.slice(-1).pop()
 
   if (!req.subdomain) {
     // default to vancouver for now
-    req.subdomain = 'van'
+    req.subdomain = 'vancouver'
   }
 
   if (
