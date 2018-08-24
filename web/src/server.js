@@ -18,6 +18,7 @@ import {
   sendMail,
 } from './email/sendmail'
 import gitHash from './utils/gitHash'
+import wildcardSubdomains from 'wildcard-subdomains'
 import Raven from 'raven'
 Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
   dataCallback: function(data) {
@@ -70,6 +71,35 @@ const captureMessage = (title = '', validate) => {
   })
 }
 
+const domainOptions = { namespace: '', whitelist: ['vancouver', 'calgary'] }
+
+const getPrimarySubdomain = function(req, res, next) {
+  req.subdomain = req.subdomains.slice(-1).pop()
+
+  if (!req.subdomain) {
+    // default to vancouver for now
+    req.subdomain = 'vancouver'
+  }
+
+  if (
+    !domainOptions.whitelist.includes(req.subdomain) &&
+    req.url.indexOf('not-found') === -1
+  ) {
+    // redirect to generic not found page
+    /*
+    Note: Will need to remove links i.e. contact etc..
+    so they don't end up at the wrong location 
+    */
+
+    // Todo: Would rather not introduce another env variable here
+    // hard code for testing
+    return res.redirect('https://rescheduler-dev.cds-snc.ca/not-found')
+    //return res.redirect(process.env.SITE_URL + '/not-found')
+  }
+
+  next()
+}
+
 server
   .use(helmet.frameguard({ action: 'deny' })) //// Sets "X-Frame-Options: DENY".
   .use(helmet.noSniff()) // Sets "X-Content-Type-Options: nosniff".
@@ -77,6 +107,8 @@ server
   .use(helmet.xssFilter()) // Sets "X-XSS-Protection: 1; mode=block".
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || './public'))
+  .use(wildcardSubdomains(domainOptions))
+  .use(getPrimarySubdomain)
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
   .post('/submit', async (req, res) => {
