@@ -8,6 +8,7 @@ import {
   getInitialMonth,
   checkLocationDays,
   getDaysOfWeekForLocation,
+  dateSetFromString,
 } from '../calendarDates'
 
 describe('Utilities functions CalendarDates.js', () => {
@@ -114,5 +115,20 @@ describe('Utilities functions CalendarDates.js', () => {
     )
 
     expect(result).toEqual([4, 5, 6])
+  })
+
+  it('Creates a dateset', () => {
+    const set = dateSetFromString('2018-10-02, 2018-10-03')
+    expect(set.has('2018-10-03')).toEqual(true)
+  })
+
+  it('Handles when no date string is passed in', () => {
+    const set = dateSetFromString()
+    expect(set.has('2018-10-03')).toEqual(false)
+  })
+
+  it('Handles single date string', () => {
+    const set = dateSetFromString('2018-10-03')
+    expect(set.has('2018-10-03')).toEqual(true)
   })
 })
