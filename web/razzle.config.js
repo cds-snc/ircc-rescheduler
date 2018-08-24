@@ -1,6 +1,5 @@
 module.exports = {
   modify: (config, { target, dev }, webpack) => {
-    
     /* Ignore so we don't include these in the bundle */
     config.plugins.push(
       new webpack.IgnorePlugin(/^\.\/(?!en)(.+)$/, /validatorjs\/src\/lang/),
@@ -14,7 +13,7 @@ module.exports = {
       config.devtool = 'source-map'
     }
     if (process.env.BUNDLE_CHECK) {
-      /* This allows us to analyze the the webpack bundle of all our apis and imports. 
+      /* This allows us to analyze the the webpack bundle of all our apis and imports.
         You can change the analyzerMode to be 'server' and this may let you see more info like
         what the files looked gzipped,parsed and standard etc.. */
       const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')

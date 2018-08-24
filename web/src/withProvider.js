@@ -6,6 +6,7 @@ import { contextDefault, Context } from './context'
 import { I18nProvider } from 'lingui-react'
 import { catalogs, linguiDev } from './utils/linguiUtils'
 import { trimInput } from './utils/cleanInput'
+import { getGlobalLocation } from './locations'
 
 const _whitelist = ({ val, fields }) => {
   /*
@@ -74,6 +75,7 @@ function withProvider(WrappedComponent) {
         context: {
           store: initStore,
           setStore: contextDefault.setStore,
+          locationString: req.subdomain,
         },
       }
     }
@@ -118,8 +120,23 @@ function withProvider(WrappedComponent) {
     render() {
       // don't pass in the context as props -- we're passing the state instead
       const { context, ...props } = this.props // eslint-disable-line no-unused-vars
+
+      /*
+      context will be available
+      - on the server
+      - on the client (only on the first page that's rendered)
+        - we only need to set this once in each environment
+          (location is cached once it is set),
+          so it's fine to return `undefined` on subsequent client pageloads
+      */
+      const locationString = context ? context.locationString : undefined
+
+      const location = {
+        location: getGlobalLocation(locationString),
+      }
+
       return (
-        <Context.Provider value={this.state.context}>
+        <Context.Provider value={{ ...location, ...this.state.context }}>
           <I18nProvider
             language={this.state.context.store.language}
             catalogs={catalogs}

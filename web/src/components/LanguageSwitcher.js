@@ -59,12 +59,15 @@ class LanguageSwitcher extends React.Component {
   }
 
   render() {
-    let { context: { setStore } = {} } = this.props
+    let {
+      context: { setStore, location: { id: locationId = 'not set' } = {} } = {},
+    } = this.props
 
     return (
       <form>
         <Helmet>
           <html lang={this.state.language} />
+          <meta name="keywords" content={`location=${locationId}`} />
         </Helmet>
         <h2 className={visuallyhidden}>
           <Trans>Language Selection</Trans>
