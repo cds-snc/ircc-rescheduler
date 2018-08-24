@@ -3,6 +3,11 @@ const LocationCache = (function() {
 
   /* this is called once on the server and once on the client */
   const _setLocation = location => {
+    if (location && location.id) {
+      _cachedLocation = location
+      return
+    }
+
     try {
       // eslint-disable-next-line security/detect-non-literal-require
       _cachedLocation = require(`../locations/${location}.js`)
