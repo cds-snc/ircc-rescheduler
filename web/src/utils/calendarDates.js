@@ -87,11 +87,7 @@ export const firstValidDay = (location = vancouver, date) => {
   return parse(addDays(date, i))
 }
 
-const isValidDayForLocation = (
-  location = {},
-  month = '',
-  date = new Date(),
-) => {
+const isValidDayForLocation = (location, month = '', date = new Date()) => {
   // eslint-disable-next-line security/detect-object-injection
   if (location && location.recurring[month]) {
     const result = checkLocationDays(location, month, date)
@@ -168,6 +164,9 @@ const getAllowedDays = (
 
 export const checkLocationDays = (location, month, date) => {
   let valid = false
+
+  const dateSet = dateSetFromString(location.blocked)
+
   // eslint-disable-next-line security/detect-object-injection
   location.recurring[month].forEach(day => {
     /* 
@@ -175,8 +174,11 @@ export const checkLocationDays = (location, month, date) => {
       isMonday, isTuesday
     */
     const result = isDayValid(day, date)
+    const dateFormatted = format(date, 'YYYY-MM-DD')
 
-    if (result.valid) {
+    // checks to see if a day is valid and that it's not blocked
+    // weekends are blocked automatically
+    if (result.valid && !dateSet.has(dateFormatted)) {
       valid = result.valid
     }
   })
@@ -303,4 +305,20 @@ export const getShortMonthName = (date = new Date()) => {
 
 export const yearMonthDay = date => {
   return format(date, 'YYYY-MM-DD')
+}
+
+/*--------------------------------------------*
+ * Dates from CSV string
+ * '2018-10-17, 2018-11-06, 2018-11-07'
+ *--------------------------------------------*/
+
+export const dateSetFromString = dates => {
+  if (!dates) return new Set()
+  dates = dates.split(',')
+
+  dates = dates.map(date => {
+    return date.trim()
+  })
+
+  return new Set(dates)
 }
