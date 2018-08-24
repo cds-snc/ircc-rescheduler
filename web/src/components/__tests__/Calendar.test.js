@@ -27,6 +27,10 @@ const test_location = {
   blocked: '2018-10-02, 2018-10-03, 2018-10-10', // use CSV format => 2018-10-02, 2018-10-03, 2018-11-21
 }
 
+// Prevent jsdom console.error output from cluttering test output
+window.scrollTo = jest.fn()
+// TODO: Remove 👆 after jsdom/jsdom#1422 is resolved.
+
 const getDateAtIndex = (wrapper, index) => {
   return wrapper.find('.DayPicker-Day[aria-disabled=false]').at(index)
 }
