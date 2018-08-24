@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import { LanguageSwitcherBase as LanguageSwitcher } from '../LanguageSwitcher'
 
 export const getStore = lang => ({
-  store: { language: lang },
+  store: { GLOBALS: { language: lang } },
   setStore: () => {},
 })
 

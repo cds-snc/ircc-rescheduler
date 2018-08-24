@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export const contextDefault = {
-  store: { language: 'en' },
+  store: { GLOBALS: { language: 'en' } },
   setStore: null,
 }
 

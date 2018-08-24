@@ -47,7 +47,7 @@ const FederalBanner = ({ context = {} }) => (
     <div className="svg-container canada-flag">
       <GoCSignature
         width="250px"
-        lang={context.store.language}
+        lang={context.store.GLOBALS.language}
         flag={theme.colour.white}
         text={theme.colour.white}
         focusable="false"

@@ -47,7 +47,9 @@ class LanguageSwitcher extends React.Component {
     super(props)
     this.getNewLanguage = this.getNewLanguage.bind(this)
 
-    let { context: { store: { language = '' } = {} } = {} } = props
+    let {
+      context: { store: { GLOBALS: { language = '' } = {} } = {} } = {},
+    } = props
 
     this.state = {
       language,
@@ -82,7 +84,7 @@ class LanguageSwitcher extends React.Component {
             e.preventDefault()
             const lang = this.getNewLanguage()
             this.setState({ language: lang }, () =>
-              setStore('language', this.state.language),
+              setStore('GLOBALS', { language: this.state.language }),
             )
             logEvent('Navigation', 'Toggle Language', lang)
           }}

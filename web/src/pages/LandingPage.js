@@ -87,9 +87,10 @@ class LandingPage extends React.Component {
       this.props &&
       this.props.context &&
       this.props.context.store &&
-      this.props.context.store.language
+      this.props.context.store.GLOBALS &&
+      this.props.context.store.GLOBALS.language
     ) {
-      locale = this.props.context.store.language
+      locale = this.props.context.store.GLOBALS.language
     }
     return (
       <Layout

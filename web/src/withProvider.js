@@ -6,6 +6,7 @@ import { contextDefault, Context } from './context'
 import { I18nProvider } from 'lingui-react'
 import { catalogs, linguiDev } from './utils/linguiUtils'
 import { trimInput } from './utils/cleanInput'
+import merge from 'deepmerge'
 
 const _whitelist = ({ val, fields }) => {
   /*
@@ -64,7 +65,7 @@ function withProvider(WrappedComponent) {
         let language = WithProvider.getDefaultLanguageFromHeader(req.headers)
         // if default language found, set a new cookie
         newCookie = language
-          ? setSSRCookie(res, 'language', language, prevCookie)
+          ? setSSRCookie(res, 'GLOBALS', { language }, prevCookie)
           : newCookie
       }
 
@@ -92,7 +93,7 @@ function withProvider(WrappedComponent) {
         this.setState(
           state => ({
             context: {
-              store: { ...state.context.store, ...newState },
+              store: merge(state.context.store, newState),
               setStore: state.context.setStore,
             },
           }),
@@ -121,7 +122,7 @@ function withProvider(WrappedComponent) {
       return (
         <Context.Provider value={this.state.context}>
           <I18nProvider
-            language={this.state.context.store.language}
+            language={this.state.context.store.GLOBALS.language}
             catalogs={catalogs}
             development={linguiDev}
           >
@@ -132,14 +133,25 @@ function withProvider(WrappedComponent) {
     }
 
     static get globalFields() {
-      return ['language']
+      return ['language', 'location']
     }
 
     static validate(values) {
       let errors = {}
-      if (!['en', 'fr'].includes(values.language)) {
+      if (
+        'language' in values && // values.language exists (even if set to falsey value)
+        !['en', 'fr'].includes(values.language) // language is either 'en' or 'fr'
+      ) {
         errors.language = true
       }
+
+      if (
+        'location' in values && // values.location exists (even if set to falsey value)
+        !['montreal', 'vancouver'].includes(values.location) // location is either 'montreal' or 'vancouver'
+      ) {
+        errors.location = true
+      }
+
       return errors
     }
 
@@ -148,19 +160,10 @@ function withProvider(WrappedComponent) {
         return { key: undefined, val: undefined }
       }
 
-      /*
-      return the first matching query key that exists in the global fields
-      */
-      let queryKeys = Object.keys(query)
-      for (let i = 0; i < queryKeys.length; i++) {
-        let queryKey = queryKeys[i] // eslint-disable-line security/detect-object-injection
-        for (let j = 0; j < WithProvider.globalFields.length; j++) {
-          // eslint-disable-next-line security/detect-object-injection
-          if (queryKey === WithProvider.globalFields[j]) {
-            // eslint-disable-next-line security/detect-object-injection
-            return { key: queryKey, val: query[queryKey] }
-          }
-        }
+      // object that only includes keys in the global fields
+      let val = _whitelist({ val: query, fields: WithProvider.globalFields })
+      if (Object.keys(val).length) {
+        return { key: 'GLOBALS', val }
       }
 
       // match.path === "/about" or similar
@@ -190,15 +193,20 @@ function withProvider(WrappedComponent) {
         throw new Error('validate: `key` must be a non-empty string')
       }
 
+      if (!_isNonEmptyObject(val)) {
+        throw new Error('validate: `val` must be a non-empty object')
+      }
+
       // check if a global setting
-      if (WithProvider.globalFields.includes(key)) {
-        // val must be a string
-        if (typeof val !== 'string' || !val.length) {
-          throw new Error('validate: `val` must be a non-empty string')
-        }
+      if (
+        key === 'GLOBALS' &&
+        Object.keys(val).some(k => WithProvider.globalFields.includes(k)) // at least one query key is a global fields
+      ) {
+        // whitelist query keys so that only global keys are left
+        val = _whitelist({ val, fields: WithProvider.globalFields })
 
         // have to pass the key in as well since this value is a string
-        let errors = WithProvider.validate({ [key]: val })
+        let errors = WithProvider.validate(val)
 
         // return the value if no validation errors
         return !Object.keys(errors).length ? val : false
@@ -212,7 +220,6 @@ function withProvider(WrappedComponent) {
         fields &&
         fields.length && // there are fields explicitly defined
         typeof validate === 'function' && // there is a validate function passed-in
-        _isNonEmptyObject(val) && // val is a non-empty object
         Object.keys(val).some(k => fields.includes(k)) // at least one query param key exists in fields
       ) {
         // whitelist query keys so that arbitrary keys aren't saved to the store
