@@ -9780,6 +9780,10 @@ wide-align@^1.1.0:
   dependencies:
     string-width "^1.0.2 || 2"
 
+wildcard-subdomains@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/wildcard-subdomains/-/wildcard-subdomains-1.1.0.tgz#f983727551b8cec6c7bd8795f8ccc14296aba22b"
+
 window-size@0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.0.tgz#5438cd2ea93b202efa3a19fe8887aee7c94f9c9d"
