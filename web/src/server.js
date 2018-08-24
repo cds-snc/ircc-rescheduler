@@ -10,7 +10,7 @@ import { renderStylesToString } from 'emotion-server'
 import bodyParser from 'body-parser'
 import { CalendarFields, RegistrationFields } from './validation'
 import Validator from 'validatorjs'
-import cache from 'memory-cache'
+// import cache from 'memory-cache'
 import {
   getMailer,
   getEmailParms,
@@ -76,7 +76,7 @@ const domainOptions = { namespace: '', whitelist: ['vancouver', 'calgary'] }
 const getPrimarySubdomain = function(req, res, next) {
   req.subdomain = req.subdomains.slice(-1).pop()
 
-  if (!req.subdomain) {
+  if (!req.subdomain || req.subdomain === 'rescheduler-dev') {
     // default to vancouver for now
     req.subdomain = 'vancouver'
   }
@@ -88,7 +88,7 @@ const getPrimarySubdomain = function(req, res, next) {
     // redirect to generic not found page
     /*
     Note: Will need to remove links i.e. contact etc..
-    so they don't end up at the wrong location 
+    so they don't end up at the wrong location
     */
 
     // Todo: Would rather not introduce another env variable here
@@ -178,15 +178,17 @@ server
     res.redirect(`/cancel?language=${language}`)
   })
   .get('/*', async (req, res) => {
+    /*
     let language = getStoreCookie(req.cookies, 'language') || 'en'
     if (req.url === '/') {
-      /* check if we have a cached version of the homepage */
+      /* check if we have a cached version of the homepage
       let cachedIndex = cache.get(`index_${language}`)
 
       if (cachedIndex && !res.locals.redirect) {
         return res.send(cachedIndex)
       }
     }
+    */
 
     const customRenderer = node => ({
       gitHashString: gitHash(),
@@ -203,9 +205,11 @@ server
         document: Document,
       })
 
+      /*
       if (req.url === '/') {
         cache.put(`index_${language}`, html)
       }
+      */
 
       return res.locals.redirect
         ? res.redirect(res.locals.redirect)

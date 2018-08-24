@@ -17,8 +17,7 @@ const LocationCache = (function() {
   }
 
   const getLocation = location => {
-    // could do an additional check if we wanted to be able to reset locations
-    if (!_cachedLocation) {
+    if (!_cachedLocation || (location && _cachedLocation.id !== location)) {
       /* if
           - no previous location has been saved
           - no location string provided
