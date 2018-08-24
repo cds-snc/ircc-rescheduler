@@ -76,7 +76,7 @@ const domainOptions = { namespace: '', whitelist: ['vancouver', 'calgary'] }
 const getPrimarySubdomain = function(req, res, next) {
   req.subdomain = req.subdomains.slice(-1).pop()
 
-  if (!req.subdomain) {
+  if (!req.subdomain || req.subdomain === 'rescheduler-dev') {
     // default to vancouver for now
     req.subdomain = 'vancouver'
   }
@@ -88,7 +88,7 @@ const getPrimarySubdomain = function(req, res, next) {
     // redirect to generic not found page
     /*
     Note: Will need to remove links i.e. contact etc..
-    so they don't end up at the wrong location 
+    so they don't end up at the wrong location
     */
 
     // Todo: Would rather not introduce another env variable here
