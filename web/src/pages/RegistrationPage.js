@@ -329,19 +329,22 @@ class RegistrationPage extends React.Component {
                 </div>
                 <div>
                   <Field
-                    name="family"
-                    id="family"
+                    name="familyOption"
+                    id="familyOption"
                     component={TextAreaAdapter}
-                    aria-labelledby="family-label family-error"
+                    aria-labelledby="familyOption-label familyOption-error"
                   >
-                    <label htmlFor="family" id="family-label">
+                    <label htmlFor="familyOption" id="familyOption-label">
+                      <span id="familyOption-header">
+                        <Trans>Family Option</Trans>
+                      </span>
                       <Checkbox
-                        name="family-check"
-                        id="family-check"
+                        name="familyOption-check"
+                        id="familyOption-check"
                         label={famCheckText}
-                        value="test"
+                        value="familyOption"
                       />
-                      <span id="family-details">
+                      <span id="familyOption-details">
                         <Trans>
                           Include the full names of all family members you want
                           to reschedule below:
