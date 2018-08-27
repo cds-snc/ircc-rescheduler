@@ -24,8 +24,6 @@ These options are set in all environments (except during tests).
 
 - `RAZZLE_AWS_SECRET_ACCESS_KEY`: Config option for [Amazon SES](https://aws.amazon.com/ses/). Required on startup.
 
-- `RAZZLE_IRCC_RECEIVING_ADDRESS`: Requests will be sent to this email address. In production, this will be the IRCC office, but it probably makes more sense to put your own email address when running the app locally. Required on startup.
-
 - `RAZZLE_SENDING_ADDRESS`: Requests will be marked as sent from this email address. Must be [verified by SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html). Required on startup.
 
 - `RAZZLE_SITE_URL`: URL to be used for things such as redirects.
@@ -41,7 +39,6 @@ RAZZLE_PAPER_FILE_NUMBER_PATTERN=[a-zA-Z]{1}
 RAZZLE_AWS_ACCESS_KEY_ID=SOME_ACCESS_ID
 RAZZLE_AWS_REGION=some-region-1
 RAZZLE_AWS_SECRET_ACCESS_KEY=someAccessKey
-RAZZLE_IRCC_RECEIVING_ADDRESS=your.name@example.com
 RAZZLE_SENDING_ADDRESS=justin@canada.ca
 RAZZLE_SITE_URL=rescheduler-dev.cds-snc.ca
 RAZZLE_STAGE='development'

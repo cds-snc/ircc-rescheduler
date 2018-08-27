@@ -65,3 +65,11 @@ export const getPhone = (location = getGlobalLocation()) => {
     return location.phone
   }
 }
+
+export const getReceivingEmail = (location = getGlobalLocation()) => {
+  if (location && location.receivingEmail) {
+    return location.receivingEmail
+  }
+
+  throw new Error('Receiving address is not defined')
+}
