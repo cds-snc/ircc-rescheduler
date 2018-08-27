@@ -79,6 +79,11 @@ const H2List = styled(H2)`
   font-weight: 400;
 `
 
+const landingArrow = css`
+  ${arrow};
+  margin-left: 4px;
+`
+
 class LandingPage extends React.Component {
   render() {
     let locale = 'en'
@@ -158,7 +163,7 @@ class LandingPage extends React.Component {
         <div>
           <NavLink to="/register" className={buttonStyles}>
             <Trans>Start now</Trans>
-            <img src={rightArrow} style={{paddingLeft:"10px"}} className={arrow} alt="" />
+            <img src={rightArrow} className={landingArrow} alt="" />
           </NavLink>
         </div>
       </Layout>

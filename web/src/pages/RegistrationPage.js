@@ -146,7 +146,7 @@ class RegistrationPage extends React.Component {
     return <Trans>Some information is missing.</Trans>
   }
 
-  /* 
+  /*
   Check if the form was redirected from the server
   */
 
@@ -159,7 +159,7 @@ class RegistrationPage extends React.Component {
 
     if (Object.keys(submitErrors).length) {
       const generalMessage = this.generalErrorMessage()
-      
+
       if (windowExists()) {
         window.scrollTo(0, this.errorContainer.offsetTop - 20)
       }
