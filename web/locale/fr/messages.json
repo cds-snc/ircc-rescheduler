@@ -4,7 +4,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        103
+        104
       ],
       [
         "src/pages/LandingPage.js",
@@ -25,10 +25,6 @@
     "translation": "avril",
     "origin": [
       [
-        "build/server.js",
-        10884
-      ],
-      [
         "src/utils/linguiUtils.js",
         16
       ]
@@ -38,10 +34,6 @@
     "translation": "août",
     "origin": [
       [
-        "build/server.js",
-        10884
-      ],
-      [
         "src/utils/linguiUtils.js",
         20
       ]
@@ -50,10 +42,6 @@
   "Availability": {
     "translation": "Disponibilité",
     "origin": [
-      [
-        "build/server.js",
-        4433
-      ],
       [
         "src/components/Summary.js",
         145
@@ -95,30 +83,6 @@
     "translation": "Modifier",
     "origin": [
       [
-        "build/server.js",
-        4349
-      ],
-      [
-        "build/server.js",
-        4365
-      ],
-      [
-        "build/server.js",
-        4381
-      ],
-      [
-        "build/server.js",
-        4397
-      ],
-      [
-        "build/server.js",
-        4413
-      ],
-      [
-        "build/server.js",
-        4433
-      ],
-      [
         "src/components/Summary.js",
         83
       ],
@@ -157,7 +121,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        112
+        113
       ]
     ]
   },
@@ -183,10 +147,6 @@
     "translation": "décembre",
     "origin": [
       [
-        "build/server.js",
-        10884
-      ],
-      [
         "src/utils/linguiUtils.js",
         24
       ]
@@ -208,10 +168,6 @@
   "Email": {
     "translation": "Courriel",
     "origin": [
-      [
-        "build/server.js",
-        4365
-      ],
       [
         "src/components/Summary.js",
         119
@@ -261,10 +217,6 @@
     "translation": "Explication",
     "origin": [
       [
-        "build/server.js",
-        4413
-      ],
-      [
         "src/components/Summary.js",
         139
       ],
@@ -291,10 +243,6 @@
     "translation": "février",
     "origin": [
       [
-        "build/server.js",
-        10884
-      ],
-      [
         "src/utils/linguiUtils.js",
         14
       ]
@@ -313,10 +261,6 @@
     "translation": "ve",
     "origin": [
       [
-        "build/server.js",
-        10886
-      ],
-      [
         "src/utils/linguiUtils.js",
         41
       ]
@@ -325,10 +269,6 @@
   "Friday": {
     "translation": "vendredi",
     "origin": [
-      [
-        "build/server.js",
-        10885
-      ],
       [
         "src/utils/calendarDates.js",
         246
@@ -352,10 +292,6 @@
     "translation": "Nom complet",
     "origin": [
       [
-        "build/server.js",
-        4349
-      ],
-      [
         "src/components/Summary.js",
         113
       ],
@@ -378,7 +314,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        96
+        97
       ],
       [
         "src/pages/ReviewPage.js",
@@ -425,10 +361,6 @@
     "translation": "Immigration, Réfugiés et Citoyenneté Canada",
     "origin": [
       [
-        "build/server.js",
-        3076
-      ],
-      [
         "src/components/IRCCAbbr.js",
         23
       ]
@@ -437,10 +369,6 @@
   "Important message": {
     "translation": "Message important",
     "origin": [
-      [
-        "build/server.js",
-        3905
-      ],
       [
         "src/components/Reminder.js",
         37
@@ -451,10 +379,6 @@
     "translation": "janvier",
     "origin": [
       [
-        "build/server.js",
-        10884
-      ],
-      [
         "src/utils/linguiUtils.js",
         13
       ]
@@ -464,10 +388,6 @@
     "translation": "juillet",
     "origin": [
       [
-        "build/server.js",
-        10884
-      ],
-      [
         "src/utils/linguiUtils.js",
         19
       ]
@@ -476,10 +396,6 @@
   "June": {
     "translation": "juin",
     "origin": [
-      [
-        "build/server.js",
-        10884
-      ],
       [
         "src/utils/linguiUtils.js",
         18
@@ -500,17 +416,13 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        133
+        134
       ]
     ]
   },
   "March": {
     "translation": "mars",
     "origin": [
-      [
-        "build/server.js",
-        10884
-      ],
       [
         "src/utils/linguiUtils.js",
         15
@@ -520,10 +432,6 @@
   "May": {
     "translation": "mai",
     "origin": [
-      [
-        "build/server.js",
-        10884
-      ],
       [
         "src/utils/linguiUtils.js",
         17
@@ -547,10 +455,6 @@
     "translation": "lu",
     "origin": [
       [
-        "build/server.js",
-        10886
-      ],
-      [
         "src/utils/linguiUtils.js",
         37
       ]
@@ -559,10 +463,6 @@
   "Monday": {
     "translation": "lundi",
     "origin": [
-      [
-        "build/server.js",
-        10885
-      ],
       [
         "src/utils/calendarDates.js",
         229
@@ -631,10 +531,6 @@
     "translation": "novembre",
     "origin": [
       [
-        "build/server.js",
-        10884
-      ],
-      [
         "src/utils/linguiUtils.js",
         23
       ]
@@ -643,10 +539,6 @@
   "October": {
     "translation": "octobre",
     "origin": [
-      [
-        "build/server.js",
-        10884
-      ],
       [
         "src/utils/linguiUtils.js",
         22
@@ -679,10 +571,6 @@
     "translation": "Page non trouvée",
     "origin": [
       [
-        "build/server.js",
-        4611
-      ],
-      [
         "src/components/Title.js",
         41
       ]
@@ -700,10 +588,6 @@
   "Paper file number": {
     "translation": "Numéro de dossier papier",
     "origin": [
-      [
-        "build/server.js",
-        4381
-      ],
       [
         "src/components/Summary.js",
         125
@@ -776,7 +660,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        355
+        356
       ]
     ]
   },
@@ -785,7 +669,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        347
+        348
       ]
     ]
   },
@@ -838,10 +722,6 @@
     "translation": "Veuillez fournir quelques renseignements de base",
     "origin": [
       [
-        "build/server.js",
-        4591
-      ],
-      [
         "src/components/Title.js",
         21
       ]
@@ -850,10 +730,6 @@
   "Reason": {
     "translation": "Raison",
     "origin": [
-      [
-        "build/server.js",
-        4397
-      ],
       [
         "src/components/Summary.js",
         133
@@ -877,10 +753,6 @@
     "translation": "Supprimer cette journée",
     "origin": [
       [
-        "build/server.js",
-        1859
-      ],
-      [
         "src/components/Calendar.js",
         730
       ]
@@ -889,10 +761,6 @@
   "Request a new citizenship appointment": {
     "translation": "Demander un nouveau rendez-vous d’examen de citoyenneté",
     "origin": [
-      [
-        "build/server.js",
-        4583
-      ],
       [
         "src/components/Title.js",
         13
@@ -907,10 +775,6 @@
     "translation": "Demande annulée",
     "origin": [
       [
-        "build/server.js",
-        4603
-      ],
-      [
         "src/components/Title.js",
         33
       ]
@@ -919,10 +783,6 @@
   "Request received": {
     "translation": "Demande reçue",
     "origin": [
-      [
-        "build/server.js",
-        4600
-      ],
       [
         "src/components/Title.js",
         30
@@ -952,21 +812,17 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        404
+        405
       ],
       [
         "src/pages/CalendarPage.js",
-        496
+        497
       ]
     ]
   },
   "Review your request": {
     "translation": "Revoir votre demande",
     "origin": [
-      [
-        "build/server.js",
-        4597
-      ],
       [
         "src/components/Title.js",
         27
@@ -986,10 +842,6 @@
     "translation": "sa",
     "origin": [
       [
-        "build/server.js",
-        10886
-      ],
-      [
         "src/utils/linguiUtils.js",
         42
       ]
@@ -998,10 +850,6 @@
   "Saturday": {
     "translation": "samedi",
     "origin": [
-      [
-        "build/server.js",
-        10885
-      ],
       [
         "src/utils/linguiUtils.js",
         33
@@ -1013,17 +861,13 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        101
+        102
       ]
     ]
   },
   "Select 3 days you’re available": {
     "translation": "Choisissez 3 jours où vous serez disponible",
     "origin": [
-      [
-        "build/server.js",
-        4594
-      ],
       [
         "src/components/Title.js",
         24
@@ -1061,10 +905,6 @@
     "translation": "septembre",
     "origin": [
       [
-        "build/server.js",
-        10884
-      ],
-      [
         "src/utils/linguiUtils.js",
         21
       ]
@@ -1082,10 +922,6 @@
   "Something went wrong": {
     "translation": "Une erreur s'est produite",
     "origin": [
-      [
-        "build/server.js",
-        4607
-      ],
       [
         "src/components/Title.js",
         37
@@ -1150,10 +986,6 @@
     "translation": "di",
     "origin": [
       [
-        "build/server.js",
-        10886
-      ],
-      [
         "src/utils/linguiUtils.js",
         36
       ]
@@ -1162,10 +994,6 @@
   "Sunday": {
     "translation": "dimanche",
     "origin": [
-      [
-        "build/server.js",
-        10885
-      ],
       [
         "src/utils/linguiUtils.js",
         27
@@ -1248,10 +1076,6 @@
     "translation": "je",
     "origin": [
       [
-        "build/server.js",
-        10886
-      ],
-      [
         "src/utils/linguiUtils.js",
         40
       ]
@@ -1260,10 +1084,6 @@
   "Thursday": {
     "translation": "jeudi",
     "origin": [
-      [
-        "build/server.js",
-        10885
-      ],
       [
         "src/utils/calendarDates.js",
         242
@@ -1327,10 +1147,6 @@
     "translation": "ma",
     "origin": [
       [
-        "build/server.js",
-        10886
-      ],
-      [
         "src/utils/linguiUtils.js",
         38
       ]
@@ -1339,10 +1155,6 @@
   "Tuesday": {
     "translation": "mardi",
     "origin": [
-      [
-        "build/server.js",
-        10885
-      ],
       [
         "src/utils/calendarDates.js",
         232
@@ -1365,10 +1177,6 @@
   "We": {
     "translation": "me",
     "origin": [
-      [
-        "build/server.js",
-        10886
-      ],
       [
         "src/utils/linguiUtils.js",
         39
@@ -1396,10 +1204,6 @@
   "Wednesday": {
     "translation": "mercredi",
     "origin": [
-      [
-        "build/server.js",
-        10885
-      ],
       [
         "src/utils/calendarDates.js",
         237
@@ -1468,16 +1272,6 @@
       ]
     ]
   },
-  "You can’t select more than 3 days.": {
-    "translation": "Vous ne pouvez pas sélectionner plus de 3 dates.",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        555
-      ]
-    ],
-    "obsolete": true
-  },
   "You can’t select more than 3 days. To change your selections, remove some days first.": {
     "translation": "Vous ne pouvez pas sélectionner plus de 3 dates. Pour modifier vos choix, veuillez d’abord supprimer des dates.",
     "origin": [
@@ -1492,7 +1286,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        439
+        440
       ],
       [
         "src/validation.js",
@@ -1590,11 +1384,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        106
+        107
       ],
       [
         "src/pages/CalendarPage.js",
-        243
+        244
       ],
       [
         "src/pages/LandingPage.js",
@@ -1607,7 +1401,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        113
+        114
       ]
     ]
   },
@@ -1624,10 +1418,6 @@
     "translation": "https://numerique.canada.ca/transparence/avis/",
     "origin": [
       [
-        "build/server.js",
-        2983
-      ],
-      [
         "src/components/Footer.js",
         115
       ]
@@ -1637,10 +1427,6 @@
     "translation": "https://docs.google.com/forms/d/e/1FAIpQLSesDeos-FqdEFaU8Bg0x9FXerEPausGX0svKKScYKw0l9US8g/viewform?hl=fr",
     "origin": [
       [
-        "build/server.js",
-        3638
-      ],
-      [
         "src/components/PageHeader.js",
         47
       ]
@@ -1649,10 +1435,6 @@
   "https://www.canada.ca/en/transparency/privacy.html": {
     "translation": "https://www.canada.ca/fr/transparence/confidentialite.html",
     "origin": [
-      [
-        "build/server.js",
-        2968
-      ],
       [
         "src/components/Footer.js",
         112
@@ -1709,7 +1491,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        105
+        106
       ],
       [
         "src/pages/LandingPage.js",

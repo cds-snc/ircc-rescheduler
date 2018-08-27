@@ -96,7 +96,7 @@
     "supertest": "^3.1.0",
     "webpack-bundle-analyzer": "^2.13.1"
   },
-  "@lingui": {
+  "lingui": {
     "srcPathIgnorePatterns": [
       "/node_modules/",
       "build"
