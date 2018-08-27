@@ -101,6 +101,7 @@
       "/node_modules/",
       "build"
     ],
-    "sourceLocale": "en"
+    "sourceLocale": "en",
+    "format": "lingui"
   }
 }
