@@ -1,5 +1,5 @@
 import React from 'react'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 import { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, H2, theme } from '../styles'

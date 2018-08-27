@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
-import { Trans, withI18n } from 'lingui-react'
+import { Trans, withI18n } from '@lingui/react'
 import PhaseBanner from './PhaseBanner'
 
 const bigBanner = css`

@@ -14,7 +14,7 @@ import isThursday from 'date-fns/is_thursday'
 import isFriday from 'date-fns/is_friday'
 import { makeGMTDate, dateToISODateString } from '../components/Time'
 import { getGlobalLocation } from '../locations/'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 
 const offsetStartWeeks = 5
 const offsetEndWeeks = 8

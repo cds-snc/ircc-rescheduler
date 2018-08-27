@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
-import { withI18n } from 'lingui-react'
+import { withI18n } from '@lingui/react'
 
 const matchPropTypes = {
   match: PropTypes.shape({

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import importantMessage from '../assets/importantMessage.svg'
-import { withI18n } from 'lingui-react'
+import { withI18n } from '@lingui/react'
 
 const imBanner = css`
   font-weight: 700;

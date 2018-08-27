@@ -37,7 +37,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-lingui-react": "^1.0.14",
+    "@lingui/babel-preset-react": "^2.5.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "date-fns": "^1.29.0",
@@ -50,7 +50,7 @@
     "hoist-non-react-statics": "^3.0.1",
     "inline-css": "^2.4.0",
     "js-cookie": "^2.2.0",
-    "lingui-react": "^1.4.2",
+    "@lingui/react": "^2.5.0",
     "memory-cache": "^0.2.0",
     "nodemailer": "^4.6.8",
     "prop-types": "^15.6.2",
@@ -87,7 +87,7 @@
     "eslint-plugin-standard": "^3.1.0",
     "jest": "^23.5.0",
     "jest-cli": "^23.5.0",
-    "lingui-cli": "^1.4.5",
+    "@lingui/cli": "^2.5.0",
     "pa11y": "^5.0.4",
     "prettier": "^1.14.2",
     "puppeteer": "^1.7.0",
@@ -96,7 +96,7 @@
     "supertest": "^3.1.0",
     "webpack-bundle-analyzer": "^2.13.1"
   },
-  "lingui": {
+  "@lingui": {
     "srcPathIgnorePatterns": [
       "/node_modules/",
       "build"

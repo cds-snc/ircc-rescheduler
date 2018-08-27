@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 import { NavLink } from 'react-router-dom'
 import styled, { css } from 'react-emotion'
 import {
