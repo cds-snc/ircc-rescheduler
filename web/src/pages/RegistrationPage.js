@@ -56,6 +56,11 @@ const contentClass = css`
       margin-top: 0rem;
     }
 
+    input[type='checkbox'] + label::before {
+      border: 3px solid ${theme.colour.black};
+      background-color: ${theme.colour.white};
+    }
+
     textarea[name='family'] {
       height: 5.3em;
     }
