@@ -118,6 +118,19 @@ const SomeComponent = () => {
 
 To update the locale files use:
 
-- `yarn extract` (creates new fr/messages.json file)
+- `yarn extract` (creates new messages.json)
 - make changes to locale/fr/messages.json
+
+```
+"Your text": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/SomeComponent.js",
+        22
+      ]
+    ]
+  },
+```
+
 - `yarn compile`
