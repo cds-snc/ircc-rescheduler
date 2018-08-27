@@ -1,11 +1,10 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { FederalBannerBase as FederalBanner } from '../FederalBanner'
-import { getStore } from './LanguageSwitcher.test.js'
+import FederalBanner from '../FederalBanner'
 
 describe('<FederalBanner />', () => {
   it('renders', () => {
-    const federalBanner = shallow(<FederalBanner context={getStore('en')} />)
+    const federalBanner = shallow(<FederalBanner />)
     expect(federalBanner.find('.svg-container').length).toBe(1)
   })
 })
