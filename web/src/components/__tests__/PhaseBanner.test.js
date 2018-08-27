@@ -7,16 +7,17 @@ describe('<PhaseBanner />', () => {
     const phaseBanner = mount(
       <PhaseBanner phase="alpha"> this is an alpha banner.</PhaseBanner>,
     )
+
     expect(
       phaseBanner
         .find('span')
-        .at(1)
+        .at(0)
         .text(),
     ).toMatch(/ALPHA/)
     expect(
       phaseBanner
         .find('span')
-        .at(2)
+        .at(1)
         .text(),
     ).toMatch(/this is an alpha banner./)
   })
@@ -28,13 +29,13 @@ describe('<PhaseBanner />', () => {
     expect(
       phaseBanner
         .find('span')
-        .at(1)
+        .at(0)
         .text(),
     ).toMatch(/BETA/)
     expect(
       phaseBanner
         .find('span')
-        .at(2)
+        .at(1)
         .text(),
     ).toMatch(/this is a beta banner./)
   })

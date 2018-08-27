@@ -4,7 +4,7 @@ import Button from '../components/forms/Button'
 import CancelButton from './CancelButton'
 import rightArrow from '../assets/rightArrow.svg'
 import { BottomContainer, arrow } from '../styles'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 
 const SubmissionForm = props => {
   const { sending, onSubmit } = props

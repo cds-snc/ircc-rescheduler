@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
+import { i18n } from '@lingui/core'
 import { NavLink } from 'react-router-dom'
 import styled, { css } from 'react-emotion'
 import {
@@ -88,7 +89,7 @@ const CalHeader = ({
 }) => {
   return (
     <div>
-      <Title path={path} />
+      <Title path={path} i18n={i18n} />
       <TopContainer>
         <nav>
           <NavLink className="chevron-link" to="/register">

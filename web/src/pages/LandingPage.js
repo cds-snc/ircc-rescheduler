@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import { LongReminder } from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 import rightArrow from '../assets/rightArrow.svg'
 import { getStartMonthName, getEndMonthName } from '../utils/calendarDates'
 import withContext from '../withContext'
@@ -77,6 +77,11 @@ const H2Landing = styled(H2)`
 
 const H2List = styled(H2)`
   font-weight: 400;
+`
+
+const landingArrow = css`
+  ${arrow};
+  margin-left: 4px;
 `
 
 class LandingPage extends React.Component {
@@ -157,8 +162,8 @@ class LandingPage extends React.Component {
 
         <div>
           <NavLink to="/register" className={buttonStyles}>
-            <Trans>Start now</Trans>{' '}
-            <img src={rightArrow} className={arrow} alt="" />
+            <Trans>Start now</Trans>
+            <img src={rightArrow} className={landingArrow} alt="" />
           </NavLink>
         </div>
       </Layout>

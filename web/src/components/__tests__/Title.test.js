@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { BaseTitle as Title } from '../Title'
 
-import { i18n } from 'lingui-i18n/dist'
+import { i18n } from '@lingui/core'
 
 describe('<Title />', () => {
   it('returns "Page not found" title when no path parameter passed in', () => {

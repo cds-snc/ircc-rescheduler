@@ -1,5 +1,5 @@
 import React from 'react'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 import { NavLink } from 'react-router-dom'
 import { H1, theme } from '../styles'
 import IRCCAbbr from '../components/IRCCAbbr'

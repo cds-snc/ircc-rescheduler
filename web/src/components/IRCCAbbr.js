@@ -1,5 +1,5 @@
 import React from 'react'
-import { withI18n } from 'lingui-react'
+import { withI18n } from '@lingui/react'
 import { css } from 'react-emotion'
 import { mediaQuery } from '../styles'
 

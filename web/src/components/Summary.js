@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, H2 } from '../styles'
-import { Trans, withI18n } from 'lingui-react'
+import { Trans, withI18n } from '@lingui/react'
 import { SelectedDayList } from './SelectedDayList'
 import { HashLink as NavLink } from 'react-router-hash-link'
 

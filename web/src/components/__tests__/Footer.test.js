@@ -2,7 +2,7 @@ import React from 'react'
 import { mount, render } from 'enzyme'
 import { FooterBase as Footer } from '../Footer'
 import { getStore } from './LanguageSwitcher.test.js'
-import { i18n } from 'lingui-i18n/dist'
+import { i18n } from '@lingui/core'
 import { getEmail } from '../../locations'
 
 describe('<Footer />', () => {

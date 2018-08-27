@@ -108,7 +108,7 @@ yarn lint # lints codebase
 Translations are managed by [jsLingui](https://lingui.js.org/tutorials/react.html)
 
 ```
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 
 const SomeComponent = () => {
     return <Trans>Your text</Trans>

@@ -4,7 +4,7 @@ context('Full Run-through including validation errors', () => {
   })
 
   it('should be able to trigger validation errors, recover, and reach the confirmation page with all of the submitted data', () => {
-    cy.get('main a span').should('have.text', 'Start now')
+    cy.get('main a').should('have.text', 'Start now')
     cy.get('main a').click({ force: true })
 
     cy.fixture('user').then(data => {
@@ -15,7 +15,7 @@ context('Full Run-through including validation errors', () => {
       cy.get('#register-form').submit({ force: true })
     })
 
-    cy.get('#submit-error h2 span').should(
+    cy.get('#submit-error h2').should(
       'contain',
       'Some information is missing.',
     )
@@ -53,7 +53,7 @@ context('Full Run-through including validation errors', () => {
       cy.get('#calendar-form').submit({ force: true })
 
       // trigger the not enough days error
-      cy.get('#submit-error h2 span').should(
+      cy.get('#submit-error h2').should(
         'contain',
         'You must select 3 days.',
       )

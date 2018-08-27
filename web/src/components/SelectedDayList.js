@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Time from './Time'
-import { Trans, withI18n } from 'lingui-react'
+import { Trans, withI18n } from '@lingui/react'
 
 export const SelectedDayList = withI18n()(({ i18n, selectedDays }) => {
   const locale = i18n !== undefined ? i18n._language : 'en'
