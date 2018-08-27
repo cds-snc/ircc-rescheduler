@@ -102,3 +102,22 @@ Yes! Now shoot over to [localhost:3004](http://localhost:3004) and try to contai
 yarn test # runs unit tests
 yarn lint # lints codebase
 ```
+
+## Translations
+
+Translations are managed by [jsLingui](https://lingui.js.org/tutorials/react.html)
+
+```
+import { Trans } from 'lingui-react'
+
+const SomeComponent = () => {
+    return <Trans>Your text</Trans>
+}
+
+```
+
+To update the locale files use:
+
+- `yarn extract` (creates new fr/messages.json file)
+- make changes to locale/fr/messages.json
+- `yarn compile`
