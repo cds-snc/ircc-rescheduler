@@ -9,7 +9,7 @@ export const contextDefault = {
 export const contextPropTypes = {
   context: PropTypes.shape({
     store: PropTypes.object.isRequired,
-    setStore: PropTypes.func.isRequired,
+    setStore: PropTypes.func,
   }),
 }
 
