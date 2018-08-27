@@ -6,7 +6,7 @@ export const fullRun = (cy, locale = 'en') => {
     startText = 'Commencer'
   }
 
-  cy.get('main a span').should('have.text', startText)
+  cy.get('main a').should('have.text', startText)
   cy.get('main a').click({ force: true })
 
   let fixture = 'user'

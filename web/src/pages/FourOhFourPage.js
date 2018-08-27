@@ -1,5 +1,5 @@
 import React from 'react'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 import Chevron from '../components/Chevron'
 import { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'

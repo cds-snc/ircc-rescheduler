@@ -131,6 +131,7 @@ const govuk_label_pseudo_elements = css`
 const cds_multiple_choice = css`
   label {
     padding-top: 3px;
+    padding-bottom: 12px;
     font-size: ${theme.font.lg};
   }
 

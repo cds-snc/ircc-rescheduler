@@ -3,7 +3,7 @@ import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import { Helmet } from 'react-helmet'
 import { css } from 'react-emotion'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 import {
   theme,
   visuallyhidden,

@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from 'react-emotion'
 import PropTypes from 'prop-types'
 import { theme, mediaQuery } from '../styles'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 
 const badge = css`
   border-radius: 5px;

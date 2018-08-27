@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from 'enzyme'
 import IRCCAbbr from '../IRCCAbbr'
-import { I18nProvider } from 'lingui-react'
-import { i18n } from 'lingui-i18n/dist'
+import { I18nProvider } from '@lingui/react'
+import { i18n } from '@lingui/core'
 import { catalogs } from '../../utils/linguiUtils'
 
 describe('<IRCCAbbr />', () => {

@@ -10,7 +10,7 @@ context(
 
     it('should be able to trigger validation errors, recover, and reach the confirmation page with all of the submitted data', () => {
       cy.visit('/')
-      cy.get('main a span').should('have.text', 'Start now')
+      cy.get('main a').should('have.text', 'Start now')
       cy.get('main a').click({ force: true })
       cy.url().should('contain', '/register')
 
@@ -23,7 +23,7 @@ context(
         )
       })
 
-      cy.get('#submit-error h2 span').should(
+      cy.get('#submit-error h2').should(
         'contain',
         'Some information is missing.',
       )

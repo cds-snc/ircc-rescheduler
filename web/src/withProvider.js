@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Cookies from 'js-cookie'
 import { setStoreCookie, getStoreCookie, setSSRCookie } from './cookies'
 import { contextDefault, Context } from './context'
-import { I18nProvider } from 'lingui-react'
-import { catalogs, linguiDev } from './utils/linguiUtils'
+import { I18nProvider } from '@lingui/react'
+import { catalogs } from './utils/linguiUtils'
 import { trimInput } from './utils/cleanInput'
 import { getGlobalLocation } from './locations'
 
@@ -140,7 +140,6 @@ function withProvider(WrappedComponent) {
           <I18nProvider
             language={this.state.context.store.language}
             catalogs={catalogs}
-            development={linguiDev}
           >
             <WrappedComponent {...props} />
           </I18nProvider>
