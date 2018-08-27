@@ -199,7 +199,7 @@ class CalendarPage extends Component {
     this.changeMonth()
   }
 
-  /* 
+  /*
   Check if the form was redirected from the server
   */
 
@@ -384,7 +384,7 @@ class CalendarPage extends Component {
                     }}
                   >
                     <ErrorMessage
-                      message={err ? err : ''}
+                      message={err ? err : null}
                       id="fewerDays-error"
                     />
                   </div>
@@ -475,9 +475,7 @@ class NoJS extends Component {
           <ErrorList message={errorsNoJS.selectedDays}>
             <a href="#selectedDays-form">Calendar</a>
           </ErrorList>
-        ) : (
-          ''
-        )}
+        ) : null}
         {/*
           the first checkbox / radio on the page doesn't have its CSS applied correctly
           so this is a dummy checkbox that nobody should ever see
