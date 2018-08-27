@@ -36,6 +36,7 @@ import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { checkURLParams } from '../utils/url'
 import { trackRegistrationErrors } from '../utils/analytics'
+import { Checkbox } from '../components/forms/MultipleChoice'
 
 const contentClass = css`
   form {
@@ -53,6 +54,14 @@ const contentClass = css`
 
     h2 {
       margin-top: 0rem;
+    }
+
+    textarea[name='family'] {
+      height: 5.3em;
+    }
+
+    input[name='paperFileNumber'] {
+      margin-bottom: ${theme.spacing.sm};
     }
 
     label,
@@ -214,6 +223,9 @@ class RegistrationPage extends React.Component {
           render={({ handleSubmit, submitError, submitting, values }) => {
             const notValid = this.hasNotValid()
             const generalMessage = this.generalErrorMessage()
+            const famCheckText = (
+              <span>I need to reschedule other family members</span>
+            )
 
             submitError =
               Object.keys(errorsNoJS).length && !submitError
@@ -284,29 +296,6 @@ class RegistrationPage extends React.Component {
                   </Field>
                 </div>
                 <div>
-                  <Field component={TextFieldAdapter} name="email" id="email">
-                    <label htmlFor="email" id="email-label">
-                      <span id="email-header">
-                        <Trans>Email address</Trans>
-                      </span>
-                      <ValidationMessage
-                        id="email-error"
-                        message={
-                          submitError && this.validate(values).email
-                            ? this.validate(values).email
-                            : ''
-                        }
-                      />
-                      <span id="email-details">
-                        <Trans>
-                          This is where we’ll send a confirmation email when
-                          you’re done.
-                        </Trans>
-                      </span>
-                    </label>
-                  </Field>
-                </div>
-                <div>
                   <Field
                     component={TextFieldAdapter}
                     name="paperFileNumber"
@@ -328,6 +317,52 @@ class RegistrationPage extends React.Component {
                         <Trans>
                           This number is at the top of the email attachment we
                           sent you.
+                        </Trans>
+                      </span>
+                    </label>
+                  </Field>
+                </div>
+                <div>
+                  <Field
+                    name="family"
+                    id="family"
+                    component={TextAreaAdapter}
+                    aria-labelledby="family-label family-error"
+                  >
+                    <label htmlFor="family" id="family-label">
+                      <Checkbox
+                        name="family-check"
+                        id="family-check"
+                        label={famCheckText}
+                        value="test"
+                      />
+                      <span id="family-details">
+                        <Trans>
+                          Include the full names of all family members you want
+                          to reschedule below:
+                        </Trans>
+                      </span>
+                    </label>
+                  </Field>
+                </div>
+                <div>
+                  <Field component={TextFieldAdapter} name="email" id="email">
+                    <label htmlFor="email" id="email-label">
+                      <span id="email-header">
+                        <Trans>Email address</Trans>
+                      </span>
+                      <ValidationMessage
+                        id="email-error"
+                        message={
+                          submitError && this.validate(values).email
+                            ? this.validate(values).email
+                            : ''
+                        }
+                      />
+                      <span id="email-details">
+                        <Trans>
+                          This is where we’ll send a confirmation email when
+                          you’re done.
                         </Trans>
                       </span>
                     </label>
