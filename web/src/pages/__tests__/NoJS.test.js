@@ -53,7 +53,7 @@ describe('NoJS Flow', () => {
 
       // landing page
       if (!fr) {
-        const html = await page.$eval('h1 span', e => e.innerHTML)
+        const html = await page.$eval('h1', e => e.innerHTML)
         expect(html).toBe('Request a new citizenship appointment')
       }
 
@@ -61,7 +61,7 @@ describe('NoJS Flow', () => {
 
       // register page
       const fullName = await page.$eval(
-        '#fullName-header span',
+        '#fullName-header',
         e => e.innerHTML,
       )
 
@@ -122,23 +122,23 @@ describe('NoJS Landing Page', () => {
     'preserves language settings in nojs mode',
     async () => {
       await page.goto(`${baseUrl}/`)
-      let html = await page.$eval('h1 span', e => e.innerHTML)
+      let html = await page.$eval('h1', e => e.innerHTML)
       expect(html).toBe('Request a new citizenship appointment')
 
       await page.goto(`${baseUrl}/?language=fr`)
-      html = await page.$eval('h1 span', e => e.innerHTML)
+      html = await page.$eval('h1', e => e.innerHTML)
       expect(html).toBe(
         'Demander un nouveau rendez-vous d’examen de citoyenneté',
       )
 
       await page.goto(`${baseUrl}/`)
-      html = await page.$eval('h1 span', e => e.innerHTML)
+      html = await page.$eval('h1', e => e.innerHTML)
       expect(html).toBe(
         'Demander un nouveau rendez-vous d’examen de citoyenneté',
       )
 
       await page.goto(`${baseUrl}/?utm_source=TEST&utm_medium=test`)
-      html = await page.$eval('h1 span', e => e.innerHTML)
+      html = await page.$eval('h1', e => e.innerHTML)
       expect(html).toBe(
         'Demander un nouveau rendez-vous d’examen de citoyenneté',
       )
