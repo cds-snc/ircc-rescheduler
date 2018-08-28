@@ -86,7 +86,10 @@ const getPrimarySubdomain = function(req, res, next) {
     req.url.indexOf('not-found') === -1
   ) {
     // redirect to generic not found page
-    return res.redirect(`https://${process.env.RAZZLE_SITE_URL}/not-found`)
+    const protocol = process.env.RAZZLE_IS_HTTP ? 'http' : 'https'
+    return res.redirect(
+      `${protocol}://${process.env.RAZZLE_SITE_URL}/not-found`,
+    )
   }
 
   next()
