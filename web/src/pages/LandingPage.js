@@ -9,8 +9,7 @@ import { buttonStyles } from '../components/forms/Button'
 import { Trans } from '@lingui/react'
 import rightArrow from '../assets/rightArrow.svg'
 import { getStartMonthName, getEndMonthName } from '../utils/calendarDates'
-import withContext from '../withContext'
-import { contextPropTypes } from '../context'
+import Language from '../components/Language'
 
 const contentClass = css`
   p {
@@ -86,16 +85,6 @@ const landingArrow = css`
 
 class LandingPage extends React.Component {
   render() {
-    let locale = 'en'
-
-    if (
-      this.props &&
-      this.props.context &&
-      this.props.context.store &&
-      this.props.context.store.language
-    ) {
-      locale = this.props.context.store.language
-    }
     return (
       <Layout
         contentClass={contentClass}
@@ -140,8 +129,15 @@ class LandingPage extends React.Component {
                 <Trans>3 days</Trans>
               </strong>{' '}
               <Trans>you’re available between </Trans>{' '}
-              {getStartMonthName(new Date(), locale)} <Trans>and</Trans>{' '}
-              {getEndMonthName(new Date(), locale)}.
+              <Language
+                render={locale => (
+                  <React.Fragment>
+                    {getStartMonthName(new Date(), locale)} <Trans>and</Trans>{' '}
+                    {getEndMonthName(new Date(), locale)}
+                  </React.Fragment>
+                )}
+              />
+              .
             </p>
           </div>
 
@@ -172,8 +168,7 @@ class LandingPage extends React.Component {
 }
 
 LandingPage.propTypes = {
-  ...contextPropTypes,
   ...matchPropTypes,
 }
 
-export default withContext(LandingPage)
+export default LandingPage

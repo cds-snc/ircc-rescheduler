@@ -1,10 +1,9 @@
 import React from 'react'
-import withContext from '../withContext'
-import { contextPropTypes } from '../context'
 import { GoCSignature } from '@cdssnc/gcui'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import LanguageSwitcher from './LanguageSwitcher'
+import Language from './Language'
 
 const container = css`
   padding: ${theme.spacing.lg} ${theme.spacing.xxxl} ${theme.spacing.md}
@@ -42,24 +41,23 @@ const container = css`
   `)};
 `
 
-const FederalBanner = ({ context = {} }) => (
+const FederalBanner = () => (
   <div className={container}>
     <div className="svg-container canada-flag">
-      <GoCSignature
-        width="250px"
-        lang={context.store.language}
-        flag={theme.colour.white}
-        text={theme.colour.white}
-        focusable="false"
+      <Language
+        render={language => (
+          <GoCSignature
+            width="250px"
+            lang={language}
+            flag={theme.colour.white}
+            text={theme.colour.white}
+            focusable="false"
+          />
+        )}
       />
     </div>
     <LanguageSwitcher />
   </div>
 )
-FederalBanner.propTypes = {
-  ...contextPropTypes,
-}
 
-const FederalBannerContext = withContext(FederalBanner)
-
-export { FederalBannerContext as default, FederalBanner as FederalBannerBase }
+export default FederalBanner
