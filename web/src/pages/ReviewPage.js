@@ -77,10 +77,7 @@ class ReviewPage extends React.Component {
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <TopContainer>
-          <pre>
-            {familyOption}
-            ddd
-          </pre>
+          <pre>{familyOption}</pre>
           <NavLink className="chevron-link" to="/calendar">
             <Chevron dir="left" />
             <Trans>Go back</Trans>

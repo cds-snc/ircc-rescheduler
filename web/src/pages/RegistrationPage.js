@@ -26,7 +26,11 @@ import {
   TextAreaAdapter,
 } from '../components/forms/TextInput'
 import FieldSet from '../components/forms/FieldSet'
-import { Radio, RadioAdapter } from '../components/forms/MultipleChoice'
+import {
+  Radio,
+  RadioAdapter,
+  CheckboxAdapter,
+} from '../components/forms/MultipleChoice'
 import Button from '../components/forms/Button'
 import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
@@ -36,7 +40,6 @@ import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { checkURLParams } from '../utils/url'
 import { trackRegistrationErrors } from '../utils/analytics'
-import { Checkbox } from '../components/forms/MultipleChoice'
 
 const contentClass = css`
   form {
@@ -61,12 +64,23 @@ const contentClass = css`
       background-color: ${theme.colour.white};
     }
 
-    textarea[name='family'] {
+    textarea[name='familyOption'] {
       height: 5.3em;
+    }
+
+    textarea[disabled] {
+      background: ${theme.colour.greyLight};
+      border: 3px solid ${theme.colour.greyLight};
+      cursor: not-allowed;
     }
 
     input[name='paperFileNumber'] {
       margin-bottom: ${theme.spacing.sm};
+    }
+
+    label[for='familyCheck'] {
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
 
     label,
@@ -230,6 +244,8 @@ class RegistrationPage extends React.Component {
           render={({ handleSubmit, submitError, submitting, values }) => {
             const notValid = this.hasNotValid()
             const generalMessage = this.generalErrorMessage()
+            let { familyCheck = [] } = values
+
             const famCheckText = (
               <span>I need to reschedule other family members</span>
             )
@@ -330,16 +346,21 @@ class RegistrationPage extends React.Component {
                   </Field>
                 </div>
                 <div>
-                  <pre>{JSON.stringify(values)}</pre>
                   <Field
                     name="familyOption"
                     id="familyOption"
                     component={TextAreaAdapter}
+                    disabled={!familyCheck.length}
                   >
                     <label htmlFor="familyOption" id="familyOption-label">
-                      <span id="familyOption-header">
-                        <Trans>Family Option</Trans>
-                      </span>
+                      <Field
+                        type="checkbox"
+                        component={CheckboxAdapter}
+                        name="familyCheck"
+                        id="familyCheck"
+                        label={famCheckText}
+                        value="familyCheck"
+                      />
                       <ValidationMessage
                         id="paperFileNumber-error"
                         message={
@@ -347,12 +368,6 @@ class RegistrationPage extends React.Component {
                             ? this.validate(values).familyOption
                             : ''
                         }
-                      />
-                      <Checkbox
-                        name="familyOption-check"
-                        id="familyOption-check"
-                        label={famCheckText}
-                        value="familyOption"
                       />
                       <span id="familyOption-details">
                         <Trans>
