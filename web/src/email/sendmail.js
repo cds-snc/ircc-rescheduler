@@ -1,6 +1,7 @@
 import AWS from 'aws-sdk'
 import { buildParams } from './email-template'
 import nodemailer from 'nodemailer'
+import { getReceivingEmail } from '../locations'
 
 if (process.env.NODE_ENV !== 'test') {
   if (!process.env.RAZZLE_AWS_REGION)
@@ -9,8 +10,6 @@ if (process.env.NODE_ENV !== 'test') {
     throw new Error('process.env.RAZZLE_AWS_SECRET_ACCESS_KEY was not found')
   if (!process.env.RAZZLE_AWS_ACCESS_KEY_ID)
     throw new Error('process.env.AWS_ACCESS_KEY_ID was not found')
-  if (!process.env.RAZZLE_IRCC_RECEIVING_ADDRESS)
-    throw new Error('process.env.RAZZLE_IRCC_RECEIVING_ADDRESS was not found')
   if (!process.env.RAZZLE_SENDING_ADDRESS)
     throw new Error('process.env.RAZZLE_SENDING_ADDRESS was not found')
   if (!process.env.RAZZLE_SITE_URL)
@@ -33,7 +32,7 @@ export const getMailer = async () => {
 export const getEmailParms = async (
   input,
   url = process.env.RAZZLE_SITE_URL || ' ',
-  receivingAddress = process.env.RAZZLE_IRCC_RECEIVING_ADDRESS,
+  receivingAddress = getReceivingEmail(),
   sendingAddress = process.env.RAZZLE_SENDING_ADDRESS,
 ) => {
   const staffOptions = {

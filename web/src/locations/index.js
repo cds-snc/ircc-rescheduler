@@ -65,3 +65,19 @@ export const getPhone = (location = getGlobalLocation()) => {
     return location.phone
   }
 }
+
+export const getReceivingEmail = (location = getGlobalLocation()) => {
+  if (
+    process.env.RAZZLE_STAGE &&
+    process.env.RAZZLE_STAGE !== 'production' &&
+    process.env.RAZZLE_IRCC_TEST_RECEIVING_ADDRESS
+  ) {
+    return process.env.RAZZLE_IRCC_TEST_RECEIVING_ADDRESS
+  }
+
+  if (location && location.receivingEmail && !process.env.RAZZLE_STAGE) {
+    return location.receivingEmail
+  }
+
+  throw new Error('Receiving address is not defined')
+}
