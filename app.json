@@ -9,7 +9,8 @@
     "RAZZLE_IRCC_RECEIVING_ADDRESS": { "required": true },
     "RAZZLE_PAPER_FILE_NUMBER_PATTERN": { "required": true },
     "RAZZLE_PUBLIC_DIR": { "required": true },
-    "RAZZLE_SENDING_ADDRESS": { "required": true }
+    "RAZZLE_SENDING_ADDRESS": { "required": true },
+    "RAZZLE_SITE_URL": { "required": true }
   },
   "formation": {},
   "addons": [],
