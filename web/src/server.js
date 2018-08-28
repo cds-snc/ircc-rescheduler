@@ -89,7 +89,7 @@ const getPrimarySubdomain = function(req, res, next) {
     Note: Will need to remove links i.e. contact etc..
     so they don't end up at the wrong location
     */
-    return res.redirect(process.env.RAZZLE_SITE_URL + '/not-found')
+    return res.redirect(`https://${process.env.RAZZLE_SITE_URL}/not-found`)
   }
 
   next()
