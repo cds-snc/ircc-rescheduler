@@ -17,6 +17,7 @@ import {
   cleanDates,
   sendMail,
 } from './email/sendmail'
+import { getGlobalLocation, getReceivingEmail } from '../src/locations'
 import gitHash from './utils/gitHash'
 import Raven from 'raven'
 Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
@@ -95,6 +96,34 @@ const getPrimarySubdomain = function(req, res, next) {
   next()
 }
 
+const ensureLocation = (req, res, next) => {
+  try {
+    /*
+    At this point we should have a location
+     */
+    getGlobalLocation(req.subdomain)
+  } catch (e) {
+    Raven.captureException(e)
+    return res.redirect('/error')
+  }
+
+  next()
+}
+
+const ensureReceivingEmail = (req, res, next) => {
+  /*
+  If we don't have a receivingEmail something
+  isn't configured properly
+  */
+  try {
+    getReceivingEmail()
+    next()
+  } catch (e) {
+    Raven.captureException(e)
+    return res.redirect('/error')
+  }
+}
+
 server
   .use(helmet.frameguard({ action: 'deny' })) //// Sets "X-Frame-Options: DENY".
   .use(helmet.noSniff()) // Sets "X-Content-Type-Options: nosniff".
@@ -103,6 +132,8 @@ server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || './public'))
   .use(getPrimarySubdomain)
+  .use(ensureLocation)
+  .use(ensureReceivingEmail)
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
   .post('/submit', async (req, res) => {
