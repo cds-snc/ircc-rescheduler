@@ -89,11 +89,7 @@ const getPrimarySubdomain = function(req, res, next) {
     Note: Will need to remove links i.e. contact etc..
     so they don't end up at the wrong location
     */
-
-    // Todo: Would rather not introduce another env variable here
-    // hard code for testing
-    return res.redirect('https://rescheduler-dev.cds-snc.ca/not-found')
-    //return res.redirect(process.env.SITE_URL + '/not-found')
+    return res.redirect(`https://${process.env.RAZZLE_SITE_URL}/not-found`)
   }
 
   next()

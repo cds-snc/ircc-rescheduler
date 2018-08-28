@@ -28,7 +28,7 @@ These options are set in all environments (except during tests).
 
 - `RAZZLE_SENDING_ADDRESS`: Requests will be marked as sent from this email address. Must be [verified by SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html). Required on startup.
 
-- `RAZZLE_SITE_URL`: Used by [`inline-css`](https://www.npmjs.com/package/inline-css) to generate links in emails. Leaving this blank (`' '`) is recommended. Required on startup.
+- `RAZZLE_SITE_URL`: URL to be used for things such as redirects.
 
 - `RAZZLE_STAGE`: Used to introspect where the app is running. One of `production`, `staging`, or `development`.
 
@@ -43,7 +43,7 @@ RAZZLE_AWS_REGION=some-region-1
 RAZZLE_AWS_SECRET_ACCESS_KEY=someAccessKey
 RAZZLE_IRCC_RECEIVING_ADDRESS=your.name@example.com
 RAZZLE_SENDING_ADDRESS=justin@canada.ca
-RAZZLE_SITE_URL=' '
+RAZZLE_SITE_URL=rescheduler-dev.cds-snc.ca
 RAZZLE_STAGE='development'
 ```
 
