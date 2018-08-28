@@ -41,7 +41,12 @@ errorMessages.emailInvalidErrorMessage = (
   </Trans>
 )
 
-errorMessages.familyOptionErrorMessage = <Trans>Fam Option Error Message</Trans>
+errorMessages.familyOptionErrorMessage = (
+  <Trans>
+    Please make sure to only enter the names of family members you wish to
+    reschedule in this field
+  </Trans>
+)
 
 errorMessages.FamilyOptionMaxErrorMessage = (
   <Trans>Fam Option Invalid Error Message</Trans>
@@ -134,6 +139,7 @@ export const RegistrationFields = {
   fullName: `required|max:${INPUT_FIELD_MAX_CHARS}`,
   email: 'required|email',
   explanation: `required|max:${TEXTAREA_MAX_CHARS}`,
+  familyCheck: `required`,
   familyOption: `required|max:${TEXTAREA_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
   reason: 'required|in:travel,medical,workOrSchool,family,other',

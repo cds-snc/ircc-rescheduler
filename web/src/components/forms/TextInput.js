@@ -40,6 +40,7 @@ const TextField = ({
   labelledby,
   value,
   children,
+  disabled,
   onBlur,
   onChange,
   onFocus,
@@ -56,6 +57,7 @@ const TextField = ({
       onChange={onChange}
       onFocus={onFocus}
       className={text_input}
+      disabled={disabled}
     />
   </div>
 )
@@ -69,6 +71,7 @@ const textProps = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   value: PropTypes.string,
+  disabled: PropTypes.bool,
 }
 
 TextField.propTypes = textProps
@@ -88,6 +91,7 @@ const TextArea = ({
   onBlur,
   onChange,
   onFocus,
+  disabled,
 }) => (
   <div>
     {children}
@@ -100,6 +104,7 @@ const TextArea = ({
       onChange={onChange}
       onFocus={onFocus}
       className={text_area}
+      disabled={disabled}
     />
   </div>
 )
