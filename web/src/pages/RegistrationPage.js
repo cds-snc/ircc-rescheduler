@@ -110,6 +110,8 @@ const labelNames = id => {
       return <Trans>Why are you rescheduling?</Trans>
     case 'explanation':
       return <Trans>Describe why you can’t attend your appointment</Trans>
+    case 'familyOption':
+      return <Trans>Family Option</Trans>
     default:
       return ''
   }
@@ -328,16 +330,24 @@ class RegistrationPage extends React.Component {
                   </Field>
                 </div>
                 <div>
+                  <pre>{JSON.stringify(values)}</pre>
                   <Field
                     name="familyOption"
                     id="familyOption"
                     component={TextAreaAdapter}
-                    aria-labelledby="familyOption-label familyOption-error"
                   >
                     <label htmlFor="familyOption" id="familyOption-label">
                       <span id="familyOption-header">
                         <Trans>Family Option</Trans>
                       </span>
+                      <ValidationMessage
+                        id="paperFileNumber-error"
+                        message={
+                          submitError && this.validate(values).familyOption
+                            ? this.validate(values).familyOption
+                            : ''
+                        }
+                      />
                       <Checkbox
                         name="familyOption-check"
                         id="familyOption-check"

@@ -41,6 +41,12 @@ errorMessages.emailInvalidErrorMessage = (
   </Trans>
 )
 
+errorMessages.familyOptionErrorMessage = <Trans>Fam Option Error Message</Trans>
+
+errorMessages.FamilyOptionMaxErrorMessage = (
+  <Trans>Fam Option Invalid Error Message</Trans>
+)
+
 errorMessages.paperFileNumberErrorMessage = (
   <Trans>We need your paper file number so we can confirm your identity.</Trans>
 )
@@ -99,6 +105,8 @@ export const defaultMessages = {
   'required.reason': 'reasonErrorMessage',
   'required.explanation': 'explanationErrorMessage',
   'max.explanation': 'explanationMaxErrorMessage',
+  'required.familyOption': 'familyOptionErrorMessage',
+  'max.familyOption': 'familyOptionMaxErrorMessage',
   'required.selectedDays': 'selectedDaysEmptyErrorMessage',
   in: 'inErrorMessage',
 }
@@ -126,6 +134,7 @@ export const RegistrationFields = {
   fullName: `required|max:${INPUT_FIELD_MAX_CHARS}`,
   email: 'required|email',
   explanation: `required|max:${TEXTAREA_MAX_CHARS}`,
+  familyOption: `required|max:${TEXTAREA_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
   reason: 'required|in:travel,medical,workOrSchool,family,other',
 }
