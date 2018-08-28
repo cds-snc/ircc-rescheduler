@@ -34,7 +34,6 @@ jobs:
             - /home/circleci/.cache
 
       # run tests!
-      - run: yarn build
       - run: yarn a11y:test
       - run: yarn test:full
       - run: yarn lint
