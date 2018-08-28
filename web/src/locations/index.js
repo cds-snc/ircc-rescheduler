@@ -67,6 +67,10 @@ export const getPhone = (location = getGlobalLocation()) => {
 }
 
 export const getReceivingEmail = (location = getGlobalLocation()) => {
+  if (process.env.RAZZLE_STAGE) {
+    return process.env.RAZZLE_IRCC_RECEIVING_ADDRESS
+  }
+
   if (location && location.receivingEmail) {
     return location.receivingEmail
   }
