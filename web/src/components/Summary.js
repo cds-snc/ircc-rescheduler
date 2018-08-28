@@ -71,13 +71,15 @@ export const SummaryRow = ({
   summaryBody,
   summaryLink,
   summaryLabel,
+  summaryAvailabilityExplanation,
 }) => (
   <Row>
     <SummaryHeader>
       <SummaryH2>{summaryHeader}</SummaryH2>
       <SummaryBody>{summaryBody}</SummaryBody>
     </SummaryHeader>
-    {summaryLink === '/register#explanation-label' ? (
+    {summaryLink === '/register#explanation-label' ||
+    '/register#availabilityExplanation-label' ? (
       <SummaryLinkExplanation>
         <NavLink to={summaryLink} aria-label={summaryLabel}>
           <Trans>Change</Trans>
@@ -106,6 +108,7 @@ const Summary = ({
   email,
   reason,
   explanation,
+  availabilityExplanation,
   selectedDays,
   i18n,
 }) => (
@@ -150,12 +153,22 @@ const Summary = ({
       summaryLink={'/register#explanation-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Explanation')}`}
     />
-    <SummaryRow
-      summaryHeader={<Trans>Availability</Trans>}
-      summaryBody={<SelectedDayList selectedDays={selectedDays} />}
-      summaryLink={'/calendar#calendar-header'}
-      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
-    />
+
+    {!availabilityExplanation ? (
+      <SummaryRow
+        summaryHeader={<Trans>Availability</Trans>}
+        summaryBody={<SelectedDayList selectedDays={selectedDays} />}
+        summaryLink={'/calendar#calendar-header'}
+        summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
+      />
+    ) : (
+      <SummaryRow
+        summaryHeader={<Trans>Availability</Trans>}
+        summaryBody={availabilityExplanation}
+        summaryLink={'/register#availabilityExplanation-label'}
+        summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
+      />
+    )}
   </TableContainer>
 )
 

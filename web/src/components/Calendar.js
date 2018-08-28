@@ -267,7 +267,7 @@ const calendarContainer = css`
     width: 25em;
   }
   > div:last-of-type {
-    width: 20em;
+    width: 23em;
   }
 
   width: 100%;
@@ -413,7 +413,32 @@ const calendarContainerTop = css`
   `)};
 `
 
-const datesLink = css`
+const datesLinkBefore = css`
+  margin-top: 19.7rem;
+
+  ${mediaQuery.lg(css`
+    margin-top: 0;
+  `)};
+
+  a {
+    margin-left: 3.7rem;
+
+    ${mediaQuery.lg(css`
+      margin-left: 0;
+      margin: 0;
+    `)};
+  }
+
+  margin-bottom: ${theme.spacing.xxl};
+`
+
+const datesLinkAfter = css`
+  margin-top: 5.15rem;
+
+  ${mediaQuery.lg(css`
+    margin-top: 0;
+  `)};
+
   a {
     margin-left: 3.7rem;
 
@@ -748,7 +773,7 @@ class Calendar extends Component {
                 </ul>
               </div>
             </div>
-            <div className={datesLink}>
+            <div className={value.length ? datesLinkAfter : datesLinkBefore}>
               <NavLink to="/explanation">
                 <Trans>These dates don&rsquo;t work for me</Trans>
               </NavLink>

@@ -10,6 +10,7 @@ import {
   mediaQuery,
   BottomContainer,
   focusRing,
+  contentClass,
 } from '../styles'
 import {
   ExplanationFields,
@@ -22,7 +23,6 @@ import { trimInput } from '../utils/cleanInput'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import { TextAreaAdapter } from '../components/forms/TextInput'
-import { Radio } from '../components/forms/MultipleChoice'
 import Button from '../components/forms/Button'
 import { ValidationMessage } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
@@ -31,40 +31,18 @@ import CancelButton from '../components/CancelButton'
 import { windowExists } from '../utils/windowExists'
 import { checkURLParams } from '../utils/url'
 
-const contentClass = css`
-  form {
-    > div {
-      margin-bottom: ${theme.spacing.xl};
+const explanationContentClass = css`
+  width: 80%;
+  ${mediaQuery.md(css`
+    width: 100%;
+    textarea[id='explanationPage'] {
+      width: 100%;
     }
-
-    > p {
-      margin-bottom: ${theme.spacing.sm};
-
-      ${mediaQuery.sm(css`
-        margin-bottom: ${theme.spacing.md};
-      `)};
-    }
-
-    h2 {
-      margin-top: 0rem;
-    }
-
-    label,
-    legend {
-      display: block;
-      margin-bottom: ${theme.spacing.sm};
-
-      > span {
-        margin-bottom: ${theme.spacing.xxs};
-        display: block;
-
-        &[id$='-header'] {
-          font-size: ${theme.font.lg};
-          font-weight: 700;
-        }
-      }
-    }
+  `)};
+  p {
+    margin-bottom: ${theme.spacing.lg};
   }
+  ${contentClass};
 `
 
 const beforeErrorStyles = css`
@@ -94,7 +72,7 @@ class ExplanationPage extends React.Component {
     return getFieldNames(ExplanationFields)
   }
 
-  static get redirect() {
+  static redirect() {
     return '/review'
   }
 
@@ -158,7 +136,7 @@ class ExplanationPage extends React.Component {
     // if setStore doesn't exist, nothing gets saved between pages
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
-    await this.props.history.push(this.redirect)
+    await this.props.history.push(this.redirect())
   }
 
   render() {
@@ -176,20 +154,23 @@ class ExplanationPage extends React.Component {
     }
 
     return (
-      <Layout contentClass={contentClass}>
+      <Layout contentClass={explanationContentClass}>
         <Title path={this.props.match.path} />
         <h1 className={visuallyhidden}>
-          <Trans>First, provide some basic information:</Trans>
+          <Trans>Delay your appointment</Trans>
         </h1>
-        {/*
-          the first checkbox / radio on the page doesn't have its CSS applied correctly
-          so this is a dummy radio button that nobody should ever see
-          it's also outside of the form so it can't be submitted
-          if it is removed, the first radio button in the list of reasons will disappear
-        */}
-        <div style={{ display: 'none' }}>
-          <Radio id="ignore-me" value="ignore-me" />
-        </div>
+        <p>
+          <Trans>
+            If you aren&rsquo;t available on any of the upcoming days, please
+            provide a reason for the delay.
+          </Trans>
+        </p>
+        <p>
+          <Trans>
+            We will reply within 1 week to confirm, or ask for more information.
+            There is a chance you will not be granted a delay.
+          </Trans>
+        </p>
         <Form
           onSubmit={this.onSubmit}
           initialValues={explanation || {}}
@@ -233,7 +214,7 @@ class ExplanationPage extends React.Component {
                     <label htmlFor="explanationPage" id="explanationPage-label">
                       <span id="explanationPage-header">
                         <Trans>
-                          Describe why these dates don’t work for you.
+                          Describe why you need to delay your appointment
                         </Trans>
                       </span>
                       <ValidationMessage
