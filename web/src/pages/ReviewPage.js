@@ -61,6 +61,8 @@ class ReviewPage extends React.Component {
             reason,
             explanation,
           } = {},
+          explanation: { explanationPage } = {},
+
           calendar: { selectedDays = [] } = {},
         } = {},
       } = {},
@@ -78,6 +80,7 @@ class ReviewPage extends React.Component {
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <TopContainer>
+          <pre>{explanationPage}</pre>
           <NavLink className="chevron-link" to="/calendar">
             <Chevron dir="left" />
             <Trans>Go back</Trans>

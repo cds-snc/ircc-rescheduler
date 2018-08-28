@@ -86,6 +86,19 @@ errorMessages.explanationMaxErrorMessage = (
   </Trans>
 )
 
+errorMessages.explanationPageErrorMessage = (
+  <Trans>
+    Please tell us a bit more about why the provided dates don’t work for you.
+  </Trans>
+)
+
+errorMessages.explanationPageMaxErrorMessage = (
+  <Trans>
+    Sorry, there‘s a limit of 150 words for this explanation. Please shorten
+    your explanation.
+  </Trans>
+)
+
 errorMessages.selectedDaysEmptyErrorMessage = (
   <Trans>You must select 3 days.</Trans>
 )
@@ -116,6 +129,8 @@ export const defaultMessages = {
   'required_with.familyOption': 'familyOptionRequiredWithErrorMessage',
   'max.familyOption': 'familyOptionMaxErrorMessage',
   'required.selectedDays': 'selectedDaysEmptyErrorMessage',
+  'required.explanationPage': 'explanationPageErrorMessage',
+  'max.explanationPage': 'explanationPageMaxErrorMessage',
   in: 'inErrorMessage',
 }
 
@@ -146,6 +161,10 @@ export const RegistrationFields = {
   familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
   reason: 'required|in:travel,medical,workOrSchool,family,other',
+}
+
+export const ExplanationFields = {
+  explanationPage: `required|max:${INPUT_FIELD_MAX_CHARS}`,
 }
 
 export const CalendarFields = {
