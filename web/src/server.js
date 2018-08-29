@@ -76,7 +76,7 @@ const domainOptions = { whitelist: ['vancouver', 'calgary'] }
 const getPrimarySubdomain = function(req, res, next) {
   req.subdomain = req.subdomains.slice(-1).pop()
 
-  if (!req.subdomain || req.subdomain === 'rescheduler-dev') {
+  if (!req.subdomain || req.subdomain.startsWith('rescheduler')) {
     // default to vancouver for now
     req.subdomain = 'vancouver'
   }
