@@ -10,7 +10,6 @@ import { renderStylesToString } from 'emotion-server'
 import bodyParser from 'body-parser'
 import { CalendarFields, RegistrationFields } from './validation'
 import Validator from 'validatorjs'
-// import cache from 'memory-cache'
 import {
   getMailer,
   getEmailParms,
@@ -73,20 +72,47 @@ const captureMessage = (title = '', validate) => {
 
 const domainOptions = { whitelist: ['vancouver', 'calgary'] }
 
+const notPageMatch = (url, pageName) => {
+  return url.indexOf(pageName) === -1
+}
+
+const forceRedirect = req => {
+  if (req.subdomain.startsWith('rescheduler')) {
+    if (notPageMatch(req.path, 'not-found') && notPageMatch(req.path, '500')) {
+      return true
+    }
+  }
+
+  return false
+}
+
 const getPrimarySubdomain = function(req, res, next) {
   req.subdomain = req.subdomains.slice(-1).pop()
 
-  if (!req.subdomain || req.subdomain === 'rescheduler-dev') {
+  const protocol = process.env.RAZZLE_IS_HTTP ? 'http' : 'https'
+
+  // handle localhost
+  if (!req.subdomain) {
     // default to vancouver for now
     req.subdomain = 'vancouver'
   }
 
+  /* 
+  If no sub-domain is found
+  force redirect to vancouver sub-domain on staging and prod
+  note: this is temporary to handle existing vancouver traffic / links
+  */
+
+  if (forceRedirect(req)) {
+    return res.redirect(`https://vancouver.${process.env.RAZZLE_SITE_URL}`)
+  }
+
+  /* If domain isn't on the whitelist and we're not on the not-found or 500 page */
   if (
     !domainOptions.whitelist.includes(req.subdomain) &&
-    req.url.indexOf('not-found') === -1
+    notPageMatch(req.path, 'not-found') &&
+    notPageMatch(req.path, '500')
   ) {
-    // redirect to generic not found page
-    const protocol = process.env.RAZZLE_IS_HTTP ? 'http' : 'https'
     return res.redirect(
       `${protocol}://${process.env.RAZZLE_SITE_URL}/not-found`,
     )
@@ -197,18 +223,6 @@ server
     res.redirect(`/cancel?language=${language}`)
   })
   .get('/*', async (req, res) => {
-    /*
-    let language = getStoreCookie(req.cookies, 'language') || 'en'
-    if (req.url === '/') {
-      /* check if we have a cached version of the homepage
-      let cachedIndex = cache.get(`index_${language}`)
-
-      if (cachedIndex && !res.locals.redirect) {
-        return res.send(cachedIndex)
-      }
-    }
-    */
-
     const customRenderer = node => ({
       gitHashString: gitHash(),
       path: req.url,
@@ -223,12 +237,6 @@ server
         customRenderer,
         document: Document,
       })
-
-      /*
-      if (req.url === '/') {
-        cache.put(`index_${language}`, html)
-      }
-      */
 
       return res.locals.redirect
         ? res.redirect(res.locals.redirect)
