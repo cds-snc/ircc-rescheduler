@@ -4,6 +4,7 @@ import { Trans, withI18n } from '@lingui/react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils, LocaleUtils } from 'react-day-picker'
 import { css } from 'emotion'
+import { NavLink } from 'react-router-dom'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
@@ -328,7 +329,7 @@ const dayBox = css`
 
 const daySelection = css`
   background: ${theme.colour.greyLight};
-  margin-bottom: ${theme.spacing.xl};
+  margin-bottom: ${theme.spacing.md};
   padding: ${theme.spacing.lg} ${theme.spacing.lg} 0 ${theme.spacing.lg};
   width: 20rem;
 
@@ -410,6 +411,19 @@ const calendarContainerTop = css`
   ${mediaQuery.lg(css`
     flex-direction: column-reverse;
   `)};
+`
+
+const datesLink = css`
+  a {
+    margin-left: 3.7rem;
+
+    ${mediaQuery.lg(css`
+      margin-left: 0;
+      margin: 0;
+    `)};
+  }
+
+  margin-bottom: ${theme.spacing.xxl};
 `
 
 const removeDateMessage = css`
@@ -705,31 +719,40 @@ class Calendar extends Component {
             onBlur={() => onBlur(value)}
             containerProps={{ id, tabIndex }}
           />
-          <div className={value.length ? triangle : noDates} />
-          <div className={value.length ? daySelection : noDates}>
-            <h3>
-              {value.length === 3 ? (
-                <Trans>Your 3 selected days:</Trans>
-              ) : value.length === 2 ? (
-                <Trans>Your 2 selected days, select 1 more:</Trans>
-              ) : value.length === 1 ? (
-                <Trans>Your 1 selected day, select 2 more:</Trans>
-              ) : (
-                <Trans>Select 3 days:</Trans>
-              )}
-            </h3>
+          <div>
+            <div style={{ display: 'flex' }}>
+              <div className={value.length ? triangle : noDates} />
+              <div className={value.length ? daySelection : noDates}>
+                <h3>
+                  {value.length === 3 ? (
+                    <Trans>Your 3 selected days:</Trans>
+                  ) : value.length === 2 ? (
+                    <Trans>Your 2 selected days, select 1 more:</Trans>
+                  ) : value.length === 1 ? (
+                    <Trans>Your 1 selected day, select 2 more:</Trans>
+                  ) : (
+                    <Trans>Select 3 days:</Trans>
+                  )}
+                </h3>
 
-            <ul id="selectedDays-list">
-              {renderDayBoxes({
-                dayLimit,
-                errorMessage: this.state.errorMessage,
-                selectedDays: value,
-                removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
-                locale,
-                removeDayAltText:
-                  i18n !== undefined ? i18n._('Remove day') : 'Remove day',
-              })}
-            </ul>
+                <ul id="selectedDays-list">
+                  {renderDayBoxes({
+                    dayLimit,
+                    errorMessage: this.state.errorMessage,
+                    selectedDays: value,
+                    removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
+                    locale,
+                    removeDayAltText:
+                      i18n !== undefined ? i18n._('Remove day') : 'Remove day',
+                  })}
+                </ul>
+              </div>
+            </div>
+            <div className={datesLink}>
+              <NavLink to="/explanation">
+                <Trans>These dates don&rsquo;t work for me</Trans>
+              </NavLink>
+            </div>
           </div>
         </div>
       </div>

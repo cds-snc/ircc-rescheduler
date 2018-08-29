@@ -67,20 +67,23 @@ const contentClass = css`
   }
 `
 
-const explanationErrorStyles = css`
+const beforeErrorStyles = css`
   margin-bottom: 0 !important;
   ${focusRing};
-
-  border: solid 2px red;
-  padding: ${theme.spacing.lg};
-
-  h2 {
-    margin-top: 0 !important;
-  }
 
   > span:not(.empty) {
     margin-bottom: ${theme.spacing.lg};
     font-size: ${theme.font.lg};
+  }
+`
+
+const afterErrorStyles = css`
+  border: solid 2px red;
+  padding: ${theme.spacing.lg};
+  margin-bottom: ${theme.spacing.lg} !important;
+  ${focusRing};
+  h2 {
+    margin-top: 0 !important;
   }
 `
 
@@ -211,7 +214,7 @@ class ExplanationPage extends React.Component {
               >
                 <div
                   id="submit-error"
-                  className={explanationErrorStyles}
+                  className={submitError ? afterErrorStyles : beforeErrorStyles}
                   tabIndex="-1"
                   ref={errorContainer => {
                     this.errorContainer = errorContainer
