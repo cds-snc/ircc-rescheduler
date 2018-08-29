@@ -17,7 +17,7 @@ import {
   cleanDates,
   sendMail,
 } from './email/sendmail'
-import { getGlobalLocation, getReceivingEmail } from '../src/locations'
+import { setGlobalLocation, getReceivingEmail } from '../src/locations'
 import gitHash from './utils/gitHash'
 import Raven from 'raven'
 Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
@@ -110,7 +110,7 @@ const _ensureBody = (req, res, next, cb) => {
 
 const ensureLocation = (req, res, next) => {
   /* If we don't have a location string being passed in, something is wrong */
-  return _ensureBody(req, res, next, () => getGlobalLocation(req.subdomain))
+  return _ensureBody(req, res, next, () => setGlobalLocation(req.subdomain))
 }
 
 const ensureReceivingEmail = (req, res, next) => {
