@@ -101,7 +101,7 @@ const _ensureBody = (req, res, next, cb) => {
   try {
     cb()
   } catch (e) {
-    //Raven.captureException(e)
+    Raven.captureException(e)
     return res.redirect('/500')
   }
 
