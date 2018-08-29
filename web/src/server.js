@@ -93,13 +93,13 @@ const getPrimarySubdomain = function(req, res, next) {
 }
 
 const _ensureBody = (req, res, next, cb) => {
-  if (req.path === '/error') return next()
+  if (req.path === '/500') return next()
 
   try {
     cb()
   } catch (e) {
     Raven.captureException(e)
-    return res.redirect('/error')
+    return res.redirect('/500')
   }
 
   return next()
