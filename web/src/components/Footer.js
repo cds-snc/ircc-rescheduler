@@ -106,11 +106,12 @@ const Footer = ({ topBarBackground, i18n, match = { url: '' } }) => (
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer id="footer" className={footer}>
       <div className={bottomLinks}>
-        {match.url !== '/not-found' && (
-          <a href={`mailto:${getEmail()}`}>
-            <Trans>Contact</Trans>
-          </a>
-        )}
+        {match.url !== '/not-found' &&
+          match.url !== '/500' && (
+            <a href={`mailto:${getEmail()}`}>
+              <Trans>Contact</Trans>
+            </a>
+          )}
         <a href={i18n._('https://www.canada.ca/en/transparency/privacy.html')}>
           <Trans>Privacy</Trans>
         </a>

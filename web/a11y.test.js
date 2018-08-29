@@ -32,6 +32,7 @@ const visit = [
   { url: '/cancel' },
   { url: '/error' },
   { url: '/404' },
+  { url: '/500' },
 ]
 
 async function run() {
