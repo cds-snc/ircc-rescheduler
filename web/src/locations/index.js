@@ -75,7 +75,7 @@ export const getReceivingEmail = (location = getGlobalLocation()) => {
     return process.env.RAZZLE_IRCC_TEST_RECEIVING_ADDRESS
   }
 
-  if (location && location.receivingEmail && !process.env.RAZZLE_STAGE) {
+  if (location && location.receivingEmail) {
     return location.receivingEmail
   }
 
