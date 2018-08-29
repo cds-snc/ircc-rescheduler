@@ -15,10 +15,16 @@ context('Calendar Errors clear when selecting incorrect amount of days', () => {
     cy.get('.DayPicker-Day[aria-disabled=false]').then(el => {
       const count = el.length
       // make sure we're on a month that has 3 selectable days
-      if (count < 3) {
+      if (count < 4) {
         cy.get('.DayPicker-NavButton--next').click({ force: true })
       }
     })
+
+    // submit the form with no dates
+    cy.get('#selectedDays-form').submit({ force: true })
+
+    // trigger the not enough days error
+    cy.get('#submit-error h2').should('contain', 'You must select 3 days.')
 
     // select 2 days
     cy.get('.DayPicker-Day[aria-disabled=false]')
@@ -32,7 +38,7 @@ context('Calendar Errors clear when selecting incorrect amount of days', () => {
     cy.get('#selectedDays-form').submit({ force: true })
 
     // trigger the not enough days error
-    cy.get('#submit-error h2 span').should('contain', 'You must select 3 days.')
+    cy.get('#submit-error h2').should('contain', 'You must select 3 days.')
 
     // try to select some more days
     cy.get('.DayPicker-Day[aria-disabled=false]')
@@ -44,7 +50,7 @@ context('Calendar Errors clear when selecting incorrect amount of days', () => {
       .click({ force: true })
 
     // this should trigger the too many days error
-    cy.get('#selectedDays-error h2 span')
+    cy.get('#selectedDays-error h2')
       .should('be.visible')
       .should('contain', 'You can’t select more than 3 days.')
 

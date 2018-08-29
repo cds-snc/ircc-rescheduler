@@ -2,11 +2,13 @@ import {
   getStartDate,
   getEndDate,
   getStartMonth,
-  toMonth,
   yearMonthDay,
   respondByDate,
   getMonthNameAndYear,
   getInitialMonth,
+  checkLocationDays,
+  getDaysOfWeekForLocation,
+  dateSetFromString,
 } from '../calendarDates'
 
 describe('Utilities functions CalendarDates.js', () => {
@@ -33,11 +35,6 @@ describe('Utilities functions CalendarDates.js', () => {
   it('gets start month', () => {
     const today = new Date('September 05, 2018')
     expect(yearMonthDay(getStartMonth(today))).toEqual('2018-10-01')
-  })
-
-  it('gets to month', () => {
-    const today = new Date('September 05, 2018')
-    expect(toMonth(today)).toEqual('2018-12-05')
   })
 
   it('gets confirmation date', () => {
@@ -83,5 +80,55 @@ describe('Utilities functions CalendarDates.js', () => {
     const selected = new Date('Sunday, November 3, 1957')
     const result = getInitialMonth([selected], today)
     expect(result).toEqual(today)
+  })
+
+  it('gets valid days for location', () => {
+    const location = {
+      recurring: {
+        sep: ['wed', 'thurs', 'fri'],
+        oct: ['tues', 'thurs'],
+        nov: ['mon', 'fri'],
+      },
+    }
+
+    const date2 = checkLocationDays(
+      location,
+      'sep',
+      new Date('Monday, September 3, 2018'),
+    )
+
+    expect(date2.valid).toEqual(false)
+  })
+
+  it('gets days of week for location', () => {
+    const location = {
+      recurring: {
+        sep: ['wed', 'thurs', 'fri'],
+        oct: ['tues', 'thurs'],
+        nov: ['mon', 'fri'],
+      },
+    }
+
+    const result = getDaysOfWeekForLocation(
+      location,
+      new Date('Monday, September 3, 2018'),
+    )
+
+    expect(result).toEqual([4, 5, 6])
+  })
+
+  it('Creates a dateset', () => {
+    const set = dateSetFromString('2018-10-02, 2018-10-03')
+    expect(set.has('2018-10-03')).toEqual(true)
+  })
+
+  it('Handles when no date string is passed in', () => {
+    const set = dateSetFromString()
+    expect(set.has('2018-10-03')).toEqual(false)
+  })
+
+  it('Handles single date string', () => {
+    const set = dateSetFromString('2018-10-03')
+    expect(set.has('2018-10-03')).toEqual(true)
   })
 })

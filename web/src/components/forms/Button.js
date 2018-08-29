@@ -89,9 +89,9 @@ const govuk_button = css`
 const button = css`
   ${govuk_button};
 
-  font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
+  font-family: SourceSans, Helvetica, Arial, sans-serif;
   font-size: ${theme.font.lg};
-  font-weight: 600;
+  font-weight: 700;
   line-height: 2;
   text-align: center;
 

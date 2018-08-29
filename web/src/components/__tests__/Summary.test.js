@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Summary, { SelectedDayList } from '../Summary'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 import Time from '../Time'
 import MemoryRouter from 'react-router-dom/MemoryRouter'
 

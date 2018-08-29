@@ -24,11 +24,11 @@ These options are set in all environments (except during tests).
 
 - `RAZZLE_AWS_SECRET_ACCESS_KEY`: Config option for [Amazon SES](https://aws.amazon.com/ses/). Required on startup.
 
-- `RAZZLE_IRCC_RECEIVING_ADDRESS`: Requests will be sent to this email address. In production, this will be the IRCC office, but it probably makes more sense to put your own email address when running the app locally. Required on startup.
+- `RAZZLE_IRCC_TEST_RECEIVING_ADDRESS`: Local and Staging requests will be sent to this email address. For testing put your own email address when running the app locally. In production, the app will use the recevingAddress in the location file.
 
 - `RAZZLE_SENDING_ADDRESS`: Requests will be marked as sent from this email address. Must be [verified by SES](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html). Required on startup.
 
-- `RAZZLE_SITE_URL`: Used by [`inline-css`](https://www.npmjs.com/package/inline-css) to generate links in emails. Leaving this blank (`' '`) is recommended. Required on startup.
+- `RAZZLE_SITE_URL`: URL to be used for things such as redirects.
 
 - `RAZZLE_STAGE`: Used to introspect where the app is running. One of `production`, `staging`, or `development`.
 
@@ -41,9 +41,9 @@ RAZZLE_PAPER_FILE_NUMBER_PATTERN=[a-zA-Z]{1}
 RAZZLE_AWS_ACCESS_KEY_ID=SOME_ACCESS_ID
 RAZZLE_AWS_REGION=some-region-1
 RAZZLE_AWS_SECRET_ACCESS_KEY=someAccessKey
-RAZZLE_IRCC_RECEIVING_ADDRESS=your.name@example.com
+RAZZLE_IRCC_TEST_RECEIVING_ADDRESS=your.name@example.com
 RAZZLE_SENDING_ADDRESS=justin@canada.ca
-RAZZLE_SITE_URL=' '
+RAZZLE_SITE_URL=rescheduler-dev.cds-snc.ca
 RAZZLE_STAGE='development'
 ```
 
@@ -63,16 +63,15 @@ RAZZLE_COOKIE_HTTP=true
 
 These options are set when running in production mode (`yarn start`), whether locally or on the server.
 
-- `RAZZLE_COOKIE_SECRET`: A secret used to encrypt user data. Must be 32 characters long. If left unset, a default secret will be used (ie, for local development).
-
 - `RAZZLE_GA_ID`: Our Google Analytics ID code. If left unset, the app won’t send pageviews to Google. Not generally needed during local development but can be turned on to test functionality.
 
+- `SENTRY_AUTH_TOKEN`: In order to upload our sourcemaps to sentry, we have to set an auth token. We upload source maps as part of deploys so that we can trace errors back to specific versions. This is not used once the app is running, so it doesn't use the `RAZZLE_` prefix.
 
 ##### sample `web/.env.production` file
 
 ```
-RAZZLE_COOKIE_SECRET='DONE_KEPT_IT_REAL_FROM_THE_JUMP_'
 RAZZLE_GA_ID='UA-111111111-1'
+SENTRY_AUTH_TOKEN='notARealAuthToken'
 ```
 
 ## How to use
@@ -103,3 +102,35 @@ Yes! Now shoot over to [localhost:3004](http://localhost:3004) and try to contai
 yarn test # runs unit tests
 yarn lint # lints codebase
 ```
+
+## Translations
+
+Translations are managed by [jsLingui](https://lingui.js.org/tutorials/react.html)
+
+```
+import { Trans } from '@lingui/react'
+
+const SomeComponent = () => {
+    return <Trans>Your text</Trans>
+}
+
+```
+
+To update the locale files use:
+
+- `yarn extract` (creates new messages.json)
+- make changes to locale/fr/messages.json
+
+```
+"Your text": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/SomeComponent.js",
+        22
+      ]
+    ]
+  },
+```
+
+- `yarn compile`

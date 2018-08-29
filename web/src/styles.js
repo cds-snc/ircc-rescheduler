@@ -5,22 +5,6 @@ import styled, { css } from 'react-emotion'
   amt: is how much you want to darken or lighten, 20 is a good start.
 */
 
-export const fontFace = css`
-  @font-face {
-    font-family: 'sourceBold';
-    src: url(/fonts/SourceSansPro-Bold.woff) format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'sourceRegular';
-    src: url(/fonts/SourceSansPro-Regular.woff) format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-`
-
 export const incrementColor = (col, amt) => {
   let usePound = false
 
@@ -83,10 +67,6 @@ export const theme = {
     xl: '1.44rem',
     xxl: '1.728rem',
     xxxl: '1.602rem',
-  },
-  weight: {
-    b: 'sourceBold, sans serif',
-    r: 'sourceRegular, sans serif',
   },
   spacing: {
     xxs: '0.17rem',
@@ -156,18 +136,15 @@ export const visuallyhiddenMobile = css`
 
 export const H1 = styled.h1`
   font-size: ${theme.font.xxl};
-  font-family: ${theme.weight.b}, Helvetica;
 `
 
 export const H2 = styled.h2`
   font-size: ${theme.font.lg};
-  font-family: ${theme.weight.b}, Helvetica;
   margin-bottom: 0em;
 `
 
 export const H3 = styled.h3`
   font-size: ${theme.font.md};
-  font-family: ${theme.weight.b}, Helvetica;
 `
 
 const contentSpacing = css`
@@ -205,10 +182,6 @@ export const Content = styled.div`
   p {
     font-size: ${theme.font.lg};
   }
-`
-
-export const Bold = styled.strong`
-  font-weight: bold;
 `
 
 export const Calendar = styled.div`

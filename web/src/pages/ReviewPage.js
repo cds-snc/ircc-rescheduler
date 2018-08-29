@@ -2,7 +2,7 @@ import React from 'react'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { css } from 'react-emotion'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 import { NavLink } from 'react-router-dom'
 import { H1, theme, TopContainer } from '../styles'
 import Layout from '../components/Layout'
@@ -81,7 +81,7 @@ class ReviewPage extends React.Component {
             <Trans>Go back</Trans>
           </NavLink>
         </TopContainer>
-        <H1>
+        <H1 id="review-header">
           <Trans>Review your request:</Trans>
         </H1>
 

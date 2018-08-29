@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { PageHeaderBase as PageHeader } from '../PageHeader'
-import { i18n } from 'lingui-i18n/dist'
+import { i18n } from '@lingui/core'
 
 describe('<PageHeader />', () => {
   it('renders', () => {

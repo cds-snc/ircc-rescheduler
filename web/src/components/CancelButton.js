@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from 'react-emotion'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 import { theme } from '../styles'
 
 const cancelStyles = css`

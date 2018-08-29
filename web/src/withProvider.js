@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 import Cookies from 'js-cookie'
 import { setStoreCookie, getStoreCookie, setSSRCookie } from './cookies'
 import { contextDefault, Context } from './context'
-import { I18nProvider } from 'lingui-react'
-import { catalogs, linguiDev } from './utils/linguiUtils'
+import { I18nProvider } from '@lingui/react'
+import { catalogs } from './utils/linguiUtils'
 import { trimInput } from './utils/cleanInput'
+import { getGlobalLocation } from './locations'
 
 const _whitelist = ({ val, fields }) => {
   /*
@@ -21,6 +22,19 @@ const _whitelist = ({ val, fields }) => {
         [key]: val[key], // eslint-disable-line security/detect-object-injection
       }
     }, {})
+}
+
+export const _isNonEmptyObject = val => {
+  /* make sure passed-in value is a non-empty object */
+  if (
+    val === null ||
+    typeof val !== 'object' ||
+    Array.isArray(val) ||
+    Object.keys(val).length === 0
+  ) {
+    return false
+  }
+  return true
 }
 
 function withProvider(WrappedComponent) {
@@ -61,6 +75,7 @@ function withProvider(WrappedComponent) {
         context: {
           store: initStore,
           setStore: contextDefault.setStore,
+          locationString: req.subdomain,
         },
       }
     }
@@ -105,12 +120,26 @@ function withProvider(WrappedComponent) {
     render() {
       // don't pass in the context as props -- we're passing the state instead
       const { context, ...props } = this.props // eslint-disable-line no-unused-vars
+
+      /*
+      context will be available
+      - on the server
+      - on the client (only on the first page that's rendered)
+        - we only need to set this once in each environment
+          (location is cached once it is set),
+          so it's fine to return `undefined` on subsequent client pageloads
+      */
+      const locationString = context ? context.locationString : undefined
+
+      const location = {
+        location: getGlobalLocation(locationString),
+      }
+
       return (
-        <Context.Provider value={this.state.context}>
+        <Context.Provider value={{ ...location, ...this.state.context }}>
           <I18nProvider
             language={this.state.context.store.language}
             catalogs={catalogs}
-            development={linguiDev}
           >
             <WrappedComponent {...props} />
           </I18nProvider>
@@ -151,7 +180,7 @@ function withProvider(WrappedComponent) {
       }
 
       // match.path === "/about" or similar
-      let key = match.path.slice(1)
+      let key = match.path.length > 1 ? match.path.slice(1) : match.path
       return { key, val: query }
     }
 
@@ -198,18 +227,10 @@ function withProvider(WrappedComponent) {
       if (
         fields &&
         fields.length && // there are fields explicitly defined
-        typeof validate === 'function' // there is a validate function passed-in
+        typeof validate === 'function' && // there is a validate function passed-in
+        _isNonEmptyObject(val) && // val is a non-empty object
+        Object.keys(val).some(k => fields.includes(k)) // at least one query param key exists in fields
       ) {
-        // if not a global setting, val must be a non-empty object
-        if (
-          val === null ||
-          typeof val !== 'object' ||
-          Array.isArray(val) ||
-          Object.keys(val).length === 0
-        ) {
-          throw new Error('validate: `val` must be a non-empty object')
-        }
-
         // whitelist query keys so that arbitrary keys aren't saved to the store
         val = _whitelist({ val, fields })
 

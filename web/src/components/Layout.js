@@ -16,7 +16,7 @@ injectGlobal`
     margin: 0;
     background: ${theme.colour.white};
     height: 100%;
-    font-family: ${theme.weight.r}, Helvetica, Arial, sans-serif;
+    font-family: SourceSans, Helvetica, Arial, sans-serif;
     font-size: 18px;
     box-sizing: border-box;
 
@@ -25,8 +25,8 @@ injectGlobal`
     `)};
   }
 
-  strong {
-    font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
+  button {
+    font-family: SourceSans, Helvetica, Arial, sans-serif;
   }
 
   *, *:before, *:after {

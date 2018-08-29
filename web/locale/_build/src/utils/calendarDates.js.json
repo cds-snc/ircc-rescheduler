@@ -1,0 +1,82 @@
+{
+  "Monday": {
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        229
+      ]
+    ]
+  },
+  "Mondays": {
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        229
+      ]
+    ]
+  },
+  "Tuesday": {
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        232
+      ]
+    ]
+  },
+  "Tuesdays": {
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        233
+      ]
+    ]
+  },
+  "Wednesday": {
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        237
+      ]
+    ]
+  },
+  "Wednesdays": {
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        238
+      ]
+    ]
+  },
+  "Thursday": {
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        242
+      ]
+    ]
+  },
+  "Thursdays": {
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        243
+      ]
+    ]
+  },
+  "Friday": {
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        246
+      ]
+    ]
+  },
+  "Fridays": {
+    "origin": [
+      [
+        "src/utils/calendarDates.js",
+        246
+      ]
+    ]
+  }
+}

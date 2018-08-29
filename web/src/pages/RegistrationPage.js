@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 import { css } from 'react-emotion'
 import {
   theme,
@@ -65,7 +65,6 @@ const contentClass = css`
         display: block;
 
         &[id$='-header'] {
-          font-family: ${theme.weight.b}, Helvetica;
           font-size: ${theme.font.lg};
           font-weight: 700;
         }
@@ -138,19 +137,38 @@ class RegistrationPage extends React.Component {
     this.validate = RegistrationPage.validate
     this.fields = RegistrationPage.fields
     this.redirect = RegistrationPage.redirect
+    this.hasNotValid = this.hasNotValid.bind(this)
+    this.generalErrorMessage = this.generalErrorMessage.bind(this)
+    this.form = null
+  }
+
+  generalErrorMessage() {
+    return <Trans>Some information is missing.</Trans>
+  }
+
+  /*
+  Check if the form was redirected from the server
+  */
+
+  hasNotValid() {
+    return this.props.location.search.indexOf('not-valid') !== -1
   }
 
   async onSubmit(values, event) {
     const submitErrors = this.validate(values, true)
 
     if (Object.keys(submitErrors).length) {
-      window.scrollTo(0, this.errorContainer.offsetTop - 20)
+      const generalMessage = this.generalErrorMessage()
+
+      if (windowExists()) {
+        window.scrollTo(0, this.errorContainer.offsetTop - 20)
+      }
       this.errorContainer.focus()
 
       trackRegistrationErrors(submitErrors)
 
       return {
-        [FORM_ERROR]: <Trans>Some information is missing.</Trans>,
+        [FORM_ERROR]: generalMessage,
       }
     }
 
@@ -194,14 +212,24 @@ class RegistrationPage extends React.Component {
           onSubmit={this.onSubmit}
           initialValues={register || {}}
           render={({ handleSubmit, submitError, submitting, values }) => {
+            const notValid = this.hasNotValid()
+            const generalMessage = this.generalErrorMessage()
+
             submitError =
-              Object.keys(errorsNoJS).length && !submitError ? (
-                <Trans>Some information is missing.</Trans>
-              ) : (
-                submitError
-              )
+              Object.keys(errorsNoJS).length && !submitError
+                ? generalMessage
+                : submitError
             return (
-              <form id="register-form" onSubmit={handleSubmit}>
+              <form
+                id="register-form"
+                ref={el => {
+                  if (!this.form && notValid) {
+                    this.form = el
+                    el.dispatchEvent(new Event('submit')) // eslint-disable-line no-undef
+                  }
+                }}
+                onSubmit={handleSubmit}
+              >
                 <div
                   id="submit-error"
                   className={forNowSubmitErrorStyles}
@@ -395,7 +423,12 @@ class RegistrationPage extends React.Component {
                Button is disabled if form has been submitted (and is waiting)
               */}
                 <BottomContainer>
-                  <Button disabled={submitting}>
+                  <Button
+                    onClick={() => {
+                      this.setState({ submitClicked: true })
+                    }}
+                    disabled={submitting}
+                  >
                     <Trans>Continue</Trans>
                   </Button>
 

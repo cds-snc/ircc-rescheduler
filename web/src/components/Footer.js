@@ -1,11 +1,12 @@
 import React from 'react'
-import withContext from '../withContext'
-import { contextPropTypes } from '../context'
 import PropTypes from 'prop-types'
-import { Trans, withI18n } from 'lingui-react'
+import { Trans, withI18n } from '@lingui/react'
 import CanadaWordmark from '../assets/CanadaWordmark.svg'
 import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
+import { getEmail } from '../locations'
+import Language from './Language'
+import { withRouter } from 'react-router'
 
 const footer = css`
   background-color: ${theme.colour.white};
@@ -100,47 +101,54 @@ const TopBar = styled.hr(
   props => ({ background: props.background }),
 )
 
-const Footer = ({ topBarBackground, i18n, context = {} }) => (
+const Footer = ({ topBarBackground, i18n, match = { url: '' } }) => (
   <div>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
-    <footer className={footer}>
+    <footer id="footer" className={footer}>
       <div className={bottomLinks}>
-        <a href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca">
-          <Trans>Contact</Trans>
-        </a>
+        {match.url !== '/not-found' && (
+          <a href={`mailto:${getEmail()}`}>
+            <Trans>Contact</Trans>
+          </a>
+        )}
         <a href={i18n._('https://www.canada.ca/en/transparency/privacy.html')}>
           <Trans>Privacy</Trans>
         </a>
         <a href={i18n._('https://digital.canada.ca/legal/terms/')}>
           <Trans>Terms</Trans>
-          {context.store &&
-          context.store.language &&
-          context.store.language === 'fr' ? (
-            ''
-          ) : (
-            <span className={visuallyhiddenMobile}> and Conditions</span>
-          )}
+          <Language
+            render={language =>
+              language === 'fr' ? null : (
+                <span className={visuallyhiddenMobile}> and Conditions</span>
+              )
+            }
+          />
         </a>
       </div>
 
       <div className="svg-container">
-        <img
-          src={CanadaWordmark}
-          alt={
-            context.store.language === 'en'
-              ? 'Symbol of the Government of Canada'
-              : 'Symbole du gouvernement du Canada'
-          }
+        <Language
+          render={language => (
+            <img
+              src={CanadaWordmark}
+              alt={
+                language === 'en'
+                  ? 'Symbol of the Government of Canada'
+                  : 'Symbole du gouvernement du Canada'
+              }
+            />
+          )}
         />
       </div>
     </footer>
   </div>
 )
 Footer.propTypes = {
-  ...contextPropTypes,
   topBarBackground: PropTypes.string,
+  i18n: PropTypes.object,
+  match: PropTypes.object,
 }
 
-const FooterContext = withContext(withI18n()(Footer))
+const FooterI18n = withI18n()(withRouter(Footer))
 
-export { FooterContext as default, Footer as FooterBase }
+export { FooterI18n as default, Footer as FooterBase }

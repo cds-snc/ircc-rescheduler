@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'emotion'
 import { theme, mediaQuery } from '../styles'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
+import { getEmail, getEmailParts, getPhone } from '../locations'
 
 const telStyles = css`
   > span {
@@ -62,20 +63,17 @@ const Contact = ({ children, phoneFirst = false }) => (
           <strong>
             <Trans>Email —</Trans>
           </strong>{' '}
-          <a
-            id="email"
-            href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca"
-          >
-            IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC
+          <a id="email" href={`mailto:${getEmail()}`}>
+            {getEmailParts()[0]}
             <wbr />
-            @cic.gc.ca
+            @{getEmailParts()[1]}
           </a>
         </p>
         <p>
           <strong>
             <Trans>Phone —</Trans>
           </strong>{' '}
-          <TelLink tel="1-888-242-2100" />
+          <TelLink tel={getPhone()} />
         </p>
       </React.Fragment>
     ) : (
@@ -84,19 +82,16 @@ const Contact = ({ children, phoneFirst = false }) => (
           <strong>
             <Trans>Phone —</Trans>
           </strong>{' '}
-          <TelLink tel="1-888-242-2100" />
+          <TelLink tel={getPhone()} />
         </p>
         <p>
           <strong>
             <Trans>Email —</Trans>
           </strong>{' '}
-          <a
-            idea="email"
-            href="mailto:IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca"
-          >
-            IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC
+          <a idea="email" href={`mailto:${getEmail()}`}>
+            {getEmailParts()[0]}
             <wbr />
-            @cic.gc.ca
+            @{getEmailParts()[1]}
           </a>
         </p>
       </React.Fragment>

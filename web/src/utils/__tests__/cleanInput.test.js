@@ -1,4 +1,4 @@
-import { trimInput, cleanArray } from '../../utils/cleanInput'
+import { trimInput, cleanArray } from '../cleanInput'
 
 describe('Clean inputs', () => {
   it('handles an object of strings with whitespace at the start', () => {

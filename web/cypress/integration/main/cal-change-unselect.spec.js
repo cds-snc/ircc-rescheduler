@@ -1,4 +1,4 @@
-/* When returning to the calendar that already has 3 selected days, 
+/* When returning to the calendar that already has 3 selected days,
    the calendar does should allow days to be unselected. */
 
 /* See Bug: https://github.com/cds-snc/ircc-rescheduler/pull/318 */
@@ -33,6 +33,11 @@ context('Calendar Dates unselect after review', () => {
     // submit the form
     cy.get('#selectedDays-form').submit({ force: true })
     cy.visit('/calendar')
+
+    cy.get('#removeDateMessage h2').should(
+      'have.text',
+      'To change your selections, remove some days first.',
+    )
 
     cy.get('.DayPicker-Day[aria-disabled=false]')
       .eq(1)

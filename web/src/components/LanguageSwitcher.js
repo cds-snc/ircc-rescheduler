@@ -3,7 +3,7 @@ import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import { Helmet } from 'react-helmet'
 import { css } from 'react-emotion'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 import {
   theme,
   visuallyhidden,
@@ -18,7 +18,6 @@ const button = css`
   display: inline-block;
   font-size: ${theme.font.base};
   color: ${theme.colour.white};
-  font-family: ${theme.weight.r}, Helvetica, Arial, sans-serif;
   padding: 0;
 
   text-decoration: underline;
@@ -60,12 +59,15 @@ class LanguageSwitcher extends React.Component {
   }
 
   render() {
-    let { context: { setStore } = {} } = this.props
+    let {
+      context: { setStore, location: { id: locationId = 'not set' } = {} } = {},
+    } = this.props
 
     return (
       <form>
         <Helmet>
           <html lang={this.state.language} />
+          <meta name="keywords" content={`location=${locationId}`} />
         </Helmet>
         <h2 className={visuallyhidden}>
           <Trans>Language Selection</Trans>
@@ -78,6 +80,7 @@ class LanguageSwitcher extends React.Component {
         />
         <button
           className={button}
+          id="language-toggle"
           onClick={e => {
             e.preventDefault()
             const lang = this.getNewLanguage()

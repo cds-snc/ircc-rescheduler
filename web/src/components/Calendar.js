@@ -1,24 +1,27 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Trans, withI18n } from 'lingui-react'
+import { Trans, withI18n } from '@lingui/react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils, LocaleUtils } from 'react-day-picker'
 import { css } from 'emotion'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
-import MobileCancel from '../assets/mobileCancel.svg'
+import MobileCancel from './MobileCancel'
 import { getDateInfo } from '../utils/linguiUtils'
 import {
   getStartMonth,
-  toMonth,
+  getEndDate,
   getMonthNameAndYear,
   getStartDate,
   getInitialMonth,
   sortSelectedDays,
+  getDisabledDays,
+  getDaysOfWeekForLocation,
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 import { logEvent } from '../utils/analytics'
+import { windowExists } from '../utils/windowExists'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -113,13 +116,9 @@ const dayPickerDefault = css`
     text-align: center;
 
     > div {
-      font-family: ${theme.weight.b}, Helvetica;
+      font-size: 1.15rem;
+      font-weight: 700;
     }
-  }
-
-  .DayPicker-Caption > div {
-    font-size: 1.15rem;
-    font-weight: 500;
   }
 
   .DayPicker-Weekdays {
@@ -142,12 +141,6 @@ const dayPickerDefault = css`
   .DayPicker-Weekday abbr[title] {
     border-bottom: none;
     text-decoration: none;
-  }
-
-  .DayPicker-Weekday:nth-of-type(4),
-  .DayPicker-Weekday:nth-of-type(5) {
-    background: ${theme.colour.white};
-    font-family: ${theme.weight.b}, Helvetica;
   }
 
   .DayPicker-Body {
@@ -185,7 +178,6 @@ const dayPickerDefault = css`
 
     &[aria-disabled='false'] {
       font-weight: 700;
-      font-family: ${theme.weight.b}, Helvetica;
       background: white;
       outline: 0px white solid;
 
@@ -260,11 +252,6 @@ const dayPickerDefault = css`
   }
 `
 
-const dayPicker = css`
-  .DayPicker-Month {
-  }
-`
-
 const noDates = css`
   display: none;
 `
@@ -315,6 +302,7 @@ const dayBox = css`
   .day-box {
     font-size: ${theme.font.md};
     color: ${theme.colour.black};
+    height: 1.3rem;
 
     ${mediaQuery.lg(css`
       color: ${theme.colour.black};
@@ -361,7 +349,6 @@ const daySelection = css`
 
   h3 {
     color: ${theme.colour.black};
-    font-family: ${theme.weight.b}, Helvetica;
     font-size: ${theme.font.md};
     margin-bottom: ${theme.spacing.sm};
   }
@@ -425,11 +412,23 @@ const calendarContainerTop = css`
   `)};
 `
 
+const removeDateMessage = css`
+  margin-bottom: calc(${theme.spacing.lg} + ${theme.spacing.md});
+
+  display: inline-block;
+  h2 {
+    margin-top: 0 !important;
+  }
+  ${focusRing};
+  outline-offset: ${theme.spacing.md};
+`
+
 const renderDayBoxes = ({
   dayLimit,
   selectedDays,
   removeDayOnClickOrKeyPress,
   locale,
+  errorMessage,
   removeDayAltText,
 }) => {
   let dayBoxes = []
@@ -452,7 +451,11 @@ const renderDayBoxes = ({
             )}`}
           >
             <div className={removeDate}>
-              <img src={MobileCancel} alt="" />
+              <MobileCancel
+                circleColour={
+                  errorMessage ? theme.colour.red : theme.colour.blackLight
+                }
+              />
             </div>
           </button>
         </li>
@@ -493,11 +496,19 @@ class Calendar extends Component {
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
     this.state = {
       errorMessage: null,
+      daysOfWeek: false,
+      daysModified: false,
     }
     this.threeDatesArePicked =
       this.props.input.value &&
       Array.isArray(this.props.input.value) &&
       this.props.input.value.length === 3
+  }
+
+  componentDidMount() {
+    if (this.threeDatesArePicked && this.props.input.value.length === 3) {
+      this.removeDateContainer.focus()
+    }
   }
 
   removeDayOnClickOrKeyPress = day => e => {
@@ -530,12 +541,17 @@ class Calendar extends Component {
     if (disabled) {
       return
     }
+
     /* Cast all Dates to 12 noon GMT */
     day = makeGMTDate(day)
 
     let { dayLimit } = this.props
 
     const selectedDays = this.props.input.value || []
+
+    if (selected) {
+      this.setState({ daysModified: true })
+    }
 
     // !selected means that this current day is not marked as 'selected' on the calendar
     if (!selected) {
@@ -550,7 +566,11 @@ class Calendar extends Component {
             </Trans>
           ),
         })
+
         this.errorContainer.focus()
+        if (windowExists()) {
+          window.scrollTo(0, this.errorContainer.offsetTop - 20)
+        }
 
         logEvent('Calendar', 'Select', 'Error: More than 3 days')
 
@@ -590,10 +610,29 @@ class Calendar extends Component {
     const dateInfo = getDateInfo(i18n)
     const locale = i18n !== undefined ? i18n._language : 'en'
     const startMonth = parse(getStartMonth())
-    const endDate = parse(toMonth())
+    const endDate = parse(getEndDate())
     value = value || []
 
     const initialMonth = getInitialMonth(value, startMonth)
+
+    /*
+    We need the highlighted day of the week to be dynamic
+    as the month changes
+    */
+
+    let [dayOfWeek1 = undefined, dayOfWeek2 = undefined] = this.state.daysOfWeek
+      ? this.state.daysOfWeek
+      : getDaysOfWeekForLocation(undefined, initialMonth)
+
+    const weekdayStyles = css`
+      ${dayPickerDefault};
+
+      .DayPicker-Weekday:nth-of-type(${dayOfWeek1}),
+      .DayPicker-Weekday:nth-of-type(${dayOfWeek2}) {
+        background: ${theme.colour.white};
+        font-weight: 700;
+      }
+    `
 
     return (
       <div>
@@ -609,6 +648,23 @@ class Calendar extends Component {
             id="selectedDays-error"
           />
         </div>
+
+        {this.threeDatesArePicked &&
+        this.state.daysModified === false &&
+        !this.state.errorMessage ? (
+          <div
+            tabIndex="-1"
+            className={removeDateMessage}
+            id="removeDateMessage"
+            ref={removeDateContainer => {
+              this.removeDateContainer = removeDateContainer
+            }}
+          >
+            <h2>
+              <Trans>To change your selections, remove some days first</Trans>.
+            </h2>
+          </div>
+        ) : null}
         <div
           className={
             this.threeDatesArePicked ? calendarContainerTop : calendarContainer
@@ -616,7 +672,7 @@ class Calendar extends Component {
         >
           <DayPicker
             className={css`
-              ${dayPickerDefault} ${dayPicker};
+              ${weekdayStyles};
             `}
             localeUtils={{ ...LocaleUtils, formatDay }}
             captionElement={renderMonthName}
@@ -628,14 +684,20 @@ class Calendar extends Component {
             fromMonth={startMonth}
             toMonth={endDate}
             numberOfMonths={1}
+            onMonthChange={month => {
+              this.setState({
+                daysOfWeek: getDaysOfWeekForLocation(undefined, month),
+              })
+
+              this.props.changeMonth(month)
+            }}
             disabledDays={[
               {
                 before: parse(getStartDate(new Date())),
                 after: endDate,
               },
-              {
-                daysOfWeek: [0, 1, 2, 5, 6],
-              },
+
+              ...getDisabledDays(),
             ]}
             onDayClick={this.handleDayClick}
             selectedDays={value}
@@ -660,6 +722,7 @@ class Calendar extends Component {
             <ul id="selectedDays-list">
               {renderDayBoxes({
                 dayLimit,
+                errorMessage: this.state.errorMessage,
                 selectedDays: value,
                 removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
                 locale,
@@ -676,6 +739,7 @@ class Calendar extends Component {
 
 Calendar.defaultProps = {
   forceRender: () => {}, //used to for a parent re-render after clicking on a day
+  changeMonth: () => {},
 }
 
 Calendar.propTypes = {

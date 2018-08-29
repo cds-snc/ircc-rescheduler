@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        82
+        97
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        87
+        102
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        89
+        104
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        91
+        106
       ]
     ]
   },
@@ -35,15 +35,27 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        92
+        107
+      ],
+      [
+        "src/pages/CalendarPage.js",
+        244
       ]
     ]
   },
-  "Citizenship appointments are scheduled on Wednesdays and Thursdays.": {
+  "Citizenship appointments in": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        97
+        113
+      ]
+    ]
+  },
+  "are scheduled on": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        114
       ]
     ]
   },
@@ -51,7 +63,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        115
+        134
       ]
     ]
   },
@@ -59,7 +71,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        234
+        348
       ]
     ]
   },
@@ -67,7 +79,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        242
+        356
       ]
     ]
   },
@@ -75,11 +87,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        284
+        405
       ],
       [
         "src/pages/CalendarPage.js",
-        365
+        497
       ]
     ]
   },
@@ -87,7 +99,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        319
+        440
       ]
     ]
   }

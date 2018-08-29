@@ -2,14 +2,13 @@ import React from 'react'
 import { css } from 'react-emotion'
 import PropTypes from 'prop-types'
 import { theme, mediaQuery } from '../styles'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 
 const badge = css`
   border-radius: 5px;
   height: 1.3rem;
   font-size: ${theme.font.xs};
   color: ${theme.colour.white};
-  font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
   font-weight: 700;
 `
 
@@ -28,8 +27,6 @@ const alpha = css`
 
 const message = css`
   font-size: ${theme.font.xs};
-  font-family: ${theme.weight.r}, Helvetica, Arial, sans-serif;
-  font-weight: 400;
   margin-left: ${theme.spacing.md};
   color: ${theme.colour.white};
 

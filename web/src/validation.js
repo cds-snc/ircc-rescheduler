@@ -1,6 +1,6 @@
 import React from 'react'
 import Validator from 'validatorjs'
-import { Trans } from 'lingui-react'
+import { Trans } from '@lingui/react'
 
 /*--------------------------------------------*
  * Character limits

@@ -1,6 +1,6 @@
 import express from 'express'
 import cookieParser from 'cookie-parser'
-import { SECRET, getStoreCookie } from './cookies'
+import { getStoreCookie } from './cookies'
 import { render } from '@jaredpalmer/after'
 import { renderToString } from 'react-dom/server'
 import routes from './routes'
@@ -10,12 +10,14 @@ import { renderStylesToString } from 'emotion-server'
 import bodyParser from 'body-parser'
 import { CalendarFields, RegistrationFields } from './validation'
 import Validator from 'validatorjs'
+// import cache from 'memory-cache'
 import {
   getMailer,
   getEmailParms,
   cleanDates,
   sendMail,
 } from './email/sendmail'
+import { getGlobalLocation, getReceivingEmail } from '../src/locations'
 import gitHash from './utils/gitHash'
 import Raven from 'raven'
 Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
@@ -55,6 +57,69 @@ const handleMailError = e => {
   }
 }
 
+const gatherFieldErrors = errObj => {
+  const errs = Object.keys(errObj).map(key => {
+    return key
+  })
+  return errs.join(', ')
+}
+
+const captureMessage = (title = '', validate) => {
+  const errStr = gatherFieldErrors(validate.errors.errors)
+  Raven.captureMessage(`${title} = ${errStr}`, {
+    level: 'warning',
+  })
+}
+
+const domainOptions = { whitelist: ['vancouver', 'calgary'] }
+
+const getPrimarySubdomain = function(req, res, next) {
+  req.subdomain = req.subdomains.slice(-1).pop()
+
+  if (!req.subdomain || req.subdomain === 'rescheduler-dev') {
+    // default to vancouver for now
+    req.subdomain = 'vancouver'
+  }
+
+  if (
+    !domainOptions.whitelist.includes(req.subdomain) &&
+    req.url.indexOf('not-found') === -1
+  ) {
+    // redirect to generic not found page
+    return res.redirect(`https://${process.env.RAZZLE_SITE_URL}/not-found`)
+  }
+
+  next()
+}
+
+const ensureLocation = (req, res, next) => {
+  try {
+    /*
+    At this point we should have a location
+     */
+    getGlobalLocation(req.subdomain)
+  } catch (e) {
+    Raven.captureException(e)
+    return res.redirect('/error')
+  }
+
+  next()
+}
+
+const ensureReceivingEmail = (req, res, next) => {
+  /*
+  If we don't have a receivingEmail something
+  isn't configured properly
+  */
+  try {
+    getReceivingEmail()
+    next()
+  } catch (e) {
+    Raven.captureException(e)
+    return res.redirect('/error')
+  }
+}
+
 server
   .use(helmet.frameguard({ action: 'deny' })) //// Sets "X-Frame-Options: DENY".
   .use(helmet.noSniff()) // Sets "X-Content-Type-Options: nosniff".
@@ -62,7 +127,10 @@ server
   .use(helmet.xssFilter()) // Sets "X-XSS-Protection: 1; mode=block".
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || './public'))
-  .use(cookieParser(SECRET))
+  .use(getPrimarySubdomain)
+  .use(ensureLocation)
+  .use(ensureReceivingEmail)
+  .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
   .post('/submit', async (req, res) => {
     let input = Object.assign({}, req.body) // make a new object
@@ -72,10 +140,12 @@ server
     const validateCal = new Validator(input, CalendarFields)
 
     if (!validateReg.passes()) {
+      captureMessage('Register Page', validateReg)
       return res.redirect('/register?not-valid=true')
     }
 
     if (!validateCal.passes()) {
+      captureMessage('Calendar Page', validateCal)
       return res.redirect('/calendar?not-valid=true')
     }
 
@@ -129,6 +199,18 @@ server
     res.redirect(`/cancel?language=${language}`)
   })
   .get('/*', async (req, res) => {
+    /*
+    let language = getStoreCookie(req.cookies, 'language') || 'en'
+    if (req.url === '/') {
+      /* check if we have a cached version of the homepage
+      let cachedIndex = cache.get(`index_${language}`)
+
+      if (cachedIndex && !res.locals.redirect) {
+        return res.send(cachedIndex)
+      }
+    }
+    */
+
     const customRenderer = node => ({
       gitHashString: gitHash(),
       path: req.url,
@@ -143,6 +225,12 @@ server
         customRenderer,
         document: Document,
       })
+
+      /*
+      if (req.url === '/') {
+        cache.put(`index_${language}`, html)
+      }
+      */
 
       return res.locals.redirect
         ? res.redirect(res.locals.redirect)

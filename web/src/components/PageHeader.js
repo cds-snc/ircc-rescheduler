@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
-import { Trans, withI18n } from 'lingui-react'
+import { Trans, withI18n } from '@lingui/react'
 import PhaseBanner from './PhaseBanner'
 
 const bigBanner = css`
@@ -33,8 +33,6 @@ const skinnyBanner = css`
 
 const pageTitle = css`
   font-size: ${theme.font.xxl};
-  font-family: ${theme.weight.b}, Helvetica, Arial, sans-serif;
-  font-weight: 700;
 
   ${mediaQuery.sm(css`
     font-size: ${theme.font.lg};
@@ -53,7 +51,8 @@ const PageHeader = ({ children, i18n }) => (
         rel="noopener noreferrer"
       >
         <Trans>sending your feedback</Trans>
-      </a>.
+      </a>
+      .
     </PhaseBanner>
     {children ? <div className={pageTitle}>{children}</div> : ''}
   </div>

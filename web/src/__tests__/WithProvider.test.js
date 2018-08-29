@@ -1,4 +1,4 @@
-import withProvider from '../withProvider'
+import withProvider, { _isNonEmptyObject } from '../withProvider'
 
 class FakeComponentEmpty {
   constructor() {}
@@ -35,6 +35,39 @@ class FakeComponentWithFieldsAndValidate {
   constructor() {}
 }
 
+class FakeComponentWithMultipleFieldsAndValidate {
+  static get fields() {
+    return ['field1', 'field2']
+  }
+  static validate(values) {
+    let errors = {}
+    if (values.field1 !== 'value1') {
+      errors.field1 = true
+    }
+    if (values.field2 !== 'value2') {
+      errors.field2 = true
+    }
+    return errors
+  }
+  constructor() {}
+}
+
+describe('_isNonEmptyObject', () => {
+  let invalidVals = [0, false, {}, ['value'], null, '', 'value']
+  invalidVals.map(v => {
+    it(`returns false for non-empty object value: ${JSON.stringify(v)}`, () => {
+      expect(_isNonEmptyObject(v)).toEqual(false)
+    })
+  })
+
+  let validVals = [{ a: 'b' }, { a: '' }, { a: null }]
+  validVals.map(v => {
+    it(`returns true for non-empty object value: ${JSON.stringify(v)}`, () => {
+      expect(_isNonEmptyObject(v)).toEqual(true)
+    })
+  })
+})
+
 describe('WithProvider', () => {
   describe('.globalFields and .validate()', () => {
     const WithProvider = withProvider(FakeComponentEmpty)
@@ -55,6 +88,12 @@ describe('WithProvider', () => {
     it('returns errors for some other value in its validation method', () => {
       let errors
       errors = WithProvider.validate({ language: 'portuguese' })
+      expect(errors).toEqual({ language: true })
+    })
+
+    it('returns errors for an empty language value', () => {
+      let errors
+      errors = WithProvider.validate({ language: '' })
       expect(errors).toEqual({ language: true })
     })
   })
@@ -105,6 +144,16 @@ describe('WithProvider', () => {
         match,
       )
       expect(key).toBe('about')
+      expect(val).toEqual({ field: 'value' })
+    })
+
+    it('path key remains "/" when root path and no global key exists ', () => {
+      // other fields will be ignored
+      let { key, val } = WithProvider.returnKeyAndValue(
+        { field: 'value' },
+        { path: '/' },
+      )
+      expect(key).toBe('/')
       expect(val).toEqual({ field: 'value' })
     })
   })
@@ -301,10 +350,10 @@ describe('WithProvider', () => {
 
       let invalidVals = [0, false, {}, ['value'], null, '', 'value']
       invalidVals.map(v => {
-        it(`throws error for regular field with a non-empty object value: ${v}`, () => {
-          expect(() => {
-            WithProvider.validateCookie('page', v)
-          }).toThrowError(/^validate: `val` must be a non-empty object$/)
+        it(`returns false for regular field with a non-empty object value: ${JSON.stringify(
+          v,
+        )}`, () => {
+          expect(WithProvider.validateCookie('page', v)).toBe(false)
         })
       })
 
@@ -323,6 +372,14 @@ describe('WithProvider', () => {
         expect(result).toEqual({ field: '' })
       })
 
+      it('returns false when no keys are valid', () => {
+        let result = WithProvider.validateCookie('page', {
+          field2: 'value2',
+          field3: 'value3',
+        })
+        expect(result).toEqual(false)
+      })
+
       it('does not mutate original object', () => {
         // original object has too many keys
         let val1 = { field: 'value', field2: 'value2' }
@@ -337,6 +394,85 @@ describe('WithProvider', () => {
         expect(result2).toEqual({ field: '' })
         // check that the original value is still there
         expect(val2).toEqual({ field: 'wrong value' })
+      })
+    })
+
+    describe('WrappedComponent has multiple `fields` and `validate`', () => {
+      const WithProvider = withProvider(
+        FakeComponentWithMultipleFieldsAndValidate,
+      )
+      it('returns original object when validation passes', () => {
+        let result = WithProvider.validateCookie('page', {
+          field1: 'value1',
+          field2: 'value2',
+        })
+        expect(result).toEqual({
+          field1: 'value1',
+          field2: 'value2',
+        })
+      })
+      let vals = [
+        // only one valid key is passed in
+        {
+          val: { field1: 'value1' },
+          res: { field1: 'value1', field2: '' },
+        },
+        // only one invalid key is passed in
+        {
+          val: { field1: 'wrong value' },
+          res: { field1: '', field2: '' },
+        },
+        // two keys are passed in, one invalid
+        {
+          val: { field1: 'wrong value', field2: 'value2' },
+          res: { field1: '', field2: 'value2' },
+        },
+        // two keys are passed in, both invalid
+        {
+          val: { field1: 'wrong value', field2: 'wrong value 2' },
+          res: { field1: '', field2: '' },
+        },
+        // two keys are passed in, both empty
+        {
+          val: { field1: '', field2: '' },
+          res: { field1: '', field2: '' },
+        },
+        // two keys are passed in, both valid, plus an extra key
+        {
+          val: { field1: 'value1', field2: 'value2', badKey: 'wrong value' },
+          res: { field1: 'value1', field2: 'value2' },
+        },
+        // two keys are passed in, one valid, plus an extra key
+        {
+          val: {
+            field1: 'value1',
+            field2: 'wrong value',
+            badKey: 'wrong value 2',
+          },
+          res: { field1: 'value1', field2: '' },
+        },
+        // two keys are passed in, both invalid, plus an extra key
+        {
+          val: {
+            field1: 'wrong value',
+            field2: 'wrong value 2',
+            badKey: 'wrong value 3',
+          },
+          res: { field1: '', field2: '' },
+        },
+        // no valid keys are passed in
+        {
+          val: {
+            badKey: 'wrong value',
+          },
+          res: false,
+        },
+      ]
+      vals.map(({ val, res }) => {
+        it(`val: ${JSON.stringify(val)}, res: ${JSON.stringify(res)}`, () => {
+          let result = WithProvider.validateCookie('page', val)
+          expect(result).toEqual(res)
+        })
       })
     })
   })
