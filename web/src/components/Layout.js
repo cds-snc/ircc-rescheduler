@@ -116,11 +116,15 @@ class Layout extends React.Component {
   }
 }
 
+Layout.defaultProps = {
+  contact: true,
+}
+
 Layout.propTypes = {
   children: PropTypes.any.isRequired,
   contentClass: PropTypes.string,
   header: PropTypes.element,
-  contact: PropTypes.boolean,
+  contact: PropTypes.any,
 }
 
 export default Layout

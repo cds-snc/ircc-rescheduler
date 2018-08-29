@@ -142,10 +142,15 @@ const Footer = ({ contact, topBarBackground, i18n }) => (
     </footer>
   </div>
 )
+
+Footer.defaultProps = {
+  contact: true,
+}
+
 Footer.propTypes = {
   topBarBackground: PropTypes.string,
   i18n: PropTypes.object,
-  contact: PropTypes.boolean,
+  contact: PropTypes.bool,
 }
 
 const FooterI18n = withI18n()(Footer)
