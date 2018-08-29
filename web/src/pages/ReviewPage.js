@@ -105,11 +105,18 @@ class ReviewPage extends React.Component {
             availabilityExplanation={explanationPage}
           />
           <Reminder>
-            <Trans>
-              Sending this request will cancel your current appointment.
-              <strong> Do not attend your old appointment</strong> after you
-              send this request.
-            </Trans>
+            {explanationPage ? (
+              <Trans>
+                You should plan to attend your existing appointment until we
+                contact you. This may take 1 week.
+              </Trans>
+            ) : (
+              <Trans>
+                Sending this request will cancel your current appointment.
+                <strong> Do not attend your old appointment</strong> after you
+                send this request.
+              </Trans>
+            )}
           </Reminder>
           <SubmissionForm
             fullName={fullName}

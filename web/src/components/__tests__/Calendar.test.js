@@ -7,6 +7,7 @@ import {
   getStartDate,
   getEnabledDays,
 } from '../../utils/calendarDates'
+import MemoryRouter from 'react-router-dom/MemoryRouter'
 
 import parse from 'date-fns/parse'
 import addMonths from 'date-fns/add_months'
@@ -113,13 +114,21 @@ describe('<CalendarAdapter />', () => {
   })
 
   it('renders current month', () => {
-    const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
+    const wrapper = mount(
+      <MemoryRouter>
+        <CalendarAdapter {...defaultProps()} />
+      </MemoryRouter>,
+    )
     const monthYear = getMonthNameAndYear(getStartMonth(new Date()), 'en')
     expect(wrapper.text()).toMatch(monthYear)
   })
 
   it('renders next month', () => {
-    const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
+    const wrapper = mount(
+      <MemoryRouter>
+        <CalendarAdapter {...defaultProps()} />
+      </MemoryRouter>,
+    )
     wrapper.find('.DayPicker-NavButton--next').simulate('click')
 
     const currentMonthYear = getMonthNameAndYear(
@@ -136,7 +145,9 @@ describe('<CalendarAdapter />', () => {
 
   it('will prefill a date if an initial value is provided', () => {
     const wrapper = mount(
-      <CalendarAdapter {...defaultProps({ value: [new Date(days[0])] })} />,
+      <MemoryRouter>
+        <CalendarAdapter {...defaultProps({ value: [new Date(days[0])] })} />
+      </MemoryRouter>,
     )
 
     expect(getDateStrings(wrapper)).toEqual(dayMonthYear(days[0]))
@@ -144,11 +155,13 @@ describe('<CalendarAdapter />', () => {
 
   it('will prefill multiple dates if multiple initial values are provided', () => {
     const wrapper = mount(
-      <CalendarAdapter
-        {...defaultProps({
-          value: [new Date(days[0]), new Date(days[1])],
-        })}
-      />,
+      <MemoryRouter>
+        <CalendarAdapter
+          {...defaultProps({
+            value: [new Date(days[0]), new Date(days[1])],
+          })}
+        />
+      </MemoryRouter>,
     )
 
     const day1 = dayMonthYear(days[0])
@@ -163,11 +176,13 @@ describe('<CalendarAdapter />', () => {
     const day2 = dayMonthYear(days[1])
 
     const wrapper = mount(
-      <CalendarAdapter
-        {...defaultProps({
-          value: [new Date(days[1])],
-        })}
-      />,
+      <MemoryRouter>
+        <CalendarAdapter
+          {...defaultProps({
+            value: [new Date(days[1])],
+          })}
+        />
+      </MemoryRouter>,
     )
 
     expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
@@ -182,11 +197,13 @@ describe('<CalendarAdapter />', () => {
     const day3 = dayMonthYear(days[2])
 
     const wrapper = mount(
-      <CalendarAdapter
-        {...defaultProps({
-          value: [new Date(days[0])],
-        })}
-      />,
+      <MemoryRouter>
+        <CalendarAdapter
+          {...defaultProps({
+            value: [new Date(days[0])],
+          })}
+        />
+      </MemoryRouter>,
     )
 
     expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
@@ -211,11 +228,13 @@ describe('<CalendarAdapter />', () => {
     const day3 = dayMonthYear(days[2])
 
     const wrapper = mount(
-      <CalendarAdapter
-        {...defaultProps({
-          value: [new Date(days[0])],
-        })}
-      />,
+      <MemoryRouter>
+        <CalendarAdapter
+          {...defaultProps({
+            value: [new Date(days[0])],
+          })}
+        />
+      </MemoryRouter>,
     )
 
     expect(wrapper.find('#selectedDays-list .empty.day-box').length).toBe(2)
@@ -237,7 +256,11 @@ describe('<CalendarAdapter />', () => {
   })
 
   it('unselects a date when it is clicked twice', () => {
-    const wrapper = mount(<CalendarAdapter {...defaultProps()} />)
+    const wrapper = mount(
+      <MemoryRouter>
+        <CalendarAdapter {...defaultProps()} />
+      </MemoryRouter>,
+    )
 
     expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
 
@@ -251,9 +274,11 @@ describe('<CalendarAdapter />', () => {
     const day2 = dayMonthYear(days[1])
 
     const wrapper = mount(
-      <CalendarAdapter
-        {...defaultProps({ value: [new Date(days[1])], dayLimit: 1 })}
-      />,
+      <MemoryRouter>
+        <CalendarAdapter
+          {...defaultProps({ value: [new Date(days[1])], dayLimit: 1 })}
+        />
+      </MemoryRouter>,
     )
 
     expect(getDateStrings(wrapper)).toEqual(day2)
@@ -269,12 +294,14 @@ describe('<CalendarAdapter />', () => {
     const day2 = dayMonthYear(days[1])
 
     const wrapper = mount(
-      <CalendarAdapter
-        {...defaultProps({
-          value: [new Date(days[1])],
-          dayLimit: 1,
-        })}
-      />,
+      <MemoryRouter>
+        <CalendarAdapter
+          {...defaultProps({
+            value: [new Date(days[1])],
+            dayLimit: 1,
+          })}
+        />
+      </MemoryRouter>,
     )
     clickFirstDate(wrapper)
     expect(getDateStrings(wrapper)).toEqual(day2)
@@ -296,12 +323,14 @@ describe('<CalendarAdapter />', () => {
     const day2 = dayMonthYear(days[1])
 
     const wrapper = mount(
-      <CalendarAdapter
-        {...defaultProps({
-          value: [new Date(days[1])],
-          dayLimit: 1,
-        })}
-      />,
+      <MemoryRouter>
+        <CalendarAdapter
+          {...defaultProps({
+            value: [new Date(days[1])],
+            dayLimit: 1,
+          })}
+        />
+      </MemoryRouter>,
     )
 
     expect(getDateStrings(wrapper)).toEqual(day2)
@@ -320,11 +349,13 @@ describe('<CalendarAdapter />', () => {
     const day3 = dayMonthYear(days[2])
 
     const wrapper = mount(
-      <CalendarAdapter
-        {...defaultProps({
-          value: [new Date(days[1]), new Date(days[2])],
-        })}
-      />,
+      <MemoryRouter>
+        <CalendarAdapter
+          {...defaultProps({
+            value: [new Date(days[1]), new Date(days[2])],
+          })}
+        />
+      </MemoryRouter>,
     )
 
     expect(getDateStrings(wrapper)).toEqual(`${day2} ${day3}`)
@@ -338,11 +369,13 @@ describe('<CalendarAdapter />', () => {
     const day2 = dayMonthYear(days[1])
 
     const wrapper = mount(
-      <CalendarAdapter
-        {...defaultProps({
-          value: [new Date(days[1]), new Date(days[0])],
-        })}
-      />,
+      <MemoryRouter>
+        <CalendarAdapter
+          {...defaultProps({
+            value: [new Date(days[1]), new Date(days[0])],
+          })}
+        />
+      </MemoryRouter>,
     )
     expect(getDateStrings(wrapper)).toEqual(`${day1} ${day2}`)
 
@@ -371,11 +404,13 @@ describe('<CalendarAdapter />', () => {
 
     it(`will remove a date when its "Remove date" button is triggered by a ${toString}`, () => {
       const wrapper = mount(
-        <CalendarAdapter
-          {...defaultProps({
-            value: [new Date(days[1])],
-          })}
-        />,
+        <MemoryRouter>
+          <CalendarAdapter
+            {...defaultProps({
+              value: [new Date(days[1])],
+            })}
+          />
+        </MemoryRouter>,
       )
       expect(wrapper.find('#selectedDays .day-box').every('.empty')).toBe(true)
 
@@ -451,11 +486,13 @@ describe('renderDayBoxes', () => {
     const day2 = dayMonthYear(days[1])
 
     const wrapper = mount(
-      <CalendarAdapter
-        {...defaultProps({
-          value: [new Date(days[1]), new Date(days[0])],
-        })}
-      />,
+      <MemoryRouter>
+        <CalendarAdapter
+          {...defaultProps({
+            value: [new Date(days[1]), new Date(days[0])],
+          })}
+        />
+      </MemoryRouter>,
     )
 
     // Oct 2nd, 3 + 10th should be blocked

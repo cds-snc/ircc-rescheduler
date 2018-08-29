@@ -88,7 +88,7 @@ errorMessages.explanationMaxErrorMessage = (
 
 errorMessages.explanationPageErrorMessage = (
   <Trans>
-    Please tell us a bit more about why the provided dates don’t work for you.
+    Please tell us why you aren’t available on any of the upcoming days.
   </Trans>
 )
 
