@@ -95,32 +95,27 @@ const getPrimarySubdomain = function(req, res, next) {
   next()
 }
 
-const ensureLocation = (req, res, next) => {
+const _ensureBody = (req, res, next, cb) => {
+  if (req.path === '/500') return next()
+
   try {
-    /*
-    At this point we should have a location
-     */
-    getGlobalLocation(req.subdomain)
+    cb()
   } catch (e) {
     Raven.captureException(e)
-    return res.redirect('/error')
+    return res.redirect('/500')
   }
 
-  next()
+  return next()
+}
+
+const ensureLocation = (req, res, next) => {
+  /* If we don't have a location string being passed in, something is wrong */
+  return _ensureBody(req, res, next, () => getGlobalLocation(req.subdomain))
 }
 
 const ensureReceivingEmail = (req, res, next) => {
-  /*
-  If we don't have a receivingEmail something
-  isn't configured properly
-  */
-  try {
-    getReceivingEmail()
-    next()
-  } catch (e) {
-    Raven.captureException(e)
-    return res.redirect('/error')
-  }
+  /* If we don't have a receiving email, something isn't configured properly */
+  return _ensureBody(req, res, next, getReceivingEmail)
 }
 
 server
