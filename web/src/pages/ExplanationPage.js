@@ -67,10 +67,16 @@ const contentClass = css`
   }
 `
 
-const forNowSubmitErrorStyles = css`
+const explanationErrorStyles = css`
   margin-bottom: 0 !important;
-
   ${focusRing};
+
+  border: solid 2px red;
+  padding: ${theme.spacing.lg};
+
+  h2 {
+    margin-top: 0 !important;
+  }
 
   > span:not(.empty) {
     margin-bottom: ${theme.spacing.lg};
@@ -133,6 +139,10 @@ class ExplanationPage extends React.Component {
 
   async onSubmit(values, event) {
     const submitErrors = this.validate(values, true)
+    if (windowExists()) {
+      window.scrollTo(0, this.errorContainer.offsetTop - 20)
+    }
+    this.errorContainer.focus()
 
     if (Object.keys(submitErrors).length) {
       const generalMessage = this.generalErrorMessage()
@@ -151,7 +161,6 @@ class ExplanationPage extends React.Component {
   render() {
     let { context: { store: { explanation = {} } = {} } = {} } = this.props
     let errorsNoJS = {}
-
     // only run this if there's a location.search
     // AND at least one of our fields exists in the url keys somewhere
     // so we know for sure they pressed "submit" on this page
@@ -202,12 +211,15 @@ class ExplanationPage extends React.Component {
               >
                 <div
                   id="submit-error"
-                  className={forNowSubmitErrorStyles}
+                  className={explanationErrorStyles}
                   tabIndex="-1"
                   ref={errorContainer => {
                     this.errorContainer = errorContainer
                   }}
-                />
+                >
+                  <h2>{submitError}</h2>
+                </div>
+
                 <div>
                   <Field
                     name="explanationPage"
