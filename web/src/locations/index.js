@@ -27,9 +27,7 @@ const LocationCache = (function() {
         if (process.env.NODE_ENV === 'test') {
           location = 'vancouver'
         } else {
-          throw new Error(
-            'LocationCache.getLocation: `location` must be a non-empty string',
-          )
+          location = 'undefined'
         }
       }
       _setLocation(location)
@@ -45,6 +43,14 @@ const LocationCache = (function() {
 
 export const getGlobalLocation = subdomain => {
   return LocationCache.getLocation(subdomain)
+}
+
+export const setGlobalLocation = subdomain => {
+  if (!subdomain) {
+    throw new Error('setGlobalLocation: `subdomain` must be a non-empty string')
+  }
+
+  return getGlobalLocation(subdomain)
 }
 
 export const getEmail = (location = getGlobalLocation()) => {
