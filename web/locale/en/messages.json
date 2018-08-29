@@ -8,7 +8,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        135
+        129
       ]
     ]
   },
@@ -331,7 +331,7 @@
       ],
       [
         "src/pages/FourOhFourPage.js",
-        37
+        39
       ]
     ]
   },
@@ -505,7 +505,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        133
+        127
       ]
     ]
   },
@@ -581,7 +581,7 @@
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
-        22
+        24
       ]
     ]
   },
@@ -705,7 +705,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        113
+        114
       ]
     ]
   },
@@ -767,7 +767,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        99
+        93
       ]
     ]
   },
@@ -794,7 +794,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        152
+        153
       ]
     ]
   },
@@ -803,7 +803,7 @@
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
-        28
+        30
       ]
     ]
   },
@@ -816,7 +816,7 @@
       ],
       [
         "src/pages/CalendarPage.js",
-        497
+        495
       ]
     ]
   },
@@ -910,6 +910,15 @@
       ]
     ]
   },
+  "Server Error.": {
+    "translation": "Server Error.",
+    "origin": [
+      [
+        "src/pages/FiveHundredPage.js",
+        20
+      ]
+    ]
+  },
   "Some information is missing.": {
     "translation": "",
     "origin": [
@@ -934,6 +943,10 @@
       [
         "src/pages/ErrorPage.js",
         29
+      ],
+      [
+        "src/pages/FiveHundredPage.js",
+        23
       ]
     ]
   },
@@ -951,7 +964,7 @@
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
-        25
+        27
       ]
     ]
   },
@@ -969,7 +982,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        160
+        161
       ]
     ]
   },
@@ -1005,7 +1018,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        106
+        100
       ]
     ]
   },
@@ -1014,7 +1027,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        116
+        117
       ]
     ]
   },
@@ -1032,7 +1045,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        144
+        145
       ]
     ]
   },
@@ -1117,7 +1130,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        124
+        118
       ]
     ]
   },
@@ -1312,7 +1325,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        113
+        107
       ]
     ]
   },
@@ -1357,7 +1370,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        118
+        112
       ]
     ]
   },
@@ -1392,7 +1405,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        138
+        135
       ]
     ]
   },
@@ -1419,7 +1432,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        115
+        116
       ]
     ]
   },
@@ -1437,7 +1450,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        112
+        113
       ]
     ]
   },
@@ -1495,7 +1508,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        137
+        131
       ]
     ]
   }
