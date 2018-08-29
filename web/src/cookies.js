@@ -6,7 +6,7 @@ export const setStoreCookie = (setCookieFunc, cookie, options = {}) => {
 
   let defaults = {
     secure:
-      !process.env.RAZZLE_COOKIE_HTTP && process.env.NODE_ENV === 'production',
+      !process.env.RAZZLE_IS_HTTP && process.env.NODE_ENV === 'production',
     expires:
       process.env.NODE_ENV === 'production' ? inOneDay() : inTenMinutes(),
   }
