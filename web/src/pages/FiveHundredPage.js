@@ -14,7 +14,7 @@ const contentClass = css`
 class FiveHundredPage extends React.Component {
   render() {
     return (
-      <Layout contentClass={contentClass}>
+      <Layout contentClass={contentClass} contact={false}>
         <Title path={this.props.match.path} />
         <H1>
           <Trans>Server Error.</Trans>

@@ -15,8 +15,10 @@ const contentClass = css`
 
 class FourOhFourPage extends React.Component {
   render() {
+    const { match } = this.props
+    const showContact = !(match.url === '/not-found')
     return (
-      <Layout contentClass={contentClass}>
+      <Layout contentClass={contentClass} contact={showContact}>
         <Title path={this.props.match.path} />
         <H1>
           <Trans>Page not found.</Trans>
@@ -31,7 +33,7 @@ class FourOhFourPage extends React.Component {
           If the page name is not-found use the page as a generic 
           not found page i.e. no location
         */}
-        {this.props.match.url !== '/not-found' && (
+        {showContact && (
           <NavLink className="chevron-link" to="/">
             <Chevron dir="left" />
             <Trans>Home</Trans>

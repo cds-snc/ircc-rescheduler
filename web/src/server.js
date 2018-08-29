@@ -114,22 +114,8 @@ const ensureLocation = (req, res, next) => {
 }
 
 const ensureReceivingEmail = (req, res, next) => {
-<<<<<<< HEAD
   /* If we don't have a receiving email, something isn't configured properly */
   return _ensureBody(req, res, next, getReceivingEmail)
-=======
-  /*
-  If we don't have a receivingEmail something
-  isn't configured properly
-  */
-  try {
-    getReceivingEmail()
-    next()
-  } catch (e) {
-    //Raven.captureException(e)
-    return res.redirect('/500')
-  }
->>>>>>> Add 500 error page
 }
 
 server
