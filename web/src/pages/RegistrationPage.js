@@ -59,6 +59,7 @@ const contentClass = css`
       margin-top: 0rem;
     }
 
+    /* all this CSS is for the new checkbox + family textarea */
     input[type='checkbox'] + label::before {
       border: 3px solid ${theme.colour.black};
       background-color: ${theme.colour.white};
@@ -70,17 +71,17 @@ const contentClass = css`
 
     textarea[disabled] {
       background: ${theme.colour.greyLight};
-      border: 3px solid ${theme.colour.greyLight};
+      border: 3px solid #a4a4a4;
       cursor: not-allowed;
-    }
-
-    input[name='paperFileNumber'] {
-      margin-bottom: ${theme.spacing.sm};
     }
 
     label[for='familyCheck'] {
       margin-bottom: 0;
       padding-bottom: 0;
+    }
+
+    input[name='paperFileNumber'] {
+      margin-bottom: ${theme.spacing.sm};
     }
 
     label,
@@ -246,10 +247,6 @@ class RegistrationPage extends React.Component {
             const generalMessage = this.generalErrorMessage()
             let { familyCheck = [] } = values
 
-            const famCheckText = (
-              <span>I need to reschedule other family members</span>
-            )
-
             submitError =
               Object.keys(errorsNoJS).length && !submitError
                 ? generalMessage
@@ -358,11 +355,13 @@ class RegistrationPage extends React.Component {
                         component={CheckboxAdapter}
                         name="familyCheck"
                         id="familyCheck"
-                        label={famCheckText}
+                        label={
+                          <Trans>I need to reschedule my family too</Trans>
+                        }
                         value="familyCheck"
                       />
                       <ValidationMessage
-                        id="paperFileNumber-error"
+                        id="familyOption-error"
                         message={
                           submitError && this.validate(values).familyOption
                             ? this.validate(values).familyOption
@@ -371,8 +370,8 @@ class RegistrationPage extends React.Component {
                       />
                       <span id="familyOption-details">
                         <Trans>
-                          Include the full names of all family members you want
-                          to reschedule below:
+                          Provide the full name of each family member you want
+                          to reschedule.
                         </Trans>
                       </span>
                     </label>
