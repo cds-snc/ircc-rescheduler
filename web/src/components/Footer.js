@@ -6,6 +6,7 @@ import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
 import { getEmail } from '../locations'
 import Language from './Language'
+import { withRouter } from 'react-router'
 
 const footer = css`
   background-color: ${theme.colour.white};
@@ -100,14 +101,16 @@ const TopBar = styled.hr(
   props => ({ background: props.background }),
 )
 
-const Footer = ({ topBarBackground, i18n }) => (
+const Footer = ({ topBarBackground, i18n, match = { url: '' } }) => (
   <div>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
-    <footer className={footer}>
+    <footer id="footer" className={footer}>
       <div className={bottomLinks}>
-        <a href={`mailto:${getEmail()}`}>
-          <Trans>Contact</Trans>
-        </a>
+        {match.url !== '/not-found' && (
+          <a href={`mailto:${getEmail()}`}>
+            <Trans>Contact</Trans>
+          </a>
+        )}
         <a href={i18n._('https://www.canada.ca/en/transparency/privacy.html')}>
           <Trans>Privacy</Trans>
         </a>
@@ -143,8 +146,9 @@ const Footer = ({ topBarBackground, i18n }) => (
 Footer.propTypes = {
   topBarBackground: PropTypes.string,
   i18n: PropTypes.object,
+  match: PropTypes.object,
 }
 
-const FooterI18n = withI18n()(Footer)
+const FooterI18n = withI18n()(withRouter(Footer))
 
 export { FooterI18n as default, Footer as FooterBase }
