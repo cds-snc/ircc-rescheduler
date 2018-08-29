@@ -34,6 +34,7 @@ const Title = ({ i18n, path }) => {
       break
     case '/error':
     case '/confirmation/:error':
+    case '/500':
       title = `${i18n._('Something went wrong')} ${divider} ${title}`
       break
     /* random urls (ie, 404 pages) */

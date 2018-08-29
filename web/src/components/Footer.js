@@ -100,7 +100,7 @@ const TopBar = styled.hr(
   props => ({ background: props.background }),
 )
 
-const Footer = ({ contact, topBarBackground, i18n }) => (
+const Footer = ({ contact = true, topBarBackground, i18n }) => (
   <div>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer id="footer" className={footer}>
@@ -142,10 +142,6 @@ const Footer = ({ contact, topBarBackground, i18n }) => (
     </footer>
   </div>
 )
-
-Footer.defaultProps = {
-  contact: true,
-}
 
 Footer.propTypes = {
   topBarBackground: PropTypes.string,
