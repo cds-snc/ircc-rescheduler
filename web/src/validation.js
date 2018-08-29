@@ -43,8 +43,8 @@ errorMessages.emailInvalidErrorMessage = (
 
 errorMessages.familyOptionErrorMessage = (
   <Trans>
-    Please make sure to only enter the names of family members you wish to
-    reschedule in this field
+    You left this blank. Do you want to reschedule any members of your family?
+    Please provide their full names.
   </Trans>
 )
 
