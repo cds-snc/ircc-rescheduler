@@ -147,13 +147,19 @@ class RegistrationPage extends React.Component {
   }
 
   static validate(values, submitted) {
+    let fields = RegistrationFields
+
+    let { familyCheck = [] } = values
+    let familyChecked = Boolean(familyCheck.length)
+    const TEXTAREA_MAX_CHARS = 1500
+
+    if (familyChecked) {
+      fields.familyOption = `required|max:${TEXTAREA_MAX_CHARS}`
+    }
+
     deleteEmptyArrayKeys(values)
     if (submitted || !windowExists()) {
-      const validate = new Validator(
-        trimInput(values),
-        RegistrationFields,
-        defaultMessages,
-      )
+      const validate = new Validator(trimInput(values), fields, defaultMessages)
 
       if (validate.passes()) {
         RegistrationPage.errStrings = {}
@@ -250,6 +256,9 @@ class RegistrationPage extends React.Component {
             const notValid = this.hasNotValid()
             const generalMessage = this.generalErrorMessage()
             let { familyCheck = [] } = values
+            let familyChecked = Boolean(familyCheck.length)
+
+            console.log('familyChecked', familyChecked)
 
             submitError =
               Object.keys(errorsNoJS).length && !submitError
@@ -346,12 +355,16 @@ class RegistrationPage extends React.Component {
                     </label>
                   </Field>
                 </div>
+
                 <div>
                   <Field
-                    name="familyOption"
-                    id="familyOption"
-                    component={TextAreaAdapter}
-                    disabled={!familyCheck.length}
+                    type="checkbox"
+                    component={CheckboxAdapter}
+                    name="familyCheck"
+                    id="familyCheck"
+                    checked={familyChecked}
+                    label={<Trans>I need to reschedule my family too</Trans>}
+                    value="familyCheck"
                   >
                     <label htmlFor="familyOption" id="familyOption-label">
                       <ValidationMessage
@@ -362,33 +375,32 @@ class RegistrationPage extends React.Component {
                             : ''
                         }
                       />
-                      <Field
-                        type="checkbox"
-                        component={CheckboxAdapter}
-                        name="familyCheck"
-                        id="familyCheck"
-                        label={
-                          <Trans>I need to reschedule my family too</Trans>
-                        }
-                        value="familyCheck"
-                      />
-                      <ValidationMessage
-                        id="familyOption-error"
-                        message={
-                          submitError && this.validate(values).familyOption
-                            ? this.validate(values).familyOption
-                            : ''
-                        }
-                      />
-                      <span id="familyOption-details">
-                        <Trans>
-                          Provide the full name of each family member you want
-                          to reschedule.
-                        </Trans>
-                      </span>
                     </label>
                   </Field>
+
+                  <Field
+                    name="familyOption"
+                    id="familyOption"
+                    component={TextAreaAdapter}
+                    disabled={!familyCheck.length}
+                  >
+                    <ValidationMessage
+                      id="familyOption-error"
+                      message={
+                        submitError && this.validate(values).familyOption
+                          ? this.validate(values).familyOption
+                          : ''
+                      }
+                    />
+                    <span id="familyOption-details">
+                      <Trans>
+                        Provide the full name of each family member you want to
+                        reschedule.
+                      </Trans>
+                    </span>
+                  </Field>
                 </div>
+
                 <div>
                   <Field component={TextFieldAdapter} name="email" id="email">
                     <label htmlFor="email" id="email-label">

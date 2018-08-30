@@ -149,8 +149,8 @@ export const RegistrationFields = {
   fullName: `required|max:${INPUT_FIELD_MAX_CHARS}`,
   email: 'required|email',
   explanation: `required|max:${TEXTAREA_MAX_CHARS}`,
-  familyCheck: `required_with:familyOption`,
-  familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
+  /* familyCheck: `required_with:familyOption`, */
+  /* familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`, */
   paperFileNumber: 'required|paper_file_number',
   reason: 'required|in:travel,medical,workOrSchool,family,other',
 }
