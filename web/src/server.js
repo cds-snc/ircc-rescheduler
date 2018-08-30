@@ -104,7 +104,7 @@ const getPrimarySubdomain = function(req, res, next) {
   */
 
   if (forceRedirect(req)) {
-    return res.redirect(`https://vancouver.${process.env.RAZZLE_SITE_URL}`)
+    return res.redirect(`${protocol}://vancouver.${process.env.RAZZLE_SITE_URL}`)
   }
 
   /* If domain isn't on the whitelist and we're not on the not-found or 500 page */
