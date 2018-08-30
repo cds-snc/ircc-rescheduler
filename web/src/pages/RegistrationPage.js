@@ -18,7 +18,7 @@ import {
   getFieldErrorStrings,
 } from '../validation'
 import Validator from 'validatorjs'
-import { trimInput } from '../utils/cleanInput'
+import { trimInput, deleteEmptyArrayKeys } from '../utils/cleanInput'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import {
@@ -144,6 +144,7 @@ class RegistrationPage extends React.Component {
   }
 
   static validate(values, submitted) {
+    deleteEmptyArrayKeys(values)
     if (submitted || !windowExists()) {
       const validate = new Validator(
         trimInput(values),
