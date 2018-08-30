@@ -77,7 +77,6 @@ class ReviewPage extends React.Component {
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <TopContainer>
-          <pre>{familyOption}</pre>
           <NavLink className="chevron-link" to="/calendar">
             <Chevron dir="left" />
             <Trans>Go back</Trans>
@@ -90,8 +89,9 @@ class ReviewPage extends React.Component {
         <section>
           <Summary
             fullName={fullName}
-            email={email}
             paperFileNumber={paperFileNumber}
+            familyOption={familyOption}
+            email={email}
             explanation={explanation}
             reason={this.translateReason(reason)}
             selectedDays={days}
