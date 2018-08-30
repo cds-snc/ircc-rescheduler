@@ -41,7 +41,13 @@ errorMessages.emailInvalidErrorMessage = (
   </Trans>
 )
 
-errorMessages.familyOptionErrorMessage = (
+errorMessages.familyCheckRequiredWithErrorMessage = (
+  <Trans>
+    Please remove your family members’ names if you are not rescheduling them.
+  </Trans>
+)
+
+errorMessages.familyOptionRequiredWithErrorMessage = (
   <Trans>
     You left this blank. Do you want to reschedule any members of your family?
     Please provide their full names.
@@ -113,7 +119,8 @@ export const defaultMessages = {
   'required.reason': 'reasonErrorMessage',
   'required.explanation': 'explanationErrorMessage',
   'max.explanation': 'explanationMaxErrorMessage',
-  'required_with.familyOption': 'familyOptionErrorMessage',
+  'required_with.familyCheck': 'familyCheckRequiredWithErrorMessage',
+  'required_with.familyOption': 'familyOptionRequiredWithErrorMessage',
   'max.familyOption': 'familyOptionMaxErrorMessage',
   'required.selectedDays': 'selectedDaysEmptyErrorMessage',
   in: 'inErrorMessage',

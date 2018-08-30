@@ -76,6 +76,7 @@ const contentClass = css`
     }
 
     label[for='familyCheck'] {
+      margin-top: ${theme.spacing.sm};
       margin-bottom: 0;
       padding-bottom: 0;
     }
@@ -125,8 +126,10 @@ const labelNames = id => {
       return <Trans>Why are you rescheduling?</Trans>
     case 'explanation':
       return <Trans>Describe why you can’t attend your appointment</Trans>
+    case 'familyCheck':
+      return <Trans>Provide the names of your family members</Trans>
     case 'familyOption':
-      return <Trans>Family Option</Trans>
+      return <Trans>Provide the names of your family members</Trans>
     default:
       return ''
   }
@@ -351,6 +354,14 @@ class RegistrationPage extends React.Component {
                     disabled={!familyCheck.length}
                   >
                     <label htmlFor="familyOption" id="familyOption-label">
+                      <ValidationMessage
+                        id="familyCheck-label"
+                        message={
+                          submitError && this.validate(values).familyCheck
+                            ? this.validate(values).familyCheck
+                            : ''
+                        }
+                      />
                       <Field
                         type="checkbox"
                         component={CheckboxAdapter}
