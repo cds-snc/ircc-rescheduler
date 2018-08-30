@@ -111,11 +111,15 @@ class ReviewPage extends React.Component {
                 contact you. This may take 1 week.
               </Trans>
             ) : (
-              <Trans>
-                Sending this request will cancel your current appointment.
-                <strong> Do not attend your old appointment</strong> after you
-                send this request.
-              </Trans>
+              <React.Fragment>
+                <Trans>
+                  Sending this request will cancel your current appointment.
+                </Trans>{' '}
+                <strong>
+                  <Trans> Do not attend your old appointment</Trans>
+                </strong>{' '}
+                <Trans>after you send this request.</Trans>
+              </React.Fragment>
             )}
           </Reminder>
           <SubmissionForm

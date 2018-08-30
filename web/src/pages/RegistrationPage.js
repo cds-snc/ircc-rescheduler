@@ -7,9 +7,9 @@ import { css } from 'react-emotion'
 import {
   theme,
   visuallyhidden,
-  mediaQuery,
   BottomContainer,
   focusRing,
+  contentClass,
 } from '../styles'
 import {
   RegistrationFields,
@@ -41,40 +41,8 @@ import { windowExists } from '../utils/windowExists'
 import { checkURLParams } from '../utils/url'
 import { trackRegistrationErrors } from '../utils/analytics'
 
-const contentClass = css`
-  form {
-    > div {
-      margin-bottom: ${theme.spacing.xl};
-    }
-
-    > p {
-      margin-bottom: ${theme.spacing.sm};
-
-      ${mediaQuery.sm(css`
-        margin-bottom: ${theme.spacing.md};
-      `)};
-    }
-
-    h2 {
-      margin-top: 0rem;
-    }
-
-    label,
-    legend {
-      display: block;
-      margin-bottom: ${theme.spacing.sm};
-
-      > span {
-        margin-bottom: ${theme.spacing.xxs};
-        display: block;
-
-        &[id$='-header'] {
-          font-size: ${theme.font.lg};
-          font-weight: 700;
-        }
-      }
-    }
-  }
+const registrationContentClass = css`
+  ${contentClass};
 
   input[name='paperFileNumber'] {
     margin-bottom: ${theme.spacing.sm};
@@ -136,10 +104,6 @@ class RegistrationPage extends React.Component {
   static redirect(store = {}) {
     let { explanation: { explanationPage } = {} } = store
     return explanationPage ? '/explanation' : '/calendar'
-  }
-
-  get name() {
-    return 'Page'
   }
 
   static validate(values, submitted) {
@@ -238,7 +202,7 @@ class RegistrationPage extends React.Component {
     }
 
     return (
-      <Layout contentClass={contentClass}>
+      <Layout contentClass={registrationContentClass}>
         <Title path={this.props.match.path} />
         <h1 className={visuallyhidden}>
           <Trans>First, provide some basic information:</Trans>

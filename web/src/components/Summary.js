@@ -78,7 +78,7 @@ export const SummaryRow = ({
       <SummaryBody>{summaryBody}</SummaryBody>
     </SummaryHeader>
     {summaryLink === '/register#explanation-label' ||
-    '/register#availabilityExplanation-label' ? (
+    summaryLink === '/explanation#explanationPage-label' ? (
       <SummaryLinkExplanation>
         <NavLink to={summaryLink} aria-label={summaryLabel}>
           <Trans>Change</Trans>
@@ -164,7 +164,7 @@ const Summary = ({
       <SummaryRow
         summaryHeader={<Trans>Availability</Trans>}
         summaryBody={availabilityExplanation}
-        summaryLink={'/register#availabilityExplanation-label'}
+        summaryLink={'/explanation#explanationPage-label'}
         summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
       />
     )}

@@ -4,11 +4,10 @@ import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import { Checkbox } from '../components/forms/MultipleChoice'
 import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
+import { Trans } from '@lingui/react'
 import Time, { dateToISODateString } from './Time'
-import {
-  getMonthNameAndYear,
-  getEnabledDays,
-} from '../utils/calendarDates'
+import { getMonthNameAndYear, getEnabledDays } from '../utils/calendarDates'
 
 const calList = css`
   display: flex;
@@ -21,6 +20,10 @@ const calList = css`
   ${mediaQuery.lg(css`
     flex-direction: column;
   `)};
+`
+
+const noJSDatesLink = css`
+  margin: ${theme.spacing.xl} 0 ${theme.spacing.xl} 0;
 `
 
 const column = css`
@@ -72,17 +75,24 @@ const Calendar = ({ dates, locale }) => {
 
   /*eslint-disable */
   return (
-    <div className={calList}>
-      {Object.keys(mapped).map((keyName, keyIndex) => {
-        return (
-          <div key={keyIndex} id="calendar-checkboxes">
-            <h2>{keyName}</h2>
-            <ul className={column} key={keyName}>
-              {mapped[keyName]}
-            </ul>
-          </div>
-        )
-      })}
+    <div>
+      <div className={calList}>
+        {Object.keys(mapped).map((keyName, keyIndex) => {
+          return (
+            <div key={keyIndex} id="calendar-checkboxes">
+              <h2>{keyName}</h2>
+              <ul className={column} key={keyName}>
+                {mapped[keyName]}
+              </ul>
+            </div>
+          )
+        })}
+      </div>
+      <div className={noJSDatesLink}>
+        <NavLink to="/explanation">
+          <Trans>I&rsquo;m not available for any of these days</Trans>
+        </NavLink>
+      </div>
     </div>
   )
   /*eslint-enable */

@@ -23,6 +23,9 @@ const Title = ({ i18n, path }) => {
     case '/calendar':
       title = `${i18n._('Select 3 days you’re available')} ${divider} ${title}`
       break
+    case '/explanation':
+      title = `${i18n._('Delay your appointment')} ${divider} ${title}`
+      break
     case '/review':
       title = `${i18n._('Review your request')} ${divider} ${title}`
       break
@@ -54,9 +57,8 @@ Title.propTypes = {
   path: PropTypes.string,
 }
 
-
 const I18nTitle = withI18n()(({ i18n, ...props }) => (
-  <Title i18n={i18n} {...props}  />
+  <Title i18n={i18n} {...props} />
 ))
 
 //const I18nTitle = withI18n()(Title)

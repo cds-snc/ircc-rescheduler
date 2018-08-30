@@ -23,7 +23,7 @@
       ]
     ]
   },
-  "Review your request": {
+  "Delay your appointment": {
     "origin": [
       [
         "src/components/Title.js",
@@ -31,7 +31,7 @@
       ]
     ]
   },
-  "Request received": {
+  "Review your request": {
     "origin": [
       [
         "src/components/Title.js",
@@ -39,7 +39,7 @@
       ]
     ]
   },
-  "Request cancelled": {
+  "Request received": {
     "origin": [
       [
         "src/components/Title.js",
@@ -47,11 +47,19 @@
       ]
     ]
   },
+  "Request cancelled": {
+    "origin": [
+      [
+        "src/components/Title.js",
+        36
+      ]
+    ]
+  },
   "Something went wrong": {
     "origin": [
       [
         "src/components/Title.js",
-        38
+        41
       ]
     ]
   },
@@ -59,7 +67,7 @@
     "origin": [
       [
         "src/components/Title.js",
-        42
+        45
       ]
     ]
   }
