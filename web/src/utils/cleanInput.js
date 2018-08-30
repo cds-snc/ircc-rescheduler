@@ -35,3 +35,11 @@ export const cleanArray = arr => {
 
   return cleaned
 }
+
+export const deleteEmptyArrayKeys = obj => {
+  Object.keys(obj).forEach(key => {
+    if (Array.isArray(obj[key]) && obj[key].length === 0) {
+      delete obj[key]
+    }
+  })
+}
