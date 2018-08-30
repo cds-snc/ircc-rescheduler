@@ -20,4 +20,5 @@ module.exports = {
   ],
   moduleFileExtensions: ['jsx', 'js', 'json'],
   collectCoverageFrom: ['src/**/*.{js,jsx}'],
+  setupTestFrameworkScriptFile: 'jest-expect-message',
 }
