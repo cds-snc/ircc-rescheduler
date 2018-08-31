@@ -4,5 +4,6 @@
 "email": "cdc@example.com",
 "paperFileNumber": "123456",
 "reason": "workOrSchool",
-"explanation": "On business trip!"
+"explanation": "On business trip!",
+"familyOption": "Peter"
 }
