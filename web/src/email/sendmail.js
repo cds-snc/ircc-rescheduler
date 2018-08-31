@@ -14,6 +14,16 @@ if (process.env.NODE_ENV !== 'test') {
     throw new Error('process.env.RAZZLE_SENDING_ADDRESS was not found')
   if (!process.env.RAZZLE_SITE_URL)
     throw new Error('process.env.RAZZLE_SITE_URL was not found')
+  if (
+    process.env.RAZZLE_STAGE &&
+    process.env.RAZZLE_STAGE !== 'production' &&
+    !process.env.RAZZLE_IRCC_TEST_RECEIVING_ADDRESS
+  )
+    throw new Error(
+      `process.env.RAZZLE_STAGE is set to ${
+        process.env.RAZZLE_STAGE
+      } but process.env.RAZZLE_IRCC_TEST_RECEIVING_ADDRESS was not found`,
+    )
 }
 
 export const getMailer = async () => {

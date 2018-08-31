@@ -10,14 +10,13 @@ import { renderStylesToString } from 'emotion-server'
 import bodyParser from 'body-parser'
 import { CalendarFields, RegistrationFields } from './validation'
 import Validator from 'validatorjs'
-// import cache from 'memory-cache'
 import {
   getMailer,
   getEmailParms,
   cleanDates,
   sendMail,
 } from './email/sendmail'
-import { getGlobalLocation, getReceivingEmail } from '../src/locations'
+import { setGlobalLocation, getReceivingEmail } from '../src/locations'
 import gitHash from './utils/gitHash'
 import Raven from 'raven'
 Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
@@ -73,51 +72,76 @@ const captureMessage = (title = '', validate) => {
 
 const domainOptions = { whitelist: ['vancouver', 'calgary'] }
 
+const notPageMatch = (url, pageName) => {
+  return url.indexOf(pageName) === -1
+}
+
+const forceRedirect = req => {
+  if (req.subdomain.startsWith('rescheduler')) {
+    if (notPageMatch(req.path, 'not-found') && notPageMatch(req.path, '500')) {
+      return true
+    }
+  }
+
+  return false
+}
+
 const getPrimarySubdomain = function(req, res, next) {
   req.subdomain = req.subdomains.slice(-1).pop()
 
-  if (!req.subdomain || req.subdomain === 'rescheduler-dev') {
+  const protocol = process.env.RAZZLE_IS_HTTP ? 'http' : 'https'
+
+  // handle localhost
+  if (!req.subdomain) {
     // default to vancouver for now
     req.subdomain = 'vancouver'
   }
 
+  /* 
+  If no sub-domain is found
+  force redirect to vancouver sub-domain on staging and prod
+  note: this is temporary to handle existing vancouver traffic / links
+  */
+
+  if (forceRedirect(req)) {
+    return res.redirect(`${protocol}://vancouver.${process.env.RAZZLE_SITE_URL}`)
+  }
+
+  /* If domain isn't on the whitelist and we're not on the not-found or 500 page */
   if (
     !domainOptions.whitelist.includes(req.subdomain) &&
-    req.url.indexOf('not-found') === -1
+    notPageMatch(req.path, 'not-found') &&
+    notPageMatch(req.path, '500')
   ) {
-    // redirect to generic not found page
-    return res.redirect(`https://${process.env.RAZZLE_SITE_URL}/not-found`)
+    return res.redirect(
+      `${protocol}://${process.env.RAZZLE_SITE_URL}/not-found`,
+    )
   }
 
   next()
+}
+
+const _ensureBody = (req, res, next, cb) => {
+  if (req.path === '/500') return next()
+
+  try {
+    cb()
+  } catch (e) {
+    Raven.captureException(e)
+    return res.redirect('/500')
+  }
+
+  return next()
 }
 
 const ensureLocation = (req, res, next) => {
-  try {
-    /*
-    At this point we should have a location
-     */
-    getGlobalLocation(req.subdomain)
-  } catch (e) {
-    Raven.captureException(e)
-    return res.redirect('/error')
-  }
-
-  next()
+  /* If we don't have a location string being passed in, something is wrong */
+  return _ensureBody(req, res, next, () => setGlobalLocation(req.subdomain))
 }
 
 const ensureReceivingEmail = (req, res, next) => {
-  /*
-  If we don't have a receivingEmail something
-  isn't configured properly
-  */
-  try {
-    getReceivingEmail()
-    next()
-  } catch (e) {
-    Raven.captureException(e)
-    return res.redirect('/error')
-  }
+  /* If we don't have a receiving email, something isn't configured properly */
+  return _ensureBody(req, res, next, getReceivingEmail)
 }
 
 server
@@ -199,18 +223,6 @@ server
     res.redirect(`/cancel?language=${language}`)
   })
   .get('/*', async (req, res) => {
-    /*
-    let language = getStoreCookie(req.cookies, 'language') || 'en'
-    if (req.url === '/') {
-      /* check if we have a cached version of the homepage
-      let cachedIndex = cache.get(`index_${language}`)
-
-      if (cachedIndex && !res.locals.redirect) {
-        return res.send(cachedIndex)
-      }
-    }
-    */
-
     const customRenderer = node => ({
       gitHashString: gitHash(),
       path: req.url,
@@ -225,12 +237,6 @@ server
         customRenderer,
         document: Document,
       })
-
-      /*
-      if (req.url === '/') {
-        cache.put(`index_${language}`, html)
-      }
-      */
 
       return res.locals.redirect
         ? res.redirect(res.locals.redirect)

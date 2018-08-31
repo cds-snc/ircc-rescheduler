@@ -51,12 +51,12 @@ RAZZLE_STAGE='development'
 
 These options are set locally, whether running in development (`yarn dev`) or production (`yarn start`) modes. They are never deployed to the server.
 
-- `RAZZLE_COOKIE_HTTP`: Secure cookies will only served over `https` connections. Since we develop locally on `http`, we need this variable set to `true` so that we can save data between pages.
+- `RAZZLE_IS_HTTP`: Secure cookies will only served over `https` connections. Similarly, when we do redirects on the server and we need the full domain string, we need to know if we're on `https` or `http`. Since we develop locally on `http`, but run our production site on `https`, we need this variable set to `true` so that we can save data between pages and redirect to the right address.
 
 ##### sample `web/.env.local` file
 
 ```
-RAZZLE_COOKIE_HTTP=true
+RAZZLE_IS_HTTP=true
 ```
 
 #### 3. `web/.env.production`

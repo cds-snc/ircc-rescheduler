@@ -85,6 +85,7 @@ class Layout extends React.Component {
   }
 
   render() {
+    const { contact = true } = this.props
     return (
       <div>
         <ErrorBoundary
@@ -105,7 +106,7 @@ class Layout extends React.Component {
               {this.props.children}
             </Content>
           </main>
-          <Footer topBarBackground="black" />
+          <Footer contact={contact} topBarBackground="black" />
         </ErrorBoundary>
       </div>
     )
@@ -116,6 +117,7 @@ Layout.propTypes = {
   children: PropTypes.any.isRequired,
   contentClass: PropTypes.string,
   header: PropTypes.element,
+  contact: PropTypes.bool,
 }
 
 export default Layout

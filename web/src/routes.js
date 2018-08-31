@@ -8,6 +8,7 @@ import ConfirmationPage from './pages/ConfirmationPage'
 import ErrorPage from './pages/ErrorPage'
 import CancelPage from './pages/CancelPage'
 import FourOhFourPage from './pages/FourOhFourPage'
+import FiveHundredPage from './pages/FiveHundredPage'
 
 export default [
   {
@@ -50,6 +51,11 @@ export default [
     path: '/cancel',
     exact: true,
     component: withProvider(CancelPage),
+  },
+  {
+    path: '/500',
+    exact: true,
+    component: withProvider(FiveHundredPage),
   },
   {
     path: '*',
