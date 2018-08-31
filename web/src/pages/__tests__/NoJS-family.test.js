@@ -74,6 +74,13 @@ describe('NoJS Flow', () => {
       await page.type('#email', user.email)
       await page.type('#paperFileNumber', user.paperFileNumber)
       await page.click('#reason-2')
+      await page.click('#familyCheck')
+
+      /* click check for error */
+      await page.click('#register-form button')
+      expect('#familyOption-error').toContain("You left this blank")
+
+      //await page.type('#familyOption', user.familyOption)
       await page.type('#explanation', user.explanation)
       await page.click('#register-form button')
 
