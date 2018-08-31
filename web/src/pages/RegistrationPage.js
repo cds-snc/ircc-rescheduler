@@ -251,6 +251,12 @@ class RegistrationPage extends React.Component {
             const generalMessage = this.generalErrorMessage()
             let { familyCheck = [] } = values
 
+            /* if the values is passed via the url we need to convert
+            the value for final form */
+            if (typeof familyCheck === 'string') {
+              values.familyCheck = ['familyCheck']
+            }
+
             submitError =
               Object.keys(errorsNoJS).length && !submitError
                 ? generalMessage
@@ -384,7 +390,7 @@ class RegistrationPage extends React.Component {
                     name="familyOption"
                     id="familyOption"
                     component={TextAreaAdapter}
-                    disabled={!familyCheck.length && windowExists()}
+                    disabled={windowExists() ? !Boolean(familyCheck.length) : false}
                   >
                     <span id="familyOption-details">
                       <Trans>
