@@ -175,6 +175,18 @@ class RegistrationPage extends React.Component {
     this.hasNotValid = this.hasNotValid.bind(this)
     this.generalErrorMessage = this.generalErrorMessage.bind(this)
     this.form = null
+    this.state = { mounted: false }
+  }
+
+  componentDidMount() {
+    /* 
+    this is used to see if we're in JS vs NoJS
+    in place of windowExists in this case.
+
+    using windowExists doesn't work in this case 
+    as it won't exist server-side but than will client-side
+    */
+    this.setState({ mounted: true })
   }
 
   generalErrorMessage() {
@@ -255,6 +267,16 @@ class RegistrationPage extends React.Component {
             the value for final form */
             if (typeof familyCheck === 'string') {
               values.familyCheck = ['familyCheck']
+            }
+
+            let disabled = { disabled: false }
+
+            if (this.state.mounted) {
+              /* 
+              'mounted' will be true after ComponentDidMount
+              which won't be called server-side
+                */
+              disabled = { disabled: !Boolean(familyCheck.length) }
             }
 
             submitError =
@@ -390,7 +412,7 @@ class RegistrationPage extends React.Component {
                     name="familyOption"
                     id="familyOption"
                     component={TextAreaAdapter}
-                    disabled={windowExists() ? !Boolean(familyCheck.length) : false}
+                    {...disabled}
                   >
                     <span id="familyOption-details">
                       <Trans>
