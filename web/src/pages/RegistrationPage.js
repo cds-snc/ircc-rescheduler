@@ -290,7 +290,7 @@ class RegistrationPage extends React.Component {
                     ))}
                   </ErrorList>
                 </div>
-
+                {/* Full name*/}
                 <div>
                   <Field
                     component={TextFieldAdapter}
@@ -319,6 +319,7 @@ class RegistrationPage extends React.Component {
                     </label>
                   </Field>
                 </div>
+                {/* Paper file number */}
                 <div>
                   <Field
                     component={TextFieldAdapter}
@@ -346,12 +347,17 @@ class RegistrationPage extends React.Component {
                     </label>
                   </Field>
                 </div>
+
+                {/* Family option (checkbox and textarea) */}
                 <div>
+                  {/* Checkbox - Family option */}
                   <Field
-                    name="familyOption"
-                    id="familyOption"
-                    component={TextAreaAdapter}
-                    disabled={!familyCheck.length}
+                    type="checkbox"
+                    component={CheckboxAdapter}
+                    name="familyCheck"
+                    id="familyCheck"
+                    label={<Trans>I need to reschedule my family too</Trans>}
+                    value="familyCheck"
                   >
                     <label htmlFor="familyOption" id="familyOption-label">
                       <ValidationMessage
@@ -362,16 +368,7 @@ class RegistrationPage extends React.Component {
                             : ''
                         }
                       />
-                      <Field
-                        type="checkbox"
-                        component={CheckboxAdapter}
-                        name="familyCheck"
-                        id="familyCheck"
-                        label={
-                          <Trans>I need to reschedule my family too</Trans>
-                        }
-                        value="familyCheck"
-                      />
+
                       <ValidationMessage
                         id="familyOption-error"
                         message={
@@ -380,15 +377,24 @@ class RegistrationPage extends React.Component {
                             : ''
                         }
                       />
-                      <span id="familyOption-details">
-                        <Trans>
-                          Provide the full name of each family member you want
-                          to reschedule.
-                        </Trans>
-                      </span>
                     </label>
                   </Field>
+                  {/* Textarea - Family option */}
+                  <Field
+                    name="familyOption"
+                    id="familyOption"
+                    component={TextAreaAdapter}
+                    disabled={!familyCheck.length}
+                  >
+                    <span id="familyOption-details">
+                      <Trans>
+                        Provide the full name of each family member you want to
+                        reschedule.
+                      </Trans>
+                    </span>
+                  </Field>
                 </div>
+                {/* Email */}
                 <div>
                   <Field component={TextFieldAdapter} name="email" id="email">
                     <label htmlFor="email" id="email-label">
@@ -412,6 +418,7 @@ class RegistrationPage extends React.Component {
                     </label>
                   </Field>
                 </div>
+                {/* Reason */}
                 <div>
                   <FieldSet legendHidden={false} id="reason">
                     <legend>
@@ -468,6 +475,7 @@ class RegistrationPage extends React.Component {
                     />
                   </FieldSet>
                 </div>
+                {/* Explanation */}
                 <div>
                   <Field
                     name="explanation"
