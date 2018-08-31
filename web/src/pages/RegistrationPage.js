@@ -384,7 +384,7 @@ class RegistrationPage extends React.Component {
                     name="familyOption"
                     id="familyOption"
                     component={TextAreaAdapter}
-                    disabled={!familyCheck.length}
+                    disabled={!familyCheck.length && windowExists()}
                   >
                     <span id="familyOption-details">
                       <Trans>
