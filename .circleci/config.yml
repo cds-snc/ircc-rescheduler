@@ -59,7 +59,7 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               # Login to AWS
               aws configure set region $AWS_REGION
-              $(aws ecr get-login --no-include-email --region us-east-1)
+              $(aws ecr get-login --no-include-email --region $AWS_REGION)
 
               # Tag and push docker image
               docker tag app $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$DOCKER_IMAGE:$CIRCLE_SHA1
