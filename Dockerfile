@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:alpine
 MAINTAINER Dave Samojlenko <dave.samojlenko@cds-snc.ca>
 
 ADD ./web /web
