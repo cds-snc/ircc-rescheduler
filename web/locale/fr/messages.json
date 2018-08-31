@@ -1206,7 +1206,7 @@
     ]
   },
   "We need your paper file number so we can confirm your identity.": {
-    "translation": "Nous avons besoin de votre numéro de dossier afin de confirmer votre identité.",
+    "translation": "Nous avons besoin de votre numéro de dossier papier afin de confirmer votre identité.",
     "origin": [
       [
         "src/validation.js",
