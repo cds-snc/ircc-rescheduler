@@ -1,8 +1,8 @@
 module.exports = {
   id: 'calgary',
-  email: 'receive@example.com',
-  phone: '1-888-111-1111',
-  receivingEmail: 'receive@example.com',
+  email: 'cic-calgary-citizenship@cic.gc.ca',
+  phone: '1-888-242-2100',
+  receivingEmail: 'cic-calgary-citizenship@cic.gc.ca',
   recurring: {
     jun: ['tues', 'thurs'],
     jul: ['tues', 'thurs'],
