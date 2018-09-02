@@ -39,8 +39,10 @@
     <em>(le français suit)</em>
   </p>
   <p class="margin-top">Hello ${fullName},</p>
-  <p>We received your request for a new citizenship appointment.
-    <p>
+  <p>We received your request for a new citizenship appointment.</p>
+      <h3>Family members to be rescheduled:</h3>
+      <p>${fullName} + ${familyOption} </p>
+
       <h3>These are the days you selected:</h3>
       <div>
         ${datesHtml}
@@ -56,6 +58,9 @@
       <hr />
       <p class="margin-top">Bonjour ${fullName},</p>
       <p>Nous avons bien reçu votre demande de nouveau rendez-vous d’examen de citoyenneté.</p>
+      <h3>Membres de la famille à reprogrammer:</h3>
+      <p>${fullName} + ${familyOption} </p>
+
       <h3>Voici les journées que vous avez sélectionnées :</h3>
       <div>
         ${datesHtmlFR}
