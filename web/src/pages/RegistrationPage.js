@@ -67,6 +67,7 @@ const contentClass = css`
 
     textarea[name='familyOption'] {
       height: 5.3em;
+      display: block;
     }
 
     textarea[disabled] {
@@ -179,11 +180,11 @@ class RegistrationPage extends React.Component {
   }
 
   componentDidMount() {
-    /* 
+    /*
     this is used to see if we're in JS vs NoJS
     in place of windowExists in this case.
 
-    using windowExists doesn't work in this case 
+    using windowExists doesn't work in this case
     as it won't exist server-side but than will client-side
     */
     this.setState({ mounted: true })
@@ -272,7 +273,7 @@ class RegistrationPage extends React.Component {
             let disabled = { disabled: false }
 
             if (this.state.mounted) {
-              /* 
+              /*
               'mounted' will be true after ComponentDidMount
               which won't be called server-side
                 */
@@ -387,26 +388,25 @@ class RegistrationPage extends React.Component {
                     label={<Trans>I need to reschedule my family too</Trans>}
                     value="familyCheck"
                   >
-                    <label htmlFor="familyOption" id="familyOption-label">
-                      <ValidationMessage
-                        id="familyCheck-label"
-                        message={
-                          submitError && this.validate(values).familyCheck
-                            ? this.validate(values).familyCheck
-                            : ''
-                        }
-                      />
 
-                      <ValidationMessage
-                        id="familyOption-error"
-                        message={
-                          submitError && this.validate(values).familyOption
-                            ? this.validate(values).familyOption
-                            : ''
-                        }
-                      />
-                    </label>
                   </Field>
+                  <ValidationMessage
+                    id="familyCheck-label"
+                    message={
+                      submitError && this.validate(values).familyCheck
+                        ? this.validate(values).familyCheck
+                        : ''
+                    }
+                  />
+
+                  <ValidationMessage
+                    id="familyOption-error"
+                    message={
+                      submitError && this.validate(values).familyOption
+                        ? this.validate(values).familyOption
+                        : ''
+                    }
+                  />
                   {/* Textarea - Family option */}
                   <Field
                     name="familyOption"
