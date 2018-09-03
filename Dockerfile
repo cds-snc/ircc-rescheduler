@@ -1,14 +1,19 @@
-FROM keymetrics/pm2:latest-alpine
+FROM node:alpine
 MAINTAINER Dave Samojlenko <dave.samojlenko@cds-snc.ca>
 
-RUN apk update && apk add nginx
-RUN mkdir -p /run/nginx
+ARG PAPER_FILE_NUMBER_PATTERN
+ENV RAZZLE_PAPER_FILE_NUMBER_PATTERN ${PAPER_FILE_NUMBER_PATTERN}
 
-COPY ./docker/config/nginx.conf /etc/nginx/conf.d/default.conf
+ADD ./web /web
 
-ADD . /app
-WORKDIR /app
+WORKDIR /web
 
-EXPOSE 80
+EXPOSE 3004
 
-CMD [ "sh", "-c", "nginx && pm2-runtime start ecosystem.config.js"]
+RUN yarn
+RUN yarn compile
+RUN yarn build
+
+USER node
+
+CMD [ "yarn", "start" ]

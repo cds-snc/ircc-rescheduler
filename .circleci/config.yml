@@ -1,7 +1,3 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
 version: 2
 jobs:
   web:
@@ -40,21 +36,46 @@ jobs:
       - run: yarn extract && yarn compile --strict
       - run: yarn ci:prod
 
-  deploy_web:
+  deploy_container:
     docker:
-      - image: docker
-    working_directory: ~/repo/web
+      - image: docker:17.12.1-ce-git
+    working_directory: ~/repo
     steps:
       - checkout:
           path: ~/repo
       - setup_remote_docker
-      - run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-      - run: docker build  -t "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}" -t "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:latest" .
-      - run: docker push "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_SHA1}"
-      - run: docker push "${DOCKER_REGISTRY}/${NAMESPACE}/${CIRCLE_PROJECT_REPONAME}:latest"
+      - run:
+          name: Install dependencies
+          command: |
+            apk add --no-cache py2-pip
+            pip install awscli
+      - run: 
+          name: Build Docker image
+          command: |
+            docker build -t ircc-rescheduler --build-arg PAPER_FILE_NUMBER_PATTERN="${PAPER_FILE_NUMBER_PATTERN}" .
+      - deploy:
+          name: Push Docker image
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              # Login to AWS
+              aws configure set region $AWS_REGION
+              $(aws ecr get-login --no-include-email --region $AWS_REGION)
+
+              # Tag and push docker image
+              docker tag $DOCKER_IMAGE:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$DOCKER_IMAGE:latest
+              docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$DOCKER_IMAGE:latest
+
+              aws ecs update-service --cluster $AWS_CLUSTER_NAME --service $AWS_ECS_SERVICE_NAME --force-new-deployment
+            fi
 
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - web
+      - deploy_container:
+          requires:
+            - web
+          filters:
+            branches:
+              only: master
