@@ -473,6 +473,7 @@ class NoJS extends Component {
         <CalHeader locale={locale} path={this.props.match.path} />
         {Object.keys(errorsNoJS).length ? (
           <ErrorList message={errorsNoJS.selectedDays}>
+            {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
             <a href="#selectedDays-form">Calendar</a>
           </ErrorList>
         ) : null}
