@@ -19,5 +19,5 @@ module.exports = {
     '<rootDir>/test/**/?(*.)(spec|test).js',
   ],
   moduleFileExtensions: ['jsx', 'js', 'json'],
-  collectCoverageFrom: ['src/**/*.{js,jsx}'],
+  collectCoverageFrom: ['src/**/*.{js,jsx}']
 }
