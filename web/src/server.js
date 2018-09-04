@@ -39,6 +39,13 @@ Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
       : `${process.env.RAZZLE_STAGE}-${gitHash()}`,
 }).install()
 
+//+------------------------------------------------------------+
+//| Important                                                  | 
+//| - Add sub-domains here that we want to allow               |
+//+------------------------------------------------------------+
+
+const whitelist = ['vancouver', 'calgary']
+
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
   path.join(process.cwd(), 'build', 'assets.json'))
@@ -70,7 +77,7 @@ const captureMessage = (title = '', validate) => {
   })
 }
 
-const domainOptions = { whitelist: ['vancouver', 'calgary'] }
+const domainOptions = { whitelist }
 
 const notPageMatch = (url, pageName) => {
   return url.indexOf(pageName) === -1
@@ -104,7 +111,9 @@ const getPrimarySubdomain = function(req, res, next) {
   */
 
   if (forceRedirect(req)) {
-    return res.redirect(`${protocol}://vancouver.${process.env.RAZZLE_SITE_URL}`)
+    return res.redirect(
+      `${protocol}://vancouver.${process.env.RAZZLE_SITE_URL}`,
+    )
   }
 
   /* If domain isn't on the whitelist and we're not on the not-found or 500 page */

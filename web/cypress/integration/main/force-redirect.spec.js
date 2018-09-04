@@ -34,6 +34,6 @@ context('Force redirect', () => {
     cy.visit('http://test.rescheduler-dev.vcap.me:3004')
     cy.get('h1')
       .eq(0)
-      .should('contain', 'Page not found.')
+      .should('contain', 'Server Error.')
   })
 })
