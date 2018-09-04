@@ -10,10 +10,9 @@ const exclude = function(path) {
 
 const checkLocation = function(obj) {
   const msg = `property requires a valid email ${obj.id}.js`
-  expect(validator.validate(obj.email), 'email ' + msg).toEqual(true)
+  expect(validator.validate(obj.email)).toEqual(true)
   expect(
-    validator.validate(obj.receivingEmail),
-    'receivingEmail ' + msg,
+    validator.validate(obj.receivingEmail)
   ).toEqual(true)
 }
 

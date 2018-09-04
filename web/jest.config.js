@@ -19,6 +19,5 @@ module.exports = {
     '<rootDir>/test/**/?(*.)(spec|test).js',
   ],
   moduleFileExtensions: ['jsx', 'js', 'json'],
-  collectCoverageFrom: ['src/**/*.{js,jsx}'],
-  setupTestFrameworkScriptFile: 'jest-expect-message',
+  collectCoverageFrom: ['src/**/*.{js,jsx}']
 }

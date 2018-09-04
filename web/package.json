@@ -51,7 +51,6 @@
     "helmet": "^3.13.0",
     "hoist-non-react-statics": "^3.0.1",
     "inline-css": "^2.4.0",
-    "jest-expect-message": "^1.0.0",
     "js-cookie": "^2.2.0",
     "memory-cache": "^0.2.0",
     "nodemailer": "^4.6.8",
@@ -67,10 +66,10 @@
     "react-helmet": "^5.2.0",
     "react-router-dom": "^4.3.1",
     "react-router-hash-link": "^1.2.0",
-    "require-all": "^3.0.0",
     "validatorjs": "^3.14.2"
   },
   "devDependencies": {
+    "require-all": "^3.0.0",
     "@lingui/cli": "^2.5.0",
     "@types/react": "^16.4.12",
     "@types/react-dom": "^16.0.7",
