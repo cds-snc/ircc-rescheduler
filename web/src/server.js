@@ -98,8 +98,8 @@ const getPrimarySubdomain = function(req, res, next) {
 
   const protocol = process.env.RAZZLE_IS_HTTP ? 'http' : 'https'
 
-  // handle localhost
-  if (!req.subdomain) {
+  // handle localhost or heroku PR i.e. pr-420
+  if (!req.subdomain || req.subdomain.indexOf('pr-') !== -1) {
     // default to vancouver for now
     req.subdomain = 'vancouver'
   }
