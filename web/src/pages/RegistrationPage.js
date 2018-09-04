@@ -161,6 +161,8 @@ class RegistrationPage extends React.Component {
         return RegistrationPage.errStrings
       }
 
+      console.log('familyOption', validate.errors.errors.familyOption)
+
       RegistrationPage.errStrings = getFieldErrorStrings(validate)
     }
 
@@ -387,9 +389,7 @@ class RegistrationPage extends React.Component {
                     id="familyCheck"
                     label={<Trans>I need to reschedule my family too</Trans>}
                     value="familyCheck"
-                  >
-
-                  </Field>
+                  />
                   <ValidationMessage
                     id="familyCheck-label"
                     message={

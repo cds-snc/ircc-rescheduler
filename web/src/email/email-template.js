@@ -132,8 +132,6 @@ export const buildParams = async options => {
   options.formValues.locationEmail = getEmail()
   options.formValues.locationPhone = getPhone()
 
-  !options.formValues.familyOption ? options.formValues.familyOption = 'N/A' : options.formValues.familyOption
-
   const markup = await new Promise(resolve => {
     renderMarkup(options).then(results => {
       resolve({ html: results[0], plain: results[1] })
