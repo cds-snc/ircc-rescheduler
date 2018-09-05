@@ -18,6 +18,12 @@ const text_input = css`
     outline-offset: 0px;
   }
 
+  &[disabled] {
+    background: ${theme.colour.greyLight};
+    border-color: ${theme.colour.grey};
+    cursor: not-allowed;
+  }
+
   ${mediaQuery.md(css`
     width: 80%;
   `)};

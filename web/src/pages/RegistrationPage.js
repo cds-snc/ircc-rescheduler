@@ -59,33 +59,6 @@ const contentClass = css`
       margin-top: 0rem;
     }
 
-    /* all this CSS is for the new checkbox + family textarea */
-    input[type='checkbox'] + label::before {
-      border: 3px solid ${theme.colour.black};
-      background-color: ${theme.colour.white};
-    }
-
-    textarea[name='familyOption'] {
-      height: 5.3em;
-      display: block;
-    }
-
-    textarea[disabled] {
-      background: ${theme.colour.greyLight};
-      border: 3px solid #a4a4a4;
-      cursor: not-allowed;
-    }
-
-    label[for='familyCheck'] {
-      margin-top: ${theme.spacing.sm};
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    input[name='paperFileNumber'] {
-      margin-bottom: ${theme.spacing.sm};
-    }
-
     label,
     legend {
       display: block;
@@ -101,6 +74,25 @@ const contentClass = css`
         }
       }
     }
+  }
+
+  input[name='paperFileNumber'] {
+    margin-bottom: ${theme.spacing.sm};
+  }
+
+  input#familyCheck + label::before {
+    border-width: 3px;
+  }
+
+  label[for='familyCheck'],
+  label[for='familyOption'] {
+    display: inline-block;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  textarea[name='familyOption'] {
+    height: 5.3em;
   }
 `
 
