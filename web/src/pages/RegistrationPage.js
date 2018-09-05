@@ -155,6 +155,7 @@ class RegistrationPage extends React.Component {
       )
 
       if (validate.passes()) {
+        values.familyOption = values.familyCheck ? values.familyOption : ''
         RegistrationPage.errStrings = {}
         return RegistrationPage.errStrings
       }
