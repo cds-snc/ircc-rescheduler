@@ -124,7 +124,6 @@ export const defaultMessages = {
   'max.familyOption': 'familyOptionMaxErrorMessage',
   'required.selectedDays': 'selectedDaysEmptyErrorMessage',
   in: 'inErrorMessage',
-  'familyOption': 'oh no'
 }
 
 /*--------------------------------------------*
@@ -150,7 +149,8 @@ export const RegistrationFields = {
   fullName: `required|max:${INPUT_FIELD_MAX_CHARS}`,
   email: 'required|email',
   explanation: `required|max:${TEXTAREA_MAX_CHARS}`,
-  familyOption: `required_if:familyCheck,familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
+  familyCheck: `accept_anything`,
+  familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
   reason: 'required|in:travel,medical,workOrSchool,family,other',
 }
@@ -186,6 +186,14 @@ const dateCount = (value, requirement, attribute) => {
 }
 
 Validator.register('date_count', dateCount, 'selectedDaysCountErrorMessage')
+
+Validator.register(
+  'accept_anything',
+  function(value, requirement, attribute) {
+    return true
+  },
+  'This error message will never be called',
+)
 
 Validator.register(
   'paper_file_number',

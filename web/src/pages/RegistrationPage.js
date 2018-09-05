@@ -161,8 +161,6 @@ class RegistrationPage extends React.Component {
         return RegistrationPage.errStrings
       }
 
-      console.log('familyOption', validate.errors.errors.familyOption)
-
       RegistrationPage.errStrings = getFieldErrorStrings(validate)
     }
 
