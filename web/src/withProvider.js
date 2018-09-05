@@ -260,10 +260,7 @@ function withProvider(WrappedComponent) {
 
       let errors = validateFn(query)
       // check if all of the same keys in the query are on the page
-      // ie, they haven't added any or submitted only half of them
-      let allKeys =
-        queryKeys.length === pageFields.length &&
-        queryKeys.every(key => pageFields.includes(key))
+      let allKeys = queryKeys.every(key => pageFields.includes(key))
 
       // check if no errors in query and all of the keys are present
       return Object.keys(errors).length === 0 && allKeys === true ? true : false
