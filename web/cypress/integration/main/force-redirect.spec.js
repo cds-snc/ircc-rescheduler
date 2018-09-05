@@ -13,24 +13,24 @@ context('Force redirect', () => {
       .should('contain', 'Server Error.')
   })
 
-  it.skip('should force redirect from "local" dev server', () => {
+  it('should force redirect from "local" dev server', () => {
     cy.visit('http://rescheduler-dev.vcap.me:3004')
     cy.url().should('include', 'vancouver')
   })
 
-  it.skip('should force redirect from "local" live server', () => {
+  it('should force redirect from "local" live server', () => {
     cy.visit('http://rescheduler-dev.vcap.me:3004')
     cy.url().should('include', 'vancouver')
   })
 
-  it.skip('should force redirect from "local" live server with UTM', () => {
+  it('should force redirect from "local" live server with UTM', () => {
     cy.visit(
       'http://rescheduler.vcap.me:3004?utm_source=BELA%20email&utm_medium=email',
     )
     cy.url().should('include', 'vancouver')
   })
 
-  it.skip("should force redirect if sub-domain isn't whitelisted", () => {
+  it("should force redirect if sub-domain isn't whitelisted", () => {
     cy.visit('http://test.rescheduler-dev.vcap.me:3004')
     cy.get('h1')
       .eq(0)
