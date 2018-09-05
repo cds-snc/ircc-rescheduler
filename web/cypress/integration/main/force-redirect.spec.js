@@ -9,14 +9,14 @@ context('Force redirect', () => {
     cy.url().should('include', 'vancouver')
   })
 
-  it.skip('should force not redirect if on "not found" page', () => {
+  it('should force not redirect if on "not found" page', () => {
     cy.visit('http://rescheduler-dev.vcap.me:3004/not-found')
     cy.get('h1')
       .eq(0)
       .should('contain', 'Page not found.')
   })
 
-  it.skip('should force not redirect if not on 500 page', () => {
+  it('should force not redirect if not on 500 page', () => {
     cy.visit('http://rescheduler-dev.vcap.me:3004/500')
     cy.get('h1')
       .eq(0)
