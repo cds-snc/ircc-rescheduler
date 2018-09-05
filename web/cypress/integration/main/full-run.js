@@ -1,4 +1,4 @@
-export const fullRun = (cy, locale = 'en') => {
+export const fullRun = (cy, locale = 'en', sendMail = false) => {
   let startText = 'Start now'
 
   if (locale === 'fr') {
@@ -53,7 +53,12 @@ export const fullRun = (cy, locale = 'en') => {
       cy.get('main').should('contain', data.explanation)
     })
 
-    cy.get('#review-form').submit({ force: true })
+    // we don't need to send emails for all the tests
+    if (sendMail) {
+      cy.get('#review-form').submit({ force: true })
+    } else {
+      cy.visit('/confirmation')
+    }
 
     // should hit the confirm page now
     cy.url().should('contain', '/confirmation')
