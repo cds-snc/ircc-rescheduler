@@ -127,8 +127,6 @@ const labelNames = id => {
       return <Trans>Why are you rescheduling?</Trans>
     case 'explanation':
       return <Trans>Describe why you can’t attend your appointment</Trans>
-    case 'familyCheck':
-      return <Trans>Provide the names of your family members</Trans>
     case 'familyOption':
       return <Trans>Provide the names of your family members</Trans>
     default:
@@ -388,23 +386,6 @@ class RegistrationPage extends React.Component {
                     label={<Trans>I need to reschedule my family too</Trans>}
                     value="familyCheck"
                   />
-                  <ValidationMessage
-                    id="familyCheck-label"
-                    message={
-                      submitError && this.validate(values).familyCheck
-                        ? this.validate(values).familyCheck
-                        : ''
-                    }
-                  />
-
-                  <ValidationMessage
-                    id="familyOption-error"
-                    message={
-                      submitError && this.validate(values).familyOption
-                        ? this.validate(values).familyOption
-                        : ''
-                    }
-                  />
                   {/* Textarea - Family option */}
                   <Field
                     name="familyOption"
@@ -412,12 +393,22 @@ class RegistrationPage extends React.Component {
                     component={TextAreaAdapter}
                     {...disabled}
                   >
-                    <span id="familyOption-details">
-                      <Trans>
-                        Provide the full name of each family member you want to
-                        reschedule.
-                      </Trans>
-                    </span>
+                    <label htmlFor="familyOption" id="familyOption-label">
+                      <ValidationMessage
+                        id="familyOption-error"
+                        message={
+                          submitError && this.validate(values).familyOption
+                            ? this.validate(values).familyOption
+                            : ''
+                        }
+                      />
+                      <span id="familyOption-details">
+                        <Trans>
+                          Provide the full name of each family member you want
+                          to reschedule.
+                        </Trans>
+                      </span>
+                    </label>
                   </Field>
                 </div>
                 {/* Email */}
