@@ -83,8 +83,17 @@ const notPageMatch = (url, pageName) => {
   return url.indexOf(pageName) === -1
 }
 
+// look for heroku url i.e. https://ircc-development-pr-420.herokuapp.com/
+const isHeroku = (subdomain)=>{
+  if(subdomain.indexOf('pr-') !== -1){
+    return true
+  }
+
+  return false
+}
+
 const forceRedirect = req => {
-  if (req.subdomain.startsWith('rescheduler')) {
+  if (req.subdomain.startsWith('rescheduler') ) {
     if (notPageMatch(req.path, 'not-found') && notPageMatch(req.path, '500')) {
       return true
     }
@@ -98,8 +107,8 @@ const getPrimarySubdomain = function(req, res, next) {
 
   const protocol = process.env.RAZZLE_IS_HTTP ? 'http' : 'https'
 
-  // handle localhost
-  if (!req.subdomain) {
+  // handle localhost or heroku 
+  if (!req.subdomain || isHeroku(req.subdomain)) {
     // default to vancouver for now
     req.subdomain = 'vancouver'
   }
