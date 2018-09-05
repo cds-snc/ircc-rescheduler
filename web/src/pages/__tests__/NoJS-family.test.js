@@ -78,9 +78,14 @@ describe('NoJS Flow', () => {
 
       /* click check for error */
       await page.click('#register-form button')
-      expect('#familyOption-error').toContain("You left this blank")
 
-      //await page.type('#familyOption', user.familyOption)
+      const familyOptionError = await page.$eval(
+        '#familyOption-error',
+        e => e.innerHTML,
+      )
+      expect(familyOptionError).toContain('You left this blank')
+
+      await page.type('#familyOption', user.familyOption)
       await page.type('#explanation', user.explanation)
       await page.click('#register-form button')
 
