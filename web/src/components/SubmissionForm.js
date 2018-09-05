@@ -17,11 +17,11 @@ const SubmissionForm = props => {
           name="paperFileNumber"
           value={props.paperFileNumber}
         />
+        <input type="hidden" name="familyCheck" value={props.familyCheck} />
+        <input type="hidden" name="familyOption" value={props.familyOption} />
         <input type="hidden" name="email" value={props.email} />
         <input type="hidden" name="explanation" value={props.explanation} />
         <input type="hidden" name="reason" value={props.reason} />
-        <input type="hidden" name="familyCheck" value={props.familyCheck} />
-        <input type="hidden" name="familyOption" value={props.familyOption} />
         <input type="hidden" name="selectedDays" value={props.selectedDays} />
         <Button type="submit" disabled={sending}>
           <Trans>Send request</Trans>{' '}
@@ -35,10 +35,12 @@ const SubmissionForm = props => {
 
 SubmissionForm.propTypes = {
   fullName: PropTypes.string,
+  paperFileNumber: PropTypes.string,
+  familyCheck: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
+  familyOption: PropTypes.string,
   email: PropTypes.string,
   reason: PropTypes.string,
   explanation: PropTypes.string,
-  paperFileNumber: PropTypes.string,
   selectedDays: PropTypes.array,
   sending: PropTypes.bool.isRequired,
   onSubmit: PropTypes.func.isRequired,

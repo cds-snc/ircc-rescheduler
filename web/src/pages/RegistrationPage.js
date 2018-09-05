@@ -268,7 +268,7 @@ class RegistrationPage extends React.Component {
               'mounted' will be true after ComponentDidMount
               which won't be called server-side
                 */
-              disabled = { disabled: !Boolean(familyCheck.length) }
+              disabled = { disabled: !familyCheck.length }
             }
 
             submitError =
