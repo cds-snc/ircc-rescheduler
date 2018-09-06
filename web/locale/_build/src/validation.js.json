@@ -31,7 +31,7 @@
       ]
     ]
   },
-  "We need your paper file number so we can confirm your identity.": {
+  "You left this blank. Do you want to reschedule any members of your family? Please provide their full names.": {
     "origin": [
       [
         "src/validation.js",
@@ -39,23 +39,23 @@
       ]
     ]
   },
+  "There is a limit of 150 words for your family’s names. Please shorten your explanation.": {
+    "origin": [
+      [
+        "src/validation.js",
+        52
+      ]
+    ]
+  },
+  "We need your paper file number so we can confirm your identity.": {
+    "origin": [
+      [
+        "src/validation.js",
+        59
+      ]
+    ]
+  },
   "Needs a number with a different format. Please make sure this is your correct Paper file number.": {
-    "origin": [
-      [
-        "src/validation.js",
-        49
-      ]
-    ]
-  },
-  "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
-    "origin": [
-      [
-        "src/validation.js",
-        56
-      ]
-    ]
-  },
-  "Please tell us a bit more about why you need to reschedule your appointment.": {
     "origin": [
       [
         "src/validation.js",
@@ -63,11 +63,27 @@
       ]
     ]
   },
+  "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
+    "origin": [
+      [
+        "src/validation.js",
+        70
+      ]
+    ]
+  },
+  "Please tell us a bit more about why you need to reschedule your appointment.": {
+    "origin": [
+      [
+        "src/validation.js",
+        77
+      ]
+    ]
+  },
   "Sorry, there‘s a limit of 150 words for this explanation. Please shorten your explanation.": {
     "origin": [
       [
         "src/validation.js",
-        69
+        83
       ]
     ]
   },
@@ -75,11 +91,11 @@
     "origin": [
       [
         "src/validation.js",
-        76
+        90
       ],
       [
         "src/validation.js",
-        80
+        94
       ]
     ]
   },
@@ -87,7 +103,7 @@
     "origin": [
       [
         "src/validation.js",
-        84
+        98
       ]
     ]
   },
@@ -95,7 +111,7 @@
     "origin": [
       [
         "src/validation.js",
-        88
+        102
       ]
     ]
   }

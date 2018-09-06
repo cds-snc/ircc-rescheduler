@@ -44,11 +44,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        145
+        154
       ],
       [
         "src/components/Summary.js",
-        148
+        157
       ]
     ]
   },
@@ -92,27 +92,31 @@
       ],
       [
         "src/components/Summary.js",
-        116
+        117
       ],
       [
         "src/components/Summary.js",
-        122
+        123
       ],
       [
         "src/components/Summary.js",
-        129
+        130
       ],
       [
         "src/components/Summary.js",
-        136
+        138
       ],
       [
         "src/components/Summary.js",
-        142
+        145
       ],
       [
         "src/components/Summary.js",
-        148
+        151
+      ],
+      [
+        "src/components/Summary.js",
+        157
       ]
     ]
   },
@@ -139,7 +143,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        432
+        529
       ]
     ]
   },
@@ -157,11 +161,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        98
+        121
       ],
       [
         "src/pages/RegistrationPage.js",
-        401
+        498
       ]
     ]
   },
@@ -170,11 +174,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        119
+        120
       ],
       [
         "src/components/Summary.js",
-        122
+        123
       ]
     ]
   },
@@ -183,11 +187,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        92
+        115
       ],
       [
         "src/pages/RegistrationPage.js",
-        290
+        412
       ]
     ]
   },
@@ -209,7 +213,7 @@
     "origin": [
       [
         "src/validation.js",
-        84
+        98
       ]
     ]
   },
@@ -218,11 +222,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        139
+        148
       ],
       [
         "src/components/Summary.js",
-        142
+        151
       ]
     ]
   },
@@ -231,11 +235,24 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        377
+        473
       ],
       [
         "src/pages/ReviewPage.js",
         39
+      ]
+    ]
+  },
+  "Family members": {
+    "translation": "Family members",
+    "origin": [
+      [
+        "src/components/Summary.js",
+        135
+      ],
+      [
+        "src/components/Summary.js",
+        138
       ]
     ]
   },
@@ -253,7 +270,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        200
+        239
       ]
     ]
   },
@@ -293,19 +310,19 @@
     "origin": [
       [
         "src/components/Summary.js",
-        113
+        114
       ],
       [
         "src/components/Summary.js",
-        116
+        117
       ],
       [
         "src/pages/RegistrationPage.js",
-        90
+        113
       ],
       [
         "src/pages/RegistrationPage.js",
-        267
+        323
       ]
     ]
   },
@@ -318,7 +335,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        81
+        83
       ]
     ]
   },
@@ -332,6 +349,15 @@
       [
         "src/pages/FourOhFourPage.js",
         39
+      ]
+    ]
+  },
+  "I need to reschedule my family too": {
+    "translation": "I need to reschedule my family too",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        379
       ]
     ]
   },
@@ -443,7 +469,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        361
+        457
       ],
       [
         "src/pages/ReviewPage.js",
@@ -487,7 +513,7 @@
     "origin": [
       [
         "src/validation.js",
-        49
+        63
       ]
     ]
   },
@@ -550,7 +576,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        385
+        481
       ],
       [
         "src/pages/ReviewPage.js",
@@ -572,7 +598,7 @@
     "origin": [
       [
         "src/components/Title.js",
-        41
+        42
       ]
     ]
   },
@@ -590,19 +616,19 @@
     "origin": [
       [
         "src/components/Summary.js",
-        125
+        126
       ],
       [
         "src/components/Summary.js",
-        129
+        130
       ],
       [
         "src/pages/RegistrationPage.js",
-        94
+        117
       ],
       [
         "src/pages/RegistrationPage.js",
-        317
+        351
       ]
     ]
   },
@@ -687,7 +713,7 @@
     "origin": [
       [
         "src/validation.js",
-        63
+        77
       ]
     ]
   },
@@ -696,7 +722,7 @@
     "origin": [
       [
         "src/validation.js",
-        56
+        70
       ]
     ]
   },
@@ -714,7 +740,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        414
+        511
       ]
     ]
   },
@@ -727,16 +753,34 @@
       ]
     ]
   },
+  "Provide the full name of each family member you want to reschedule.": {
+    "translation": "Provide the full name of each family member you want to reschedule.",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        399
+      ]
+    ]
+  },
+  "Provide the names of your family members": {
+    "translation": "Provide the names of your family members",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        123
+      ]
+    ]
+  },
   "Reason": {
     "translation": "",
     "origin": [
       [
         "src/components/Summary.js",
-        133
+        142
       ],
       [
         "src/components/Summary.js",
-        136
+        145
       ]
     ]
   },
@@ -745,7 +789,7 @@
     "origin": [
       [
         "src/validation.js",
-        88
+        102
       ]
     ]
   },
@@ -816,7 +860,7 @@
       ],
       [
         "src/pages/CalendarPage.js",
-        495
+        496
       ]
     ]
   },
@@ -834,7 +878,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        85
+        87
       ]
     ]
   },
@@ -888,7 +932,7 @@
     "origin": [
       [
         "src/components/SubmissionForm.js",
-        25
+        27
       ]
     ]
   },
@@ -897,7 +941,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        98
+        102
       ]
     ]
   },
@@ -924,7 +968,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        146
+        185
       ]
     ]
   },
@@ -933,7 +977,7 @@
     "origin": [
       [
         "src/components/Title.js",
-        37
+        38
       ]
     ]
   },
@@ -973,7 +1017,7 @@
     "origin": [
       [
         "src/validation.js",
-        69
+        83
       ]
     ]
   },
@@ -1049,6 +1093,15 @@
       ]
     ]
   },
+  "There is a limit of 150 words for your family’s names. Please shorten your explanation.": {
+    "translation": "There is a limit of 150 words for your family’s names. Please shorten your explanation.",
+    "origin": [
+      [
+        "src/validation.js",
+        52
+      ]
+    ]
+  },
   "This is a new service, help us improve by": {
     "translation": "",
     "origin": [
@@ -1063,7 +1116,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        278
+        334
       ]
     ]
   },
@@ -1072,7 +1125,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        301
+        423
       ]
     ]
   },
@@ -1081,7 +1134,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        328
+        362
       ]
     ]
   },
@@ -1152,7 +1205,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        353
+        449
       ]
     ]
   },
@@ -1210,7 +1263,7 @@
     "origin": [
       [
         "src/validation.js",
-        45
+        59
       ]
     ]
   },
@@ -1263,7 +1316,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        96
+        119
       ]
     ]
   },
@@ -1281,7 +1334,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        369
+        465
       ]
     ]
   },
@@ -1294,6 +1347,15 @@
       ]
     ]
   },
+  "You left this blank. Do you want to reschedule any members of your family? Please provide their full names.": {
+    "translation": "You left this blank. Do you want to reschedule any members of your family? Please provide their full names.",
+    "origin": [
+      [
+        "src/validation.js",
+        45
+      ]
+    ]
+  },
   "You must select 3 days.": {
     "translation": "",
     "origin": [
@@ -1303,11 +1365,11 @@
       ],
       [
         "src/validation.js",
-        76
+        90
       ],
       [
         "src/validation.js",
-        80
+        94
       ]
     ]
   },
