@@ -1,10 +1,10 @@
 version: '3.6'
 services:
   web:
-    image: 'cdssnc/ircc-mono:latest'
-    working_dir: /app
+    image: 'cdssnc/ircc-rescheduler:latest'
+    working_dir: /web
     ports:
-      - '3000:80'
+      - '3004:3004'
     volumes:
-      - ./:/app:rw
-    command: /bin/sh -c "nginx && pm2-runtime start ecosystem.config.js"
+      - ./web:/app:rw
+    command: 'yarn start'
