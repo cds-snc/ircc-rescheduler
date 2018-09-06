@@ -6,6 +6,6 @@ context('Full Run-through with Bela params', () => {
   })
 
   it('should be able to fill in a profile and reach the confirmation page', () => {
-    fullRun(cy)
+    fullRun(cy, 'en', false)
   })
 })

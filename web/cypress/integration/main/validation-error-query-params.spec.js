@@ -69,11 +69,6 @@ context(
           cy.get('main').should('contain', val),
         )
       })
-
-      cy.get('#review-form').submit({ force: true })
-
-      // should hit the confirm page now
-      cy.url().should('contain', '/confirmation')
     })
   },
 )
