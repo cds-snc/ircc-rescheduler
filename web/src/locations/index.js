@@ -3,7 +3,7 @@
 //| - Add sub-domains here that we want to allow               |
 //+------------------------------------------------------------+
 
-export const whitelist = ['vancouver', 'calgary']
+export const whitelist = ['vancouver', 'calgary', 'montreal']
 
 const LocationCache = (function() {
   let _cachedLocation = undefined
