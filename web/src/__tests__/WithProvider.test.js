@@ -259,7 +259,7 @@ describe('WithProvider', () => {
       expect(result).toBe(false)
     })
 
-    it('returns false when not all keys submitted', () => {
+    it('returns true when not all keys submitted', () => {
       class FakeComponentWithTwoFields {
         static get fields() {
           return ['field1', 'field2']
@@ -269,7 +269,7 @@ describe('WithProvider', () => {
       let result = withProvider(FakeComponentWithTwoFields).validateQuery({
         field1: 'value1',
       })
-      expect(result).toBe(false)
+      expect(result).toBe(true)
     })
 
     it('returns false when too many keys are submitted', () => {

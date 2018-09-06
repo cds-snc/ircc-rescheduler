@@ -11,27 +11,31 @@
       ],
       [
         "src/components/Summary.js",
-        116
+        117
       ],
       [
         "src/components/Summary.js",
-        122
+        123
       ],
       [
         "src/components/Summary.js",
-        129
+        130
       ],
       [
         "src/components/Summary.js",
-        136
+        138
       ],
       [
         "src/components/Summary.js",
-        142
+        145
       ],
       [
         "src/components/Summary.js",
-        148
+        151
+      ],
+      [
+        "src/components/Summary.js",
+        157
       ]
     ]
   },
@@ -39,11 +43,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        113
+        114
       ],
       [
         "src/components/Summary.js",
-        116
+        117
       ]
     ]
   },
@@ -51,11 +55,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        119
+        120
       ],
       [
         "src/components/Summary.js",
-        122
+        123
       ]
     ]
   },
@@ -63,11 +67,23 @@
     "origin": [
       [
         "src/components/Summary.js",
-        125
+        126
       ],
       [
         "src/components/Summary.js",
-        129
+        130
+      ]
+    ]
+  },
+  "Family members": {
+    "origin": [
+      [
+        "src/components/Summary.js",
+        135
+      ],
+      [
+        "src/components/Summary.js",
+        138
       ]
     ]
   },
@@ -75,11 +91,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        133
+        142
       ],
       [
         "src/components/Summary.js",
-        136
+        145
       ]
     ]
   },
@@ -87,11 +103,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        139
+        148
       ],
       [
         "src/components/Summary.js",
-        142
+        151
       ]
     ]
   },
@@ -99,11 +115,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        145
+        154
       ],
       [
         "src/components/Summary.js",
-        148
+        157
       ]
     ]
   }

@@ -41,6 +41,20 @@ errorMessages.emailInvalidErrorMessage = (
   </Trans>
 )
 
+errorMessages.familyOptionRequiredWithErrorMessage = (
+  <Trans>
+    You left this blank. Do you want to reschedule any members of your family?
+    Please provide their full names.
+  </Trans>
+)
+
+errorMessages.familyOptionMaxErrorMessage = (
+  <Trans>
+    There is a limit of 150 words for your family’s names. Please shorten your
+    explanation.
+  </Trans>
+)
+
 errorMessages.paperFileNumberErrorMessage = (
   <Trans>We need your paper file number so we can confirm your identity.</Trans>
 )
@@ -99,6 +113,8 @@ export const defaultMessages = {
   'required.reason': 'reasonErrorMessage',
   'required.explanation': 'explanationErrorMessage',
   'max.explanation': 'explanationMaxErrorMessage',
+  'required_with.familyOption': 'familyOptionRequiredWithErrorMessage',
+  'max.familyOption': 'familyOptionMaxErrorMessage',
   'required.selectedDays': 'selectedDaysEmptyErrorMessage',
   in: 'inErrorMessage',
 }
@@ -126,6 +142,8 @@ export const RegistrationFields = {
   fullName: `required|max:${INPUT_FIELD_MAX_CHARS}`,
   email: 'required|email',
   explanation: `required|max:${TEXTAREA_MAX_CHARS}`,
+  familyCheck: `accept_anything`,
+  familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
   reason: 'required|in:travel,medical,workOrSchool,family,other',
 }
@@ -161,6 +179,14 @@ const dateCount = (value, requirement, attribute) => {
 }
 
 Validator.register('date_count', dateCount, 'selectedDaysCountErrorMessage')
+
+Validator.register(
+  'accept_anything',
+  function(value, requirement, attribute) {
+    return true
+  },
+  'This error message will never be called',
+)
 
 Validator.register(
   'paper_file_number',

@@ -101,8 +101,9 @@ SummaryRow.propTypes = {
 
 const Summary = ({
   fullName,
-  email,
   paperFileNumber,
+  familyOption,
+  email,
   reason,
   explanation,
   selectedDays,
@@ -129,6 +130,14 @@ const Summary = ({
         i18n && `${i18n._('Change')} ${i18n._('Paper file number')}`
       }
     />
+    {familyOption && (
+      <SummaryRow
+        summaryHeader={<Trans>Family members</Trans>}
+        summaryBody={familyOption}
+        summaryLink={'/register#familyOption-label'}
+        summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Family members')}`}
+      />
+    )}
     <SummaryRow
       summaryHeader={<Trans>Reason</Trans>}
       summaryBody={reason}
@@ -152,10 +161,11 @@ const Summary = ({
 
 Summary.propTypes = {
   fullName: PropTypes.string,
+  paperFileNumber: PropTypes.string,
+  familyOption: PropTypes.string,
   email: PropTypes.string,
   reason: PropTypes.object,
   explanation: PropTypes.string,
-  paperFileNumber: PropTypes.string,
   selectedDays: PropTypes.array,
   i18n: PropTypes.object,
 }

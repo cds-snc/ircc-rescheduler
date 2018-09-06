@@ -18,6 +18,12 @@ const text_input = css`
     outline-offset: 0px;
   }
 
+  &[disabled] {
+    background: ${theme.colour.greyLight};
+    border-color: ${theme.colour.grey};
+    cursor: not-allowed;
+  }
+
   ${mediaQuery.md(css`
     width: 80%;
   `)};
@@ -40,6 +46,7 @@ const TextField = ({
   labelledby,
   value,
   children,
+  disabled,
   onBlur,
   onChange,
   onFocus,
@@ -56,6 +63,7 @@ const TextField = ({
       onChange={onChange}
       onFocus={onFocus}
       className={text_input}
+      disabled={disabled}
     />
   </div>
 )
@@ -69,6 +77,7 @@ const textProps = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   value: PropTypes.string,
+  disabled: PropTypes.bool,
 }
 
 TextField.propTypes = textProps
@@ -88,6 +97,7 @@ const TextArea = ({
   onBlur,
   onChange,
   onFocus,
+  disabled,
 }) => (
   <div>
     {children}
@@ -100,6 +110,7 @@ const TextArea = ({
       onChange={onChange}
       onFocus={onFocus}
       className={text_area}
+      disabled={disabled}
     />
   </div>
 )

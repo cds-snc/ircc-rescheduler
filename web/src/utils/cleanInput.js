@@ -22,7 +22,6 @@ export const trimInput = obj => {
 
   return cleaned
 }
-/* eslint-enable security/detect-object-injection */
 
 export const cleanArray = arr => {
   const cleaned = arr.map(val => {
@@ -35,3 +34,12 @@ export const cleanArray = arr => {
 
   return cleaned
 }
+
+export const deleteEmptyArrayKeys = obj => {
+  Object.keys(obj).forEach(key => {
+    if (Array.isArray(obj[key]) && obj[key].length === 0) {
+      delete obj[key]
+    }
+  })
+}
+/* eslint-enable security/detect-object-injection */

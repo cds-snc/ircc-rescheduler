@@ -10,9 +10,7 @@ const exclude = function(path) {
 
 const checkLocation = function(obj) {
   expect(validator.validate(obj.email)).toEqual(true)
-  expect(
-    validator.validate(obj.receivingEmail)
-  ).toEqual(true)
+  expect(validator.validate(obj.receivingEmail)).toEqual(true)
 }
 
 describe('Check location files for valid properties', () => {

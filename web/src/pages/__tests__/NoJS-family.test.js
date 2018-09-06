@@ -41,10 +41,12 @@ beforeAll(async () => {
   await page.goto(baseUrl)
 })
 
-describe('NoJS Flow - no family check', () => {
+describe('NoJS Flow Family Flow All pages', () => {
   it(
-    'Can do full run through in NoJS mode',
+    'NoJS mode family checkbox + fill in field',
     async () => {
+      await page.goto(baseUrl)
+
       let user = user_en
 
       if (fr) {
@@ -72,6 +74,8 @@ describe('NoJS Flow - no family check', () => {
       expect(fullName).toBe(label)
       await page.type('#fullName', user.fullName)
       await page.type('#paperFileNumber', user.paperFileNumber)
+      await page.click('#familyCheck')
+      await page.type('#familyOption', user.familyOption)
       await page.type('#email', user.email)
       await page.click('#reason-2')
       await page.type('#explanation', user.explanation)
@@ -110,6 +114,7 @@ describe('NoJS Flow - no family check', () => {
       expect(reviewPageHTML).toContain(user.email)
       expect(reviewPageHTML).toContain(user.explanation)
       expect(reviewPageHTML).toContain(checkedValues[2])
+      expect(reviewPageHTML).toContain(user.familyOption)
     },
     200000,
   )

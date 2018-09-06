@@ -41,9 +41,9 @@ beforeAll(async () => {
   await page.goto(baseUrl)
 })
 
-describe('NoJS Flow - no family check', () => {
+describe('NoJS Flow Family Error check', () => {
   it(
-    'Can do full run through in NoJS mode',
+    'Has error if family member checkbox is checked',
     async () => {
       let user = user_en
 
@@ -72,44 +72,18 @@ describe('NoJS Flow - no family check', () => {
       expect(fullName).toBe(label)
       await page.type('#fullName', user.fullName)
       await page.type('#paperFileNumber', user.paperFileNumber)
-      await page.type('#email', user.email)
+      await page.click('#familyCheck')
       await page.click('#reason-2')
-      await page.type('#explanation', user.explanation)
+      await page.type('#email', user.email)
+
+      /* click check for error */
       await page.click('#register-form button')
 
-      // calendar page
-      await page.waitForSelector('#calendar-header')
-
-      let checkedValues = []
-
-      for (let i = 1; i < 4; i++) {
-        let el = `#calendar-checkboxes li:nth-child(${i}) input[type=checkbox]`
-        let checkbox = await page.$(el)
-        await checkbox.click()
-        let checked = await page.evaluate(
-          checkbox => checkbox.checked,
-          checkbox,
-        )
-
-        const val = await page.evaluate((checkbox, checkedValues) => {
-          return checkbox.value
-        }, checkbox)
-
-        checkedValues.push(val)
-
-        expect(checked).toBe(true)
-      }
-
-      await page.click('#selectedDays-form button')
-
-      // review page
-      await page.waitForSelector('#review-header')
-      const reviewPageHTML = await page.$eval('main', e => e.innerHTML)
-      // -> check review page values
-      expect(reviewPageHTML).toContain(user.fullName)
-      expect(reviewPageHTML).toContain(user.email)
-      expect(reviewPageHTML).toContain(user.explanation)
-      expect(reviewPageHTML).toContain(checkedValues[2])
+      const familyOptionError = await page.$eval(
+        '#familyOption-error',
+        e => e.innerHTML,
+      )
+      expect(familyOptionError).toContain('You left this blank')
     },
     200000,
   )
