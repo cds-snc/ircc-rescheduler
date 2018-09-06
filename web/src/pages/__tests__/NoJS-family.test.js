@@ -41,10 +41,12 @@ beforeAll(async () => {
   await page.goto(baseUrl)
 })
 
-describe('NoJS Flow', () => {
+describe('NoJS Flow Family Flow All pages', () => {
   it(
-    'Can do full run through in NoJS mode',
+    'NoJS mode family checkbox + fill in field',
     async () => {
+      await page.goto(baseUrl)
+
       let user = user_en
 
       if (fr) {
@@ -71,21 +73,11 @@ describe('NoJS Flow', () => {
 
       expect(fullName).toBe(label)
       await page.type('#fullName', user.fullName)
-      await page.type('#email', user.email)
       await page.type('#paperFileNumber', user.paperFileNumber)
-      await page.click('#reason-2')
       await page.click('#familyCheck')
-
-      /* click check for error */
-      await page.click('#register-form button')
-
-      const familyOptionError = await page.$eval(
-        '#familyOption-error',
-        e => e.innerHTML,
-      )
-      expect(familyOptionError).toContain('You left this blank')
-
       await page.type('#familyOption', user.familyOption)
+      await page.type('#email', user.email)
+      await page.click('#reason-2')
       await page.type('#explanation', user.explanation)
       await page.click('#register-form button')
 
@@ -122,36 +114,7 @@ describe('NoJS Flow', () => {
       expect(reviewPageHTML).toContain(user.email)
       expect(reviewPageHTML).toContain(user.explanation)
       expect(reviewPageHTML).toContain(checkedValues[2])
-    },
-    200000,
-  )
-})
-
-describe('NoJS Landing Page', () => {
-  it(
-    'preserves language settings in nojs mode',
-    async () => {
-      await page.goto(`${baseUrl}/`)
-      let html = await page.$eval('h1', e => e.innerHTML)
-      expect(html).toBe('Request a new citizenship appointment')
-
-      await page.goto(`${baseUrl}/?language=fr`)
-      html = await page.$eval('h1', e => e.innerHTML)
-      expect(html).toBe(
-        'Demander un nouveau rendez-vous d’examen de citoyenneté',
-      )
-
-      await page.goto(`${baseUrl}/`)
-      html = await page.$eval('h1', e => e.innerHTML)
-      expect(html).toBe(
-        'Demander un nouveau rendez-vous d’examen de citoyenneté',
-      )
-
-      await page.goto(`${baseUrl}/?utm_source=TEST&utm_medium=test`)
-      html = await page.$eval('h1', e => e.innerHTML)
-      expect(html).toBe(
-        'Demander un nouveau rendez-vous d’examen de citoyenneté',
-      )
+      expect(reviewPageHTML).toContain(user.familyOption)
     },
     200000,
   )
