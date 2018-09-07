@@ -227,7 +227,7 @@ class RegistrationPage extends React.Component {
 
             /* if the values is passed via the url we need to convert
             the value for final form */
-            if (typeof familyCheck === 'string') {
+            if (typeof familyCheck === 'string' && familyCheck.length > 0) {
               values.familyCheck = ['familyCheck']
             }
 
