@@ -84,14 +84,10 @@
       [
         "src/validation.js",
         83
-      ],
-      [
-        "src/validation.js",
-        96
       ]
     ]
   },
-  "Please tell us why you aren’t available on any of the upcoming days.": {
+  "Please provide us with more information.": {
     "origin": [
       [
         "src/validation.js",
@@ -99,15 +95,23 @@
       ]
     ]
   },
+  "Sorry, there’s a limit of 150 words for this explanation. Please shorten your explanation.": {
+    "origin": [
+      [
+        "src/validation.js",
+        94
+      ]
+    ]
+  },
   "You must select 3 days.": {
     "origin": [
       [
         "src/validation.js",
-        103
+        101
       ],
       [
         "src/validation.js",
-        107
+        105
       ]
     ]
   },
@@ -115,7 +119,7 @@
     "origin": [
       [
         "src/validation.js",
-        111
+        109
       ]
     ]
   },
@@ -123,7 +127,7 @@
     "origin": [
       [
         "src/validation.js",
-        115
+        113
       ]
     ]
   }

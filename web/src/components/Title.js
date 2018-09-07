@@ -24,7 +24,7 @@ const Title = ({ i18n, path }) => {
       title = `${i18n._('Select 3 days you’re available')} ${divider} ${title}`
       break
     case '/explanation':
-      title = `${i18n._('Delay your appointment')} ${divider} ${title}`
+      title = `${i18n._('Apply for an appointment extension')} ${divider} ${title}`
       break
     case '/review':
       title = `${i18n._('Review your request')} ${divider} ${title}`

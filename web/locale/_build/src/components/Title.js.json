@@ -23,7 +23,7 @@
       ]
     ]
   },
-  "Delay your appointment": {
+  "Apply for an appointment extension": {
     "origin": [
       [
         "src/components/Title.js",

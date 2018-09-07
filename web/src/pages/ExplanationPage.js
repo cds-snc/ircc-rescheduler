@@ -18,6 +18,7 @@ import {
   defaultMessages,
   getFieldErrorStrings,
 } from '../validation'
+import { NavLink } from 'react-router-dom'
 import Validator from 'validatorjs'
 import { trimInput } from '../utils/cleanInput'
 import Layout from '../components/Layout'
@@ -30,6 +31,7 @@ import { FORM_ERROR } from 'final-form'
 import CancelButton from '../components/CancelButton'
 import { windowExists } from '../utils/windowExists'
 import { checkURLParams } from '../utils/url'
+import Chevron from '../components/Chevron'
 
 const explanationContentClass = css`
   width: 80%;
@@ -43,6 +45,15 @@ const explanationContentClass = css`
     margin-bottom: ${theme.spacing.lg};
   }
   ${contentClass};
+
+  .nav-link-top {
+    display: inline-block;
+    margin-bottom: ${theme.spacing.lg};
+  }
+
+  .back {
+    cursor: pointer;
+  }
 `
 
 const beforeErrorStyles = css`
@@ -142,6 +153,7 @@ class ExplanationPage extends React.Component {
   render() {
     let { context: { store: { explanation = {} } = {} } = {} } = this.props
     let errorsNoJS = {}
+
     // only run this if there's a location.search
     // AND at least one of our fields exists in the url keys somewhere
     // so we know for sure they pressed "submit" on this page
@@ -156,19 +168,27 @@ class ExplanationPage extends React.Component {
     return (
       <Layout contentClass={explanationContentClass}>
         <Title path={this.props.match.path} />
+        <NavLink
+          className="chevron-link nav-link-top"
+          to={explanation.explanationPage ? '/review' : '/calendar'}
+        >
+          <Chevron dir="left" />
+          <Trans>Go back</Trans>
+        </NavLink>
         <h1 className={visuallyhidden}>
-          <Trans>Delay your appointment</Trans>
+          <Trans>Apply for an appointment extension</Trans>
         </h1>
         <p>
           <Trans>
-            If you aren&rsquo;t available on any of the upcoming days, please
-            provide a reason for the delay.
+            If you cannot attend an appointment on any of the available days,
+            staff may not be able to accommodate your request to reschedule.
           </Trans>
         </p>
         <p>
           <Trans>
-            We will reply within 1 week to confirm, or ask for more information.
-            There is a chance you will not be granted a delay.
+            Our policy is to delay appointments a maximum of two months. We’ll
+            review your request and determine if we can accommodate your
+            unavailability and get back to you within 1 week.
           </Trans>
         </p>
         <Form
@@ -203,7 +223,6 @@ class ExplanationPage extends React.Component {
                 >
                   <h2>{submitError}</h2>
                 </div>
-
                 <div>
                   <Field
                     name="explanationPage"
@@ -213,9 +232,7 @@ class ExplanationPage extends React.Component {
                   >
                     <label htmlFor="explanationPage" id="explanationPage-label">
                       <span id="explanationPage-header">
-                        <Trans>
-                          Describe why you need to delay your appointment
-                        </Trans>
+                        <Trans>When are you unavailable?</Trans>
                       </span>
                       <ValidationMessage
                         id="explanationPage-error"
@@ -227,8 +244,8 @@ class ExplanationPage extends React.Component {
                       />
                       <span id="explanationPage-details">
                         <Trans>
-                          Provide enough detail so that staff can understand
-                          your situation.
+                          If you haven’t already, please provide a reason for
+                          your unavailability.
                         </Trans>
                       </span>
                     </label>
