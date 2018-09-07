@@ -43,7 +43,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        83
+        88
       ]
     ]
   },
@@ -51,15 +51,39 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        87
+        92
       ]
     ]
   },
-  "Sending this request will cancel your current appointment.<0> Do not attend your old appointment</0> after you send this request.": {
+  "You should plan to attend your existing appointment until we contact you. This may take 1 week.": {
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        102
+        109
+      ]
+    ]
+  },
+  "Sending this request will cancel your current appointment.": {
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        115
+      ]
+    ]
+  },
+  "Do not attend your old appointment": {
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        119
+      ]
+    ]
+  },
+  "after you send this request.": {
+    "origin": [
+      [
+        "src/pages/ReviewPage.js",
+        121
       ]
     ]
   }

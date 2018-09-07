@@ -1,0 +1,58 @@
+{
+  "Some information is missing.": {
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        110
+      ]
+    ]
+  },
+  "Delay your appointment": {
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        160
+      ]
+    ]
+  },
+  "If you aren’t available on any of the upcoming days, please provide a reason for the delay.": {
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        163
+      ]
+    ]
+  },
+  "We will reply within 1 week to confirm, or ask for more information. There is a chance you will not be granted a delay.": {
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        169
+      ]
+    ]
+  },
+  "Describe why you need to delay your appointment": {
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        216
+      ]
+    ]
+  },
+  "Provide enough detail so that staff can understand your situation.": {
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        229
+      ]
+    ]
+  },
+  "Continue": {
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        247
+      ]
+    ]
+  }
+}

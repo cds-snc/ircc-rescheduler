@@ -61,6 +61,8 @@ class ReviewPage extends React.Component {
             reason,
             explanation,
           } = {},
+          explanation: { explanationPage } = {},
+
           calendar: { selectedDays = [] } = {},
         } = {},
       } = {},
@@ -78,7 +80,10 @@ class ReviewPage extends React.Component {
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <TopContainer>
-          <NavLink className="chevron-link" to="/calendar">
+          <NavLink
+            className="chevron-link"
+            to={explanationPage ? '/explanation' : '/calendar'}
+          >
             <Chevron dir="left" />
             <Trans>Go back</Trans>
           </NavLink>
@@ -97,13 +102,25 @@ class ReviewPage extends React.Component {
             explanation={explanation}
             reason={this.translateReason(reason)}
             selectedDays={days}
+            availabilityExplanation={explanationPage}
           />
           <Reminder>
-            <Trans>
-              Sending this request will cancel your current appointment.
-              <strong> Do not attend your old appointment</strong> after you
-              send this request.
-            </Trans>
+            {explanationPage ? (
+              <Trans>
+                You should plan to attend your existing appointment until we
+                contact you. This may take 1 week.
+              </Trans>
+            ) : (
+              <React.Fragment>
+                <Trans>
+                  Sending this request will cancel your current appointment.
+                </Trans>{' '}
+                <strong>
+                  <Trans> Do not attend your old appointment</Trans>
+                </strong>{' '}
+                <Trans>after you send this request.</Trans>
+              </React.Fragment>
+            )}
           </Reminder>
           <SubmissionForm
             fullName={fullName}

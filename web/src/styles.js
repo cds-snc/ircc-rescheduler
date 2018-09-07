@@ -248,3 +248,39 @@ export const arrow = css`
   width: 0.9rem;
   height: 0.9rem;
 `
+
+export const contentClass = css`
+  form {
+    > div {
+      margin-bottom: ${theme.spacing.xl};
+    }
+
+    > p {
+      margin-bottom: ${theme.spacing.sm};
+
+      ${mediaQuery.sm(css`
+        margin-bottom: ${theme.spacing.md};
+      `)};
+    }
+
+    h2 {
+      margin-top: 0rem;
+    }
+
+    label,
+    legend {
+      display: block;
+      margin-bottom: ${theme.spacing.sm};
+
+      > span {
+        margin-bottom: ${theme.spacing.xxs};
+        display: block;
+
+        &[id$='-header'] {
+          font-size: ${theme.font.lg};
+          font-weight: 700;
+        }
+      }
+    }
+  }
+`

@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage'
 import RegistrationPage from './pages/RegistrationPage'
 import CalendarPage from './pages/CalendarPage'
 import ReviewPage from './pages/ReviewPage'
+import ExplanationPage from './pages/ExplanationPage'
 import ConfirmationPage from './pages/ConfirmationPage'
 import ErrorPage from './pages/ErrorPage'
 import CancelPage from './pages/CancelPage'
@@ -51,6 +52,11 @@ export default [
     path: '/cancel',
     exact: true,
     component: withProvider(CancelPage),
+  },
+  {
+    path: '/explanation',
+    exact: true,
+    component: withProvider(ExplanationPage),
   },
   {
     path: '/500',
