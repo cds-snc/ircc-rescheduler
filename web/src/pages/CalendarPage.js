@@ -50,6 +50,7 @@ import {
 } from '../utils/calendarDates'
 
 import parse from 'date-fns/parse'
+import { Flags } from 'react-feature-flags'
 
 const DAY_LIMIT = 3
 
@@ -401,9 +402,19 @@ class CalendarPage extends Component {
                 <CalBottom
                   submit={() => {
                     return (
-                      <Button disabled={submitting}>
-                        <Trans>Review request</Trans>
-                      </Button>
+                      <Flags
+                        authorizedFlags={['nextButton']}
+                        renderOn={() => (
+                          <Button disabled={submitting}>
+                            <Trans>Next</Trans>
+                          </Button>
+                        )}
+                        renderOff={() => (
+                          <Button disabled={submitting}>
+                            <Trans>Review request</Trans>
+                          </Button>
+                        )}
+                      />
                     )
                   }}
                 />
