@@ -1,3 +1,5 @@
+import { clickAndWait } from './NoJS.test.js'
+
 const puppeteer = require('puppeteer')
 
 const isDebugging = () => {
@@ -58,7 +60,7 @@ describe('NoJS Flow Family Error check', () => {
         expect(html).toBe('Request a new citizenship appointment')
       }
 
-      await page.click('main a')
+      await clickAndWait(page, 'main a')
 
       // register page
       const fullName = await page.$eval('#fullName-header', e => e.innerHTML)
@@ -77,7 +79,7 @@ describe('NoJS Flow Family Error check', () => {
       await page.type('#email', user.email)
 
       /* click check for error */
-      await page.click('#register-form button')
+      await clickAndWait(page, '#register-form button')
 
       const familyOptionError = await page.$eval(
         '#familyOption-error',

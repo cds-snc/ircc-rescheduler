@@ -12,6 +12,11 @@ const isDebugging = () => {
     : { args: ['--no-sandbox'] }
 }
 
+export const clickAndWait = async (page, selector, duration = 100) => {
+  await page.click(selector)
+  await page.waitFor(duration)
+}
+
 let browser
 let page
 const baseUrl = 'http://localhost:3004'
@@ -58,7 +63,7 @@ describe('NoJS Flow - no family check', () => {
         expect(html).toBe('Request a new citizenship appointment')
       }
 
-      await page.click('main a')
+      await clickAndWait(page, 'main a')
 
       // register page
       const fullName = await page.$eval('#fullName-header', e => e.innerHTML)
@@ -75,7 +80,7 @@ describe('NoJS Flow - no family check', () => {
       await page.type('#email', user.email)
       await page.click('#reason-2')
       await page.type('#explanation', user.explanation)
-      await page.click('#register-form button')
+      await clickAndWait(page, '#register-form button')
 
       // calendar page
       await page.waitForSelector('#calendar-header')
@@ -100,7 +105,7 @@ describe('NoJS Flow - no family check', () => {
         expect(checked).toBe(true)
       }
 
-      await page.click('#selectedDays-form button')
+      await clickAndWait(page, '#selectedDays-form button')
 
       // review page
       await page.waitForSelector('#review-header')
