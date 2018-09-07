@@ -31,7 +31,7 @@ jobs:
 
       # run tests!
       - run: yarn a11y:test
-      - run: yarn test
+      - run: yarn test:full
       - run: yarn lint
       - run: yarn extract && yarn compile --strict
       - run: yarn ci:prod
@@ -49,7 +49,7 @@ jobs:
           command: |
             apk add --no-cache py2-pip
             pip install awscli
-      - run: 
+      - run:
           name: Build Docker image
           command: |
             docker build -t ircc-rescheduler --build-arg PAPER_FILE_NUMBER_PATTERN="${PAPER_FILE_NUMBER_PATTERN}" .
