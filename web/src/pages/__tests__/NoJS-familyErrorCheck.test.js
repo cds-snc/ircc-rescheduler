@@ -1,4 +1,4 @@
-import { clickAndWait } from './NoJS.test.js'
+import { clickAndWait } from './puppeteer-utils'
 
 const puppeteer = require('puppeteer')
 
