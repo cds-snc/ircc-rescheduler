@@ -52,6 +52,10 @@ const registrationContentClass = css`
     border-width: 3px;
   }
 
+  #familyCheck-error {
+    margin-bottom: ${theme.spacing.sm};
+  }
+
   label[for='familyCheck'],
   label[for='familyOption'] {
     display: inline-block;
@@ -87,6 +91,8 @@ const labelNames = id => {
       return <Trans>Why are you rescheduling?</Trans>
     case 'explanation':
       return <Trans>Describe why you can’t attend your appointment</Trans>
+    case 'familyCheck':
+      return <Trans>Please confirm you are resheduling family members</Trans>
     case 'familyOption':
       return <Trans>Provide the names of your family members</Trans>
     default:
@@ -355,6 +361,14 @@ class RegistrationPage extends React.Component {
                 {/* Family option (checkbox and textarea) */}
                 <div>
                   {/* Checkbox - Family option */}
+                  <ValidationMessage
+                    id="familyCheck-error"
+                    message={
+                      submitError && this.validate(values).familyCheck
+                        ? this.validate(values).familyCheck
+                        : ''
+                    }
+                  />
                   <Field
                     type="checkbox"
                     component={CheckboxAdapter}
@@ -362,6 +376,7 @@ class RegistrationPage extends React.Component {
                     id="familyCheck"
                     label={<Trans>I need to reschedule my family too</Trans>}
                     value="familyCheck"
+                    aria-labelledby="familyCheck-error familyCheck-label"
                   />
                   {/* Textarea - Family option */}
                   <Field

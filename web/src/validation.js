@@ -44,7 +44,7 @@ errorMessages.emailInvalidErrorMessage = (
 errorMessages.familyCheckRequiredWithErrorMessage = (
   <Trans>
     You must click ‘I need to reschedule my family too’ if you are rescheduling
-    family members
+    family members.
   </Trans>
 )
 
