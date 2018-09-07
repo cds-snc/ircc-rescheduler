@@ -527,7 +527,7 @@
     ]
   },
   "Next": {
-    "translation": "",
+    "translation": "Prochain",
     "origin": [
       [
         "src/pages/CalendarPage.js",
