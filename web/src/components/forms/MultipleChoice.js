@@ -165,6 +165,7 @@ const MultipleChoice = ({
   onChange,
   onFocus,
   checked,
+  ...props
 }) => (
   <div className={className}>
     <input
@@ -176,6 +177,7 @@ const MultipleChoice = ({
       onChange={onChange}
       onFocus={onFocus}
       checked={checked}
+      {...props}
     />
     <label
       htmlFor={id}
