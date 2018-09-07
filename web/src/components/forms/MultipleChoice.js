@@ -177,7 +177,11 @@ const MultipleChoice = ({
       onFocus={onFocus}
       checked={checked}
     />
-    <label htmlFor={id} className={govuk_label_pseudo_elements}>
+    <label
+      htmlFor={id}
+      id={id ? `${id}-label` : null}
+      className={govuk_label_pseudo_elements}
+    >
       {label}
     </label>
     {children}

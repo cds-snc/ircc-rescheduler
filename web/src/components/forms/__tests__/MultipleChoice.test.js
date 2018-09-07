@@ -31,6 +31,14 @@ describe('<Radio> component', () => {
     const radio = render(<Radio {...defaultProps} />)
     expect(radio.find('input').length).toBe(1)
     expect(radio.find('label > span').text()).toMatch(/Option/)
+    expect(radio.find('label').prop('id')).toBeUndefined()
+  })
+
+  it('renders label correctly with an id', () => {
+    let props = { ...defaultProps, ...{ id: 'radio' } }
+    const radio = render(<Radio {...props} />)
+    expect(radio.find('input').length).toBe(1)
+    expect(radio.find('label').prop('id')).toEqual('radio-label')
   })
 })
 
@@ -56,6 +64,14 @@ describe('<Checkbox> component', () => {
     const checkbox = render(<Checkbox {...defaultProps} />)
     expect(checkbox.find('input').length).toBe(1)
     expect(checkbox.find('label > span').text()).toMatch(/Option/)
+    expect(checkbox.find('label').prop('id')).toBeUndefined()
+  })
+
+  it('renders label correctly with an id', () => {
+    let props = { ...defaultProps, ...{ id: 'checkbox' } }
+    const radio = render(<Radio {...props} />)
+    expect(radio.find('input').length).toBe(1)
+    expect(radio.find('label').prop('id')).toEqual('checkbox-label')
   })
 })
 
