@@ -1,3 +1,5 @@
+import { clickAndWait } from './puppeteer-utils'
+
 const puppeteer = require('puppeteer')
 
 const isDebugging = () => {
@@ -10,11 +12,6 @@ const isDebugging = () => {
   return process.env.NOJS && process.env.NOJS === 'debug'
     ? debugging_mode
     : { args: ['--no-sandbox'] }
-}
-
-export const clickAndWait = async (page, selector, duration = 100) => {
-  await page.click(selector)
-  await page.waitFor(duration)
 }
 
 let browser

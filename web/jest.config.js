@@ -14,10 +14,10 @@ module.exports = {
   },
   setupTestFrameworkScriptFile: '<rootDir>/test/setupTests.js',
   testMatch: [
-    '<rootDir>/**/__tests__/**/*.js',
+    '<rootDir>/**/__tests__/**/*.test.js',
     '<rootDir>/src/**/?(*.)(spec|test).js',
     '<rootDir>/test/**/?(*.)(spec|test).js',
   ],
   moduleFileExtensions: ['jsx', 'js', 'json'],
-  collectCoverageFrom: ['src/**/*.{js,jsx}']
+  collectCoverageFrom: ['src/**/*.{js,jsx}'],
 }
