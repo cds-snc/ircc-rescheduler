@@ -3,39 +3,43 @@
     "origin": [
       [
         "src/components/Summary.js",
-        83
+        84
       ],
       [
         "src/components/Summary.js",
-        89
+        90
       ],
       [
         "src/components/Summary.js",
-        117
+        119
       ],
       [
         "src/components/Summary.js",
-        123
+        125
       ],
       [
         "src/components/Summary.js",
-        130
+        132
       ],
       [
         "src/components/Summary.js",
-        138
+        140
       ],
       [
         "src/components/Summary.js",
-        145
+        147
       ],
       [
         "src/components/Summary.js",
-        151
+        153
       ],
       [
         "src/components/Summary.js",
-        157
+        161
+      ],
+      [
+        "src/components/Summary.js",
+        168
       ]
     ]
   },
@@ -43,11 +47,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        114
+        116
       ],
       [
         "src/components/Summary.js",
-        117
+        119
       ]
     ]
   },
@@ -55,11 +59,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        120
+        122
       ],
       [
         "src/components/Summary.js",
-        123
+        125
       ]
     ]
   },
@@ -67,11 +71,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        126
+        128
       ],
       [
         "src/components/Summary.js",
-        130
+        132
       ]
     ]
   },
@@ -79,11 +83,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        135
+        137
       ],
       [
         "src/components/Summary.js",
-        138
+        140
       ]
     ]
   },
@@ -91,11 +95,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        142
+        144
       ],
       [
         "src/components/Summary.js",
-        145
+        147
       ]
     ]
   },
@@ -103,11 +107,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        148
+        150
       ],
       [
         "src/components/Summary.js",
-        151
+        153
       ]
     ]
   },
@@ -115,11 +119,19 @@
     "origin": [
       [
         "src/components/Summary.js",
-        154
+        158
       ],
       [
         "src/components/Summary.js",
-        157
+        161
+      ],
+      [
+        "src/components/Summary.js",
+        165
+      ],
+      [
+        "src/components/Summary.js",
+        168
       ]
     ]
   }

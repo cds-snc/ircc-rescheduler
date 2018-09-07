@@ -439,7 +439,7 @@ class NoJS extends Component {
     return ['selectedDays']
   }
 
-  static get redirect() {
+  static redirect() {
     return '/review'
   }
 
