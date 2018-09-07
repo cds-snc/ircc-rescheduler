@@ -1,20 +1,9 @@
+import { baseUrl, isDebugging } from './puppeteer-config'
+
 const puppeteer = require('puppeteer')
-
-const isDebugging = () => {
-  let debugging_mode = {
-    headless: false,
-    slowMo: 25,
-    devtools: false,
-  }
-
-  return process.env.NOJS && process.env.NOJS === 'debug'
-    ? debugging_mode
-    : { args: ['--no-sandbox'] }
-}
 
 let browser
 let page
-const baseUrl = 'http://localhost:3004'
 
 beforeAll(async () => {
   browser = await puppeteer.launch(isDebugging())
