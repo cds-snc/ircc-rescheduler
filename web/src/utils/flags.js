@@ -3,6 +3,7 @@ export const parseFlags = () => {
   try {
     if (process.env.RAZZLE_FLAGS) {
       flags = JSON.parse(process.env.RAZZLE_FLAGS)
+      // eslint-disable-next-line no-console
       console.log(
         `%c FLAGS %c ${process.env.RAZZLE_FLAGS}  `,
         'background-color: green; color: #fff; padding: 2px; font-weight: bold;',
@@ -10,7 +11,7 @@ export const parseFlags = () => {
       )
     }
   } catch (e) {
-    console.log(e.message)
+    // do nothing
   }
 
   return flags
