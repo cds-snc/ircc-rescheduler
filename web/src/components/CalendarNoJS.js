@@ -4,8 +4,8 @@ import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import { Checkbox } from '../components/forms/MultipleChoice'
 import PropTypes from 'prop-types'
-import { NavLink } from 'react-router-dom'
-import { Trans } from '@lingui/react'
+// import { NavLink } from 'react-router-dom'
+// import { Trans } from '@lingui/react'
 import Time, { dateToISODateString } from './Time'
 import { getMonthNameAndYear, getEnabledDays } from '../utils/calendarDates'
 
@@ -21,10 +21,11 @@ const calList = css`
     flex-direction: column;
   `)};
 `
-
+/*
 const noJSDatesLink = css`
   margin: ${theme.spacing.xl} 0 ${theme.spacing.xl} 0;
 `
+*/
 
 const column = css`
   border-left: 2px solid black;
@@ -88,11 +89,13 @@ const Calendar = ({ dates, locale }) => {
           )
         })}
       </div>
+      {/*
       <div className={noJSDatesLink}>
         <NavLink to="/explanation">
           <Trans>I&rsquo;m not available for any of these days</Trans>
         </NavLink>
       </div>
+      */}
     </div>
   )
   /*eslint-enable */

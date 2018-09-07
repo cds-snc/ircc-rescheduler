@@ -4,7 +4,7 @@ import { Trans, withI18n } from '@lingui/react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils, LocaleUtils } from 'react-day-picker'
 import { css } from 'emotion'
-import { NavLink } from 'react-router-dom'
+//import { NavLink } from 'react-router-dom'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
@@ -23,6 +23,7 @@ import {
 import parse from 'date-fns/parse'
 import { logEvent } from '../utils/analytics'
 import { windowExists } from '../utils/windowExists'
+//import { Flags } from 'react-feature-flags'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -413,6 +414,7 @@ const calendarContainerTop = css`
   `)};
 `
 
+/*
 const datesLinkBefore = css`
   margin-top: 19.7rem;
   ${mediaQuery.lg(css`
@@ -432,10 +434,14 @@ const datesLinkBefore = css`
   margin-bottom: ${theme.spacing.xxl};
 `
 
+*/
+
+/*
 const datesLinkAfter = css`
   ${datesLinkBefore};
   margin-top: 5.15rem;
 `
+*/
 
 const removeDateMessage = css`
   margin-bottom: calc(${theme.spacing.lg} + ${theme.spacing.md});
@@ -759,11 +765,20 @@ class Calendar extends Component {
                 </ul>
               </div>
             </div>
-            <div className={value.length ? datesLinkAfter : datesLinkBefore}>
-              <NavLink to="/explanation">
-                <Trans>I&rsquo;m not available for any of these days</Trans>
-              </NavLink>
-            </div>
+            {/*
+            <Flags
+              authorizedFlags={['noDatesCheckbox']}
+              renderOn={() => (
+                <div
+                  className={value.length ? datesLinkAfter : datesLinkBefore}
+                >
+                  <NavLink to="/explanation">
+                    <Trans>I&rsquo;m not available for any of these days</Trans>
+                  </NavLink>
+                </div>
+              )}
+            />
+            */}
           </div>
         </div>
       </div>
