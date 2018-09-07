@@ -7,6 +7,6 @@ module.exports = {
   testPathIgnorePatterns: [
     '/node_modules/',
     'NoJS.test.js',
-    'NoJS-family.test.js',
+    'NoJS-*',
   ],
 }

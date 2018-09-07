@@ -31,7 +31,7 @@ jobs:
 
       # run tests!
       - run: yarn a11y:test
-      - run: yarn test:full
+      - run: yarn test
       - run: yarn lint
       - run: yarn extract && yarn compile --strict
       - run: yarn ci:prod
