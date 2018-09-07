@@ -107,11 +107,25 @@ class RegistrationPage extends React.Component {
   }
 
   static validate(values, submitted) {
+    let registrationFields = RegistrationFields
     deleteEmptyArrayKeys(values)
+
     if (submitted || !windowExists()) {
+      /*
+      In NoJS mode, we want to return a validation error if someone:
+      - has filled in family members
+      - has not checked the Checkbox
+      So this is the default behaviour
+
+      In JS mode, we will not validate this
+      */
+      if (windowExists()) {
+        registrationFields.familyCheck = 'accept_anything'
+      }
+
       const validate = new Validator(
         trimInput(values),
-        RegistrationFields,
+        registrationFields,
         defaultMessages,
       )
 

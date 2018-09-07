@@ -41,6 +41,13 @@ errorMessages.emailInvalidErrorMessage = (
   </Trans>
 )
 
+errorMessages.familyCheckRequiredWithErrorMessage = (
+  <Trans>
+    You must click ‘I need to reschedule my family too’ if you are rescheduling
+    family members
+  </Trans>
+)
+
 errorMessages.familyOptionRequiredWithErrorMessage = (
   <Trans>
     You left this blank. Do you want to reschedule any members of your family?
@@ -124,6 +131,7 @@ export const defaultMessages = {
   'required.reason': 'reasonErrorMessage',
   'required.explanation': 'explanationErrorMessage',
   'max.explanation': 'explanationMaxErrorMessage',
+  'required_with.familyCheck': 'familyCheckRequiredWithErrorMessage',
   'required_with.familyOption': 'familyOptionRequiredWithErrorMessage',
   'max.familyOption': 'familyOptionMaxErrorMessage',
   'required.selectedDays': 'selectedDaysEmptyErrorMessage',
@@ -155,7 +163,7 @@ export const RegistrationFields = {
   fullName: `required|max:${INPUT_FIELD_MAX_CHARS}`,
   email: 'required|email',
   explanation: `required|max:${TEXTAREA_MAX_CHARS}`,
-  familyCheck: `accept_anything`,
+  familyCheck: `required_with:familyOption`,
   familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
   reason: 'required|in:travel,medical,workOrSchool,family,other',
