@@ -1,38 +1,17 @@
+import {
+  baseUrl,
+  clickAndWait,
+  isDebugging,
+  user_en,
+  user_fr,
+} from './puppeteer-config'
+
 const puppeteer = require('puppeteer')
-
-const isDebugging = () => {
-  let debugging_mode = {
-    headless: false,
-    slowMo: 25,
-    devtools: false,
-  }
-
-  return process.env.NOJS && process.env.NOJS === 'debug'
-    ? debugging_mode
-    : { args: ['--no-sandbox'] }
-}
 
 let browser
 let page
-const baseUrl = 'http://localhost:3004'
 
 const fr = false
-
-const user_fr = {
-  fullName: 'Dominique Henri',
-  email: 'snc@exemple.com',
-  paperFileNumber: '123456',
-  explanation: "Voyage d'affaires!",
-}
-
-const user_en = {
-  fullName: 'Leanne Graham',
-  email: 'cdc@example.com',
-  paperFileNumber: '123456',
-  reason: 'workOrSchool',
-  explanation: 'On business trip!',
-  familyOption: 'Peter',
-}
 
 beforeAll(async () => {
   browser = await puppeteer.launch(isDebugging())
@@ -58,7 +37,7 @@ describe('NoJS Flow Family Error check', () => {
         expect(html).toBe('Request a new citizenship appointment')
       }
 
-      await page.click('main a')
+      await clickAndWait(page, 'main a')
 
       // register page
       const fullName = await page.$eval('#fullName-header', e => e.innerHTML)
@@ -77,7 +56,7 @@ describe('NoJS Flow Family Error check', () => {
       await page.type('#email', user.email)
 
       /* click check for error */
-      await page.click('#register-form button')
+      await clickAndWait(page, '#register-form button')
 
       const familyOptionError = await page.$eval(
         '#familyOption-error',
