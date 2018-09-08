@@ -4,7 +4,7 @@ import { Trans, withI18n } from '@lingui/react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils, LocaleUtils } from 'react-day-picker'
 import { css } from 'emotion'
-//import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
@@ -23,7 +23,7 @@ import {
 import parse from 'date-fns/parse'
 import { logEvent } from '../utils/analytics'
 import { windowExists } from '../utils/windowExists'
-//import { Flags } from 'react-feature-flags'
+import { FeatureFlag } from './FeatureFlag'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -414,7 +414,6 @@ const calendarContainerTop = css`
   `)};
 `
 
-/*
 const datesLinkBefore = css`
   margin-top: 19.7rem;
   ${mediaQuery.lg(css`
@@ -434,14 +433,10 @@ const datesLinkBefore = css`
   margin-bottom: ${theme.spacing.xxl};
 `
 
-*/
-
-/*
 const datesLinkAfter = css`
   ${datesLinkBefore};
   margin-top: 5.15rem;
 `
-*/
 
 const removeDateMessage = css`
   margin-bottom: calc(${theme.spacing.lg} + ${theme.spacing.md});
@@ -765,10 +760,10 @@ class Calendar extends Component {
                 </ul>
               </div>
             </div>
-            {/*
-            <Flags
-              authorizedFlags={['noDatesCheckbox']}
-              renderOn={() => (
+
+            <FeatureFlag
+              flags={['noDatesCheckbox']}
+              on={() => (
                 <div
                   className={value.length ? datesLinkAfter : datesLinkBefore}
                 >
@@ -778,7 +773,6 @@ class Calendar extends Component {
                 </div>
               )}
             />
-            */}
           </div>
         </div>
       </div>

@@ -7,11 +7,6 @@ import { I18nProvider } from '@lingui/react'
 import { catalogs } from './utils/linguiUtils'
 import { trimInput } from './utils/cleanInput'
 import { getGlobalLocation } from './locations'
-import { FlagsProvider } from 'react-feature-flags'
-import { parseFlags } from './utils/flags'
-
-/* setup feature flags to hide feature that are in development */
-const flags = parseFlags()
 
 const _whitelist = ({ val, fields }) => {
   /*
@@ -146,9 +141,7 @@ function withProvider(WrappedComponent) {
             language={this.state.context.store.language}
             catalogs={catalogs}
           >
-            <FlagsProvider value={flags}>
-              <WrappedComponent {...props} />
-            </FlagsProvider>
+            <WrappedComponent {...props} />
           </I18nProvider>
         </Context.Provider>
       )
