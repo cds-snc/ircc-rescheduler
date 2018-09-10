@@ -32,6 +32,15 @@ describe('<TextField> component', () => {
     const textField = shallow(<TextField {...defaultProps} />)
     expect(textField.find('label').text()).toMatch(/Name/)
   })
+
+  it('allows passing through abritrary props', () => {
+    const textField = shallow(
+      <TextField {...defaultProps} disabled={true} whizz="bang" />,
+    )
+    const tfInput = textField.find('input')
+    expect(tfInput.props().disabled).toEqual(true)
+    expect(tfInput.props().whizz).toEqual('bang')
+  })
 })
 
 describe('<TextFieldAdapter> component', () => {
@@ -61,6 +70,15 @@ describe('<TextArea> component', () => {
   it('renders label correctly', () => {
     const textArea = shallow(<TextArea {...defaultProps} />)
     expect(textArea.find('label').text()).toMatch(/Name/)
+  })
+
+  it('allows passing through abritrary props', () => {
+    const textArea = shallow(
+      <TextArea {...defaultProps} disabled={true} whizz="bang" />,
+    )
+    const taInput = textArea.find('textarea')
+    expect(taInput.props().disabled).toEqual(true)
+    expect(taInput.props().whizz).toEqual('bang')
   })
 })
 
