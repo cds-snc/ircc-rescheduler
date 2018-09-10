@@ -183,6 +183,26 @@ export const Content = styled.div`
   p {
     font-size: ${theme.font.lg};
   }
+
+  .disabled #selectedDays{
+    position:relative;
+  }
+
+  .disabled div#selectedDays:before {
+    content: '';
+    background-color: #efefef;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10000;
+    opacity: 0.7;
+  }
+
+  .disabled #selectedDaysBox{
+    display:none !important;
+  }
 `
 
 export const Calendar = styled.div`

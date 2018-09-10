@@ -23,6 +23,12 @@ const SubmissionForm = props => {
         <input type="hidden" name="explanation" value={props.explanation} />
         <input type="hidden" name="reason" value={props.reason} />
         <input type="hidden" name="selectedDays" value={props.selectedDays} />
+        <input
+          type="hidden"
+          name="availabilityExplanation"
+          value={props.availabilityExplanation}
+        />
+
         <Button type="submit" disabled={sending}>
           <Trans>Send request</Trans>{' '}
           <img src={rightArrow} className={arrow} alt="" />
@@ -42,6 +48,7 @@ SubmissionForm.propTypes = {
   reason: PropTypes.string,
   explanation: PropTypes.string,
   selectedDays: PropTypes.array,
+  availabilityExplanation: PropTypes.string,
   sending: PropTypes.bool.isRequired,
   onSubmit: PropTypes.func.isRequired,
 }

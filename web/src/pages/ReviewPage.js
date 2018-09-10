@@ -71,11 +71,15 @@ class ReviewPage extends React.Component {
 
     const { sending } = this.state
 
-    const days = sortSelectedDays(
-      selectedDays.map(day => {
-        return new Date(dateToISODateString(day))
-      }),
-    )
+    let days = []
+
+    if (selectedDays) {
+      days = sortSelectedDays(
+        selectedDays.map(day => {
+          return new Date(dateToISODateString(day))
+        }),
+      )
+    }
 
     return (
       <Layout contentClass={contentClass}>
