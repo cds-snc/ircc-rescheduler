@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
-import { Trans } from '@lingui/react'
+import { Trans, withI18n } from '@lingui/react'
 import { css } from 'react-emotion'
 import {
   theme,
@@ -187,7 +187,7 @@ class RegistrationPage extends React.Component {
   }
 
   render() {
-    let { context: { store: { register = {} } = {} } = {} } = this.props
+    let { context: { store: { register = {} } = {} } = {}, i18n } = this.props
     let errorsNoJS = {}
 
     // only run this if there's a location.search
@@ -355,6 +355,9 @@ class RegistrationPage extends React.Component {
                     id="familyOption"
                     component={TextAreaAdapter}
                     {...disabled}
+                    placeholder={`${i18n._(
+                      '“Example: Full Name, Full Name, Full Name”',
+                    )}`}
                   >
                     <label htmlFor="familyOption" id="familyOption-label">
                       <ValidationMessage
@@ -515,4 +518,4 @@ RegistrationPage.propTypes = {
   history: PropTypes.any,
 }
 
-export default withContext(RegistrationPage)
+export default withI18n()(withContext(RegistrationPage))
