@@ -4,7 +4,6 @@ import { Trans, withI18n } from '@lingui/react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils, LocaleUtils } from 'react-day-picker'
 import { css } from 'emotion'
-import { NavLink } from 'react-router-dom'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
@@ -24,6 +23,8 @@ import parse from 'date-fns/parse'
 import { logEvent } from '../utils/analytics'
 import { windowExists } from '../utils/windowExists'
 import { FeatureFlag } from './FeatureFlag'
+import { CheckboxAdapter } from '../components/forms/MultipleChoice'
+import { Field } from 'react-final-form'
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -420,15 +421,13 @@ const datesLinkBefore = css`
     margin-top: 0;
   `)};
 
-  a {
-    margin-left: 3.7rem;
-    display: block;
+  margin-left: 3.7rem;
+  display: block;
 
-    ${mediaQuery.lg(css`
-      margin-left: 0;
-      margin: 0;
-    `)};
-  }
+  ${mediaQuery.lg(css`
+    margin-left: 0;
+    margin: 0;
+  `)};
 
   margin-bottom: ${theme.spacing.xxl};
 `
@@ -767,9 +766,18 @@ class Calendar extends Component {
                 <div
                   className={value.length ? datesLinkAfter : datesLinkBefore}
                 >
-                  <NavLink to="/explanation">
-                    <Trans>I&rsquo;m not available for any of these days</Trans>
-                  </NavLink>
+                  <Field
+                    type="checkbox"
+                    name="availability"
+                    id="availability"
+                    value="notAvailable"
+                    component={CheckboxAdapter}
+                    label={
+                      <Trans>
+                        I cannot attend any of the available appointments
+                      </Trans>
+                    }
+                  />
                 </div>
               )}
             />

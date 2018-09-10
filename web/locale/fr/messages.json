@@ -424,6 +424,15 @@
       ]
     ]
   },
+  "I cannot attend any of the available appointments": {
+    "translation": "Je ne peux assister à aucun des rendez-vous disponibles",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        776
+      ]
+    ]
+  },
   "I need to reschedule my family too": {
     "translation": "J’ai aussi besoin de reporter le rendez-vous de membres de ma famille.",
     "origin": [
@@ -518,7 +527,8 @@
         "src/components/Calendar.js",
         771
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "January": {
     "translation": "janvier",
@@ -650,7 +660,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        409
+        431
       ]
     ]
   },
@@ -832,7 +842,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        357
+        378
       ]
     ]
   },
@@ -841,7 +851,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        349
+        370
       ]
     ]
   },
@@ -850,7 +860,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        491
+        490
       ]
     ]
   },
@@ -954,7 +964,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        758
+        757
       ]
     ]
   },
@@ -1012,11 +1022,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        414
+        436
       ],
       [
         "src/pages/CalendarPage.js",
-        507
+        529
       ]
     ]
   },
@@ -1079,7 +1089,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        746
+        745
       ]
     ]
   },
@@ -1343,7 +1353,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        690
+        689
       ]
     ]
   },
@@ -1531,7 +1541,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        589
+        588
       ]
     ]
   },
@@ -1549,7 +1559,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        451
+        473
       ],
       [
         "src/validation.js",
@@ -1593,7 +1603,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        744
+        743
       ]
     ]
   },
@@ -1602,7 +1612,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        742
+        741
       ]
     ]
   },
@@ -1611,7 +1621,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        740
+        739
       ]
     ]
   },
@@ -1669,7 +1679,7 @@
       ],
       [
         "src/pages/CalendarPage.js",
-        245
+        252
       ],
       [
         "src/pages/LandingPage.js",
