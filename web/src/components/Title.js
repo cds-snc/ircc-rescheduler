@@ -61,5 +61,4 @@ const I18nTitle = withI18n()(({ i18n, ...props }) => (
   <Title i18n={i18n} {...props} />
 ))
 
-//const I18nTitle = withI18n()(Title)
 export { I18nTitle as default, Title as BaseTitle, matchPropTypes }
