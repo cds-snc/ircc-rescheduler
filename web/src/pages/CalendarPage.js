@@ -87,6 +87,7 @@ const CalHeader = ({
   path,
   headerMonth = '',
   headerNote = [],
+  familyOption,
 }) => {
   return (
     <div>
@@ -104,7 +105,11 @@ const CalHeader = ({
         <strong>
           <Trans>3 days</Trans>
         </strong>{' '}
-        <Trans>you’re available between</Trans>{' '}
+        {familyOption ? (
+          <Trans>you and your family are available</Trans>
+        ) : (
+          <Trans>you’re available between</Trans>
+        )}{' '}
         {getStartMonthName(new Date(), locale)} <Trans>and</Trans>{' '}
         {getEndMonthName(new Date(), locale)}.
       </CalendarHeader>
@@ -125,6 +130,7 @@ CalHeader.propTypes = {
   path: PropTypes.string.isRequired,
   headerMonth: PropTypes.string,
   headerNote: PropTypes.array,
+  familyOption: PropTypes.string,
 }
 
 const CalBottom = ({ submit }) => {
@@ -292,7 +298,13 @@ class CalendarPage extends Component {
 
   render() {
     let {
-      context: { store: { calendar = {}, language: locale = 'en' } = {} } = {},
+      context: {
+        store: {
+          calendar = {},
+          language: locale = 'en',
+          register: { familyOption } = {},
+        } = {},
+      } = {},
     } = this.props
 
     // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
@@ -316,6 +328,7 @@ class CalendarPage extends Component {
     return (
       <Layout>
         <CalHeader
+          familyOption={familyOption}
           locale={locale}
           path={this.props.match.path}
           headerMonth={this.state.headerMonth}

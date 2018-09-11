@@ -4,7 +4,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        105
+        106
       ],
       [
         "src/pages/LandingPage.js",
@@ -150,7 +150,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        114
+        119
       ]
     ]
   },
@@ -185,16 +185,6 @@
       ]
     ]
   },
-  "Delay your appointment": {
-    "translation": "Retardez votre rendez-vous",
-    "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        171
-      ]
-    ],
-    "obsolete": true
-  },
   "Describe why you can’t attend your appointment": {
     "translation": "Veuillez décrire la raison pour laquelle vous ne pouvez pas vous présenter à votre rendez-vous",
     "origin": [
@@ -207,16 +197,6 @@
         471
       ]
     ]
-  },
-  "Describe why you need to delay your appointment": {
-    "translation": "Décrivez pourquoi vous devez retarder votre rendez-vous",
-    "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        216
-      ]
-    ],
-    "obsolete": true
   },
   "Do not attend your old appointment": {
     "translation": "Ne présentez pas à votre ancien rendez-vous",
@@ -384,22 +364,12 @@
       ]
     ]
   },
-  "Go Back": {
-    "translation": "Retour",
-    "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        168
-      ]
-    ],
-    "obsolete": true
-  },
   "Go back": {
     "translation": "Retour",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        98
+        99
       ],
       [
         "src/pages/ExplanationPage.js",
@@ -433,16 +403,6 @@
       ]
     ]
   },
-  "If you aren’t available on any of the upcoming days, please provide a reason for the delay.": {
-    "translation": "Si vous n’êtes pas disponible pour l’ensemble des prochains jours, veuillez indiquer la raison pour le délai.",
-    "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        163
-      ]
-    ],
-    "obsolete": true
-  },
   "If you cannot attend an appointment on any of the available days, staff may not be able to accommodate your request to reschedule.": {
     "translation": "Si vous ne pouvez pas assister à un rendez-vous les jours disponibles, le personnel peut ne pas être en mesure de répondre à votre demande de replanification.",
     "origin": [
@@ -464,16 +424,6 @@
         108
       ]
     ]
-  },
-  "If you haven’t already, please provide a reason for your unavailability": {
-    "translation": "Si vous ne l'avez pas encore fait, veuillez fournir une raison pour votre indisponibilité",
-    "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        239
-      ]
-    ],
-    "obsolete": true
   },
   "If you haven’t already, please provide a reason for your unavailability.": {
     "translation": "Si vous ne l'avez pas encore fait, veuillez fournir une raison pour votre indisponibilité",
@@ -561,7 +511,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        135
+        141
       ]
     ]
   },
@@ -650,7 +600,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        409
+        422
       ]
     ]
   },
@@ -832,7 +782,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        357
+        370
       ]
     ]
   },
@@ -841,7 +791,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        349
+        362
       ]
     ]
   },
@@ -862,16 +812,6 @@
         77
       ]
     ]
-  },
-  "Please tell us why you aren’t available on any of the upcoming days.": {
-    "translation": "Veuillez nous dire pourquoi vous n’êtes pas disponible les jours à venir.",
-    "origin": [
-      [
-        "src/validation.js",
-        90
-      ]
-    ],
-    "obsolete": true
   },
   "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
     "translation": "Veuillez nous fournir la raison pour laquelle vous voulez reporter votre rendez-vous. Si aucune des raisons énumérées ne s’applique à votre situation, choisissez « Autre raison ».",
@@ -1012,11 +952,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        414
+        427
       ],
       [
         "src/pages/CalendarPage.js",
-        507
+        520
       ]
     ]
   },
@@ -1061,7 +1001,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        103
+        104
       ]
     ]
   },
@@ -1436,16 +1376,6 @@
       ]
     ]
   },
-  "We will reply within 1 week to confirm, or ask for more information. There is a chance you will not be granted a delay.": {
-    "translation": "Nous communiquerons avec vous dans une semaine pour confirmer le délai, ou pour vous demander plus de renseignements. Il est possible que vous ne serez pas accordé un délais.",
-    "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        169
-      ]
-    ],
-    "obsolete": true
-  },
   "Wednesday": {
     "translation": "mercredi",
     "origin": [
@@ -1549,7 +1479,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        451
+        464
       ],
       [
         "src/validation.js",
@@ -1665,11 +1595,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        108
+        113
       ],
       [
         "src/pages/CalendarPage.js",
-        245
+        251
       ],
       [
         "src/pages/LandingPage.js",
@@ -1682,7 +1612,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        115
+        120
       ]
     ]
   },
@@ -1767,12 +1697,21 @@
       ]
     ]
   },
+  "you and your family are available": {
+    "translation": "vous et votre famille sont disponibles",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        109
+      ]
+    ]
+  },
   "you’re available between": {
     "translation": "où vous serez disponible entre",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        107
+        111
       ],
       [
         "src/pages/LandingPage.js",
