@@ -19,7 +19,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        382
+        385
       ]
     ]
   },
@@ -51,7 +51,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        468
+        471
       ]
     ]
   },
@@ -103,11 +103,19 @@
       ]
     ]
   },
+  "“Example: Full Name, Full Name, Full Name”": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        358
+      ]
+    ]
+  },
   "Provide the full name of each family member you want to reschedule.": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        369
+        372
       ]
     ]
   },
@@ -115,7 +123,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        393
+        396
       ]
     ]
   },
@@ -123,7 +131,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        419
+        422
       ]
     ]
   },
@@ -131,7 +139,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        427
+        430
       ]
     ]
   },
@@ -139,7 +147,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        435
+        438
       ]
     ]
   },
@@ -147,7 +155,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        443
+        446
       ]
     ]
   },
@@ -155,7 +163,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        451
+        454
       ]
     ]
   },
@@ -163,7 +171,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        481
+        484
       ]
     ]
   },
@@ -171,7 +179,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        499
+        502
       ]
     ]
   }

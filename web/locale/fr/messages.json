@@ -172,7 +172,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        499
+        502
       ]
     ]
   },
@@ -204,7 +204,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        468
+        471
       ]
     ]
   },
@@ -249,7 +249,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        382
+        385
       ]
     ]
   },
@@ -293,7 +293,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        443
+        446
       ],
       [
         "src/pages/ReviewPage.js",
@@ -588,7 +588,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        427
+        430
       ],
       [
         "src/pages/ReviewPage.js",
@@ -704,7 +704,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        451
+        454
       ],
       [
         "src/pages/ReviewPage.js",
@@ -896,7 +896,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        481
+        484
       ]
     ]
   },
@@ -914,7 +914,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        369
+        372
       ]
     ]
   },
@@ -1294,7 +1294,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        393
+        396
       ]
     ]
   },
@@ -1374,7 +1374,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        419
+        422
       ]
     ]
   },
@@ -1522,7 +1522,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        435
+        438
       ]
     ]
   },
@@ -1777,6 +1777,15 @@
       [
         "src/pages/LandingPage.js",
         131
+      ]
+    ]
+  },
+  "“Example: Full Name, Full Name, Full Name”": {
+    "translation": "« Par example : Nom Complet, Nom Complet »",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        358
       ]
     ]
   }
