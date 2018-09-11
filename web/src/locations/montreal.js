@@ -1,8 +1,9 @@
 module.exports = {
   id: 'montreal',
-  email: 'montreal@example.com',
+  email: 'IRCC.DNCitMTLNotification-NotificationMTLCitRN.IRCC@cic.gc.ca',
   phone: '1-888-111-1111',
-  receivingEmail: 'hillary.lorimer@cds-snc.ca',
+  receivingEmail:
+    'IRCC.DNCitMTLNotification-NotificationMTLCitRN.IRCC@cic.gc.ca',
   recurring: {
     jun: ['mon', 'tues'],
     jul: ['mon', 'tues'],
