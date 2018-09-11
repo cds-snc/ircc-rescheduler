@@ -21,6 +21,19 @@
       ]
     ]
   },
+  "Apply for an appointment extension": {
+    "translation": "Demander une extension de rendez-vous",
+    "origin": [
+      [
+        "src/components/Title.js",
+        27
+      ],
+      [
+        "src/pages/ExplanationPage.js",
+        179
+      ]
+    ]
+  },
   "April": {
     "translation": "avril",
     "origin": [
@@ -155,7 +168,7 @@
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        247
+        264
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -176,14 +189,11 @@
     "translation": "Retardez votre rendez-vous",
     "origin": [
       [
-        "src/components/Title.js",
-        27
-      ],
-      [
         "src/pages/ExplanationPage.js",
-        160
+        171
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Describe why you can’t attend your appointment": {
     "translation": "Veuillez décrire la raison pour laquelle vous ne pouvez pas vous présenter à votre rendez-vous",
@@ -205,7 +215,8 @@
         "src/pages/ExplanationPage.js",
         216
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Do not attend your old appointment": {
     "translation": "Ne présentez pas à votre ancien rendez-vous",
@@ -260,7 +271,7 @@
     "origin": [
       [
         "src/validation.js",
-        111
+        109
       ]
     ]
   },
@@ -373,12 +384,26 @@
       ]
     ]
   },
+  "Go Back": {
+    "translation": "Retour",
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        168
+      ]
+    ],
+    "obsolete": true
+  },
   "Go back": {
     "translation": "Retour",
     "origin": [
       [
         "src/pages/CalendarPage.js",
         98
+      ],
+      [
+        "src/pages/ExplanationPage.js",
+        176
       ],
       [
         "src/pages/ReviewPage.js",
@@ -415,6 +440,16 @@
         "src/pages/ExplanationPage.js",
         163
       ]
+    ],
+    "obsolete": true
+  },
+  "If you cannot attend an appointment on any of the available days, staff may not be able to accommodate your request to reschedule.": {
+    "translation": "Si vous ne pouvez pas assister à un rendez-vous les jours disponibles, le personnel peut ne pas être en mesure de répondre à votre demande de replanification.",
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        182
+      ]
     ]
   },
   "If you have any questions, please contact:": {
@@ -427,6 +462,25 @@
       [
         "src/pages/ConfirmationPage.js",
         108
+      ]
+    ]
+  },
+  "If you haven’t already, please provide a reason for your unavailability": {
+    "translation": "Si vous ne l'avez pas encore fait, veuillez fournir une raison pour votre indisponibilité",
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        239
+      ]
+    ],
+    "obsolete": true
+  },
+  "If you haven’t already, please provide a reason for your unavailability.": {
+    "translation": "Si vous ne l'avez pas encore fait, veuillez fournir une raison pour votre indisponibilité",
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        246
       ]
     ]
   },
@@ -462,11 +516,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        764
-      ],
-      [
-        "src/components/CalendarNoJS.js",
-        93
+        771
       ]
     ]
   },
@@ -662,6 +712,15 @@
       ]
     ]
   },
+  "Our policy is to delay appointments a maximum of two months. We’ll review your request and determine if we can accommodate your unavailability and get back to you within 1 week.": {
+    "translation": "Notre politique est de reporter les rendez-vous au maximum deux mois. Nous examinerons votre demande et déterminerons si nous pouvons répondre à votre indisponibilité et vous contacter dans un délai d’une semaine.",
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        188
+      ]
+    ]
+  },
   "Our team has been notified of this error, but you can also": {
     "translation": "Notre équipe a été avisée de l’erreur, mais vous pouvez",
     "origin": [
@@ -759,6 +818,15 @@
       ]
     ]
   },
+  "Please provide us with more information.": {
+    "translation": "Veuillez nous fournir plus d'informations.",
+    "origin": [
+      [
+        "src/validation.js",
+        90
+      ]
+    ]
+  },
   "Please select 1 more day to continue.": {
     "translation": "Veuillez sélectionner 1 autre jour pour continuer.",
     "origin": [
@@ -782,7 +850,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        490
+        491
       ]
     ]
   },
@@ -802,7 +870,8 @@
         "src/validation.js",
         90
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
     "translation": "Veuillez nous fournir la raison pour laquelle vous voulez reporter votre rendez-vous. Si aucune des raisons énumérées ne s’applique à votre situation, choisissez « Autre raison ».",
@@ -825,10 +894,6 @@
   "Provide enough detail so that staff can understand your situation.": {
     "translation": "Veuillez donner suffisament de détails pour que le personnel puisse comprendre votre situation.",
     "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        229
-      ],
       [
         "src/pages/RegistrationPage.js",
         481
@@ -880,7 +945,7 @@
     "origin": [
       [
         "src/validation.js",
-        115
+        113
       ]
     ]
   },
@@ -889,7 +954,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        757
+        758
       ]
     ]
   },
@@ -1014,7 +1079,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        745
+        746
       ]
     ]
   },
@@ -1059,7 +1124,7 @@
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        110
+        121
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -1113,10 +1178,15 @@
       [
         "src/validation.js",
         83
-      ],
+      ]
+    ]
+  },
+  "Sorry, there’s a limit of 150 words for this explanation. Please shorten your explanation.": {
+    "translation": "Désolé, il y a une limite de 150 mots. Veuillez racourcir votre explication.",
+    "origin": [
       [
         "src/validation.js",
-        96
+        94
       ]
     ]
   },
@@ -1273,7 +1343,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        689
+        690
       ]
     ]
   },
@@ -1373,7 +1443,8 @@
         "src/pages/ExplanationPage.js",
         169
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Wednesday": {
     "translation": "mercredi",
@@ -1419,6 +1490,15 @@
       ]
     ]
   },
+  "When are you unavailable?": {
+    "translation": "Quand êtes-vous indisponible?",
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        235
+      ]
+    ]
+  },
   "Why are you rescheduling?": {
     "translation": "Quelle est la raison du report?",
     "origin": [
@@ -1451,7 +1531,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        588
+        589
       ]
     ]
   },
@@ -1473,11 +1553,11 @@
       ],
       [
         "src/validation.js",
-        103
+        101
       ],
       [
         "src/validation.js",
-        107
+        105
       ]
     ]
   },
@@ -1513,7 +1593,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        743
+        744
       ]
     ]
   },
@@ -1522,7 +1602,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        741
+        742
       ]
     ]
   },
@@ -1531,7 +1611,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        739
+        740
       ]
     ]
   },

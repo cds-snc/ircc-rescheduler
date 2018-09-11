@@ -131,6 +131,7 @@ class ReviewPage extends React.Component {
             explanation={explanation}
             reason={reason}
             selectedDays={selectedDays}
+            availabilityExplanation={explanationPage}
             sending={sending}
             onSubmit={this.handleSubmit}
           />
