@@ -7,9 +7,11 @@ const parseFlags = () => {
   try {
     if (process.env.RAZZLE_FLAGS) {
       flags = JSON.parse(process.env.RAZZLE_FLAGS)
+      console.log('found flags:', flags)
     }
   } catch (e) {
     // do nothing
+    console.log('flags error:', e.message)
   }
 
   return flags
