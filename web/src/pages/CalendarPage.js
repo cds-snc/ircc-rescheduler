@@ -323,6 +323,8 @@ class CalendarPage extends Component {
       calValues.selectedDays = this.state.calValues
     }
 
+    const { month } = this.state
+
     return (
       <Layout>
         <CalHeader
@@ -410,6 +412,7 @@ class CalendarPage extends Component {
                     dayLimit={DAY_LIMIT}
                     forceRender={this.forceRender}
                     changeMonth={this.changeMonth}
+                    month={month}
                   />
                 </div>
                 <CalBottom
