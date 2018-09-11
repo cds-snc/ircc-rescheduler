@@ -7,16 +7,15 @@ const parseFlags = () => {
   try {
     if (process.env.RAZZLE_FLAGS) {
       flags = JSON.parse(process.env.RAZZLE_FLAGS)
-      // eslint-disable-line no-console
-      console.log('found flags:', flags)
+      console.log('found flags:', flags) // eslint-disable-line no-console
     }
   } catch (e) {
     // do nothing
-    // eslint-disable-line no-console
-    console.log('flags error:', e.message)
+
+    console.log('flags error:', e.message) // eslint-disable-line no-console
   }
-  // eslint-disable-line no-console
-  console.log('flags', process.env.RAZZLE_FLAGS)
+
+  console.log('flags', process.env.RAZZLE_FLAGS) // eslint-disable-line no-console
 
   return flags
 }
@@ -24,6 +23,8 @@ const parseFlags = () => {
 const noop = () => {
   return null
 }
+
+console.log('Feature Flag') // eslint-disable-line no-console
 
 export const FeatureFlag = ({ on = noop, off = noop, flags = [] }) => {
   return (
