@@ -155,9 +155,15 @@ class CalendarPage extends Component {
   }
 
   static validate(values) {
+    /* if the availability checkbox is set just return */
+    if (values.availability) {
+      return {}
+    }
+
     if (values.selectedDays === undefined) {
       values.selectedDays = []
     }
+
     const validate = new Validator(
       trimInput(values),
       CalendarFields,
@@ -185,6 +191,7 @@ class CalendarPage extends Component {
       headerMonth: '',
       headerNote: [],
       calValues: false,
+      disabled: false,
     }
   }
 
@@ -281,13 +288,26 @@ class CalendarPage extends Component {
       }
     }
 
+    let days = []
+    if (!values.availability) {
+      days = values.selectedDays.map(date => dateToISODateString(date))
+    }
+
+    const availability = values.availability
+
     // values.selectedDays is an array of dates, so cast them to ISO date strings
     values = {
-      selectedDays: values.selectedDays.map(date => dateToISODateString(date)),
+      selectedDays: days,
+      availability,
     }
+
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
-    await this.props.history.push('/review')
+    if (values.availability) {
+      await this.props.history.push('/explanation')
+    } else {
+      await this.props.history.push('/review')
+    }
   }
 
   render() {
@@ -334,6 +354,7 @@ class CalendarPage extends Component {
             let err
 
             const notValid = this.hasNotValid()
+            const { availability } = values
 
             if (submitError && this.validate(values).selectedDays) {
               let valuesLength =
@@ -375,7 +396,7 @@ class CalendarPage extends Component {
                   }
                 }}
               >
-                <div>
+                <div className={availability ? 'disabled' : ''}>
                   <div
                     id="submit-error"
                     tabIndex="-1"
@@ -397,6 +418,7 @@ class CalendarPage extends Component {
                     dayLimit={DAY_LIMIT}
                     forceRender={this.forceRender}
                     changeMonth={this.changeMonth}
+                    toggleCalendar={this.toggleCalendar}
                   />
                 </div>
                 <CalBottom
