@@ -106,7 +106,7 @@ const CalHeader = ({
           <Trans>3 days</Trans>
         </strong>{' '}
         {familyOption ? (
-          <Trans>you and your family are available</Trans>
+          <Trans>you and your family are available between</Trans>
         ) : (
           <Trans>you’re available between</Trans>
         )}{' '}

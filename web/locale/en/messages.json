@@ -4,7 +4,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        105
+        106
       ],
       [
         "src/pages/LandingPage.js",
@@ -150,7 +150,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        114
+        119
       ]
     ]
   },
@@ -369,7 +369,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        98
+        99
       ],
       [
         "src/pages/ExplanationPage.js",
@@ -511,7 +511,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        135
+        141
       ]
     ]
   },
@@ -600,7 +600,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        412
+        425
       ]
     ]
   },
@@ -791,7 +791,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        359
+        372
       ]
     ]
   },
@@ -800,7 +800,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        351
+        364
       ]
     ]
   },
@@ -961,11 +961,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        417
+        430
       ],
       [
         "src/pages/CalendarPage.js",
-        510
+        523
       ]
     ]
   },
@@ -1010,7 +1010,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        103
+        104
       ]
     ]
   },
@@ -1497,7 +1497,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        454
+        467
       ],
       [
         "src/validation.js",
@@ -1613,11 +1613,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        108
+        113
       ],
       [
         "src/pages/CalendarPage.js",
-        245
+        251
       ],
       [
         "src/pages/LandingPage.js",
@@ -1630,7 +1630,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        115
+        120
       ]
     ]
   },
@@ -1715,12 +1715,21 @@
       ]
     ]
   },
+  "you and your family are available between": {
+    "translation": "you and your family are available between",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        109
+      ]
+    ]
+  },
   "you’re available between": {
     "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        107
+        111
       ],
       [
         "src/pages/LandingPage.js",
