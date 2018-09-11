@@ -172,7 +172,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        499
+        502
       ]
     ]
   },
@@ -204,7 +204,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        468
+        471
       ]
     ]
   },
@@ -249,7 +249,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        382
+        385
       ]
     ]
   },
@@ -293,7 +293,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        443
+        446
       ],
       [
         "src/pages/ReviewPage.js",
@@ -324,7 +324,7 @@
     ]
   },
   "First, provide some basic information:": {
-    "translation": "D'abord, veuillez fournir quelques renseignements de base :",
+    "translation": "D'abord, veuillez fournir quelques renseignements de base :",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -453,7 +453,7 @@
     ]
   },
   "If you have any questions, please contact:": {
-    "translation": "Si vous avez des questions, communiquez avec :",
+    "translation": "Si vous avez des questions, communiquez avec :",
     "origin": [
       [
         "src/pages/CancelPage.js",
@@ -588,7 +588,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        427
+        430
       ],
       [
         "src/pages/ReviewPage.js",
@@ -704,7 +704,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        451
+        454
       ],
       [
         "src/pages/ReviewPage.js",
@@ -792,7 +792,7 @@
     ]
   },
   "Please check these sections for errors:": {
-    "translation": "Veuillez vérifier les sections suivantes pour des erreurs :",
+    "translation": "Veuillez vérifier les sections suivantes pour des erreurs :",
     "origin": [
       [
         "src/components/ErrorMessage.js",
@@ -810,7 +810,7 @@
     ]
   },
   "Please make sure you provide a valid email address. For example, ‘yourname@example.com’.": {
-    "translation": "Veuillez vous assurez que l'adresse courriel est valide. Par exemple, « votrenom@exemple.com ».",
+    "translation": "Veuillez vous assurez que l'adresse courriel est valide. Par exemple, « votrenom@exemple.com ».",
     "origin": [
       [
         "src/validation.js",
@@ -874,7 +874,7 @@
     "obsolete": true
   },
   "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
-    "translation": "Veuillez nous fournir la raison pour laquelle vous voulez reporter votre rendez-vous. Si aucune des raisons énumérées ne s’applique à votre situation, choisissez « Autre raison ».",
+    "translation": "Veuillez nous fournir la raison pour laquelle vous voulez reporter votre rendez-vous. Si aucune des raisons énumérées ne s’applique à votre situation, choisissez « Autre raison ».",
     "origin": [
       [
         "src/validation.js",
@@ -896,7 +896,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        481
+        484
       ]
     ]
   },
@@ -914,7 +914,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        369
+        372
       ]
     ]
   },
@@ -1030,7 +1030,7 @@
     ]
   },
   "Review your request:": {
-    "translation": "Revoir votre demande :",
+    "translation": "Revoir votre demande :",
     "origin": [
       [
         "src/pages/ReviewPage.js",
@@ -1294,7 +1294,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        393
+        396
       ]
     ]
   },
@@ -1374,7 +1374,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        419
+        422
       ]
     ]
   },
@@ -1522,7 +1522,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        435
+        438
       ]
     ]
   },
@@ -1580,7 +1580,7 @@
     ]
   },
   "You will need:": {
-    "translation": "Vous devez :",
+    "translation": "Vous devez :",
     "origin": [
       [
         "src/pages/LandingPage.js",
@@ -1589,7 +1589,7 @@
     ]
   },
   "Your 1 selected day, select 2 more:": {
-    "translation": "Votre jour sélectionné, sélectionnez-en 2 autres :",
+    "translation": "Votre jour sélectionné, sélectionnez-en 2 autres :",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1598,7 +1598,7 @@
     ]
   },
   "Your 2 selected days, select 1 more:": {
-    "translation": "Vos 2 jours sélectionnés, sélectionnez-en 1 autre :",
+    "translation": "Vos 2 jours sélectionnés, sélectionnez-en 1 autre :",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1607,7 +1607,7 @@
     ]
   },
   "Your 3 selected days:": {
-    "translation": "Vos 3 jours sélectionnés :",
+    "translation": "Vos 3 jours sélectionnés :",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1687,7 +1687,7 @@
     ]
   },
   "directly to reschedule your appointment:": {
-    "translation": "pour reporter votre rendez-vous :",
+    "translation": "pour reporter votre rendez-vous :",
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -1777,6 +1777,15 @@
       [
         "src/pages/LandingPage.js",
         131
+      ]
+    ]
+  },
+  "“Example: Full Name, Full Name, Full Name”": {
+    "translation": "« Par example : Nom Complet, Nom Complet »",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        358
       ]
     ]
   }

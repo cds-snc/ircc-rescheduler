@@ -4,6 +4,11 @@ import FieldAdapterPropTypes from '../_Field'
 import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../../styles'
 
+const placeholder = css`
+  font-style: italic;
+  color: ${theme.colour.grey};
+  opacity: 1;
+`
 const text_input = css`
   font-size: ${theme.font.lg};
   font-family: Helvetica, Arial, sans-serif;
@@ -22,6 +27,15 @@ const text_input = css`
     background: ${theme.colour.greyLight};
     border-color: ${theme.colour.grey};
     cursor: not-allowed;
+  }
+
+  :-ms-input-placeholder,
+  ::-ms-input-placeholder {
+    ${placeholder};
+  }
+
+  ::placeholder {
+    ${placeholder};
   }
 
   ${mediaQuery.md(css`
@@ -46,10 +60,10 @@ const TextField = ({
   labelledby,
   value,
   children,
-  disabled,
   onBlur,
   onChange,
   onFocus,
+  ...props
 }) => (
   <div>
     {children}
@@ -63,7 +77,7 @@ const TextField = ({
       onChange={onChange}
       onFocus={onFocus}
       className={text_input}
-      disabled={disabled}
+      {...props}
     />
   </div>
 )
@@ -77,7 +91,6 @@ const textProps = {
   onChange: PropTypes.func,
   onFocus: PropTypes.func,
   value: PropTypes.string,
-  disabled: PropTypes.bool,
 }
 
 TextField.propTypes = textProps
@@ -97,7 +110,7 @@ const TextArea = ({
   onBlur,
   onChange,
   onFocus,
-  disabled,
+  ...props
 }) => (
   <div>
     {children}
@@ -110,7 +123,7 @@ const TextArea = ({
       onChange={onChange}
       onFocus={onFocus}
       className={text_area}
-      disabled={disabled}
+      {...props}
     />
   </div>
 )
