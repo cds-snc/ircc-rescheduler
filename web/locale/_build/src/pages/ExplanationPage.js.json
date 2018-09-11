@@ -3,47 +3,55 @@
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        110
+        121
       ]
     ]
   },
-  "Delay your appointment": {
+  "Go back": {
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        160
+        176
       ]
     ]
   },
-  "If you aren’t available on any of the upcoming days, please provide a reason for the delay.": {
+  "Apply for an appointment extension": {
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        163
+        179
       ]
     ]
   },
-  "We will reply within 1 week to confirm, or ask for more information. There is a chance you will not be granted a delay.": {
+  "If you cannot attend an appointment on any of the available days, staff may not be able to accommodate your request to reschedule.": {
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        169
+        182
       ]
     ]
   },
-  "Describe why you need to delay your appointment": {
+  "Our policy is to delay appointments a maximum of two months. We’ll review your request and determine if we can accommodate your unavailability and get back to you within 1 week.": {
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        216
+        188
       ]
     ]
   },
-  "Provide enough detail so that staff can understand your situation.": {
+  "When are you unavailable?": {
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        229
+        235
+      ]
+    ]
+  },
+  "If you haven’t already, please provide a reason for your unavailability.": {
+    "origin": [
+      [
+        "src/pages/ExplanationPage.js",
+        246
       ]
     ]
   },
@@ -51,7 +59,7 @@
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        247
+        264
       ]
     ]
   }

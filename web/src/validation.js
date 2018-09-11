@@ -87,14 +87,12 @@ errorMessages.explanationMaxErrorMessage = (
 )
 
 errorMessages.explanationPageErrorMessage = (
-  <Trans>
-    Please tell us why you aren’t available on any of the upcoming days.
-  </Trans>
+  <Trans>Please provide us with more information.</Trans>
 )
 
 errorMessages.explanationPageMaxErrorMessage = (
   <Trans>
-    Sorry, there‘s a limit of 150 words for this explanation. Please shorten
+    Sorry, there’s a limit of 150 words for this explanation. Please shorten
     your explanation.
   </Trans>
 )
