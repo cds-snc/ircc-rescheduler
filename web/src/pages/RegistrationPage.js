@@ -92,7 +92,7 @@ const labelNames = id => {
     case 'explanation':
       return <Trans>Describe why you can’t attend your appointment</Trans>
     case 'familyCheck':
-      return <Trans>Please confirm you are resheduling family members</Trans>
+      return <Trans>Please confirm you are rescheduling family members</Trans>
     case 'familyOption':
       return <Trans>Provide the names of your family members</Trans>
     default:

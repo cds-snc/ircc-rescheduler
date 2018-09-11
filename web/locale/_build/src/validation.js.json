@@ -31,7 +31,7 @@
       ]
     ]
   },
-  "You left this blank. Do you want to reschedule any members of your family? Please provide their full names.": {
+  "You must click ‘I need to reschedule my family too’ if you are rescheduling family members.": {
     "origin": [
       [
         "src/validation.js",
@@ -39,7 +39,7 @@
       ]
     ]
   },
-  "There is a limit of 150 words for your family’s names. Please shorten your explanation.": {
+  "You left this blank. Do you want to reschedule any members of your family? Please provide their full names.": {
     "origin": [
       [
         "src/validation.js",
@@ -47,7 +47,7 @@
       ]
     ]
   },
-  "We need your paper file number so we can confirm your identity.": {
+  "There is a limit of 150 words for your family’s names. Please shorten your explanation.": {
     "origin": [
       [
         "src/validation.js",
@@ -55,15 +55,15 @@
       ]
     ]
   },
-  "Needs a number with a different format. Please make sure this is your correct Paper file number.": {
+  "We need your paper file number so we can confirm your identity.": {
     "origin": [
       [
         "src/validation.js",
-        63
+        66
       ]
     ]
   },
-  "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
+  "Needs a number with a different format. Please make sure this is your correct Paper file number.": {
     "origin": [
       [
         "src/validation.js",
@@ -71,7 +71,7 @@
       ]
     ]
   },
-  "Please tell us a bit more about why you need to reschedule your appointment.": {
+  "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
     "origin": [
       [
         "src/validation.js",
@@ -79,15 +79,15 @@
       ]
     ]
   },
-  "Sorry, there‘s a limit of 150 words for this explanation. Please shorten your explanation.": {
+  "Please tell us a bit more about why you need to reschedule your appointment.": {
     "origin": [
       [
         "src/validation.js",
-        83
+        84
       ]
     ]
   },
-  "Please provide us with more information.": {
+  "Sorry, there‘s a limit of 150 words for this explanation. Please shorten your explanation.": {
     "origin": [
       [
         "src/validation.js",
@@ -95,11 +95,19 @@
       ]
     ]
   },
+  "Please provide us with more information.": {
+    "origin": [
+      [
+        "src/validation.js",
+        97
+      ]
+    ]
+  },
   "Sorry, there’s a limit of 150 words for this explanation. Please shorten your explanation.": {
     "origin": [
       [
         "src/validation.js",
-        94
+        101
       ]
     ]
   },
@@ -107,11 +115,11 @@
     "origin": [
       [
         "src/validation.js",
-        101
+        108
       ],
       [
         "src/validation.js",
-        105
+        112
       ]
     ]
   },
@@ -119,7 +127,7 @@
     "origin": [
       [
         "src/validation.js",
-        109
+        116
       ]
     ]
   },
@@ -127,7 +135,7 @@
     "origin": [
       [
         "src/validation.js",
-        113
+        120
       ]
     ]
   }

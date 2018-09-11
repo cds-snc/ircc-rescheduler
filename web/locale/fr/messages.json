@@ -172,7 +172,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        502
+        531
       ]
     ]
   },
@@ -185,38 +185,18 @@
       ]
     ]
   },
-  "Delay your appointment": {
-    "translation": "Retardez votre rendez-vous",
-    "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        171
-      ]
-    ],
-    "obsolete": true
-  },
   "Describe why you can’t attend your appointment": {
     "translation": "Veuillez décrire la raison pour laquelle vous ne pouvez pas vous présenter à votre rendez-vous",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        89
+        93
       ],
       [
         "src/pages/RegistrationPage.js",
-        471
+        500
       ]
     ]
-  },
-  "Describe why you need to delay your appointment": {
-    "translation": "Décrivez pourquoi vous devez retarder votre rendez-vous",
-    "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        216
-      ]
-    ],
-    "obsolete": true
   },
   "Do not attend your old appointment": {
     "translation": "Ne présentez pas à votre ancien rendez-vous",
@@ -245,11 +225,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        83
+        87
       ],
       [
         "src/pages/RegistrationPage.js",
-        385
+        414
       ]
     ]
   },
@@ -271,7 +251,7 @@
     "origin": [
       [
         "src/validation.js",
-        109
+        116
       ]
     ]
   },
@@ -293,7 +273,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        446
+        475
       ],
       [
         "src/pages/ReviewPage.js",
@@ -302,7 +282,7 @@
     ]
   },
   "Family members": {
-    "translation": "Les membres de ma famille",
+    "translation": "Les membres de votre famille",
     "origin": [
       [
         "src/components/Summary.js",
@@ -328,7 +308,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        208
+        228
       ]
     ]
   },
@@ -376,23 +356,13 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        81
+        85
       ],
       [
         "src/pages/RegistrationPage.js",
-        293
+        313
       ]
     ]
-  },
-  "Go Back": {
-    "translation": "Retour",
-    "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        168
-      ]
-    ],
-    "obsolete": true
   },
   "Go back": {
     "translation": "Retour",
@@ -425,23 +395,13 @@
     ]
   },
   "I need to reschedule my family too": {
-    "translation": "J’ai aussi besoin de reporter le rendez-vous de membres de ma famille.",
+    "translation": "J’ai aussi besoin de reporter le rendez-vous des membres de ma famille.",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        349
+        377
       ]
     ]
-  },
-  "If you aren’t available on any of the upcoming days, please provide a reason for the delay.": {
-    "translation": "Si vous n’êtes pas disponible pour l’ensemble des prochains jours, veuillez indiquer la raison pour le délai.",
-    "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        163
-      ]
-    ],
-    "obsolete": true
   },
   "If you cannot attend an appointment on any of the available days, staff may not be able to accommodate your request to reschedule.": {
     "translation": "Si vous ne pouvez pas assister à un rendez-vous les jours disponibles, le personnel peut ne pas être en mesure de répondre à votre demande de replanification.",
@@ -464,16 +424,6 @@
         108
       ]
     ]
-  },
-  "If you haven’t already, please provide a reason for your unavailability": {
-    "translation": "Si vous ne l'avez pas encore fait, veuillez fournir une raison pour votre indisponibilité",
-    "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        239
-      ]
-    ],
-    "obsolete": true
   },
   "If you haven’t already, please provide a reason for your unavailability.": {
     "translation": "Si vous ne l'avez pas encore fait, veuillez fournir une raison pour votre indisponibilité",
@@ -516,7 +466,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        771
+        797
       ]
     ]
   },
@@ -588,7 +538,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        430
+        459
       ],
       [
         "src/pages/ReviewPage.js",
@@ -632,7 +582,7 @@
     "origin": [
       [
         "src/validation.js",
-        63
+        70
       ]
     ]
   },
@@ -650,7 +600,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        409
+        412
       ]
     ]
   },
@@ -704,7 +654,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        454
+        483
       ],
       [
         "src/pages/ReviewPage.js",
@@ -761,11 +711,11 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        85
+        89
       ],
       [
         "src/pages/RegistrationPage.js",
-        321
+        341
       ]
     ]
   },
@@ -800,6 +750,15 @@
       ]
     ]
   },
+  "Please confirm you are rescheduling family members": {
+    "translation": "Veuillez confirmer qui vous désirez aussi reporter le rendez-vous pour des membres de votre famille.",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        95
+      ]
+    ]
+  },
   "Please contact": {
     "translation": "Veuillez communiquer directement avec",
     "origin": [
@@ -823,7 +782,7 @@
     "origin": [
       [
         "src/validation.js",
-        90
+        97
       ]
     ]
   },
@@ -832,7 +791,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        357
+        359
       ]
     ]
   },
@@ -841,7 +800,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        349
+        351
       ]
     ]
   },
@@ -850,7 +809,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        491
+        504
       ]
     ]
   },
@@ -859,26 +818,16 @@
     "origin": [
       [
         "src/validation.js",
-        77
+        84
       ]
     ]
-  },
-  "Please tell us why you aren’t available on any of the upcoming days.": {
-    "translation": "Veuillez nous dire pourquoi vous n’êtes pas disponible les jours à venir.",
-    "origin": [
-      [
-        "src/validation.js",
-        90
-      ]
-    ],
-    "obsolete": true
   },
   "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
     "translation": "Veuillez nous fournir la raison pour laquelle vous voulez reporter votre rendez-vous. Si aucune des raisons énumérées ne s’applique à votre situation, choisissez « Autre raison ».",
     "origin": [
       [
         "src/validation.js",
-        70
+        77
       ]
     ]
   },
@@ -896,7 +845,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        484
+        513
       ]
     ]
   },
@@ -914,16 +863,16 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        372
+        401
       ]
     ]
   },
   "Provide the names of your family members": {
-    "translation": "Veuillez indiquer les noms des membres de votre famille.",
+    "translation": "Veuillez indiquer les noms des membres de votre famille",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        91
+        97
       ]
     ]
   },
@@ -945,7 +894,7 @@
     "origin": [
       [
         "src/validation.js",
-        113
+        120
       ]
     ]
   },
@@ -954,7 +903,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        758
+        784
       ]
     ]
   },
@@ -1012,11 +961,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        414
+        417
       ],
       [
         "src/pages/CalendarPage.js",
-        507
+        510
       ]
     ]
   },
@@ -1079,7 +1028,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        746
+        772
       ]
     ]
   },
@@ -1128,7 +1077,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        154
+        174
       ]
     ]
   },
@@ -1177,7 +1126,7 @@
     "origin": [
       [
         "src/validation.js",
-        83
+        90
       ]
     ]
   },
@@ -1186,7 +1135,7 @@
     "origin": [
       [
         "src/validation.js",
-        94
+        101
       ]
     ]
   },
@@ -1263,11 +1212,11 @@
     ]
   },
   "There is a limit of 150 words for your family’s names. Please shorten your explanation.": {
-    "translation": "Désolé, il y a une limite de 150 mots. Veuillez racourcir votre explication.",
+    "translation": "Il y a une limite de 150 mots pour les noms des membres de votre famille. Veuillez raccourcir votre explication.",
     "origin": [
       [
         "src/validation.js",
-        52
+        59
       ]
     ]
   },
@@ -1285,7 +1234,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        304
+        324
       ]
     ]
   },
@@ -1294,7 +1243,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        396
+        425
       ]
     ]
   },
@@ -1303,7 +1252,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        332
+        352
       ]
     ]
   },
@@ -1343,7 +1292,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        690
+        716
       ]
     ]
   },
@@ -1374,7 +1323,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        422
+        451
       ]
     ]
   },
@@ -1432,19 +1381,9 @@
     "origin": [
       [
         "src/validation.js",
-        59
+        66
       ]
     ]
-  },
-  "We will reply within 1 week to confirm, or ask for more information. There is a chance you will not be granted a delay.": {
-    "translation": "Nous communiquerons avec vous dans une semaine pour confirmer le délai, ou pour vous demander plus de renseignements. Il est possible que vous ne serez pas accordé un délais.",
-    "origin": [
-      [
-        "src/pages/ExplanationPage.js",
-        169
-      ]
-    ],
-    "obsolete": true
   },
   "Wednesday": {
     "translation": "mercredi",
@@ -1504,7 +1443,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        87
+        91
       ]
     ]
   },
@@ -1522,7 +1461,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        438
+        467
       ]
     ]
   },
@@ -1531,12 +1470,21 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        589
+        602
       ]
     ]
   },
   "You left this blank. Do you want to reschedule any members of your family? Please provide their full names.": {
     "translation": "Vous avez laissé cette case vide. Aimeriez-vous reporter le rendez-vous pour des membres de votre famille? Veuillez indiquer leurs noms.",
+    "origin": [
+      [
+        "src/validation.js",
+        52
+      ]
+    ]
+  },
+  "You must click ‘I need to reschedule my family too’ if you are rescheduling family members.": {
+    "translation": "Vous devez sélectionner la case si vous désirez aussi reporter le rendez-vous pour des membres de votre famille.",
     "origin": [
       [
         "src/validation.js",
@@ -1549,15 +1497,15 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        451
+        454
       ],
       [
         "src/validation.js",
-        101
+        108
       ],
       [
         "src/validation.js",
-        105
+        112
       ]
     ]
   },
@@ -1593,7 +1541,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        744
+        770
       ]
     ]
   },
@@ -1602,7 +1550,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        742
+        768
       ]
     ]
   },
@@ -1611,7 +1559,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        740
+        766
       ]
     ]
   },
@@ -1785,7 +1733,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        358
+        387
       ]
     ]
   }
