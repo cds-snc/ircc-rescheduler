@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Trans, withI18n } from '@lingui/react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils, LocaleUtils } from 'react-day-picker'
-import { css } from 'emotion'
+import { css, keyframes } from 'emotion'
 import { NavLink } from 'react-router-dom'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
@@ -19,11 +19,30 @@ import {
   sortSelectedDays,
   getDisabledDays,
   getDaysOfWeekForLocation,
+  getMonthName,
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 import { logEvent } from '../utils/analytics'
 import { windowExists } from '../utils/windowExists'
 import { FeatureFlag } from './FeatureFlag'
+
+const jiggle = keyframes`
+10%, 90% {
+  transform: translate3d(-1px, 0, 0);
+}
+
+20%, 80% {
+  transform: translate3d(2px, 0, 0);
+}
+
+30%, 50%, 70% {
+  transform: translate3d(-2px, 0, 0);
+}
+
+40%, 60% {
+  transform: translate3d(2px, 0, 0);
+}
+`
 
 const dayPickerDefault = css`
   /* DayPicker styles */
@@ -98,15 +117,9 @@ const dayPickerDefault = css`
   .DayPicker-NavButton--prev {
     left: 0.5rem;
     top: 0.5rem;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5LjQyIDE1LjYyIj48dGl0bGU+bGVmdEFycm93PC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEtMiI+PHBhdGggZD0iTTIuNzksNy44MWw1LjYzLDcuMzFINi4yNUwuNjMsNy44MSw2LjI1LjVIOC4zN1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiLz48cGF0aCBkPSJNNiwwSDkuNDJsLTYsNy44MSw2LDcuODFINkwwLDcuODFaTTcuMzYsMUg2LjQ5TDEuMjYsNy44MWw1LjIzLDYuODFoLjkzTDIuMTYsNy44MVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiLz48L2c+PC9nPjwvc3ZnPg==');
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiBmaWxsPSIjMDA4MjNiIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5LjQyIDE1LjYyIj48dGl0bGU+bGVmdEFycm93PC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEtMiI+PHBhdGggZD0iTTIuNzksNy44MWw1LjYzLDcuMzFINi4yNUwuNjMsNy44MSw2LjI1LjVIOC4zN1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiLz48cGF0aCBkPSJNNiwwSDkuNDJsLTYsNy44MSw2LDcuODFINkwwLDcuODFaTTcuMzYsMUg2LjQ5TDEuMjYsNy44MWw1LjIzLDYuODFoLjkzTDIuMTYsNy44MVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiLz48L2c+PC9nPjwvc3ZnPg==');
   }
-
-  .DayPicker-NavButton--next {
-    right: 0.5rem;
-    top: 0.5rem;
-    background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIxLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA5LjQgMTUuNiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgOS40IDE1LjY7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGcgaWQ9IkxheWVyXzIiPgoJPGcgaWQ9IkxheWVyXzEtMiI+CgkJPHBhdGggZD0iTTYuNiw3LjhMMSwwLjVoMi4ybDUuNiw3LjNsLTUuNiw3LjNIMUw2LjYsNy44eiIvPgoJCTxwYXRoIGQ9Ik0zLjQsMTUuNkgwbDYtNy44TDAsMGgzLjRsNiw3LjhMMy40LDE1LjZ6IE0yLjEsMTQuNmgwLjlsNS4yLTYuOEwyLjksMUgybDUuMyw2LjhMMi4xLDE0LjZ6Ii8+Cgk8L2c+CjwvZz4KPC9zdmc+Cg==');
-  }
-
+  
   .DayPicker-NavButton--interactionDisabled {
     display: none;
   }
@@ -650,6 +663,12 @@ class Calendar extends Component {
       ? this.state.daysOfWeek
       : getDaysOfWeekForLocation(undefined, initialMonth)
 
+    let arrowAnimate = ``
+
+    if (getMonthName(initialMonth) === getMonthName(this.props.month)) {
+      arrowAnimate = `animation: ${jiggle} 2.5s ease infinite;`
+    }
+
     const weekdayStyles = css`
       ${dayPickerDefault};
 
@@ -657,6 +676,13 @@ class Calendar extends Component {
       .DayPicker-Weekday:nth-of-type(${dayOfWeek2}) {
         background: ${theme.colour.white};
         font-weight: 700;
+      }
+
+      .DayPicker-NavButton--next {
+        right: 0.5rem;
+        top: 0.5rem;
+        background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIxLjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9ImNhbC1hcnJvdy1yaWdodCIgZmlsbD0iIzAwODIzYiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiCgkgdmlld0JveD0iMCAwIDkuNCAxNS42IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA5LjQgMTUuNjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8ZyBpZD0iTGF5ZXJfMiI+Cgk8ZyBpZD0iTGF5ZXJfMS0yIj4KCQk8cGF0aCBkPSJNNi42LDcuOEwxLDAuNWgyLjJsNS42LDcuM2wtNS42LDcuM0gxTDYuNiw3Ljh6Ii8+CgkJPHBhdGggZD0iTTMuNCwxNS42SDBsNi03LjhMMCwwaDMuNGw2LDcuOEwzLjQsMTUuNnogTTIuMSwxNC42aDAuOWw1LjItNi44TDIuOSwxSDJsNS4zLDYuOEwyLjEsMTQuNnoiLz4KCTwvZz4KPC9nPgo8L3N2Zz4K');
+        ${arrowAnimate};
       }
     `
 
