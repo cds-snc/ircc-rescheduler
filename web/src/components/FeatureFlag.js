@@ -7,12 +7,16 @@ const parseFlags = () => {
   try {
     if (process.env.RAZZLE_FLAGS) {
       flags = JSON.parse(process.env.RAZZLE_FLAGS)
+      // eslint-disable-line no-console
       console.log('found flags:', flags)
     }
   } catch (e) {
     // do nothing
+    // eslint-disable-line no-console
     console.log('flags error:', e.message)
   }
+  // eslint-disable-line no-console
+  console.log('flags', process.env.RAZZLE_FLAGS)
 
   return flags
 }
