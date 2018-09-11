@@ -165,6 +165,7 @@ const MultipleChoice = ({
   onChange,
   onFocus,
   checked,
+  ...props
 }) => (
   <div className={className}>
     <input
@@ -176,8 +177,13 @@ const MultipleChoice = ({
       onChange={onChange}
       onFocus={onFocus}
       checked={checked}
+      {...props}
     />
-    <label htmlFor={id} className={govuk_label_pseudo_elements}>
+    <label
+      htmlFor={id}
+      id={id ? `${id}-label` : null}
+      className={govuk_label_pseudo_elements}
+    >
       {label}
     </label>
     {children}

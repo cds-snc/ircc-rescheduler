@@ -3,11 +3,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        81
+        85
       ],
       [
         "src/pages/RegistrationPage.js",
-        293
+        313
       ]
     ]
   },
@@ -15,11 +15,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        83
+        87
       ],
       [
         "src/pages/RegistrationPage.js",
-        385
+        414
       ]
     ]
   },
@@ -27,11 +27,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        85
+        89
       ],
       [
         "src/pages/RegistrationPage.js",
-        321
+        341
       ]
     ]
   },
@@ -39,7 +39,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        87
+        91
       ]
     ]
   },
@@ -47,11 +47,19 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        89
+        93
       ],
       [
         "src/pages/RegistrationPage.js",
-        471
+        500
+      ]
+    ]
+  },
+  "Please confirm you are rescheduling family members": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        95
       ]
     ]
   },
@@ -59,7 +67,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        91
+        97
       ]
     ]
   },
@@ -67,7 +75,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        154
+        174
       ]
     ]
   },
@@ -75,7 +83,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        208
+        228
       ]
     ]
   },
@@ -83,7 +91,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        304
+        324
       ]
     ]
   },
@@ -91,7 +99,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        332
+        352
       ]
     ]
   },
@@ -99,7 +107,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        349
+        377
       ]
     ]
   },
@@ -107,7 +115,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        358
+        387
       ]
     ]
   },
@@ -115,7 +123,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        372
+        401
       ]
     ]
   },
@@ -123,7 +131,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        396
+        425
       ]
     ]
   },
@@ -131,7 +139,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        422
+        451
       ]
     ]
   },
@@ -139,7 +147,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        430
+        459
       ]
     ]
   },
@@ -147,7 +155,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        438
+        467
       ]
     ]
   },
@@ -155,7 +163,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        446
+        475
       ]
     ]
   },
@@ -163,7 +171,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        454
+        483
       ]
     ]
   },
@@ -171,7 +179,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        484
+        513
       ]
     ]
   },
@@ -179,7 +187,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        502
+        531
       ]
     ]
   }

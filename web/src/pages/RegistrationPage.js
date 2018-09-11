@@ -52,6 +52,10 @@ const registrationContentClass = css`
     border-width: 3px;
   }
 
+  #familyCheck-error {
+    margin-bottom: ${theme.spacing.sm};
+  }
+
   label[for='familyCheck'],
   label[for='familyOption'] {
     display: inline-block;
@@ -87,6 +91,8 @@ const labelNames = id => {
       return <Trans>Why are you rescheduling?</Trans>
     case 'explanation':
       return <Trans>Describe why you can’t attend your appointment</Trans>
+    case 'familyCheck':
+      return <Trans>Please confirm you are rescheduling family members</Trans>
     case 'familyOption':
       return <Trans>Provide the names of your family members</Trans>
     default:
@@ -107,11 +113,25 @@ class RegistrationPage extends React.Component {
   }
 
   static validate(values, submitted) {
+    let registrationFields = RegistrationFields
     deleteEmptyArrayKeys(values)
+
     if (submitted || !windowExists()) {
+      /*
+      In NoJS mode, we want to return a validation error if someone:
+      - has filled in family members
+      - has not checked the Checkbox
+      So this is the default behaviour
+
+      In JS mode, we will not validate this
+      */
+      if (windowExists()) {
+        registrationFields.familyCheck = 'accept_anything'
+      }
+
       const validate = new Validator(
         trimInput(values),
-        RegistrationFields,
+        registrationFields,
         defaultMessages,
       )
 
@@ -227,7 +247,7 @@ class RegistrationPage extends React.Component {
 
             /* if the values is passed via the url we need to convert
             the value for final form */
-            if (typeof familyCheck === 'string') {
+            if (typeof familyCheck === 'string' && familyCheck.length > 0) {
               values.familyCheck = ['familyCheck']
             }
 
@@ -341,6 +361,14 @@ class RegistrationPage extends React.Component {
                 {/* Family option (checkbox and textarea) */}
                 <div>
                   {/* Checkbox - Family option */}
+                  <ValidationMessage
+                    id="familyCheck-error"
+                    message={
+                      submitError && this.validate(values).familyCheck
+                        ? this.validate(values).familyCheck
+                        : ''
+                    }
+                  />
                   <Field
                     type="checkbox"
                     component={CheckboxAdapter}
@@ -348,6 +376,7 @@ class RegistrationPage extends React.Component {
                     id="familyCheck"
                     label={<Trans>I need to reschedule my family too</Trans>}
                     value="familyCheck"
+                    aria-labelledby="familyCheck-error familyCheck-label"
                   />
                   {/* Textarea - Family option */}
                   <Field

@@ -71,7 +71,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        349
+        351
       ]
     ]
   },
@@ -79,7 +79,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        357
+        359
       ]
     ]
   },
@@ -87,7 +87,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        409
+        412
       ]
     ]
   },
@@ -95,11 +95,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        414
+        417
       ],
       [
         "src/pages/CalendarPage.js",
-        507
+        510
       ]
     ]
   },
@@ -107,7 +107,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        451
+        454
       ]
     ]
   }

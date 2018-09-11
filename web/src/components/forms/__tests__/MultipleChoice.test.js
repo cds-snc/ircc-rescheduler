@@ -27,10 +27,25 @@ describe('<Radio> component', () => {
     expect(radio.props().value).toEqual('option')
   })
 
+  it('allows passing through abritrary props', () => {
+    const radio = shallow(
+      <Radio {...defaultProps} aria-labelledby="radio-label" whizz="bang" />,
+    )
+    expect(radio.props()['aria-labelledby']).toEqual('radio-label')
+    expect(radio.props().whizz).toEqual('bang')
+  })
+
   it('renders label correctly', () => {
     const radio = render(<Radio {...defaultProps} />)
     expect(radio.find('input').length).toBe(1)
     expect(radio.find('label > span').text()).toMatch(/Option/)
+    expect(radio.find('label').prop('id')).toBeUndefined()
+  })
+
+  it('renders label correctly with an id', () => {
+    const radio = render(<Radio {...defaultProps} id="radio" />)
+    expect(radio.find('input').length).toBe(1)
+    expect(radio.find('label').prop('id')).toEqual('radio-label')
   })
 })
 
@@ -52,10 +67,29 @@ describe('<Checkbox> component', () => {
     expect(checkbox.props().value).toEqual('option')
   })
 
+  it('allows passing through abritrary props', () => {
+    const checkbox = shallow(
+      <Checkbox
+        {...defaultProps}
+        aria-labelledby="checkbox-label"
+        whizz="bang"
+      />,
+    )
+    expect(checkbox.props()['aria-labelledby']).toEqual('checkbox-label')
+    expect(checkbox.props().whizz).toEqual('bang')
+  })
+
   it('renders label correctly', () => {
     const checkbox = render(<Checkbox {...defaultProps} />)
     expect(checkbox.find('input').length).toBe(1)
     expect(checkbox.find('label > span').text()).toMatch(/Option/)
+    expect(checkbox.find('label').prop('id')).toBeUndefined()
+  })
+
+  it('renders label correctly with an id', () => {
+    const radio = render(<Radio {...defaultProps} id="checkbox" />)
+    expect(radio.find('input').length).toBe(1)
+    expect(radio.find('label').prop('id')).toEqual('checkbox-label')
   })
 })
 
