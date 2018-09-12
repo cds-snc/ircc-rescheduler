@@ -27,15 +27,15 @@ import { windowExists } from '../utils/windowExists'
 import { FeatureFlag } from './FeatureFlag'
 
 const jiggle = keyframes`
-10%, 90% {
+10%, 60% {
   transform: translate3d(-1px, 0, 0);
 }
 
-20%, 80% {
+20%{
   transform: translate3d(2px, 0, 0);
 }
 
-30%, 50%, 70% {
+30%, 40% , 50% {
   transform: translate3d(-2px, 0, 0);
 }
 
@@ -666,7 +666,7 @@ class Calendar extends Component {
     let arrowAnimate = ``
 
     if (getMonthName(initialMonth) === getMonthName(this.props.month)) {
-      arrowAnimate = `animation: ${jiggle} 2.5s ease infinite;`
+      arrowAnimate = `animation: ${jiggle} 5s ease-in-out infinite;`
     }
 
     const weekdayStyles = css`
