@@ -32,7 +32,6 @@
     padding-top: 10px;
     max-width: 750px;
   }
-
 </style>
 <div class="wrap">
   <p>
@@ -41,42 +40,41 @@
   <p class="margin-top">Hello ${fullName},</p>
   <p>We received your request for a new citizenship appointment.</p>
   <div id="family-option">
-      <h3>Individuals to be rescheduled:</h3>
-            <p>${fullName} ${familyOption} </p>
+    <h3>Individuals to be rescheduled:</h3>
+    <p>${fullName} ${familyOption} </p>
   </div>
-      <h3>These are the days you selected:</h3>
-      <div>
-        ${datesHtml}
-      </div>
+  <h3>${datesLabel}</h3>
+  <div>
+    ${datesHtml}
+  </div>
 
-      <h3>What happens next?</h3>
-      <p><abbr title="Immigration, Refugees and Citizenship Canada">IRCC</abbr> will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.</p>
+  <h3>What happens next?</h3>
+  ${whatHappensNext}
 
-      <h3>If you have any questions, please contact:</h3>
-      <p>${locationEmail}</p>
-      <p>${locationPhone}</p>
+  <h3>If you have any questions, please contact:</h3>
+  <p>${locationEmail}</p>
+  <p>${locationPhone}</p>
 
-      <hr />
-      <p class="margin-top">Bonjour ${fullName},</p>
-      <p>Nous avons bien reçu votre demande de nouveau rendez-vous d’examen de citoyenneté.</p>
+  <hr />
+  <p class="margin-top">Bonjour ${fullName},</p>
+  <p>Nous avons bien reçu votre demande de nouveau rendez-vous d’examen de citoyenneté.</p>
 
-      <h3>Les individus qui doivent être reportés :</h3>
-      <p>${fullName} ${familyOption} </p>
+  <h3>Les individus qui doivent être reportés :</h3>
+  <p>${fullName} ${familyOption} </p>
 
-      <h3>Voici les journées que vous avez sélectionnées :</h3>
-      <div>
-        ${datesHtmlFR}
-      </div>
+  <h3>${datesLabelFR}</h3>
+  <div>
+    ${datesHtmlFR}
+  </div>
 
-      <h3>Quelles sont les étapes suivantes?</h3>
-      <p><abbr title="Immigration, Réfugiés et Citoyenneté Canada">IRCC</abbr> vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.</p>
+  <h3>Quelles sont les étapes suivantes?</h3>
+  ${whatHappensNextFR}
+  <h3>Si vous avez des questions, communiquez avec:</h3>
+  <p>${locationEmail}</p>
+  <p>${locationPhone}</p>
 
-      <h3>Si vous avez des questions, communiquez avec:</h3>
-      <p>${locationEmail}</p>
-      <p>${locationPhone}</p>
-
-      <hr />
-      <div class="align-right">
-        <img width="150" src="cid:ircc-wordmark@cds" />
-      </div>
+  <hr />
+  <div class="align-right">
+    <img width="150" src="cid:ircc-wordmark@cds" />
+  </div>
 </div>

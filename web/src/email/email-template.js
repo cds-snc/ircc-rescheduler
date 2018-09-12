@@ -100,11 +100,11 @@ const renderMarkup = async options => {
   ])
 }
 
-export const buildParams = async options => {
-  const { selectedDays } = options.formValues
-
-  options.formValues.respondByDate = respondByDate(selectedDays, 'en')
-  options.formValues.respondByDateFR = respondByDate(selectedDays, 'fr')
+const renderSelectedDays = options => {
+  const selectedDays = options.formValues.selectedDays
+  options.formValues.datesLabel = 'These are the days you selected:'
+  options.formValues.datesLabelFR =
+    'Voici les journées que vous avez sélectionnées:'
 
   // add line breaks to dates available
   options.formValues.datesHtml = datesMarkup(
@@ -128,6 +128,42 @@ export const buildParams = async options => {
     humanReadable(selectedDays, 'fr'),
     '\r\n',
   )
+
+  options.formValues.whatHappensNext =
+    '<p><abbr title="Immigration, Refugees and Citizenship Canada">IRCC</abbr> will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.</p>'
+
+  options.formValues.whatHappensNextFR =
+    '<p><abbr title="Immigration, Réfugiés et Citoyenneté Canada">IRCC</abbr> vous enverrons les détails de votre nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.</p>'
+}
+
+const renderAvailabilityExplanation = options => {
+  const availability = options.formValues.availabilityExplanation
+  options.formValues.datesLabel = 'When are you unavailable?'
+  options.formValues.datesLabelFR = 'Quand êtes-vous indisponible?'
+  options.formValues.datesHtml = availability
+  options.formValues.datesHtmlFR = availability
+  options.formValues.datesPlain = availability
+  options.formValues.datesPlainFR = availability
+
+  options.formValues.whatHappensNext =
+    '<p>You should plan to attend your existing appointment until we contact you. This may take 1 week.</p>'
+
+  options.formValues.whatHappensNextFR =
+    '<p>Vous devriez prévoir assister à votre rendez-vous actuel jusqu’à ce que nous communiquions avec vous. Cela pourrait prendre jusqu’à une semaine.</p>'
+}
+
+export const buildParams = async options => {
+  const { selectedDays, availabilityExplanation } = options.formValues
+
+  options.formValues.respondByDate = respondByDate(selectedDays, 'en')
+  options.formValues.respondByDateFR = respondByDate(selectedDays, 'fr')
+
+  // render selected dates or unavailability
+  if (availabilityExplanation) {
+    renderAvailabilityExplanation(options)
+  } else {
+    renderSelectedDays(options)
+  }
 
   options.formValues.locationEmail = getEmail()
   options.formValues.locationPhone = getPhone()
