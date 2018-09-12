@@ -104,6 +104,7 @@ class ReviewPage extends React.Component {
             selectedDays={days}
             availabilityExplanation={explanationPage}
           />
+          {/* Note: if updating this text don't forget to update the email templates */}
           <Reminder>
             {explanationPage ? (
               <Trans>
