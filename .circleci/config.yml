@@ -68,6 +68,38 @@ jobs:
               aws ecs update-service --cluster $AWS_CLUSTER_NAME --service $AWS_ECS_SERVICE_NAME --force-new-deployment
             fi
 
+  upload_sourcemaps:
+    docker:
+      # specify the version you desire here
+      - image: cypress/base:10
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
+
+    working_directory: ~/repo/web
+
+    steps:
+      - checkout:
+          path: ~/repo
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v2.1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v2.1-dependencies-
+
+      - run: yarn install --frozen-lockfile
+
+      - save_cache:
+          key: v2.1-dependencies-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
+            - /home/circleci/.cache
+
+      # upload sourcemaps!
+      - run: COMMIT_HASH=`git rev-parse --short HEAD` && RAZZLE_STAGE=staging-$COMMIT_HASH && yarn sentry_map
+
 workflows:
   version: 2
   build_and_deploy:
@@ -76,6 +108,12 @@ workflows:
       - deploy_container:
           requires:
             - web
+          filters:
+            branches:
+              only: master
+      - upload_sourcemaps:
+          requires:
+            - deploy_container
           filters:
             branches:
               only: master
