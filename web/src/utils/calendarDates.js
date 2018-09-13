@@ -395,3 +395,24 @@ export const dateSetFromString = dates => {
 
   return new Set(dates)
 }
+
+/*--------------------------------------------*
+ * Initial Month
+ *--------------------------------------------*/
+
+export const initialMonth = props => {
+  let { context: { store: { calendar = {} } = {} } = {} } = props
+
+  // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
+
+  // cast values to Date objects if calendar.selectedDays exists and has a length
+  if (calendar && calendar.selectedDays && calendar.selectedDays.length) {
+    calendar = {
+      selectedDays: calendar.selectedDays.map(day => makeGMTDate(day)),
+    }
+  }
+
+  const startMonth = parse(getStartMonth())
+  const initialMonth = getInitialMonth(calendar.selectedDays, startMonth)
+  return initialMonth
+}
