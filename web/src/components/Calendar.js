@@ -20,8 +20,10 @@ import {
   getDisabledDays,
   getDaysOfWeekForLocation,
   getMonthName,
+  notInDateRange,
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
+
 import { logEvent } from '../utils/analytics'
 import { windowExists } from '../utils/windowExists'
 import { FeatureFlag } from './FeatureFlag'
@@ -512,7 +514,19 @@ const renderDayBoxes = ({
 
 // format aria-label for Day cell
 const formatDay = (day, locale) => {
-  return dateToHTMLString(day, locale)
+  const date = dateToHTMLString(day, locale)
+
+  let prepend = 'unavailable'
+
+  if (locale === 'fr') {
+    prepend = 'indisponible'
+  }
+
+  if (!notInDateRange(day)) {
+    return `${prepend} ${date}`
+  }
+
+  return date
 }
 
 const renderMonthName = ({ date, locale }) => {

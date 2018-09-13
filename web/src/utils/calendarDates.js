@@ -87,7 +87,11 @@ export const firstValidDay = (location = getGlobalLocation(), date) => {
   return parse(addDays(date, i))
 }
 
-const isValidDayForLocation = (location, month = '', date = new Date()) => {
+const isValidDayForLocation = (
+  location = getGlobalLocation(),
+  month = '',
+  date = new Date(),
+) => {
   // eslint-disable-next-line security/detect-object-injection
   if (location && location.recurring[month]) {
     const result = checkLocationDays(location, month, date)
@@ -168,7 +172,11 @@ const getAllowedDays = (
   return mapped
 }
 
-export const checkLocationDays = (location, month, date) => {
+export const checkLocationDays = (
+  location = getGlobalLocation(),
+  month,
+  date,
+) => {
   let valid = false
 
   const dateSet = dateSetFromString(location.blocked)
@@ -311,6 +319,36 @@ export const getShortMonthName = (date = new Date()) => {
 
 export const yearMonthDay = date => {
   return format(date, 'YYYY-MM-DD')
+}
+
+/*--------------------------------------------*
+ * Utility functions to help mark 
+ * dates as unavailable
+ *--------------------------------------------*/
+
+const cachedEnabledDays = () => {
+  /* return a cache if we have one*/
+  if (cachedEnabledDays.cached) {
+    return cachedEnabledDays.cached
+  }
+
+  const mapped = {}
+  getEnabledDays().forEach(day => {
+    mapped[yearMonthDay(day)] = true
+  })
+
+  cachedEnabledDays.cached = mapped
+
+  return cachedEnabledDays.cached
+}
+
+export const notInDateRange = day => {
+  const days = cachedEnabledDays()
+  if (days[yearMonthDay(day)]) {
+    return true
+  }
+
+  return false
 }
 
 /*--------------------------------------------*
