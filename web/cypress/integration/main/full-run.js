@@ -1,3 +1,17 @@
+export const register = (cy, fixture = 'user', withFamilyOption = false) => {
+  cy.fixture(fixture).then(data => {
+    cy.get('#fullName').type(data.fullName, { force: true })
+    cy.get('#email').type(data.email, { force: true })
+    cy.get('#paperFileNumber').type(data.paperFileNumber, { force: true })
+    if (withFamilyOption) {
+      cy.get('#familyCheck').click({ force: true })
+      cy.get('#familyOption').type(data.familyOption, { force: true })
+    }
+    cy.get('#reason-2').click({ force: true })
+    cy.get('#explanation').type(data.explanation, { force: true })
+  })
+}
+
 export const fullRun = (cy, locale = 'en', sendMail = false) => {
   let startText = 'Start now'
 
@@ -15,15 +29,9 @@ export const fullRun = (cy, locale = 'en', sendMail = false) => {
     fixture = 'user-fr'
   }
 
-  cy.fixture(fixture).then(data => {
-    cy.get('#fullName').type(data.fullName, { force: true })
-    cy.get('#email').type(data.email, { force: true })
-    cy.get('#paperFileNumber').type(data.paperFileNumber, { force: true })
-    cy.get('#reason-2').click({ force: true })
-    cy.get('#explanation').type(data.explanation, { force: true })
-    cy.get('#register-form').submit({ force: true })
-  })
+  register(cy, fixture)
 
+  cy.get('#register-form').submit({ force: true })
   cy.url().should('contain', '/calendar')
 
   cy.get('.DayPicker-Day[aria-disabled=false]').then(el => {
