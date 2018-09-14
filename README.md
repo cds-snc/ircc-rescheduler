@@ -4,6 +4,9 @@
 
 This is a repo service allows users to reschedule their language tests during the citizenship process.
 
+# Getting Started
+[Project Setup](web/README.md)
+
 # Package Dependencies
 [Updating the package dependencies](docs/upgrade.md)
 
