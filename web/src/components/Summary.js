@@ -47,6 +47,10 @@ const SummaryBody = styled.div`
   word-wrap: break-word;
 `
 
+const SummaryFamilyBody = styled(SummaryBody)`
+  white-space: pre-line;
+`
+
 const SummaryLink = styled.div`
   position: absolute;
   bottom: ${theme.spacing.md};
@@ -75,7 +79,11 @@ export const SummaryRow = ({
   <Row>
     <SummaryHeader>
       <SummaryH2>{summaryHeader}</SummaryH2>
-      <SummaryBody>{summaryBody}</SummaryBody>
+      {summaryLink === '/register#familyOption-label' ? (
+        <SummaryFamilyBody>{summaryBody}</SummaryFamilyBody>
+      ) : (
+        <SummaryBody>{summaryBody}</SummaryBody>
+      )}
     </SummaryHeader>
     {summaryLink === '/register#explanation-label' ||
     summaryLink === '/explanation#explanationPage-label' ? (
@@ -134,6 +142,7 @@ const Summary = ({
     />
     {familyOption && (
       <SummaryRow
+        className="test"
         summaryHeader={<Trans>Family members</Trans>}
         summaryBody={familyOption}
         summaryLink={'/register#familyOption-label'}
