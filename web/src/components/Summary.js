@@ -47,7 +47,7 @@ const SummaryBody = styled.div`
   word-wrap: break-word;
 `
 
-const SummaryFamilyBody = styled(SummaryBody)`
+const SummaryBodyWhiteSpace = styled(SummaryBody)`
   white-space: pre-line;
 `
 
@@ -79,8 +79,9 @@ export const SummaryRow = ({
   <Row>
     <SummaryHeader>
       <SummaryH2>{summaryHeader}</SummaryH2>
-      {summaryLink === '/register#familyOption-label' ? (
-        <SummaryFamilyBody>{summaryBody}</SummaryFamilyBody>
+      {summaryLink === '/register#familyOption-label' ||
+      '/explanation#explanationPage-label' ? (
+        <SummaryBodyWhiteSpace>{summaryBody}</SummaryBodyWhiteSpace>
       ) : (
         <SummaryBody>{summaryBody}</SummaryBody>
       )}
