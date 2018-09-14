@@ -90,7 +90,14 @@ class LanguageSwitcher extends React.Component {
             logEvent('Navigation', 'Toggle Language', lang)
           }}
         >
-          <span className={visuallyhiddenMobile}>
+          <span
+            className={visuallyhiddenMobile}
+            aria-label={
+              this.getNewLanguage() === 'fr'
+                ? 'language selection: Français'
+                : 'sélection de la langue:  English'
+            }
+          >
             {this.getNewLanguage() === 'fr' ? 'Français' : 'English'}
           </span>
           <span className={hiddenOnDesktop} aria-hidden="true">
