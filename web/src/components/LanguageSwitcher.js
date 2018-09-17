@@ -94,8 +94,8 @@ class LanguageSwitcher extends React.Component {
             className={visuallyhiddenMobile}
             aria-label={
               this.getNewLanguage() === 'fr'
-                ? 'language selection: Français'
-                : 'sélection de la langue:  English'
+                ? 'Language selection: French'
+                : 'Sélection de la langue: anglais'
             }
           >
             {this.getNewLanguage() === 'fr' ? 'Français' : 'English'}
