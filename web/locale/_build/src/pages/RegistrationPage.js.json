@@ -19,7 +19,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        414
+        337
       ]
     ]
   },
@@ -31,7 +31,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        341
+        365
       ]
     ]
   },
@@ -55,16 +55,12 @@
       ]
     ]
   },
-  "Please confirm you are rescheduling family members": {
+  "Reschedule family members": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
         95
-      ]
-    ]
-  },
-  "Provide the names of your family members": {
-    "origin": [
+      ],
       [
         "src/pages/RegistrationPage.js",
         97
@@ -95,11 +91,19 @@
       ]
     ]
   },
+  "This is where we’ll send a confirmation email when you’re done.": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        348
+      ]
+    ]
+  },
   "This number is at the top of the email attachment we sent you.": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        352
+        376
       ]
     ]
   },
@@ -107,27 +111,19 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        377
-      ]
-    ]
-  },
-  "“Example: Full Name, Full Name, Full Name”": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
-        387
-      ]
-    ]
-  },
-  "Provide the full name of each family member you want to reschedule.": {
-    "origin": [
-      [
-        "src/pages/RegistrationPage.js",
         401
       ]
     ]
   },
-  "This is where we’ll send a confirmation email when you’re done.": {
+  "For example: “Full Name, Full Name, Full Name”": {
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        411
+      ]
+    ]
+  },
+  "Provide the full name of each family member you want to reschedule.": {
     "origin": [
       [
         "src/pages/RegistrationPage.js",
