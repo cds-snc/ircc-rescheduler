@@ -332,9 +332,20 @@ const cachedEnabledDays = () => {
     return cachedEnabledDays.cached
   }
 
+  const enabled = getEnabledDays()
+
   const mapped = {}
-  getEnabledDays().forEach(day => {
-    mapped[yearMonthDay(day)] = true
+  enabled.forEach((day, index) => {
+    let val = true
+    if (index === 0) {
+      val = 'first'
+    }
+
+    if (index === enabled.length - 1) {
+      val = 'last'
+    }
+
+    mapped[yearMonthDay(day)] = val
   })
 
   cachedEnabledDays.cached = mapped
@@ -345,6 +356,24 @@ const cachedEnabledDays = () => {
 export const notInDateRange = day => {
   const days = cachedEnabledDays()
   if (days[yearMonthDay(day)]) {
+    return true
+  }
+
+  return false
+}
+
+export const isFirstAvailableDay = day => {
+  const days = cachedEnabledDays()
+  if (days[yearMonthDay(day)] === 'first') {
+    return true
+  }
+
+  return false
+}
+
+export const isLastAvailableDay = day => {
+  const days = cachedEnabledDays()
+  if (days[yearMonthDay(day)] === 'last') {
     return true
   }
 

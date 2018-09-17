@@ -21,6 +21,8 @@ import {
   getDaysOfWeekForLocation,
   getMonthName,
   notInDateRange,
+  isFirstAvailableDay,
+  isLastAvailableDay,
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 
@@ -516,13 +518,34 @@ const renderDayBoxes = ({
 const formatDay = (day, locale) => {
   const date = dateToHTMLString(day, locale)
 
-  let prepend = 'unavailable'
+  // unavailable check
+  if (!notInDateRange(day)) {
+    let prepend = 'unavailable'
 
-  if (locale === 'fr') {
-    prepend = 'indisponible'
+    if (locale === 'fr') {
+      prepend = 'indisponible'
+    }
+
+    return `${prepend} ${date}`
   }
 
-  if (!notInDateRange(day)) {
+  // first day check
+  if (isFirstAvailableDay(day)) {
+    let prepend = 'first available day'
+
+    if (locale === 'fr') {
+      prepend = 'premier jour disponible'
+    }
+    return `${prepend} ${date}`
+  }
+
+  // last day check
+  if (isLastAvailableDay(day)) {
+    let prepend = 'last available day'
+
+    if (locale === 'fr') {
+      prepend = 'dernier jour disponible'
+    }
     return `${prepend} ${date}`
   }
 
