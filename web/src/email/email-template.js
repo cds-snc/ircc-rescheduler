@@ -102,6 +102,10 @@ const renderMarkup = async options => {
 
 const renderSelectedDays = options => {
   const selectedDays = options.formValues.selectedDays
+  options.formValues.introText =
+    'We received your request for a new citizenship appointment.'
+  options.formValues.introTextFR =
+    'Nous avons reçu votre demande pour un nouveau rendez-vous de citoyenneté.'
   options.formValues.datesLabel = 'These are the days you selected:'
   options.formValues.datesLabelFR =
     'Voici les journées que vous avez sélectionnées:'
@@ -138,8 +142,12 @@ const renderSelectedDays = options => {
 
 const renderAvailabilityExplanation = options => {
   const availability = options.formValues.availabilityExplanation
-  options.formValues.datesLabel = 'When are you unavailable?'
-  options.formValues.datesLabelFR = 'Quand êtes-vous indisponible?'
+  options.formValues.introText =
+    'We received your request for a new citizenship appointment extension.'
+  options.formValues.introTextFR =
+    'Nous avons reçu votre demande pour une nouvelle prolongation de rendez-vous de citoyenneté'
+  options.formValues.datesLabel = 'This is what you wrote:'
+  options.formValues.datesLabelFR = 'C’est ce que vous avez écrit'
   options.formValues.datesHtml = availability
   options.formValues.datesHtmlFR = availability
   options.formValues.datesPlain = availability
