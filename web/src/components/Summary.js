@@ -183,7 +183,7 @@ const Summary = ({
         summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
       />
     ) : (
-      <SummaryRow
+      <TextAreaSummaryRow
         summaryHeader={<Trans>Availability</Trans>}
         summaryBody={availabilityExplanation}
         summaryLink={'/explanation#explanationPage-label'}
