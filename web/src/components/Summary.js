@@ -79,30 +79,43 @@ export const SummaryRow = ({
   <Row>
     <SummaryHeader>
       <SummaryH2>{summaryHeader}</SummaryH2>
-      {summaryLink === '/register#familyOption-label' ||
-      '/explanation#explanationPage-label' ? (
-        <SummaryBodyWhiteSpace>{summaryBody}</SummaryBodyWhiteSpace>
-      ) : (
-        <SummaryBody>{summaryBody}</SummaryBody>
-      )}
+      <SummaryBody>{summaryBody}</SummaryBody>
     </SummaryHeader>
-    {summaryLink === '/register#explanation-label' ||
-    summaryLink === '/explanation#explanationPage-label' ? (
-      <SummaryLinkExplanation>
-        <NavLink to={summaryLink} aria-label={summaryLabel}>
-          <Trans>Change</Trans>
-        </NavLink>
-      </SummaryLinkExplanation>
-    ) : (
-      <SummaryLink>
-        <NavLink to={summaryLink} aria-label={summaryLabel}>
-          <Trans>Change</Trans>
-        </NavLink>
-      </SummaryLink>
-    )}
+
+    <SummaryLink>
+      <NavLink to={summaryLink} aria-label={summaryLabel}>
+        <Trans>Change</Trans>
+      </NavLink>
+    </SummaryLink>
   </Row>
 )
 SummaryRow.propTypes = {
+  summaryHeader: PropTypes.object.isRequired,
+  summaryBody: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  summaryLink: PropTypes.string.isRequired,
+  summaryLabel: PropTypes.string,
+}
+
+export const TextAreaSummaryRow = ({
+  summaryHeader,
+  summaryBody,
+  summaryLink,
+  summaryLabel,
+}) => (
+  <Row>
+    <SummaryHeader>
+      <SummaryH2>{summaryHeader}</SummaryH2>
+      <SummaryBodyWhiteSpace>{summaryBody}</SummaryBodyWhiteSpace>
+    </SummaryHeader>
+
+    <SummaryLinkExplanation>
+      <NavLink to={summaryLink} aria-label={summaryLabel}>
+        <Trans>Change</Trans>
+      </NavLink>
+    </SummaryLinkExplanation>
+  </Row>
+)
+TextAreaSummaryRow.propTypes = {
   summaryHeader: PropTypes.object.isRequired,
   summaryBody: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   summaryLink: PropTypes.string.isRequired,
@@ -142,8 +155,7 @@ const Summary = ({
       }
     />
     {familyOption && (
-      <SummaryRow
-        className="test"
+      <TextAreaSummaryRow
         summaryHeader={<Trans>Family members</Trans>}
         summaryBody={familyOption}
         summaryLink={'/register#familyOption-label'}
@@ -156,7 +168,7 @@ const Summary = ({
       summaryLink={'/register#reason-header'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Reason')}`}
     />
-    <SummaryRow
+    <TextAreaSummaryRow
       summaryHeader={<Trans>Explanation</Trans>}
       summaryBody={explanation}
       summaryLink={'/register#explanation-label'}
