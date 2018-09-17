@@ -50,8 +50,8 @@ errorMessages.familyCheckRequiredWithErrorMessage = (
 
 errorMessages.familyOptionRequiredWithErrorMessage = (
   <Trans>
-    You left this blank. Do you want to reschedule any members of your family?
-    Please provide their full names.
+    You left this blank. Do you want to reschedule any family members? Please
+    provide their full names.
   </Trans>
 )
 

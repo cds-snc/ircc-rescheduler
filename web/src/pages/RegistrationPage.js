@@ -92,9 +92,9 @@ const labelNames = id => {
     case 'explanation':
       return <Trans>Describe why you can’t attend your appointment</Trans>
     case 'familyCheck':
-      return <Trans>Please confirm you are rescheduling family members</Trans>
+      return <Trans>Reschedule family members</Trans>
     case 'familyOption':
-      return <Trans>Provide the names of your family members</Trans>
+      return <Trans>Reschedule family members</Trans>
     default:
       return ''
   }
@@ -409,7 +409,7 @@ class RegistrationPage extends React.Component {
                     component={TextAreaAdapter}
                     {...disabled}
                     placeholder={`${i18n._(
-                      '“Example: Full Name, Full Name, Full Name”',
+                      'For example: “Full Name, Full Name, Full Name”',
                     )}`}
                   >
                     <label htmlFor="familyOption" id="familyOption-label">
