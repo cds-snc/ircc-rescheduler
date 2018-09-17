@@ -329,6 +329,30 @@ class RegistrationPage extends React.Component {
                     </label>
                   </Field>
                 </div>
+                {/* Email */}
+                <div>
+                  <Field component={TextFieldAdapter} name="email" id="email">
+                    <label htmlFor="email" id="email-label">
+                      <span id="email-header">
+                        <Trans>Email address</Trans>
+                      </span>
+                      <ValidationMessage
+                        id="email-error"
+                        message={
+                          submitError && this.validate(values).email
+                            ? this.validate(values).email
+                            : ''
+                        }
+                      />
+                      <span id="email-details">
+                        <Trans>
+                          This is where we’ll send a confirmation email when
+                          you’re done.
+                        </Trans>
+                      </span>
+                    </label>
+                  </Field>
+                </div>
                 {/* Paper file number */}
                 <div>
                   <Field
@@ -401,30 +425,6 @@ class RegistrationPage extends React.Component {
                         <Trans>
                           Provide the full name of each family member you want
                           to reschedule.
-                        </Trans>
-                      </span>
-                    </label>
-                  </Field>
-                </div>
-                {/* Email */}
-                <div>
-                  <Field component={TextFieldAdapter} name="email" id="email">
-                    <label htmlFor="email" id="email-label">
-                      <span id="email-header">
-                        <Trans>Email address</Trans>
-                      </span>
-                      <ValidationMessage
-                        id="email-error"
-                        message={
-                          submitError && this.validate(values).email
-                            ? this.validate(values).email
-                            : ''
-                        }
-                      />
-                      <span id="email-details">
-                        <Trans>
-                          This is where we’ll send a confirmation email when
-                          you’re done.
                         </Trans>
                       </span>
                     </label>

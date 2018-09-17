@@ -50,8 +50,8 @@ describe('NoJS Flow - no family check', () => {
 
       expect(fullName).toBe(label)
       await page.type('#fullName', user.fullName)
-      await page.type('#paperFileNumber', user.paperFileNumber)
       await page.type('#email', user.email)
+      await page.type('#paperFileNumber', user.paperFileNumber)
       await page.click('#reason-2')
       await page.type('#explanation', user.explanation)
       await clickAndWait(page, '#register-form button')

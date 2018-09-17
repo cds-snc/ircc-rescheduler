@@ -52,10 +52,10 @@ describe('NoJS Flow Family Flow All pages', () => {
 
       expect(fullName).toBe(label)
       await page.type('#fullName', user.fullName)
+      await page.type('#email', user.email)
       await page.type('#paperFileNumber', user.paperFileNumber)
       await page.click('#familyCheck')
       await page.type('#familyOption', user.familyOption)
-      await page.type('#email', user.email)
       await page.click('#reason-2')
       await page.type('#explanation', user.explanation)
       await clickAndWait(page, '#register-form button')
