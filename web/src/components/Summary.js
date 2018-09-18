@@ -89,12 +89,15 @@ export const SummaryRow = ({
     </SummaryLink>
   </Row>
 )
-SummaryRow.propTypes = {
+
+const summaryRowProps = {
   summaryHeader: PropTypes.object.isRequired,
   summaryBody: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   summaryLink: PropTypes.string.isRequired,
   summaryLabel: PropTypes.string,
 }
+
+SummaryRow.propTypes = summaryRowProps
 
 export const TextAreaSummaryRow = ({
   summaryHeader,
@@ -115,12 +118,8 @@ export const TextAreaSummaryRow = ({
     </SummaryLinkExplanation>
   </Row>
 )
-TextAreaSummaryRow.propTypes = {
-  summaryHeader: PropTypes.object.isRequired,
-  summaryBody: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  summaryLink: PropTypes.string.isRequired,
-  summaryLabel: PropTypes.string,
-}
+
+TextAreaSummaryRow.propTypes = summaryRowProps
 
 const Summary = ({
   fullName,
