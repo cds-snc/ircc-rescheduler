@@ -153,7 +153,11 @@ const renderAvailabilityExplanation = options => {
 }
 
 export const buildParams = async options => {
-  const { selectedDays, availabilityExplanation } = options.formValues
+  const {
+    selectedDays,
+    availabilityExplanation,
+    familyOption,
+  } = options.formValues
 
   options.formValues.respondByDate = respondByDate(selectedDays, 'en')
   options.formValues.respondByDateFR = respondByDate(selectedDays, 'fr')
@@ -164,6 +168,12 @@ export const buildParams = async options => {
   } else {
     renderSelectedDays(options)
   }
+
+  // if familyOption exists and does not start with ',', prepend a comma and a space
+  options.formValues.familyOption =
+    familyOption && !familyOption.startsWith(',')
+      ? `, ${familyOption}`
+      : familyOption
 
   options.formValues.locationEmail = getEmail()
   options.formValues.locationPhone = getPhone()
