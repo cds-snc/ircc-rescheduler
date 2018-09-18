@@ -6,14 +6,7 @@ import { Trans } from '@lingui/react'
 import { i18n } from '@lingui/core'
 import { NavLink } from 'react-router-dom'
 import styled, { css } from 'react-emotion'
-import {
-  theme,
-  BottomContainer,
-  TopContainer,
-  H1,
-  H2,
-  focusRing,
-} from '../styles'
+import { theme, BottomContainer, TopContainer, H2, focusRing } from '../styles'
 import {
   CalendarFields,
   getFieldNames,
@@ -49,6 +42,7 @@ import {
   getMonthName,
 } from '../utils/calendarDates'
 
+import FocusedH1 from '../components/FocusedH1'
 import parse from 'date-fns/parse'
 import { FeatureFlag } from '../components/FeatureFlag'
 
@@ -62,11 +56,6 @@ const headerStyles = css`
   strong {
     font-weight: 700;
   }
-`
-
-const CalendarHeader = styled(H1)`
-  font-size: ${theme.font.xl};
-  ${headerStyles};
 `
 
 const CalendarSubheader = styled(H2)`
@@ -100,7 +89,7 @@ const CalHeader = ({
           </NavLink>
         </nav>
       </TopContainer>
-      <CalendarHeader id="calendar-header">
+      <FocusedH1 id="calendar-header">
         <Trans>Select</Trans>{' '}
         <strong>
           <Trans>3 days</Trans>
@@ -112,7 +101,7 @@ const CalHeader = ({
         )}{' '}
         {getStartMonthName(new Date(), locale)} <Trans>and</Trans>{' '}
         {getEndMonthName(new Date(), locale)}.
-      </CalendarHeader>
+      </FocusedH1>
 
       {windowExists() && (
         <CalendarSubheader id="calendar-intro">
@@ -326,7 +315,7 @@ class CalendarPage extends Component {
     const { month } = this.state
 
     return (
-      <Layout>
+      <Layout focusContent={false}>
         <CalHeader
           familyOption={familyOption}
           locale={locale}
