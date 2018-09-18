@@ -74,7 +74,15 @@ injectGlobal`
 `
 
 class Layout extends React.Component {
+  constructor(props) {
+    super(props)
+    // Create a ref to store the textInput DOM element
+    this.focusEl = React.createRef()
+  }
+
   componentDidMount() {
+    this.focusEl.current.focus()
+
     if (process.env.NODE_ENV === 'production' && process.env.RAZZLE_GA_ID) {
       if (window && !window.GA_INITIALIZED) {
         initGA(process.env.RAZZLE_GA_ID)
@@ -101,7 +109,7 @@ class Layout extends React.Component {
             <FederalBanner />
             <PageHeader>{this.props.header}</PageHeader>
           </div>
-          <main role="main">
+          <main role="main" ref={this.focusEl} tabIndex={0}>
             <Content className={this.props.contentClass || ''}>
               {this.props.children}
             </Content>
