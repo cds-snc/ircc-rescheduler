@@ -11,7 +11,7 @@ WORKDIR /web
 
 EXPOSE 3004
 
-RUN yarn install
+RUN yarn install --production
 RUN yarn compile
 RUN yarn build
 
