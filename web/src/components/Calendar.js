@@ -205,7 +205,7 @@ const dayPickerDefault = css`
         outline-offset: -2px;
       }
       &:hover {
-        background-color: ${theme.colour.greyLight};
+        background-color: ${theme.colour.greenLight};
       }
     }
 
