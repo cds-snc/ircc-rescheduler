@@ -44,6 +44,7 @@ export const theme = {
   colour: {
     blue: '#335075',
     red: '#E8112D',
+    greenLight: '#70B48F',
     green: '#00823B',
     greenDark: '#00692f',
     redFIP: '#FF0000',
