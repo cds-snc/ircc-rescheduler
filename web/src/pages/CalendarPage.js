@@ -289,7 +289,7 @@ class CalendarPage extends Component {
 
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
-    if (values.availability) {
+    if (values.availability && availability.length) {
       await this.props.history.push('/explanation')
     } else {
       await this.props.history.push('/review')
