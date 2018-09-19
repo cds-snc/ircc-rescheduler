@@ -4,7 +4,6 @@ import { Trans, withI18n } from '@lingui/react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils, LocaleUtils } from 'react-day-picker'
 import { css, keyframes } from 'emotion'
-import { NavLink } from 'react-router-dom'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
@@ -29,6 +28,8 @@ import parse from 'date-fns/parse'
 import { logEvent } from '../utils/analytics'
 import { windowExists } from '../utils/windowExists'
 import { FeatureFlag } from './FeatureFlag'
+import { Field } from 'react-final-form'
+import { CheckboxAdapter } from '../components/forms/MultipleChoice'
 
 const jiggle = keyframes`
 10%, 60% {
@@ -433,20 +434,11 @@ const calendarContainerTop = css`
 `
 
 const datesLinkBefore = css`
-  margin-top: 19.7rem;
+  margin-top: 5.9rem;
+  margin-left: ${theme.spacing.xl};
   ${mediaQuery.lg(css`
     margin-top: 0;
   `)};
-
-  a {
-    margin-left: 3.7rem;
-    display: block;
-
-    ${mediaQuery.lg(css`
-      margin-left: 0;
-      margin: 0;
-    `)};
-  }
 
   margin-bottom: ${theme.spacing.xxl};
 `
@@ -831,9 +823,19 @@ class Calendar extends Component {
                 <div
                   className={value.length ? datesLinkAfter : datesLinkBefore}
                 >
-                  <NavLink to="/explanation">
-                    <Trans>I&rsquo;m not available for any of these days</Trans>
-                  </NavLink>
+                  <Field
+                    type="checkbox"
+                    component={CheckboxAdapter}
+                    name="unavailabilityCheck"
+                    id="unavailabilityCheck"
+                    label={
+                      <Trans>
+                        I cannot attend any of the available appointments.
+                      </Trans>
+                    }
+                    value="unavailabilityCheck"
+                    aria-labelledby="unavailabilityCheck-error unavailabilityCheck-label"
+                  />
                 </div>
               )}
             />
