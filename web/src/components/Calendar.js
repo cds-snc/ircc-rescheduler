@@ -123,7 +123,7 @@ const dayPickerDefault = css`
     top: 0.5rem;
     background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiBmaWxsPSIjMDA4MjNiIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5LjQyIDE1LjYyIj48dGl0bGU+bGVmdEFycm93PC90aXRsZT48ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIj48ZyBpZD0iTGF5ZXJfMS0yIiBkYXRhLW5hbWU9IkxheWVyIDEtMiI+PHBhdGggZD0iTTIuNzksNy44MWw1LjYzLDcuMzFINi4yNUwuNjMsNy44MSw2LjI1LjVIOC4zN1oiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiLz48cGF0aCBkPSJNNiwwSDkuNDJsLTYsNy44MSw2LDcuODFINkwwLDcuODFaTTcuMzYsMUg2LjQ5TDEuMjYsNy44MWw1LjIzLDYuODFoLjkzTDIuMTYsNy44MVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiLz48L2c+PC9nPjwvc3ZnPg==');
   }
-  
+
   .DayPicker-NavButton--interactionDisabled {
     display: none;
   }
@@ -211,6 +211,7 @@ const dayPickerDefault = css`
 
     &[aria-disabled='true'] {
       cursor: not-allowed;
+      cursor: url('disableddates.ico') 20 20, not-allowed;
       background: #eee;
 
       &:focus {
