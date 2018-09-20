@@ -40,6 +40,7 @@ import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { checkURLParams } from '../utils/url'
 import { trackRegistrationErrors } from '../utils/analytics'
+import FocusedH1 from '../components/FocusedH1'
 
 const registrationContentClass = css`
   ${contentClass};
@@ -224,9 +225,9 @@ class RegistrationPage extends React.Component {
     return (
       <Layout contentClass={registrationContentClass}>
         <Title path={this.props.match.path} />
-        <h1 className={visuallyhidden}>
+        <FocusedH1 className={visuallyhidden}>
           <Trans>First, provide some basic information:</Trans>
-        </h1>
+        </FocusedH1>
         {/*
           the first checkbox / radio on the page doesn't have its CSS applied correctly
           so this is a dummy radio button that nobody should ever see

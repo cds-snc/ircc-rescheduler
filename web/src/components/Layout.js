@@ -25,6 +25,10 @@ injectGlobal`
     `)};
   }
 
+  main{
+    outline: 0;
+  }
+
   button {
     font-family: SourceSans, Helvetica, Arial, sans-serif;
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { H1, H2, theme } from '../styles'
+import { H2, theme } from '../styles'
 import styled, { css } from 'react-emotion'
 import { Trans } from '@lingui/react'
 import Layout from '../components/Layout'
@@ -11,6 +11,7 @@ import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import { LongReminder } from '../components/Reminder'
 import { SelectedDayList } from '../components/SelectedDayList'
+import FocusedH1 from '../components/FocusedH1'
 
 const contentClass = css`
   p {
@@ -81,9 +82,9 @@ class ConfirmationPage extends React.Component {
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <section>
-          <H1>
+          <FocusedH1>
             <Trans>Thank you! Your request has been received.</Trans>
-          </H1>
+          </FocusedH1>
 
           {!this.hasEmailError() ? (
             <p>
