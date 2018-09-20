@@ -47,7 +47,7 @@ SubmissionForm.propTypes = {
   email: PropTypes.string,
   reason: PropTypes.string,
   explanation: PropTypes.string,
-  selectedDays: PropTypes.array,
+  selectedDays: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   availabilityExplanation: PropTypes.string,
   sending: PropTypes.bool.isRequired,
   onSubmit: PropTypes.func.isRequired,
