@@ -54,21 +54,22 @@ const contact = css`
   `)};
 `
 
-const Contact = ({ children, phoneFirst = false }) => (
+const Contact = ({ children, phoneFirst = false, showEmail = true }) => (
   <div className={contact}>
     {children}
     {!phoneFirst ? (
       <React.Fragment>
-        <p>
-          <strong>
-            <Trans>Email —</Trans>
-          </strong>{' '}
-          <a id="email" href={`mailto:${getEmail()}`}>
-            {getEmailParts()[0]}
-            <wbr />
-            @{getEmailParts()[1]}
-          </a>
-        </p>
+        {showEmail && (
+          <p>
+            <strong>
+              <Trans>Email —</Trans>
+            </strong>{' '}
+            <a id="email" href={`mailto:${getEmail()}`}>
+              {getEmailParts()[0]}
+              <wbr />@{getEmailParts()[1]}
+            </a>
+          </p>
+        )}
         <p>
           <strong>
             <Trans>Phone —</Trans>
@@ -84,23 +85,26 @@ const Contact = ({ children, phoneFirst = false }) => (
           </strong>{' '}
           <TelLink tel={getPhone()} />
         </p>
-        <p>
-          <strong>
-            <Trans>Email —</Trans>
-          </strong>{' '}
-          <a idea="email" href={`mailto:${getEmail()}`}>
-            {getEmailParts()[0]}
-            <wbr />
-            @{getEmailParts()[1]}
-          </a>
-        </p>
+
+        {showEmail && (
+          <p>
+            <strong>
+              <Trans>Email —</Trans>
+            </strong>{' '}
+            <a idea="email" href={`mailto:${getEmail()}`}>
+              {getEmailParts()[0]}
+              <wbr />@{getEmailParts()[1]}
+            </a>
+          </p>
+        )}
       </React.Fragment>
     )}
   </div>
 )
 Contact.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.element,
   phoneFirst: PropTypes.bool,
+  showEmail: PropTypes.bool,
 }
 
 export { Contact as default, TelLink }
