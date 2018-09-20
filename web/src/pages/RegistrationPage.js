@@ -211,6 +211,8 @@ class RegistrationPage extends React.Component {
     let { context: { store: { register = {} } = {} } = {}, i18n } = this.props
     let errorsNoJS = {}
 
+    throw new Error('help bad things are happening')
+
     // only run this if there's a location.search
     // AND at least one of our fields exists in the url keys somewhere
     // so we know for sure they pressed "submit" on this page
