@@ -479,6 +479,11 @@ const renderDayBoxes = ({
   let selectedDaysSorted = sortSelectedDays(selectedDays)
   for (let i = 0; i < dayLimit; i++) {
     let selectedDay = selectedDaysSorted[i] // eslint-disable-line security/detect-object-injection
+
+    let dateLabel = selectedDay
+      ? `${removeDayAltText}: ${dateToHTMLString(selectedDay, locale)}`
+      : ''
+
     dayBoxes.push(
       selectedDay ? (
         <li key={i} className={dayBox}>
@@ -489,16 +494,14 @@ const renderDayBoxes = ({
             type="button"
             onClick={removeDayOnClickOrKeyPress(selectedDay)}
             onKeyPress={removeDayOnClickOrKeyPress(selectedDay)}
-            aria-label={`${removeDayAltText}: ${dateToHTMLString(
-              selectedDay,
-              locale,
-            )}`}
+            aria-label={dateLabel}
           >
             <div className={removeDate}>
               <MobileCancel
                 circleColour={
                   errorMessage ? theme.colour.red : theme.colour.blackLight
                 }
+                label={dateLabel}
               />
             </div>
           </button>

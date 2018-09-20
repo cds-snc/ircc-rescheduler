@@ -444,16 +444,15 @@ describe('renderDayBoxes', () => {
       </ul>,
     )
     let listItem = wrapper.find('ul li')
-    expect(listItem.text()).toEqual('Sunday, November 3, 1957')
+    expect(listItem.find('span').text()).toEqual('Sunday, November 3, 1957')
 
     let button = listItem.find('button')
-    expect(button.props()['aria-label']).toEqual(
-      'Remove day: Sunday, November 3, 1957',
-    )
+    let label = 'Remove day: Sunday, November 3, 1957'
+    expect(button.props()['aria-label']).toEqual(label)
 
     let imgs = button.find('svg')
     expect(imgs.length).toBe(1)
-    expect(imgs.at(0).props().alt).toEqual('')
+    expect(imgs.find('#titleId').text()).toEqual(label)
   })
 
   it('renders days in french', () => {
@@ -467,16 +466,17 @@ describe('renderDayBoxes', () => {
       </ul>,
     )
     let listItem = wrapper.find('ul li')
-    expect(listItem.text()).toEqual('dimanche 3 novembre 1957')
-
+    expect(listItem.find('span').text()).toEqual('dimanche 3 novembre 1957')
+    
     let button = listItem.find('button')
+    let label = 'Supprimer cette journée: dimanche 3 novembre 1957'
     expect(button.props()['aria-label']).toEqual(
-      'Supprimer cette journée: dimanche 3 novembre 1957',
+      label,
     )
 
     let imgs = button.find('svg')
     expect(imgs.length).toBe(1)
-    expect(imgs.at(0).props().alt).toEqual('')
+    expect(imgs.find('#titleId').text()).toEqual(label)
   })
 
   it('will block days on calendar', () => {
