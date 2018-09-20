@@ -3,23 +3,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        84
+        87
       ],
       [
         "src/components/Summary.js",
-        90
-      ],
-      [
-        "src/components/Summary.js",
-        119
-      ],
-      [
-        "src/components/Summary.js",
-        125
-      ],
-      [
-        "src/components/Summary.js",
-        132
+        116
       ],
       [
         "src/components/Summary.js",
@@ -27,7 +15,7 @@
       ],
       [
         "src/components/Summary.js",
-        147
+        146
       ],
       [
         "src/components/Summary.js",
@@ -40,46 +28,22 @@
       [
         "src/components/Summary.js",
         168
+      ],
+      [
+        "src/components/Summary.js",
+        174
+      ],
+      [
+        "src/components/Summary.js",
+        182
+      ],
+      [
+        "src/components/Summary.js",
+        189
       ]
     ]
   },
   "Full name": {
-    "origin": [
-      [
-        "src/components/Summary.js",
-        116
-      ],
-      [
-        "src/components/Summary.js",
-        119
-      ]
-    ]
-  },
-  "Email": {
-    "origin": [
-      [
-        "src/components/Summary.js",
-        122
-      ],
-      [
-        "src/components/Summary.js",
-        125
-      ]
-    ]
-  },
-  "Paper file number": {
-    "origin": [
-      [
-        "src/components/Summary.js",
-        128
-      ],
-      [
-        "src/components/Summary.js",
-        132
-      ]
-    ]
-  },
-  "Family members": {
     "origin": [
       [
         "src/components/Summary.js",
@@ -91,23 +55,23 @@
       ]
     ]
   },
-  "Reason": {
+  "Email": {
     "origin": [
       [
         "src/components/Summary.js",
-        144
+        143
       ],
       [
         "src/components/Summary.js",
-        147
+        146
       ]
     ]
   },
-  "Explanation": {
+  "Paper file number": {
     "origin": [
       [
         "src/components/Summary.js",
-        150
+        149
       ],
       [
         "src/components/Summary.js",
@@ -115,7 +79,7 @@
       ]
     ]
   },
-  "Availability": {
+  "Family members": {
     "origin": [
       [
         "src/components/Summary.js",
@@ -124,7 +88,11 @@
       [
         "src/components/Summary.js",
         161
-      ],
+      ]
+    ]
+  },
+  "Reason": {
+    "origin": [
       [
         "src/components/Summary.js",
         165
@@ -132,6 +100,38 @@
       [
         "src/components/Summary.js",
         168
+      ]
+    ]
+  },
+  "Explanation": {
+    "origin": [
+      [
+        "src/components/Summary.js",
+        171
+      ],
+      [
+        "src/components/Summary.js",
+        174
+      ]
+    ]
+  },
+  "Availability": {
+    "origin": [
+      [
+        "src/components/Summary.js",
+        179
+      ],
+      [
+        "src/components/Summary.js",
+        182
+      ],
+      [
+        "src/components/Summary.js",
+        186
+      ],
+      [
+        "src/components/Summary.js",
+        189
       ]
     ]
   }

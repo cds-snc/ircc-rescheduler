@@ -22,7 +22,7 @@
     ]
   },
   "Apply for an appointment extension": {
-    "translation": "Demander une extension de rendez-vous",
+    "translation": "Demander une prolongation du rendez-vous",
     "origin": [
       [
         "src/components/Title.js",
@@ -57,19 +57,19 @@
     "origin": [
       [
         "src/components/Summary.js",
-        158
+        179
       ],
       [
         "src/components/Summary.js",
-        161
+        182
       ],
       [
         "src/components/Summary.js",
-        165
+        186
       ],
       [
         "src/components/Summary.js",
-        168
+        189
       ]
     ]
   },
@@ -105,23 +105,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        84
+        87
       ],
       [
         "src/components/Summary.js",
-        90
-      ],
-      [
-        "src/components/Summary.js",
-        119
-      ],
-      [
-        "src/components/Summary.js",
-        125
-      ],
-      [
-        "src/components/Summary.js",
-        132
+        116
       ],
       [
         "src/components/Summary.js",
@@ -129,7 +117,7 @@
       ],
       [
         "src/components/Summary.js",
-        147
+        146
       ],
       [
         "src/components/Summary.js",
@@ -142,6 +130,18 @@
       [
         "src/components/Summary.js",
         168
+      ],
+      [
+        "src/components/Summary.js",
+        174
+      ],
+      [
+        "src/components/Summary.js",
+        182
+      ],
+      [
+        "src/components/Summary.js",
+        189
       ]
     ]
   },
@@ -212,11 +212,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        122
+        143
       ],
       [
         "src/components/Summary.js",
-        125
+        146
       ]
     ]
   },
@@ -260,11 +260,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        150
+        171
       ],
       [
         "src/components/Summary.js",
-        153
+        174
       ]
     ]
   },
@@ -286,11 +286,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        137
+        158
       ],
       [
         "src/components/Summary.js",
-        140
+        161
       ]
     ]
   },
@@ -335,7 +335,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        246
+        254
       ],
       [
         "src/utils/linguiUtils.js",
@@ -348,7 +348,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        246
+        254
       ]
     ]
   },
@@ -357,11 +357,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        116
+        137
       ],
       [
         "src/components/Summary.js",
-        119
+        140
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -404,7 +404,7 @@
     ]
   },
   "I need to reschedule my family too": {
-    "translation": "J’ai aussi besoin de reporter le rendez-vous des membres de ma famille.",
+    "translation": "J’ai aussi besoin de reporter le rendez-vous pour des membres de ma famille.",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -413,7 +413,7 @@
     ]
   },
   "If you cannot attend an appointment on any of the available days, staff may not be able to accommodate your request to reschedule.": {
-    "translation": "Si vous ne pouvez pas assister à un rendez-vous les jours disponibles, le personnel peut ne pas être en mesure de répondre à votre demande de replanification.",
+    "translation": "Si vous ne pouvez pas assister à un rendez-vous pour l'ensemble des jours disponibles, le personnel pourrait ne pas être en mesure de satisfaire votre demande.",
     "origin": [
       [
         "src/pages/ExplanationPage.js",
@@ -475,7 +475,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        797
+        834
       ]
     ]
   },
@@ -569,7 +569,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        229
+        237
       ],
       [
         "src/utils/linguiUtils.js",
@@ -582,7 +582,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        229
+        237
       ]
     ]
   },
@@ -672,7 +672,7 @@
     ]
   },
   "Our policy is to delay appointments a maximum of two months. We’ll review your request and determine if we can accommodate your unavailability and get back to you within 1 week.": {
-    "translation": "Notre politique est de reporter les rendez-vous au maximum deux mois. Nous examinerons votre demande et déterminerons si nous pouvons répondre à votre indisponibilité et vous contacter dans un délai d’une semaine.",
+    "translation": "Notre politique est de repousser les rendez-vous au maximum deux mois. Nous examinerons votre demande et déterminerons si nous pouvons répondre à votre indisponibilité et vous contacter dans un délai d’une semaine.",
     "origin": [
       [
         "src/pages/ExplanationPage.js",
@@ -712,11 +712,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        128
+        149
       ],
       [
         "src/components/Summary.js",
-        132
+        153
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -809,7 +809,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        504
+        508
       ]
     ]
   },
@@ -859,7 +859,7 @@
     ]
   },
   "Provide the full name of each family member you want to reschedule.": {
-    "translation": "Veuillez indiquer le nom de chaque membre de votre famille pour qui vous désirez reporter le rendez-vous.",
+    "translation": "Veuillez indiquer le nom complet de chaque membre de votre famille pour qui vous désirez reporter le rendez-vous.",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -872,11 +872,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        144
+        165
       ],
       [
         "src/components/Summary.js",
-        147
+        168
       ]
     ]
   },
@@ -894,7 +894,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        784
+        821
       ]
     ]
   },
@@ -1032,7 +1032,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        772
+        809
       ]
     ]
   },
@@ -1274,7 +1274,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        242
+        250
       ],
       [
         "src/utils/linguiUtils.js",
@@ -1287,16 +1287,16 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        243
+        251
       ]
     ]
   },
   "To change your selections, remove some days first": {
-    "translation": "Pour modifier vos choix, veuillez d’abord supprimer des dates.",
+    "translation": "Pour modifier vos choix, veuillez d’abord supprimer des dates",
     "origin": [
       [
         "src/components/Calendar.js",
-        716
+        753
       ]
     ]
   },
@@ -1345,7 +1345,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        232
+        240
       ],
       [
         "src/utils/linguiUtils.js",
@@ -1358,7 +1358,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        233
+        241
       ]
     ]
   },
@@ -1394,7 +1394,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        237
+        245
       ],
       [
         "src/utils/linguiUtils.js",
@@ -1407,7 +1407,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        238
+        246
       ]
     ]
   },
@@ -1474,12 +1474,12 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        602
+        639
       ]
     ]
   },
   "You left this blank. Do you want to reschedule any family members? Please provide their full names.": {
-    "translation": "Vous avez laissé cette case vide. Aimeriez-vous reporter le rendez-vous pour des membres de votre famille? Veuillez indiquer leurs noms.",
+    "translation": "Vous avez laissé cette case vide. Aimeriez-vous reporter le rendez-vous pour des membres de votre famille? Veuillez indiquer leurs noms complets.",
     "origin": [
       [
         "src/validation.js",
@@ -1545,7 +1545,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        770
+        807
       ]
     ]
   },
@@ -1554,7 +1554,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        768
+        805
       ]
     ]
   },
@@ -1563,7 +1563,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        766
+        803
       ]
     ]
   },
