@@ -8,7 +8,7 @@ class CalendarH1 extends Component {
     const endMonthName = getEndMonthName(new Date(), locale)
 
     // en
-    let familyOptionText = familyOption ? 'you and your family are' : 'you’re '
+    let familyOptionText = familyOption ? 'you and your family are' : 'you’re'
     let msg = `Select 3 days ${familyOptionText} available between ${startMonthName} and ${endMonthName}`
 
     //fr
