@@ -12,6 +12,7 @@ import {
   getPrimarySubdomain,
   ensureLocation,
   ensureReceivingEmail,
+  setRavenContext,
 } from './utils/serverUtils'
 import { handleSubmitEmail } from './email/handleSubmitEmail'
 import gitHash from './utils/gitHash'
@@ -31,6 +32,7 @@ server
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || './public'))
   .use(getPrimarySubdomain)
+  .use(setRavenContext)
   .use(ensureLocation)
   .use(ensureReceivingEmail)
   .use(cookieParser())
