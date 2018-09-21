@@ -1,17 +1,25 @@
 {
-  "Server Error.": {
-    "origin": [
-      [
-        "src/pages/FiveHundredPage.js",
-        20
-      ]
-    ]
-  },
-  "Sorry, something went wrong.": {
+  "Server error.": {
     "origin": [
       [
         "src/pages/FiveHundredPage.js",
         23
+      ]
+    ]
+  },
+  "Please try the link in your email or letter again. If you keep seeing this page, please contact": {
+    "origin": [
+      [
+        "src/pages/FiveHundredPage.js",
+        26
+      ]
+    ]
+  },
+  "directly to reschedule your appointment.": {
+    "origin": [
+      [
+        "src/pages/FiveHundredPage.js",
+        30
       ]
     ]
   }

@@ -10,7 +10,7 @@ context('Force redirect', () => {
     cy.visit('http://rescheduler-dev.vcap.me:3004/500')
     cy.get('h1')
       .eq(0)
-      .should('contain', 'Server Error.')
+      .should('contain', 'Server error.')
   })
 
   it('should force redirect from "local" dev server', () => {

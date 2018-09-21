@@ -3,7 +3,7 @@ import { Trans } from '@lingui/react'
 import Chevron from '../components/Chevron'
 import { css } from 'react-emotion'
 import { NavLink } from 'react-router-dom'
-import { H1, H2, theme } from '../styles'
+import { H1, theme } from '../styles'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 
@@ -20,25 +20,27 @@ class FourOhFourPage extends React.Component {
     return (
       <Layout contentClass={contentClass} contact={showContact}>
         <Title path={this.props.match.path} />
-        <H1>
-          <Trans>Page not found.</Trans>
-        </H1>
-        <H2>
-          <Trans>Sorry, the page you are looking for doesn’t exist.</Trans>
-        </H2>
-        <p>
-          <Trans>Return to the home page to reschedule your appointment.</Trans>
-        </p>
-        {/* 
-          If the page name is not-found use the page as a generic 
+        <section>
+          <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
+            <Trans>Page not found.</Trans>
+          </H1>
+          <p>
+            <Trans>
+              The page you’re trying to reach doesn’t exist. Please try the link
+              in your email or letter again.
+            </Trans>
+          </p>
+          {/*
+          If the page name is not-found use the page as a generic
           not found page i.e. no location
         */}
-        {showContact && (
-          <NavLink className="chevron-link" to="/">
-            <Chevron dir="left" />
-            <Trans>Home</Trans>
-          </NavLink>
-        )}
+          {showContact && (
+            <NavLink className="chevron-link" to="/">
+              <Chevron dir="left" />
+              <Trans>Home</Trans>
+            </NavLink>
+          )}
+        </section>
       </Layout>
     )
   }

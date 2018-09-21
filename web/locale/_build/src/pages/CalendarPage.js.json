@@ -3,51 +3,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        99
-      ]
-    ]
-  },
-  "Select": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        104
-      ]
-    ]
-  },
-  "3 days": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        106
-      ]
-    ]
-  },
-  "you and your family are available between": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        109
-      ]
-    ]
-  },
-  "you’re available between": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        111
-      ]
-    ]
-  },
-  "and": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        113
-      ],
-      [
-        "src/pages/CalendarPage.js",
-        251
+        90
       ]
     ]
   },
@@ -55,7 +11,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        119
+        101
       ]
     ]
   },
@@ -63,7 +19,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        120
+        102
       ]
     ]
   },
@@ -71,7 +27,15 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        141
+        123
+      ]
+    ]
+  },
+  "and": {
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        233
       ]
     ]
   },
@@ -79,7 +43,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        364
+        346
       ]
     ]
   },
@@ -87,7 +51,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        372
+        354
       ]
     ]
   },
@@ -95,7 +59,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        425
+        407
       ]
     ]
   },
@@ -103,11 +67,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        430
+        412
       ],
       [
         "src/pages/CalendarPage.js",
-        523
+        505
       ]
     ]
   },
@@ -115,7 +79,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        467
+        449
       ]
     ]
   }
