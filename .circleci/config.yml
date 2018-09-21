@@ -60,7 +60,7 @@ jobs:
       - deploy:
           name: Push Docker image
           command: |
-            if [ "${CIRCLE_BRANCH}" == "generate_version_file_for_containers" ]; then
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
               # Login to AWS
               aws configure set region $AWS_REGION
               $(aws ecr get-login --no-include-email --region $AWS_REGION)
@@ -108,17 +108,16 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
+      - web
       - deploy_container:
+          requires:
+            - web
           filters:
             branches:
-              only:
-                - master
-                - generate_version_file_for_containers
+              only: master
       - upload_sourcemaps:
           requires:
             - deploy_container
           filters:
             branches:
-              only:
-                - master
-                - generate_version_file_for_containers
+              only: master
