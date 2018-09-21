@@ -751,9 +751,6 @@ class Calendar extends Component {
             tabIndex="-1"
             className={removeDateMessage}
             id="removeDateMessage"
-            ref={removeDateContainer => {
-              this.removeDateContainer = removeDateContainer
-            }}
           >
             <h2>
               <Trans>To change your selections, remove some days first</Trans>.
@@ -804,7 +801,13 @@ class Calendar extends Component {
             <div id="selectedDaysBox" style={{ display: 'flex' }}>
               <div className={value.length ? triangle : noDates} />
               <div className={value.length ? daySelection : noDates}>
-                <h3>
+                <h3
+                  tabIndex="-1"
+                  style={{ outline: 0 }}
+                  ref={removeDateContainer => {
+                    this.removeDateContainer = removeDateContainer
+                  }}
+                >
                   {value.length === 3 ? (
                     <Trans>Your 3 selected days:</Trans>
                   ) : value.length === 2 ? (
