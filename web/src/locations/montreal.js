@@ -5,6 +5,11 @@ module.exports = {
   receivingEmail:
     'IRCC.DNCitMTLNotification-NotificationMTLCitRN.IRCC@cic.gc.ca',
   recurring: {
+    jan: ['mon', 'tues'],
+    feb: ['mon', 'tues'],
+    mar: ['mon', 'tues'],
+    apr: ['mon', 'tues'],
+    may: ['mon', 'tues'],
     jun: ['mon', 'tues'],
     jul: ['mon', 'tues'],
     aug: ['mon', 'tues'],

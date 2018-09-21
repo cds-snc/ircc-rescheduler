@@ -4,6 +4,11 @@ module.exports = {
   phone: '1-888-242-2100',
   receivingEmail: 'cic-calgary-citizenship@cic.gc.ca',
   recurring: {
+    jan: ['tues', 'thurs'],
+    feb: ['tues', 'thurs'],
+    mar: ['tues', 'thurs'],
+    apr: ['tues', 'thurs'],
+    may: ['tues', 'thurs'],
     jun: ['tues', 'thurs'],
     jul: ['tues', 'thurs'],
     aug: ['tues', 'thurs'],

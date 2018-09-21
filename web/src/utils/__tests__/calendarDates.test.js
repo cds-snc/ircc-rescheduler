@@ -19,7 +19,7 @@ describe('Utilities functions CalendarDates.js', () => {
 
   it('gets correct end date', () => {
     const today = new Date('July 05, 2018')
-    expect(getEndDate(today)).toEqual('2018-10-04')
+    expect(getEndDate(today)).toEqual('2018-10-10')
   })
 
   it('gets month and year', () => {
