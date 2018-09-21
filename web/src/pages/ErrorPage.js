@@ -24,7 +24,7 @@ const contentClass = css`
 export class ErrorPageContent extends React.Component {
   render() {
     return (
-      <React.Fragment>
+      <section>
         <ErrorH1>
           <Trans>Sorry, something went wrong.</Trans>
         </ErrorH1>
@@ -32,10 +32,12 @@ export class ErrorPageContent extends React.Component {
           <Trans>Your request</Trans>{' '}
           <strong>
             <Trans>was not completed</Trans>
-          </strong>.{' '}
+          </strong>
+          .{' '}
           <Trans>
             Your appointment or application wasn&rsquo;t changed in any way
-          </Trans>.
+          </Trans>
+          .
         </p>
 
         <Contact phoneFirst={true}>
@@ -64,9 +66,10 @@ export class ErrorPageContent extends React.Component {
             <a href="mailto:cds-snc@tbs-sct.gc.ca">
               <Trans>send an email to let us know what happened</Trans>
             </a>
-          )}.
+          )}
+          .
         </p>
-      </React.Fragment>
+      </section>
     )
   }
 }

@@ -18,18 +18,20 @@ class FiveHundredPage extends React.Component {
     return (
       <Layout contentClass={contentClass} contact={false}>
         <Title path={this.props.match.path} />
-        <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
-          <Trans>Server Error.</Trans>
-        </H1>
-        <p>
-          <Trans>
-            Please try the link in your email or letter again. If you keep
-            seeing this page, please contact
-          </Trans>{' '}
-          <IRCCAbbr /> <Trans>directly to reschedule your appointment.</Trans>
-        </p>
+        <section>
+          <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
+            <Trans>Server error.</Trans>
+          </H1>
+          <p>
+            <Trans>
+              Please try the link in your email or letter again. If you keep
+              seeing this page, please contact
+            </Trans>{' '}
+            <IRCCAbbr /> <Trans>directly to reschedule your appointment.</Trans>
+          </p>
 
-        <Contact phoneFirst={true} showEmail={false} />
+          <Contact phoneFirst={true} showEmail={false} />
+        </section>
       </Layout>
     )
   }

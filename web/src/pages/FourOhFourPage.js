@@ -20,25 +20,27 @@ class FourOhFourPage extends React.Component {
     return (
       <Layout contentClass={contentClass} contact={showContact}>
         <Title path={this.props.match.path} />
-        <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
-          <Trans>Page not found.</Trans>
-        </H1>
-        <p>
-          <Trans>
-            The page you’re trying to reach doesn’t exist. Please try the link
-            in your email or letter again.
-          </Trans>
-        </p>
-        {/* 
-          If the page name is not-found use the page as a generic 
+        <section>
+          <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
+            <Trans>Page not found.</Trans>
+          </H1>
+          <p>
+            <Trans>
+              The page you’re trying to reach doesn’t exist. Please try the link
+              in your email or letter again.
+            </Trans>
+          </p>
+          {/*
+          If the page name is not-found use the page as a generic
           not found page i.e. no location
         */}
-        {showContact && (
-          <NavLink className="chevron-link" to="/">
-            <Chevron dir="left" />
-            <Trans>Home</Trans>
-          </NavLink>
-        )}
+          {showContact && (
+            <NavLink className="chevron-link" to="/">
+              <Chevron dir="left" />
+              <Trans>Home</Trans>
+            </NavLink>
+          )}
+        </section>
       </Layout>
     )
   }
