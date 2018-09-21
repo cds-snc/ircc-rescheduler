@@ -58,7 +58,7 @@ export const getPrimarySubdomain = function(req, res, next) {
     req.subdomain = 'vancouver'
   }
 
-  /* 
+  /*
     If no sub-domain is found
     force redirect to vancouver sub-domain on staging and prod
     note: this is temporary to handle existing vancouver traffic / links
@@ -130,7 +130,27 @@ const getStacktraceData = data => {
   return data
 }
 
+/* Raven config */
+
 Raven.config('https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616', {
   dataCallback: getStacktraceData,
   release: getReleaseHash,
 }).install()
+
+export const setRavenContext = (req, res, next) => {
+  const { headers: { host } = {}, subdomain, path } = req
+
+  Raven.setContext({
+    tags: {
+      host,
+      subdomain,
+      path,
+      stage: process.env.RAZZLE_STAGE,
+    },
+    extra: {
+      release: getReleaseHash(),
+    },
+  })
+
+  return next()
+}
