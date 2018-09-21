@@ -2,14 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { theme } from '../styles'
 
-const MobileCancel = ({ circleColour = theme.colour.blackLight }) => {
+const MobileCancel = ({
+  circleColour = theme.colour.blackLight,
+  label = '',
+}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       data-name="Layer 1"
       viewBox="0 0 21.62 21.62"
-      alt=""
+      role="img"
+      aria-labelledby="titleId"
     >
+      <title id="titleId">{label}</title>
       <g data-name="Layer 2">
         <g data-name="Layer 1-2">
           <circle cx="10.81" cy="10.81" r="10.81" fill={circleColour} />
@@ -25,6 +30,7 @@ const MobileCancel = ({ circleColour = theme.colour.blackLight }) => {
 
 MobileCancel.propTypes = {
   circleColour: PropTypes.string,
+  label: PropTypes.string,
 }
 
 export default MobileCancel
