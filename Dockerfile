@@ -10,8 +10,7 @@ WORKDIR /web
 
 EXPOSE 3004
 
-RUN yarn
-RUN yarn compile
+RUN yarn install --production
 RUN yarn build
 
 USER node

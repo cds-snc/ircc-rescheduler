@@ -50,6 +50,10 @@ jobs:
             apk add --no-cache py2-pip
             pip install awscli
       - run:
+          name: Generate VERSION file
+          command: |
+            git rev-parse --short HEAD > ~/repo/web/VERSION
+      - run:
           name: Build Docker image
           command: |
             docker build -t ircc-rescheduler --build-arg PAPER_FILE_NUMBER_PATTERN="${PAPER_FILE_NUMBER_PATTERN}" .

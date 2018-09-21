@@ -2,3 +2,5 @@ web/.env*
 web/node_modules
 web/LICENSE
 web/README.md
+web/cypress/screenshots
+web/reports
