@@ -395,11 +395,11 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        80
+        83
       ],
       [
         "src/pages/FourOhFourPage.js",
-        39
+        40
       ]
     ]
   },
@@ -426,7 +426,7 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        64
+        67
       ],
       [
         "src/pages/ConfirmationPage.js",
@@ -448,7 +448,7 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        56
+        59
       ]
     ]
   },
@@ -636,7 +636,7 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        42
+        43
       ]
     ]
   },
@@ -685,7 +685,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        50
+        52
       ]
     ]
   },
@@ -703,7 +703,7 @@
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
-        24
+        25
       ]
     ]
   },
@@ -746,7 +746,7 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        50
+        53
       ]
     ]
   },
@@ -764,7 +764,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        44
+        46
       ]
     ]
   },
@@ -836,7 +836,7 @@
     "origin": [
       [
         "src/pages/FiveHundredPage.js",
-        25
+        26
       ]
     ]
   },
@@ -1080,6 +1080,16 @@
         "src/pages/FiveHundredPage.js",
         22
       ]
+    ],
+    "obsolete": true
+  },
+  "Server error.": {
+    "translation": "Server error.",
+    "origin": [
+      [
+        "src/pages/FiveHundredPage.js",
+        23
+      ]
     ]
   },
   "Some information is missing.": {
@@ -1164,7 +1174,7 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        36
+        37
       ]
     ]
   },
@@ -1218,7 +1228,7 @@
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
-        27
+        28
       ]
     ]
   },
@@ -1441,7 +1451,7 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        47
+        50
       ],
       [
         "src/pages/ConfirmationPage.js",
@@ -1588,7 +1598,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        36
+        37
       ]
     ]
   },
@@ -1615,7 +1625,7 @@
     "origin": [
       [
         "src/pages/CancelPage.js",
-        39
+        40
       ]
     ]
   },
@@ -1659,7 +1669,7 @@
     "origin": [
       [
         "src/pages/FiveHundredPage.js",
-        29
+        30
       ]
     ]
   },
@@ -1668,7 +1678,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        45
+        47
       ]
     ]
   },
@@ -1704,7 +1714,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        61
+        63
       ]
     ]
   },
@@ -1713,7 +1723,7 @@
     "origin": [
       [
         "src/pages/ErrorPage.js",
-        65
+        67
       ]
     ]
   },
