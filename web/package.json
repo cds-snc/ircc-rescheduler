@@ -25,9 +25,9 @@
     "cypress:run": "cypress run --record",
     "ci:dev": "start-server-and-test dev http://localhost:3004 cypress:open",
     "ci:prod": "start-server-and-test build:start http://localhost:3004 cypress:run",
-    "sentry_map": "sentry-cli releases -o canadian-digital-service -p ircc-rescheduler files  $RAZZLE_STAGE  upload-sourcemaps ./build/ --rewrite",
-    "sm:staging": "COMMIT_HASH=`git rev-parse --short HEAD` && . $(readlink .env.production) && SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN RAZZLE_STAGE=staging-$COMMIT_HASH yarn sentry_map",
-    "sm:production": "COMMIT_HASH=`git rev-parse --short HEAD` && . $(readlink .env.production) && SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN RAZZLE_STAGE=production-$COMMIT_HASH yarn sentry_map"
+    "sentry_map": "sentry-cli releases -o canadian-digital-service -p ircc-rescheduler files  $SENTRY_RELEASE  upload-sourcemaps ./build/ --rewrite",
+    "sm:staging": "COMMIT_HASH=`git rev-parse --short HEAD` && . $(readlink .env.production) && SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN SENTRY_RELEASE=staging-$COMMIT_HASH yarn sentry_map",
+    "sm:production": "COMMIT_HASH=`git rev-parse --short HEAD` && . $(readlink .env.production) && SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN SENTRY_RELEASE=production-$COMMIT_HASH yarn sentry_map"
   },
   "dependencies": {
     "@cdssnc/gcui": "^0.0.31",

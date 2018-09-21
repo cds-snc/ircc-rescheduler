@@ -5,6 +5,7 @@ ARG PAPER_FILE_NUMBER_PATTERN
 ENV RAZZLE_PAPER_FILE_NUMBER_PATTERN ${PAPER_FILE_NUMBER_PATTERN}
 
 ADD ./web /web
+ADD ./entrypoint.sh /entrypoint.sh
 
 WORKDIR /web
 
@@ -15,4 +16,4 @@ RUN yarn build
 
 USER node
 
-CMD [ "yarn", "start" ]
+ENTRYPOINT ["/entrypoint.sh"]
