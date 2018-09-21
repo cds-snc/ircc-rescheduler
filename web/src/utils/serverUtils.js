@@ -141,11 +141,13 @@ export const setRavenContext = (req, res, next) => {
   const { headers: { host } = {}, subdomain, path } = req
 
   Raven.setContext({
-    extra: {
+    tags: {
       host,
       subdomain,
       path,
       stage: process.env.RAZZLE_STAGE,
+    },
+    extra: {
       release: getReleaseHash(),
     },
   })
