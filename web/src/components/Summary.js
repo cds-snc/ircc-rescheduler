@@ -178,7 +178,7 @@ const Summary = ({
       <SummaryRow
         summaryHeader={<Trans>Availability</Trans>}
         summaryBody={<SelectedDayList selectedDays={selectedDays} />}
-        summaryLink={'/calendar#calendar-header'}
+        summaryLink={'/calendar#selected-day-box'}
         summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
       />
     ) : (
