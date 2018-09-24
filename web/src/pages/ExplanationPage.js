@@ -168,10 +168,7 @@ class ExplanationPage extends React.Component {
     return (
       <Layout contentClass={explanationContentClass}>
         <Title path={this.props.match.path} />
-        <NavLink
-          className="chevron-link nav-link-top"
-          to={explanation.explanationPage ? '/register' : '/calendar'}
-        >
+        <NavLink className="chevron-link nav-link-top" to={'/calendar'}>
           <Chevron dir="left" />
           <Trans>Go back</Trans>
         </NavLink>

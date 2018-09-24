@@ -179,6 +179,8 @@ class CalendarPage extends Component {
     if (values.availability && availability.length) {
       await this.props.history.push('/explanation')
     } else {
+      // clear the availibilty explanationPage field as needed
+      await this.props.context.setStore('explanation', '')
       await this.props.history.push('/review')
     }
   }

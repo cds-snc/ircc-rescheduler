@@ -108,9 +108,8 @@ class RegistrationPage extends React.Component {
     return getFieldNames(RegistrationFields)
   }
 
-  static redirect(store = {}) {
-    let { explanation: { explanationPage } = {} } = store
-    return explanationPage ? '/explanation' : '/calendar'
+  static redirect() {
+    return '/calendar'
   }
 
   static validate(values, submitted) {
