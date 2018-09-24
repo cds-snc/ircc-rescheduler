@@ -1,20 +1,12 @@
-### Updating locations
-
-1. Locate the location file you need to make an update to i.e.
-`ircc-rescheduler/web/src/locations/calgary.js`
-
-2. Make your edits and save accordingly
-
-
 ### Adding Locations
 
-1. Create a new location (JavaScript) file `the-new-location.js`
+1. *Create* a new location (JavaScript) file `the-new-location.js`
 
-2. Add it to the locations directory `ircc-rescheduler/web/src/locations/the-new-location.js`
+2. *Add* it to the locations directory `ircc-rescheduler/web/src/locations/the-new-location.js`
 
-3. The location contain should have the following data / properties
+3. The location file contain should have the following data / properties
 
-```
+```javasacript
 module.exports = {
   id: 'the-new-location',
   email: 'the-new-location@example.com',
@@ -38,8 +30,9 @@ module.exports = {
 }
 ```
 
-Note: 
+*Note:*
 The the name of the location file should match the id property
+
 ```
 module.exports = {
   id: 'the-new-location',
@@ -51,19 +44,27 @@ The id/name of file `the-new-location` will be used as the sub-domain
 https://the-new-location.rescheduler-dev.cds-snc.ca
 ```
 
-4. Whitelist the domain
+4. *Whitelist the domain*
 
-The locations `index page` (`ircc-rescheduler/web/src/locations/index.js`) contains a whitelist array of locations
-
+The locations `index page` (/src/locations/index.js) contains a whitelist array of locations
 
 Add the new location to the whitelist
 
-```
+```diff
+/* ircc-rescheduler/web/src/locations/index.js */
 - export const whitelist = ['vancouver', 'calgary', 'montreal']
 + export const whitelist = ['vancouver', 'calgary', 'montreal', 'the-new-location']
 ```
 
-That's it.
+5. *Review and Deploy* your updates.
+
+### Updating locations
+
+1. Locate the location file you need to make an update to i.e.
+`ircc-rescheduler/web/src/locations/calgary.js`
+
+2. Make your edits and save accordingly
+
 
 ### Blocked Days
 
@@ -96,7 +97,6 @@ Note: can be empty if using checkLocationDays
 
 - Optional `blocked`: CSV string containing dates that should be blocked i.e. holidays
 - Optional `checkLocationDays` function that can be used to handle custom day logic in place of the default `recurring` setup
-
 
 
 ### Using Custom Location Day Logic (if needed)
