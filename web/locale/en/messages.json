@@ -3,10 +3,6 @@
     "translation": "",
     "origin": [
       [
-        "src/components/CalendarH1.js",
-        12
-      ],
-      [
         "src/pages/LandingPage.js",
         129
       ]
@@ -203,7 +199,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        121
+        125
       ]
     ]
   },
@@ -386,7 +382,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        89
+        93
       ]
     ]
   },
@@ -400,6 +396,15 @@
       [
         "src/pages/FourOhFourPage.js",
         40
+      ]
+    ]
+  },
+  "I cannot attend any of the available appointments": {
+    "translation": "I cannot attend any of the available appointments",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        846
       ]
     ]
   },
@@ -430,7 +435,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        109
+        120
       ]
     ]
   },
@@ -467,15 +472,6 @@
       [
         "src/components/Reminder.js",
         37
-      ]
-    ]
-  },
-  "I’m not available for any of these days": {
-    "translation": "I’m not available for any of these days",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        835
       ]
     ]
   },
@@ -609,7 +605,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        407
+        433
       ]
     ]
   },
@@ -791,7 +787,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        354
+        373
       ]
     ]
   },
@@ -800,7 +796,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        346
+        365
       ]
     ]
   },
@@ -809,7 +805,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        509
+        511
       ]
     ]
   },
@@ -903,7 +899,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        822
+        827
       ]
     ]
   },
@@ -960,26 +956,16 @@
       ]
     ]
   },
-  "Return to the home page to reschedule your appointment.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/FourOhFourPage.js",
-        30
-      ]
-    ],
-    "obsolete": true
-  },
   "Review request": {
     "translation": "",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        412
+        438
       ],
       [
         "src/pages/CalendarPage.js",
-        505
+        531
       ]
     ]
   },
@@ -997,7 +983,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        93
+        97
       ]
     ]
   },
@@ -1019,15 +1005,6 @@
       ]
     ]
   },
-  "Select": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/CalendarH1.js",
-        10
-      ]
-    ]
-  },
   "Select 3 days you’re available": {
     "translation": "",
     "origin": [
@@ -1042,7 +1019,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        810
+        815
       ]
     ]
   },
@@ -1051,7 +1028,7 @@
     "origin": [
       [
         "src/components/SubmissionForm.js",
-        27
+        33
       ]
     ]
   },
@@ -1060,7 +1037,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        117
+        121
       ]
     ]
   },
@@ -1072,16 +1049,6 @@
         21
       ]
     ]
-  },
-  "Server Error.": {
-    "translation": "Server Error.",
-    "origin": [
-      [
-        "src/pages/FiveHundredPage.js",
-        22
-      ]
-    ],
-    "obsolete": true
   },
   "Server error.": {
     "translation": "Server error.",
@@ -1131,16 +1098,6 @@
         44
       ]
     ]
-  },
-  "Sorry, the page you are looking for doesn’t exist.": {
-    "translation": "",
-    "origin": [
-      [
-        "src/pages/FourOhFourPage.js",
-        27
-      ]
-    ],
-    "obsolete": true
   },
   "Sorry, there‘s a limit of 150 words for this explanation. Please shorten your explanation.": {
     "translation": "",
@@ -1219,7 +1176,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        86
+        91
       ]
     ]
   },
@@ -1322,7 +1279,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        754
+        759
       ]
     ]
   },
@@ -1442,7 +1399,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        91
+        96
       ]
     ]
   },
@@ -1455,7 +1412,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        98
+        103
       ]
     ]
   },
@@ -1500,7 +1457,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        640
+        642
       ]
     ]
   },
@@ -1527,7 +1484,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        449
+        475
       ],
       [
         "src/validation.js",
@@ -1553,7 +1510,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        111
+        115
       ]
     ]
   },
@@ -1571,7 +1528,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        808
+        813
       ]
     ]
   },
@@ -1580,7 +1537,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        806
+        811
       ]
     ]
   },
@@ -1589,7 +1546,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        804
+        809
       ]
     ]
   },
@@ -1634,7 +1591,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        123
+        127
       ]
     ]
   },
@@ -1642,12 +1599,8 @@
     "translation": "",
     "origin": [
       [
-        "src/components/CalendarH1.js",
-        19
-      ],
-      [
         "src/pages/CalendarPage.js",
-        233
+        240
       ],
       [
         "src/pages/LandingPage.js",
@@ -1745,31 +1698,27 @@
       ]
     ]
   },
+  "will review your request and get back to you within 1 week.": {
+    "translation": "will review your request and get back to you within 1 week.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        108
+      ]
+    ]
+  },
   "will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
     "translation": "",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        102
-      ]
-    ]
-  },
-  "you and your family are available between": {
-    "translation": "you and your family are available between",
-    "origin": [
-      [
-        "src/components/CalendarH1.js",
-        15
+        112
       ]
     ]
   },
   "you’re available between": {
     "translation": "",
     "origin": [
-      [
-        "src/components/CalendarH1.js",
-        17
-      ],
       [
         "src/pages/LandingPage.js",
         131

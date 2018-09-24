@@ -3,10 +3,6 @@
     "translation": "3 jours",
     "origin": [
       [
-        "src/components/CalendarH1.js",
-        12
-      ],
-      [
         "src/pages/LandingPage.js",
         129
       ]
@@ -203,7 +199,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        121
+        125
       ]
     ]
   },
@@ -304,7 +300,7 @@
     ]
   },
   "First, provide some basic information:": {
-    "translation": "D'abord, veuillez fournir quelques renseignements de base :",
+    "translation": "D’abord, veuillez fournir quelques renseignements de base :",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -386,7 +382,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        89
+        93
       ]
     ]
   },
@@ -403,6 +399,15 @@
       ]
     ]
   },
+  "I cannot attend any of the available appointments": {
+    "translation": "Je ne peux pas assister à l’ensemble des rendez-vous disponibles",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        846
+      ]
+    ]
+  },
   "I need to reschedule my family too": {
     "translation": "J’ai aussi besoin de reporter le rendez-vous pour des membres de ma famille.",
     "origin": [
@@ -413,7 +418,7 @@
     ]
   },
   "If you cannot attend an appointment on any of the available days, staff may not be able to accommodate your request to reschedule.": {
-    "translation": "Si vous ne pouvez pas assister à un rendez-vous pour l'ensemble des jours disponibles, le personnel pourrait ne pas être en mesure de satisfaire votre demande.",
+    "translation": "Si vous ne pouvez pas assister à un rendez-vous pour l’ensemble des jours disponibles, le personnel pourrait ne pas être en mesure de satisfaire votre demande.",
     "origin": [
       [
         "src/pages/ExplanationPage.js",
@@ -430,12 +435,12 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        109
+        120
       ]
     ]
   },
   "If you haven’t already, please provide a reason for your unavailability.": {
-    "translation": "Si vous ne l'avez pas encore fait, veuillez fournir une raison pour votre indisponibilité",
+    "translation": "Si vous ne l’avez pas encore fait, veuillez fournir une raison pour votre indisponibilité",
     "origin": [
       [
         "src/pages/ExplanationPage.js",
@@ -467,15 +472,6 @@
       [
         "src/components/Reminder.js",
         37
-      ]
-    ]
-  },
-  "I’m not available for any of these days": {
-    "translation": "Je ne suis pas disponible pour l’ensemble de ces jours",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        835
       ]
     ]
   },
@@ -609,7 +605,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        407
+        433
       ]
     ]
   },
@@ -769,7 +765,7 @@
     ]
   },
   "Please make sure you provide a valid email address. For example, ‘yourname@example.com’.": {
-    "translation": "Veuillez vous assurez que l'adresse courriel est valide. Par exemple, « votrenom@exemple.com ».",
+    "translation": "Veuillez vous assurez que l’adresse courriel est valide. Par exemple, « votrenom@exemple.com ».",
     "origin": [
       [
         "src/validation.js",
@@ -778,7 +774,7 @@
     ]
   },
   "Please provide us with more information.": {
-    "translation": "Veuillez nous fournir plus d'informations.",
+    "translation": "Veuillez nous fournir plus d’informations.",
     "origin": [
       [
         "src/validation.js",
@@ -791,7 +787,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        354
+        373
       ]
     ]
   },
@@ -800,7 +796,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        346
+        365
       ]
     ]
   },
@@ -809,7 +805,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        509
+        511
       ]
     ]
   },
@@ -903,7 +899,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        822
+        827
       ]
     ]
   },
@@ -960,26 +956,16 @@
       ]
     ]
   },
-  "Return to the home page to reschedule your appointment.": {
-    "translation": "Veuillez revenir à la page d’accueil pour reporter votre rendez-vous.",
-    "origin": [
-      [
-        "src/pages/FourOhFourPage.js",
-        30
-      ]
-    ],
-    "obsolete": true
-  },
   "Review request": {
     "translation": "Revoir la demande",
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        412
+        438
       ],
       [
         "src/pages/CalendarPage.js",
-        505
+        531
       ]
     ]
   },
@@ -997,7 +983,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        93
+        97
       ]
     ]
   },
@@ -1019,15 +1005,6 @@
       ]
     ]
   },
-  "Select": {
-    "translation": "Choisissez",
-    "origin": [
-      [
-        "src/components/CalendarH1.js",
-        10
-      ]
-    ]
-  },
   "Select 3 days you’re available": {
     "translation": "Choisissez 3 jours où vous serez disponible",
     "origin": [
@@ -1042,7 +1019,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        810
+        815
       ]
     ]
   },
@@ -1051,7 +1028,7 @@
     "origin": [
       [
         "src/components/SubmissionForm.js",
-        27
+        33
       ]
     ]
   },
@@ -1060,7 +1037,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        117
+        121
       ]
     ]
   },
@@ -1121,16 +1098,6 @@
         44
       ]
     ]
-  },
-  "Sorry, the page you are looking for doesn’t exist.": {
-    "translation": "Désolé, la page que vous cherchez n’existe pas.",
-    "origin": [
-      [
-        "src/pages/FourOhFourPage.js",
-        27
-      ]
-    ],
-    "obsolete": true
   },
   "Sorry, there‘s a limit of 150 words for this explanation. Please shorten your explanation.": {
     "translation": "Désolé, il y a une limite de 150 mots. Veuillez racourcir votre explication.",
@@ -1209,7 +1176,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        86
+        91
       ]
     ]
   },
@@ -1223,7 +1190,7 @@
     ]
   },
   "Then we’ll review your request and send you a new appointment for one of the days you selected.": {
-    "translation": "Puis, nous examinerons votre demande et nous vous enverrons un nouveau rendez-vous pour l'un des jours que vous avez sélectionnés.",
+    "translation": "Puis, nous examinerons votre demande et nous vous enverrons un nouveau rendez-vous pour l’un des jours que vous avez sélectionnés.",
     "origin": [
       [
         "src/pages/LandingPage.js",
@@ -1312,7 +1279,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        754
+        759
       ]
     ]
   },
@@ -1432,7 +1399,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        91
+        96
       ]
     ]
   },
@@ -1445,7 +1412,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        98
+        103
       ]
     ]
   },
@@ -1490,7 +1457,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        640
+        642
       ]
     ]
   },
@@ -1517,7 +1484,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        449
+        475
       ],
       [
         "src/validation.js",
@@ -1543,7 +1510,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        111
+        115
       ]
     ]
   },
@@ -1561,7 +1528,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        808
+        813
       ]
     ]
   },
@@ -1570,7 +1537,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        806
+        811
       ]
     ]
   },
@@ -1579,7 +1546,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        804
+        809
       ]
     ]
   },
@@ -1624,7 +1591,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        123
+        127
       ]
     ]
   },
@@ -1632,12 +1599,8 @@
     "translation": "et",
     "origin": [
       [
-        "src/components/CalendarH1.js",
-        19
-      ],
-      [
         "src/pages/CalendarPage.js",
-        233
+        240
       ],
       [
         "src/pages/LandingPage.js",
@@ -1735,31 +1698,27 @@
       ]
     ]
   },
-  "will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
-    "translation": " vous enverra un nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
+  "will review your request and get back to you within 1 week.": {
+    "translation": "examinera votre demande et communiquera avec vous dans un délai d’une semaine.",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        102
+        108
       ]
     ]
   },
-  "you and your family are available between": {
-    "translation": "vous et votre famille êtes disponibles entre",
+  "will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
+    "translation": "vous enverra un nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
     "origin": [
       [
-        "src/components/CalendarH1.js",
-        15
+        "src/pages/ConfirmationPage.js",
+        112
       ]
     ]
   },
   "you’re available between": {
     "translation": "où vous serez disponible entre",
     "origin": [
-      [
-        "src/components/CalendarH1.js",
-        17
-      ],
       [
         "src/pages/LandingPage.js",
         131
