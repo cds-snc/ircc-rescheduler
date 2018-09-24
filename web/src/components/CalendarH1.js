@@ -1,25 +1,25 @@
 import React, { Component } from 'react'
-import { Trans } from '@lingui/react'
 import { getEndMonthName, getStartMonthName } from '../utils/calendarDates'
 import PropTypes from 'prop-types'
 class CalendarH1 extends Component {
   render() {
     const { familyOption, locale } = this.props
-    return (
-      <React.Fragment>
-        <Trans>Select</Trans>{' '}
-        <strong>
-          <Trans>3 days</Trans>
-        </strong>{' '}
-        {familyOption ? (
-          <Trans>you and your family are available between</Trans>
-        ) : (
-          <Trans>you’re available between</Trans>
-        )}{' '}
-        {getStartMonthName(new Date(), locale)} <Trans>and</Trans>{' '}
-        {getEndMonthName(new Date(), locale)}.
-      </React.Fragment>
-    )
+    const startMonthName = getStartMonthName(new Date(), locale)
+    const endMonthName = getEndMonthName(new Date(), locale)
+
+    // en
+    let familyOptionText = familyOption ? 'you and your family are' : 'you’re'
+    let msg = `Select 3 days ${familyOptionText} available between ${startMonthName} and ${endMonthName}`
+
+    //fr
+    if (locale === 'fr') {
+      let familyOptionText = familyOption
+        ? 'où vous et votre famille serez disponibles.'
+        : 'quand vous serez disponibles.'
+      msg = `Sélectionnez 3 jours entre le ${startMonthName} et le ${endMonthName} ${familyOptionText}`
+    }
+
+    return <React.Fragment>{msg}</React.Fragment>
   }
 }
 
