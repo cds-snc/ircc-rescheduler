@@ -108,7 +108,7 @@ class RegistrationPage extends React.Component {
     return getFieldNames(RegistrationFields)
   }
 
-  static redirect() {
+  static get redirect() {
     return '/calendar'
   }
 
@@ -203,7 +203,7 @@ class RegistrationPage extends React.Component {
     // if setStore doesn't exist, nothing gets saved between pages
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
-    await this.props.history.push(this.redirect(this.props.context.store))
+    await this.props.history.push(this.redirect)
   }
 
   render() {
