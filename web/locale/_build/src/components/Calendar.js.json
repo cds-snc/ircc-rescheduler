@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        509
+        511
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        640
+        642
       ]
     ]
   },
@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        754
+        759
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        804
+        809
       ]
     ]
   },
@@ -35,7 +35,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        806
+        811
       ]
     ]
   },
@@ -43,7 +43,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        808
+        813
       ]
     ]
   },
@@ -51,7 +51,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        810
+        815
       ]
     ]
   },
@@ -59,15 +59,15 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        822
+        827
       ]
     ]
   },
-  "I’m not available for any of these days": {
+  "I cannot attend any of the available appointments": {
     "origin": [
       [
         "src/components/Calendar.js",
-        835
+        846
       ]
     ]
   }

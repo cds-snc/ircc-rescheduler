@@ -19,7 +19,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        86
+        91
       ]
     ]
   },
@@ -27,7 +27,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        91
+        96
       ]
     ]
   },
@@ -35,7 +35,15 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        98
+        103
+      ]
+    ]
+  },
+  "will review your request and get back to you within 1 week.": {
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        108
       ]
     ]
   },
@@ -43,7 +51,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        102
+        112
       ]
     ]
   },
@@ -51,7 +59,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        109
+        120
       ]
     ]
   }

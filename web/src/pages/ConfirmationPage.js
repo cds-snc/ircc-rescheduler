@@ -75,7 +75,12 @@ class ConfirmationPage extends React.Component {
 
   render() {
     let {
-      context: { store: { calendar: { selectedDays = [] } = {} } = {} } = {},
+      context: {
+        store: {
+          calendar: { selectedDays = [] } = {},
+          explanation: { explanationPage } = {},
+        } = {},
+      } = {},
     } = this.props
 
     return (
@@ -99,10 +104,16 @@ class ConfirmationPage extends React.Component {
           </H2>
           <p>
             <IRCCAbbr />{' '}
-            <Trans>
-              will send you a new appointment. You will always be contacted at
-              least 3 weeks before your appointment.
-            </Trans>
+            {explanationPage ? (
+              <Trans>
+                will review your request and get back to you within 1 week.
+              </Trans>
+            ) : (
+              <Trans>
+                will send you a new appointment. You will always be contacted at
+                least 3 weeks before your appointment.
+              </Trans>
+            )}
           </p>
           <Contact>
             <H2>

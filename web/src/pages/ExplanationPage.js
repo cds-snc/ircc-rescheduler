@@ -170,7 +170,7 @@ class ExplanationPage extends React.Component {
         <Title path={this.props.match.path} />
         <NavLink
           className="chevron-link nav-link-top"
-          to={explanation.explanationPage ? '/review' : '/calendar'}
+          to={explanation.explanationPage ? '/register' : '/calendar'}
         >
           <Chevron dir="left" />
           <Trans>Go back</Trans>
