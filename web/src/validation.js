@@ -175,6 +175,7 @@ export const ExplanationFields = {
 
 export const CalendarFields = {
   selectedDays: 'required|array|date_count',
+  explanationPage: 'accept_anything',
 }
 
 /*--------------------------------------------*
