@@ -403,8 +403,6 @@ export const dateSetFromString = dates => {
 export const initialMonth = props => {
   let { context: { store: { calendar = {} } = {} } = {} } = props
 
-  // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
-
   // cast values to Date objects if calendar.selectedDays exists and has a length
   if (calendar && calendar.selectedDays && calendar.selectedDays.length) {
     calendar = {
@@ -413,6 +411,5 @@ export const initialMonth = props => {
   }
 
   const startMonth = parse(getStartMonth())
-  const initialMonth = getInitialMonth(calendar.selectedDays, startMonth)
-  return initialMonth
+  return getInitialMonth(calendar.selectedDays, startMonth)
 }
