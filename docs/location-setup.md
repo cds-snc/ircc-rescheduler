@@ -1,8 +1,8 @@
 ### Adding Locations
 
-1. *Create* a new location (JavaScript) file `the-new-location.js`
+1. **Create** a new location (JavaScript) file `the-new-location.js`
 
-2. *Add* it to the locations directory `ircc-rescheduler/web/src/locations/the-new-location.js`
+2. **Add** it to the locations directory `ircc-rescheduler/web/src/locations/the-new-location.js`
 
 3. The location file contain should have the following data / properties
 
@@ -30,7 +30,7 @@ module.exports = {
 }
 ```
 
-*Note:*
+**Note:**
 The the name of the location file should match the id property
 
 ```
@@ -44,7 +44,7 @@ The id/name of file `the-new-location` will be used as the sub-domain
 https://the-new-location.rescheduler-dev.cds-snc.ca
 ```
 
-4. *Whitelist the domain*
+4. **Whitelist** the domain
 
 The locations `index page` (/src/locations/index.js) contains a whitelist array of locations
 
@@ -56,7 +56,7 @@ Add the new location to the whitelist
 + export const whitelist = ['vancouver', 'calgary', 'montreal', 'the-new-location']
 ```
 
-5. *Review and Deploy* your updates.
+5. **Review and Deploy** your updates.
 
 ### Updating locations
 
@@ -64,6 +64,8 @@ Add the new location to the whitelist
 `ircc-rescheduler/web/src/locations/calgary.js`
 
 2. Make your edits and save accordingly
+
+3. **Review and Deploy** your updates.
 
 
 ### Blocked Days
@@ -79,7 +81,7 @@ recurring: {
 blocked: '2018-10-02, 2018-10-03, 2018-11-21', // use CSV format 
 ```
 
-#### Location File Properties
+### Location File Properties
 
 - Required String `id`: used for the subdomain.  Needs to match the location filename
 - Required String `email`: publicly displayed in the app i.e. on the Cancel Page `/cancel`
@@ -93,7 +95,7 @@ recurring: {
     ...
   },
 ```
-Note: can be empty if using checkLocationDays
+Note: recurring can be empty object if using checkLocationDays
 
 - Optional `blocked`: CSV string containing dates that should be blocked i.e. holidays
 - Optional `checkLocationDays` function that can be used to handle custom day logic in place of the default `recurring` setup
