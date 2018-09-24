@@ -1,7 +1,7 @@
 ### Updating locations
 
 1. Locate the location file you need to make an update to i.e.
-ircc-rescheduler/web/src/locations/calgary.js
+`ircc-rescheduler/web/src/locations/calgary.js`
 
 2. Make your edits and save accordingly
 
@@ -10,7 +10,7 @@ ircc-rescheduler/web/src/locations/calgary.js
 
 1. Create a new location (JavaScript) file `the-new-location.js`
 
-2. Add it to the locations directory ircc-rescheduler/web/src/locations/the-new-location.js
+2. Add it to the locations directory `ircc-rescheduler/web/src/locations/the-new-location.js`
 
 3. The location contain should have the following data / properties
 
@@ -44,7 +44,7 @@ That's it.
 
 Each location can contain a custom checkLocationDays function.  This function can be used in place of the recurring property (days of the week setup).
 
-# Example:
+#### Example:
 ```
 module.exports = {
   email: 'the-new-location@example.com',
