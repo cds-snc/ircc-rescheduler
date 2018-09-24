@@ -3,10 +3,8 @@ import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { Trans } from '@lingui/react'
-import { i18n } from '@lingui/core'
-import { NavLink } from 'react-router-dom'
-import styled, { css } from 'react-emotion'
-import { theme, BottomContainer, TopContainer, H2, focusRing } from '../styles'
+import { css } from 'react-emotion'
+import { focusRing } from '../styles'
 import {
   CalendarFields,
   getFieldNames,
@@ -14,129 +12,36 @@ import {
   getFieldErrorStrings,
   errorMessages,
 } from '../validation'
+
 import Validator from 'validatorjs'
 import { trimInput } from '../utils/cleanInput'
 import Layout from '../components/Layout'
-import Title, { matchPropTypes } from '../components/Title'
-import CalendarH1 from '../components/CalendarH1'
+import { matchPropTypes } from '../components/Title'
 import Button from '../components/forms/Button'
 import CalendarAdapter from '../components/Calendar'
-import Chevron from '../components/Chevron'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import { makeGMTDate, dateToISODateString } from '../components/Time'
-import Reminder from '../components/Reminder'
-import ErrorMessage, { ErrorList } from '../components/ErrorMessage'
+import ErrorMessage from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
-import CalendarNoJS from '../components/CalendarNoJS'
-import CancelButton from '../components/CancelButton'
-import { Checkbox } from '../components/forms/MultipleChoice'
-import { checkURLParams } from '../utils/url'
 import { logEvent } from '../utils/analytics'
 import {
   getDaysOfWeekForLocation,
   dayFromDayNumber,
-  getStartMonth,
-  getInitialMonth,
   getMonthName,
+  initialMonth,
 } from '../utils/calendarDates'
 
-import FocusedH1 from '../components/FocusedH1'
-import parse from 'date-fns/parse'
+import { CalHeader } from './calendar/CalHeader'
+import { CalBottom } from './calendar/CalBottom'
+import CalendarPageNoJS from './CalendarPageNoJS'
 import { FeatureFlag } from '../components/FeatureFlag'
 
 const DAY_LIMIT = 3
 
-const headerStyles = css`
-  font-weight: 400;
-  margin-bottom: ${theme.spacing.xl};
-  margin-top: 0;
-
-  strong {
-    font-weight: 700;
-  }
-`
-
-const CalendarSubheader = styled(H2)`
-  font-size: ${theme.font.lg};
-  ${headerStyles};
-`
-
-const CalReminder = styled(Reminder)`
-  padding: ${theme.spacing.md} 0;
-`
-
 const fullWidth = css`
   width: 100% !important;
 `
-const calH1 = css`
-  font-size: ${theme.font.xl};
-`
-
-const CalHeader = ({
-  locale = 'en',
-  path,
-  headerMonth = '',
-  headerNote = [],
-  familyOption,
-}) => {
-  return (
-    <div>
-      <Title path={path} i18n={i18n} />
-      <TopContainer>
-        <nav>
-          <NavLink className="chevron-link" to="/register">
-            <Chevron dir="left" />
-            <Trans>Go back</Trans>
-          </NavLink>
-        </nav>
-      </TopContainer>
-
-      <FocusedH1 id="calendar-header" className={calH1}>
-        <CalendarH1 familyOption={familyOption} locale={locale} />
-      </FocusedH1>
-
-      {windowExists() && (
-        <CalendarSubheader id="calendar-intro">
-          <Trans>Citizenship appointments in</Trans> {headerMonth}{' '}
-          <Trans>are scheduled on </Trans>
-          {headerNote}.
-        </CalendarSubheader>
-      )}
-    </div>
-  )
-}
-
-CalHeader.propTypes = {
-  locale: PropTypes.string,
-  path: PropTypes.string.isRequired,
-  headerMonth: PropTypes.string,
-  headerNote: PropTypes.array,
-  familyOption: PropTypes.string,
-}
-
-const CalBottom = ({ submit }) => {
-  return (
-    <div>
-      <div>
-        <CalReminder>
-          <Trans>
-            Make sure you stay available on all of the days you select.
-          </Trans>
-        </CalReminder>
-      </div>
-      <BottomContainer>
-        {submit()}
-        <CancelButton />
-      </BottomContainer>
-    </div>
-  )
-}
-
-CalBottom.propTypes = {
-  submit: PropTypes.func,
-}
-
 class CalendarPage extends Component {
   static get fields() {
     return getFieldNames(CalendarFields)
@@ -171,11 +76,10 @@ class CalendarPage extends Component {
     this.validate = CalendarPage.validate
     this.forceRender = this.forceRender.bind(this)
     this.changeMonth = this.changeMonth.bind(this)
-    this.initialMonth = this.initialMonth.bind(this)
     this.hasNotValid = this.hasNotValid.bind(this)
     this.form = null
     this.state = {
-      month: this.initialMonth(),
+      month: initialMonth(this.props),
       headerMonth: '',
       headerNote: [],
       calValues: false,
@@ -206,23 +110,6 @@ class CalendarPage extends Component {
   forceRender(values) {
     // call setState to force a render
     this.setState({ calValues: values })
-  }
-
-  initialMonth() {
-    let { context: { store: { calendar = {} } = {} } = {} } = this.props
-
-    // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
-
-    // cast values to Date objects if calendar.selectedDays exists and has a length
-    if (calendar && calendar.selectedDays && calendar.selectedDays.length) {
-      calendar = {
-        selectedDays: calendar.selectedDays.map(day => makeGMTDate(day)),
-      }
-    }
-
-    const startMonth = parse(getStartMonth())
-    const initialMonth = getInitialMonth(calendar.selectedDays, startMonth)
-    return initialMonth
   }
 
   changeMonth(month = this.state.month) {
@@ -450,6 +337,7 @@ class CalendarPage extends Component {
     )
   }
 }
+
 CalendarPage.propTypes = {
   ...contextPropTypes,
   ...matchPropTypes,
@@ -458,99 +346,12 @@ CalendarPage.propTypes = {
   locale: PropTypes.string,
 }
 
-class NoJS extends Component {
-  static get fields() {
-    return ['selectedDays']
-  }
-
-  static redirect() {
-    return '/review'
-  }
-
-  static validate(values) {
-    if (values && values.selectedDays && values.selectedDays.length === 3) {
-      return {}
-    }
-    return {
-      selectedDays: <Trans>You must select 3 days.</Trans>,
-    }
-  }
-
-  constructor(props) {
-    super(props)
-    this.hasNotValid = this.hasNotValid.bind(this)
-  }
-
-  hasNotValid() {
-    return this.props.location.search.indexOf('not-valid') !== -1
-  }
-
-  render() {
-    let {
-      context: { store: { calendar = {}, language: locale = 'en' } = {} } = {},
-    } = this.props
-    let errorsNoJS = {}
-
-    // only run this if there's a location.search
-    // AND at least one of our fields exists in the url keys somewhere
-    // so we know for sure they pressed "submit" on this page
-    if (
-      (this.props.location.search &&
-        this.props.location.pathname === '/calendar' &&
-        checkURLParams(this.props.location.search, NoJS.fields)) ||
-      this.hasNotValid()
-    ) {
-      errorsNoJS = NoJS.validate(calendar)
-    }
-
-    return (
-      <Layout>
-        <CalHeader locale={locale} path={this.props.match.path} />
-        {Object.keys(errorsNoJS).length ? (
-          <ErrorList message={errorsNoJS.selectedDays}>
-            {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
-            <a href="#selectedDays-form">Calendar</a>
-          </ErrorList>
-        ) : null}
-        {/*
-          the first checkbox / radio on the page doesn't have its CSS applied correctly
-          so this is a dummy checkbox that nobody should ever see
-          it's also outside of the form so it can't be submitted
-          if it is removed, the first checkbox in the list of dates will disappear
-        */}
-        <div style={{ display: 'none' }}>
-          <Checkbox id="ignore-me" value="ignore-me" />
-        </div>
-        <form id="selectedDays-form" className={fullWidth}>
-          <span>
-            <CalendarNoJS dates={calendar} locale={locale} />
-            <CalBottom
-              submit={() => {
-                return (
-                  <Button>
-                    <Trans>Review request</Trans>
-                  </Button>
-                )
-              }}
-            />
-          </span>
-        </form>
-      </Layout>
-    )
-  }
-}
-NoJS.propTypes = {
-  ...contextPropTypes,
-  ...matchPropTypes,
-  location: PropTypes.object,
-}
-
-const WhichCal = () => {
+const WhichCalendarPage = () => {
   if (windowExists()) {
     return CalendarPage
   }
 
-  return NoJS
+  return CalendarPageNoJS
 }
 
-export default withContext(WhichCal())
+export default withContext(WhichCalendarPage())
