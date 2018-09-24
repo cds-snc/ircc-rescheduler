@@ -15,7 +15,7 @@ class CalendarH1 extends Component {
     if (locale === 'fr') {
       let familyOptionText = familyOption
         ? 'où vous et votre famille serez disponibles.'
-        : 'vous serez disponibles.'
+        : 'quand vous serez disponibles.'
       msg = `Sélectionnez 3 jours entre le ${startMonthName} et le ${endMonthName} ${familyOptionText}`
     }
 
