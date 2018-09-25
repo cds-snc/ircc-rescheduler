@@ -84,6 +84,7 @@ class CalendarPage extends Component {
       headerNote: [],
       calValues: false,
       disabled: false,
+      forcedUpdate: false,
     }
   }
 
@@ -109,7 +110,7 @@ class CalendarPage extends Component {
 
   forceRender(values) {
     // call setState to force a render
-    this.setState({ calValues: values })
+    this.setState({ calValues: values, forcedUpdate: true })
   }
 
   changeMonth(month = this.state.month) {
@@ -190,6 +191,7 @@ class CalendarPage extends Component {
       context: {
         store: {
           calendar = {},
+          explanation = {},
           language: locale = 'en',
           register: { familyOption } = {},
         } = {},
@@ -212,7 +214,13 @@ class CalendarPage extends Component {
       calValues.selectedDays = this.state.calValues
     }
 
-    const { month } = this.state
+    const { month, forcedUpdate } = this.state
+
+    // we only want to check to happen on initial page load
+    // not after day clicks
+    if (explanation && !forcedUpdate) {
+      calValues.availability = ['notAvailable']
+    }
 
     return (
       <Layout>
