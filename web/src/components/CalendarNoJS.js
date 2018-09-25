@@ -24,6 +24,11 @@ const calList = css`
 
 const noJSDatesLink = css`
   margin: ${theme.spacing.xl} 0 ${theme.spacing.xl} 0;
+  background-color: #eeeeee;
+  padding: ${theme.spacing.sm};
+  font-size: ${theme.font.lg}
+  display:inline-block;
+  max-width:350px;
 `
 
 const column = css`
@@ -76,6 +81,12 @@ const Calendar = ({ dates, locale }) => {
   /*eslint-disable */
   return (
     <div>
+      <div className={noJSDatesLink}>
+        <NavLink to="/explanation">
+          <Trans>I&rsquo;m not available for any of these days</Trans>
+        </NavLink>
+      </div>
+
       <div className={calList}>
         {Object.keys(mapped).map((keyName, keyIndex) => {
           return (
@@ -87,12 +98,6 @@ const Calendar = ({ dates, locale }) => {
             </div>
           )
         })}
-      </div>
-
-      <div className={noJSDatesLink}>
-        <NavLink to="/explanation">
-          <Trans>I&rsquo;m not available for any of these days</Trans>
-        </NavLink>
       </div>
     </div>
   )
