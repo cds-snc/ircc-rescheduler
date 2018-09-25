@@ -1,0 +1,26 @@
+{
+  "Go back": {
+    "origin": [
+      [
+        "src/pages/calendar/CalHeader.js",
+        46
+      ]
+    ]
+  },
+  "Citizenship appointments in": {
+    "origin": [
+      [
+        "src/pages/calendar/CalHeader.js",
+        57
+      ]
+    ]
+  },
+  "are scheduled on": {
+    "origin": [
+      [
+        "src/pages/calendar/CalHeader.js",
+        58
+      ]
+    ]
+  }
+}

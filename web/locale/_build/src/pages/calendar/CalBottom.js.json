@@ -1,0 +1,10 @@
+{
+  "Make sure you stay available on all of the days you select.": {
+    "origin": [
+      [
+        "src/pages/calendar/CalBottom.js",
+        18
+      ]
+    ]
+  }
+}

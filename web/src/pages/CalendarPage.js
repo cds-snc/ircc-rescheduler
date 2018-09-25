@@ -42,6 +42,7 @@ const DAY_LIMIT = 3
 const fullWidth = css`
   width: 100% !important;
 `
+
 class CalendarPage extends Component {
   static get fields() {
     return getFieldNames(CalendarFields)

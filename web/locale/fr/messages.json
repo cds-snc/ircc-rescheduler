@@ -145,8 +145,8 @@
     "translation": "Les rendez-vous d’examen de citoyenneté en",
     "origin": [
       [
-        "src/pages/CalendarPage.js",
-        101
+        "src/pages/calendar/CalHeader.js",
+        57
       ]
     ]
   },
@@ -308,8 +308,8 @@
       ]
     ]
   },
-  "For example: “Full Name, Full Name, Full Name”": {
-    "translation": "Par exemple : « Nom Complet, Nom Complet, Nom Complet »",
+  "For example: Full Name, Full Name, Full Name": {
+    "translation": "Par exemple : Nom Complet, Nom Complet, Nom Complet",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -373,16 +373,16 @@
     "translation": "Retour",
     "origin": [
       [
-        "src/pages/CalendarPage.js",
-        90
-      ],
-      [
         "src/pages/ExplanationPage.js",
         176
       ],
       [
         "src/pages/ReviewPage.js",
         93
+      ],
+      [
+        "src/pages/calendar/CalHeader.js",
+        46
       ]
     ]
   },
@@ -515,8 +515,8 @@
     "translation": "Assurez-vous de demeurer disponible tous les jours sélectionnés.",
     "origin": [
       [
-        "src/pages/CalendarPage.js",
-        123
+        "src/pages/calendar/CalBottom.js",
+        18
       ]
     ]
   },
@@ -605,7 +605,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        433
+        328
       ]
     ]
   },
@@ -787,7 +787,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        373
+        268
       ]
     ]
   },
@@ -796,7 +796,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        365
+        260
       ]
     ]
   },
@@ -961,11 +961,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        438
+        333
       ],
       [
-        "src/pages/CalendarPage.js",
-        531
+        "src/pages/CalendarPageNoJS.js",
+        90
       ]
     ]
   },
@@ -1483,8 +1483,8 @@
     "translation": "Vous devez sélectionner 3 jours.",
     "origin": [
       [
-        "src/pages/CalendarPage.js",
-        475
+        "src/pages/CalendarPageNoJS.js",
+        34
       ],
       [
         "src/validation.js",
@@ -1600,7 +1600,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        240
+        135
       ],
       [
         "src/pages/LandingPage.js",
@@ -1612,8 +1612,8 @@
     "translation": "ont lieu",
     "origin": [
       [
-        "src/pages/CalendarPage.js",
-        102
+        "src/pages/calendar/CalHeader.js",
+        58
       ]
     ]
   },
