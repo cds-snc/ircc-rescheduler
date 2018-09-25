@@ -184,11 +184,13 @@ export const Content = styled.div`
     font-size: ${theme.font.lg};
   }
 
-  .disabled #selectedDays{
-    position:relative;
+  .disabled #selectedDays {
+    position: relative;
   }
 
   .disabled div#selectedDays:before {
+    cursor: not-allowed;
+    cursor: url('disableddates.ico') 20 20, not-allowed;
     content: '';
     background-color: #efefef;
     position: absolute;
@@ -200,8 +202,8 @@ export const Content = styled.div`
     opacity: 0.7;
   }
 
-  .disabled #selectedDaysBox{
-    display:none !important;
+  .disabled #selectedDaysBox {
+    display: none !important;
   }
 `
 
