@@ -112,9 +112,8 @@ class RegistrationPage extends React.Component {
     return getFieldNames(RegistrationFields)
   }
 
-  static redirect(store = {}) {
-    let { explanation: { explanationPage } = {} } = store
-    return explanationPage ? '/explanation' : '/calendar'
+  static get redirect() {
+    return '/calendar'
   }
 
   static validate(values, submitted) {
@@ -208,7 +207,7 @@ class RegistrationPage extends React.Component {
     // if setStore doesn't exist, nothing gets saved between pages
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
-    await this.props.history.push(this.redirect(this.props.context.store))
+    await this.props.history.push(this.redirect)
   }
 
   render() {

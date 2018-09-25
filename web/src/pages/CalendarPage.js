@@ -49,18 +49,22 @@ class CalendarPage extends Component {
   }
 
   static validate(values) {
-    /* if the availability checkbox is set just return */
-    if (values.availability && values.availability.length) {
-      return {}
-    }
+    // create a cloned object from the original CalendarFields
+    let calendarFields = Object.assign({}, CalendarFields)
 
-    if (values.selectedDays === undefined) {
+    /* if the availability checkbox is set, remove the validation for selectedDays */
+    calendarFields.selectedDays =
+      values.availability && values.availability.length
+        ? 'accept_anything'
+        : CalendarFields.selectedDays
+
+    if (!values.selectedDays) {
       values.selectedDays = []
     }
 
     const validate = new Validator(
       trimInput(values),
-      CalendarFields,
+      calendarFields,
       defaultMessages,
     )
 
@@ -164,22 +168,23 @@ class CalendarPage extends Component {
       }
     }
 
-    let availability = values.availability
-    let days = availability
-      ? []
-      : values.selectedDays.map(date => dateToISODateString(date))
+    // values.selectedDays (when set) is an array of dates, so cast values to ISO date strings
+    let selectedDays = (values.selectedDays || []).map(date =>
+      dateToISODateString(date),
+    )
 
-    // values.selectedDays is an array of dates, so cast them to ISO date strings
     values = {
-      selectedDays: days,
-      availability,
+      ...values,
+      selectedDays,
     }
 
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
-    if (values.availability && availability.length) {
+    if (values.availability && values.availability.length) {
       await this.props.history.push('/explanation')
     } else {
+      // clear the availability explanationPage field as needed
+      await this.props.context.setStore('explanation', { explanationPage: '' })
       await this.props.history.push('/review')
     }
   }
@@ -199,9 +204,7 @@ class CalendarPage extends Component {
 
     // cast values to Date objects if calendar.selectedDays exists and has a length
     if (calendar && calendar.selectedDays && calendar.selectedDays.length) {
-      calendar = {
-        selectedDays: calendar.selectedDays.map(day => makeGMTDate(day)),
-      }
+      calendar.selectedDays = calendar.selectedDays.map(day => makeGMTDate(day))
     }
 
     let calValues = calendar

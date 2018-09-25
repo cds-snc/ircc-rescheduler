@@ -22,7 +22,7 @@ export default class CalendarPageNoJS extends Component {
     return ['selectedDays']
   }
 
-  static redirect() {
+  static get redirect() {
     return '/review'
   }
 

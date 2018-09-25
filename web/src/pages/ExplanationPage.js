@@ -83,7 +83,7 @@ class ExplanationPage extends React.Component {
     return getFieldNames(ExplanationFields)
   }
 
-  static redirect() {
+  static get redirect() {
     return '/review'
   }
 
@@ -147,7 +147,7 @@ class ExplanationPage extends React.Component {
     // if setStore doesn't exist, nothing gets saved between pages
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
-    await this.props.history.push(this.redirect())
+    await this.props.history.push(this.redirect)
   }
 
   render() {
@@ -168,10 +168,7 @@ class ExplanationPage extends React.Component {
     return (
       <Layout contentClass={explanationContentClass}>
         <Title path={this.props.match.path} />
-        <NavLink
-          className="chevron-link nav-link-top"
-          to={explanation.explanationPage ? '/register' : '/calendar'}
-        >
+        <NavLink className="chevron-link nav-link-top" to={'/calendar'}>
           <Chevron dir="left" />
           <Trans>Go back</Trans>
         </NavLink>

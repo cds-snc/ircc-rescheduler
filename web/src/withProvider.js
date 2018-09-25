@@ -55,7 +55,7 @@ function withProvider(WrappedComponent) {
 
           // add redirect if query passes validation and .redirect exists on the page component
           if (WrappedComponent.redirect && WithProvider.validateQuery(query)) {
-            res.locals.redirect = WrappedComponent.redirect(newCookie)
+            res.locals.redirect = WrappedComponent.redirect
           }
         }
       }
