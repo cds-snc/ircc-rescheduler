@@ -10,15 +10,17 @@ const CalReminder = styled(Reminder)`
   padding: ${theme.spacing.md} 0;
 `
 
-export const CalBottom = ({ submit }) => {
+export const CalBottom = ({ availability, submit }) => {
   return (
     <div>
       <div>
-        <CalReminder>
-          <Trans>
-            Make sure you stay available on all of the days you select.
-          </Trans>
-        </CalReminder>
+        {!availability && (
+          <CalReminder>
+            <Trans>
+              Make sure you stay available on all of the days you select.
+            </Trans>
+          </CalReminder>
+        )}
       </div>
       <BottomContainer>
         {submit()}
@@ -29,5 +31,6 @@ export const CalBottom = ({ submit }) => {
 }
 
 CalBottom.propTypes = {
+  availability: PropTypes.bool,
   submit: PropTypes.func,
 }
