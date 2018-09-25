@@ -48,18 +48,22 @@ class CalendarPage extends Component {
   }
 
   static validate(values) {
-    /* if the availability checkbox is set just return */
-    if (values.availability && values.availability.length) {
-      return {}
-    }
+    // create a cloned object from the original CalendarFields
+    let calendarFields = Object.assign({}, CalendarFields)
 
-    if (values.selectedDays === undefined) {
+    /* if the availability checkbox is set, remove the validation for selectedDays */
+    calendarFields.selectedDays =
+      values.availability && values.availability.length
+        ? 'accept_anything'
+        : CalendarFields.selectedDays
+
+    if (!values.selectedDays) {
       values.selectedDays = []
     }
 
     const validate = new Validator(
       trimInput(values),
-      CalendarFields,
+      calendarFields,
       defaultMessages,
     )
 
