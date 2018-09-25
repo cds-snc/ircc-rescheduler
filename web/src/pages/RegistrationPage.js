@@ -410,7 +410,7 @@ class RegistrationPage extends React.Component {
                     component={TextAreaAdapter}
                     {...disabled}
                     placeholder={`${i18n._(
-                      'For example: “Full Name, Full Name, Full Name”',
+                      'For example: Full Name, Full Name, Full Name',
                     )}`}
                   >
                     <label htmlFor="familyOption" id="familyOption-label">
