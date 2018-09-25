@@ -59,7 +59,7 @@ const registrationContentClass = css`
 
   label[for='familyCheck'],
   label[for='familyOption'] {
-    display: inline-block;
+    display: block;
     margin-bottom: 0;
     padding-bottom: 0;
   }

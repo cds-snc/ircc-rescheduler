@@ -42,6 +42,14 @@ const DAY_LIMIT = 3
 const fullWidth = css`
   width: 100% !important;
 `
+
+const contentClass = css`
+  .disabled div#selectedDays:before {
+    cursor: not-allowed;
+    cursor: url('disableddates.ico') 20 20, not-allowed;
+  }
+`
+
 class CalendarPage extends Component {
   static get fields() {
     return getFieldNames(CalendarFields)
@@ -213,7 +221,7 @@ class CalendarPage extends Component {
     const { month } = this.state
 
     return (
-      <Layout>
+      <Layout contentClass={contentClass}>
         <CalHeader
           familyOption={familyOption}
           locale={locale}
