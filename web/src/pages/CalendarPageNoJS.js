@@ -81,6 +81,7 @@ export default class CalendarPageNoJS extends Component {
           <Checkbox id="ignore-me" value="ignore-me" />
         </div>
         <form id="selectedDays-form" className={fullWidth}>
+          <input type="hidden" name="explanationPage" value="" />
           <span>
             <CalendarNoJS dates={calendar} locale={locale} />
             <CalBottom
