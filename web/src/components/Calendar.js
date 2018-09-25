@@ -155,7 +155,7 @@ const dayPickerDefault = css`
     padding: ${theme.spacing.sm} 0 ${theme.spacing.sm} 0;
     font-size: 0.875em;
     text-align: center;
-    background: #eee;
+    background: white;
   }
 
   .DayPicker-Weekday abbr[title] {
@@ -198,7 +198,7 @@ const dayPickerDefault = css`
 
     &[aria-disabled='false'] {
       font-weight: 700;
-      background: #cbe7d9;
+      background: ${theme.colour.greenLighter};
       outline: 0px white solid;
 
       &:focus {
@@ -213,7 +213,7 @@ const dayPickerDefault = css`
     &[aria-disabled='true'] {
       cursor: not-allowed;
       cursor: url('disableddates.ico') 20 20, not-allowed;
-      background: #eee;
+      background: white;
 
       &:focus {
         outline: 3px solid ${theme.colour.lightGrey};
@@ -717,8 +717,13 @@ class Calendar extends Component {
 
       .DayPicker-Weekday:nth-of-type(${dayOfWeek1}),
       .DayPicker-Weekday:nth-of-type(${dayOfWeek2}) {
-        background: ${theme.colour.white};
+        background: ${theme.colour.greenLighter};
         font-weight: 700;
+      }
+
+      .DayPicker-Day--outside:nth-of-type(${dayOfWeek1}),
+      .DayPicker-Day--outside:nth-of-type(${dayOfWeek2}){
+        background: ${theme.colour.greenLighter};
       }
 
       .DayPicker-NavButton--next {
