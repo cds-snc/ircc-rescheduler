@@ -7,6 +7,9 @@ This is a repo service allows users to reschedule their language tests during th
 # Getting Started
 [Project Setup](web/README.md)
 
+# Updating & Adding Locations
+[Locations](docs/location-setup.md)
+
 # Package Dependencies
 [Updating the package dependencies](docs/upgrade.md)
 
