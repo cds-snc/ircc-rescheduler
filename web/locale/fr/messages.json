@@ -309,7 +309,7 @@
     ]
   },
   "For example: Full Name, Full Name, Full Name": {
-    "translation": "Par exemple : Nom Complet, Nom Complet, Nom Complet",
+    "translation": "Par exemple : Nom Complet, Nom Complet, Nom Complet",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
