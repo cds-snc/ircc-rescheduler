@@ -726,6 +726,11 @@ class Calendar extends Component {
         background: ${theme.colour.greenLighter};
       }
 
+      .DayPicker-Day--disabled:nth-of-type(${dayOfWeek1}),
+      .DayPicker-Day--disabled:nth-of-type(${dayOfWeek2}){
+        background: white;
+      }
+
       .DayPicker-NavButton--next {
         right: 0.5rem;
         top: 0.5rem;
