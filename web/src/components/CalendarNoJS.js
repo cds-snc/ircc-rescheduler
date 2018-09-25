@@ -23,12 +23,17 @@ const calList = css`
 `
 
 const noJSDatesLink = css`
-  margin: ${theme.spacing.xl} 0 ${theme.spacing.xl} 0;
+  margin:0 0 ${theme.spacing.xl} 0;
   background-color: #eeeeee;
   padding: ${theme.spacing.sm};
   font-size: ${theme.font.lg}
   display:inline-block;
   max-width:350px;
+`
+
+const reverse = css`
+ display:flex;
+ flex-direction: column-reverse;
 `
 
 const column = css`
@@ -80,13 +85,7 @@ const Calendar = ({ dates, locale }) => {
 
   /*eslint-disable */
   return (
-    <div>
-      <div className={noJSDatesLink}>
-        <NavLink to="/explanation">
-          <Trans>I&rsquo;m not available for any of these days</Trans>
-        </NavLink>
-      </div>
-
+    <div className={reverse}>
       <div className={calList}>
         {Object.keys(mapped).map((keyName, keyIndex) => {
           return (
@@ -98,6 +97,12 @@ const Calendar = ({ dates, locale }) => {
             </div>
           )
         })}
+      </div>
+
+      <div className={noJSDatesLink}>
+        <NavLink to="/explanation">
+          <Trans>I&rsquo;m not available for any of these days</Trans>
+        </NavLink>
       </div>
     </div>
   )
