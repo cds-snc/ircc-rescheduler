@@ -198,7 +198,7 @@ const dayPickerDefault = css`
 
     &[aria-disabled='false'] {
       font-weight: 700;
-      background: white;
+      background: #cbe7d9;
       outline: 0px white solid;
 
       &:focus {
@@ -264,11 +264,11 @@ const dayPickerDefault = css`
   }
 
   .DayPicker-Day--selected:not([aria-disabled='true']):not(.DayPicker-Day--outside) {
-    background-color: ${theme.colour.blue};
+    background-color: ${theme.colour.greenDark};
     color: ${theme.colour.white};
 
     &:hover {
-      background-color: ${incrementColor(theme.colour.blue, 30)};
+      background-color: ${incrementColor(theme.colour.greenDark, 30)};
     }
   }
 `
