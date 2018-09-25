@@ -216,9 +216,11 @@ class CalendarPage extends Component {
 
     const { month, forcedUpdate } = this.state
 
-    // we only want to check to happen on initial page load
-    // not after day clicks
-    if (explanation && !forcedUpdate) {
+    /* 
+    we only want to check to happen on initial page load
+    not after day clicks 
+    */
+    if (explanation.explanationPage !== '' && !forcedUpdate) {
       calValues.availability = ['notAvailable']
     }
 
