@@ -67,6 +67,10 @@ const registrationContentClass = css`
   textarea[name='familyOption'] {
     height: 5.3em;
   }
+
+  #familyOption-details {
+    padding: ${theme.spacing.xxs} 0;
+  }
 `
 
 const forNowSubmitErrorStyles = css`
