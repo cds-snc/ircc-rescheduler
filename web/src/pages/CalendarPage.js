@@ -84,7 +84,6 @@ class CalendarPage extends Component {
       headerNote: [],
       calValues: false,
       disabled: false,
-      forcedUpdate: false,
     }
   }
 
@@ -110,7 +109,7 @@ class CalendarPage extends Component {
 
   forceRender(values) {
     // call setState to force a render
-    this.setState({ calValues: values, forcedUpdate: true })
+    this.setState({ calValues: values })
   }
 
   changeMonth(month = this.state.month) {
@@ -164,20 +163,19 @@ class CalendarPage extends Component {
       }
     }
 
-    let availability = values.availability
-    let days = availability
-      ? []
-      : values.selectedDays.map(date => dateToISODateString(date))
+    // values.selectedDays (when set) is an array of dates, so cast values to ISO date strings
+    let selectedDays = (values.selectedDays || []).map(date =>
+      dateToISODateString(date),
+    )
 
-    // values.selectedDays is an array of dates, so cast them to ISO date strings
     values = {
-      selectedDays: days,
-      availability,
+      ...values,
+      selectedDays,
     }
 
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
-    if (values.availability && availability.length) {
+    if (values.availability && values.availability.length) {
       await this.props.history.push('/explanation')
     } else {
       // clear the availability explanationPage field as needed
@@ -191,7 +189,6 @@ class CalendarPage extends Component {
       context: {
         store: {
           calendar = {},
-          explanation = {},
           language: locale = 'en',
           register: { familyOption } = {},
         } = {},
@@ -202,9 +199,7 @@ class CalendarPage extends Component {
 
     // cast values to Date objects if calendar.selectedDays exists and has a length
     if (calendar && calendar.selectedDays && calendar.selectedDays.length) {
-      calendar = {
-        selectedDays: calendar.selectedDays.map(day => makeGMTDate(day)),
-      }
+      calendar.selectedDays = calendar.selectedDays.map(day => makeGMTDate(day))
     }
 
     let calValues = calendar
@@ -214,15 +209,7 @@ class CalendarPage extends Component {
       calValues.selectedDays = this.state.calValues
     }
 
-    const { month, forcedUpdate } = this.state
-
-    /* 
-    we only want to check to happen on initial page load
-    not after day clicks 
-    */
-    if (explanation.explanationPage !== '' && !forcedUpdate) {
-      calValues.availability = ['notAvailable']
-    }
+    const { month } = this.state
 
     return (
       <Layout>
