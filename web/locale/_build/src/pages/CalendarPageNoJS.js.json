@@ -1,0 +1,18 @@
+{
+  "You must select 3 days.": {
+    "origin": [
+      [
+        "src/pages/CalendarPageNoJS.js",
+        34
+      ]
+    ]
+  },
+  "Review request": {
+    "origin": [
+      [
+        "src/pages/CalendarPageNoJS.js",
+        90
+      ]
+    ]
+  }
+}

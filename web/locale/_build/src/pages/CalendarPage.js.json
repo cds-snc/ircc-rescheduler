@@ -1,41 +1,9 @@
 {
-  "Go back": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        90
-      ]
-    ]
-  },
-  "Citizenship appointments in": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        101
-      ]
-    ]
-  },
-  "are scheduled on": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        102
-      ]
-    ]
-  },
-  "Make sure you stay available on all of the days you select.": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        123
-      ]
-    ]
-  },
   "and": {
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        240
+        135
       ]
     ]
   },
@@ -43,7 +11,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        365
+        260
       ]
     ]
   },
@@ -51,7 +19,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        373
+        268
       ]
     ]
   },
@@ -59,7 +27,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        433
+        328
       ]
     ]
   },
@@ -67,19 +35,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        438
-      ],
-      [
-        "src/pages/CalendarPage.js",
-        531
-      ]
-    ]
-  },
-  "You must select 3 days.": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        475
+        333
       ]
     ]
   }
