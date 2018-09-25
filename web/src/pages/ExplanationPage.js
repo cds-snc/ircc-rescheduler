@@ -83,7 +83,7 @@ class ExplanationPage extends React.Component {
     return getFieldNames(ExplanationFields)
   }
 
-  static redirect() {
+  static get redirect() {
     return '/review'
   }
 
@@ -147,7 +147,7 @@ class ExplanationPage extends React.Component {
     // if setStore doesn't exist, nothing gets saved between pages
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
-    await this.props.history.push(this.redirect())
+    await this.props.history.push(this.redirect)
   }
 
   render() {
