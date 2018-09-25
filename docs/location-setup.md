@@ -6,7 +6,7 @@
 
 3. The location file contain should have the following data / properties
 
-```javasacript
+```javascript
 module.exports = {
   id: 'the-new-location',
   email: 'the-new-location@example.com',
@@ -33,7 +33,7 @@ module.exports = {
 **Note:**
 The the name of the location file should match the id property
 
-```
+```javascript
 module.exports = {
   id: 'the-new-location',
 ```
@@ -72,7 +72,7 @@ Add the new location to the whitelist
 
 If you need to block days i.e. holidays you can add a `blocked` property to the location file to block access to specific dates.
 
-```
+```javascript
 recurring: {
     jan: ['tues', 'wed'],
     feb: ['tues', 'wed'],
@@ -88,14 +88,15 @@ blocked: '2018-10-02, 2018-10-03, 2018-11-21', // use CSV format
 - Required String `phone`: publicly displayed in the app i.e. on the Cancel Page `/cancel`
 - Required String `receivingEmail`: email that will be used to send `staff` email (publicly displayed)
 - Required Object `recurring`: Used to determine available days for a location. This property takes a month property and days in the month that will be available.  
-```
+
+```javascript
 recurring: {
     jan: ['tues', 'wed'],
     feb: ['tues', 'wed'],
     ...
   },
 ```
-Note: recurring can be empty object if using checkLocationDays
+Note: `recurring` can be empty object if using `checkLocationDays`
 
 - Optional `blocked`: CSV string containing dates that should be blocked i.e. holidays
 - Optional `checkLocationDays` function that can be used to handle custom day logic in place of the default `recurring` setup
@@ -106,7 +107,7 @@ Note: recurring can be empty object if using checkLocationDays
 Each location can contain a custom checkLocationDays function.  This function can be used in place of the recurring property (days of the week setup).
 
 #### Example:
-```
+```javascript
 module.exports = {
   email: 'the-new-location@example.com',
   phone: '1-888-242-2100',
