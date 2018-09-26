@@ -3,18 +3,20 @@ import PropTypes from 'prop-types'
 import { theme } from '../styles'
 
 const MobileCancel = ({
+  index,
   circleColour = theme.colour.blackLight,
   label = '',
 }) => {
+  let titleId = `titleId-${index}`
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       data-name="Layer 1"
       viewBox="0 0 21.62 21.62"
       role="img"
-      aria-labelledby="titleId"
+      aria-labelledby={titleId}
     >
-      <title id="titleId">{label}</title>
+      <title id={titleId}>{label}</title>
       <g data-name="Layer 2">
         <g data-name="Layer 1-2">
           <circle cx="10.81" cy="10.81" r="10.81" fill={circleColour} />
@@ -29,6 +31,7 @@ const MobileCancel = ({
 }
 
 MobileCancel.propTypes = {
+  index: PropTypes.number.isRequired,
   circleColour: PropTypes.string,
   label: PropTypes.string,
 }

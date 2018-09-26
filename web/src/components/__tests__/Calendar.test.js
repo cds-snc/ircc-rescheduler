@@ -452,7 +452,7 @@ describe('renderDayBoxes', () => {
 
     let imgs = button.find('svg')
     expect(imgs.length).toBe(1)
-    expect(imgs.find('#titleId').text()).toEqual(label)
+    expect(imgs.find('#titleId-0').text()).toEqual(label)
   })
 
   it('renders days in french', () => {
@@ -467,16 +467,14 @@ describe('renderDayBoxes', () => {
     )
     let listItem = wrapper.find('ul li')
     expect(listItem.find('span').text()).toEqual('dimanche 3 novembre 1957')
-    
+
     let button = listItem.find('button')
     let label = 'Supprimer cette journée: dimanche 3 novembre 1957'
-    expect(button.props()['aria-label']).toEqual(
-      label,
-    )
+    expect(button.props()['aria-label']).toEqual(label)
 
     let imgs = button.find('svg')
     expect(imgs.length).toBe(1)
-    expect(imgs.find('#titleId').text()).toEqual(label)
+    expect(imgs.find('#titleId-0').text()).toEqual(label)
   })
 
   it('will block days on calendar', () => {
