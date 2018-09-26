@@ -4,7 +4,6 @@ import { css } from 'react-emotion'
 import { theme, mediaQuery } from '../styles'
 import { Checkbox } from '../components/forms/MultipleChoice'
 import PropTypes from 'prop-types'
-import { NavLink } from 'react-router-dom'
 import { Trans } from '@lingui/react'
 import Time, { dateToISODateString } from './Time'
 import { getMonthNameAndYear, getEnabledDays } from '../utils/calendarDates'
@@ -23,17 +22,20 @@ const calList = css`
 `
 
 const noJSDatesLink = css`
-  margin:0 0 ${theme.spacing.xl} 0;
-  background-color: #eeeeee;
-  padding: ${theme.spacing.sm};
-  font-size: ${theme.font.lg}
-  display:inline-block;
-  max-width:350px;
+  margin: 0 0 ${theme.spacing.xl} 0;
+
+  a {
+    background-color: #eeeeee;
+    padding: ${theme.spacing.sm};
+    font-size: ${theme.font.lg};
+    display: inline;
+    outline-offset: -7px;
+  }
 `
 
 const reverse = css`
- display:flex;
- flex-direction: column-reverse;
+  display: flex;
+  flex-direction: column-reverse;
 `
 
 const column = css`
@@ -100,9 +102,9 @@ const Calendar = ({ dates, locale }) => {
       </div>
 
       <div className={noJSDatesLink}>
-        <NavLink to="/explanation">
+        <a href="/explanation">
           <Trans>I&rsquo;m not available for any of these days</Trans>
-        </NavLink>
+        </a>
       </div>
     </div>
   )
