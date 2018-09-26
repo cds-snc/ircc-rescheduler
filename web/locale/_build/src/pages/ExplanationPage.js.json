@@ -47,7 +47,7 @@
       ]
     ]
   },
-  "If you haven’t already, please provide a reason for your unavailability.": {
+  "If you haven’t already, please provide the exact dates and reason for your unavailability.": {
     "origin": [
       [
         "src/pages/ExplanationPage.js",
