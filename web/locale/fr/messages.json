@@ -1490,7 +1490,7 @@
     ]
   },
   "You must select 3 days on the calendar below.": {
-    "translation": "Vous devez sélectionner 3 jours sur le calendrier ci-dessous",
+    "translation": "Vous devez sélectionner 3 jours sur le calendrier ci-dessous.",
     "origin": [
       [
         "src/validation.js",
