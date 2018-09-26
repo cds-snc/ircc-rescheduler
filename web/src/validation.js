@@ -109,7 +109,7 @@ errorMessages.selectedDaysEmptyErrorMessage = (
 )
 
 errorMessages.selectedDaysCountErrorMessage = (
-  <Trans>You must select 3 days.</Trans>
+  <Trans>You must select 3 days on the calendar below.</Trans>
 )
 
 errorMessages.selectedDaysMinMaxErrorMessage = (

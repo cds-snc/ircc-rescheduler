@@ -444,7 +444,7 @@
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        246
+        243
       ]
     ],
     "obsolete": true
@@ -1489,13 +1489,9 @@
       ]
     ]
   },
-  "You must select 3 days.": {
-    "translation": "",
+  "You must select 3 days on the calendar below.": {
+    "translation": "You must select 3 days on the calendar below.",
     "origin": [
-      [
-        "src/pages/CalendarPageNoJS.js",
-        34
-      ],
       [
         "src/validation.js",
         108
@@ -1503,6 +1499,15 @@
       [
         "src/validation.js",
         112
+      ]
+    ]
+  },
+  "You must select 3 days.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/CalendarPageNoJS.js",
+        34
       ]
     ]
   },
