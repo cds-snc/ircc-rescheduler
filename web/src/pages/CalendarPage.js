@@ -327,7 +327,9 @@ class CalendarPage extends Component {
                   />
                 </div>
                 <CalBottom
-                  availability={availability && availability.length}
+                  availability={
+                    availability && availability.length ? true : false
+                  }
                   submit={() => {
                     return (
                       <FeatureFlag
