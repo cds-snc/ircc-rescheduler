@@ -58,14 +58,48 @@ Add the new location to the whitelist
 
 5. **Review and Deploy** your updates.
 
-### Updating locations
+### Updating location properties
 
 1. Locate the location file you need to make an update to i.e.
 `ircc-rescheduler/web/src/locations/calgary.js`
 
 2. Make your edits and save accordingly
 
-3. **Review and Deploy** your updates.
+<hr>
+
+### Example:
+
+Updating the available days for a location
+
+Locate the recurring property in the location file
+
+```javascript
+ recurring: {
+    ...
+ }
+ ```
+ 
+Locate the month where you need to make the change
+ 
+ ```
+ recurring: {
+    jan: ['tues', 'thurs'],
+    ...
+ }
+ ```
+ 
+ Update the available days for the month
+
+  ```diff
+  - jan: ['tues', 'thurs']
+  
+  + jan: ['mon', 'fri']
+ ```
+
+ <hr>
+
+
+3. **Review and Deploy** your updates
 
 
 ### Blocked Days
