@@ -241,8 +241,8 @@ class ExplanationPage extends React.Component {
                       />
                       <span id="explanationPage-details">
                         <Trans>
-                          If you haven’t already, please provide a reason for
-                          your unavailability.
+                          If you haven’t already, please provide the exact dates
+                          and reason for your unavailability.
                         </Trans>
                       </span>
                     </label>
