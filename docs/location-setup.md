@@ -91,12 +91,12 @@ Locate the month where you need to make the change
  Update the available days for the month
 
   ```diff
-  - recurring: {
-      jan: ['tues', 'thurs'],
+  recurring: {
+      - jan: ['tues', 'thurs'],
   }
 
-  + recurring: {
-      jan: ['mon', 'fri'],
+  recurring: {
+      + jan: ['mon', 'fri'],
   }
  ```
 
