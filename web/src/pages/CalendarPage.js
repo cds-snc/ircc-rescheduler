@@ -75,11 +75,18 @@ class CalendarPage extends Component {
     return getFieldErrorStrings(validate)
   }
 
-  static get saveAfter() {
-    return {
+  static saveAfter(calendar = {}) {
+    let kv = {
       key: 'explanation',
       val: { explanationPage: '' },
     }
+
+    let { availability: [notAvailable] = [] } = calendar
+    if (notAvailable === 'notAvailable') {
+      kv = {}
+    }
+
+    return kv
   }
 
   constructor(props) {

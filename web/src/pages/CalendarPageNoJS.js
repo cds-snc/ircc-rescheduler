@@ -35,7 +35,7 @@ export default class CalendarPageNoJS extends Component {
     }
   }
 
-  static get saveAfter() {
+  static saveAfter() {
     return {
       key: 'explanation',
       val: { explanationPage: '' },
