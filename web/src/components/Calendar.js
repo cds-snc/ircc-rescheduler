@@ -497,6 +497,7 @@ const renderDayBoxes = ({
           >
             <div className={removeDate}>
               <MobileCancel
+                index={i}
                 circleColour={
                   errorMessage ? theme.colour.red : theme.colour.blackLight
                 }
