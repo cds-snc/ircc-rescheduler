@@ -134,3 +134,39 @@ To update the locale files use:
 ```
 
 - `yarn compile`
+
+
+## Feature Flags
+
+If your adding or modifying a feature it's possible to hide it behind a feature flag. 
+
+The `FeatureFlag` component accepts `on` (a matching flag was found) and `off` (no match) properties.
+
+Flags are setup via an envoroment variable which is an array of flags
+```
+RAZZLE_FLAGS=[{"name":"nextButton","isActive":true},{"name":"noDatesCheckbox", "isActive": true}]
+```
+
+**Example:**
+
+Given `hasNewFeature` is set in our .env file the following would output `<SomeNewFeature />`
+
+```
+import { FeatureFlag } from '../components/FeatureFlag'
+
+<MyComponent               
+  submit={() => {
+    return (
+      <FeatureFlag
+        flags={['hasNewFeature']}
+        on={() => (
+          <SomeNewFeature />
+        )}
+        off={() => (
+          return null
+        )}
+      />
+    )
+  }}
+/>
+```
