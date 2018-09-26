@@ -15,10 +15,7 @@ context('Full Run-through including validation errors', () => {
       cy.get('#register-form').submit({ force: true })
     })
 
-    cy.get('#submit-error h2').should(
-      'contain',
-      'Some information is missing.',
-    )
+    cy.get('#submit-error h2').should('contain', 'Some information is missing.')
     cy.get('#submit-error ul li:first-of-type').should(
       'contain',
       'Email address',
@@ -55,7 +52,7 @@ context('Full Run-through including validation errors', () => {
       // trigger the not enough days error
       cy.get('#submit-error h2').should(
         'contain',
-        'You must select 3 days.',
+        'You must select 3 days on the calendar below.',
       )
 
       cy.get('.DayPicker-Day[aria-disabled=false]')

@@ -111,7 +111,7 @@
       ]
     ]
   },
-  "You must select 3 days.": {
+  "You must select 3 days on the calendar below.": {
     "origin": [
       [
         "src/validation.js",
