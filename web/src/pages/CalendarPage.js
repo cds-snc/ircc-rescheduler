@@ -75,6 +75,13 @@ class CalendarPage extends Component {
     return getFieldErrorStrings(validate)
   }
 
+  static get saveAfter() {
+    return {
+      key: 'explanation',
+      val: { explanationPage: '' },
+    }
+  }
+
   constructor(props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)

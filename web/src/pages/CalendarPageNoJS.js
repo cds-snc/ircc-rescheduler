@@ -35,6 +35,13 @@ export default class CalendarPageNoJS extends Component {
     }
   }
 
+  static get saveAfter() {
+    return {
+      key: 'explanation',
+      val: { explanationPage: '' },
+    }
+  }
+
   constructor(props) {
     super(props)
     this.hasNotValid = this.hasNotValid.bind(this)

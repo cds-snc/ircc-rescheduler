@@ -53,6 +53,11 @@ function withProvider(WrappedComponent) {
         if (val) {
           newCookie = setSSRCookie(res, key, val, prevCookie)
 
+          if (WrappedComponent.saveAfter) {
+            let { key: k, val: v } = WrappedComponent.saveAfter
+            newCookie = setSSRCookie(res, k, v, newCookie)
+          }
+
           // add redirect if query passes validation and .redirect exists on the page component
           if (WrappedComponent.redirect && WithProvider.validateQuery(query)) {
             res.locals.redirect = WrappedComponent.redirect
@@ -90,6 +95,11 @@ function withProvider(WrappedComponent) {
         }
 
         let newState = { [key]: obj }
+
+        if (WrappedComponent.saveAfter) {
+          let { key: k, val: v } = WrappedComponent.saveAfter
+          newState[k] = v
+        }
 
         this.setState(
           state => ({
