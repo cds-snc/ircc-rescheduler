@@ -75,6 +75,20 @@ class CalendarPage extends Component {
     return getFieldErrorStrings(validate)
   }
 
+  static saveAfter(calendar = {}) {
+    let kv = {
+      key: 'explanation',
+      val: { explanationPage: '' },
+    }
+
+    let { availability: [notAvailable] = [] } = calendar
+    if (notAvailable === 'notAvailable') {
+      kv = {}
+    }
+
+    return kv
+  }
+
   constructor(props) {
     super(props)
     this.onSubmit = this.onSubmit.bind(this)
@@ -183,8 +197,6 @@ class CalendarPage extends Component {
     if (values.availability && values.availability.length) {
       await this.props.history.push('/explanation')
     } else {
-      // clear the availability explanationPage field as needed
-      await this.props.context.setStore('explanation', { explanationPage: '' })
       await this.props.history.push('/review')
     }
   }
@@ -315,7 +327,9 @@ class CalendarPage extends Component {
                   />
                 </div>
                 <CalBottom
-                  availability={availability && availability.length}
+                  availability={
+                    availability && availability.length ? true : false
+                  }
                   submit={() => {
                     return (
                       <FeatureFlag
