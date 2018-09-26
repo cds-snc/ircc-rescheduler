@@ -35,7 +35,6 @@ import {
 import { CalHeader } from './calendar/CalHeader'
 import { CalBottom } from './calendar/CalBottom'
 import CalendarPageNoJS from './CalendarPageNoJS'
-import { FeatureFlag } from '../components/FeatureFlag'
 
 const DAY_LIMIT = 3
 
@@ -332,19 +331,9 @@ class CalendarPage extends Component {
                   }
                   submit={() => {
                     return (
-                      <FeatureFlag
-                        flags={['nextButton']}
-                        on={() => (
-                          <Button disabled={submitting}>
-                            <Trans>Next</Trans>
-                          </Button>
-                        )}
-                        off={() => (
-                          <Button disabled={submitting}>
-                            <Trans>Review request</Trans>
-                          </Button>
-                        )}
-                      />
+                      <Button disabled={submitting}>
+                        <Trans>Next</Trans>
+                      </Button>
                     )
                   }}
                 />

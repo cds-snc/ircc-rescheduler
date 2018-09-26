@@ -27,7 +27,6 @@ import parse from 'date-fns/parse'
 
 import { logEvent } from '../utils/analytics'
 import { windowExists } from '../utils/windowExists'
-import { FeatureFlag } from './FeatureFlag'
 import { CheckboxAdapter } from '../components/forms/MultipleChoice'
 import { Field } from 'react-final-form'
 
@@ -723,12 +722,12 @@ class Calendar extends Component {
       }
 
       .DayPicker-Day--outside:nth-of-type(${dayOfWeek1}),
-      .DayPicker-Day--outside:nth-of-type(${dayOfWeek2}){
+      .DayPicker-Day--outside:nth-of-type(${dayOfWeek2}) {
         background: ${theme.colour.greenLighter};
       }
 
       .DayPicker-Day--disabled:nth-of-type(${dayOfWeek1}),
-      .DayPicker-Day--disabled:nth-of-type(${dayOfWeek2}){
+      .DayPicker-Day--disabled:nth-of-type(${dayOfWeek2}) {
         background: white;
       }
 
@@ -843,28 +842,20 @@ class Calendar extends Component {
                 </ul>
               </div>
             </div>
-
-            <FeatureFlag
-              flags={['noDatesCheckbox']}
-              on={() => (
-                <div
-                  className={value.length ? datesLinkAfter : datesLinkBefore}
-                >
-                  <Field
-                    type="checkbox"
-                    name="availability"
-                    id="availability"
-                    value="notAvailable"
-                    component={CheckboxAdapter}
-                    label={
-                      <Trans>
-                        I cannot attend any of the available appointments
-                      </Trans>
-                    }
-                  />
-                </div>
-              )}
-            />
+            <div className={value.length ? datesLinkAfter : datesLinkBefore}>
+              <Field
+                type="checkbox"
+                name="availability"
+                id="availability"
+                value="notAvailable"
+                component={CheckboxAdapter}
+                label={
+                  <Trans>
+                    I cannot attend any of the available appointments
+                  </Trans>
+                }
+              />
+            </div>
           </div>
         </div>
       </div>
