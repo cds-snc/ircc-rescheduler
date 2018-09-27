@@ -404,7 +404,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        860
+        853
       ]
     ]
   },
@@ -614,7 +614,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        330
+        335
       ]
     ]
   },
@@ -796,7 +796,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        269
+        275
       ]
     ]
   },
@@ -805,7 +805,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        261
+        267
       ]
     ]
   },
@@ -814,7 +814,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        512
+        511
       ]
     ]
   },
@@ -908,7 +908,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        841
+        840
       ]
     ]
   },
@@ -969,10 +969,6 @@
     "translation": "",
     "origin": [
       [
-        "src/pages/CalendarPage.js",
-        335
-      ],
-      [
         "src/pages/CalendarPageNoJS.js",
         97
       ]
@@ -1028,7 +1024,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        829
+        828
       ]
     ]
   },
@@ -1066,7 +1062,8 @@
         "src/pages/FiveHundredPage.js",
         23
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Some information is missing.": {
     "translation": "",
@@ -1087,6 +1084,15 @@
       [
         "src/components/Title.js",
         41
+      ]
+    ]
+  },
+  "Something went wrong.": {
+    "translation": "Something went wrong.",
+    "origin": [
+      [
+        "src/pages/FiveHundredPage.js",
+        23
       ]
     ]
   },
@@ -1288,7 +1294,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        767
+        766
       ]
     ]
   },
@@ -1466,7 +1472,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        643
+        642
       ]
     ]
   },
@@ -1542,7 +1548,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        827
+        826
       ]
     ]
   },
@@ -1551,7 +1557,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        825
+        824
       ]
     ]
   },
@@ -1560,7 +1566,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        823
+        822
       ]
     ]
   },
@@ -1614,7 +1620,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        139
+        145
       ],
       [
         "src/pages/LandingPage.js",

@@ -20,7 +20,7 @@ class FiveHundredPage extends React.Component {
         <Title path={this.props.match.path} />
         <section>
           <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
-            <Trans>Server error.</Trans>
+            <Trans>Something went wrong.</Trans>
           </H1>
           <p>
             <Trans>
