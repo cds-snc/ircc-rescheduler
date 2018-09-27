@@ -52,7 +52,7 @@ jobs:
       - run:
           name: Generate VERSION file
           command: |
-            git rev-parse --short HEAD > ~/repo/web/VERSION
+            git rev-parse --short HEAD > ~/repo/VERSION
       - run:
           name: Build Docker image
           command: |
