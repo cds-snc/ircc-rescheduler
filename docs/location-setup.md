@@ -2,7 +2,7 @@
 
 1. **Create** a new location (JavaScript) file `the-new-location.js`
 
-2. **Add** it to the locations directory `ircc-rescheduler/web/src/locations/the-new-location.js`
+2. **Add** it to the locations directory `ircc-rescheduler/src/locations/the-new-location.js`
 
 3. The location file contain should have the following data / properties
 
@@ -51,7 +51,7 @@ The locations `index page` (/src/locations/index.js) contains a whitelist array 
 Add the new location to the whitelist
 
 ```diff
-/* ircc-rescheduler/web/src/locations/index.js */
+/* ircc-rescheduler/src/locations/index.js */
 - export const whitelist = ['vancouver', 'calgary', 'montreal']
 + export const whitelist = ['vancouver', 'calgary', 'montreal', 'the-new-location']
 ```
@@ -61,7 +61,7 @@ Add the new location to the whitelist
 ### Updating location properties
 
 1. Locate the location file you need to make an update to i.e.
-`ircc-rescheduler/web/src/locations/calgary.js`
+`ircc-rescheduler/src/locations/calgary.js`
 
 2. Make your edits and save accordingly
 

@@ -1,6 +1,10 @@
-web/.env*
-web/node_modules
-web/LICENSE
-web/README.md
-web/cypress/screenshots
-web/reports
+.git
+.circleci
+.env*
+docs
+node_modules
+LICENSE
+README.md
+cypress
+reports
+test

@@ -30,13 +30,10 @@ export function humanReadable(dates, locale = 'en') {
 }
 /* eslint-enable security/detect-object-injection */
 
-let prefix = '../../../'
+let prefix = '../../'
 
-if (
-  process.env.NODE_ENV === 'production' ||
-  process.env.NODE_ENV === 'development'
-) {
-  prefix += 'web'
+if (process.env.NODE_ENV === 'test') {
+  prefix = '../../../'
 }
 
 /*
@@ -44,7 +41,7 @@ if (
  if check found here: https://stackoverflow.com/a/28489160/9728185
 */
 if (process.env.NODE && ~process.env.NODE.indexOf('heroku')) {
-  prefix = '../../'
+  prefix = '../'
 }
 
 // retrieve html markup as a string
