@@ -4,7 +4,7 @@ context('500 page', () => {
 
     cy.get('h1')
       .eq(0)
-      .should('contain', 'Server error.')
+      .should('contain', 'Something went wrong.')
 
     cy.get('#footer div a')
       .eq(0)
