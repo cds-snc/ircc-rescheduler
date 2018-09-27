@@ -56,9 +56,10 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            docker build -t ircc-rescheduler --build-arg PAPER_FILE_NUMBER_PATTERN="${PAPER_FILE_NUMBER_PATTERN}" --build-arg RAZZLE_FLAGS="${RAZZLE_FLAGS}" --build-arg RAZZLE_GA_ID="${RAZZLE_GA_ID}" .
+            docker build -t ircc-rescheduler --build-arg PAPER_FILE_NUMBER_PATTERN="${PAPER_FILE_NUMBER_PATTERN}" --build-arg RAZZLE_FLAGS="${RAZZLE_FLAGS}" .
+            docker build -t ircc-rescheduler-production --build-arg PAPER_FILE_NUMBER_PATTERN="${PAPER_FILE_NUMBER_PATTERN}" --build-arg RAZZLE_GA_ID="${RAZZLE_GA_ID}" .
       - deploy:
-          name: Push Docker image
+          name: Push Docker images
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               # Login to AWS
@@ -66,9 +67,13 @@ jobs:
               $(aws ecr get-login --no-include-email --region $AWS_REGION)
 
               # Tag and push docker image
-              docker tag $DOCKER_IMAGE:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$DOCKER_IMAGE:latest
-              docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$DOCKER_IMAGE:latest
+              docker tag ircc-rescheduler:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/ircc-rescheduler:latest
+              docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/ircc-rescheduler:latest
 
+              docker tag ircc-rescheduler-production:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/ircc-rescheduler-production:latest
+              docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/ircc-rescheduler-production:latest
+
+              # Only auto-update staging
               aws ecs update-service --cluster $AWS_CLUSTER_NAME --service $AWS_ECS_SERVICE_NAME --force-new-deployment
             fi
 
@@ -78,8 +83,7 @@ workflows:
     jobs:
       - web
       - deploy_container:
-          requires:
-            - web
+          requires: web
           filters:
             branches:
               only: master
