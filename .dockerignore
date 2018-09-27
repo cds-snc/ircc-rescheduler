@@ -1,6 +1,9 @@
-/.env*
-/node_modules
-/LICENSE
-/README.md
-/cypress/screenshots
-/reports
+.git
+.circleci
+.env*
+docs
+node_modules
+LICENSE
+README.md
+cypress/screenshots
+reports
