@@ -83,7 +83,8 @@ workflows:
     jobs:
       - web
       - deploy_container:
-          requires: web
+          requires:
+            - web
           filters:
             branches:
               only: master
