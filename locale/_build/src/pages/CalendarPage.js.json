@@ -3,7 +3,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        139
+        145
       ]
     ]
   },
@@ -11,7 +11,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        261
+        267
       ]
     ]
   },
@@ -19,19 +19,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        269
+        275
       ]
     ]
   },
   "Next": {
-    "origin": [
-      [
-        "src/pages/CalendarPage.js",
-        330
-      ]
-    ]
-  },
-  "Review request": {
     "origin": [
       [
         "src/pages/CalendarPage.js",

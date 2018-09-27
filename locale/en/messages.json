@@ -1055,16 +1055,6 @@
       ]
     ]
   },
-  "Server error.": {
-    "translation": "Server error.",
-    "origin": [
-      [
-        "src/pages/FiveHundredPage.js",
-        23
-      ]
-    ],
-    "obsolete": true
-  },
   "Some information is missing.": {
     "translation": "",
     "origin": [
