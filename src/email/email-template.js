@@ -32,14 +32,9 @@ export function humanReadable(dates, locale = 'en') {
 
 let prefix = '../../'
 
-/*
-if (
-  process.env.NODE_ENV === 'production' ||
-  process.env.NODE_ENV === 'development'
-) {
-  prefix += 'web'
+if (process.env.NODE_ENV === 'test') {
+  prefix = '../../../'
 }
-*/
 
 /*
  when running on heroku, our prefix is different
