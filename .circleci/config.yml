@@ -56,7 +56,7 @@ jobs:
       - run:
           name: Build Docker image
           command: |
-            docker build -t ircc-rescheduler --build-arg PAPER_FILE_NUMBER_PATTERN="${PAPER_FILE_NUMBER_PATTERN}" --build-arg RAZZLE_FLAGS="${RAZZLE_FLAGS}" .
+            docker build -t ircc-rescheduler --build-arg PAPER_FILE_NUMBER_PATTERN="${PAPER_FILE_NUMBER_PATTERN}" --build-arg RAZZLE_FLAGS="${RAZZLE_FLAGS}" --build-arg RAZZLE_GA_ID="${RAZZLE_GA_ID}" .
       - deploy:
           name: Push Docker image
           command: |
