@@ -195,7 +195,7 @@
     ]
   },
   "Do not attend your old appointment": {
-    "translation": "Ne présentez pas à votre ancien rendez-vous",
+    "translation": "Ne vous présentez pas à votre ancien rendez-vous",
     "origin": [
       [
         "src/pages/ReviewPage.js",
@@ -677,7 +677,7 @@
     ]
   },
   "Our policy is to delay appointments a maximum of two months. We’ll review your request and determine if we can accommodate your unavailability and get back to you within 1 week.": {
-    "translation": "Notre politique est de repousser les rendez-vous au maximum deux mois. Nous examinerons votre demande et déterminerons si nous pouvons répondre à votre indisponibilité et vous contacter dans un délai d’une semaine.",
+    "translation": "Notre politique est de repousser les rendez-vous jusqu’à deux mois au maximum. Nous examinerons votre demande et déterminerons si nous pouvons répondre à votre indisponibilité. Nous communiquerons avec vous dans un délai d’une semaine.",
     "origin": [
       [
         "src/pages/ExplanationPage.js",
@@ -686,7 +686,7 @@
     ]
   },
   "Our team has been notified of this error, but you can also": {
-    "translation": "Notre équipe a été avisée de l’erreur, mais vous pouvez",
+    "translation": "Notre équipe a été avisée de l’erreur, mais vous pouvez aussi",
     "origin": [
       [
         "src/pages/ErrorPage.js",
@@ -819,7 +819,7 @@
     ]
   },
   "Please tell us a bit more about why you need to reschedule your appointment.": {
-    "translation": "Veuillez nous donner davantage de détails sur votre raison de reporter votre rendez-vous.",
+    "translation": "Veuillez nous donner davantage de détails sur la raison pour laquelle vous devez reporter votre rendez-vous.",
     "origin": [
       [
         "src/validation.js",
@@ -828,7 +828,7 @@
     ]
   },
   "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
-    "translation": "Veuillez nous fournir la raison pour laquelle vous voulez reporter votre rendez-vous. Si aucune des raisons énumérées ne s’applique à votre situation, choisissez « Autre raison ».",
+    "translation": "Veuillez nous fournir la raison pour laquelle vous devez reporter votre rendez-vous. Si aucune des raisons énumérées ne s’applique à votre situation, choisissez « Autre raison ».",
     "origin": [
       [
         "src/validation.js",
@@ -1055,16 +1055,6 @@
       ]
     ]
   },
-  "Server error.": {
-    "translation": "Erreur du serveur.",
-    "origin": [
-      [
-        "src/pages/FiveHundredPage.js",
-        23
-      ]
-    ],
-    "obsolete": true
-  },
   "Some information is missing.": {
     "translation": "Il manque certains renseignements.",
     "origin": [
@@ -1079,7 +1069,7 @@
     ]
   },
   "Something went wrong": {
-    "translation": "Une erreur s'est produite",
+    "translation": "Une erreur s’est produite",
     "origin": [
       [
         "src/components/Title.js",
@@ -1196,7 +1186,7 @@
     ]
   },
   "The page you’re trying to reach doesn’t exist. Please try the link in your email or letter again.": {
-    "translation": "La page que vous essayez d'accédeer n'existe pas. Veuillez réessayer le lien fourni dans votre courriel ou votre lettre.",
+    "translation": "La page que vous essayez d’accédeer n’existe pas. Veuillez réessayer le lien fourni dans votre courriel ou votre lettre.",
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
@@ -1432,7 +1422,7 @@
     ]
   },
   "When are you unavailable?": {
-    "translation": "Quand êtes-vous indisponible?",
+    "translation": "Quand n’êtes-vous pas disponible?",
     "origin": [
       [
         "src/pages/ExplanationPage.js",
@@ -1737,7 +1727,7 @@
     ]
   },
   "you’re available between": {
-    "translation": "où vous serez disponible entre",
+    "translation": "quand vous serez disponible entre",
     "origin": [
       [
         "src/pages/LandingPage.js",
