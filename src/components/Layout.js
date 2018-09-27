@@ -79,7 +79,11 @@ injectGlobal`
 
 class Layout extends React.Component {
   componentDidMount() {
-    if (process.env.RAZZLE_STAGE === 'production' && process.env.RAZZLE_GA_ID) {
+    if (
+      process.env.NODE_ENV === 'production' &&
+      process.env.RAZZLE_STAGE !== 'ci' &&
+      process.env.RAZZLE_GA_ID
+    ) {
       if (window && !window.GA_INITIALIZED) {
         initGA(process.env.RAZZLE_GA_ID)
         window.GA_INITIALIZED = true
