@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Trans, withI18n } from '@lingui/react'
 import FieldAdapterPropTypes from './_Field'
 import DayPicker, { DateUtils, LocaleUtils } from 'react-day-picker'
-import { css, keyframes } from 'emotion'
+import { css } from 'emotion'
 import Time, { makeGMTDate, dateToHTMLString } from './Time'
 import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
@@ -18,7 +18,6 @@ import {
   sortSelectedDays,
   getDisabledDays,
   getDaysOfWeekForLocation,
-  getMonthName,
   notInDateRange,
   isFirstAvailableDay,
   isLastAvailableDay,
