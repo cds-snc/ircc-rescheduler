@@ -1,6 +1,6 @@
-web/.env*
-web/node_modules
-web/LICENSE
-web/README.md
-web/cypress/screenshots
-web/reports
+/.env*
+/node_modules
+/LICENSE
+/README.md
+/cypress/screenshots
+/reports

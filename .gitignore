@@ -1,13 +1,12 @@
-logs
-*.log
-npm-debug.log*
-.DS_Store
-package-lock.json
-
-coverage
+dist
+**/.DS_Store
 node_modules
-build
-public/static
+# Vim swap files
+*.swp
+*.pem
 .env*
-ircc-vm.pem
-web/screenshot.png
+reports
+cypress/screenshots
+cypress/videos
+VERSION
+build
