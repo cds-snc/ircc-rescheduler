@@ -1,4 +1,3 @@
-import { respondByDate } from '../utils/calendarDates'
 import { getEmail, getPhone } from '../locations'
 const inlineCss = require('inline-css')
 const fs = require('fs')
@@ -159,13 +158,9 @@ const renderAvailabilityExplanation = options => {
 
 export const buildParams = async options => {
   const {
-    selectedDays,
     availabilityExplanation,
     familyOption,
   } = options.formValues
-
-  options.formValues.respondByDate = respondByDate(selectedDays, 'en')
-  options.formValues.respondByDateFR = respondByDate(selectedDays, 'fr')
 
   // render selected dates or unavailability
   if (availabilityExplanation) {

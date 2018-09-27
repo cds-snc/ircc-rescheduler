@@ -54,6 +54,7 @@ function withProvider(WrappedComponent) {
           newCookie = setSSRCookie(res, key, val, prevCookie)
 
           if (WrappedComponent.saveAfter) {
+            // eslint-disable-next-line security/detect-object-injection
             let { key: k, val: v } = WrappedComponent.saveAfter(prevCookie[key])
             if (k && v) {
               newCookie = setSSRCookie(res, k, v, newCookie)
@@ -99,8 +100,10 @@ function withProvider(WrappedComponent) {
         let newState = { [key]: obj }
 
         if (WrappedComponent.saveAfter) {
+          // eslint-disable-next-line security/detect-object-injection
           let { key: k, val: v } = WrappedComponent.saveAfter(newState[key])
           if (k && v) {
+            // eslint-disable-next-line security/detect-object-injection
             newState[k] = v
           }
         }

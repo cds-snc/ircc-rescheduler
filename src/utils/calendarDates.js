@@ -3,7 +3,6 @@ import addWeeks from 'date-fns/add_weeks'
 import parse from 'date-fns/parse'
 import startOfMonth from 'date-fns/start_of_month'
 import addDays from 'date-fns/add_days'
-import subWeeks from 'date-fns/sub_weeks'
 import format from 'date-fns/format'
 import eachDay from 'date-fns/each_day'
 import isPast from 'date-fns/is_past'
@@ -18,7 +17,6 @@ import { Trans } from '@lingui/react'
 
 const offsetStartWeeks = 5
 const offsetEndWeeks = 8
-const offsetRespondBy = 4 // weeks + respondByDate() will add 2 additional days
 
 export const toLocale = (date, options, locale) => {
   return makeGMTDate(format(date, 'YYYY-MM-DD')).toLocaleDateString(
@@ -262,23 +260,6 @@ export const sortSelectedDays = selectedDays => {
   let temp = selectedDays.slice()
   temp.sort((date1, date2) => date1.getTime() - date2.getTime())
   return temp
-}
-
-/*--------------------------------------------*
- * Response Date
- *--------------------------------------------*/
-
-export const respondByDate = (selectedDays = [], locale = 'fr') => {
-  selectedDays.sort()
-  if (!selectedDays[selectedDays.length - 1]) return null
-
-  const baseDate = addDays(
-    subWeeks(parse(selectedDays[selectedDays.length - 1]), offsetRespondBy),
-    2,
-  )
-
-  const options = { month: 'long', day: 'numeric', year: 'numeric' }
-  return toLocale(format(baseDate, 'YYYY-MM-DD'), options, locale)
 }
 
 /*--------------------------------------------*
