@@ -41,6 +41,7 @@ We use several third-party services for easier development as well as tracking o
 - [Heroku](https://www.heroku.com/) watches our repository and builds an app for each pull request so that team members can easily verify correct behaviour of proposed changes (this feature is called [Heroku Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps))
 - [Snyk](https://snyk.io/) scans our [package.json](https://github.com/cds-snc/ircc-rescheduler/blob/master/package.json) file for packages with known vulnerabilities
 - [Sentry](https://sentry.io/for/react/) is used to capture JavaScript runtime exceptions in all environments (locally, on staging, and in production)
+  - Additionally, [when our container starts up](https://github.com/cds-snc/ircc-rescheduler/blob/master/entrypoint.sh#L4), the source files from the build (ie, the compiled bundle files) [are uploaded to Sentry](https://github.com/cds-snc/ircc-rescheduler/blob/master/package.json#L28) and tagged as the latest release ([docs here](https://docs.sentry.io/clients/javascript/sourcemaps/)). Errors caught in each environment are sent back to Sentry with information about the release they came from, and -- because we have uploaded our sourcemaps -- Sentry is often able to identify the root of the error for easier debugging.
 - [Google Analytics](https://marketingplatform.google.com/about/analytics/) logs data on pageviews and user behaviour in our production service
 
 ### Automated tests 👩‍🔬
