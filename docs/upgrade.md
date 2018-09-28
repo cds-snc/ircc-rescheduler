@@ -1,4 +1,4 @@
-### Updating Package Dependencies
+# Updating package dependencies
 
 ![upgrade-interactive screenshot](upgrade-packages.png)
 
@@ -10,7 +10,7 @@
 yarn upgrade-interactive --latest
 ```
 
-> Follow the on-screen instuctions for selecting packages.
+> Follow the on-screen instructions for selecting packages.
 
 2. Select and apply all the Patch updates (**green**)
 
@@ -25,7 +25,7 @@ yarn ci:dev
 
 5. Submit a Pull Request with the updates
 
-Note: Ensure the --latest flag is passed or the updates will not be saved to the package.json file
+*Note: Ensure the `--latest` flag is passed or the updates will not be saved to the `package.json` file*
 
 <hr>
 
@@ -34,4 +34,4 @@ Note: Ensure the --latest flag is passed or the updates will not be saved to the
 1. Review [cds-snc/ircc-rescheduler:package.json](https://app.snyk.io/org/cds-snc/project/c460a004-28e3-4600-96a3-593e82247cce/)
 2. If vulnerability detected then attempt to resolve.
 3. If vulnerability has no fix, then ignore for 30 days or escalate with security team.
-4. If vulnerability is not exploitable and poses no risk to the system then ignore for 30 days.
+4. If vulnerability is not exploitable and poses no risk to the system (ie, for a package only used in development) then ignore for 30 days.
