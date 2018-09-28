@@ -1,6 +1,6 @@
 # Reschedule a Citizenship Test service overview
 
-This is a repo service that allows users to reschedule their language tests during the citizenship process. This service was designed and developed by the Canadian Digital Service, and is now owned and maintained by Immigration, Refugees, and Citizenship Canada. https://www.canada.ca/en/immigration-refugees-citizenship.html
+This is a repo service that allows users to reschedule their language tests during the citizenship process. This service was designed and developed by the Canadian Digital Service, and is now owned and maintained by Immigration, Refugees, and Citizenship Canada. [https://www.canada.ca/en/immigration-refugees-citizenship.html](https://www.canada.ca/en/immigration-refugees-citizenship.html)
 
 Part of the process of applying for citizenship is that you have to attend an in-person appointment to assess your language skills. Previously, you would receive notification of this appointment by letter in the mail. If you couldn't make that appointment, due to travel or work committments for example, you would have to write a letter back to IRCC to ask for a reschedule.
 
