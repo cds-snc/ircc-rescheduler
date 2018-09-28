@@ -317,6 +317,7 @@ class CalendarPage extends Component {
                     tabIndex={-1}
                     component={CalendarAdapter}
                     dayLimit={DAY_LIMIT}
+                    showAvailability={true}
                     forceRender={this.forceRender}
                     changeMonth={this.changeMonth}
                     month={month}

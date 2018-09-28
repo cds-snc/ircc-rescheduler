@@ -842,20 +842,22 @@ class Calendar extends Component {
                 </ul>
               </div>
             </div>
-            <div className={value.length ? datesLinkAfter : datesLinkBefore}>
-              <Field
-                type="checkbox"
-                name="availability"
-                id="availability"
-                value="notAvailable"
-                component={CheckboxAdapter}
-                label={
-                  <Trans>
-                    I cannot attend any of the available appointments
-                  </Trans>
-                }
-              />
-            </div>
+            {this.props.showAvailability && (
+              <div className={value.length ? datesLinkAfter : datesLinkBefore}>
+                <Field
+                  type="checkbox"
+                  name="availability"
+                  id="availability"
+                  value="notAvailable"
+                  component={CheckboxAdapter}
+                  label={
+                    <Trans>
+                      I cannot attend any of the available appointments
+                    </Trans>
+                  }
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -866,12 +868,14 @@ class Calendar extends Component {
 Calendar.defaultProps = {
   forceRender: () => {}, //used to for a parent re-render after clicking on a day
   changeMonth: () => {},
+  showAvailability: false,
 }
 
 Calendar.propTypes = {
   ...FieldAdapterPropTypes,
   dayLimit: PropTypes.number.isRequired,
   forceRender: PropTypes.func,
+  showAvailability: PropTypes.bool,
 }
 
 const CalendarAdapter = withI18n()(Calendar)
