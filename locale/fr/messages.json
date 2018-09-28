@@ -331,7 +331,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        254
+        252
       ],
       [
         "src/utils/linguiUtils.js",
@@ -344,7 +344,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        254
+        252
       ]
     ]
   },
@@ -409,7 +409,7 @@
     ]
   },
   "I need to reschedule my family too": {
-    "translation": "J’ai aussi besoin de reporter le rendez-vous pour des membres de ma famille.",
+    "translation": "J’ai aussi besoin de reporter le rendez-vous pour un ou plusieurs membres de ma famille.",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -574,7 +574,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        237
+        235
       ],
       [
         "src/utils/linguiUtils.js",
@@ -587,7 +587,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        237
+        235
       ]
     ]
   },
@@ -1186,7 +1186,7 @@
     ]
   },
   "The page you’re trying to reach doesn’t exist. Please try the link in your email or letter again.": {
-    "translation": "La page que vous essayez d’accédeer n’existe pas. Veuillez réessayer le lien fourni dans votre courriel ou votre lettre.",
+    "translation": "La page que vous essayez d’accéder n’existe pas. Veuillez réessayer le lien fourni dans votre courriel ou votre lettre.",
     "origin": [
       [
         "src/pages/FourOhFourPage.js",
@@ -1262,7 +1262,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        250
+        248
       ],
       [
         "src/utils/linguiUtils.js",
@@ -1275,7 +1275,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        251
+        249
       ]
     ]
   },
@@ -1333,7 +1333,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        240
+        238
       ],
       [
         "src/utils/linguiUtils.js",
@@ -1346,7 +1346,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        241
+        239
       ]
     ]
   },
@@ -1382,7 +1382,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        245
+        243
       ],
       [
         "src/utils/linguiUtils.js",
@@ -1395,7 +1395,7 @@
     "origin": [
       [
         "src/utils/calendarDates.js",
-        246
+        244
       ]
     ]
   },

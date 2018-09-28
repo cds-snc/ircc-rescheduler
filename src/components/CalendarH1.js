@@ -16,7 +16,7 @@ class CalendarH1 extends Component {
       let familyOptionText = familyOption
         ? 'où vous et votre famille serez disponibles.'
         : 'quand vous serez disponibles.'
-      msg = `Sélectionnez 3 jours entre le ${startMonthName} et le ${endMonthName} ${familyOptionText}`
+      msg = `Sélectionnez 3 jours entre ${startMonthName} et ${endMonthName} ${familyOptionText}`
     }
 
     return <React.Fragment>{msg}</React.Fragment>
