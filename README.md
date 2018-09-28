@@ -1,4 +1,4 @@
-# Reschedule a Citizenship Test service overview
+# Reschedule a Citizenship Test service overview 🙅🗓
 
 This is a service that allows users to reschedule their language tests during the citizenship process. This service was designed and developed by the [Canadian Digital Service](https://digital.canada.ca/), and is now owned and maintained by [Immigration, Refugees, and Citizenship Canada (IRCC)](https://www.canada.ca/en/immigration-refugees-citizenship.html).
 
@@ -6,9 +6,58 @@ Part of the process of applying for citizenship is that you have to attend an in
 
 We redesigned the letter to make it clearer and simpler to understand, and it is now sent by email for those who have internet access. If you need to reschedule, you click a link in the email which brings you to this rescheduling service. It allows future citizens to rearrange their interview for a time that meets their needs, with minimal staff intervention.
 
-# Setup
+***
 
-There’s a bunch of environment variables you’ll need to get our super cool app up and running. Razzle accepts a bunch of pre-defined environment variables. It also accepts user-defined variables so long as they are prefixed with `RAZZLE_`.
+* [Technical overview 💻](#technical-overview-)
+  * [Use of third-party services 📮](#use-of-third-party-services-)
+  * [Automated tests 👩‍🔬](#automated-tests-)
+* [Setup ⚙️](#setup-)
+* [Startup 🚀](#startup-)
+* [Running the tests 🏃‍](#running-the-tests-)
+* [Additional documentation 📝](#additional-documentation-)
+  * [Location setup 🌎](#location-setup-)
+  * [Translations 🇨🇦](#translations-)
+  * [Feature flags 🏁](#feature-flags-)
+  * [Error tracking procedures 🚫](#error-tracking-procedures-)
+  * [Upgrading package dependencies 📦](#upgrading-package-dependencies-)
+
+***
+
+## Technical overview 💻
+
+The Rescheduler is a full-stack JavaScript application that uses [React](https://reactjs.org/) to build the frontend and the [After.js](https://github.com/jaredpalmer/after.js) framework for the app scaffolding. After.js integrates [React Router](https://reacttraining.com/react-router/) for its routing logic and uses [Razzle](https://github.com/jaredpalmer/razzle) to return server-rendered HTML to the browser. Additionally, we are using [React Context](https://reactjs.org/docs/context.html) as our app-wide data store from which we can hydrate our components.
+
+Since we return server-rendered HTML and we have access to user data on the server, the Rescheduler works with or without client-side JavaScript, [serving users across the widest range of devices](https://digital.canada.ca/2018/08/08/supporting-users-gracefully-degrading-react/).
+
+The Rescheduler aims to make rescheduling an appointment as simple as possible. The technical implications of this are that we capture to smallest amount of data need to and we have minimal external dependencies.
+- User data is stored in browser cookies [which expire after a day](https://github.com/cds-snc/ircc-rescheduler/blob/master/src/cookies.js#L2)
+- There is no external database
+- Our one external API call is to [Amazon's Simple Email Service (SES)](https://aws.amazon.com/ses/) (via [Nodemailer](https://github.com/cds-snc/ircc-rescheduler/blob/c4e7d56ac183fb9b555e047a4ef82fff0c1b866b/src/email/sendmail.js#L35-L37)) to send confirmation of requests to users and local immigration offices
+
+### Use of third-party services 📮
+
+We use several third-party services for easier development as well as tracking our application out in the wild
+- [CircleCI](https://circleci.com/) runs automated tests on new pull requests and deploys new containers to the staging environment when new code is merged to the master branch
+- [Heroku](https://www.heroku.com/) watches our repository and builds an app for each pull request so that team members can easily verify correct behaviour of proposed changes (this feature is called [Heroku Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps))
+- [Snyk](https://snyk.io/) scans our [package.json](https://github.com/cds-snc/ircc-rescheduler/blob/master/package.json) file for packages with known vulnerabilities
+- [Sentry](https://sentry.io/for/react/) is used to capture JavaScript runtime exceptions in all environments (locally, on staging, and in production)
+- [Google Analytics](https://marketingplatform.google.com/about/analytics/) logs data on pageviews and user behaviour in our production service
+
+### Automated tests 👩‍🔬
+
+All new pull requests on GitHub have a suite of tests run against them
+- [Pa11y](http://pa11y.org/): These build the app, loads a set of pages, and runs an accessibility audit on each page
+- [Jest](https://jestjs.io/): Unit tests to verify correct internal logic for components
+- [Puppeteer](https://pptr.dev/): End-to-end tests using headless Chrome with JS disabled that build the app and then run from beginning to the end without client-side JavaScript
+- [ESLint](https://eslint.org/): JavaScript linter that ensures uniform JS throughout the app
+- [lingui compile --strict](https://lingui.js.org/ref/cli.html#cmdoption-compile-strict): I18n library: fails the build if any English copy changes are missing French translations
+- [Cypress](https://www.cypress.io/): End-to-end behaviour-driven tests that build the app and then run through desired user flows
+
+***
+
+## Setup ⚙️
+
+There’s a bunch of environment variables you’ll need to get our super cool app up and running. [Razzle](https://github.com/jaredpalmer/razzle) accepts a bunch of pre-defined environment variables. It also accepts user-defined variables so long as they are prefixed with `RAZZLE_`.
 
 [The Razzle docs](https://github.com/jaredpalmer/razzle#environment-variables) are pretty good on this stuff if you’re curious.
 
@@ -78,20 +127,23 @@ RAZZLE_GA_ID='UA-111111111-1'
 SENTRY_AUTH_TOKEN='notARealAuthToken'
 ```
 
-## How to use
+***
 
-#### install dependencies
+## Startup 🚀
+
+#### Install dependencies
 
 - `yarn`
 
+*Note: to install only the production dependencies, you can run `yarn install --production`*
 
-#### running in dev mode
+#### Running in dev mode
 
 Running in development mode is preferable for local development. The app takes less time to build and it will hot-reload with CSS/JS updates.
 
 - `yarn dev`
 
-#### running in prod mode
+#### Running in prod mode
 
 This is what is run on the server once deployed, so testing against this version in different browsers is recommended.
 
@@ -100,77 +152,28 @@ This is what is run on the server once deployed, so testing against this version
 
 Yes! Now shoot over to [localhost:3004](http://localhost:3004) and try to contain your excitement.
 
-## Running the tests
+## Running the tests 🏃
 
 ```bash
 yarn test # runs unit tests
 yarn lint # lints codebase
 ```
 
-## Translations
+***
 
-Translations are managed by [jsLingui](https://lingui.js.org/tutorials/react.html)
+## Additional documentation 📝
 
-```
-import { Trans } from '@lingui/react'
+### [Location setup 🌎](https://github.com/cds-snc/ircc-rescheduler/blob/master/docs/location-setup.md)
+Documentation on how to add new locations or modify dates or contact information for existing locations.
 
-const SomeComponent = () => {
-    return <Trans>Your text</Trans>
-}
+### [Translations 🇨🇦](https://github.com/cds-snc/ircc-rescheduler/blob/master/docs/translations.md)
+Documentation on how to add new locations or modify dates or contact information for existing locations.
 
-```
+### [Feature flags 🏁](https://github.com/cds-snc/ircc-rescheduler/blob/master/docs/feature-flags.md)
+Feature flags can be used to add new functionality into master before it is completed and ready for release to production. New features can be made visible in some environments (ie, local or staging) but hidden in others (ie, production).
 
-To update the locale files use:
+### [Error tracking procedures 🚫](https://github.com/cds-snc/ircc-rescheduler/blob/master/docs/error-tracking.md)
+Outlines the procedures we follow for resolving captured errors. Also describes some of the metadata we capture and send to Sentry.
 
-- `yarn extract` (creates new messages.json)
-- make changes to locale/fr/messages.json
-
-```
-"Your text": {
-    "translation": "",
-    "origin": [
-      [
-        "src/components/SomeComponent.js",
-        22
-      ]
-    ]
-  },
-```
-
-- `yarn compile`
-
-
-## Feature Flags
-
-If your adding or modifying a feature it's possible to hide it behind a feature flag.
-
-The `FeatureFlag` component accepts `on` (a matching flag was found) and `off` (no match) properties.
-
-Flags are setup via an envoroment variable which is an array of flags
-```
-RAZZLE_FLAGS=[{"name":"nextButton","isActive":true},{"name":"noDatesCheckbox", "isActive": true}]
-```
-
-**Example:**
-
-Given `hasNewFeature` is set in our .env file the following would output `<SomeNewFeature />`
-
-```
-import { FeatureFlag } from '../components/FeatureFlag'
-
-<MyComponent               
-  submit={() => {
-    return (
-      <FeatureFlag
-        flags={['hasNewFeature']}
-        on={() => (
-          <SomeNewFeature />
-        )}
-        off={() => (
-          return null
-        )}
-      />
-    )
-  }}
-/>
-```
+### [Upgrading package dependencies 📦](https://github.com/cds-snc/ircc-rescheduler/blob/master/docs/upgrade.md)
+Outlines the procedures we follow for upgrading packages, which we were doing once per (two-week) sprint. Also outlines the process we followed for tracking down vulnerabilities.

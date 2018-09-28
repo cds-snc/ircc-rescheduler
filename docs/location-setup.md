@@ -1,4 +1,6 @@
-### Adding Locations
+# Location setup
+
+## Adding locations
 
 1. **Create** a new location (JavaScript) file `the-new-location.js`
 
@@ -58,7 +60,7 @@ Add the new location to the whitelist
 
 5. **Review and Deploy** your updates.
 
-### Updating location properties
+## Updating locations
 
 1. Locate the location file you need to make an update to i.e.
 `ircc-rescheduler/src/locations/calgary.js`
@@ -78,21 +80,21 @@ Locate the recurring property in the location file
     ...
  }
  ```
- 
+
 Locate the month where you need to make the change
- 
+
  ```
  recurring: {
     jan: ['tues', 'thurs'],
     ...
  }
  ```
- 
+
  Update the available days for the month
 
   ```diff
   - jan: ['tues', 'thurs']
-  
+
   + jan: ['mon', 'fri']
  ```
 
@@ -112,7 +114,7 @@ recurring: {
     feb: ['tues', 'wed'],
     ...
   },
-blocked: '2018-10-02, 2018-10-03, 2018-11-21', // use CSV format 
+blocked: '2018-10-02, 2018-10-03, 2018-11-21', // use CSV format
 ```
 
 ### Location File Properties
@@ -149,12 +151,12 @@ module.exports = {
     ...
   },
   checkLocationDays: (location, month, date) => {
-   
+
     // dates pulled in from a resource as an array of dates
     // const dates = ['2018-10-17', '2018-11-06', '2018-11-07']
-    
+
     const dateFormatted = format(date, 'YYYY-MM-DD')
-    
+
     // if the date is contained in the date array return true
     if (dates[dateFormatted]) {
       return { valid: true }
@@ -162,7 +164,7 @@ module.exports = {
 
     // date wasn't found return false
     return { valid: false }
-   
+
   },
 }
 ```
