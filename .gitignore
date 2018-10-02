@@ -10,3 +10,6 @@ cypress/screenshots
 cypress/videos
 VERSION
 build
+
+# ignore generated translations files
+locale/_build
