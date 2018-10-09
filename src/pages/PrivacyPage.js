@@ -9,25 +9,37 @@ import { privacy } from './privacy/PRIVACY_en'
 import { privacyFR } from './privacy/PRIVACY_fr'
 
 const contentClass = css`
-  p {
-    padding-bottom: ${theme.spacing.lg};
+  h1 {
+    font-size: ${theme.font.xxl};
+  }
+
+  h2 {
+    margin-top: ${theme.spacing.xl};
+  }
+
+  h1,
+  h2,
+  br {
+    margin-bottom: ${theme.spacing.lg};
   }
 
   ul {
     list-style: disc;
     margin-left: ${theme.spacing.lg};
-    margin-top: ${theme.spacing.sm};
-    margin-bottom: ${theme.spacing.lg};
+    margin-top: -${theme.spacing.xs};
   }
 
   li {
-    margin-bottom: ${theme.spacing.sm};
+    margin-bottom: ${theme.spacing.xxs};
   }
 
   br {
     content: ' ';
     display: block;
-    margin: ${theme.spacing.lg};
+  }
+
+  pre {
+    font-family: inherit;
   }
 `
 

@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const privacy = `
 # Privacy policy
 
@@ -65,11 +66,12 @@ Data is retained for one hundred and fifty years in accordance with [IRCC retent
 
 You can find out if IRCC hold any personal data about you by making an ‘access to information request’. To make an access to information request please <a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/transparency/access-information-privacy/requests-information-act.html" aria-label="Make an online access to information request">apply online</a> or contact:
 
-
+<pre>
 Access to Information and Privacy Division
 Immigration, Refugees and Citizenship Canada
 Ottawa, Ontario
 K1A 1L1
+</pre>
 
 ## When we ask you for personal data
 
@@ -103,3 +105,4 @@ For more information on how and why your information is processed please see the
 ## Complaints
 
 When we ask you for information, we will keep to the law. If you think that your information has been handled incorrectly, you can contact the Office of the Privacy Commissioner of Canada on their <a href="http://www.priv.gc.ca/index_e.asp" aria-label="Office of the Privacy Commissioner of Canada website">website</a> or by telephone at 1-800-282-1376.`
+/* eslint-enable */

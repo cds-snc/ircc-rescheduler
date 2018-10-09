@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const privacyFR = `
 # Politique de confidentialité
 
@@ -65,11 +66,12 @@ Les données sont conservées pendant cent cinquante ans conformément aux [Norm
 
 Vous pouvez savoir si IRCC possède des données personnelles à votre sujet en présentant une « demande d’accès à l’information ». Pour présenter une demande d’accès à l’information, veuillez [présenter une demande en ligne](https://www.canada.ca/fr/immigration-refugies-citoyennete/organisation/transparence/acces-information-protection/presenter-demande-loi-acces-information.html) ou communiquer avec :
 
-
+<pre>
 Direction générale de l’accès à l’information et de la protection des renseignements personnels
 Immigration, Réfugiés et Citoyenneté Canada
 Ottawa, Ontario
 K1A 1L1
+</pre>
 
 ## Lorsque nous vous demandons des données personnelles
 
@@ -105,3 +107,4 @@ Pour de plus amples renseignements sur la façon dont vos renseignements sont tr
 ## Plaintes
 
 Lorsque nous vous demanderons des renseignements, nous nous en tiendrons à la loi. Si vous croyez que vos renseignements personnels ont été traités incorrectement, vous pouvez communiquer avec le Commissariat à la protection de la vie privée du Canada sur son [site Web](https://www.priv.gc.ca/fr) ou par téléphone au 1-800-282-1376.`
+/* eslint-enable */
