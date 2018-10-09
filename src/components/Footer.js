@@ -6,6 +6,7 @@ import styled, { css } from 'react-emotion'
 import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
 import { getEmail } from '../locations'
 import Language from './Language'
+import { NavLink } from 'react-router-dom'
 
 const footer = css`
   background-color: ${theme.colour.white};
@@ -110,9 +111,11 @@ const Footer = ({ contact = true, topBarBackground, i18n }) => (
             <Trans>Contact</Trans>
           </a>
         )}
-        <a href={i18n._('https://www.canada.ca/en/transparency/privacy.html')}>
+
+        <NavLink to="/privacy">
           <Trans>Privacy</Trans>
-        </a>
+        </NavLink>
+
         <a href={i18n._('https://digital.canada.ca/legal/terms/')}>
           <Trans>Terms</Trans>
           <Language
