@@ -4,23 +4,36 @@ import { FooterBase as Footer } from '../Footer'
 import { i18n } from '@lingui/core'
 import { getEmail } from '../../locations'
 import { Context } from '../../context'
+import MemoryRouter from 'react-router-dom/MemoryRouter'
 
 describe('<Footer />', () => {
   it('renders footer', () => {
-    const footer = render(<Footer i18n={i18n} />)
+    const footer = render(
+      <MemoryRouter>
+        <Footer i18n={i18n} />
+      </MemoryRouter>,
+    )
     expect(footer.find('footer').length).toBe(1)
     expect(footer.find('hr').length).toBe(0)
   })
 
   it('renders footer with topBar', () => {
     // have to use 'mount' instead of 'shallow' to render nested components
-    const footer = mount(<Footer topBarBackground="black" i18n={i18n} />)
+    const footer = mount(
+      <MemoryRouter>
+        <Footer topBarBackground="black" i18n={i18n} />
+      </MemoryRouter>,
+    )
     expect(footer.find('footer').length).toBe(1)
     expect(footer.find('hr').length).toBe(1)
   })
 
   it('renders footer with IRCC email in contact information', () => {
-    const footer = render(<Footer i18n={i18n} />)
+    const footer = render(
+      <MemoryRouter>
+        <Footer i18n={i18n} />
+      </MemoryRouter>,
+    )
     expect(footer.find('footer').length).toBe(1)
     expect(
       footer
@@ -31,7 +44,11 @@ describe('<Footer />', () => {
   })
 
   it('renders "and Conditions" in English', () => {
-    const footer = mount(<Footer i18n={i18n} />)
+    const footer = mount(
+      <MemoryRouter>
+        <Footer i18n={i18n} />
+      </MemoryRouter>,
+    )
     expect(
       footer
         .find('a')
@@ -44,7 +61,9 @@ describe('<Footer />', () => {
     console.error = jest.fn() // eslint-disable-line no-console
     const footer = mount(
       <Context.Provider value={{ store: { language: 'fr' } }}>
-        <Footer i18n={i18n} />
+        <MemoryRouter>
+          <Footer i18n={i18n} />
+        </MemoryRouter>
       </Context.Provider>,
     )
     expect(
@@ -58,7 +77,9 @@ describe('<Footer />', () => {
   it('renders with Canadawordmark in French with corresponding alt attr', () => {
     const footer = mount(
       <Context.Provider value={{ store: { language: 'fr' } }}>
-        <Footer i18n={i18n} />
+        <MemoryRouter>
+          <Footer i18n={i18n} />
+        </MemoryRouter>
       </Context.Provider>,
     )
     expect(footer.find('img').length).toBe(1)
@@ -68,7 +89,11 @@ describe('<Footer />', () => {
   })
 
   it('renders with Canadawordmark in English with corresponding alt attr', () => {
-    const footer = mount(<Footer i18n={i18n} />)
+    const footer = mount(
+      <MemoryRouter>
+        <Footer i18n={i18n} />
+      </MemoryRouter>,
+    )
     expect(footer.find('img').length).toBe(1)
     expect(footer.find('img').prop('alt')).toEqual(
       'Symbol of the Government of Canada',
