@@ -3,11 +3,10 @@ import { css } from 'react-emotion'
 import { theme } from '../styles'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
-import PropTypes from 'prop-types'
+import Language from '../components/Language'
 import snarkdown from 'snarkdown'
 import { privacy } from './privacy/PRIVACY_en'
 import { privacyFR } from './privacy/PRIVACY_fr'
-import withContext from '../withContext'
 
 const contentClass = css`
   p {
@@ -36,23 +35,17 @@ const getMarkup = locale => {
   return { __html: snarkdown(locale === 'en' ? privacy : privacyFR) }
 }
 
-class PrivacyPage extends React.Component {
-  render() {
-    let {
-      context: { store: { language: locale = 'en' } = {} } = {},
-    } = this.props
-    return (
-      <Layout contentClass={contentClass} contact={false}>
-        <Title path={this.props.match.path} />
-        <section dangerouslySetInnerHTML={getMarkup(locale)} />
-      </Layout>
-    )
-  }
-}
+const PrivacyPage = props => (
+  <Layout contentClass={contentClass} contact={false}>
+    <Title path={props.match.path} />
+    <Language
+      render={locale => <section dangerouslySetInnerHTML={getMarkup(locale)} />}
+    />
+  </Layout>
+)
 
 PrivacyPage.propTypes = {
   ...matchPropTypes,
-  locale: PropTypes.string.isRequired,
 }
 
-export default withContext(PrivacyPage)
+export default PrivacyPage

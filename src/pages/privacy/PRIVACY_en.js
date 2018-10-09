@@ -3,7 +3,7 @@ export const privacy = `
 
 This privacy policy explains why Immigration, Refugees, and Citizenship Canada (IRCC) collects personal data when you use the Reschedule a Citizenship Test service.
 
-This policy also explains: 
+This policy also explains:
 
 * how we store this data
 * what we do with it
