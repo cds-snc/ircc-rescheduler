@@ -30,6 +30,7 @@ const visit = [
   { url: '/confirmation' },
   { url: '/confirmation/error' },
   { url: '/cancel' },
+  { url: '/privacy' },
   { url: '/error' },
   { url: '/404' },
   { url: '/500' },
