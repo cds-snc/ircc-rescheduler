@@ -42,7 +42,7 @@ Cela nous aide à :
 
 Les données liées à votre utilisation de notre site ne permettent pas de vous identifier personnellement.
 
-## Purpose of processing and the lawful basis for the process
+## Raison du traitement et fondement légal
 
 Nous recueillons des données personnelles afin que vous puissiez demander un autre rendez-vous pour votre examen de citoyenneté. Les agents des services de citoyenneté ont besoin de cette information pour vous fixer un autre rendez-vous. Si vous ne remplissez pas votre demande d’obtention d’un autre rendez-vous, le traitement de votre demande de citoyenneté pourrait être retardé.
 
@@ -97,8 +97,6 @@ Vous pouvez obtenir plus d’information sur :
 - les directives que nous donnons au personnel sur la façon de recueillir, d’utiliser ou de supprimer vos renseignements personnels
 - la façon dont nous vérifions que l’information que nous conservons est exacte et à jour
 - la façon de présenter une plainte
-
-For more information about the above issues, please contact the IRCC Access to Personal Information Coordinator through their <a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/transparency/access-information-privacy.html" aria-label="IRCC Access to Personal Information Coordinator website">website</a> or by telephone at 1-800-667-6703.
 
 Pour obtenir de plus amples renseignements sur ces questions, veuillez communiquer avec le coordonnateur de l’accès aux renseignements personnels d’IRCC par l’entremise de son [site Web](https://www.canada.ca/fr/immigration-refugies-citoyennete/organisation/transparence/acces-information-protection.html) ou par téléphone au 1-800-667-6703.
 
