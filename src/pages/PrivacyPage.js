@@ -38,10 +38,6 @@ const contentClass = css`
     display: block;
   }
 
-  .address {
-    font-family: inherit;
-  }
-
   .address br{
     margin-bottom: ${theme.spacing.xs};
   }
