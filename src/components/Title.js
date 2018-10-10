@@ -24,7 +24,9 @@ const Title = ({ i18n, path }) => {
       title = `${i18n._('Select 3 days you’re available')} ${divider} ${title}`
       break
     case '/explanation':
-      title = `${i18n._('Apply for an appointment extension')} ${divider} ${title}`
+      title = `${i18n._(
+        'Apply for an appointment extension',
+      )} ${divider} ${title}`
       break
     case '/review':
       title = `${i18n._('Review your request')} ${divider} ${title}`
@@ -39,6 +41,9 @@ const Title = ({ i18n, path }) => {
     case '/confirmation/:error':
     case '/500':
       title = `${i18n._('Something went wrong')} ${divider} ${title}`
+      break
+    case '/privacy':
+      title = `${i18n._('Privacy policy')} ${divider} ${title}`
       break
     /* random urls (ie, 404 pages) */
     default:

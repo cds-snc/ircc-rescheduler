@@ -10,6 +10,7 @@ import ErrorPage from './pages/ErrorPage'
 import CancelPage from './pages/CancelPage'
 import FourOhFourPage from './pages/FourOhFourPage'
 import FiveHundredPage from './pages/FiveHundredPage'
+import PrivacyPage from './pages/PrivacyPage'
 
 export default [
   {
@@ -62,6 +63,11 @@ export default [
     path: '/500',
     exact: true,
     component: withProvider(FiveHundredPage),
+  },
+  {
+    path: '/privacy',
+    exact: true,
+    component: withProvider(PrivacyPage),
   },
   {
     path: '*',
