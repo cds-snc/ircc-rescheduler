@@ -38,8 +38,12 @@ const contentClass = css`
     display: block;
   }
 
-  pre {
+  .address {
     font-family: inherit;
+  }
+
+  .address br{
+    margin-bottom: ${theme.spacing.xs};
   }
 `
 

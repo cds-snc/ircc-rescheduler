@@ -66,12 +66,15 @@ Les données sont conservées pendant cent cinquante ans conformément aux [Norm
 
 Vous pouvez savoir si IRCC possède des données personnelles à votre sujet en présentant une « demande d’accès à l’information ». Pour présenter une demande d’accès à l’information, veuillez [présenter une demande en ligne](https://www.canada.ca/fr/immigration-refugies-citoyennete/organisation/transparence/acces-information-protection/presenter-demande-loi-acces-information.html) ou communiquer avec :
 
-<pre>
+<div class="address">
 Direction générale de l’accès à l’information et de la protection des renseignements personnels
+
 Immigration, Réfugiés et Citoyenneté Canada
+
 Ottawa, Ontario
+
 K1A 1L1
-</pre>
+</div>
 
 ## Lorsque nous vous demandons des données personnelles
 

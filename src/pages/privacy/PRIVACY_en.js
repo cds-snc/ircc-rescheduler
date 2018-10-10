@@ -66,12 +66,15 @@ Data is retained for one hundred and fifty years in accordance with [IRCC retent
 
 You can find out if IRCC hold any personal data about you by making an ‘access to information request’. To make an access to information request please <a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/transparency/access-information-privacy/requests-information-act.html" aria-label="Make an online access to information request">apply online</a> or contact:
 
-<pre>
+<div class="address">
 Access to Information and Privacy Division
+
 Immigration, Refugees and Citizenship Canada
+
 Ottawa, Ontario
+
 K1A 1L1
-</pre>
+</div>
 
 ## When we ask you for personal data
 
