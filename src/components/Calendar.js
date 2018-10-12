@@ -557,7 +557,12 @@ const formatDay = (day, locale) => {
 
 const renderMonthName = ({ date, locale }) => {
   return (
-    <div className="DayPicker-Caption" role="heading" aria-level="3">
+    <div
+      className="DayPicker-Caption"
+      role="heading"
+      aria-level="3"
+      id="renderMonthName"
+    >
       <div>{getMonthNameAndYear(date, locale)}</div>
     </div>
   )
@@ -805,7 +810,12 @@ class Calendar extends Component {
             selectedDays={value}
             onFocus={() => onFocus(value)}
             onBlur={() => onBlur(value)}
-            containerProps={{ id, tabIndex }}
+            containerProps={{
+              id,
+              tabIndex,
+              'aria-labelledby': 'renderMonthName',
+              'aria-describedby': 'firstDayString',
+            }}
           />
           <div>
             <div id="selectedDaysBox" style={{ display: 'flex' }}>

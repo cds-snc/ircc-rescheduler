@@ -6,7 +6,9 @@ import Title from '../../components/Title'
 import FocusedH1 from '../../components/FocusedH1'
 import CalendarH1 from '../../components/CalendarH1'
 import Chevron from '../../components/Chevron'
-import { TopContainer, theme, H2 } from '../../styles'
+import { dateToHTMLString } from '../../components/Time'
+import { getStartDate } from '../../utils/calendarDates'
+import { TopContainer, theme, H2, visuallyhidden } from '../../styles'
 import { Trans } from '@lingui/react'
 import { windowExists } from '../../utils/windowExists'
 import styled, { css } from 'react-emotion'
@@ -29,6 +31,17 @@ const CalendarSubheader = styled(H2)`
   font-size: ${theme.font.lg};
   ${headerStyles};
 `
+
+const FirstDayString = ({ locale }) => (
+  <p className={visuallyhidden} id="firstDayString">
+    <Trans>The first available day is</Trans>{' '}
+    {dateToHTMLString(getStartDate(), locale)}
+  </p>
+)
+FirstDayString.propTypes = {
+  locale: PropTypes.string.isRequired,
+}
+
 export const CalHeader = ({
   locale = 'en',
   path,
@@ -59,16 +72,10 @@ export const CalHeader = ({
           {headerNote}.
         </CalendarSubheader>
       )}
+
+      <FirstDayString locale={locale} />
     </div>
   )
-}
-
-CalHeader.propTypes = {
-  locale: PropTypes.string,
-  path: PropTypes.string.isRequired,
-  headerMonth: PropTypes.string,
-  headerNote: PropTypes.array,
-  familyOption: PropTypes.string,
 }
 
 CalHeader.propTypes = {
