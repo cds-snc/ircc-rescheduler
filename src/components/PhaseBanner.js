@@ -16,7 +16,15 @@ const beta = css`
   ${badge};
   background-color: #006de4;
   height: 1.3rem;
-  padding: 0.2rem 0.55rem 0.2rem 0.55rem;
+  padding: 0.2rem 0.55rem;
+
+  ${mediaQuery.sm(css`
+    padding: 0.2rem 0.7rem;
+  `)};
+
+  ${mediaQuery.xs(css`
+    padding: 0.2rem 0.48rem;
+  `)};
 `
 
 const alpha = css`
