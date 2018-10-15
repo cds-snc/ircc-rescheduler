@@ -314,7 +314,7 @@ class CalendarPage extends Component {
                   <Field
                     name="selectedDays"
                     id="selectedDays"
-                    tabIndex={-1}
+                    tabIndex={0}
                     component={CalendarAdapter}
                     dayLimit={DAY_LIMIT}
                     showAvailability={true}

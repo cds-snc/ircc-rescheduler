@@ -143,6 +143,22 @@ describe('<CalendarAdapter />', () => {
     expect(wrapper.text()).not.toMatch(currentMonthYear)
   })
 
+  it('renders with expected aria attributes and tabindex attributes', () => {
+    const wrapper = mount(
+      <MemoryRouter>
+        <CalendarAdapter {...defaultProps()} id="newID" tabIndex="4" />
+      </MemoryRouter>,
+    )
+    let dayPicker = wrapper.find('.DayPicker')
+    expect(dayPicker.props()['aria-describedby']).toEqual('firstDayString')
+    expect(dayPicker.props()['aria-labelledby']).toEqual('renderMonthName')
+    expect(dayPicker.props()['id']).toEqual('newID')
+    expect(dayPicker.props()['tabIndex']).toEqual('4')
+
+    let dayPickerWrapper = wrapper.find('.DayPicker-wrapper')
+    expect(dayPickerWrapper.props()['tabIndex']).toBe(0)
+  })
+
   it('will prefill a date if an initial value is provided', () => {
     const wrapper = mount(
       <MemoryRouter>

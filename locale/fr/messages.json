@@ -146,7 +146,7 @@
     "origin": [
       [
         "src/pages/calendar/CalHeader.js",
-        57
+        70
       ]
     ]
   },
@@ -382,7 +382,7 @@
       ],
       [
         "src/pages/calendar/CalHeader.js",
-        46
+        59
       ]
     ]
   },
@@ -404,7 +404,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        854
+        865
       ]
     ]
   },
@@ -917,7 +917,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        840
+        851
       ]
     ]
   },
@@ -1033,7 +1033,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        828
+        839
       ]
     ]
   },
@@ -1194,6 +1194,15 @@
       ]
     ]
   },
+  "The first available day is": {
+    "translation": "La première journée disponible est le",
+    "origin": [
+      [
+        "src/pages/calendar/CalHeader.js",
+        37
+      ]
+    ]
+  },
   "The page you’re trying to reach doesn’t exist. Please try the link in your email or letter again.": {
     "translation": "La page que vous essayez d’accéder n’existe pas. Veuillez réessayer le lien fourni dans votre courriel ou votre lettre.",
     "origin": [
@@ -1293,7 +1302,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        766
+        771
       ]
     ]
   },
@@ -1471,7 +1480,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        642
+        647
       ]
     ]
   },
@@ -1547,7 +1556,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        826
+        837
       ]
     ]
   },
@@ -1556,7 +1565,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        824
+        835
       ]
     ]
   },
@@ -1565,7 +1574,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        822
+        833
       ]
     ]
   },
@@ -1632,7 +1641,7 @@
     "origin": [
       [
         "src/pages/calendar/CalHeader.js",
-        58
+        71
       ]
     ]
   },
