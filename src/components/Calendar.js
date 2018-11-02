@@ -201,7 +201,7 @@ const dayPickerDefault = css`
       outline: 0px white solid;
 
       &:focus {
-        outline: 3px solid ${theme.colour.focus};
+        outline: 3px solid ${theme.colour.black};
         outline-offset: -2px;
       }
       &:hover {
@@ -215,7 +215,8 @@ const dayPickerDefault = css`
       background: white;
 
       &:focus {
-        outline: 3px solid ${theme.colour.lightGrey};
+        outline-style: dashed;
+        outline-color: ${theme.colour.grey};
         outline-offset: -2px;
       }
     }
