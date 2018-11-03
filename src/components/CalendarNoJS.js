@@ -52,6 +52,7 @@ const column = css`
 const Calendar = ({ dates, locale }) => {
   const days = getEnabledDays()
   const mapped = {}
+  dates = dates.map(d => dateToISODateString(d))
 
   days.forEach((date, index) => {
     const monthName = getMonthNameAndYear(date, locale)
