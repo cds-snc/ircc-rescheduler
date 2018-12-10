@@ -52,8 +52,8 @@ export const getPrimarySubdomain = function(req, res, next) {
 
   const protocol = process.env.RAZZLE_IS_HTTP ? 'http' : 'https'
 
-  // handle localhost or Heroku
-  if (!req.subdomain || isHeroku(req.subdomain)) {
+  // handle localhost
+  if (!req.subdomain) {
     // default to vancouver for now
     req.subdomain = 'vancouver'
   }
@@ -105,15 +105,6 @@ export const ensureLocation = (req, res, next) => {
 export const ensureReceivingEmail = (req, res, next) => {
   /* If we don't have a receiving email, something isn't configured properly */
   return _ensureBody(req, res, next, getReceivingEmail)
-}
-
-// look for heroku url i.e. https://ircc-development-pr-420.herokuapp.com/
-const isHeroku = subdomain => {
-  if (subdomain.indexOf('pr-') !== -1) {
-    return true
-  }
-
-  return false
 }
 
 const getStacktraceData = data => {

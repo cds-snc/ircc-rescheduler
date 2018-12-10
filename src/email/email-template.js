@@ -35,14 +35,6 @@ if (process.env.NODE_ENV === 'test') {
   prefix = '../../../'
 }
 
-/*
- when running on heroku, our prefix is different
- if check found here: https://stackoverflow.com/a/28489160/9728185
-*/
-if (process.env.NODE && ~process.env.NODE.indexOf('heroku')) {
-  prefix = '../'
-}
-
 // retrieve html markup as a string
 const readFileContent = async filename => {
   const file = path.resolve(
@@ -157,10 +149,7 @@ const renderAvailabilityExplanation = options => {
 }
 
 export const buildParams = async options => {
-  const {
-    availabilityExplanation,
-    familyOption,
-  } = options.formValues
+  const { availabilityExplanation, familyOption } = options.formValues
 
   // render selected dates or unavailability
   if (availabilityExplanation) {
