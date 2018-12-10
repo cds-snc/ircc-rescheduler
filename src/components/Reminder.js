@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'react-emotion'
+import styled from '@emotion/styled'
+import { css } from 'emotion'
 import { theme, mediaQuery } from '../styles'
 import importantMessage from '../assets/importantMessage.svg'
 import { withI18n } from '@lingui/react'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from 'react-emotion'
+import { css } from 'emotion'
 import PropTypes from 'prop-types'
 import { theme, mediaQuery } from '../styles'
 import { Trans } from '@lingui/react'

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { Trans, withI18n } from '@lingui/react'
-import { css } from 'react-emotion'
+import { css } from 'emotion'
 import {
   theme,
   visuallyhidden,

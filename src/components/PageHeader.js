@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from 'react-emotion'
+import { css } from 'emotion'
 import { theme, mediaQuery } from '../styles'
 import { Trans, withI18n } from '@lingui/react'
 import PhaseBanner from './PhaseBanner'

@@ -1,5 +1,6 @@
 import React from 'react'
-import styled, { css } from 'react-emotion'
+import styled from '@emotion/styled'
+import { css } from 'emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, H2, theme, mediaQuery, arrow } from '../styles'
 import Layout from '../components/Layout'

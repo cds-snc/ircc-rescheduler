@@ -1,7 +1,7 @@
 import React from 'react'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
-import { css } from 'react-emotion'
+import { css } from 'emotion'
 import { Trans } from '@lingui/react'
 import { NavLink } from 'react-router-dom'
 import { theme, TopContainer } from '../styles'

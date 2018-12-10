@@ -1,4 +1,5 @@
-import styled, { css } from 'react-emotion'
+import styled from '@emotion/styled'
+import { css } from 'emotion'
 
 /*This function is usually for hover events and such
   col: is the color in hex

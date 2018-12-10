@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { injectGlobal } from 'emotion'
-import { css } from 'react-emotion'
+import { css, injectGlobal } from 'emotion'
 import { theme, mediaQuery, Content } from '../styles'
 import PageHeader from './PageHeader'
 import FederalBanner from './FederalBanner'

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Trans } from '@lingui/react'
-import { css } from 'react-emotion'
+import { css } from 'emotion'
 import { theme } from '../styles'
 import { errorMessages } from '../validation'
 

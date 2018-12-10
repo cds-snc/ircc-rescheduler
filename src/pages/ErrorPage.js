@@ -7,7 +7,8 @@ import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import Contact from '../components/Contact'
 import Chevron from '../components/Chevron'
-import styled, { css } from 'react-emotion'
+import styled from '@emotion/styled'
+import { css } from 'emotion'
 import { windowExists } from '../utils/windowExists'
 
 const ErrorH1 = styled(H1)`

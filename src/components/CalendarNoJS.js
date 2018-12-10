@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import format from 'date-fns/format'
-import { css } from 'react-emotion'
+import { css } from 'emotion'
 import { theme, mediaQuery } from '../styles'
 import { Checkbox } from '../components/forms/MultipleChoice'
 import PropTypes from 'prop-types'

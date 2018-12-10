@@ -1,6 +1,6 @@
 import React from 'react'
 import { GoCSignature } from '@cdssnc/gcui'
-import { css } from 'react-emotion'
+import { css } from 'emotion'
 import { theme, mediaQuery } from '../styles'
 import LanguageSwitcher from './LanguageSwitcher'
 import Language from './Language'
