@@ -39,7 +39,6 @@ The Rescheduler aims to make rescheduling an appointment as simple as possible. 
 We use several third-party services for easier development as well as tracking our application out in the wild.
 
 - [CircleCI](https://circleci.com/) runs automated tests on new pull requests and deploys new containers to the staging environment when new code is merged to the master branch
-- [Heroku](https://www.heroku.com/) watches our repository and builds an app for each pull request so that team members can easily verify correct behaviour of proposed changes (this feature is called [Heroku Review Apps](https://devcenter.heroku.com/articles/github-integration-review-apps))
 - [Snyk](https://snyk.io/) scans our [package.json](https://github.com/cds-snc/ircc-rescheduler/blob/master/package.json) file for packages with known vulnerabilities
 - [Webpack Bundle Analyzer](`webpack-bundle-analyzer`) is used to introspect our compiled JavaScript bundle and see the relative size of each of our dependencies—this can be run with `yarn stats`
 - [Sentry](https://sentry.io/for/react/) is used to capture JavaScript runtime exceptions in all environments (locally, on staging, and in production)
