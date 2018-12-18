@@ -5,7 +5,7 @@ import { theme, mediaQuery, Content } from '../styles'
 import PageHeader from './PageHeader'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
-import { ErrorBoundary } from '@cdssnc/gcui'
+import { ErrorBoundary } from './ErrorBoundary'
 import { ErrorPageContent } from '../pages/ErrorPage'
 import { initGA, logPageView } from '../utils/analytics'
 

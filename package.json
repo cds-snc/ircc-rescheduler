@@ -32,7 +32,6 @@
     }
   },
   "dependencies": {
-    "@cdssnc/gcui": "^0.0.31",
     "@emotion/core": "^10.0.5",
     "@emotion/styled": "^10.0.5",
     "@jaredpalmer/after": "^1.3.1",
