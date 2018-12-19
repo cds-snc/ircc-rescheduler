@@ -1,6 +1,8 @@
 import React from 'react'
-import { GoCSignature } from '@cdssnc/gcui'
-import { css } from 'react-emotion'
+import Flag from './gocSignature/Flag'
+import English from './gocSignature/English'
+import French from './gocSignature/French'
+import { css } from 'emotion'
 import { theme, mediaQuery } from '../styles'
 import LanguageSwitcher from './LanguageSwitcher'
 import Language from './Language'
@@ -15,30 +17,19 @@ const container = css`
   display: -webkit-box;
   display: -ms-flexbox;
   display: -moz-box;
-  display: flex;
-
-  .svg-container {
-    /* same as the width value in our svg */
-    width: 250px;
-    height: 30px;
-  }
 
   ${mediaQuery.sm(css`
     padding: ${theme.spacing.md} ${theme.spacing.xl} ${theme.spacing.md}
       ${theme.spacing.xl};
   `)};
+`
 
-  ${mediaQuery.xs(css`
-    .svg-container {
-      width: 210px;
-      height: 20px;
-
-      svg {
-        width: 210px;
-        height: 20px;
-      }
-    }
-  `)};
+const gocContainer = css`
+  display: flex;
+  align-items: center;
+  svg {
+    margin-right: ${theme.spacing.md};
+  }
 `
 
 const FederalBanner = () => (
@@ -46,13 +37,21 @@ const FederalBanner = () => (
     <div className="svg-container canada-flag">
       <Language
         render={language => (
-          <GoCSignature
-            width="250px"
-            lang={language}
-            flag={theme.colour.white}
-            text={theme.colour.white}
-            focusable="false"
-          />
+          <React.Fragment>
+            {language === 'en' ? (
+              <div className={gocContainer}>
+                <Flag />
+                <English />
+                <French />
+              </div>
+            ) : (
+              <div className={gocContainer}>
+                <Flag />
+                <French />
+                <English />
+              </div>
+            )}
+          </React.Fragment>
         )}
       />
     </div>

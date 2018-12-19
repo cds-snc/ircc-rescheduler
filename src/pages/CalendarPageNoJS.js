@@ -11,7 +11,7 @@ import { Checkbox } from '../components/forms/MultipleChoice'
 import { checkURLParams } from '../utils/url'
 import { CalHeader } from './calendar/CalHeader'
 import { CalBottom } from './calendar/CalBottom'
-import { css } from 'react-emotion'
+import { css } from 'emotion'
 
 const fullWidth = css`
   width: 100% !important;

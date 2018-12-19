@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { theme, BottomContainer } from '../../styles'
 import CancelButton from '../../components/CancelButton'
 import Reminder from '../../components/Reminder'
-import styled from 'react-emotion'
+import styled from '@emotion/styled'
 import { Trans } from '@lingui/react'
 
 const CalReminder = styled(Reminder)`

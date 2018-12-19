@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import FieldAdapterPropTypes from '../_Field'
-import { css } from 'react-emotion'
+import { css } from 'emotion'
 import { theme, mediaQuery } from '../../styles'
 
 const placeholder = css`

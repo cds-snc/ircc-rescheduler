@@ -28,7 +28,7 @@ export const user_en = {
   familyOption: 'Peter',
 }
 
-export const clickAndWait = async (page, selector, duration = 500) => {
+export const clickAndWait = async (page, selector, duration = 1000) => {
   await page.click(selector)
   await page.waitFor(duration)
 }

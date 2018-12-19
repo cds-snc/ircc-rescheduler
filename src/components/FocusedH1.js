@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { css } from 'react-emotion'
+import { css } from 'emotion'
 import { theme } from '../styles'
 
 const h1Style = css`

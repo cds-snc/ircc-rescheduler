@@ -1,6 +1,6 @@
 import React from 'react'
 import { Trans } from '@lingui/react'
-import { css } from 'react-emotion'
+import { css } from 'emotion'
 import { H1, theme } from '../styles'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'

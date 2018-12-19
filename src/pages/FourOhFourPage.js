@@ -1,7 +1,7 @@
 import React from 'react'
 import { Trans } from '@lingui/react'
 import Chevron from '../components/Chevron'
-import { css } from 'react-emotion'
+import { css } from 'emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, theme } from '../styles'
 import Layout from '../components/Layout'

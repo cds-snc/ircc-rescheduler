@@ -11,7 +11,8 @@ import { getStartDate } from '../../utils/calendarDates'
 import { TopContainer, theme, H2, visuallyhidden } from '../../styles'
 import { Trans } from '@lingui/react'
 import { windowExists } from '../../utils/windowExists'
-import styled, { css } from 'react-emotion'
+import styled from '@emotion/styled'
+import { css } from 'emotion'
 
 const headerStyles = css`
   font-weight: 400;
