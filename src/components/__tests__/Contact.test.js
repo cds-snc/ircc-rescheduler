@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Contact, { TelLink } from '../Contact'
-import { getEmail } from '../../locations'
+import ContactWrapper, { ContactInfo as Contact, TelLink } from '../Contact'
 
 describe('<TelLink />', () => {
   it('renders span and an anchor link', () => {
@@ -32,6 +31,10 @@ describe('<Contact />', () => {
   })
 
   it('renders with the email first and the telephone number second', () => {
+    const locations = require('../../locations')
+    locations.getEmail = jest.fn(() => 'paul@paul.ca')
+    locations.getEmailParts = jest.fn(() => ['paul', 'paul.ca'])
+
     const wrapper = shallow(
       <Contact>
         <h1>Get in touch ✉️</h1>
@@ -42,8 +45,8 @@ describe('<Contact />', () => {
       .find('p')
       .at(0)
       .find('a')
-    expect(emailLink.text()).toEqual(getEmail())
-    expect(emailLink.props().href).toEqual(`mailto:${getEmail()}`)
+    expect(emailLink.text()).toEqual('paul@paul.ca')
+    expect(emailLink.props().href).toEqual('mailto:paul@paul.ca')
 
     expect(
       wrapper
@@ -54,6 +57,10 @@ describe('<Contact />', () => {
   })
 
   it('renders with the email first and the telephone number second', () => {
+    const locations = require('../../locations')
+    locations.getEmail = jest.fn(() => 'paul@paul.ca')
+    locations.getEmailParts = jest.fn(() => ['paul', 'paul.ca'])
+
     const wrapper = shallow(
       <Contact phoneFirst={true}>
         <h1>Get in touch ✉️</h1>
@@ -72,7 +79,35 @@ describe('<Contact />', () => {
       .at(1)
       .find('a')
 
-    expect(emailLink.text()).toEqual(getEmail())
-    expect(emailLink.props().href).toEqual(`mailto:${getEmail()}`)
+    expect(emailLink.text()).toEqual('paul@paul.ca')
+    expect(emailLink.props().href).toEqual('mailto:paul@paul.ca')
+  })
+})
+
+describe('<ContactWrapper />', () => {
+  it('renders Contact information if phone number exists', () => {
+    const locations = require('../../locations')
+    locations.getPhone = jest.fn(() => false)
+
+    const wrapper = shallow(
+      <ContactWrapper>
+        <h1>Get in touch ✉️</h1>
+      </ContactWrapper>,
+    )
+
+    expect(wrapper.find('h1').length).toEqual(0)
+  })
+
+  it('does not render Contact information if no phone number exists', () => {
+    const locations = require('../../locations')
+    locations.getPhone = jest.fn(() => true)
+
+    const wrapper = shallow(
+      <ContactWrapper>
+        <h1>Get in touch ✉️</h1>
+      </ContactWrapper>,
+    )
+
+    expect(wrapper.find('h1').text()).toEqual('Get in touch ✉️')
   })
 })

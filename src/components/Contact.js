@@ -107,4 +107,7 @@ Contact.propTypes = {
   showEmail: PropTypes.bool,
 }
 
-export { Contact as default, TelLink }
+const ContactWrapper = ({ ...props }) =>
+  getPhone() ? <Contact {...props} /> : null
+
+export { ContactWrapper as default, Contact as ContactInfo, TelLink }
