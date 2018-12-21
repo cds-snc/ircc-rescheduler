@@ -1,33 +1,39 @@
 context('Force redirect', () => {
-  it('should force not redirect if on "not found" page', () => {
+  it('should not redirect on "not found" page', () => {
     cy.visit('http://rescheduler-dev.vcap.me:3004/not-found')
     cy.get('h1')
       .eq(0)
       .should('contain', 'Page not found.')
   })
 
-  it('should force not redirect if not on 500 page', () => {
+  it('should not redirect if not on 500 page', () => {
     cy.visit('http://rescheduler-dev.vcap.me:3004/500')
     cy.get('h1')
       .eq(0)
       .should('contain', 'Something went wrong.')
   })
 
-  it('should force redirect from "local" dev server', () => {
+  it('should redirect to "not found" from root', () => {
     cy.visit('http://rescheduler-dev.vcap.me:3004')
-    cy.url().should('include', 'vancouver')
+    cy.get('h1')
+      .eq(0)
+      .should('contain', 'Page not found.')
   })
 
-  it('should force redirect from "local" live server', () => {
-    cy.visit('http://rescheduler-dev.vcap.me:3004')
-    cy.url().should('include', 'vancouver')
+  it('should redirect to "not found" from root plus invalid path', () => {
+    cy.visit('http://rescheduler-dev.vcap.me:3004/elephant')
+    cy.get('h1')
+      .eq(0)
+      .should('contain', 'Page not found.')
   })
 
-  it('should force redirect from "local" live server with UTM', () => {
+  it('should redirect to "not found" from root plus UTM', () => {
     cy.visit(
       'http://rescheduler.vcap.me:3004?utm_source=BELA%20email&utm_medium=email',
     )
-    cy.url().should('include', 'vancouver')
+    cy.get('h1')
+      .eq(0)
+      .should('contain', 'Page not found.')
   })
 
   it("should force redirect if sub-domain isn't whitelisted", () => {

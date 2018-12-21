@@ -37,16 +37,6 @@ export const notPageMatch = (url, pageName) => {
   return url.indexOf(pageName) === -1
 }
 
-export const forceRedirect = req => {
-  if (req.subdomain.startsWith('rescheduler')) {
-    if (notPageMatch(req.path, 'not-found') && notPageMatch(req.path, '500')) {
-      return true
-    }
-  }
-
-  return false
-}
-
 export const getPrimarySubdomain = function(req, res, next) {
   req.subdomain = req.subdomains.slice(-1).pop()
 
@@ -54,20 +44,8 @@ export const getPrimarySubdomain = function(req, res, next) {
 
   // handle localhost
   if (!req.subdomain) {
-    // default to vancouver for now
+    // default to vancouver
     req.subdomain = 'vancouver'
-  }
-
-  /*
-    If no sub-domain is found
-    force redirect to vancouver sub-domain on staging and prod
-    note: this is temporary to handle existing vancouver traffic / links
-    */
-
-  if (forceRedirect(req)) {
-    return res.redirect(
-      `${protocol}://vancouver.${process.env.RAZZLE_SITE_URL}`,
-    )
   }
 
   /* If domain isn't on the whitelist and we're not on the not-found or 500 page */
