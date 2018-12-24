@@ -1,4 +1,4 @@
-import { setGlobalLocation, getReceivingEmail, whitelist } from '../locations'
+import { setGlobalLocation, whitelist } from '../locations'
 import gitHash from './gitHash'
 import path from 'path'
 import Raven from 'raven'
@@ -78,11 +78,6 @@ const _ensureBody = (req, res, next, cb) => {
 export const ensureLocation = (req, res, next) => {
   /* If we don't have a location string being passed in, something is wrong */
   return _ensureBody(req, res, next, () => setGlobalLocation(req.subdomain))
-}
-
-export const ensureReceivingEmail = (req, res, next) => {
-  /* If we don't have a receiving email, something isn't configured properly */
-  return _ensureBody(req, res, next, getReceivingEmail)
 }
 
 const getStacktraceData = data => {
