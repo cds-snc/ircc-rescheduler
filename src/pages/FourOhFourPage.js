@@ -5,6 +5,7 @@ import { css } from 'emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, theme } from '../styles'
 import Layout from '../components/Layout'
+import IRCCAbbr from '../components/IRCCAbbr'
 import Title, { matchPropTypes } from '../components/Title'
 
 const contentClass = css`
@@ -26,9 +27,10 @@ class FourOhFourPage extends React.Component {
           </H1>
           <p>
             <Trans>
-              The page you’re trying to reach doesn’t exist. Please try the link
-              in your email or letter again.
+              The page you’re trying to reach doesn’t exist. Please retry the
+              link in the email or letter you received from
             </Trans>
+            <IRCCAbbr />.
           </p>
           {/*
           If the page name is not-found use the page as a generic
