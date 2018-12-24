@@ -3,13 +3,14 @@ import Flag from './gocSignature/Flag'
 import English from './gocSignature/English'
 import French from './gocSignature/French'
 import { css } from 'emotion'
-import { theme, mediaQuery } from '../styles'
+import { theme, horizontalPadding, mediaQuery } from '../styles'
 import LanguageSwitcher from './LanguageSwitcher'
 import Language from './Language'
 
 const container = css`
-  padding: ${theme.spacing.lg} ${theme.spacing.xxxl} ${theme.spacing.md}
-    ${theme.spacing.xxxl};
+  ${horizontalPadding};
+  padding-top: ${theme.spacing.lg};
+  padding-bottom: ${theme.spacing.md};
   width: auto;
   justify-content: space-between;
   background-color: ${theme.colour.black};
@@ -19,8 +20,7 @@ const container = css`
   display: -moz-box;
 
   ${mediaQuery.sm(css`
-    padding: ${theme.spacing.md} ${theme.spacing.xl} ${theme.spacing.md}
-      ${theme.spacing.xl};
+    padding-top: ${theme.spacing.md};
   `)};
 `
 
