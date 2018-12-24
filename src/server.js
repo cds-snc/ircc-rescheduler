@@ -11,7 +11,6 @@ import bodyParser from 'body-parser'
 import {
   getPrimarySubdomain,
   ensureLocation,
-  ensureReceivingEmail,
   setRavenContext,
 } from './utils/serverUtils'
 import { handleSubmitEmail } from './email/handleSubmitEmail'
@@ -34,7 +33,6 @@ server
   .use(getPrimarySubdomain)
   .use(setRavenContext)
   .use(ensureLocation)
-  .use(ensureReceivingEmail)
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
   .post('/submit', handleSubmitEmail)
