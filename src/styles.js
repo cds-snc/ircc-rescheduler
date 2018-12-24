@@ -158,14 +158,25 @@ const contentSpacing = css`
   `)};
 `
 
-export const Content = styled.div`
-  padding: ${theme.spacing.xl} ${theme.spacing.xxxl} ${theme.spacing.xxl}
-    ${theme.spacing.xxxl};
+export const horizontalPadding = css`
+  padding-left: ${theme.spacing.xxxl};
+  padding-right: ${theme.spacing.xxxl};
+
+  ${mediaQuery.sm(css`
+    padding-left: ${theme.spacing.xl};
+    padding-right: ${theme.spacing.xl};
+  `)};
+`
+
+export const content = css`
+  ${horizontalPadding};
+  padding-top: ${theme.spacing.xl};
+  padding-bottom: ${theme.spacing.xxl};
   width: 100%;
   background-color: ${theme.colour.white};
   box-sizing: border-box;
   ${mediaQuery.sm(css`
-    padding: ${theme.spacing.xl};
+    padding-bottom: ${theme.spacing.xl};
   `)};
 
   > form {

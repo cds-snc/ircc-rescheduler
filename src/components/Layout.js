@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css, injectGlobal } from 'emotion'
-import { theme, mediaQuery, Content } from '../styles'
+import { theme, mediaQuery, content } from '../styles'
 import PageHeader from './PageHeader'
 import FederalBanner from './FederalBanner'
 import Footer from './Footer'
@@ -92,7 +92,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { contact = true } = this.props
+    const { contact = true, contentClass = '' } = this.props
     return (
       <div>
         <ErrorBoundary
@@ -109,9 +109,13 @@ class Layout extends React.Component {
             <PageHeader>{this.props.header}</PageHeader>
           </div>
           <main role="main">
-            <Content className={this.props.contentClass || ''}>
+            <div
+              className={css`
+                ${content} ${contentClass}
+              `}
+            >
               {this.props.children}
-            </Content>
+            </div>
           </main>
           <Footer contact={contact} topBarBackground="black" />
         </ErrorBoundary>

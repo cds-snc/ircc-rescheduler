@@ -4,14 +4,21 @@ import { Trans, withI18n } from '@lingui/react'
 import CanadaWordmark from '../assets/CanadaWordmark.svg'
 import styled from '@emotion/styled'
 import { css } from 'emotion'
-import { theme, mediaQuery, visuallyhiddenMobile } from '../styles'
+import {
+  theme,
+  horizontalPadding,
+  mediaQuery,
+  visuallyhiddenMobile,
+} from '../styles'
 import { getEmail } from '../locations'
 import Language from './Language'
 import { NavLink } from 'react-router-dom'
 
 const footer = css`
+  ${horizontalPadding};
   background-color: ${theme.colour.white};
-  padding: ${theme.spacing.xl} ${theme.spacing.xxxl};
+  padding-top: ${theme.spacing.xl};
+  padding-bottom: ${theme.spacing.xl};
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -47,13 +54,11 @@ const footer = css`
 
   ${mediaQuery.md(css`
     align-items: center;
-    padding: ${theme.spacing.xl} ${theme.spacing.xxxl} ${theme.spacing.xl}
-      ${theme.spacing.xxxl};
   `)};
 
   ${mediaQuery.sm(css`
-    padding: ${theme.spacing.md} ${theme.spacing.xl} ${theme.spacing.lg}
-      ${theme.spacing.xl};
+    padding-top: ${theme.spacing.md};
+    padding-bottom: ${theme.spacing.lg};
   `)};
 `
 

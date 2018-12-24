@@ -1,30 +1,24 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'emotion'
-import { theme, mediaQuery } from '../styles'
+import { theme, horizontalPadding, mediaQuery } from '../styles'
 import { Trans, withI18n } from '@lingui/react'
 import PhaseBanner from './PhaseBanner'
 
 const bigBanner = css`
+  ${horizontalPadding};
   background-color: ${theme.colour.blue};
   color: ${theme.colour.white};
-  padding: ${theme.spacing.lg} ${theme.spacing.xxxl};
-
-  ${mediaQuery.sm(css`
-    padding-left: ${theme.spacing.xl};
-    padding-right: ${theme.spacing.xl};
-  `)};
+  padding-top: ${theme.spacing.lg};
+  padding-bottom: ${theme.spacing.lg};
 `
 
 const skinnyBanner = css`
+  ${horizontalPadding};
   background-color: ${theme.colour.blue};
   color: ${theme.colour.white};
-  padding: ${theme.spacing.sm} ${theme.spacing.xxxl} 0.55rem
-    ${theme.spacing.xxxl};
-
-  ${mediaQuery.sm(css`
-    padding: ${theme.spacing.sm} ${theme.spacing.xl} 0.55rem ${theme.spacing.xl};
-  `)};
+  padding-top: ${theme.spacing.sm};
+  padding-bottom: 0.55rem;
 
   div {
     margin-bottom: 0;
