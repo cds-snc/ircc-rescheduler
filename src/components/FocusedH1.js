@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { css } from 'emotion'
 import { theme } from '../styles'
 
@@ -48,6 +49,12 @@ class FocusedH1 extends Component {
       </h1>
     )
   }
+}
+
+FocusedH1.propTypes = {
+  className: PropTypes.string,
+  id: PropTypes.string,
+  children: PropTypes.object,
 }
 
 export default FocusedH1
