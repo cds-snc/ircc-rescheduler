@@ -59,7 +59,7 @@
     "nodemailer": "^4.7.0",
     "prop-types": "^15.6.2",
     "raven": "^2.6.4",
-    "razzle": "^2.4.0",
+    "razzle": "^2.4.1",
     "react": "16.6.3",
     "react-day-picker": "^7.2.4",
     "react-dom": "^16.6.3",
