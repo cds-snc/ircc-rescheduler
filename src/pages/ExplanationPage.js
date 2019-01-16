@@ -30,7 +30,6 @@ import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import CancelButton from '../components/CancelButton'
 import { windowExists } from '../utils/windowExists'
-import { checkURLParams } from '../utils/url'
 import Chevron from '../components/Chevron'
 
 const explanationContentClass = css`
@@ -151,17 +150,16 @@ class ExplanationPage extends React.Component {
   }
 
   render() {
-    let { context: { store: { explanation = {} } = {} } = {} } = this.props
+    let {
+      context: { store: { explanation = {} } = {} } = {},
+      post = false,
+    } = this.props
     let errorsNoJS = {}
 
-    // only run this if there's a location.search
-    // AND at least one of our fields exists in the url keys somewhere
-    // so we know for sure they pressed "submit" on this page
-    if (
-      this.props.location.search &&
-      this.props.location.pathname === '/explanation' &&
-      checkURLParams(this.props.location.search, this.fields)
-    ) {
+    // if this is a POST, we know for sure they pressed "submit" on this page
+    // Otherwise, we would be showing error messages on the initial pageload
+    // (because the fields are empty)
+    if (post) {
       errorsNoJS = this.validate(explanation, true)
     }
 
@@ -209,6 +207,7 @@ class ExplanationPage extends React.Component {
                   }
                 }}
                 onSubmit={handleSubmit}
+                method="post"
               >
                 <div
                   id="submit-error"

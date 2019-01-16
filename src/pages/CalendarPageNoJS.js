@@ -8,7 +8,6 @@ import Button from '../components/forms/Button'
 import { ErrorList } from '../components/ErrorMessage'
 import CalendarNoJS from '../components/CalendarNoJS'
 import { Checkbox } from '../components/forms/MultipleChoice'
-import { checkURLParams } from '../utils/url'
 import { CalHeader } from './calendar/CalHeader'
 import { CalBottom } from './calendar/CalBottom'
 import { css } from 'emotion'
@@ -54,18 +53,14 @@ export default class CalendarPageNoJS extends Component {
   render() {
     let {
       context: { store: { calendar = {}, language: locale = 'en' } = {} } = {},
+      post = false,
     } = this.props
     let errorsNoJS = {}
 
-    // only run this if there's a location.search
-    // AND at least one of our fields exists in the url keys somewhere
-    // so we know for sure they pressed "submit" on this page
-    if (
-      (this.props.location.search &&
-        this.props.location.pathname === '/calendar' &&
-        checkURLParams(this.props.location.search, CalendarPageNoJS.fields)) ||
-      this.hasNotValid()
-    ) {
+    // if this is a POST, we know for sure they pressed "submit" on this page
+    // Otherwise, we would be showing error messages on the initial pageload
+    // (because the fields are empty)
+    if (post) {
       errorsNoJS = CalendarPageNoJS.validate(calendar)
     }
 
@@ -87,7 +82,7 @@ export default class CalendarPageNoJS extends Component {
         <div style={{ display: 'none' }}>
           <Checkbox id="ignore-me" value="ignore-me" />
         </div>
-        <form id="selectedDays-form" className={fullWidth}>
+        <form id="selectedDays-form" className={fullWidth} method="post">
           <span>
             <CalendarNoJS dates={calendar} locale={locale} />
             <CalBottom

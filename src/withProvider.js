@@ -40,7 +40,7 @@ export const _isNonEmptyObject = val => {
 function withProvider(WrappedComponent) {
   class WithProvider extends Component {
     static async getInitialProps({ res, req, match }) {
-      let { query } = req
+      let query = _isNonEmptyObject(req.body) ? req.body : req.query
       let prevCookie = getStoreCookie(req.cookies)
       let newCookie
 
@@ -85,6 +85,7 @@ function withProvider(WrappedComponent) {
           setStore: contextDefault.setStore,
           locationString: req.subdomain,
         },
+        post: req.method === 'POST',
       }
     }
 

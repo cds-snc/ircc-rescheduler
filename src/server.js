@@ -41,7 +41,7 @@ server
     res.clearCookie('store')
     res.redirect(`/cancel?language=${language}`)
   })
-  .get('/*', async (req, res) => {
+  .all('/*', async (req, res) => {
     const customRenderer = node => ({
       gitHashString: gitHash(),
       path: req.url,
