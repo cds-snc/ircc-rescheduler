@@ -38,7 +38,6 @@ import { FORM_ERROR } from 'final-form'
 import CancelButton from '../components/CancelButton'
 import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
-import { checkURLParams } from '../utils/url'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
 
@@ -211,17 +210,17 @@ class RegistrationPage extends React.Component {
   }
 
   render() {
-    let { context: { store: { register = {} } = {} } = {}, i18n } = this.props
+    let {
+      context: { store: { register = {} } = {} } = {},
+      i18n,
+      post = false,
+    } = this.props
     let errorsNoJS = {}
 
-    // only run this if there's a location.search
-    // AND at least one of our fields exists in the url keys somewhere
-    // so we know for sure they pressed "submit" on this page
-    if (
-      this.props.location.search &&
-      this.props.location.pathname === '/register' &&
-      checkURLParams(this.props.location.search, this.fields)
-    ) {
+    // if this is a POST, we know for sure they pressed "submit" on this page
+    // Otherwise, we would be showing error messages on the initial pageload
+    // (because the fields are empty
+    if (post) {
       errorsNoJS = this.validate(register, true)
     }
 
@@ -279,6 +278,7 @@ class RegistrationPage extends React.Component {
                   }
                 }}
                 onSubmit={handleSubmit}
+                method="post"
               >
                 <div
                   id="submit-error"

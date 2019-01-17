@@ -1,4 +1,10 @@
-import { baseUrl, isDebugging, user_en, user_fr } from './puppeteer-config'
+import {
+  baseUrl,
+  isDebugging,
+  user_en,
+  user_fr,
+  clickAndWait,
+} from './puppeteer-config'
 
 const puppeteer = require('puppeteer')
 let browser
@@ -41,15 +47,15 @@ describe('NoJS Flow Family Error check', () => {
     expect(fullName).toBe(label)
 
     /* There is a familyCheck value but nothing for familyOption */
-    await page.goto(
-      `${baseUrl}/register?fullName=${user.fullName}&email=${
-        user.email
-      }&paperFileNumber=${
-        user.paperFileNumber
-      }&familyCheck=familyCheck=&reason=medical&explanation=${
-        user.explanation
-      }`,
-    )
+    expect(fullName).toBe(label)
+    await page.type('#fullName', user.fullName)
+    await page.type('#email', user.email)
+    await page.type('#paperFileNumber', user.paperFileNumber)
+    await page.click('#familyCheck')
+    // await page.type('#familyOption', user.familyOption)
+    await page.click('#reason-2')
+    await page.type('#explanation', user.explanation)
+    await clickAndWait(page, '#register-form button')
 
     /* check for error */
     const familyOptionError = await page.$eval(
@@ -83,22 +89,16 @@ describe('NoJS Flow Family Error check', () => {
         label = 'Nom complet'
       }
 
+      /* There is a familyOption value but nothing for familyCheck */
       expect(fullName).toBe(label)
       await page.type('#fullName', user.fullName)
       await page.type('#email', user.email)
       await page.type('#paperFileNumber', user.paperFileNumber)
+      // await page.click('#familyCheck')
       await page.type('#familyOption', user.familyOption)
       await page.click('#reason-2')
       await page.type('#explanation', user.explanation)
-
-      /* There is a familyCheck value but nothing for familyOption */
-      await page.goto(
-        `${baseUrl}/register?fullName=${user.fullName}&email=${
-          user.email
-        }&paperFileNumber=${user.paperFileNumber}&familyOption=${
-          user.familyOption
-        }=&reason=medical&explanation=${user.explanation}`,
-      )
+      await clickAndWait(page, '#register-form button')
 
       const familyCheckError = await page.$eval(
         '#familyCheck-error',
