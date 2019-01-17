@@ -1,21 +1,34 @@
 import ReactGA from 'react-ga'
+import { windowExists } from '../utils/windowExists'
 
 export const initGA = ga_id => {
   ReactGA.initialize(ga_id)
+  ReactGA.set({ anonymizeIp: true })
 }
 
 export const logPageView = () => {
- return
+  ReactGA.set({ page: window.location.pathname })
+  ReactGA.pageview(window.location.pathname)
 }
 
 export const logEvent = (category = '', action = '', label = '') => {
-  return
+  if (!windowExists() || !window.GA_INITIALIZED) return
+
+  if (category && action && label) {
+    ReactGA.event({ category, action, label })
+  }
 }
 
 export const logException = (description = '', fatal = false) => {
-  return
+  if (description) {
+    ReactGA.exception({ description, fatal })
+  }
 }
 
 export const trackRegistrationErrors = errObj => {
-  return
+  const errs = Object.keys(errObj).map(key => {
+    return key
+  })
+
+  logEvent('Registration', 'Submit', 'Error(s): ' + errs.join(', '))
 }
