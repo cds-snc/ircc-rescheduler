@@ -9,7 +9,7 @@ export const isDebugging = () => {
 
   return process.env.NOJS && process.env.NOJS === 'debug'
     ? debugging_mode
-    : { args: ['--no-sandbox'] }
+    : { args: ['--no-sandbox', '--disable-setuid-sandbox'] }
 }
 
 export const user_fr = {
