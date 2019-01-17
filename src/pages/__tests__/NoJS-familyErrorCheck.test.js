@@ -18,7 +18,7 @@ beforeAll(async () => {
   page.setJavaScriptEnabled(false)
 })
 
-describe('NoJS Flow Family Error check 1', () => {
+describe('NoJS Flow Family Error check', () => {
   it('Has error if family member checkbox is checked but textarea is empty', async () => {
     await page.goto(`${baseUrl}/clear`)
     await page.goto(`${baseUrl}/register`)
@@ -64,10 +64,7 @@ describe('NoJS Flow Family Error check 1', () => {
     )
     expect(familyOptionError).toContain('You left this blank')
   }, 200000)
-})
-
-describe('NoJS Flow Family Error check 2', () => {
-  it('Has error if family member checkbox is NOT checked but textarea has a value', async () => {
+  it.skip('Has error if family member checkbox is NOT checked but textarea has a value', async () => {
     await page.goto(`${baseUrl}/clear`)
     await page.goto(`${baseUrl}/register`)
 
