@@ -265,13 +265,16 @@ Resources:
     Type: AWS::ElasticLoadBalancingV2::Listener
     DependsOn:
       - PublicLoadBalancer
+      - TLSCertificate
     Properties:
+      Certificates:
+        - CertificateArn: !Ref 'TLSCertificate'
       DefaultActions:
         - TargetGroupArn: !Ref 'DummyTargetGroupPublic'
           Type: 'forward'
       LoadBalancerArn: !Ref 'PublicLoadBalancer'
-      Port: 80
-      Protocol: HTTP
+      Port: 443
+      Protocol: HTTPS
 
   # An internal load balancer, this would be used for a service that is not
   # directly accessible to the public, but instead should only receive traffic
@@ -328,6 +331,51 @@ Resources:
       Port: 80
       Protocol: HTTP
 
+  TLSCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: rescheduler-dev.cds-snc.ca
+      SubjectAlternativeNames:
+        - '*.rescheduler-dev.cds-snc.ca'
+      ValidationMethod: 'DNS'
+
+  CloudfrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    DependsOn: TLSCertificate
+    Properties:
+      DistributionConfig:
+        Origins:
+          - DomainName: !GetAtt PublicLoadBalancer.DNSName
+            Id: ircc-staging-origin-id
+            CustomOriginConfig:
+              OriginProtocolPolicy: 'https-only'
+        Aliases:
+          - 'rescheduler-dev.cds-snc.ca'
+          - '*.rescheduler-dev.cds-snc.ca'
+        DefaultRootObject: 'index.html'
+        DefaultCacheBehavior: 
+          ForwardedValues: 
+            QueryString: true
+            Cookies:
+              Forward: all
+            Headers: ["*"]
+          TargetOriginId: ircc-staging-origin-id
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - DELETE
+            - GET
+            - HEAD
+            - OPTIONS
+            - PATCH
+            - POST
+            - PUT
+        ViewerCertificate:
+          AcmCertificateArn: !Ref 'TLSCertificate'
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2018
+        HttpVersion: http2
+        Enabled: 'true'  
+  
   # This is an IAM role which authorizes ECS to manage resources on your
   # account on your behalf, such as updating your load balancer with the
   # details of where your containers are, so that traffic can reach your
