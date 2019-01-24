@@ -43,17 +43,29 @@ Parameters:
     Type: Number
     Default: 1
     Description: How many copies of the service task to run
-  Role:
-    Type: String
-    Default: ""
-    Description: (Optional) An IAM role to give the service's containers if the code within needs to
-                 access other AWS resources like S3 buckets, DynamoDB tables, etc
-
-Conditions:
-  HasCustomRole: !Not [ !Equals [!Ref 'Role', ''] ]
 
 Resources:
-
+  # This is an IAM role which authorizes the container to send emails through SES
+  IRCCEmailerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service: [ecs-tasks.amazonaws.com]
+          Action: ['sts:AssumeRole']
+      Path: /
+      Policies:
+      - PolicyName: sendEmails
+        PolicyDocument:
+          Statement:
+          - Effect: Allow
+            Action:
+              - "ses:SendEmail"
+              - "ses:SendRawEmail"
+            Resource: '*'
+            
   # The task definition. This is a simple metadata description of what
   # container to run, and what resource requirements it has.
   TaskDefinition:
@@ -68,11 +80,7 @@ Resources:
       ExecutionRoleArn:
         Fn::ImportValue:
           !Join [':', [!Ref 'StackName', 'ECSTaskExecutionRole']]
-      TaskRoleArn:
-        Fn::If:
-          - 'HasCustomRole'
-          - !Ref 'Role'
-          - !Ref "AWS::NoValue"
+      TaskRoleArn: !Ref 'IRCCEmailerRole'
       ContainerDefinitions:
         - Name: !Ref 'ServiceName'
           Cpu: !Ref 'ContainerCpu'
@@ -108,7 +116,9 @@ Resources:
   # as monitor the number of running tasks and replace any that have crashed
   Service:
     Type: AWS::ECS::Service
-    DependsOn: LoadBalancerRule
+    DependsOn: 
+    - LoadBalancerRule
+    - IRCCEmailerRole
     Properties:
       ServiceName: !Ref 'ServiceName'
       Cluster:
