@@ -298,6 +298,12 @@ Resources:
       LoadBalancerAttributes:
       - Key: idle_timeout.timeout_seconds
         Value: '30'
+      - Key: routing.http2.enabled
+        Value: true
+      - Key: deletion_protection.enabled
+        Value: false
+      - Key: access_logs.s3.enabled
+        Value: false
       Subnets:
         # This load balancer is put into the private subnet, so that there is no
         # route for the public to even be able to access the private load balancer.
