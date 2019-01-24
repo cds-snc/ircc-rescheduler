@@ -3,12 +3,12 @@ Description: Deploy a service on AWS Fargate, hosted in a private subnet, but ac
 Parameters:
   StackName:
     Type: String
-    Default: ircc-cluster
+    Default: ircc-staging
     Description: The name of the parent Fargate networking stack that you created. Necessary
                  to locate and reference resources created by that stack.
   ServiceName:
     Type: String
-    Default: ircc-service
+    Default: ircc-staging-service
     Description: A name for the service
   ImageUrl:
     Type: String
