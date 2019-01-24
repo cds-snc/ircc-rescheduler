@@ -174,27 +174,6 @@ Resources:
       RouteTableId: !Ref PrivateRouteTableTwo
       SubnetId: !Ref PrivateSubnetTwo
 
-  # OPTIONAL: VPC Endpoint for DynamoDB
-  # If a container needs to access DynamoDB this allows a container in the private subnet
-  # to talk to DynamoDB directly without needing to go via the NAT gateway. This reduces
-  # the amount of bandwidth through the gateway, meaning that the gateway is free to serve
-  # your other traffic.
-  DynamoDBEndpoint:
-    Type: AWS::EC2::VPCEndpoint
-    Properties:
-      PolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          - Effect: Allow
-            Action: "*"
-            Principal: "*"
-            Resource: "*"
-      RouteTableIds:
-        - !Ref 'PrivateRouteTableOne'
-        - !Ref 'PrivateRouteTableTwo'
-      ServiceName: !Join [ "", [ "com.amazonaws.", { "Ref": "AWS::Region" }, ".dynamodb" ] ]
-      VpcId: !Ref 'VPC'
-
   # ECS Resources
   ECSCluster:
     Type: AWS::ECS::Cluster
