@@ -468,6 +468,27 @@ Resources:
                 - 'kms:Decrypt'
               Resource: '*'
 
+  ContainerRepository:
+    Type: AWS::ECR::Repository
+    Properties: 
+      LifecyclePolicy:
+        LifecyclePolicyText: !Sub
+          - |
+            {
+              "rules": [
+                {
+                  "rulePriority": 1,
+                  "description": "Only keep 20 most recent images",
+                  "selection": {
+                    "countType": "imageCountMoreThan",
+                    "countNumber": 20
+                  },
+                  "action": { "type": "expire" }
+                }
+              ]
+            }
+      RepositoryName: 'ircc-staging'  
+
 # These are the values output by the CloudFormation template. Be careful
 # about changing any of them, because of them are exported with specific
 # names so that the other task related CF templates can use them.
