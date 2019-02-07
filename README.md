@@ -9,18 +9,18 @@ We redesigned the letter to make it clearer and simpler to understand, and it is
 
 ## Table of contents
 
-* [Technical overview 💻](#technical-overview-)
-  * [Use of third-party services 📮](#use-of-third-party-services-)
-  * [Automated tests 👩‍🔬](#automated-tests-)
-* [Setup ⚙️](#setup-)
-* [Startup 🚀](#startup-)
-* [Running the tests 🏃‍](#running-the-tests-)
-* [Additional documentation 📝](#additional-documentation-)
-  * [Location setup 🌎](#location-setup-)
-  * [Translations 🇨🇦](#translations-)
-  * [Feature flags 🏁](#feature-flags-)
-  * [Error tracking procedures 🚫](#error-tracking-procedures-)
-  * [Upgrading package dependencies 📦](#upgrading-package-dependencies-)
+* [Technical overview](#technical-overview-)
+  * [Use of third-party services](#use-of-third-party-services-)
+  * [Automated tests](#automated-tests-)
+* [Setup](#setup-)
+* [Startup](#startup-)
+* [Running the tests ‍](#running-the-tests-)
+* [Additional documentation](#additional-documentation-)
+  * [Location setup](#location-setup-)
+  * [Translations](#translations-)
+  * [Feature flags](#feature-flags-)
+  * [Error tracking procedures](#error-tracking-procedures-)
+  * [Upgrading package dependencies](#upgrading-package-dependencies-)
 
 
 ## Technical overview 💻
