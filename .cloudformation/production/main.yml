@@ -358,8 +358,9 @@ Resources:
         Aliases:
           - 'rescheduler.cds-snc.ca'
           - '*.rescheduler.cds-snc.ca'
-        DefaultRootObject: 'index.html'
+        DefaultRootObject: ''
         DefaultCacheBehavior: 
+	  Compress: true
           ForwardedValues: 
             QueryString: true
             Cookies:
