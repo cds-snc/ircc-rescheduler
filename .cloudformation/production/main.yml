@@ -359,8 +359,8 @@ Resources:
           - 'rescheduler.cds-snc.ca'
           - '*.rescheduler.cds-snc.ca'
         DefaultRootObject: ''
-        DefaultCacheBehavior: 
-	  Compress: true
+        DefaultCacheBehavior:
+          Compress: true
           ForwardedValues: 
             QueryString: true
             Cookies:
