@@ -1,5 +1,5 @@
 context('Contact link on Not Found (404) page', () => {
-  it("should not have contact link", () => {
+  it('should not have contact link', () => {
     cy.visit('/not-found')
     cy.get('#footer div a')
       .eq(0)

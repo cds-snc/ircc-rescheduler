@@ -3,7 +3,7 @@ context('Full Run-through including validation errors', () => {
     cy.visit('/')
   })
 
-  it('should be able to trigger validation errors, recover, and reach the confirmation page with all of the submitted data', () => {
+  it.skip('should be able to trigger validation errors, recover, and reach the confirmation page with all of the submitted data', () => {
     cy.get('main a').should('have.text', 'Start now')
     cy.get('main a').click({ force: true })
 
