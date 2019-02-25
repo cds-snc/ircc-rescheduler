@@ -36,8 +36,18 @@ class Document extends React.Component {
     const { helmet, assets, data, path, gitHashString } = this.props
 
     // get attributes from React Helmet
-    const htmlAttrs = helmet.htmlAttributes.toComponent()
+    let htmlAttrs = helmet.htmlAttributes.toComponent()
     const bodyAttrs = helmet.bodyAttributes.toComponent()
+
+    htmlAttrs = {
+      ...htmlAttrs,
+      ...{
+        className:
+          process.env.NODE_ENV === 'development'
+            ? 'development'
+            : process.env.RAZZLE_STAGE || 'dev',
+      },
+    }
 
     return (
       <html {...htmlAttrs}>
@@ -75,11 +85,10 @@ class Document extends React.Component {
           <AfterRoot />
           <AfterData data={data} />
           {/* dangerouslySetInnerHTML is used here to avoid the markup being escaped by After.js */}
-          {process.env.NODE_ENV === 'production' &&
-            process.env.RAZZLE_STAGE && (
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `window.SENTRY_SDK = {
+          {process.env.NODE_ENV === 'production' && process.env.RAZZLE_STAGE && (
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.SENTRY_SDK = {
                     url: 'https://cdn.ravenjs.com/3.26.4/raven.min.js',
                     dsn: 'https://a2315885b9c3429a918336c1324afa4a@sentry.io/1241616',
                     options: {
@@ -90,9 +99,9 @@ class Document extends React.Component {
                   }
                   ;(function(a,b,g,e,h){var k=a.SENTRY_SDK,f=function(a){f.data.push(a)};f.data=[];var l=a[e];a[e]=function(c,b,e,d,h){f({e:[].slice.call(arguments)});l&&l.apply(a,arguments)};var m=a[h];a[h]=function(c){f({p:c.reason});m&&m.apply(a,arguments)};var n=b.getElementsByTagName(g)[0];b=b.createElement(g);b.src=k.url;b.crossorigin="anonymous";b.addEventListener("load",function(){try{a[e]=l;a[h]=m;var c=f.data,b=a.Raven;b.config(k.dsn,k.options).install();var g=a[e];if(c.length)for(var d=0;d<c.length;d++)c[d].e?g.apply(b.TraceKit,c[d].e):c[d].p&&b.captureException(c[d].p)}catch(p){console.log(p)}});n.parentNode.insertBefore(b,n)})(window,document,"script","onerror","onunhandledrejection");
                   `,
-                }}
-              />
-            )}
+              }}
+            />
+          )}
 
           <script
             type="text/javascript"

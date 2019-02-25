@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css, injectGlobal } from 'emotion'
 import { theme, mediaQuery, content } from '../styles'
-import PageHeader from './PageHeader'
 import FederalBanner from './FederalBanner'
+import FlashBanner from './FlashBanner'
+import PageHeader from './PageHeader'
 import Footer from './Footer'
 import { ErrorBoundary } from './ErrorBoundary'
 import { ErrorPageContent } from '../pages/ErrorPage'
@@ -105,6 +106,7 @@ class Layout extends React.Component {
           render={() => <ErrorPageContent />}
         >
           <div role="banner">
+            <FlashBanner />
             <FederalBanner />
             <PageHeader>{this.props.header}</PageHeader>
           </div>
