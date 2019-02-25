@@ -3,7 +3,7 @@ context('Full Run-through', () => {
     cy.visit('/')
   })
 
-  it('should be able to fill in a profile with the family and reach the confirmation page', () => {
+  it.skip('should be able to fill in a profile with the family and reach the confirmation page', () => {
     let startText = 'Start now'
 
     cy.get('main a').should('have.text', startText)
@@ -58,7 +58,6 @@ context('Full Run-through', () => {
 
       // should hit the confirm page now
       cy.url().should('contain', '/confirmation')
-      //
     })
 
     //
