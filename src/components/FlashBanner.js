@@ -1,6 +1,7 @@
 import React from 'react'
 import { css } from 'emotion'
 import { theme, horizontalPadding, mediaQuery } from '../styles'
+import { Trans } from '@lingui/react'
 
 const container = css`
   html:not(.development):not(.staging) & {
@@ -28,7 +29,10 @@ const header = css`
 const FlashBanner = () => (
   <div className={container}>
     <h2 role="alert" tabIndex="0" className={header}>
-      Warning: This is a prototype. Rescheduling requests will not be submitted.
+      <Trans>
+        Warning! This is a prototype that won’t submit your request. Do not use
+        this page.
+      </Trans>
     </h2>
   </div>
 )
