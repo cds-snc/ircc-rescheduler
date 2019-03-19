@@ -12,6 +12,7 @@ import {
   getPrimarySubdomain,
   ensureLocation,
   setRavenContext,
+  cspConfig,
 } from './utils/serverUtils'
 import { handleSubmitEmail } from './email/handleSubmitEmail'
 import gitHash from './utils/gitHash'
@@ -26,6 +27,7 @@ const helmet = require('helmet')
 server
   .use(helmet()) // sets security-focused headers: https://helmetjs.github.io/
   .use(helmet.frameguard({ action: 'deny' })) // Sets "X-Frame-Options: DENY".
+  .use(helmet.contentSecurityPolicy({ directives: cspConfig }))
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || './public'))
   .use(getPrimarySubdomain)

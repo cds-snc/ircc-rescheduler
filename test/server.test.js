@@ -57,6 +57,16 @@ describe('Server Side Rendering', () => {
     )
   })
 
+  it('has our expected Content Security Policy', async () => {
+    let response = await request(server).get('/')
+    expect(response.header['content-security-policy']).toEqual(
+      "default-src 'self'; font-src 'self' https://fonts.gstatic.com; " +
+        "img-src 'self' data: https://www.google-analytics.com; " +
+        "script-src 'self' https://cdn.ravenjs.com https://www.google-analytics.com 'unsafe-inline'; " +
+        "style-src 'self' https://fonts.googleapis.com 'unsafe-inline'",
+    )
+  })
+
   it('doesn’t let on it’s an express app', async () => {
     let response = await request(server).get('/')
     expect(response.header['x-powered-by']).toBeUndefined()
