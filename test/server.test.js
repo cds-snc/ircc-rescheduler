@@ -20,7 +20,9 @@ describe('Server Side Rendering', () => {
 
   it('renders the calendar page at /calendar', async () => {
     let response = await request(server).get('/calendar')
-    expect(response.text).toMatch(/Make sure you stay available on all of the days you select/)
+    expect(response.text).toMatch(
+      /Make sure you stay available on all of the days you select/,
+    )
   })
 
   it('renders the review page at /review', async () => {
@@ -47,8 +49,16 @@ describe('Server Side Rendering', () => {
     let response = await request(server).get('/')
     expect(response.header['x-frame-options']).toEqual('DENY')
   })
-  it('has no-store protection', async () => {
+
+  it('has an HSTS header', async () => {
     let response = await request(server).get('/')
-    expect(response.header['surrogate-control']).toEqual('no-store')
+    expect(response.header['strict-transport-security']).toEqual(
+      'max-age=15552000; includeSubDomains',
+    )
+  })
+
+  it('doesn’t let on it’s an express app', async () => {
+    let response = await request(server).get('/')
+    expect(response.header['x-powered-by']).toBeUndefined()
   })
 })
