@@ -118,3 +118,18 @@ export const setRavenContext = (req, res, next) => {
 
   return next()
 }
+
+/* Content Security Policy config */
+
+export const cspConfig = {
+  defaultSrc: ["'self'"],
+  fontSrc: ["'self'", 'https://fonts.gstatic.com'],
+  imgSrc: ["'self'", 'data:', 'https://www.google-analytics.com'],
+  scriptSrc: [
+    "'self'",
+    'https://cdn.ravenjs.com',
+    'https://www.google-analytics.com',
+    "'unsafe-inline'",
+  ],
+  styleSrc: ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'"],
+}

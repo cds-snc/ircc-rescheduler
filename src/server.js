@@ -12,6 +12,7 @@ import {
   getPrimarySubdomain,
   ensureLocation,
   setRavenContext,
+  cspConfig,
 } from './utils/serverUtils'
 import { handleSubmitEmail } from './email/handleSubmitEmail'
 import gitHash from './utils/gitHash'
@@ -24,10 +25,9 @@ const server = express()
 const helmet = require('helmet')
 
 server
-  .use(helmet.frameguard({ action: 'deny' })) //// Sets "X-Frame-Options: DENY".
-  .use(helmet.noSniff()) // Sets "X-Content-Type-Options: nosniff".
-  .use(helmet.noCache()) // Set Cache-Control, Surrogate-Control, Pragma, and Expires to no.
-  .use(helmet.xssFilter()) // Sets "X-XSS-Protection: 1; mode=block".
+  .use(helmet()) // sets security-focused headers: https://helmetjs.github.io/
+  .use(helmet.frameguard({ action: 'deny' })) // Sets "X-Frame-Options: DENY".
+  .use(helmet.contentSecurityPolicy({ directives: cspConfig }))
   .disable('x-powered-by')
   .use(express.static(process.env.RAZZLE_PUBLIC_DIR || './public'))
   .use(getPrimarySubdomain)
