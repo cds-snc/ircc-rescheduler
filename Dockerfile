@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:lts-alpine
 MAINTAINER Dave Samojlenko <dave.samojlenko@cds-snc.ca>
 
 ARG PAPER_FILE_NUMBER_PATTERN
