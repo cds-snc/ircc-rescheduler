@@ -1,4 +1,6 @@
 # Reschedule a Citizenship Test service overview 🙅🗓
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcds-snc%2Fircc-rescheduler.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcds-snc%2Fircc-rescheduler?ref=badge_shield)
+
 
 This is a service that allows users to reschedule their language tests during the citizenship process. This service was designed and developed by the [Canadian Digital Service](https://digital.canada.ca/), and is now owned and maintained by [Immigration, Refugees, and Citizenship Canada (IRCC)](https://www.canada.ca/en/immigration-refugees-citizenship.html).
 
@@ -191,3 +193,7 @@ Outlines the procedures we follow for resolving captured errors. Also describes 
 
 ### [Upgrading package dependencies 📦](https://github.com/cds-snc/ircc-rescheduler/blob/master/docs/upgrade.md)
 Outlines the procedures we follow for upgrading packages, which we were doing once per (two-week) sprint. Also outlines the process we followed for tracking down vulnerabilities.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcds-snc%2Fircc-rescheduler.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcds-snc%2Fircc-rescheduler?ref=badge_large)
