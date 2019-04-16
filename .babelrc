@@ -3,9 +3,8 @@
     "razzle/babel",
     "@lingui/babel-preset-react",
     [
-      "env",
+      "@babel/preset-env",
       {
-        "useBuiltins": true,
         "targets": {
           "browsers": ["ie 11"]
         }
