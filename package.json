@@ -2,7 +2,9 @@
   "name": "ircc-rescheduler",
   "version": "1.0.9",
   "license": "MIT",
-  "engines" : { "node" : ">=8" },
+  "engines": {
+    "node": ">=8"
+  },
   "scripts": {
     "build": "razzle build",
     "dev": "razzle start",
@@ -25,7 +27,9 @@
     "cypress:run": "cypress run",
     "ci:dev": "start-server-and-test dev http://localhost:3004 cypress:open",
     "ci:prod": "start-server-and-test build:start http://localhost:3004 cypress:run",
-    "sentry_map": "sentry-cli releases -o canadian-digital-service -p ircc-rescheduler files  $SENTRY_RELEASE  upload-sourcemaps ./build/ --rewrite"
+    "sentry_map": "sentry-cli releases -o canadian-digital-service -p ircc-rescheduler files  $SENTRY_RELEASE  upload-sourcemaps ./build/ --rewrite",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "husky": {
     "hooks": {
@@ -71,7 +75,8 @@
     "react-router-dom": "^4.3.1",
     "react-router-hash-link": "^1.2.1",
     "snarkdown": "^1.2.2",
-    "validatorjs": "^3.14.2"
+    "validatorjs": "^3.14.2",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@lingui/cli": "^2.7.2",
@@ -111,5 +116,6 @@
     ],
     "sourceLocale": "en",
     "format": "lingui"
-  }
+  },
+  "snyk": true
 }
