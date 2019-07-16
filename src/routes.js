@@ -12,11 +12,19 @@ import FourOhFourPage from './pages/FourOhFourPage'
 import FiveHundredPage from './pages/FiveHundredPage'
 import PrivacyPage from './pages/PrivacyPage'
 
+/*DTS Specific Pages*/
+import AppointmentsPage from './pages/AppointmentsPage'
+
 export default [
   {
     path: '/',
     exact: true,
     component: withProvider(LandingPage),
+  },
+  {
+    path: '/appointments',
+    exact: true,
+    component: withProvider(AppointmentsPage),
   },
   {
     path: '/register',
