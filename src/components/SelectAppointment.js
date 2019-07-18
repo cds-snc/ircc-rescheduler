@@ -9,7 +9,7 @@ import { Form, Field } from 'react-final-form'
 
 
 const AppointmentForm = ({onSubmit}) => (
-    <Form onSubmit={onSubmit} render={({ handleSubmit }) => (<form onSubmit={handleSubmit}>
+    <Form onSubmit={onSubmit} render={() => (<form >
         <div>
             <FieldSet id="appointment" legendHidden={false} >
                 <Field type="radio" component={RadioAdapter} label={<Trans>Dummy Appointment Time 1</Trans>} value="1" name="" id="app1" />
