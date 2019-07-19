@@ -1,10 +1,7 @@
-# Reschedule a Citizenship Test service overview 🙅🗓
+# Scheduling Application for Biometrics Overview (Forked from the IRCC Rescheduler) 🙅🗓
 
-This is a service that allows users to reschedule their language tests during the citizenship process. This service was designed and developed by the [Canadian Digital Service](https://digital.canada.ca/), and is now owned and maintained by [Immigration, Refugees, and Citizenship Canada (IRCC)](https://www.canada.ca/en/immigration-refugees-citizenship.html).
+TODO: Update this readme with all pertinent information that is updated or changed from what's done below.
 
-Part of the process of applying for citizenship is that you have to attend an in-person appointment to assess your language skills. Previously, you would receive notification of this appointment by letter in the mail. If you couldn't make that appointment, due to travel or work commitments for example, you would have to write a letter back to IRCC to ask for a reschedule.
-
-We redesigned the letter to make it clearer and simpler to understand, and it is now sent by email for those who have internet access. If you need to reschedule, you click a link in the email which brings you to this rescheduling service. It allows future citizens to rearrange their interview for a time that meets their needs, with minimal staff intervention.
 
 
 ## Table of contents
