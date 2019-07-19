@@ -63,7 +63,7 @@
     "razzle": "^2.4.1",
     "react": "16.6.3",
     "react-day-picker": "^7.2.4",
-    "react-dom": "^16.6.3",
+    "react-dom": "^16.8.6",
     "react-feature-flags": "^1.0.0",
     "react-final-form": "^4.0.2",
     "react-ga": "^2.5.6",
