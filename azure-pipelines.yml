@@ -11,9 +11,8 @@ jobs:
   pool:
     vmImage: 'Ubuntu-16.04'  
   steps:
-  - script: docker build -t sabgui:pr . && docker run -p 4848:80 -d -t sabgui:pr
+  - script: docker build -t sabgui:pr . && docker run -p 3004:80 -d -t sabgui:pr
     displayName: Build and Run Image for A11y
-  - script: yarn run a11y:run
   - script: yarn run test
     displayName: 'A11y Scanning'
 
