@@ -2,20 +2,27 @@
 # Build a Node.js project that uses React.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
+name: "New SAB-GUI PR Pipeline"
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+jobs:
+- job: A11y_Scanning
+  pool:
+    vmImage: 'Ubuntu-16.04'  
+  steps:
+  - script: docker build -t sabgui:pr . && docker run -p 4848:80 -d -t sabgui:pr
+    displayName: Build and Run Image for A11y
+  - script: yarn run a11y:test
+    displayName: 'A11y Scanning'
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+# steps:
+# - task: NodeTool@0
+#   inputs:
+#     versionSpec: '10.x'
+#   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+# - script: |
+#     npm install
+#     npm run build
+#   displayName: 'npm install and build'
