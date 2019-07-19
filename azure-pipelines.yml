@@ -7,14 +7,27 @@ trigger:
 - master
 
 jobs:
-- job: A11y_Scanning
+# - job: A11y_Scanning
+#   pool:
+#     vmImage: 'Ubuntu-16.04'  
+#   steps:
+#   - script: docker build -t sabgui:pr . && docker run -p 3004:80 -d -t sabgui:pr
+#     displayName: Build and Run Image for A11y
+#   - script: yarn run test
+#     displayName: 'A11y Scanning'
+
+- job: Cypress_tests
   pool:
-    vmImage: 'Ubuntu-16.04'  
+    vmImage: 'Ubuntu-16.04'
   steps:
-  - script: docker build -t sabgui:pr . && docker run -p 3004:80 -d -t sabgui:pr
-    displayName: Build and Run Image for A11y
-  - script: yarn run test
-    displayName: 'A11y Scanning'
+  - script: docker run -it -v $PWD:/e2e -w /e2e cypress/included:3.2.0
+    displayName: Running Cypress tests
+  # - task: PublishTestResults@2
+  #   condition: succeededOrFailed()
+  #   inputs:
+  #     testRunner: JUnit
+  #     testResultsFiles: '**/mochawesome-report/mochawesome.json' 
+  #     searchFolder: '$(System.DefaultWorkingDirectory)'
 
 # steps:
 # - task: NodeTool@0
