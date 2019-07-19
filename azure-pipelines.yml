@@ -20,7 +20,7 @@ jobs:
   pool:
     vmImage: 'Ubuntu-16.04'
   steps:
-  - script: docker run -it -v $PWD:/e2e -w /e2e cypress/included:3.2.0
+  - script: docker run -v $PWD:/e2e -w /e2e cypress/included:3.2.0
     displayName: Running Cypress tests
   # - task: PublishTestResults@2
   #   condition: succeededOrFailed()
