@@ -1,6 +1,6 @@
 # Scheduling Application for Biometrics Overview (Forked from the IRCC Rescheduler) 🙅🗓
 
-TODO: Update this readme with all pertinent information that is updated or changed from what's done below.
+TODO: Update this readme with all pertinent information that is updated or changed from what's done below.    
 
 
 
