@@ -24,8 +24,7 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "ci:dev": "start-server-and-test dev http://localhost:3004 cypress:open",
-    "ci:prod": "start-server-and-test build:start http://localhost:3004 cypress:run",
-    "sentry_map": "sentry-cli releases -o canadian-digital-service -p ircc-rescheduler files  $SENTRY_RELEASE  upload-sourcemaps ./build/ --rewrite"
+    "ci:prod": "start-server-and-test build:start http://localhost:3004 cypress:run"
   },
   "husky": {
     "hooks": {
@@ -38,8 +37,6 @@
     "@jaredpalmer/after": "^1.3.1",
     "@lingui/babel-preset-react": "^2.7.2",
     "@lingui/react": "^2.7.2",
-    "@sentry/cli": "^1.37.1",
-    "aws-sdk": "^2.378.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
