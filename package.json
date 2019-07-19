@@ -39,7 +39,7 @@
     "@lingui/babel-preset-react": "^2.7.2",
     "@lingui/react": "^2.7.2",
     "@sentry/cli": "^1.37.1",
-    "aws-sdk": "^2.378.0",
+    "aws-sdk": "^2.491.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
