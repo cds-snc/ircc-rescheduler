@@ -2,7 +2,9 @@
   "name": "ircc-rescheduler",
   "version": "1.0.9",
   "license": "MIT",
-  "engines" : { "node" : ">=8" },
+  "engines": {
+    "node": ">=8"
+  },
   "scripts": {
     "build": "razzle build",
     "dev": "razzle start",
@@ -68,7 +70,8 @@
     "react-router-dom": "^4.3.1",
     "react-router-hash-link": "^1.2.1",
     "snarkdown": "^1.2.2",
-    "validatorjs": "^3.14.2"
+    "validatorjs": "^3.14.2",
+    "yarn": "^1.17.3"
   },
   "devDependencies": {
     "@lingui/cli": "^2.7.2",
