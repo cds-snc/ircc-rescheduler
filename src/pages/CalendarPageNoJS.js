@@ -26,7 +26,7 @@ export default class CalendarPageNoJS extends Component {
   }
 
   static validate(values) {
-    if (values && values.selectedDays && values.selectedDays.length === 3) {
+    if (values && values.selectedDays && values.selectedDays.length === 1) {
       return {}
     }
     return {

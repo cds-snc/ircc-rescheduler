@@ -36,7 +36,7 @@ import { CalHeader } from './calendar/CalHeader'
 import { CalBottom } from './calendar/CalBottom'
 import CalendarPageNoJS from './CalendarPageNoJS'
 
-const DAY_LIMIT = 3
+const DAY_LIMIT = 1
 
 const fullWidth = css`
   width: 100% !important;

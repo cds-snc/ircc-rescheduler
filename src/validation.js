@@ -201,7 +201,7 @@ export const getFieldErrorStrings = validate => {
  *--------------------------------------------*/
 
 const dateCount = (value, requirement, attribute) => {
-  return Number(value.length) === 3
+  return Number(value.length) === 1
 }
 
 Validator.register('date_count', dateCount, 'selectedDaysCountErrorMessage')

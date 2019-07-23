@@ -584,14 +584,14 @@ class Calendar extends Component {
       daysOfWeek: false,
       daysModified: false,
     }
-    this.threeDatesArePicked =
+    this.oneDatesArePicked =
       this.props.input.value &&
       Array.isArray(this.props.input.value) &&
-      this.props.input.value.length === 3
+      this.props.input.value.length === 1
   }
 
   componentDidMount() {
-    if (this.threeDatesArePicked && this.props.input.value.length === 3) {
+    if (this.oneDatesArePicked && this.props.input.value.length === 1) {
       this.removeDateContainer.focus()
     }
   }
@@ -760,7 +760,7 @@ class Calendar extends Component {
           />
         </div>
 
-        {this.threeDatesArePicked &&
+        {this.oneDatesArePicked &&
         this.state.daysModified === false &&
         !this.state.errorMessage ? (
           <div
@@ -775,7 +775,7 @@ class Calendar extends Component {
         ) : null}
         <div
           className={
-            this.threeDatesArePicked ? calendarContainerTop : calendarContainer
+            this.oneDatesArePicked ? calendarContainerTop : calendarContainer
           }
         >
           <DayPicker
