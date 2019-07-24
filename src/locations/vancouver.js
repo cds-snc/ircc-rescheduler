@@ -5,18 +5,19 @@ module.exports = {
   receivingEmail:
     'IRCC.DNCitVANNotification-NotificationVANCitRN.IRCC@cic.gc.ca',
   recurring: {
-    jan: ['tues', 'wed'],
-    feb: ['tues', 'wed'],
-    mar: ['tues', 'wed'],
-    apr: ['tues', 'wed'],
-    may: ['tues', 'wed'],
-    jun: ['tues', 'wed'],
-    jul: ['tues', 'wed'],
-    aug: ['tues', 'wed'],
-    sep: ['tues', 'wed'],
-    oct: ['tues', 'wed'],
-    nov: ['tues', 'wed'],
-    dec: ['tues', 'wed'],
+    jan: ['mon', 'tues', 'wed', 'thurs', 'fri'],
+    feb: ['mon', 'tues', 'wed', 'thurs', 'fri'],
+    mar: ['mon', 'tues', 'wed', 'thurs', 'fri'],
+    apr: ['mon', 'tues', 'wed', 'thurs', 'fri'],
+    may: ['mon', 'tues', 'wed', 'thurs', 'fri'],
+    jun: ['mon', 'tues', 'wed', 'thurs', 'fri'],
+    jul: ['mon', 'tues', 'wed', 'thurs', 'fri'],
+    aug: ['mon', 'tues', 'wed', 'thurs', 'fri'],
+    sep: ['mon', 'tues', 'wed', 'thurs', 'fri'],
+    oct: ['mon', 'tues', 'wed', 'thurs', 'fri'],
+    nov: ['mon', 'tues', 'wed', 'thurs', 'fri'],
+    dec: ['mon', 'tues', 'wed', 'thurs', 'fri'],
   },
+
   blocked: '', // use CSV format => 2018-10-02, 2018-10-03, 2018-11-21
 }

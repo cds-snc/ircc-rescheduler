@@ -124,10 +124,16 @@ export const setRavenContext = (req, res, next) => {
 export const cspConfig = {
   defaultSrc: ["'self'"],
   fontSrc: ["'self'", 'https://fonts.gstatic.com'],
-  imgSrc: ["'self'", 'data:', 'https://www.google-analytics.com'],
+  imgSrc: [
+    "'self'",
+    'data:',
+    'https://www.google-analytics.com',
+    'http://localhost:3005',
+  ],
   scriptSrc: [
     "'self'",
     'https://cdn.ravenjs.com',
+    'http://localhost:3005',
     'https://www.google-analytics.com',
     "'unsafe-inline'",
   ],

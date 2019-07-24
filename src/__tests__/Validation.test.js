@@ -90,7 +90,7 @@ describe('Validation', () => {
 
   it('Validates when correct amount of dates have been passed', () => {
     const vals = {
-      selectedDays: ['2018-01-01', '2018-01-02', '2018-01-03'],
+      selectedDays: ['2018-01-01'],
     }
 
     const validate = new Validator(vals, CalendarFields, defaultMessages)
@@ -138,7 +138,7 @@ describe('Validation', () => {
 
   it('Fails to validate if 1 date passed', () => {
     const vals = {
-      selectedDays: ['2018-01-01'],
+      selectedDays: ['2018-01-01', '2018-01-01'],
     }
 
     const validate = new Validator(vals, CalendarFields, defaultMessages)
@@ -160,7 +160,7 @@ describe('Validation', () => {
 
   it('Shows correct error message for 1 date passed', () => {
     const vals = {
-      selectedDays: ['2018-01-02'],
+      selectedDays: ['2018-01-02', '2018-01-02'],
     }
 
     const validate = new Validator(vals, CalendarFields, defaultMessages)

@@ -303,7 +303,7 @@ export const yearMonthDay = date => {
 }
 
 /*--------------------------------------------*
- * Utility functions to help mark 
+ * Utility functions to help mark
  * dates as unavailable
  *--------------------------------------------*/
 
