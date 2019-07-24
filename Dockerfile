@@ -1,5 +1,5 @@
-FROM node:lts-alpine
-MAINTAINER Dave Samojlenko <dave.samojlenko@cds-snc.ca>
+FROM node:10
+
 
 ARG PAPER_FILE_NUMBER_PATTERN
 ARG RAZZLE_FLAGS
