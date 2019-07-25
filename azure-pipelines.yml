@@ -13,7 +13,7 @@ jobs:
   steps:
   - script: docker build -t sabgui:pr . && docker run -p 3004:80 -d -t sabgui:pr
     displayName: Build and Run Image for A11y
-  - script: yarn test:full
+  - script: docker exec -it sabgui:pr - /bin/sh yarn test:full
     displayName: 'A11y Scanning'
 
 # - job: Cypress_tests
