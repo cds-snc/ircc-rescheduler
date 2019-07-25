@@ -1,0 +1,30 @@
+version: '3.3'
+services: 
+  sab-gui:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: sab-gui
+    restart: always
+    ports:
+     - "3004:80"
+     - "3005:80"
+
+  e2e:
+    build:
+      context: ./
+      dockerfile: cypress.Dockerfile
+    container_name: cypress
+    depends_on:
+      - sab-gui
+    # note: inside e2e container, the network allows accessing
+    # "web" host under name "web"
+    # so "curl http://web" would return whatever the webserver
+    # in the "web" container is cooking
+    # see https://docs.docker.com/compose/networking/
+    environment:
+      - CYPRESS_baseUrl=http://sab-gui
+    command: npx cypress run --reporter junit --reporter-options "mochaFile=/cypress/report/test-output-[hash].xml"
+    volumes:
+      - "./TestOutput:/cypress/report"
+   # command: bash -c "npx cypress run --reporter mocha-junit-reporter" # --reporter-options "mochaFile=test-output.xml"
