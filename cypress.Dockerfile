@@ -1,15 +1,17 @@
-FROM cypress/base:10
-WORKDIR /app
+FROM cypress/included:3.4.0
+ADD ./ /web
 
+WORKDIR /web
+RUN mkdir -p ~/cypress
 COPY package.json .
-COPY package-lock.json .
+COPY yarn.lock .
 # by setting CI environment variable we switch the Cypress install messages
 # to small "started / finished" and avoid 1000s of lines of progress messages
 ENV CI=1
-RUN npm i
+# RUN npm i
 
 # verify that cypress has been installed correctly
 RUN npx cypress verify
 
-COPY cypress ./cypress/integration
-COPY cypress.json ./
+COPY cypress ./cypress
+COPY cypress.json .

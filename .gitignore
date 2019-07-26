@@ -8,6 +8,7 @@ node_modules
 reports
 cypress/screenshots
 cypress/videos
+cypress/reports
 VERSION
 build
 

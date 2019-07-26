@@ -6,6 +6,7 @@ name: "New SAB-GUI PR Pipeline"
 trigger:
 - master
 
+# this job for A11y_Scanning is not yet functional. needs some work. 
 jobs:
 # - job: A11y_Scanning
 #   pool:
@@ -16,6 +17,9 @@ jobs:
 #   - script: docker exec -it sabgui:pr - /bin/sh yarn test:full
 #     displayName: 'A11y Scanning'
 
+
+# the cypress tests are using docker-compose.yml. compose builds the Dockerfile to build the app and serve it on localhost
+# then the cypress container is built from cypress.Dockerfile and runs the tests against the served app on localhost.
 - job: Cypress_tests
   pool:
     vmImage: 'Ubuntu-16.04'
@@ -31,13 +35,3 @@ jobs:
       testResultsFiles: '**/test-output-*.xml' 
       searchFolder: '$(System.DefaultWorkingDirectory)'
 
-# steps:
-# - task: NodeTool@0
-#   inputs:
-#     versionSpec: '10.x'
-#   displayName: 'Install Node.js'
-
-# - script: |
-#     npm install
-#     npm run build
-#   displayName: 'npm install and build'
