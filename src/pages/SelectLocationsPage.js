@@ -2,14 +2,15 @@
 import React from 'react'
 // import styled from '@emotion/styled'
 import { css } from 'emotion'
-import { NavLink } from 'react-router-dom'
-import { H1, theme, mediaQuery, arrow } from '../styles'
+//import { NavLink } from 'react-router-dom'
+//import { H1, theme, mediaQuery , arrow } from '../styles'
+import { H1, theme, mediaQuery } from '../styles'
 import Layout from '../components/Layout'
 import SelectProvince from '../components/SelectProvince'
 import Title, { matchPropTypes } from '../components/Title'
-import { buttonStyles } from '../components/forms/Button'
+//import { buttonStyles } from '../components/forms/Button'
 import { Trans } from '@lingui/react'
-import rightArrow from '../assets/rightArrow.svg'
+//import rightArrow from '../assets/rightArrow.svg'
 
 
 /* eslint-disable no-console */
@@ -33,10 +34,10 @@ const messageContainer = css`
   }
 `
 
-const landingArrow = css`
-  ${arrow};
-  margin-left: 4px;
-`
+//const landingArrow = css`
+//  ${arrow};
+//  margin-left: 4px;
+//`
 
 class SelectlocationsPage extends React.Component {
 

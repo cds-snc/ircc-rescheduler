@@ -123,7 +123,7 @@ export const setRavenContext = (req, res, next) => {
 /* IMPORTANT : Content policy is blocking localhost:3005 so it was added below */
 
 export const cspConfig = {
-  defaultSrc: ["'self'"],
+  defaultSrc: ["'self'",'http://localhost:3005/', 'ws://localhost:3005/', 'http://localhost:4011/'],
   fontSrc: ["'self'", 'https://fonts.gstatic.com'],
   imgSrc: [
     "'self'",
