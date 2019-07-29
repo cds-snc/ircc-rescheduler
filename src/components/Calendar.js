@@ -29,6 +29,8 @@ import { logEvent } from '../utils/analytics'
 import { windowExists } from '../utils/windowExists'
 import { CheckboxAdapter } from '../components/forms/MultipleChoice'
 import { Field } from 'react-final-form'
+import User from './TimeSlots'
+
 
 const jiggle = keyframes`
 10%, 60% {
@@ -488,6 +490,7 @@ const renderDayBoxes = ({
         <li key={i} className={dayBox}>
           <span className="day-box">
             <Time date={selectedDay} locale={locale} />
+            
           </span>
           <button
             type="button"
@@ -503,6 +506,8 @@ const renderDayBoxes = ({
                 }
                 label={dateLabel}
               />
+
+
             </div>
           </button>
         </li>
@@ -574,7 +579,73 @@ renderMonthName.propTypes = {
   locale: PropTypes.string.isRequired,
 }
 
+var location = {
+  users: [
+    {Time: '9:00 am'},
+    {Time: '9:15 am'},
+    {Time: '9:30 am'},
+    {Time: '9:45 am'},
+    {Time: '10:00 am'},
+    {Time: '10:15 am'},
+    {Time: '10:30 am'},
+    {Time: '10:45 am'},
+    {Time: '11:00 am'},
+    {Time: '11:15 am'},
+    {Time: '11:30 am'},
+    {Time: '11:45 am'},
+    {Time: '12:00 pm'},
+  ]
+ };
+
+ var location2 = {
+  users: [
+    {Time: '9:00 am'},
+    {Time: '9:15 am'},
+    {Time: '9:30 am'},
+    {Time: '9:45 am'},
+    {Time: '10:00 am'},
+    {Time: '10:15 am'},
+    {Time: '11:30 am'},
+    {Time: '11:45 am'},
+    {Time: '12:00 pm'},
+  ]
+ };
+
+ 
+ function CompareObjects(location,location2){
+
+
+ }
+
+
+
+
+
+
 class Calendar extends Component {
+
+    stateUser ={
+      users: [
+        {Time: '9:00 am'},
+        {Time: '9:15 am'},
+        {Time: '9:30 am'},
+        {Time: '9:45 am'},
+        {Time: '10:00 am'},
+        {Time: '10:15 am'},
+        {Time: '10:30 am'},
+        {Time: '10:45 am'},
+        {Time: '11:00 am'},
+        {Time: '11:15 am'},
+        {Time: '11:30 am'},
+        {Time: '11:45 am'},
+        {Time: '12:00 pm'},
+      ]
+    }
+
+  
+  
+
+
   constructor(props) {
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
@@ -841,7 +912,8 @@ class Calendar extends Component {
                 </h3>
 
                 <ul id="selectedDays-list">
-                  {renderDayBoxes({
+                  
+                {renderDayBoxes({
                     dayLimit,
                     errorMessage: this.state.errorMessage,
                     selectedDays: value,
@@ -851,8 +923,27 @@ class Calendar extends Component {
                       i18n !== undefined ? i18n._('Remove day') : 'Remove day',
                   })}
                 </ul>
+
+                <ul id="selectedDayss-list">
+                  
+                {
+                  
+                      this.stateUser.users.map((user)=> {
+                        return(<User
+                          Time={user.Time}
+                          
+                          ></User>)
+                      })
+                    }
+                  </ul>
               </div>
             </div>
+
+
+
+
+
+
             {this.props.showAvailability && (
               <div className={value.length ? datesLinkAfter : datesLinkBefore}>
                 <Field
