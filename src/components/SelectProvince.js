@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { Component } from 'react'
 //import { connect } from 'react-redux';
 //import PropTypes from 'prop-types'
@@ -49,13 +50,13 @@ class SelectProvince extends Component {
     else 
       {encodedURI = encodeURI(`http://localhost:4011/locationsbyprov/${province}`)}
 
-    //console.log( "url: " + encodedURI )
+    console.log( "url: " + encodedURI )
     // eslint-disable-next-line no-undef
     return fetch(encodedURI)
       .then((data) => data.json())
       .then((locs) => locs  )
       .catch((error) => {
-        //console.warn(error)
+        console.warn(error)
         return null
       });
   }
@@ -67,7 +68,7 @@ class SelectProvince extends Component {
     })
     this.fetchLocations( selectedProvince )
       .then((locs) => {
-        //console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
+        console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
         this.setState ({
             provLocations: locs,
             cityLocations: [],
@@ -83,7 +84,7 @@ class SelectProvince extends Component {
     })
     this.fetchLocations( selectedProvince, selectedCity )
       .then((locs) => {
-        //console.log('Data in getCities is : ' + JSON.stringify(locs)) 
+        console.log('Data in getCities is : ' + JSON.stringify(locs)) 
         this.setState ({
             cityLocations: locs,
             loading: false,
@@ -110,6 +111,9 @@ class SelectProvince extends Component {
       const locationsData = this.state.provLocations;
       const cityLocations = this.state.cityLocations;
 
+      console.log('State Data in Province is : ' + JSON.stringify(locationsData)) 
+      console.log('State Data in Cities is : ' + JSON.stringify(cityLocations)) 
+
       return (
         <div>
 
@@ -133,7 +137,6 @@ class SelectProvince extends Component {
 
           <ul>
             {locationsData.map(({ locationCity }) => (
-                //console.log ( 'key = '+ locationCity),
                 <li key={locationCity} id={locationCity}>
                     <span>{locationCity}</span>&nbsp;&nbsp; <button onClick={() => this.handleCity(locationCity)}>Select {locationCity}</button>
                 </li>
