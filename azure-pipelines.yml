@@ -39,9 +39,9 @@ jobs:
   pool:
     vmImage: 'Ubuntu-16.04'
   steps:
-  - task: PublishBuildArtifacts@1
+  - task: Docker@2
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'drop'
-      publishLocation: 'Container'
-
+      containerRegistry: 'MTSContainers'
+      repository: 'SAB-GUI'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
