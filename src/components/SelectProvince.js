@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react'
+import { Trans } from '@lingui/react'
+import Language from './Language'
 //import { connect } from 'react-redux';
 //import PropTypes from 'prop-types'
 
@@ -10,19 +12,20 @@ class SelectProvince extends Component {
 
     this.state = {
       provinces : [
-              { _id:"Alberta", name:"Alberta" },
-              { _id:"British Columbia", name:"British Columbia" },
-              { _id:"Manitoba", name:"Manitoba" },
-              { _id:"New Brunswick", name:"New Brunswick" },
-              { _id:"Newfoundland and Labrador", name:"Newfoundland and Labrador" },
-              { _id:"Northwest Territories", name:"Northwest Territories" },
-              { _id:"Nova Scotia", name:"Nova Scotia" },
-              { _id:"Nunavut", name:"Nunavut" },
-              { _id:"Ontario", name:"Ontario" },
-              { _id:"Prince Edward Island", name:"Prince Edward Island" },
-              { _id:"Quebec", name:"Quebec" },
-              { _id:"Saskatchewan", name:"Saskatchewan" },
-              { _id:"Yukon", name:"Yukon" },
+              { _id:"Default", name:"Select a Province", namefr:"Sélectionnez une province" },
+              { _id:"Alberta", name:"Alberta", namefr:"Alberta" },
+              { _id:"British Columbia", name:"British Columbia", namefr:"Colombie-Britannique" },
+              { _id:"Manitoba", name:"Manitoba", namefr:"Manitoba" },
+              { _id:"New Brunswick", name:"New Brunswick", namefr:"Nouveau-Brunswick" },
+              { _id:"Newfoundland and Labrador", name:"Newfoundland and Labrador", namefr:"Terre-Neuve-et-Labrador" },
+              { _id:"Northwest Territories", name:"Northwest Territories", namefr:"Territoires du Nord-Ouest" },
+              { _id:"Nova Scotia", name:"Nova Scotia", namefr:"Nouvelle-Écosse" },
+              { _id:"Nunavut", name:"Nunavut", namefr:"Nunavut" },
+              { _id:"Ontario", name:"Ontario", namefr:"Ontario" },
+              { _id:"Prince Edward Island", name:"Prince Edward Island", namefr:"Île-du-Prince-Édouard" },
+              { _id:"Quebec", name:"Quebec", namefr:"Québec" },
+              { _id:"Saskatchewan", name:"Saskatchewan", namefr:"Saskatchewan" },
+              { _id:"Yukon", name:"Yukon", namefr:"Yukon" },
             ],
       dropdownOpen : true,
       loading: true,
@@ -57,7 +60,7 @@ class SelectProvince extends Component {
       .then((locs) => locs  )
       .catch((error) => {
         console.warn(error)
-        return []
+        return [{'locationCity' : 'Aucun service en ce moment, réessayez plus tard / No service at this moment try again later'}]
       });
   }
    
@@ -68,7 +71,7 @@ class SelectProvince extends Component {
     })
     this.fetchLocations( selectedProvince )
       .then((locs) => {
-        console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
+        //console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
         this.setState ({
             provLocations: locs,
             cityLocations: [],
@@ -84,7 +87,7 @@ class SelectProvince extends Component {
     })
     this.fetchLocations( selectedProvince, selectedCity )
       .then((locs) => {
-        console.log('Data in getCities is : ' + JSON.stringify(locs)) 
+        //console.log('Data in getCities is : ' + JSON.stringify(locs)) 
         this.setState ({
             cityLocations: locs,
             loading: false,
@@ -118,18 +121,31 @@ class SelectProvince extends Component {
         <div>
 
           <p> <br /> </p>
-              
-          <select id="something" value={this.state.provinceName} onChange={this.handleChange} >
-                
-            {provinceNames.map(({ _id, name }) => (
-                <option key={_id} id={_id}>
-                    {name}
-                </option>
-            ))}
-              
-          </select>
+          <Language
+            render={language => (
+              <React.Fragment>
+                {language === 'en' ? (
+                  <select id="ProvEng" onChange={this.handleChange} >
+                    {provinceNames.map(({ _id, name }) => (
+                      <option key={_id} value={_id}>
+                        {name}
+                      </option>
+                    ))} 
+                  </select>
+                ) : (
+                  <select id="ProvFr" value={this.state.provinceName} onChange={this.handleChange} >
+                    {provinceNames.map(({ _id, namefr }) => (
+                      <option key={_id} value={_id}>
+                        {namefr}
+                      </option>
+                    ))} 
+                  </select>
+                )}
+              </React.Fragment>
+            )}
+          />
 
-          <p> Selected province : {this.state.provinceName} </p>
+          <p> <Trans>Selected province</Trans> : {this.state.provinceName} </p>
             
           <button type="submit" value="Submit" onClick={this.handleProvince} > Submit </button>
 
@@ -138,13 +154,13 @@ class SelectProvince extends Component {
           <ul>
             {locationsData.map(({ locationCity }) => (
                 <li key={locationCity} id={locationCity}>
-                    <span>{locationCity}</span>&nbsp;&nbsp; <button onClick={() => this.handleCity(locationCity)}>Select {locationCity}</button>
+                    <button onClick={() => this.handleCity(locationCity)}>&nbsp;{locationCity}&nbsp;</button>
                 </li>
             ))}
           </ul>
           <p> <br /> </p>
           <hr /> 
-          <p> Locations in: {this.state.cityName} <br /> </p>
+          <p> <Trans>Locations in:</Trans> {this.state.cityName} <br /> </p>
 
           <ul>
             {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
