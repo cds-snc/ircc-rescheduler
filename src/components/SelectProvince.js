@@ -57,7 +57,7 @@ class SelectProvince extends Component {
       .then((locs) => locs  )
       .catch((error) => {
         console.warn(error)
-        return null
+        return []
       });
   }
    
