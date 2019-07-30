@@ -54,6 +54,8 @@ export const getPrimarySubdomain = function(req, res, next) {
     notPageMatch(req.path, 'not-found') &&
     notPageMatch(req.path, '500')
   ) {
+    // eslint-disable-next-line no-undef
+    Console.log("Invalid Domain" + req.subdomain );
     return res.redirect(
       `${protocol}://${process.env.RAZZLE_SITE_URL}/not-found`,
     )
