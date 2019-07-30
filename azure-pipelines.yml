@@ -34,4 +34,14 @@ jobs:
       testRunner: JUnit
       testResultsFiles: '**/test-output-*.xml' 
       searchFolder: '$(System.DefaultWorkingDirectory)'
+  
+- job: Publish_Artifact
+  pool:
+    vmImage: 'Ubuntu-16.04'
+  steps:
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'drop'
+      publishLocation: 'Container'
 
