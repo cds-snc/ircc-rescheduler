@@ -22,7 +22,7 @@
     "origin": [
       [
         "src/components/Title.js",
-        27
+        30
       ],
       [
         "src/pages/ExplanationPage.js",
@@ -75,6 +75,15 @@
       [
         "src/pages/ConfirmationPage.js",
         54
+      ]
+    ]
+  },
+  "Available Appointments": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/AppointmentsPage.js",
+        29
       ]
     ]
   },
@@ -150,6 +159,15 @@
       ]
     ]
   },
+  "Confirm Appointment": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/SelectAppointment.js",
+        23
+      ]
+    ]
+  },
   "Contact": {
     "translation": "Contact",
     "origin": [
@@ -200,6 +218,42 @@
       [
         "src/pages/ReviewPage.js",
         125
+      ]
+    ]
+  },
+  "Dummy Appointment Time 1": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/SelectAppointment.js",
+        16
+      ]
+    ]
+  },
+  "Dummy Appointment Time 2": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/SelectAppointment.js",
+        17
+      ]
+    ]
+  },
+  "Dummy Appointment Time 3": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/SelectAppointment.js",
+        18
+      ]
+    ]
+  },
+  "Dummy Appointment Time 4": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/SelectAppointment.js",
+        19
       ]
     ]
   },
@@ -390,6 +444,10 @@
     "translation": "Accueil",
     "origin": [
       [
+        "src/pages/AppointmentsPage.js",
+        42
+      ],
+      [
         "src/pages/ErrorPage.js",
         84
       ],
@@ -517,6 +575,15 @@
       [
         "src/components/LanguageSwitcher.js",
         73
+      ]
+    ]
+  },
+  "Locations in:": {
+    "translation": "Emplacements en :",
+    "origin": [
+      [
+        "src/components/SelectProvince.js",
+        164
       ]
     ]
   },
@@ -699,7 +766,7 @@
     "origin": [
       [
         "src/components/Title.js",
-        50
+        53
       ]
     ]
   },
@@ -859,7 +926,7 @@
     "origin": [
       [
         "src/components/Title.js",
-        46
+        49
       ]
     ]
   },
@@ -939,7 +1006,7 @@
     "origin": [
       [
         "src/components/Title.js",
-        38
+        41
       ]
     ]
   },
@@ -948,7 +1015,7 @@
     "origin": [
       [
         "src/components/Title.js",
-        35
+        38
       ]
     ]
   },
@@ -988,7 +1055,7 @@
     "origin": [
       [
         "src/components/Title.js",
-        32
+        35
       ]
     ]
   },
@@ -1024,7 +1091,7 @@
     "origin": [
       [
         "src/components/Title.js",
-        24
+        27
       ]
     ]
   },
@@ -1034,6 +1101,15 @@
       [
         "src/components/Calendar.js",
         839
+      ]
+    ]
+  },
+  "Selected province": {
+    "translation": "Province sélectionnée",
+    "origin": [
+      [
+        "src/components/SelectProvince.js",
+        149
       ]
     ]
   },
@@ -1082,7 +1158,7 @@
     "origin": [
       [
         "src/components/Title.js",
-        43
+        46
       ]
     ]
   },
@@ -1128,6 +1204,24 @@
       [
         "src/validation.js",
         101
+      ]
+    ]
+  },
+  "Start by selecting a Province": {
+    "translation": "Commencez par sélectionner une province",
+    "origin": [
+      [
+        "src/components/Title.js",
+        24
+      ]
+    ]
+  },
+  "Start by selecting a province": {
+    "translation": "Commencez par sélectionner une province",
+    "origin": [
+      [
+        "src/pages/SelectLocationsPage.js",
+        50
       ]
     ]
   },
