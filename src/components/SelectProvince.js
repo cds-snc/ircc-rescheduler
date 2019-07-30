@@ -12,20 +12,20 @@ class SelectProvince extends Component {
 
     this.state = {
       provinces : [
-              { _id:"Default", name:"Select a Province", namefr:"Sélectionnez une province" },
-              { _id:"Alberta", name:"Alberta", namefr:"Alberta" },
-              { _id:"British Columbia", name:"British Columbia", namefr:"Colombie-Britannique" },
-              { _id:"Manitoba", name:"Manitoba", namefr:"Manitoba" },
-              { _id:"New Brunswick", name:"New Brunswick", namefr:"Nouveau-Brunswick" },
-              { _id:"Newfoundland and Labrador", name:"Newfoundland and Labrador", namefr:"Terre-Neuve-et-Labrador" },
-              { _id:"Northwest Territories", name:"Northwest Territories", namefr:"Territoires du Nord-Ouest" },
-              { _id:"Nova Scotia", name:"Nova Scotia", namefr:"Nouvelle-Écosse" },
-              { _id:"Nunavut", name:"Nunavut", namefr:"Nunavut" },
-              { _id:"Ontario", name:"Ontario", namefr:"Ontario" },
-              { _id:"Prince Edward Island", name:"Prince Edward Island", namefr:"Île-du-Prince-Édouard" },
-              { _id:"Quebec", name:"Quebec", namefr:"Québec" },
-              { _id:"Saskatchewan", name:"Saskatchewan", namefr:"Saskatchewan" },
-              { _id:"Yukon", name:"Yukon", namefr:"Yukon" },
+              { _id:0, idfr:0, name:"Select a Province", namefr:"Sélectionnez une province" },
+              { _id:1, idfr:1, name:"Alberta", namefr:"Alberta" },
+              { _id:2, idfr:2, name:"British Columbia", namefr:"Colombie-Britannique" },
+              { _id:3, idfr:4, name:"Manitoba", namefr:"Manitoba" },
+              { _id:4, idfr:5, name:"New Brunswick", namefr:"Nouveau-Brunswick" },
+              { _id:5, idfr:11, name:"Newfoundland and Labrador", namefr:"Terre-Neuve-et-Labrador" },
+              { _id:6, idfr:12, name:"Northwest Territories", namefr:"Territoires du Nord-Ouest" },
+              { _id:7, idfr:6, name:"Nova Scotia", namefr:"Nouvelle-Écosse" },
+              { _id:8, idfr:7, name:"Nunavut", namefr:"Nunavut" },
+              { _id:9, idfr:8, name:"Ontario", namefr:"Ontario" },
+              { _id:10, idfr:3, name:"Prince Edward Island", namefr:"Île-du-Prince-Édouard" },
+              { _id:11, idfr:9, name:"Quebec", namefr:"Québec" },
+              { _id:12, idfr:10, name:"Saskatchewan", namefr:"Saskatchewan" },
+              { _id:13, idfr:13, name:"Yukon", namefr:"Yukon" },
             ],
       dropdownOpen : true,
       loading: true,
@@ -111,6 +111,7 @@ class SelectProvince extends Component {
 
   render() {
       const provinceNames = this.state.provinces;
+      const provinceNamesFr = this.state.provinces.sort((a, b) => a.idfr > b.idfr);
       const locationsData = this.state.provLocations;
       const cityLocations = this.state.cityLocations;
 
@@ -127,15 +128,15 @@ class SelectProvince extends Component {
                 {language === 'en' ? (
                   <select id="ProvEng" onChange={this.handleChange} >
                     {provinceNames.map(({ _id, name }) => (
-                      <option key={_id} value={_id}>
+                      <option key={_id} value={name}>
                         {name}
                       </option>
                     ))} 
                   </select>
                 ) : (
                   <select id="ProvFr" value={this.state.provinceName} onChange={this.handleChange} >
-                    {provinceNames.map(({ _id, namefr }) => (
-                      <option key={_id} value={_id}>
+                    {provinceNamesFr.map(({ name, namefr }) => (
+                      <option key={name} value={name}>
                         {namefr}
                       </option>
                     ))} 
