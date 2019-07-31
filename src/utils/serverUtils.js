@@ -1,4 +1,4 @@
-import { setGlobalLocation, whitelist } from '../locations'
+import { setGlobalLocation } from '../locations'
 import gitHash from './gitHash'
 import path from 'path'
 import Raven from 'raven'
@@ -48,11 +48,9 @@ export const getPrimarySubdomain = function(req, res, next) {
     req.subdomain = 'vancouver'
   }
 
-  /* If domain isn't on the whitelist and we're not on the not-found or 500 page */
   if (
-    !whitelist.includes(req.subdomain) &&
-    notPageMatch(req.path, 'not-found') &&
-    notPageMatch(req.path, '500')
+    !notPageMatch(req.path, 'not-found') &&
+    !notPageMatch(req.path, '500')
   ) {
     // eslint-disable-next-line no-undef
     Console.log("Invalid Domain" + req.subdomain );
