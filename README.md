@@ -1,4 +1,4 @@
-# Reschedule a Citizenship Test service overview 🙅🗓
+# Reschedule a Citizenship Test service overview
 
 This is a service that allows users to reschedule their language tests during the citizenship process. This service was designed and developed by the [Canadian Digital Service](https://digital.canada.ca/), and is now owned and maintained by [Immigration, Refugees, and Citizenship Canada (IRCC)](https://www.canada.ca/en/immigration-refugees-citizenship.html).
 
