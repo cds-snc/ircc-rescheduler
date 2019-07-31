@@ -2,6 +2,7 @@
 //| Important                                                  |
 //| - Add sub-domains here that we want to allow               |
 //+------------------------------------------------------------+
+export const whitelist = ['vancouver', 'calgary', 'montreal']
 
 const LocationCache = (function() {
   let _cachedLocation = undefined
@@ -23,18 +24,7 @@ const LocationCache = (function() {
 
   const getLocation = location => {
     if (!_cachedLocation || (location && _cachedLocation.id !== location)) {
-      /* if
-          - no previous location has been saved
-          - no location string provided
-        throw an error
-      */
-      if (!location) {
-        if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
-          location = 'vancouver'
-        } else {
-          location = 'undefined'
-        }
-      }
+      location = "vancouver"
       _setLocation(location)
     }
 
