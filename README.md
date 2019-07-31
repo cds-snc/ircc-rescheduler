@@ -12,7 +12,7 @@ We redesigned the letter to make it clearer and simpler to understand, and it is
 * [Technical overview](#technical-overview-)
   * [Use of third-party services](#use-of-third-party-services-)
   * [Automated tests](#automated-tests-)
-* [Setup](#setup-)
+* [Setup](#setup)
 * [Startup](#startup-)
 * [Running the tests ‍](#running-the-tests-)
 * [Additional documentation](#additional-documentation-)
