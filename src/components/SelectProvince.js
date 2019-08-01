@@ -2,8 +2,61 @@
 import React, { Component } from 'react'
 import { Trans } from '@lingui/react'
 import Language from './Language'
+import { css } from 'emotion'
+import { theme } from '../styles'
+import Button from '../components/forms/Button'
 //import { connect } from 'react-redux';
 //import PropTypes from 'prop-types'
+
+const govuk_select = css`
+  font-family: SourceSans,Helvetica,Arial,sans-serif;
+  font-size: ${theme.font.base};
+  background: transparent;
+  line-height: 1.4;
+  max-width:100%;
+  height:40px;
+  option {
+    background-color: #1d70b8;
+  }
+  &:focus, &:before {
+    -webkit-box-shadow: 0 0 0 4px #ffbf47;
+    -moz-box-shadow: 0 0 0 4px #ffbf47;
+    box-shadow: 0 0 0 4px #ffbf47;
+  }
+`
+const govuk_label = css`
+  margin-bottom: 0.17rem;
+  display: block;
+  font-size: ${theme.font.lg}
+`
+const govuk_p = css`
+  margin-bottom: 0.17rem;
+  display: block;
+  font-size: 1.2rem 
+`
+const govuk_List = css`
+  margin: 2px 0px 5px 0px;
+  background-color: ${theme.colour.greyLight}
+`
+const govuk_ListButton = css`
+  width: 275px;
+  font-size: ${theme.font.sm}; 
+  background-color: ${theme.colour.greyLight}
+  cursor: pointer;
+  padding: 0px 8px 0px 8px;
+  &:hover {
+    background-color: #00692f;
+    color: ${theme.colour.white};
+    -webkit-box-shadow: 0 0 0 4px #ffbf47;
+    -moz-box-shadow: 0 0 0 4px #ffbf47;
+    box-shadow: 0 0 0 4px #ffbf47; 
+  }
+`
+const listLocations = css`
+  margin-bottom: 0.17rem;
+  display: block;
+  font-size: 1.2rem 
+`
 
 
 const provinceNames = [
@@ -123,12 +176,14 @@ class SelectProvince extends Component {
       return (
         <div>
 
-          <p> <br /> </p>
+          <label className={govuk_label} htmlFor="ProvinceList">
+            <Trans>Select a province:</Trans>
+          </label>
           <Language
             render={language => (
               <React.Fragment>
                 {language === 'en' ? (
-                  <select id="ProvEng" onChange={this.handleChange} >
+                  <select className={govuk_select} name="ProvinceList" id="ProvEng" onChange={this.handleChange} >
                     {provinceNames.map(({ _id, name }) => (
                       <option key={_id} value={name}>
                         {name}
@@ -136,7 +191,7 @@ class SelectProvince extends Component {
                     ))} 
                   </select>
                 ) : (
-                  <select id="ProvFr" value={this.state.provinceName} onChange={this.handleChange} >
+                  <select className={govuk_select}  name="ProvinceList" id="ProvFr" onChange={this.handleChange} >
                     {provinceNamesFr.map(({ name, namefr }) => (
                       <option key={name} value={name}>
                         {namefr}
@@ -148,16 +203,16 @@ class SelectProvince extends Component {
             )}
           />
 
-          <p> <Trans>Selected province</Trans> : {this.state.provinceName} </p>
+          <p className={govuk_p}> <Trans>Selected province</Trans> : {this.state.provinceName} </p>
             
-          <button type="submit" value="Submit" onClick={this.handleProvince} > Submit </button>
+          <Button type="submit" value="Submit" onClick={this.handleProvince} > Submit </Button>
 
           <p> <br /> </p>
 
-          <ul>
+          <ul >
             {locationsData.map(({ locationCity }) => (
-                <li key={locationCity} id={locationCity}>
-                    <button onClick={() => this.handleCity(locationCity)}>&nbsp;{locationCity}&nbsp;</button>
+                <li className={govuk_List} key={locationCity} id={locationCity}>
+                    <button className={govuk_ListButton} onClick={() => this.handleCity(locationCity)}>&nbsp;{locationCity}&nbsp;</button>
                 </li>
             ))}
           </ul>
@@ -165,7 +220,7 @@ class SelectProvince extends Component {
           <hr /> 
           <p> <Trans>Locations in:</Trans> {this.state.cityName} <br /> </p>
 
-          <ul>
+          <ul className={listLocations}>
             {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
               <li key={_id} id={_id} >
                 {locationId}<br />
