@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-console */
 import React, { Component } from "react";
 
 export default class TimeForm extends Component {
