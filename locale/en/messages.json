@@ -583,7 +583,7 @@
     "origin": [
       [
         "src/components/SelectProvince.js",
-        164
+        214
       ]
     ]
   },
@@ -1104,12 +1104,21 @@
       ]
     ]
   },
+  "Select a province:": {
+    "translation": "Select a province:",
+    "origin": [
+      [
+        "src/components/SelectProvince.js",
+        173
+      ]
+    ]
+  },
   "Selected province": {
     "translation": "Selected province",
     "origin": [
       [
         "src/components/SelectProvince.js",
-        149
+        199
       ]
     ]
   },
