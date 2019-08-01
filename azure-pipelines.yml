@@ -45,3 +45,13 @@ jobs:
       repository: 'SAB-GUI'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
+
+- job: Deploy_Jenkins
+  steps:
+  - task: JenkinsQueueJob@2
+    inputs:
+      serverEndpoint: 'MTSJenkins'
+      jobName: 'dts-sab'
+      captureConsole: true
+      capturePipeline: true
+      isParameterizedJob: false
