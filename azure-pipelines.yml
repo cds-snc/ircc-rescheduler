@@ -20,20 +20,19 @@ jobs:
 
 # the cypress tests are using docker-compose.yml. compose builds the Dockerfile to build the app and serve it on localhost
 # then the cypress container is built from cypress.Dockerfile and runs the tests against the served app on localhost.
-# - job: Cypress_tests
-#   pool:
-#     vmImage: 'Ubuntu-16.04'
-#   steps:
-#   - script: docker-compose up --exit-code-from e2e
-#     continueOnError: "true"
-#     displayName: Running Cypress tests
-
-#   - task: PublishTestResults@2
-#     condition: succeededOrFailed()
-#     inputs:
-#       testRunner: JUnit
-#       testResultsFiles: '**/test-output-*.xml' 
-#       searchFolder: '$(System.DefaultWorkingDirectory)'
+- job: Cypress_tests
+  pool:
+    vmImage: 'Ubuntu-16.04'
+  steps:
+  - script: docker-compose up --exit-code-from e2e
+    continueOnError: "true"
+    displayName: Running Cypress tests
+  - task: PublishTestResults@2
+    condition: succeededOrFailed()
+    inputs:
+      testRunner: JUnit
+      testResultsFiles: '**/test-output-*.xml' 
+      searchFolder: '$(System.DefaultWorkingDirectory)'
   
 - job: Publish_Artifact
   pool:
