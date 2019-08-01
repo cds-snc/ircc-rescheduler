@@ -54,4 +54,5 @@ jobs:
       jobName: 'dts-sab'
       captureConsole: true
       capturePipeline: true
-      isParameterizedJob: false
+      isParameterizedJob: true
+      jobParameters: 'azure_build_number=813'
