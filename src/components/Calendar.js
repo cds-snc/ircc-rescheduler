@@ -29,7 +29,7 @@ import { logEvent } from '../utils/analytics'
 import { windowExists } from '../utils/windowExists'
 import { CheckboxAdapter } from '../components/forms/MultipleChoice'
 import { Field } from 'react-final-form'
-import User from './TimeSlots'
+import TimeSlots from './TimeSlots'
 
 
 const jiggle = keyframes`
@@ -647,6 +647,7 @@ class Calendar extends Component {
 
 
   constructor(props) {
+    
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
@@ -756,6 +757,8 @@ class Calendar extends Component {
   }
 
   render() {
+
+    
     let {
       input: { onBlur, onFocus, value },
       dayLimit,
@@ -923,27 +926,9 @@ class Calendar extends Component {
                       i18n !== undefined ? i18n._('Remove day') : 'Remove day',
                   })}
                 </ul>
-
-                <ul id="selectedDayss-list">
-                  
-                {
-                  
-                      this.stateUser.users.map((user)=> {
-                        return(<User
-                          Time={user.Time}
-                          
-                          ></User>)
-                      })
-                    }
-                  </ul>
+                  <TimeSlots/>
               </div>
             </div>
-
-
-
-
-
-
             {this.props.showAvailability && (
               <div className={value.length ? datesLinkAfter : datesLinkBefore}>
                 <Field
