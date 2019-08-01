@@ -50,7 +50,7 @@ jobs:
   steps:
   - task: JenkinsQueueJob@2
     inputs:
-      serverEndpoint: 'https://jenkins.esdc.online'
+      serverEndpoint: 'MTSJenkins'
       jobName: 'dts-sab'
       captureConsole: true
       capturePipeline: true
