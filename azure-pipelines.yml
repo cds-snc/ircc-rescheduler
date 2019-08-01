@@ -35,6 +35,7 @@ jobs:
       searchFolder: '$(System.DefaultWorkingDirectory)'
   
 - job: Publish_Artifact
+  dependsOn: Cypress_tests
   pool:
     vmImage: 'Ubuntu-16.04'
   steps:
@@ -46,6 +47,7 @@ jobs:
       Dockerfile: '**/Dockerfile'
 
 - job: Deploy_Jenkins
+  dependsOn: Publish_Artifact
   steps:
   - task: JenkinsQueueJob@2
     inputs:
