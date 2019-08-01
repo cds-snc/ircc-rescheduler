@@ -27,8 +27,7 @@ jobs:
   - script: docker-compose up --exit-code-from e2e
     continueOnError: "true"
     displayName: Running Cypress tests
-
-  - task: PublishTestResults@1
+  - task: PublishTestResults@2
     condition: succeededOrFailed()
     inputs:
       testRunner: JUnit
@@ -36,12 +35,25 @@ jobs:
       searchFolder: '$(System.DefaultWorkingDirectory)'
   
 - job: Publish_Artifact
+  dependsOn: Cypress_tests
   pool:
     vmImage: 'Ubuntu-16.04'
   steps:
-  - task: Docker@2
-    inputs:
+   - task: Docker@2
+     inputs:
       containerRegistry: 'MTSContainers'
       repository: 'SAB-GUI'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
+
+- job: Deploy_Jenkins
+  dependsOn: Publish_Artifact
+  steps:
+  - task: JenkinsQueueJob@2
+    inputs:
+      serverEndpoint: 'MTSJenkins'
+      jobName: 'dts-sab'
+      captureConsole: true
+      capturePipeline: true
+      isParameterizedJob: true
+      jobParameters: 'azure_build_number=$(Build.BuildId)'
