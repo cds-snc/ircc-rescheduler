@@ -35,16 +35,16 @@ jobs:
 #       testResultsFiles: '**/test-output-*.xml' 
 #       searchFolder: '$(System.DefaultWorkingDirectory)'
   
-# - job: Publish_Artifact
-#   pool:
-#     vmImage: 'Ubuntu-16.04'
-#   steps:
-#   - task: Docker@2
-#     inputs:
-#       containerRegistry: 'MTSContainers'
-#       repository: 'SAB-GUI'
-#       command: 'buildAndPush'
-#       Dockerfile: '**/Dockerfile'
+- job: Publish_Artifact
+  pool:
+    vmImage: 'Ubuntu-16.04'
+  steps:
+   - task: Docker@2
+     inputs:
+      containerRegistry: 'MTSContainers'
+      repository: 'SAB-GUI'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'
 
 - job: Deploy_Jenkins
   steps:
