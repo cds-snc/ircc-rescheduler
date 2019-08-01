@@ -55,4 +55,4 @@ jobs:
       captureConsole: true
       capturePipeline: true
       isParameterizedJob: true
-      jobParameters: 'azure_build_number=811'
+      jobParameters: azure_build_number=$(Build.BuildNumber)
