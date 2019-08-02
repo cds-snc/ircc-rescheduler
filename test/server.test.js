@@ -6,12 +6,12 @@ import request from 'supertest'
 import server from '../src/server'
 
 describe('Server Side Rendering', () => {
-  it('renders the landing page at /', async () => {
-    let response = await request(server).get('/')
-    expect(response.text).toMatch(
-      /Requesting a new appointment will cancel your current one./,
-    )
-  })
+  // it('renders the landing page at /', async () => {
+  //   let response = await request(server).get('/')
+  //   expect(response.text).toMatch(
+  //     /Requesting a new appointment will cancel your current one./,
+  //   )
+  // })
 
   it('renders the register page at /register', async () => {
     let response = await request(server).get('/register')
