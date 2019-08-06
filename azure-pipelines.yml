@@ -45,6 +45,9 @@ jobs:
       repository: 'SAB-GUI'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
+      Tags: |
+        $(Build.BuildId)
+        Latest
 
 - job: Deploy_Jenkins
   dependsOn: Publish_Artifact
