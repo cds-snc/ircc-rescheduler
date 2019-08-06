@@ -3,8 +3,10 @@ import React, { Component } from 'react'
 import { Trans } from '@lingui/react'
 import Language from './Language'
 import { css } from 'emotion'
-import { theme } from '../styles'
+import { theme, visuallyhidden } from '../styles'
 import Button from '../components/forms/Button'
+//import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons'
+
 //import { connect } from 'react-redux';
 //import PropTypes from 'prop-types'
 
@@ -209,6 +211,8 @@ class SelectProvince extends Component {
 
           <p> <br /> </p>
 
+          {/* Display the cities where an office is available */}
+
           <ul >
             {locationsData.map(({ locationCity }) => (
                 <li className={govuk_List} key={locationCity} id={locationCity}>
@@ -218,14 +222,40 @@ class SelectProvince extends Component {
           </ul>
           <p> <br /> </p>
           <hr /> 
-          <p> <Trans>Locations in:</Trans> {this.state.cityName} <br /> </p>
+
+          {/* Display the labels below only when user has selected a city */}
+
+          {this.state.cityName === null ? (
+              <p> <Trans>Locations in:</Trans> {this.state.cityName} <br /> </p> 
+            ) : (
+              null
+          )}
 
           <ul className={listLocations}>
             {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
               <li key={_id} id={_id} >
-                {locationId}<br />
-                {locationAddress}<br />
-                {hours}<br /> &nbsp; <br /> 
+                <ul> 
+                  <li>
+                    {/* <FaExternalLinkAlt color='#00823B' size='200' />  */}
+                    <Language
+                      render={language =>
+                        language === 'fr' ? (
+                          <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} rel="noopener noreferrer" target='_blank' > 
+                            <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                            <span>ServiceCanada.gc.ca</span> 
+                          </a>
+                        ) : (
+                          <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} rel="noopener noreferrer" target='_blank' > 
+                            <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                            <span>ServiceCanada.gc.ca</span>
+                          </a>  
+                         )
+                      }
+                    />
+                  </li>
+                  <li> {/* <FaBuilding color='#00823B' size='200' /> */} {locationAddress}</li>
+                  <li> {/* <FaClock color='#00823B' size='200' />    */} {hours}</li>
+                </ul>
               </li>
             ))}
           </ul>
