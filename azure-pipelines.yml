@@ -47,7 +47,7 @@ jobs:
       Dockerfile: '**/Dockerfile'
       Tags: |
         $(Build.BuildId)
-        Latest
+        latest
 
 - job: Deploy_Jenkins
   dependsOn: Publish_Artifact
