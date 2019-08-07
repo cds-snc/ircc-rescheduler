@@ -5,7 +5,7 @@ import Language from './Language'
 import { css } from 'emotion'
 import { theme, visuallyhidden } from '../styles'
 import Button from '../components/forms/Button'
-//import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons'
+import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
 
 //import { connect } from 'react-redux';
 //import PropTypes from 'prop-types'
@@ -38,6 +38,7 @@ const govuk_p = css`
 `
 const govuk_List = css`
   margin: 2px 0px 5px 0px;
+  padding: 0px 8px 0px 8px;
   background-color: ${theme.colour.greyLight}
 `
 const govuk_ListButton = css`
@@ -55,11 +56,10 @@ const govuk_ListButton = css`
   }
 `
 const listLocations = css`
-  margin-bottom: 0.17rem;
+  margin-bottom: 0.50rem;
   display: block;
   font-size: 1.2rem 
 `
-
 
 const provinceNames = [
   { _id:0, idfr:0, name:"Select a Province", namefr:"Sélectionnez une province" },
@@ -231,30 +231,30 @@ class SelectProvince extends Component {
               null
           )}
 
-          <ul className={listLocations}>
+          <ul>
             {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-              <li key={_id} id={_id} >
+              <li key={_id} id={_id} className={listLocations}>
                 <ul> 
                   <li>
-                    {/* <FaExternalLinkAlt color='#00823B' size='200' />  */}
+                    <FaExternalLinkAlt color='#00823B' size='15' /> 
                     <Language
                       render={language =>
                         language === 'fr' ? (
                           <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} rel="noopener noreferrer" target='_blank' > 
                             <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                            <span>ServiceCanada.gc.ca</span> 
+                            <span> ServiceCanada.gc.ca</span> 
                           </a>
                         ) : (
                           <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} rel="noopener noreferrer" target='_blank' > 
                             <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                            <span>ServiceCanada.gc.ca</span>
+                            <span> ServiceCanada.gc.ca</span>
                           </a>  
                          )
                       }
                     />
                   </li>
-                  <li> {/* <FaBuilding color='#00823B' size='200' /> */} {locationAddress}</li>
-                  <li> {/* <FaClock color='#00823B' size='200' />    */} {hours}</li>
+                  <li> <FaBuilding color='#00823B' size='15' /> {locationAddress}</li>
+                  <li> <FaClock color='#00823B' size='15' /> {hours}</li>
                 </ul>
               </li>
             ))}
