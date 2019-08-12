@@ -232,6 +232,7 @@ class SelectlocationsPage extends React.Component {
 
   render() {
 
+    // eslint-disable-next-line no-unused-vars
     let { context: { store: { selectProvince = {} } = {} } = {} } = this.props
      
     const locationsData = this.state.provLocations;
