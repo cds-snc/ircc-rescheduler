@@ -5,6 +5,7 @@ node_modules
 *.swp
 *.pem
 .env*
+env.local
 reports
 cypress/screenshots
 cypress/videos
