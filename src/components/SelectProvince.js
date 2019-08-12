@@ -1,14 +1,16 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { Trans } from '@lingui/react'
 import Language from './Language'
 import { css } from 'emotion'
 import { theme, visuallyhidden } from '../styles'
 import Button from '../components/forms/Button'
 import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
+import { matchPropTypes } from '../components/Title'
+import { contextPropTypes } from '../context'
+import withContext from '../withContext'
 
-//import { connect } from 'react-redux';
-//import PropTypes from 'prop-types'
 
 const govuk_select = css`
   font-family: SourceSans,Helvetica,Arial,sans-serif;
@@ -32,7 +34,7 @@ const govuk_label = css`
   font-size: ${theme.font.lg}
 `
 const govuk_p = css`
-  margin-bottom: 0.17rem;
+  margin-bottom: 0.37rem;
   display: block;
   font-size: 1.2rem 
 `
@@ -58,7 +60,18 @@ const govuk_ListButton = css`
 const listLocations = css`
   margin-bottom: 0.50rem;
   display: block;
-  font-size: 1.2rem 
+  background-color: ${theme.colour.green};
+  color: ${theme.colour.white};
+  box-shadow: 0 2px 0 #141414;
+  padding: 10px;
+  border: 2px;
+  &:hover {
+    background-color: ${theme.colour.greenDark};
+    -webkit-box-shadow: 0 0 0 4px #ffbf47;
+    -moz-box-shadow: 0 0 0 4px #ffbf47;
+    box-shadow: 0 0 0 4px #ffbf47; 
+  }
+  a {color: inherit;}
 `
 
 const provinceNames = [
@@ -88,8 +101,8 @@ class SelectProvince extends Component {
     this.state = {
       dropdownOpen : true,
       loading: true,
-      provinceName: '',
-      cityName: '', 
+      provinceName: null,
+      cityName: null, 
       provLocations: [],
       cityLocations:[],
     }
@@ -99,9 +112,26 @@ class SelectProvince extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleProvince = this.handleProvince.bind(this);
     this.handleCity = this.handleCity.bind(this);
+    this.handleLocation = this.handleLocation.bind(this);
     this.fetchLocations = this.fetchLocations.bind(this);
   }
 
+  async handleLocation (selectedCity) {
+    // eslint-disable-next-line no-console
+    console.log(this.props) 
+    //console.log('title: ' + this.props.match.path.slice(1))
+    // eslint-disable-next-line no-console
+    console.log(this.props.context.store )
+    // eslint-disable-next-line no-console
+    let values = { 'selectCity' : selectedCity }
+    console.log(values)
+    
+    await this.props.context.setStore('selectProvince', values)
+
+    // eslint-disable-next-line no-console
+    console.log(this.props.context.store )
+    await this.props.router.push('/calendar')
+  }
 
   fetchLocations(province, city) {
     
@@ -134,7 +164,7 @@ class SelectProvince extends Component {
         this.setState ({
             provLocations: locs,
             cityLocations: [],
-            cityName: '',
+            cityName: null,
             loading: false,
         })
       })
@@ -153,7 +183,7 @@ class SelectProvince extends Component {
         })
       })
   }
-  
+
   handleChange(event) {
     this.setState({ provinceName : event.target.value });
   }
@@ -169,99 +199,123 @@ class SelectProvince extends Component {
   }
 
   render() {
-      const locationsData = this.state.provLocations;
-      const cityLocations = this.state.cityLocations;
 
-      console.log('State Data in Province is : ' + JSON.stringify(locationsData)) 
-      console.log('State Data in Cities is : ' + JSON.stringify(cityLocations)) 
+    // eslint-disable-next-line no-unused-vars
+    let { context: { store: { selectProvince = {} } = {} } = {} } = this.props
+     
+    const locationsData = this.state.provLocations;
+    const cityLocations = this.state.cityLocations;
 
-      return (
-        <div>
+    //console.log('State Data in Province is : ' + JSON.stringify(locationsData)) 
+    //console.log('State Data in Cities is : ' + JSON.stringify(cityLocations)) 
 
-          <label className={govuk_label} htmlFor="ProvinceList">
-            <Trans>Select a province:</Trans>
-          </label>
-          <Language
-            render={language => (
-              <React.Fragment>
-                {language === 'en' ? (
-                  <select className={govuk_select} name="ProvinceList" id="ProvEng" onChange={this.handleChange} >
-                    {provinceNames.map(({ _id, name }) => (
-                      <option key={_id} value={name}>
-                        {name}
-                      </option>
-                    ))} 
-                  </select>
-                ) : (
-                  <select className={govuk_select}  name="ProvinceList" id="ProvFr" onChange={this.handleChange} >
-                    {provinceNamesFr.map(({ name, namefr }) => (
-                      <option key={name} value={name}>
-                        {namefr}
-                      </option>
-                    ))} 
-                  </select>
-                )}
-              </React.Fragment>
-            )}
-          />
+    return (
+      <div>
 
-          <p className={govuk_p}> <Trans>Selected province</Trans> : {this.state.provinceName} </p>
-            
-          <Button type="submit" value="Submit" onClick={this.handleProvince} > Submit </Button>
-
-          <p> <br /> </p>
-
-          {/* Display the cities where an office is available */}
-
-          <ul >
-            {locationsData.map(({ locationCity }) => (
-                <li className={govuk_List} key={locationCity} id={locationCity}>
-                    <button className={govuk_ListButton} onClick={() => this.handleCity(locationCity)}>&nbsp;{locationCity}&nbsp;</button>
-                </li>
-            ))}
-          </ul>
-          <p> <br /> </p>
-          <hr /> 
-
-          {/* Display the labels below only when user has selected a city */}
-
-          {this.state.cityName === null ? (
-              <p> <Trans>Locations in:</Trans> {this.state.cityName} <br /> </p> 
-            ) : (
-              null
+        <label className={govuk_label} htmlFor="ProvinceList">
+          <Trans>Select a province:</Trans>
+        </label>
+        <Language
+          render={language => (
+            <React.Fragment>
+              {language === 'en' ? (
+                <select className={govuk_select} name="ProvinceList" id="ProvEng" onChange={this.handleChange} >
+                  {provinceNames.map(({ _id, name }) => (
+                    <option key={_id} value={name}>
+                      {name}
+                    </option>
+                  ))} 
+                </select>
+              ) : (
+                <select className={govuk_select}  name="ProvinceList" id="ProvFr" onChange={this.handleChange} >
+                  {provinceNamesFr.map(({ name, namefr }) => (
+                    <option key={name} value={name}>
+                      {namefr}
+                    </option>
+                  ))} 
+                </select>
+              )}
+            </React.Fragment>
           )}
+        />
 
-          <ul>
-            {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-              <li key={_id} id={_id} className={listLocations}>
-                <ul> 
-                  <li>
-                    <FaExternalLinkAlt color='#00823B' size='15' /> 
-                    <Language
-                      render={language =>
-                        language === 'fr' ? (
-                          <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} rel="noopener noreferrer" target='_blank' > 
-                            <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                            <span> ServiceCanada.gc.ca</span> 
-                          </a>
-                        ) : (
-                          <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} rel="noopener noreferrer" target='_blank' > 
-                            <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                            <span> ServiceCanada.gc.ca</span>
-                          </a>  
-                         )
-                      }
-                    />
-                  </li>
-                  <li> <FaBuilding color='#00823B' size='15' /> {locationAddress}</li>
-                  <li> <FaClock color='#00823B' size='15' /> {hours}</li>
-                </ul>
+        <p> <br /> </p>
+          
+        <Button type="submit" value="Submit" onClick={this.handleProvince} > Submit </Button>
+
+        {this.state.provinceName === null ? ( 
+          null
+        ) : (
+          <React.Fragment>
+            <p>&nbsp;</p>
+            <p className={govuk_p}> <Trans>Selected province</Trans> : {this.state.provinceName} </p>
+            <hr /> 
+          </React.Fragment>
+        )}
+
+        <p> <br /> </p>
+
+        {/* Display the cities where an office is available */}
+
+        <ul >
+          {locationsData.map(({ locationCity }) => (
+              <li className={govuk_List} key={locationCity} id={locationCity}>
+                  <button className={govuk_ListButton} onClick={() => this.handleCity(locationCity)}>&nbsp;{locationCity}&nbsp;</button>
               </li>
-            ))}
-          </ul>
-        </div>
-      );
+          ))}
+        </ul>
+        
+        {/* Display the labels below only when user has selected a city */}
+
+        {this.state.cityName === null ? ( 
+          null
+        ) : (
+          <React.Fragment>
+            <p> <br /> </p>
+            <p> <Trans>Locations in:</Trans> {this.state.cityName} <br /> </p> 
+            <hr /> 
+          </React.Fragment>
+        )}
+
+        <ul>
+          {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
+            <li key={_id} id={_id} className={listLocations} onClick={() => {this.handleLocation(locationId)}}>
+              <ul> 
+                <li>
+                  <FaExternalLinkAlt color='#ffbf47' size='18' /> 
+                  <Language
+                    render={language =>
+                      language === 'fr' ? (
+                        <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} rel="noopener noreferrer" target='_blank' > 
+                          <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                          <span> ServiceCanada.gc.ca</span> 
+                        </a>
+                      ) : (
+                        <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} rel="noopener noreferrer" target='_blank' > 
+                          <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                          <span> ServiceCanada.gc.ca</span>
+                        </a>  
+                        )
+                    }
+                  />
+                </li>
+                <li> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</li>
+                <li> <FaClock color='#ffbf47' size='18' /> {hours}</li>
+              </ul>
+            </li>
+          ))}
+        </ul>
+        <button onClick={() => this.handleLocation(this.state.cityName)}> testing button </button>
+      </div>
+    );
   }
 }
 
-export default SelectProvince;
+SelectProvince.propTypes = {
+  ...contextPropTypes,
+  ...matchPropTypes,
+  history: PropTypes.any,
+}
+
+
+export default withContext(SelectProvince);

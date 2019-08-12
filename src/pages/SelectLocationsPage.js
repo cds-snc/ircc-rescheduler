@@ -2,7 +2,7 @@
 import React from 'react'
 // import styled from '@emotion/styled'
 import { css } from 'emotion'
-//import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 //import { H1, theme, mediaQuery , arrow } from '../styles'
 import { H1, theme, mediaQuery } from '../styles'
 import Layout from '../components/Layout'
@@ -68,4 +68,4 @@ SelectlocationsPage.propTypes = {
  ...matchPropTypes,
 }
 
-export default SelectlocationsPage
+export default withRouter(SelectlocationsPage)

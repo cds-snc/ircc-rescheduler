@@ -112,7 +112,7 @@ class RegistrationPage extends React.Component {
   }
 
   static get redirect() {
-    return '/calendar'
+    return '/selectProvince'
   }
 
   static validate(values, submitted) {
@@ -464,6 +464,7 @@ class RegistrationPage extends React.Component {
                       value="medical"
                       name="reason"
                       id="reason-1"
+                      
                     />
                     <Field
                       type="radio"
