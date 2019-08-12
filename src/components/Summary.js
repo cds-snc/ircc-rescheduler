@@ -169,7 +169,7 @@ const Summary = ({
       summaryLink={'/register#reason-header'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Reason')}`}
     />
-    <TextAreaSummaryRow
+    <SummaryRow
       summaryHeader={<Trans>Location</Trans>}
       summaryBody={locationAddress}
       summaryLink={'/selectProvince'}

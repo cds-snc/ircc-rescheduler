@@ -66,8 +66,8 @@ describe('<Summary />', () => {
     const numOfSummaryRows = wrapper.find('SummaryRow')
     const numOfTextSummaryRows = wrapper.find('TextAreaSummaryRow')
 
-    expect(numOfSummaryRows.length).toBe(5)
-    expect(numOfTextSummaryRows.length).toBe(2)
+    expect(numOfSummaryRows.length).toBe(6)
+    expect(numOfTextSummaryRows.length).toBe(1)
     expect(numOfSummaryRows.at(0).prop('summaryBody')).toEqual('Test1')
     expect(numOfSummaryRows.at(1).prop('summaryBody')).toEqual('test@test.com')
     expect(numOfSummaryRows.at(2).prop('summaryBody')).toEqual('12346789')
