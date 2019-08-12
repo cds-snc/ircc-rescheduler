@@ -65,6 +65,10 @@ class ReviewPage extends React.Component {
           explanation: { explanationPage } = {},
 
           calendar: { selectedDays = [] } = {},
+          selectProvince: {
+            locationCity,
+            locationAddress,
+          } = {},
         } = {},
       } = {},
     } = this.props
@@ -106,6 +110,7 @@ class ReviewPage extends React.Component {
             email={email}
             explanation={explanation}
             reason={this.translateReason(reason)}
+            locationAddress={locationCity + ', ' + locationAddress} 
             selectedDays={days}
             availabilityExplanation={explanationPage}
           />
@@ -136,6 +141,7 @@ class ReviewPage extends React.Component {
             familyOption={familyOption}
             explanation={explanation}
             reason={reason}
+            locationAddress={locationCity + ', ' + locationAddress}
             selectedDays={selectedDays}
             availabilityExplanation={explanationPage}
             sending={sending}

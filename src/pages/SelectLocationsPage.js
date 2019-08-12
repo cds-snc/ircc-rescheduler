@@ -8,6 +8,7 @@ import { H1, theme, mediaQuery, visuallyhidden } from '../styles'
 import Layout from '../components/Layout'
 //import SelectProvince from '../components/SelectProvince'
 import Title, { matchPropTypes } from '../components/Title'
+import { SelectLocationFields, getFieldNames } from '../validation'
 import { Trans } from '@lingui/react'
 // import styled from '@emotion/styled'
 //import { H1, theme, mediaQuery , arrow } from '../styles'
@@ -131,8 +132,6 @@ class SelectlocationsPage extends React.Component {
     super(props);
 
     this.state = {
-      dropdownOpen : true,
-      loading: true,
       provinceName: null,
       cityName: null, 
       provLocations: [],
@@ -146,23 +145,35 @@ class SelectlocationsPage extends React.Component {
     this.handleCity = this.handleCity.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
     this.fetchLocations = this.fetchLocations.bind(this);
+    this.validate = SelectlocationsPage.validate
+    this.fields = SelectlocationsPage.fields
   }
 
-  async handleLocation (selectedCity) {
+  static errStrings = {}
+
+  static get fields() {
+    return getFieldNames(SelectLocationFields)
+  }
+
+  static validate(values, submitted) {
+    return SelectlocationsPage.errStrings
+  }
+
+
+  async handleLocation ( selectedLocation,  locationAddress ) {
     // eslint-disable-next-line no-console
     console.log(this.props) 
-    //console.log('title: ' + this.props.match.path.slice(1))
-    // eslint-disable-next-line no-console
-    console.log(this.props.context.store )
-    // eslint-disable-next-line no-console
-    let values = { 'selectCity' : selectedCity }
+
+    let values = { 'locationCity' : this.state.cityName ,'locationId' : selectedLocation, 'locationAddress': locationAddress }
     console.log(values)
-    
+    // eslint-disable-next-line no-unused-vars
+    let justValidate = this.validate( values, true) 
+
     await this.props.context.setStore('selectProvince', values)
 
     // eslint-disable-next-line no-console
     console.log(this.props.context.store )
-    //await this.props.history.push('/calendar')
+    await this.props.history.push('/calendar')
   }
 
   fetchLocations(province, city) {
@@ -322,7 +333,7 @@ class SelectlocationsPage extends React.Component {
 
               <ul>
                 {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-                  <li key={_id} id={_id} className={listLocations} onClick={() => {this.handleLocation(locationId)}}>
+                  <li key={_id} id={_id} className={listLocations} onClick={() => {this.handleLocation(locationId, locationAddress)}}>
                     <ul> 
                       <li>
                         <FaExternalLinkAlt color='#ffbf47' size='18' /> 
@@ -350,9 +361,6 @@ class SelectlocationsPage extends React.Component {
                   </li>
                 ))}
               </ul>
-
-              <p> <br /> </p> 
-              <button onClick={() => this.handleLocation(this.state.cityName)}> This button is for testing Global Store </button>
 
             </div>
           </section>

@@ -202,7 +202,11 @@ class RegistrationPage extends React.Component {
         [FORM_ERROR]: generalMessage,
       }
     }
-
+    // eslint-disable-next-line no-console
+    console.log(this.props.context.store )
+    // eslint-disable-next-line no-console
+    console.log(values)
+    
     // if setStore doesn't exist, nothing gets saved between pages
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
