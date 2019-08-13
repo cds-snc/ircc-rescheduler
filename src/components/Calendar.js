@@ -29,6 +29,8 @@ import { logEvent } from '../utils/analytics'
 import { windowExists } from '../utils/windowExists'
 import { CheckboxAdapter } from '../components/forms/MultipleChoice'
 import { Field } from 'react-final-form'
+import TimeSlots from './TimeSlots'
+
 
 const jiggle = keyframes`
 10%, 60% {
@@ -488,6 +490,7 @@ const renderDayBoxes = ({
         <li key={i} className={dayBox}>
           <span className="day-box">
             <Time date={selectedDay} locale={locale} />
+            
           </span>
           <button
             type="button"
@@ -503,6 +506,8 @@ const renderDayBoxes = ({
                 }
                 label={dateLabel}
               />
+
+
             </div>
           </button>
         </li>
@@ -574,8 +579,15 @@ renderMonthName.propTypes = {
   locale: PropTypes.string.isRequired,
 }
 
+
+
+
+
 class Calendar extends Component {
+
+
   constructor(props) {
+    
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
@@ -685,6 +697,8 @@ class Calendar extends Component {
   }
 
   render() {
+
+    
     let {
       input: { onBlur, onFocus, value },
       dayLimit,
@@ -841,7 +855,8 @@ class Calendar extends Component {
                 </h3>
 
                 <ul id="selectedDays-list">
-                  {renderDayBoxes({
+                  
+                {renderDayBoxes({
                     dayLimit,
                     errorMessage: this.state.errorMessage,
                     selectedDays: value,
@@ -851,6 +866,7 @@ class Calendar extends Component {
                       i18n !== undefined ? i18n._('Remove day') : 'Remove day',
                   })}
                 </ul>
+                  <TimeSlots/>
               </div>
             </div>
             {this.props.showAvailability && (
