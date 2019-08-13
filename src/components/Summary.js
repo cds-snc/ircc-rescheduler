@@ -129,6 +129,7 @@ const Summary = ({
   email,
   reason,
   explanation,
+  locationAddress,
   availabilityExplanation,
   selectedDays,
   i18n,
@@ -168,6 +169,12 @@ const Summary = ({
       summaryLink={'/register#reason-header'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Reason')}`}
     />
+    <SummaryRow
+      summaryHeader={<Trans>Location</Trans>}
+      summaryBody={locationAddress}
+      summaryLink={'/selectProvince'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
+    />
     <TextAreaSummaryRow
       summaryHeader={<Trans>Explanation</Trans>}
       summaryBody={explanation}
@@ -199,6 +206,7 @@ Summary.propTypes = {
   familyOption: PropTypes.string,
   email: PropTypes.string,
   reason: PropTypes.object,
+  locationAddress: PropTypes.string,
   explanation: PropTypes.string,
   selectedDays: PropTypes.array,
   availabilityExplanation: PropTypes.string,
