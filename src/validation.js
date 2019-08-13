@@ -178,6 +178,12 @@ export const CalendarFields = {
   availability: 'accept_anything',
 }
 
+export const SelectLocationFields = {
+  locationCity: 'required', 
+  locationId: 'required',
+  locationAddress: 'required',
+}
+
 /*--------------------------------------------*
  * Util Functions
  *--------------------------------------------*/

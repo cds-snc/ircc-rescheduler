@@ -14,7 +14,6 @@ import {
   setRavenContext,
   cspConfig,
 } from './utils/serverUtils'
-import { handleSubmitEmail } from './email/handleSubmitEmail'
 import gitHash from './utils/gitHash'
 
 // eslint-disable-next-line security/detect-non-literal-require
@@ -35,7 +34,7 @@ server
   .use(ensureLocation)
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
-  .post('/submit', handleSubmitEmail)
+  //.post('/submit', handleSubmitEmail)
   .get('/clear', (req, res) => {
     let language = getStoreCookie(req.cookies, 'language') || 'en'
     res.clearCookie('store')

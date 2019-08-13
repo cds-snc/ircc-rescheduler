@@ -1,4 +1,4 @@
-import { setGlobalLocation, whitelist } from '../locations'
+import { setGlobalLocation } from '../locations'
 import gitHash from './gitHash'
 import path from 'path'
 import Raven from 'raven'
@@ -48,12 +48,12 @@ export const getPrimarySubdomain = function(req, res, next) {
     req.subdomain = 'vancouver'
   }
 
-  /* If domain isn't on the whitelist and we're not on the not-found or 500 page */
   if (
-    !whitelist.includes(req.subdomain) &&
-    notPageMatch(req.path, 'not-found') &&
-    notPageMatch(req.path, '500')
+    !notPageMatch(req.path, 'not-found') &&
+    !notPageMatch(req.path, '500')
   ) {
+    // eslint-disable-next-line no-undef
+    Console.log("Invalid Domain" + req.subdomain );
     return res.redirect(
       `${protocol}://${process.env.RAZZLE_SITE_URL}/not-found`,
     )
@@ -120,6 +120,7 @@ export const setRavenContext = (req, res, next) => {
 }
 
 /* Content Security Policy config */
+/* IMPORTANT : Content policy is blocking localhost:3005 so it was added below */
 
 export const cspConfig = {
   defaultSrc: ["'self'"],
@@ -128,12 +129,12 @@ export const cspConfig = {
     "'self'",
     'data:',
     'https://www.google-analytics.com',
-    'http://localhost:3005',
+    // 'http://localhost:3005',
   ],
   scriptSrc: [
     "'self'",
     'https://cdn.ravenjs.com',
-    'http://localhost:3005',
+    // 'http://localhost:3005',
     'https://www.google-analytics.com',
     "'unsafe-inline'",
   ],

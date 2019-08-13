@@ -1,6 +1,7 @@
 import withProvider from './withProvider'
 
 import LandingPage from './pages/LandingPage'
+import SelectLocationsPage from './pages/SelectLocationsPage'
 import RegistrationPage from './pages/RegistrationPage'
 import CalendarPage from './pages/CalendarPage'
 import ReviewPage from './pages/ReviewPage'
@@ -20,6 +21,11 @@ export default [
     path: '/',
     exact: true,
     component: withProvider(LandingPage),
+  },
+  {
+    path: '/selectProvince',
+    exact: true,
+    component: withProvider(SelectLocationsPage),
   },
   {
     path: '/appointments',
