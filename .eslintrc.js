@@ -13,10 +13,13 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:security/recommended',
   ],
-  plugins: ['jest', 'security', 'react'],
+  plugins: ['jest', 'security','cy', 'Cypress', 'react'],
   env: {
     'jest/globals': true,
+    'cypress/globals': true,
+    "globals": ["cy", "Cypress", "expect", "assert"]
   },
+ 
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
   },
