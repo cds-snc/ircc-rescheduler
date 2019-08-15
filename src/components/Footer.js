@@ -50,7 +50,6 @@ const footer = css`
       padding-top: ${theme.spacing.xs};
       margin-bottom: ${theme.spacing.xs};
     `)};
-  }
 
   ${mediaQuery.md(css`
     align-items: center;
@@ -100,7 +99,7 @@ const bottomLinks = css`
 
 const TopBar = styled.hr(
   {
-    height: '0.4em',
+    height: '0.1em',
     border: 'none',
     margin: 0,
   },

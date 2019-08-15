@@ -1,11 +1,11 @@
 import React from 'react'
-import English from '../assets/FIPEnglish.svg'
-import French from '../assets/FIPFrench.svg'
-import Flag from '../assets/FIPFlag.svg'
+import English from '../assets/sig-blk-en.svg'
+import French from '../assets/sig-blk-fr.svg'
 import { css } from 'emotion'
 import { theme, horizontalPadding, mediaQuery } from '../styles'
 import LanguageSwitcher from './LanguageSwitcher'
 import Language from './Language'
+
 
 const container = css`
   ${horizontalPadding};
@@ -13,7 +13,7 @@ const container = css`
   padding-bottom: ${theme.spacing.lg};
   width: auto;
   justify-content: space-between;
-  background-color: ${theme.colour.black};
+  background-color: ${theme.colour.white};
   display: -webkit-flex;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -38,29 +38,22 @@ const baseSVG = css`
   margin-right: 1rem;
 `
 
-const flagSVG = css`
-  ${baseSVG};
-  width: 47px;
-  ${mediaQuery.sm(css`
-    width: 40px;
-  `)};
-`
 
 const engSVG = css`
   ${baseSVG};
-  width: 71px;
-  ${mediaQuery.sm(css`
-    width: 62.5px;
-  `)};
+  width: 400px;
+  
+  
 `
 
 const frSVG = css`
   ${baseSVG};
-  width: 83.5px;
-  ${mediaQuery.sm(css`
-    width: 74.5px;
-  `)};
-`
+  width: 500px;
+  
+
+  `
+
+  
 
 const FederalBanner = () => (
   <div className={container}>
@@ -77,15 +70,11 @@ const FederalBanner = () => (
                     : 'Gouvernement du Canada'
                 }
               >
-                <img src={Flag} alt="" className={flagSVG} />
                 <img src={English} alt="" className={engSVG} />
-                <img src={French} alt="" className={frSVG} />
               </div>
             ) : (
               <div className={gocContainer}>
-                <img src={Flag} alt="" className={flagSVG} />
                 <img src={French} alt="" className={frSVG} />
-                <img src={English} alt="" className={engSVG} />
               </div>
             )}
           </React.Fragment>

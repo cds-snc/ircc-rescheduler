@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import { css } from 'emotion'
-import { theme, mediaQuery, H2 } from '../styles'
+import { theme } from '../styles'
 import { Trans, withI18n } from '@lingui/react'
 import { SelectedDayList } from './SelectedDayList'
-import { HashLink as NavLink } from 'react-router-hash-link'
+import { SummaryRow, TextAreaSummaryRow } from './SummaryRow'
+
 
 const TableContainer = styled.div`
   margin: ${theme.spacing.lg} 0;
@@ -16,112 +16,6 @@ const TableContainer = styled.div`
   }
 `
 
-const Row = styled.div`
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  border-bottom: 1px solid ${theme.colour.greyLight};
-  padding-top: ${theme.spacing.md};
-  padding-bottom: ${theme.spacing.md};
-  ${mediaQuery.sm(css`
-    display: block;
-  `)};
-
-  li {
-    padding-bottom: 0;
-    margin-bottom: ${theme.spacing.xs};
-  }
-
-  li:last-of-type {
-    margin-bottom: 0;
-  }
-`
-
-const SummaryHeader = styled.div`
-  width: 100%;
-  margin-bottom: 0;
-`
-
-const SummaryBody = styled.div`
-  width: 80%;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-`
-
-const SummaryBodyWhiteSpace = styled(SummaryBody)`
-  white-space: pre-line;
-`
-
-const SummaryLink = styled.div`
-  position: absolute;
-  bottom: ${theme.spacing.md};
-  right: 0;
-  width: 6em;
-  text-align: right;
-`
-
-const SummaryLinkExplanation = styled.div`
-  position: absolute;
-  top: ${theme.spacing.md};
-  right: 0;
-  width: 6em;
-  text-align: right;
-`
-
-const SummaryH2 = styled(H2)`
-  margin-bottom: ${theme.spacing.sm};
-`
-export const SummaryRow = ({
-  summaryHeader,
-  summaryBody,
-  summaryLink,
-  summaryLabel,
-}) => (
-  <Row>
-    <SummaryHeader>
-      <SummaryH2>{summaryHeader}</SummaryH2>
-      <SummaryBody>{summaryBody}</SummaryBody>
-    </SummaryHeader>
-
-    <SummaryLink>
-      <NavLink to={summaryLink} aria-label={summaryLabel}>
-        <Trans>Change</Trans>
-      </NavLink>
-    </SummaryLink>
-  </Row>
-)
-
-const summaryRowProps = {
-  summaryHeader: PropTypes.object.isRequired,
-  summaryBody: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  summaryLink: PropTypes.string.isRequired,
-  summaryLabel: PropTypes.string,
-}
-
-SummaryRow.propTypes = summaryRowProps
-
-export const TextAreaSummaryRow = ({
-  summaryHeader,
-  summaryBody,
-  summaryLink,
-  summaryLabel,
-}) => (
-  <Row>
-    <SummaryHeader>
-      <SummaryH2>{summaryHeader}</SummaryH2>
-      <SummaryBodyWhiteSpace>{summaryBody}</SummaryBodyWhiteSpace>
-    </SummaryHeader>
-
-    <SummaryLinkExplanation>
-      <NavLink to={summaryLink} aria-label={summaryLabel}>
-        <Trans>Change</Trans>
-      </NavLink>
-    </SummaryLinkExplanation>
-  </Row>
-)
-
-TextAreaSummaryRow.propTypes = summaryRowProps
-
 const Summary = ({
   fullName,
   paperFileNumber,
@@ -129,7 +23,7 @@ const Summary = ({
   email,
   reason,
   explanation,
-  locationAddress,
+  location,
   availabilityExplanation,
   selectedDays,
   i18n,
@@ -171,7 +65,7 @@ const Summary = ({
     />
     <SummaryRow
       summaryHeader={<Trans>Location</Trans>}
-      summaryBody={locationAddress}
+      summaryBody={location}
       summaryLink={'/selectProvince'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
     />
@@ -206,7 +100,7 @@ Summary.propTypes = {
   familyOption: PropTypes.string,
   email: PropTypes.string,
   reason: PropTypes.object,
-  locationAddress: PropTypes.string,
+  location: PropTypes.string,
   explanation: PropTypes.string,
   selectedDays: PropTypes.array,
   availabilityExplanation: PropTypes.string,
