@@ -1,5 +1,7 @@
-describe('Contact link on Not Found (404) page', () => {
-    it('should not have contact link', () => {
+/// <reference types="Cypress" />
+
+describe('Items shown on the Landing page', () => {
+    it('should not have contact, Privacy and ToC link', () => {
       cy.visit('/')
       // this may need to be removed if there is no link for contact. 
       cy.get('#footer div a')
@@ -19,6 +21,9 @@ describe('Contact link on Not Found (404) page', () => {
     //    .eq(2).should('have.attr', 'href', '/termsandconditions')
 
     cy.get('.svg-container').eq(1).should('be.visible')
+
+    cy.get('#language-toggle').should('be.visible', 'Français')
+    cy.get('.css-1e5qbzj-baseSVG-engSVG').should('be.visible')
     })
 })
   
