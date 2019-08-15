@@ -104,8 +104,17 @@ class ConfirmationPage extends React.Component {
     return false
   }
 
-  hashFromData( fullname, email, paperFileNumber) {
-
+  // from: stackoverflow 'generate a hash from string...'
+  hashFromData( fullName, email, paperFileNumber) {
+      var hash = 0, i, chr
+      const keys = fullName+email+paperFileNumber
+      if (keys.length === 0) return hash;
+      for (i = 0; i < keys.length; i++) {
+        chr   = keys.charCodeAt(i);
+        hash  = ((hash << 5) - hash) + chr;
+        hash |= 0; 
+      }
+      return hash;
   }
 
   render() {
@@ -146,7 +155,7 @@ class ConfirmationPage extends React.Component {
         <Title path={this.props.match.path} />
         <section>
           <FocusedH1>
-            <Trans>Confirmation </Trans>
+            <Trans>Confirmation:</Trans>&nbsp;<span>A{this.hashFromData( fullName, email, paperFileNumber )}</span> 
           </FocusedH1>
 
           <Confirmation
