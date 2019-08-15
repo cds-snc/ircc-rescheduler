@@ -6,17 +6,20 @@ import { css } from 'emotion'
 import { Trans } from '@lingui/react'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
-import Contact from '../components/Contact'
-import IRCCAbbr from '../components/IRCCAbbr'
 import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import { LongReminder } from '../components/Reminder'
 import { SelectedDayList } from '../components/SelectedDayList'
 import FocusedH1 from '../components/FocusedH1'
+import { sortSelectedDays } from '../utils/calendarDates'
+import { dateToISODateString } from '../components/Time'
+import Confirmation from '../components/Confirmation'
+
 
 const contentClass = css`
   p {
     margin-top: ${theme.spacing.xs};
+    padding-bottom: ${theme.spacing.md}
   }
 
   section {
@@ -65,6 +68,33 @@ EmailError.propTypes = {
 }
 
 class ConfirmationPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { sending: false }
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit() {
+    this.setState({ sending: true })
+  }
+
+  // translateReason(reason) {
+  //   switch (reason) {
+  //     case 'travel':
+  //       return <Trans>Travel</Trans>
+  //     case 'family':
+  //       return <Trans>Family</Trans>
+  //     case 'medical':
+  //       return <Trans>Medical</Trans>
+  //     case 'workOrSchool':
+  //       return <Trans>Work or School</Trans>
+  //     case 'other':
+  //       return <Trans>Other</Trans>
+  //     default:
+  //       return null
+  //   }
+  // }
+
   hasEmailError() {
     const { match } = this.props
     if (match.params.error && match.params.error === 'client-request-issue') {
@@ -75,52 +105,81 @@ class ConfirmationPage extends React.Component {
   }
 
   render() {
+
     let {
       context: {
         store: {
+          register: {
+            fullName,
+            email,
+            paperFileNumber,
+          } = {},
+
           calendar: { selectedDays = [] } = {},
-          explanation: { explanationPage } = {},
+          selectProvince: {
+            locationCity,
+            locationAddress,
+          } = {},
         } = {},
       } = {},
     } = this.props
+
+    // const { sending } = this.state
+
+    let days = []
+
+    if (selectedDays) {
+      days = sortSelectedDays(
+        selectedDays.map(day => {
+          return new Date(dateToISODateString(day))
+        }),
+      )
+    }
+
 
     return (
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <section>
           <FocusedH1>
-            <Trans>Thank you! Your request has been received.</Trans>
+            <Trans>Confirmation </Trans>
           </FocusedH1>
 
-          {!this.hasEmailError() ? (
+          <Confirmation
+            fullName={fullName}
+            paperFileNumber={paperFileNumber}
+            email={email}
+            locationAddress={ ( locationCity && locationAddress ) ? locationCity + ',' + locationAddress : '' } 
+            selectedDays={days}
+          />
+
+          
+          {/* {!this.hasEmailError() ? (
             <p>
               <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
             </p>
           ) : (
             <EmailError selectedDays={selectedDays} />
-          )}
+          )} */}
 
           <H2>
             <Trans>What happens next?</Trans>
           </H2>
           <p>
-            <IRCCAbbr />{' '}
-            {explanationPage ? (
-              <Trans>
-                will review your request and get back to you within 1 week.
-              </Trans>
-            ) : (
-              <Trans>
-                will send you a new appointment. You will always be contacted at
-                least 3 weeks before your appointment.
-              </Trans>
-            )}
+            <Trans>
+              Remember to bring: <br />
+              1.- Your BIL letter <br />
+              2.- This confirmation number <br />
+              3.- Your immigration papers <br /> <br />
+            </Trans>
+
+            <Trans>
+              <i>Lorem ipsum dolor sit amet, 
+                 consectetur adipiscing elit, 
+                 sed do eiusmod tempor incididunt ut 
+                 labore et dolore magna aliqua...</i>
+            </Trans>
           </p>
-          <Contact>
-            <H2>
-              <Trans>If you have any questions, please contact:</Trans>
-            </H2>
-          </Contact>
         </section>
       </Layout>
     )
