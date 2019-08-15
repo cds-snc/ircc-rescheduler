@@ -110,7 +110,7 @@ class ReviewPage extends React.Component {
             email={email}
             explanation={explanation}
             reason={this.translateReason(reason)}
-            locationAddress={ ( locationCity && locationAddress ) ? locationCity + ',' + locationAddress : '' } 
+            locationAddress={locationCity + ', ' + locationAddress} 
             selectedDays={days}
             availabilityExplanation={explanationPage}
           />
