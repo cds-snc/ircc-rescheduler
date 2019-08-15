@@ -16,7 +16,7 @@ import { getGlobalLocation } from '../locations/'
 import { Trans } from '@lingui/react'
 
 const offsetStartWeeks = 5
-const offsetEndWeeks = 8
+const offsetEndWeeks = 4.5
 
 export const toLocale = (date, options, locale) => {
   return makeGMTDate(format(date, 'YYYY-MM-DD')).toLocaleDateString(
