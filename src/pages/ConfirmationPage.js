@@ -104,6 +104,10 @@ class ConfirmationPage extends React.Component {
     return false
   }
 
+  hashFromData( fullname, email, paperFileNumber) {
+
+  }
+
   render() {
 
     let {
