@@ -155,7 +155,7 @@ class ConfirmationPage extends React.Component {
         <Title path={this.props.match.path} />
         <section>
           <FocusedH1>
-            <Trans>Confirmation:</Trans>&nbsp;<span>A{this.hashFromData( fullName, email, paperFileNumber )}</span> 
+            <Trans>Confirmation:</Trans>&nbsp;A{this.hashFromData( fullName, email, paperFileNumber )}
           </FocusedH1>
 
           <Confirmation
