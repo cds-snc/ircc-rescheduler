@@ -150,8 +150,8 @@
       ]
     ]
   },
-  "Citizenship appointments in": {
-    "translation": "Les rendez-vous d’examen de citoyenneté en",
+  "Biometric appointments in": {
+    "translation": "Les rendez-vous d’examen de Biométrique en",
     "origin": [
       [
         "src/pages/calendar/CalHeader.js",

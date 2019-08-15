@@ -184,6 +184,11 @@ export const SelectLocationFields = {
   locationAddress: 'required',
 }
 
+export const SelectTimeSlotField = {
+  timeSlot: 'required', 
+}
+
+
 /*--------------------------------------------*
  * Util Functions
  *--------------------------------------------*/

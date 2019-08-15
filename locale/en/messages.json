@@ -150,8 +150,8 @@
       ]
     ]
   },
-  "Citizenship appointments in": {
-    "translation": "Citizenship appointments in",
+  "Biometric appointments in": {
+    "translation": "Biometric appointments in",
     "origin": [
       [
         "src/pages/calendar/CalHeader.js",
