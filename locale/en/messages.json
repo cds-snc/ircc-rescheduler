@@ -1086,8 +1086,8 @@
       ]
     ]
   },
-  "Select 3 days you’re available": {
-    "translation": "Select 3 days you’re available",
+  "Select 1 days you’re available": {
+    "translation": "Select 1 days you’re available",
     "origin": [
       [
         "src/components/Title.js",
@@ -1095,8 +1095,8 @@
       ]
     ]
   },
-  "Select 3 days:": {
-    "translation": "Select 3 days:",
+  "Select 1 day:": {
+    "translation": "Select 1 day:",
     "origin": [
       [
         "src/components/Calendar.js",

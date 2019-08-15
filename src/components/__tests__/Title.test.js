@@ -34,7 +34,7 @@ describe('<Title />', () => {
     {
       path: '/calendar',
       title:
-        'Select 3 days you’re available — Request a new citizenship appointment',
+        'Select 1 days you’re available — Request a new citizenship appointment',
     },
     {
       path: '/review',

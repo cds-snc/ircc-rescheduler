@@ -850,7 +850,7 @@ class Calendar extends Component {
                   ) : value.length === 1 ? (
                     <Trans>Your 1 selected day, select 2 more:</Trans>
                   ) : (
-                    <Trans>Select 3 days:</Trans>
+                    <Trans>Select 1 day:</Trans>
                   )}
                 </h3>
 
