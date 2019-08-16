@@ -7,26 +7,14 @@ import { Trans } from '@lingui/react'
  *--------------------------------------------*/
 
 const INPUT_FIELD_MAX_CHARS = 500
-const TEXTAREA_MAX_CHARS = 1500
+
 
 /*--------------------------------------------*
  * Error message strings
  *--------------------------------------------*/
 export const errorMessages = {}
 
-errorMessages.fullNameErrorMessage = (
-  <Trans>
-    You need to tell us your name so we know who is requesting a new
-    appointment.
-  </Trans>
-)
 
-errorMessages.fullNameMaxErrorMessage = (
-  <Trans>
-    Needs to be shorter than 20 words. Please use the name recorded on your
-    application.
-  </Trans>
-)
 
 errorMessages.emailErrorMessage = (
   <Trans>
@@ -41,68 +29,18 @@ errorMessages.emailInvalidErrorMessage = (
   </Trans>
 )
 
-errorMessages.familyCheckRequiredWithErrorMessage = (
-  <Trans>
-    You must click ‘I need to reschedule my family too’ if you are rescheduling
-    family members.
-  </Trans>
-)
-
-errorMessages.familyOptionRequiredWithErrorMessage = (
-  <Trans>
-    You left this blank. Do you want to reschedule any family members? Please
-    provide their full names.
-  </Trans>
-)
-
-errorMessages.familyOptionMaxErrorMessage = (
-  <Trans>
-    There is a limit of 150 words for your family’s names. Please shorten your
-    explanation.
-  </Trans>
-)
 
 errorMessages.paperFileNumberErrorMessage = (
-  <Trans>We need your paper file number so we can confirm your identity.</Trans>
+  <Trans>We need your bill file number so we can confirm your identity.</Trans>
 )
 
 errorMessages.paperFileNumberInvalidErrorMessage = (
   <Trans>
     Needs a number with a different format. Please make sure this is your
-    correct Paper file number.
+    correct bill file number.
   </Trans>
 )
 
-errorMessages.reasonErrorMessage = (
-  <Trans>
-    Please tell us why you need to reschedule your appointment. If none of the
-    options fit your situation, choose ‘Other’.
-  </Trans>
-)
-
-errorMessages.explanationErrorMessage = (
-  <Trans>
-    Please tell us a bit more about why you need to reschedule your appointment.
-  </Trans>
-)
-
-errorMessages.explanationMaxErrorMessage = (
-  <Trans>
-    Sorry, there‘s a limit of 150 words for this explanation. Please shorten
-    your explanation.
-  </Trans>
-)
-
-errorMessages.explanationPageErrorMessage = (
-  <Trans>Please provide us with more information.</Trans>
-)
-
-errorMessages.explanationPageMaxErrorMessage = (
-  <Trans>
-    Sorry, there’s a limit of 150 words for this explanation. Please shorten
-    your explanation.
-  </Trans>
-)
 
 errorMessages.selectedDaysEmptyErrorMessage = (
   <Trans>You must select 3 days on the calendar below.</Trans>
@@ -160,18 +98,12 @@ const getPaperFileNumberPattern = () => {
 }
 
 export const RegistrationFields = {
-  fullName: `required|max:${INPUT_FIELD_MAX_CHARS}`,
   email: 'required|email',
-  explanation: `required|max:${TEXTAREA_MAX_CHARS}`,
   familyCheck: `required_with:familyOption`,
   familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
-  reason: 'required|in:travel,medical,workOrSchool,family,other',
 }
 
-export const ExplanationFields = {
-  explanationPage: `required|max:${INPUT_FIELD_MAX_CHARS}`,
-}
 
 export const CalendarFields = {
   selectedDays: 'required|array|date_count',
