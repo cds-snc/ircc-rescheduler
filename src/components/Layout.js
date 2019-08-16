@@ -118,7 +118,7 @@ class Layout extends React.Component {
               {this.props.children}
             </div>
           </main>
-          <Footer topBarBackground />
+          <Footer topBarBackground="true" />
         </ErrorBoundary>
       </div>
     )
