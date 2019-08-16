@@ -150,8 +150,8 @@
       ]
     ]
   },
-  "Citizenship appointments in": {
-    "translation": "Les rendez-vous d’examen de citoyenneté en",
+  "Biometric appointments in": {
+    "translation": "Les rendez-vous d’examen de Biométrique en",
     "origin": [
       [
         "src/pages/calendar/CalHeader.js",
@@ -1095,8 +1095,8 @@
       ]
     ]
   },
-  "Select 3 days:": {
-    "translation": "Sélectionnez 3 jours",
+  "Select a day:": {
+    "translation": "Sélectionnez un jour",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1400,7 +1400,7 @@
       ]
     ]
   },
-  "To change your selections, remove some days first": {
+  "To change your selections, remove a day first": {
     "translation": "Pour modifier vos choix, veuillez d’abord supprimer des dates",
     "origin": [
       [
@@ -1587,8 +1587,8 @@
       ]
     ]
   },
-  "You can’t select more than 3 days. To change your selections, remove some days first.": {
-    "translation": "Vous ne pouvez pas sélectionner plus de 3 dates. Pour modifier vos choix, veuillez d’abord supprimer des dates.",
+  "You can’t select more than 1 day. To change your selections, remove a day first.": {
+    "translation": "Vous ne pouvez pas sélectionner plus de 1 date. Pour modifier vos choix, veuillez d’abord supprimer des date.",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1663,30 +1663,12 @@
       ]
     ]
   },
-  "Your 1 selected day, select 2 more:": {
-    "translation": "Votre jour sélectionné, sélectionnez-en 2 autres :",
+  "Please select your time slot": {
+    "translation": "Veuillez sélectionner votre créneau horaire :",
     "origin": [
       [
         "src/components/Calendar.js",
         837
-      ]
-    ]
-  },
-  "Your 2 selected days, select 1 more:": {
-    "translation": "Vos 2 jours sélectionnés, sélectionnez-en 1 autre :",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        835
-      ]
-    ]
-  },
-  "Your 3 selected days:": {
-    "translation": "Vos 3 jours sélectionnés :",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        833
       ]
     ]
   },

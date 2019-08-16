@@ -9,14 +9,14 @@ class CalendarH1 extends Component {
 
     // en
     let familyOptionText = familyOption ? 'you and your family are' : 'you’re'
-    let msg = `Select 3 days ${familyOptionText} available between ${startMonthName} and ${endMonthName}`
+    let msg = `Select a day ${familyOptionText} available between ${startMonthName} and ${endMonthName}`
 
     //fr
     if (locale === 'fr') {
       let familyOptionText = familyOption
         ? 'où vous et votre famille serez disponibles.'
         : 'quand vous serez disponibles.'
-      msg = `Sélectionnez 3 jours entre ${startMonthName} et ${endMonthName} ${familyOptionText}`
+      msg = `Sélectionnez 1 jour entre ${startMonthName} et ${endMonthName} ${familyOptionText}`
     }
 
     return <React.Fragment>{msg}</React.Fragment>

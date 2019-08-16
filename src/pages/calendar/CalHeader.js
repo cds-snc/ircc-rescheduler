@@ -68,7 +68,7 @@ export const CalHeader = ({
 
       {windowExists() && (
         <CalendarSubheader id="calendar-intro">
-          <Trans>Citizenship appointments in</Trans> {headerMonth}{' '}
+          <Trans>Biometric appointments in</Trans> {headerMonth}{' '}
           <Trans>are scheduled on </Trans>
           {headerNote}.
         </CalendarSubheader>
