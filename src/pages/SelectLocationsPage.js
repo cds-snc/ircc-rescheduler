@@ -18,7 +18,7 @@ import { provinceNames, provinceNamesFr } from '../utils/linguiUtils'
 
 
 import Language from '../components/Language'
-import Button from '../components/forms/Button'
+//import Button from '../components/forms/Button'
 import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
 
 
@@ -62,30 +62,30 @@ const govuk_label = css`
   display: block;
   font-size: ${theme.font.lg}
 `
-const govuk_p = css`
-  margin-bottom: 0.37rem;
-  display: block;
-  font-size: 1.2rem 
-`
-const govuk_List = css`
-  margin: 2px 0px 5px 0px;
-  padding: 0px 8px 0px 8px;
-  background-color: ${theme.colour.greyLight}
-`
-const govuk_ListButton = css`
-  width: 275px;
-  font-size: ${theme.font.sm}; 
-  background-color: ${theme.colour.greyLight}
-  cursor: pointer;
-  padding: 0px 8px 0px 8px;
-  &:hover {
-    background-color: #00692f;
-    color: ${theme.colour.white};
-    -webkit-box-shadow: 0 0 0 4px #ffbf47;
-    -moz-box-shadow: 0 0 0 4px #ffbf47;
-    box-shadow: 0 0 0 4px #ffbf47; 
-  }
-`
+// const govuk_p = css`
+//   margin-bottom: 0.37rem;
+//   display: block;
+//   font-size: 1.2rem 
+// `
+// const govuk_List = css`
+//   margin: 2px 0px 5px 0px;
+//   padding: 0px 8px 0px 8px;
+//   background-color: ${theme.colour.greyLight}
+// `
+// const govuk_ListButton = css`
+//   width: 275px;
+//   font-size: ${theme.font.sm}; 
+//   background-color: ${theme.colour.greyLight}
+//   cursor: pointer;
+//   padding: 0px 8px 0px 8px;
+//   &:hover {
+//     background-color: #00692f;
+//     color: ${theme.colour.white};
+//     -webkit-box-shadow: 0 0 0 4px #ffbf47;
+//     -moz-box-shadow: 0 0 0 4px #ffbf47;
+//     box-shadow: 0 0 0 4px #ffbf47; 
+//   }
+// `
 const listLocations = css`
   margin-bottom: 0.50rem;
   display: block;
