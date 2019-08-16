@@ -17,7 +17,7 @@ const button = css`
   ${focusRing};
   display: inline-block;
   font-size: ${theme.font.base};
-  color: ${theme.colour.white};
+  color: ${theme.colour.blue};
   padding: 0;
 
   text-decoration: underline;

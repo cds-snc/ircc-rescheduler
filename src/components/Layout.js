@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import { css, injectGlobal } from 'emotion'
 import { theme, mediaQuery, content } from '../styles'
 import FederalBanner from './FederalBanner'
-import FlashBanner from './FlashBanner'
-import PageHeader from './PageHeader'
+import Devider from './Devider'
 import Footer from './Footer'
 import { ErrorBoundary } from './ErrorBoundary'
 import { ErrorPageContent } from '../pages/ErrorPage'
 import { initGA, logPageView } from '../utils/analytics'
+
 
 injectGlobal`
   html, body {
@@ -93,7 +93,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { contact = true, contentClass = '' } = this.props
+    const { contentClass = '' } = this.props
     return (
       <div>
         <ErrorBoundary
@@ -106,9 +106,8 @@ class Layout extends React.Component {
           render={() => <ErrorPageContent />}
         >
           <div role="banner">
-            <FlashBanner />
             <FederalBanner />
-            <PageHeader>{this.props.header}</PageHeader>
+            <Devider />
           </div>
           <main role="main">
             <div
@@ -119,7 +118,7 @@ class Layout extends React.Component {
               {this.props.children}
             </div>
           </main>
-          <Footer contact={contact} topBarBackground="black" />
+          <Footer topBarBackground="true" />
         </ErrorBoundary>
       </div>
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { SummaryRow } from '../Summary'
+import { SummaryRow } from '../SummaryRow'
 import MemoryRouter from 'react-router-dom/MemoryRouter'
 
 describe('<SummaryRow />', () => {

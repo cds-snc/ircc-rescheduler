@@ -123,19 +123,14 @@ export const setRavenContext = (req, res, next) => {
 /* IMPORTANT : Content policy is blocking localhost:3005 so it was added below */
 
 export const cspConfig = {
-  defaultSrc: ["'self'",'http://localhost:3005/', 'ws://localhost:3005/', 'http://localhost:4011/'],
+  defaultSrc: ["'self'"],
   fontSrc: ["'self'", 'https://fonts.gstatic.com'],
-  imgSrc: ["'self'", 'data:', 
-            'https://www.google-analytics.com', 
-            'http://localhost:3005',
-          ],
+  imgSrc: ["'self'", 'data:', 'https://www.google-analytics.com'],
   scriptSrc: [
     "'self'",
     'https://cdn.ravenjs.com',
-    'http://localhost:3005/',
     'https://www.google-analytics.com',
-    "'unsafe-inline'", 
+    "'unsafe-inline'",
   ],
   styleSrc: ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'"],
-
 }
