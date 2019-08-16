@@ -7,5 +7,6 @@ describe('Calendar page functions', () => {
     it('should do something', () => {  
      cy.url().should('contain', '/calendar')
 
-    }
-)});
+    })
+    
+});
