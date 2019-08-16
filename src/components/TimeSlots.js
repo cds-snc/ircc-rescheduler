@@ -1,6 +1,12 @@
 /* eslint-disable no-console */
 import React, { Component } from "react";
 import TimeForm from "./TimeForm";
+import withContext from '../withContext'
+import PropTypes from 'prop-types'
+import { contextPropTypes } from '../context'
+import { SelectTimeSlotField, getFieldNames } from '../validation'
+/* eslint-disable no-console */
+// import Language from '../components/Language'
 
 const mockData = [
     {
@@ -46,13 +52,48 @@ const mockData = [
 
 ];
 
-export default class TimeSlots extends Component {
+class TimeSlots extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       selectedId: 0,
-    };
+      selectedTime: [],
+    }
+
+    this.validate = TimeSlots.validate
+    this.fields = TimeSlots.fields
   }
+
+  static errStrings = {}
+
+
+  static get fields() {
+    return getFieldNames(SelectTimeSlotField)
+  }
+
+  static validate(values, submitted) {
+    return TimeSlots.errStrings
+  }
+
+
+  async handleTime ( selectedTime ) {
+    // eslint-disable-next-line no-console
+    console.log(this.props) 
+
+    let values = { 'TimeSlot' : selectedTime }
+    console.log(values)
+    // eslint-disable-next-line no-unused-vars
+    let justValidate = this.validate( values, true) 
+
+    await this.props.context.setStore('selectTime', values)
+
+    // eslint-disable-next-line no-console
+    console.log(this.props.context.store )
+    await this.props.history.push('/review')
+  }
+
+
 
   changeHandler = id => {
     this.setState({
@@ -61,6 +102,8 @@ export default class TimeSlots extends Component {
   };
 
   render() {
+
+
     return (
       <table>
         <tbody>
@@ -77,3 +120,12 @@ export default class TimeSlots extends Component {
     );
   }
 }
+
+
+TimeSlots.propTypes = {
+  ...contextPropTypes,
+  history: PropTypes.any,
+}
+
+
+export default withContext(TimeSlots)
