@@ -1,29 +1,42 @@
 /// <reference types="Cypress" />
-
+// verify items on the landing page. 
 describe('Items shown on the Landing page', () => {
-    it('should not have contact, Privacy and ToC link', () => {
-      cy.visit('/')
-      // this may need to be removed if there is no link for contact. 
+  beforeEach(() => {
+    cy.visit('/')
+  })
+    it('should not have Privacy and ToC link but not contact', () => {
+     // cy.visit('/')
+      // there shoulc be no link for contact- it was removed. 
       cy.get('#footer div a')
         .eq(0)
-        .should('contain', 'Contact')
-    
+        .should('not.contain', 'Contact')
       cy.get('#footer a')
-        .eq(1)
+        .eq(0)
         .should('contain', 'Privacy')
       cy.get('#footer div a')
-        .eq(1).should('have.attr', 'href', '/privacy')
+        .eq(0).should('have.attr', 'href', '/privacy')
+        // todo, check the privacy link text once complete
       cy.get('#footer a')
-        .eq(2)
+        .eq(1)
         .should('contain', 'Terms and Conditions')
         //need the link for the terms and conditions
     //  cy.get('#footer div a')
     //    .eq(2).should('have.attr', 'href', '/termsandconditions')
-
+  })
+    it('should have header and footer canada svg', () => {
     cy.get('.svg-container').eq(1).should('be.visible')
-
-    cy.get('#language-toggle').should('be.visible', 'Français')
     cy.get('.css-1e5qbzj-baseSVG-engSVG').should('be.visible')
+  })
+
+  it('should have link for changing the language', () => {
+    cy.get('#language-toggle').should('be.visible', 'Français')
+  })
+
+  it('Start now button take the user to the register page', () => {
+      let startText = 'Start now'
+    cy.get('main a').should('have.text', startText)
+    cy.get('main a').click({ force: true })
+    cy.url().should('contain', '/register')
     })
 })
   
