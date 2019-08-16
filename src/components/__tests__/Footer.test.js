@@ -12,8 +12,8 @@ describe('<Footer />', () => {
         <Footer topBarBackground i18n={i18n} />
       </MemoryRouter>,
     )
-    expect(footer.find('footer').length).toBe(0)
-    expect(footer.find('hr').length).toBe(0)
+    expect(footer.find('footer').length).toBe(1)
+    expect(footer.find('hr').length).toBe(1)
   })
 
   it('renders footer with topBar', () => {
