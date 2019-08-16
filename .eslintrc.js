@@ -23,14 +23,7 @@ module.exports = {
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
   },
-  overrides: [
-    {
-      'files': ["*-test.js","*.spec.js"],
-      'rules': {
-        'no-unused-expressions': 'off'
-      }
-    }
-  ],
+
   settings: {
     react: {
       version: '16.4.2',

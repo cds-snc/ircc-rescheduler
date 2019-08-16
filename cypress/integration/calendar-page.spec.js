@@ -1,4 +1,4 @@
-
+/* eslint-disable no-undef */
 // Verify Items and functions on the calendar page. 
 describe('Calendar page functions', () => {
     beforeEach(() => {
