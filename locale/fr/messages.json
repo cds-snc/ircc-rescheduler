@@ -1663,8 +1663,8 @@
       ]
     ]
   },
-  "Your 1 selected day, select 2 more:": {
-    "translation": "Votre jour sélectionné, sélectionnez-en 2 autres :",
+  "Please select your time slot": {
+    "translation": "Veuillez sélectionner votre créneau horaire :",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1682,7 +1682,7 @@
     ]
   },
   "Your 3 selected days:": {
-    "translation": "Vos 3 jours sélectionnés :",
+    "translation": "Vos 3 jours sélectionnés sas :",
     "origin": [
       [
         "src/components/Calendar.js",

@@ -452,6 +452,7 @@ const datesLinkBefore = css`
   margin-bottom: ${theme.spacing.xxl};
 `
 
+// eslint-disable-next-line no-unused-vars
 const datesLinkAfter = css`
   ${datesLinkBefore};
   margin-top: 1.5rem;
@@ -843,12 +844,8 @@ class Calendar extends Component {
                     this.removeDateContainer = removeDateContainer
                   }}
                 >
-                  {value.length === 3 ? (
-                    <Trans>Your 3 selected days:</Trans>
-                  ) : value.length === 2 ? (
-                    <Trans>Your 2 selected days, select 1 more:</Trans>
-                  ) : value.length === 1 ? (
-                    <Trans>Your 1 selected day, select 2 more:</Trans>
+                  {value.length === 1 ? (
+                    <Trans>Please select your time slot</Trans>
                   ) : (
                     <Trans>Select 1 day:</Trans>
                   )}
@@ -869,22 +866,7 @@ class Calendar extends Component {
                   <TimeSlots/>
               </div>
             </div>
-            {this.props.showAvailability && (
-              <div className={value.length ? datesLinkAfter : datesLinkBefore}>
-                <Field
-                  type="checkbox"
-                  name="availability"
-                  id="availability"
-                  value="notAvailable"
-                  component={CheckboxAdapter}
-                  label={
-                    <Trans>
-                      I cannot attend any of the available appointments
-                    </Trans>
-                  }
-                />
-              </div>
-            )}
+
           </div>
         </div>
       </div>

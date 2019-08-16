@@ -1663,8 +1663,8 @@
       ]
     ]
   },
-  "Your 1 selected day, select 2 more:": {
-    "translation": "Your 1 selected day, select 2 more:",
+  "Please select your time slot": {
+    "translation": "Please select your time slot:",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1673,7 +1673,7 @@
     ]
   },
   "Your 2 selected days, select 1 more:": {
-    "translation": "Your 2 selected days, select 1 more:",
+    "translation": "Please select your time slot:",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1682,7 +1682,7 @@
     ]
   },
   "Your 3 selected days:": {
-    "translation": "Your 3 selected days:",
+    "translation": "Your 3 selected dayss day:",
     "origin": [
       [
         "src/components/Calendar.js",
