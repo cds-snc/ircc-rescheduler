@@ -93,7 +93,7 @@ class Layout extends React.Component {
   }
 
   render() {
-    const { contact = true, contentClass = '' } = this.props
+    const { contentClass = '' } = this.props
     return (
       <div>
         <ErrorBoundary
@@ -118,7 +118,7 @@ class Layout extends React.Component {
               {this.props.children}
             </div>
           </main>
-          <Footer contact={contact} topBarBackground="black" />
+          <Footer topBarBackground />
         </ErrorBoundary>
       </div>
     )
