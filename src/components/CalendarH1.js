@@ -9,7 +9,7 @@ class CalendarH1 extends Component {
 
     // en
     let familyOptionText = familyOption ? 'you and your family are' : 'you’re'
-    let msg = `Select 1 day ${familyOptionText} available between ${startMonthName} and ${endMonthName}`
+    let msg = `Select a day ${familyOptionText} available between ${startMonthName} and ${endMonthName}`
 
     //fr
     if (locale === 'fr') {

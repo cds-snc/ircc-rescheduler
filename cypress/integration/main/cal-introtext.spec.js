@@ -47,7 +47,7 @@ context('Calendar page h1', () => {
 
     cy.get('h1#calendar-header').should(
       'contain',
-      'Select 1 days you’re available',
+      'Select a days you’re available',
     )
   })
 

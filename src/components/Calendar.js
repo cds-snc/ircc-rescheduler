@@ -27,8 +27,8 @@ import parse from 'date-fns/parse'
 
 import { logEvent } from '../utils/analytics'
 import { windowExists } from '../utils/windowExists'
-import { CheckboxAdapter } from '../components/forms/MultipleChoice'
-import { Field } from 'react-final-form'
+// import { CheckboxAdapter } from '../components/forms/MultipleChoice'
+// import { Field } from 'react-final-form'
 import TimeSlots from './TimeSlots'
 
 
@@ -659,8 +659,8 @@ class Calendar extends Component {
         await this.setState({
           errorMessage: (
             <Trans>
-              You can&rsquo;t select more than 3 days. To change your
-              selections, remove some days first.
+              You can&rsquo;t select more than 1 day. To change your
+              selections, remove a day first.
             </Trans>
           ),
         })
@@ -784,7 +784,7 @@ class Calendar extends Component {
             id="removeDateMessage"
           >
             <h2>
-              <Trans>To change your selections, remove some days first</Trans>.
+              <Trans>To change your selections, remove a day first</Trans>.
             </h2>
           </div>
         ) : null}
@@ -847,7 +847,7 @@ class Calendar extends Component {
                   {value.length === 1 ? (
                     <Trans>Please select your time slot</Trans>
                   ) : (
-                    <Trans>Select 1 day:</Trans>
+                    <Trans>Select a day:</Trans>
                   )}
                 </h3>
 

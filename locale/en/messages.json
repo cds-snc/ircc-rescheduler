@@ -1086,8 +1086,8 @@
       ]
     ]
   },
-  "Select 1 days you’re available": {
-    "translation": "Select 1 days you’re available",
+  "Select a days you’re available": {
+    "translation": "Select a days you’re available",
     "origin": [
       [
         "src/components/Title.js",
@@ -1095,8 +1095,8 @@
       ]
     ]
   },
-  "Select 1 day:": {
-    "translation": "Select 1 day:",
+  "Select a day:": {
+    "translation": "Select a day:",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1400,8 +1400,8 @@
       ]
     ]
   },
-  "To change your selections, remove some days first": {
-    "translation": "To change your selections, remove some days first",
+  "To change your selections, remove a day first": {
+    "translation": "To change your selections, remove a day first",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1587,8 +1587,8 @@
       ]
     ]
   },
-  "You can’t select more than 3 days. To change your selections, remove some days first.": {
-    "translation": "You can’t select more than 3 days. To change your selections, remove some days first.",
+  "You can’t select more than 1 day. To change your selections, remove a day first.": {
+    "translation": "You can’t select more than 1 day. To change your selections, remove a day first.",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1669,24 +1669,6 @@
       [
         "src/components/Calendar.js",
         837
-      ]
-    ]
-  },
-  "Your 2 selected days, select 1 more:": {
-    "translation": "Please select your time slot:",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        835
-      ]
-    ]
-  },
-  "Your 3 selected days:": {
-    "translation": "Your 3 selected dayss day:",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        833
       ]
     ]
   },

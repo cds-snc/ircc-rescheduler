@@ -36,7 +36,7 @@ context('Calendar Dates unselect after review', () => {
 
     cy.get('#removeDateMessage h2').should(
       'have.text',
-      'To change your selections, remove some days first.',
+      'To change your selections, remove a day first.',
     )
 
     cy.get('.DayPicker-Day[aria-disabled=false]')

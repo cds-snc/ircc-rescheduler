@@ -239,9 +239,9 @@ describe('<CalendarAdapter />', () => {
 
   it('renders header message corresponding to number of selected days', () => {
     const days = calDays()
-    const day1 = dayMonthYear(days[0])
-    const day2 = dayMonthYear(days[1])
-    const day3 = dayMonthYear(days[2])
+    // const day1 = dayMonthYear(days[0])
+    // const day2 = dayMonthYear(days[1])
+    // const day3 = dayMonthYear(days[2])
 
     const wrapper = mount(
       <MemoryRouter>
@@ -302,7 +302,7 @@ describe('<CalendarAdapter />', () => {
     clickFirstDate(wrapper)
     expect(getDateStrings(wrapper)).toEqual(day2)
     expect(getErrorMessageString(wrapper)).toEqual(
-      'You can’t select more than 3 days. To change your selections, remove some days first.',
+      'You can’t select more than 1 day. To change your selections, remove a day first.',
     )
   })
 
@@ -322,7 +322,7 @@ describe('<CalendarAdapter />', () => {
     clickFirstDate(wrapper)
     expect(getDateStrings(wrapper)).toEqual(day2)
     expect(getErrorMessageString(wrapper)).toEqual(
-      'You can’t select more than 3 days. To change your selections, remove some days first.',
+      'You can’t select more than 1 day. To change your selections, remove a day first.',
     )
 
     // click first "Remove date" button
