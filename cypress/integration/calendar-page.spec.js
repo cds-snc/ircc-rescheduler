@@ -7,7 +7,7 @@ describe('Calendar page functions', () => {
   
     it('should do something', () => {  
      cy.url().should('contain', '/calendar')
-
+     cy.get('#calendar-header').should('contain.text', 'Select a day you’re available between')
     })
 
 });
