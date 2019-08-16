@@ -1,3 +1,4 @@
+
 // Verify Items and functions on the register page - BIL # - email and radio button. 
 describe('Register page functions', () => {
     beforeEach(() => {

@@ -1,3 +1,4 @@
+
 // Verify Items and functions on the calendar page. 
 describe('Calendar page functions', () => {
     beforeEach(() => {
@@ -8,5 +9,5 @@ describe('Calendar page functions', () => {
      cy.url().should('contain', '/calendar')
 
     })
-    
+
 });

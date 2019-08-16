@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /// <reference types="Cypress" />
 // verify items on the landing page. 
 describe('Items shown on the Landing page', () => {

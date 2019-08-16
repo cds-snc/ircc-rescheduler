@@ -13,16 +13,24 @@ module.exports = {
     'plugin:import/recommended',
     'plugin:security/recommended',
   ],
-  plugins: ['jest', 'security','cy', 'Cypress', 'react'],
+  plugins: ['jest', 'security', 'react'],
   env: {
     'jest/globals': true,
-    'cypress/globals': true,
-    "globals": ["cy", "Cypress", "expect", "assert"]
+    
+    
   },
  
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
   },
+  overrides: [
+    {
+      'files': ["*-test.js","*.spec.js"],
+      'rules': {
+        'no-unused-expressions': 'off'
+      }
+    }
+  ],
   settings: {
     react: {
       version: '16.4.2',
