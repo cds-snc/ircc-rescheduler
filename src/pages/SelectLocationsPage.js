@@ -44,12 +44,12 @@ const messageContainer = css`
 const govuk_select = css`
   font-family: SourceSans,Helvetica,Arial,sans-serif;
   font-size: ${theme.font.base};
-  background: transparent;
+  background: ${theme.colour.white};
   line-height: 1.4;
   width:100%;
   height:40px;
   option {
-    background-color: #1d70b8;
+    background-color: ${theme.colour.white};
   }
   &:focus, &:before {
     -webkit-box-shadow: 0 0 0 4px #ffbf47;

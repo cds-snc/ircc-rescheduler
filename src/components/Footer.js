@@ -10,9 +10,9 @@ import {
   mediaQuery,
   visuallyhiddenMobile,
 } from '../styles'
-import { getEmail } from '../locations'
 import Language from './Language'
 import { NavLink } from 'react-router-dom'
+import Landscape from '../assets/landscape .png'
 
 const footer = css`
   ${horizontalPadding};
@@ -99,9 +99,13 @@ const bottomLinks = css`
 
 const TopBar = styled.hr(
   {
-    height: '0.1em',
+    height: '160px',
     border: 'none',
     margin: 0,
+    backgroundImage:`url(${Landscape})`,
+    backgroundRepeat:'no-repeat',
+    backgroundPosition:'right',
+    backgroundColor:"#27374a",
   },
   props => ({ background: props.background }),
 )
@@ -111,11 +115,6 @@ const Footer = ({ contact = true, topBarBackground, i18n }) => (
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer id="footer" className={footer}>
       <div className={bottomLinks}>
-        {contact && (
-          <a href={`mailto:${getEmail()}`}>
-            <Trans>Contact</Trans>
-          </a>
-        )}
 
         <NavLink to="/privacy">
           <Trans>Privacy</Trans>

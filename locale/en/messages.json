@@ -150,8 +150,8 @@
       ]
     ]
   },
-  "Citizenship appointments in": {
-    "translation": "Citizenship appointments in",
+  "Biometric appointments in": {
+    "translation": "Biometric appointments in",
     "origin": [
       [
         "src/pages/calendar/CalHeader.js",
@@ -1086,8 +1086,8 @@
       ]
     ]
   },
-  "Select 3 days you’re available": {
-    "translation": "Select 3 days you’re available",
+  "Select a days you’re available": {
+    "translation": "Select a days you’re available",
     "origin": [
       [
         "src/components/Title.js",
@@ -1095,8 +1095,8 @@
       ]
     ]
   },
-  "Select 3 days:": {
-    "translation": "Select 3 days:",
+  "Select a day:": {
+    "translation": "Select a day:",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1400,8 +1400,8 @@
       ]
     ]
   },
-  "To change your selections, remove some days first": {
-    "translation": "To change your selections, remove some days first",
+  "To change your selections, remove a day first": {
+    "translation": "To change your selections, remove a day first",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1587,8 +1587,8 @@
       ]
     ]
   },
-  "You can’t select more than 3 days. To change your selections, remove some days first.": {
-    "translation": "You can’t select more than 3 days. To change your selections, remove some days first.",
+  "You can’t select more than 1 day. To change your selections, remove a day first.": {
+    "translation": "You can’t select more than 1 day. To change your selections, remove a day first.",
     "origin": [
       [
         "src/components/Calendar.js",
@@ -1663,30 +1663,12 @@
       ]
     ]
   },
-  "Your 1 selected day, select 2 more:": {
-    "translation": "Your 1 selected day, select 2 more:",
+  "Please select your time slot": {
+    "translation": "Please select your time slot:",
     "origin": [
       [
         "src/components/Calendar.js",
         837
-      ]
-    ]
-  },
-  "Your 2 selected days, select 1 more:": {
-    "translation": "Your 2 selected days, select 1 more:",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        835
-      ]
-    ]
-  },
-  "Your 3 selected days:": {
-    "translation": "Your 3 selected days:",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        833
       ]
     ]
   },

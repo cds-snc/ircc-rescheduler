@@ -27,8 +27,8 @@ import parse from 'date-fns/parse'
 
 import { logEvent } from '../utils/analytics'
 import { windowExists } from '../utils/windowExists'
-import { CheckboxAdapter } from '../components/forms/MultipleChoice'
-import { Field } from 'react-final-form'
+// import { CheckboxAdapter } from '../components/forms/MultipleChoice'
+// import { Field } from 'react-final-form'
 import TimeSlots from './TimeSlots'
 
 
@@ -452,6 +452,7 @@ const datesLinkBefore = css`
   margin-bottom: ${theme.spacing.xxl};
 `
 
+// eslint-disable-next-line no-unused-vars
 const datesLinkAfter = css`
   ${datesLinkBefore};
   margin-top: 1.5rem;
@@ -658,8 +659,8 @@ class Calendar extends Component {
         await this.setState({
           errorMessage: (
             <Trans>
-              You can&rsquo;t select more than 3 days. To change your
-              selections, remove some days first.
+              You can&rsquo;t select more than 1 day. To change your
+              selections, remove a day first.
             </Trans>
           ),
         })
@@ -783,7 +784,7 @@ class Calendar extends Component {
             id="removeDateMessage"
           >
             <h2>
-              <Trans>To change your selections, remove some days first</Trans>.
+              <Trans>To change your selections, remove a day first</Trans>.
             </h2>
           </div>
         ) : null}
@@ -843,14 +844,10 @@ class Calendar extends Component {
                     this.removeDateContainer = removeDateContainer
                   }}
                 >
-                  {value.length === 3 ? (
-                    <Trans>Your 3 selected days:</Trans>
-                  ) : value.length === 2 ? (
-                    <Trans>Your 2 selected days, select 1 more:</Trans>
-                  ) : value.length === 1 ? (
-                    <Trans>Your 1 selected day, select 2 more:</Trans>
+                  {value.length === 1 ? (
+                    <Trans>Please select your time slot</Trans>
                   ) : (
-                    <Trans>Select 3 days:</Trans>
+                    <Trans>Select a day:</Trans>
                   )}
                 </h3>
 
@@ -869,22 +866,7 @@ class Calendar extends Component {
                   <TimeSlots/>
               </div>
             </div>
-            {this.props.showAvailability && (
-              <div className={value.length ? datesLinkAfter : datesLinkBefore}>
-                <Field
-                  type="checkbox"
-                  name="availability"
-                  id="availability"
-                  value="notAvailable"
-                  component={CheckboxAdapter}
-                  label={
-                    <Trans>
-                      I cannot attend any of the available appointments
-                    </Trans>
-                  }
-                />
-              </div>
-            )}
+
           </div>
         </div>
       </div>
