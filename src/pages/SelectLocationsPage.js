@@ -11,6 +11,8 @@ import Title, { matchPropTypes } from '../components/Title'
 import { SelectLocationFields, getFieldNames } from '../validation'
 import { Trans } from '@lingui/react'
 import { provinceNames, provinceNamesFr } from '../utils/linguiUtils'
+import { Radio } from '../components/forms/MultipleChoice'
+
 // import styled from '@emotion/styled'
 //import { H1, theme, mediaQuery , arrow } from '../styles'
 //import { buttonStyles } from '../components/forms/Button'
@@ -86,52 +88,55 @@ const govuk_label = css`
 //     box-shadow: 0 0 0 4px #ffbf47; 
 //   }
 // `
-const LocationLabel = css`
-  width: 100%;
-  float: left; 
-  clear: none;
-  background-color: ${theme.colour.green};
-  background-color: #335075;
-  color: ${theme.colour.white};
-  box-shadow: 0 2px 0 #141414;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 2px;
-  overflow: auto;
-  &:hover {
-    background-color: ${theme.colour.greenDark};
-    background-color: #333333;
-    -webkit-box-shadow: 0 0 0 4px #ffbf47;
-    -moz-box-shadow: 0 0 0 4px #ffbf47;
-    box-shadow: 0 0 0 4px #ffbf47; 
-  }
-  a {color: inherit;}
-  }
-`
-const LocationInput = css`
-  float: left; 
-  clear: none;
-  background-color: ${theme.colour.green};
-  background-color: #335075;
-  color: ${theme.colour.white};
-  margin: 28px 10px 10px 2px;
-  box-shadow: 0 2px 0 #141414;
-  padding: 10px;
-  border: 2px;
-  &:hover {
-    background-color: ${theme.colour.greenDark};
-    background-color: #333333;
-    -webkit-box-shadow: 0 0 0 4px #ffbf47;
-    -moz-box-shadow: 0 0 0 4px #ffbf47;
-    box-shadow: 0 0 0 4px #ffbf47; 
-  }
-  a {color: inherit;}
-  }
-`
-const listLocations = css`
-  text-align: left;
-  padding: 0 0 0 25px;
-`
+
+// const LocationLabel = css`
+//   width: 100%;
+//   float: left; 
+//   clear: none;
+//   background-color: ${theme.colour.green};
+//   background-color: #335075;
+//   color: ${theme.colour.white};
+//   box-shadow: 0 2px 0 #141414;
+//   padding: 10px;
+//   margin-bottom: 20px;
+//   border: 2px;
+//   overflow: auto;
+//   &:hover {
+//     background-color: ${theme.colour.greenDark};
+//     background-color: #333333;
+//     -webkit-box-shadow: 0 0 0 4px #ffbf47;
+//     -moz-box-shadow: 0 0 0 4px #ffbf47;
+//     box-shadow: 0 0 0 4px #ffbf47; 
+//   }
+//   a {color: inherit;}
+//   }
+// `
+// const LocationInput = css`
+//   float: left; 
+//   clear: none;
+//   background-color: ${theme.colour.green};
+//   background-color: #335075;
+//   color: ${theme.colour.white};
+//   margin: 28px 10px 10px 2px;
+//   box-shadow: 0 2px 0 #141414;
+//   height: 34px;
+//   width: 34px;
+//   padding: 10px;
+//   border: 2px solid;
+//   &:hover {
+//     background-color: ${theme.colour.greenDark};
+//     background-color: #333333;
+//     -webkit-box-shadow: 0 0 0 4px #ffbf47;
+//     -moz-box-shadow: 0 0 0 4px #ffbf47;
+//     box-shadow: 0 0 0 4px #ffbf47; 
+//   }
+//   a {color: inherit;}
+//   }
+// `
+// const listLocations = css`
+//   text-align: left;
+//   padding: 0 0 0 45px;
+// `
 const clearFix = css`
   content:''; clear: both; display: table;
 `
@@ -355,12 +360,12 @@ class SelectlocationsPage extends React.Component {
 
               {/* Display the city locations found for the selected city */}
 
-              {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-                <div className="radio" key={_id}> 
-                <label htmlFor={_id} className={LocationLabel}>
-                <input type="radio" name='selectcity' id={_id} className={LocationInput} value={locationAddress} />
+              {/* {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
+                <div className={radio} key={_id}> 
+                <label htmlFor={_id} className={govuk_label_pseudo_elements}>
+                <input type="radio" name='selectcity' id={_id} value={locationAddress} />
 
-                <ul key={_id} id={_id} className={listLocations} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
+                <ul key={_id} id={_id} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
                     <li>
                       <FaExternalLinkAlt color='#ffbf47' size='18' /> 
                       <Language
@@ -387,7 +392,45 @@ class SelectlocationsPage extends React.Component {
 
                 </label>  
                 </div>
-              ))}
+              ))}  */}
+
+              {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
+                <div key={locationId}>
+                  <Radio 
+                    type="radio"
+                    name='selectcity'
+                    value={locationId}
+                    id={locationId}
+                    label = {
+                      <ul key={_id} id={_id} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
+                        <li>
+                          <FaExternalLinkAlt color='#ffbf47' size='18' /> 
+                          <Language
+                            render={language =>
+                              language === 'fr' ? (
+                                <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
+                                  rel="noopener noreferrer" target='_blank' > 
+                                  <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                                  <span> ServiceCanada.gc.ca</span> 
+                                </a>
+                              ) : (
+                                <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} 
+                                  rel="noopener noreferrer" target='_blank' > 
+                                  <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                                  <span> ServiceCanada.gc.ca</span>
+                                </a>  
+                                )
+                            }
+                          />
+                        </li>
+                        <li> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</li>
+                        <li> <FaClock color='#ffbf47' size='18' /> {hours}</li>
+                      </ul>
+                    }
+                  />
+                </div>
+              ))} 
+
 
               <div className={clearFix}>&nbsp;</div>
 
