@@ -11,6 +11,8 @@ import Title, { matchPropTypes } from '../components/Title'
 import { SelectLocationFields, getFieldNames } from '../validation'
 import { Trans } from '@lingui/react'
 import { provinceNames, provinceNamesFr } from '../utils/linguiUtils'
+import { Radio } from '../components/forms/MultipleChoice'
+
 // import styled from '@emotion/styled'
 //import { H1, theme, mediaQuery , arrow } from '../styles'
 //import { buttonStyles } from '../components/forms/Button'
@@ -86,52 +88,203 @@ const govuk_label = css`
 //     box-shadow: 0 0 0 4px #ffbf47; 
 //   }
 // `
-const LocationLabel = css`
-  width: 100%;
-  float: left; 
-  clear: none;
-  background-color: ${theme.colour.green};
-  background-color: #335075;
-  color: ${theme.colour.white};
-  box-shadow: 0 2px 0 #141414;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 2px;
-  overflow: auto;
-  &:hover {
-    background-color: ${theme.colour.greenDark};
-    background-color: #333333;
-    -webkit-box-shadow: 0 0 0 4px #ffbf47;
-    -moz-box-shadow: 0 0 0 4px #ffbf47;
-    box-shadow: 0 0 0 4px #ffbf47; 
-  }
-  a {color: inherit;}
-  }
-`
-const LocationInput = css`
-  float: left; 
-  clear: none;
-  background-color: ${theme.colour.green};
-  background-color: #335075;
-  color: ${theme.colour.white};
-  margin: 28px 10px 10px 2px;
-  box-shadow: 0 2px 0 #141414;
-  padding: 10px;
-  border: 2px;
-  &:hover {
-    background-color: ${theme.colour.greenDark};
-    background-color: #333333;
-    -webkit-box-shadow: 0 0 0 4px #ffbf47;
-    -moz-box-shadow: 0 0 0 4px #ffbf47;
-    box-shadow: 0 0 0 4px #ffbf47; 
-  }
-  a {color: inherit;}
-  }
-`
-const listLocations = css`
-  text-align: left;
-  padding: 0 0 0 25px;
-`
+// const ssssgovuk_multiple_choice = css`
+//   display: block;
+//   float: none;
+//   clear: left;
+//   position: relative;
+//   padding: 0 0 0 38px;
+//   margin-bottom: 10px;
+
+//   input {
+//     position: absolute;
+//     cursor: pointer;
+//     left: 0;
+//     top: 0;
+//     width: 38px;
+//     height: 38px;
+//     z-index: 1;
+//     margin: 0;
+//     zoom: 1;
+//     filter: alpha(opacity=0);
+//     opacity: 0;
+//   }
+
+//   label {
+//     cursor: pointer;
+//     padding: 8px 10px 9px 12px;
+//     display: block;
+//     -ms-touch-action: manipulation;
+//     touch-action: manipulation;
+//   }
+
+//   input:disabled {
+//     cursor: default;
+//   }
+
+//   input:disabled + label {
+//     zoom: 1;
+//     filter: alpha(opacity=50);
+//     opacity: 0.5;
+//     cursor: default;
+//   }
+// `
+
+// const ssssgovuk_label_pseudo_elements = css`
+//   input[type='radio'] + &::before {
+//     content: '';
+//     border: 2px solid;
+//     background: transparent;
+//     width: 34px;
+//     height: 34px;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     -webkit-border-radius: 50%;
+//     -moz-border-radius: 50%;
+//     border-radius: 50%;
+//   }
+
+//   input[type='radio'] + &::after {
+//     content: '';
+//     border: 10px solid;
+//     width: 0;
+//     height: 0;
+//     position: absolute;
+//     top: 7px;
+//     left: 7px;
+//     -webkit-border-radius: 50%;
+//     -moz-border-radius: 50%;
+//     border-radius: 50%;
+//     zoom: 1;
+//     filter: alpha(opacity=0);
+//     opacity: 0;
+//   }
+
+//   input[type='checkbox'] + &::before {
+//     content: '';
+//     border: 2px solid;
+//     background: transparent;
+//     width: 34px;
+//     height: 34px;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//   }
+
+//   input[type='checkbox'] + &::after {
+//     content: '';
+//     border: solid;
+//     border-width: 0 0 5px 5px;
+//     background: transparent;
+//     border-top-color: transparent;
+//     width: 17px;
+//     height: 7px;
+//     position: absolute;
+//     top: 10px;
+//     left: 8px;
+//     -moz-transform: rotate(-45deg);
+//     -o-transform: rotate(-45deg);
+//     -webkit-transform: rotate(-45deg);
+//     -ms-transform: rotate(-45deg);
+//     transform: rotate(-45deg);
+//     zoom: 1;
+//     filter: alpha(opacity=0);
+//     opacity: 0;
+//   }
+
+//   input[type='radio']:focus + &::before {
+//     -webkit-box-shadow: 0 0 0 4px #ffbf47;
+//     -moz-box-shadow: 0 0 0 4px #ffbf47;
+//     box-shadow: 0 0 0 4px #ffbf47;
+//   }
+
+//   input[type='checkbox']:focus + &::before {
+//     -webkit-box-shadow: 0 0 0 3px #ffbf47;
+//     -moz-box-shadow: 0 0 0 3px #ffbf47;
+//     box-shadow: 0 0 0 3px #ffbf47;
+//   }
+
+//   input:checked + &::after {
+//     zoom: 1;
+//     filter: alpha(opacity=100);
+//     opacity: 1;
+//   }
+// `
+
+// const ssscds_multiple_choice = css`
+//   label {
+//     padding-top: 3px;
+//     padding-bottom: 12px;
+//     font-size: ${theme.font.lg};
+//   }
+
+//   input[type='radio'] + label::before,
+//   input[type='checkbox'] + label::before {
+//     border: 2px solid ${theme.colour.black};
+//     background-color: ${theme.colour.white};
+//   }
+
+//   ${mediaQuery.sm(css`
+//     label {
+//       padding-top: 4px;
+//     }
+//   `)};
+// `
+
+// const sssradio = css`
+//   ${govuk_multiple_choice};
+//   ${cds_multiple_choice};
+// `
+
+// const LocationLabel = css`
+//   width: 100%;
+//   float: left; 
+//   clear: none;
+//   background-color: ${theme.colour.green};
+//   background-color: #335075;
+//   color: ${theme.colour.white};
+//   box-shadow: 0 2px 0 #141414;
+//   padding: 10px;
+//   margin-bottom: 20px;
+//   border: 2px;
+//   overflow: auto;
+//   &:hover {
+//     background-color: ${theme.colour.greenDark};
+//     background-color: #333333;
+//     -webkit-box-shadow: 0 0 0 4px #ffbf47;
+//     -moz-box-shadow: 0 0 0 4px #ffbf47;
+//     box-shadow: 0 0 0 4px #ffbf47; 
+//   }
+//   a {color: inherit;}
+//   }
+// `
+// const LocationInput = css`
+//   float: left; 
+//   clear: none;
+//   background-color: ${theme.colour.green};
+//   background-color: #335075;
+//   color: ${theme.colour.white};
+//   margin: 28px 10px 10px 2px;
+//   box-shadow: 0 2px 0 #141414;
+//   height: 34px;
+//   width: 34px;
+//   padding: 10px;
+//   border: 2px solid;
+//   &:hover {
+//     background-color: ${theme.colour.greenDark};
+//     background-color: #333333;
+//     -webkit-box-shadow: 0 0 0 4px #ffbf47;
+//     -moz-box-shadow: 0 0 0 4px #ffbf47;
+//     box-shadow: 0 0 0 4px #ffbf47; 
+//   }
+//   a {color: inherit;}
+//   }
+// `
+// const listLocations = css`
+//   text-align: left;
+//   padding: 0 0 0 45px;
+// `
 const clearFix = css`
   content:''; clear: both; display: table;
 `
@@ -355,12 +508,12 @@ class SelectlocationsPage extends React.Component {
 
               {/* Display the city locations found for the selected city */}
 
-              {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-                <div className="radio" key={_id}> 
-                <label htmlFor={_id} className={LocationLabel}>
-                <input type="radio" name='selectcity' id={_id} className={LocationInput} value={locationAddress} />
+              {/* {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
+                <div className={radio} key={_id}> 
+                <label htmlFor={_id} className={govuk_label_pseudo_elements}>
+                <input type="radio" name='selectcity' id={_id} value={locationAddress} />
 
-                <ul key={_id} id={_id} className={listLocations} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
+                <ul key={_id} id={_id} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
                     <li>
                       <FaExternalLinkAlt color='#ffbf47' size='18' /> 
                       <Language
@@ -387,7 +540,45 @@ class SelectlocationsPage extends React.Component {
 
                 </label>  
                 </div>
-              ))}
+              ))}  */}
+
+              {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
+                <div key={locationId}>
+                  <Radio 
+                    type="radio"
+                    name='selectcity'
+                    value={locationId}
+                    id={locationId}
+                    label = {
+                      <ul key={_id} id={_id} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
+                        <li>
+                          <FaExternalLinkAlt color='#ffbf47' size='18' /> 
+                          <Language
+                            render={language =>
+                              language === 'fr' ? (
+                                <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
+                                  rel="noopener noreferrer" target='_blank' > 
+                                  <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                                  <span> ServiceCanada.gc.ca</span> 
+                                </a>
+                              ) : (
+                                <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} 
+                                  rel="noopener noreferrer" target='_blank' > 
+                                  <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                                  <span> ServiceCanada.gc.ca</span>
+                                </a>  
+                                )
+                            }
+                          />
+                        </li>
+                        <li> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</li>
+                        <li> <FaClock color='#ffbf47' size='18' /> {hours}</li>
+                      </ul>
+                    }
+                  />
+                </div>
+              ))} 
+
 
               <div className={clearFix}>&nbsp;</div>
 
