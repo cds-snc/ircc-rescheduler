@@ -10,14 +10,15 @@ import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import { SelectLocationFields, getFieldNames } from '../validation'
 import { Trans } from '@lingui/react'
+import { provinceNames, provinceNamesFr } from '../utils/linguiUtils'
 // import styled from '@emotion/styled'
 //import { H1, theme, mediaQuery , arrow } from '../styles'
 //import { buttonStyles } from '../components/forms/Button'
 //import rightArrow from '../assets/rightArrow.svg'
 
-/* eslint-disable no-console */
+
 import Language from '../components/Language'
-import Button from '../components/forms/Button'
+//import Button from '../components/forms/Button'
 import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
 
 
@@ -33,7 +34,7 @@ const contentClass = css`
   }
 `
 const messageContainer = css`
-  display: flex;
+  width: 80% !important;
   align-items: center;
   margin-bottom: ${theme.spacing.lg};
   p {
@@ -45,7 +46,7 @@ const govuk_select = css`
   font-size: ${theme.font.base};
   background: ${theme.colour.white};
   line-height: 1.4;
-  max-width:100%;
+  width:100%;
   height:40px;
   option {
     background-color: ${theme.colour.white};
@@ -61,69 +62,83 @@ const govuk_label = css`
   display: block;
   font-size: ${theme.font.lg}
 `
-const govuk_p = css`
-  margin-bottom: 0.37rem;
-  display: block;
-  font-size: 1.2rem 
-`
-const govuk_List = css`
-  margin: 2px 0px 5px 0px;
-  padding: 0px 8px 0px 8px;
-  background-color: ${theme.colour.greyLight}
-`
-const govuk_ListButton = css`
-  width: 275px;
-  font-size: ${theme.font.sm}; 
-  background-color: ${theme.colour.greyLight}
-  cursor: pointer;
-  padding: 0px 8px 0px 8px;
-  &:hover {
-    background-color: #00692f;
-    color: ${theme.colour.white};
-    -webkit-box-shadow: 0 0 0 4px #ffbf47;
-    -moz-box-shadow: 0 0 0 4px #ffbf47;
-    box-shadow: 0 0 0 4px #ffbf47; 
-  }
-`
-const listLocations = css`
-  margin-bottom: 0.50rem;
-  display: block;
+// const govuk_p = css`
+//   margin-bottom: 0.37rem;
+//   display: block;
+//   font-size: 1.2rem 
+// `
+// const govuk_List = css`
+//   margin: 2px 0px 5px 0px;
+//   padding: 0px 8px 0px 8px;
+//   background-color: ${theme.colour.greyLight}
+// `
+// const govuk_ListButton = css`
+//   width: 275px;
+//   font-size: ${theme.font.sm}; 
+//   background-color: ${theme.colour.greyLight}
+//   cursor: pointer;
+//   padding: 0px 8px 0px 8px;
+//   &:hover {
+//     background-color: #00692f;
+//     color: ${theme.colour.white};
+//     -webkit-box-shadow: 0 0 0 4px #ffbf47;
+//     -moz-box-shadow: 0 0 0 4px #ffbf47;
+//     box-shadow: 0 0 0 4px #ffbf47; 
+//   }
+// `
+const LocationLabel = css`
+  width: 100%;
+  float: left; 
+  clear: none;
   background-color: ${theme.colour.green};
+  background-color: #335075;
   color: ${theme.colour.white};
   box-shadow: 0 2px 0 #141414;
   padding: 10px;
+  margin-bottom: 20px;
   border: 2px;
+  overflow: auto;
   &:hover {
     background-color: ${theme.colour.greenDark};
+    background-color: #333333;
     -webkit-box-shadow: 0 0 0 4px #ffbf47;
     -moz-box-shadow: 0 0 0 4px #ffbf47;
     box-shadow: 0 0 0 4px #ffbf47; 
   }
   a {color: inherit;}
+  }
+`
+const LocationInput = css`
+  float: left; 
+  clear: none;
+  background-color: ${theme.colour.green};
+  background-color: #335075;
+  color: ${theme.colour.white};
+  margin: 28px 10px 10px 2px;
+  box-shadow: 0 2px 0 #141414;
+  padding: 10px;
+  border: 2px;
+  &:hover {
+    background-color: ${theme.colour.greenDark};
+    background-color: #333333;
+    -webkit-box-shadow: 0 0 0 4px #ffbf47;
+    -moz-box-shadow: 0 0 0 4px #ffbf47;
+    box-shadow: 0 0 0 4px #ffbf47; 
+  }
+  a {color: inherit;}
+  }
+`
+const listLocations = css`
+  text-align: left;
+  padding: 0 0 0 25px;
+`
+const clearFix = css`
+  content:''; clear: both; display: table;
 `
 //const landingArrow = css`
 //  ${arrow};
 //  margin-left: 4px;
 //`
-
-const provinceNames = [
-  { _id:0, idfr:0, name:"Select a Province", namefr:"Sélectionnez une province" },
-  { _id:1, idfr:1, name:"Alberta", namefr:"Alberta" },
-  { _id:2, idfr:2, name:"British Columbia", namefr:"Colombie-Britannique" },
-  { _id:3, idfr:4, name:"Manitoba", namefr:"Manitoba" },
-  { _id:4, idfr:5, name:"New Brunswick", namefr:"Nouveau-Brunswick" },
-  { _id:5, idfr:11, name:"Newfoundland and Labrador", namefr:"Terre-Neuve-et-Labrador" },
-  { _id:6, idfr:12, name:"Northwest Territories", namefr:"Territoires du Nord-Ouest" },
-  { _id:7, idfr:6, name:"Nova Scotia", namefr:"Nouvelle-Écosse" },
-  { _id:8, idfr:7, name:"Nunavut", namefr:"Nunavut" },
-  { _id:9, idfr:8, name:"Ontario", namefr:"Ontario" },
-  { _id:10, idfr:3, name:"Prince Edward Island", namefr:"Île-du-Prince-Édouard" },
-  { _id:11, idfr:9, name:"Quebec", namefr:"Québec" },
-  { _id:12, idfr:10, name:"Saskatchewan", namefr:"Saskatchewan" },
-  { _id:13, idfr:13, name:"Yukon", namefr:"Yukon" },
-]
-const provinceNamesFr = provinceNames.sort((a, b) => a.idfr > b.idfr);
-
 
 
 class SelectlocationsPage extends React.Component {
@@ -140,9 +155,8 @@ class SelectlocationsPage extends React.Component {
 
     this.getProvinceLocations = this.getProvinceLocations.bind(this);
     this.getCityLocations = this.getCityLocations.bind(this)
-    this.handleChange = this.handleChange.bind(this);
-    this.handleProvince = this.handleProvince.bind(this);
-    this.handleCity = this.handleCity.bind(this);
+    this.handleProvinceChange = this.handleProvinceChange.bind(this);
+    this.handleCityChange = this.handleCityChange.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
     this.fetchLocations = this.fetchLocations.bind(this);
     this.validate = SelectlocationsPage.validate
@@ -188,12 +202,12 @@ class SelectlocationsPage extends React.Component {
     console.log( "url: " + encodedURI )
     // eslint-disable-next-line no-undef
     return fetch(encodedURI)
-      .then((data) => data.json())
-      .then((locs) => locs  )
-      .catch((error) => {
+      .then( (data) => data.json() )
+      .then( (locs) => locs )
+      .catch( (error) => {
         console.warn(error)
         return [{'locationCity' : 'Aucun service en ce moment, réessayez plus tard / No service at this moment try again later'}]
-      });
+      } );
   }
    
 
@@ -203,6 +217,15 @@ class SelectlocationsPage extends React.Component {
     })
     this.fetchLocations( selectedProvince )
       .then((locs) => {
+
+        locs.splice(0,0, 
+          { 'id':'null', 
+            'locationCity': (
+              this.props.context.store.language === 'en' 
+              ? 'Select a City' 
+              : 'Sélectionnez une ville') } 
+        )
+
         //console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
         this.setState ({
             provLocations: locs,
@@ -219,7 +242,6 @@ class SelectlocationsPage extends React.Component {
     })
     this.fetchLocations( selectedProvince, selectedCity )
       .then((locs) => {
-        //console.log('Data in getCities is : ' + JSON.stringify(locs)) 
         this.setState ({
             cityLocations: locs,
             loading: false,
@@ -227,18 +249,15 @@ class SelectlocationsPage extends React.Component {
       })
   }
 
-  handleChange(event) {
+  handleProvinceChange(event) {
     this.setState({ provinceName : event.target.value });
+    this.getProvinceLocations( event.target.value )
   }
 
-  handleProvince(event) {
-    event.preventDefault();
-    this.getProvinceLocations( this.state.provinceName )
-  }
-  
-  handleCity(selectedCity) {
-    this.setState({ cityName : selectedCity });
-    this.getCityLocations( this.state.provinceName, selectedCity )
+  handleCityChange(event) {
+    console.log ('city is :' + event.target.value)
+    this.setState({ cityName : event.target.value });
+    this.getCityLocations( this.state.provinceName,  event.target.value )
   }
 
   render() {
@@ -273,7 +292,7 @@ class SelectlocationsPage extends React.Component {
                 render={language => (
                   <React.Fragment>
                     {language === 'en' ? (
-                      <select className={govuk_select} name="ProvinceList" id="ProvEng" onChange={this.handleChange} >
+                      <select className={govuk_select} name="ProvinceList" id="ProvEng" onChange={this.handleProvinceChange} >
                         {provinceNames.map(({ _id, name }) => (
                           <option key={_id} value={name}>
                             {name}
@@ -281,7 +300,7 @@ class SelectlocationsPage extends React.Component {
                         ))} 
                       </select>
                     ) : (
-                      <select className={govuk_select}  name="ProvinceList" id="ProvFr" onChange={this.handleChange} >
+                      <select className={govuk_select}  name="ProvinceList" id="ProvFr" onChange={this.handleProvinceChange} >
                         {provinceNamesFr.map(({ name, namefr }) => (
                           <option key={name} value={name}>
                             {namefr}
@@ -295,31 +314,34 @@ class SelectlocationsPage extends React.Component {
 
               <p> <br /> </p>
                 
-              <Button type="submit" value="Submit" onClick={this.handleProvince} > Submit </Button>
+              {/* Display the cities where an office is available */}
 
               {this.state.provinceName === null ? ( 
                 null
               ) : (
-                <React.Fragment>
-                  <p>&nbsp;</p>
-                  <p className={govuk_p}> <Trans>Selected province</Trans> : {this.state.provinceName} </p>
-                  <hr /> 
-                </React.Fragment>
+                (this.state.loading === true && this.state.cityName === null ) ? (
+                  null 
+                ) : (
+                  <React.Fragment>
+                    {/* <p>&nbsp;</p> */}
+                    {/* <p className={govuk_p}> <Trans>Selected province</Trans> : {this.state.provinceName} </p> */}
+                    <hr /> 
+
+                    <select className={govuk_select} name="CityList" id="Cities" onChange={this.handleCityChange} >
+                      {locationsData.map(({ locationCity }) => (
+                          <option key={locationCity} value={locationCity}>
+                              {/* <button className={govuk_ListButton} onClick={() => this.handleCity(locationCity)}>&nbsp;{locationCity}&nbsp;</button> */}
+                              {locationCity}
+                          </option>
+                      ))}
+                    </select>
+
+                  </React.Fragment>
+                )
               )}
 
-              {/* <p> <br /> </p> */}
-
-              {/* Display the cities where an office is available */}
-
-              <ul >
-                {locationsData.map(({ locationCity }) => (
-                    <li className={govuk_List} key={locationCity} id={locationCity}>
-                        <button className={govuk_ListButton} onClick={() => this.handleCity(locationCity)}>&nbsp;{locationCity}&nbsp;</button>
-                    </li>
-                ))}
-              </ul>
               
-              {/* Display the labels below only when user has selected a city */}
+              {/* Display the results below only when user has selected a city */}
 
               {this.state.cityName === null ? ( 
                 null
@@ -331,36 +353,45 @@ class SelectlocationsPage extends React.Component {
                 </React.Fragment>
               )}
 
-              <ul>
-                {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-                  <li key={_id} id={_id} className={listLocations} onClick={() => {this.handleLocation(locationId, locationAddress)}}>
-                    <ul> 
-                      <li>
-                        <FaExternalLinkAlt color='#ffbf47' size='18' /> 
-                        <Language
-                          render={language =>
-                            language === 'fr' ? (
-                              <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
-                                rel="noopener noreferrer" target='_blank' > 
-                                <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                                <span> ServiceCanada.gc.ca</span> 
-                              </a>
-                            ) : (
-                              <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} 
-                                rel="noopener noreferrer" target='_blank' > 
-                                <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                                <span> ServiceCanada.gc.ca</span>
-                              </a>  
-                              )
-                          }
-                        />
-                      </li>
-                      <li> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</li>
-                      <li> <FaClock color='#ffbf47' size='18' /> {hours}</li>
-                    </ul>
-                  </li>
-                ))}
-              </ul>
+              {/* Display the city locations found for the selected city */}
+
+              {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
+                <div className="radio" key={_id}> 
+                <label htmlFor={_id} className={LocationLabel}>
+                <input type="radio" name='selectcity' id={_id} className={LocationInput} value={locationAddress} />
+
+                <ul key={_id} id={_id} className={listLocations} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
+                    <li>
+                      <FaExternalLinkAlt color='#ffbf47' size='18' /> 
+                      <Language
+                        render={language =>
+                          language === 'fr' ? (
+                            <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
+                              rel="noopener noreferrer" target='_blank' > 
+                              <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                              <span> ServiceCanada.gc.ca</span> 
+                            </a>
+                          ) : (
+                            <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} 
+                              rel="noopener noreferrer" target='_blank' > 
+                              <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                              <span> ServiceCanada.gc.ca</span>
+                            </a>  
+                            )
+                        }
+                      />
+                    </li>
+                    <li> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</li>
+                    <li> <FaClock color='#ffbf47' size='18' /> {hours}</li>
+                  </ul>
+
+                </label>  
+                </div>
+              ))}
+
+              <div className={clearFix}>&nbsp;</div>
+
+              {/* <Button type="submit" value="Submit" onClick={this.handleProvince} > Submit </Button> */}
 
             </div>
           </section>
