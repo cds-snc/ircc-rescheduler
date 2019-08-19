@@ -1,9 +1,23 @@
 /* eslint-disable no-undef */
 /// <reference types="Cypress" />
 // verify items on the landing page. 
+
+function checkA11y(cy){ 
+  cy.checkA11y({
+    runonly: {
+    type: "tag",
+    values: ["wcag2a", "wcag2aa"]}});
+}
 describe('Items shown on the Landing page', () => {
   beforeEach(() => {
+   
     cy.visit('/')
+   
+  })
+  it('Has no detectable a11y violations on load', () => {
+    // Test the page at initial load
+    cy.injectAxe()
+    checkA11y(cy)
   })
     it('should not have Privacy and ToC link but not contact', () => {
      // cy.visit('/')
@@ -20,6 +34,7 @@ describe('Items shown on the Landing page', () => {
       cy.get('#footer a')
         .eq(1)
         .should('contain', 'Terms and Conditions')
+    
         //need the link for the terms and conditions
     //  cy.get('#footer div a')
     //    .eq(2).should('have.attr', 'href', '/termsandconditions')
@@ -34,9 +49,12 @@ describe('Items shown on the Landing page', () => {
   })
 
   it('Start now button take the user to the register page', () => {
+    cy.injectAxe()
       let startText = 'Start now'
     cy.get('main a').should('have.text', startText)
     cy.get('main a').click({ force: true })
+   
+    checkA11y(cy)
     cy.url().should('contain', '/register')
     })
 })
