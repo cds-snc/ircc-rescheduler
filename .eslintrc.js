@@ -16,10 +16,14 @@ module.exports = {
   plugins: ['jest', 'security', 'react'],
   env: {
     'jest/globals': true,
+    
+    
   },
+ 
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
   },
+
   settings: {
     react: {
       version: '16.4.2',
