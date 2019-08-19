@@ -86,21 +86,54 @@ const govuk_label = css`
 //     box-shadow: 0 0 0 4px #ffbf47; 
 //   }
 // `
-const listLocations = css`
-  margin-bottom: 0.50rem;
-  display: block;
+const LocationLabel = css`
+  width: 100%;
+  float: left; 
+  clear: none;
   background-color: ${theme.colour.green};
+  background-color: #335075;
   color: ${theme.colour.white};
   box-shadow: 0 2px 0 #141414;
   padding: 10px;
+  margin-bottom: 20px;
   border: 2px;
+  overflow: auto;
   &:hover {
     background-color: ${theme.colour.greenDark};
+    background-color: #333333;
     -webkit-box-shadow: 0 0 0 4px #ffbf47;
     -moz-box-shadow: 0 0 0 4px #ffbf47;
     box-shadow: 0 0 0 4px #ffbf47; 
   }
   a {color: inherit;}
+  }
+`
+const LocationInput = css`
+  float: left; 
+  clear: none;
+  background-color: ${theme.colour.green};
+  background-color: #335075;
+  color: ${theme.colour.white};
+  margin: 28px 10px 10px 2px;
+  box-shadow: 0 2px 0 #141414;
+  padding: 10px;
+  border: 2px;
+  &:hover {
+    background-color: ${theme.colour.greenDark};
+    background-color: #333333;
+    -webkit-box-shadow: 0 0 0 4px #ffbf47;
+    -moz-box-shadow: 0 0 0 4px #ffbf47;
+    box-shadow: 0 0 0 4px #ffbf47; 
+  }
+  a {color: inherit;}
+  }
+`
+const listLocations = css`
+  text-align: left;
+  padding: 0 0 0 25px;
+`
+const clearFix = css`
+  content:''; clear: both; display: table;
 `
 //const landingArrow = css`
 //  ${arrow};
@@ -320,37 +353,43 @@ class SelectlocationsPage extends React.Component {
                 </React.Fragment>
               )}
 
-              <ul>
-                {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-                  <li key={_id} id={_id} className={listLocations} onClick={() => {this.handleLocation(locationId, locationAddress)}}>
-                    <ul> 
-                      <li>
-                        <FaExternalLinkAlt color='#ffbf47' size='18' /> 
-                        <Language
-                          render={language =>
-                            language === 'fr' ? (
-                              <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
-                                rel="noopener noreferrer" target='_blank' > 
-                                <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                                <span> ServiceCanada.gc.ca</span> 
-                              </a>
-                            ) : (
-                              <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} 
-                                rel="noopener noreferrer" target='_blank' > 
-                                <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                                <span> ServiceCanada.gc.ca</span>
-                              </a>  
-                              )
-                          }
-                        />
-                      </li>
-                      <li> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</li>
-                      <li> <FaClock color='#ffbf47' size='18' /> {hours}</li>
-                    </ul>
-                  </li>
-                ))}
-              </ul>
+              {/* Display the city locations found for the selected city */}
 
+              {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
+                <div className="radio" key={_id}> 
+                <label htmlFor={_id} className={LocationLabel}>
+                <input type="radio" name='selectcity' id={_id} className={LocationInput} value={locationAddress} />
+
+                <ul key={_id} id={_id} className={listLocations} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
+                    <li>
+                      <FaExternalLinkAlt color='#ffbf47' size='18' /> 
+                      <Language
+                        render={language =>
+                          language === 'fr' ? (
+                            <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
+                              rel="noopener noreferrer" target='_blank' > 
+                              <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                              <span> ServiceCanada.gc.ca</span> 
+                            </a>
+                          ) : (
+                            <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} 
+                              rel="noopener noreferrer" target='_blank' > 
+                              <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                              <span> ServiceCanada.gc.ca</span>
+                            </a>  
+                            )
+                        }
+                      />
+                    </li>
+                    <li> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</li>
+                    <li> <FaClock color='#ffbf47' size='18' /> {hours}</li>
+                  </ul>
+
+                </label>  
+                </div>
+              ))}
+
+              <div className={clearFix}>&nbsp;</div>
 
               {/* <Button type="submit" value="Submit" onClick={this.handleProvince} > Submit </Button> */}
 
