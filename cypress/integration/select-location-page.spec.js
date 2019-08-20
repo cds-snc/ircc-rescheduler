@@ -17,9 +17,14 @@ describe('select provice, city and office page functions', () => {
       checkA11y(cy)
     })
   
-    it('should do something', () => {  
+    it('should go to the selectProvince page', () => {  
      cy.url().should('contain', '/selectProvince')
 
     })
+
+    it('should click into the province selection dropdown', () => {  
+      cy.get('#ProvEng').should('contain.text', 'Select a province')
+ 
+     })
 
 });
