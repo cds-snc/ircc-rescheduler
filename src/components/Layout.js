@@ -109,7 +109,7 @@ class Layout extends React.Component {
           <div role="banner">
             <FederalBanner />
             <Devider />
-            <PageHeader />
+            <PageHeader>{this.props.header}</PageHeader>
           </div>
           <main role="main">
             <div

@@ -96,9 +96,6 @@ class LandingPage extends React.Component {
         }
       >
         <Title path={this.props.match.path} />
-        <H1>
-            <Trans>TRANS: This is our policy page!!  If you agree to the policy below - please continue</Trans>
-        </H1>
         <section>
           {/* <H2Landing>
             <Trans>
