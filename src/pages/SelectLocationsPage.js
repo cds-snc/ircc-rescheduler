@@ -12,6 +12,9 @@ import { SelectLocationFields, getFieldNames } from '../validation'
 import { Trans } from '@lingui/react'
 import { provinceNames, provinceNamesFr } from '../utils/linguiUtils'
 import { Radio } from '../components/forms/MultipleChoice'
+import Language from '../components/Language'
+import Button from '../components/forms/Button'
+import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
 
 // import styled from '@emotion/styled'
 //import { H1, theme, mediaQuery , arrow } from '../styles'
@@ -19,9 +22,6 @@ import { Radio } from '../components/forms/MultipleChoice'
 //import rightArrow from '../assets/rightArrow.svg'
 
 
-import Language from '../components/Language'
-//import Button from '../components/forms/Button'
-import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
 
 
 /* eslint-disable no-console */
@@ -48,6 +48,7 @@ const govuk_select = css`
   font-size: ${theme.font.base};
   background: ${theme.colour.white};
   line-height: 1.4;
+  margin-bottom: 2em;
   width:100%;
   height:40px;
   option {
@@ -153,7 +154,9 @@ class SelectlocationsPage extends React.Component {
 
     this.state = {
       provinceName: null,
-      cityName: null, 
+      cityName: null,
+      officeNumber: null, 
+      officeAddress: null,
       provLocations: [],
       cityLocations:[],
     }
@@ -163,6 +166,7 @@ class SelectlocationsPage extends React.Component {
     this.handleProvinceChange = this.handleProvinceChange.bind(this);
     this.handleCityChange = this.handleCityChange.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
+    this.submit = this.submit.bind(this) 
     this.fetchLocations = this.fetchLocations.bind(this);
     this.validate = SelectlocationsPage.validate
     this.fields = SelectlocationsPage.fields
@@ -179,11 +183,11 @@ class SelectlocationsPage extends React.Component {
   }
 
 
-  async handleLocation ( selectedLocation,  locationAddress ) {
+  async submit () {
     // eslint-disable-next-line no-console
     console.log(this.props) 
 
-    let values = { 'locationCity' : this.state.cityName ,'locationId' : selectedLocation, 'locationAddress': locationAddress }
+    let values = { 'locationCity' : this.state.cityName ,'locationId' : this.state.officeNumber, 'locationAddress': this.state.officeAddress }
     console.log(values)
     // eslint-disable-next-line no-unused-vars
     let justValidate = this.validate( values, true) 
@@ -236,6 +240,8 @@ class SelectlocationsPage extends React.Component {
             provLocations: locs,
             cityLocations: [],
             cityName: null,
+            locationNumber: null,
+            locationAddress: null,
             loading: false,
         })
       })
@@ -264,6 +270,11 @@ class SelectlocationsPage extends React.Component {
     this.setState({ cityName : event.target.value });
     this.getCityLocations( this.state.provinceName,  event.target.value )
   }
+
+  handleLocation(LocationId, LocationAddress) {
+    this.setState({ officeNumber : LocationId, officeAddress: LocationAddress });
+  }
+
 
   render() {
 
@@ -297,7 +308,7 @@ class SelectlocationsPage extends React.Component {
                 render={language => (
                   <React.Fragment>
                     {language === 'en' ? (
-                      <select className={govuk_select} name="ProvinceList" id="ProvEng" onChange={this.handleProvinceChange} >
+                      <select className={govuk_select} name="ProvinceListEn" id="ProvinceList" onChange={this.handleProvinceChange} >
                         {provinceNames.map(({ _id, name }) => (
                           <option key={_id} value={name}>
                             {name}
@@ -305,7 +316,7 @@ class SelectlocationsPage extends React.Component {
                         ))} 
                       </select>
                     ) : (
-                      <select className={govuk_select}  name="ProvinceList" id="ProvFr" onChange={this.handleProvinceChange} >
+                      <select className={govuk_select}  name="ProvinceListFr" id="ProvinceList" onChange={this.handleProvinceChange} >
                         {provinceNamesFr.map(({ name, namefr }) => (
                           <option key={name} value={name}>
                             {namefr}
@@ -317,8 +328,6 @@ class SelectlocationsPage extends React.Component {
                 )}
               />
 
-              <p> <br /> </p>
-                
               {/* Display the cities where an office is available */}
 
               {this.state.provinceName === null ? ( 
@@ -331,8 +340,10 @@ class SelectlocationsPage extends React.Component {
                     {/* <p>&nbsp;</p> */}
                     {/* <p className={govuk_p}> <Trans>Selected province</Trans> : {this.state.provinceName} </p> */}
                     <hr /> 
-
-                    <select className={govuk_select} name="CityList" id="Cities" onChange={this.handleCityChange} >
+                    <label className={govuk_label} htmlFor="CitiesList">
+                      <Trans>Select a city:</Trans>
+                    </label>
+                    <select className={govuk_select} name="CitiesList" id="CitiesList" onChange={this.handleCityChange} >
                       {locationsData.map(({ locationCity }) => (
                           <option key={locationCity} value={locationCity}>
                               {/* <button className={govuk_ListButton} onClick={() => this.handleCity(locationCity)}>&nbsp;{locationCity}&nbsp;</button> */}
@@ -352,89 +363,58 @@ class SelectlocationsPage extends React.Component {
                 null
               ) : (
                 <React.Fragment>
-                  <p> <br /> </p>
-                  <p> <Trans>Locations in:</Trans> {this.state.cityName} <br /> </p> 
                   <hr /> 
+                  <label className={govuk_label} htmlFor="Locations">
+                    <Trans>Locations in:</Trans> {this.state.cityName}
+                  </label>
+
+                  {/* Display the city locations found for the selected city */}
+
+                  <div>
+                    {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
+                      <div key={locationId} id='Locations'>
+                        <Radio 
+                          type="radio"
+                          name='selectcity'
+                          value={locationId}
+                          id={locationId}
+                          label = {
+                            <ul key={_id} id={_id} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
+                              <li>
+                                <FaExternalLinkAlt color='#ffbf47' size='18' /> 
+                                <Language
+                                  render={language =>
+                                    language === 'fr' ? (
+                                      <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
+                                        rel="noopener noreferrer" target='_blank' > 
+                                        <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                                        <span> ServiceCanada.gc.ca</span> 
+                                      </a>
+                                    ) : (
+                                      <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} 
+                                        rel="noopener noreferrer" target='_blank' > 
+                                        <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                                        <span> ServiceCanada.gc.ca</span>
+                                      </a>  
+                                      )
+                                  }
+                                />
+                              </li>
+                              <li> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</li>
+                              <li> <FaClock color='#ffbf47' size='18' /> {hours}</li>
+                            </ul>
+                          }
+                        />
+                      </div>
+                    ))} 
+                  </div>
+
+                  <Button type="submit" value="Submit" onClick={this.submit} > Submit </Button> 
+
                 </React.Fragment>
               )}
 
-              {/* Display the city locations found for the selected city */}
-
-              {/* {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-                <div className={radio} key={_id}> 
-                <label htmlFor={_id} className={govuk_label_pseudo_elements}>
-                <input type="radio" name='selectcity' id={_id} value={locationAddress} />
-
-                <ul key={_id} id={_id} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
-                    <li>
-                      <FaExternalLinkAlt color='#ffbf47' size='18' /> 
-                      <Language
-                        render={language =>
-                          language === 'fr' ? (
-                            <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
-                              rel="noopener noreferrer" target='_blank' > 
-                              <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                              <span> ServiceCanada.gc.ca</span> 
-                            </a>
-                          ) : (
-                            <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} 
-                              rel="noopener noreferrer" target='_blank' > 
-                              <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                              <span> ServiceCanada.gc.ca</span>
-                            </a>  
-                            )
-                        }
-                      />
-                    </li>
-                    <li> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</li>
-                    <li> <FaClock color='#ffbf47' size='18' /> {hours}</li>
-                  </ul>
-
-                </label>  
-                </div>
-              ))}  */}
-
-              {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-                <div key={locationId}>
-                  <Radio 
-                    type="radio"
-                    name='selectcity'
-                    value={locationId}
-                    id={locationId}
-                    label = {
-                      <ul key={_id} id={_id} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
-                        <li>
-                          <FaExternalLinkAlt color='#ffbf47' size='18' /> 
-                          <Language
-                            render={language =>
-                              language === 'fr' ? (
-                                <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
-                                  rel="noopener noreferrer" target='_blank' > 
-                                  <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                                  <span> ServiceCanada.gc.ca</span> 
-                                </a>
-                              ) : (
-                                <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} 
-                                  rel="noopener noreferrer" target='_blank' > 
-                                  <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                                  <span> ServiceCanada.gc.ca</span>
-                                </a>  
-                                )
-                            }
-                          />
-                        </li>
-                        <li> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</li>
-                        <li> <FaClock color='#ffbf47' size='18' /> {hours}</li>
-                      </ul>
-                    }
-                  />
-                </div>
-              ))} 
-
-
               <div className={clearFix}>&nbsp;</div>
-
-              {/* <Button type="submit" value="Submit" onClick={this.handleProvince} > Submit </Button> */}
 
             </div>
           </section>
