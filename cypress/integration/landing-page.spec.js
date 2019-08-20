@@ -8,6 +8,7 @@ function checkA11y(cy){
     type: "tag",
     values: ["wcag2a", "wcag2aa"]}});
 }
+
 describe('Items shown on the Landing page', () => {
   beforeEach(() => {
    
@@ -19,6 +20,7 @@ describe('Items shown on the Landing page', () => {
     cy.injectAxe()
     checkA11y(cy)
   })
+  
     it('should not have Privacy and ToC link but not contact', () => {
      // cy.visit('/')
       // there shoulc be no link for contact- it was removed. 
