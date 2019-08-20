@@ -21,6 +21,7 @@ const Summary = ({
   paperFileNumber,
   familyOption,
   email,
+  emailConfirm,
   reason,
   explanation,
   location,
@@ -37,8 +38,14 @@ const Summary = ({
     />
     <SummaryRow
       summaryHeader={<Trans>Email</Trans>}
-      summaryBody={email}
+      summaryBody={emailConfirm}
       summaryLink={'/register#email-label'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
+    />
+    <SummaryRow
+      summaryHeader={<Trans>Email</Trans>}
+      summaryBody={email}
+      summaryLink={'/register#emailConfirm-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
     />
     <SummaryRow
@@ -99,6 +106,7 @@ Summary.propTypes = {
   paperFileNumber: PropTypes.string,
   familyOption: PropTypes.string,
   email: PropTypes.string,
+  emailConfirm: PropTypes.string,
   reason: PropTypes.object,
   location: PropTypes.string,
   explanation: PropTypes.string,

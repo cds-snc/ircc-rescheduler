@@ -82,20 +82,20 @@ export const defaultMessages = {
  * Form Fields & Rules
  *--------------------------------------------*/
 
-const getPaperFileNumberPattern = () => {
-  if (
-    !process.env.RAZZLE_PAPER_FILE_NUMBER_PATTERN &&
-    !typeof RAZZLE_PAPER_FILE_NUMBER_PATTERN
-  ) {
-    throw new Error('PAPER_FILE_NUMBER_PATTERN must be defined')
-  }
+// const getPaperFileNumberPattern = () => {
+//   if (
+//     !process.env.RAZZLE_PAPER_FILE_NUMBER_PATTERN &&
+//     !typeof RAZZLE_PAPER_FILE_NUMBER_PATTERN
+//   ) {
+//     throw new Error('PAPER_FILE_NUMBER_PATTERN must be defined')
+//   }
 
-  let paperFileNumberPattern =
-    process.env.RAZZLE_PAPER_FILE_NUMBER_PATTERN ||
-    typeof RAZZLE_PAPER_FILE_NUMBER_PATTERN //
+//   let paperFileNumberPattern =
+//     process.env.RAZZLE_PAPER_FILE_NUMBER_PATTERN ||
+//     typeof RAZZLE_PAPER_FILE_NUMBER_PATTERN //
 
-  return paperFileNumberPattern
-}
+//   return paperFileNumberPattern
+// }
 
 export const RegistrationFields = {
   email: 'required|email',
@@ -161,7 +161,7 @@ Validator.register(
   'paper_file_number',
   function(value, requirement, attribute) {
     // eslint-disable-next-line security/detect-non-literal-regexp
-    const regex = new RegExp('^' + getPaperFileNumberPattern() + '$', 'i')
+    const regex = new RegExp('^'+'[a-zA-Z]{1}[0-9]{12}' + '$','i')
     return regex.test(value)
   },
   'paperFileNumberInvalidErrorMessage',

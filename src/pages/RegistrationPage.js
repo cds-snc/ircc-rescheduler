@@ -27,7 +27,7 @@ import {
 import FieldSet from '../components/forms/FieldSet'
 import {
   Radio,
-  RadioAdapter,
+  CheckboxAdapter,
 } from '../components/forms/MultipleChoice'
 import Button from '../components/forms/Button'
 import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
@@ -344,8 +344,8 @@ class RegistrationPage extends React.Component {
                 </div>
                           {/* Email Confirm*/}
                  <div>
-                  <Field component={TextFieldAdapter} name="email" id="email">
-                    <label htmlFor="email" id="email-label">
+                  <Field component={TextFieldAdapter} name="emailConfirm" id="emailConfirm">
+                    <label htmlFor="email" id="emailConfirm-label">
                       <span id="confirm-email-header">
                         <Trans>Confirm Email address</Trans>
                       </span>
@@ -385,12 +385,13 @@ class RegistrationPage extends React.Component {
                     </legend>
 
                     <Field
-                      type="radio"
-                      component={RadioAdapter}
+                      type="checkbox"
+                      component={CheckboxAdapter}  
                       label={<Trans>Agree</Trans>}
-                      value="travel"
-                      name="reason"
+                      value="True"
+                      name="accessibility required"
                       id="reason-0"
+                      
                     />
                     
                   </FieldSet>
