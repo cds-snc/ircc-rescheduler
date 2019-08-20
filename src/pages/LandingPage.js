@@ -4,7 +4,7 @@ import { css } from 'emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, theme, mediaQuery, arrow } from '../styles'
 import Layout from '../components/Layout'
-// import Title, { matchPropTypes } from '../components/Title'
+import Title, { matchPropTypes } from '../components/Title'
 // import { LongReminder } from '../components/Reminder'
 import { buttonStyles } from '../components/forms/Button'
 import { Trans } from '@lingui/react'
@@ -95,9 +95,12 @@ class LandingPage extends React.Component {
           </H1>
         }
       >
-        {/* <Title path={this.props.match.path} />
+        <Title path={this.props.match.path} />
+        <H1>
+            <Trans>TRANS: This is our policy page!!  If you agree to the policy below - please continue</Trans>
+        </H1>
         <section>
-          <H2Landing>
+          {/* <H2Landing>
             <Trans>
               Tell IRCC you can&rsquo;t attend your citizenship appointment, and
               request a new one.
@@ -119,8 +122,8 @@ class LandingPage extends React.Component {
                 <Trans>To describe your reason for rescheduling</Trans>
               </p>
             </li>
-          </ul>
-          <div className={messageContainer}>
+          </ul> */}
+          {/* <div className={messageContainer}>
             <div className={iconContainer}>
               <CalendarIcon />
             </div>
@@ -147,16 +150,15 @@ class LandingPage extends React.Component {
               Then we’ll review your request and send you a new appointment for
               one of the days you selected.
             </Trans>
-          </p>
-        </section>
+          </p>*/}
+        </section> 
 
-        <LongReminder>
+        {/* <LongReminder>
           <Trans>
             Requesting a new appointment will cancel your current one. Do not
             attend your old appointment after you complete this request.
           </Trans>
-        </LongReminder> */}
-
+        </LongReminder> */} 
         <div>
           <NavLink to="/register" className={buttonStyles}>
             <Trans>Start now</Trans>
@@ -168,8 +170,8 @@ class LandingPage extends React.Component {
   }
 }
 
-// LandingPage.propTypes = {
-//   ...matchPropTypes,
-// }
+LandingPage.propTypes = {
+  ...matchPropTypes,
+}
 
 export default LandingPage

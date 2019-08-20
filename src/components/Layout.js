@@ -4,6 +4,7 @@ import { css, injectGlobal } from 'emotion'
 import { theme, mediaQuery, content } from '../styles'
 import FederalBanner from './FederalBanner'
 import Devider from './Devider'
+import PageHeader from './PageHeader'
 import Footer from './Footer'
 import { ErrorBoundary } from './ErrorBoundary'
 import { ErrorPageContent } from '../pages/ErrorPage'
@@ -108,6 +109,7 @@ class Layout extends React.Component {
           <div role="banner">
             <FederalBanner />
             <Devider />
+            <PageHeader />
           </div>
           <main role="main">
             <div
