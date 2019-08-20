@@ -31,13 +31,12 @@ errorMessages.emailInvalidErrorMessage = (
 
 
 errorMessages.paperFileNumberErrorMessage = (
-  <Trans>We need your bill file number so we can confirm your identity.</Trans>
+  <Trans>We need your BIL file number so we can confirm your identity.</Trans>
 )
 
 errorMessages.paperFileNumberInvalidErrorMessage = (
   <Trans>
-    Needs a number with a different format. Please make sure this is your
-    correct bill file number.
+    BIL file number requires 1 letter and 12 digits.
   </Trans>
 )
 
@@ -65,6 +64,7 @@ export const defaultMessages = {
   'max.fullName': 'fullNameMaxErrorMessage',
   'required.email': 'emailErrorMessage',
   'email.email': 'emailInvalidErrorMessage',
+  'emailConfirm.emailConfirm': 'emailConfirmInvalidErrorMessage',
   'required.paperFileNumber': 'paperFileNumberErrorMessage',
   'required.reason': 'reasonErrorMessage',
   'required.explanation': 'explanationErrorMessage',
@@ -99,6 +99,7 @@ export const defaultMessages = {
 
 export const RegistrationFields = {
   email: 'required|email',
+  emailConfirm: 'required|emailConfirm',
   familyCheck: `required_with:familyOption`,
   familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',

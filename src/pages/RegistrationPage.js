@@ -350,7 +350,7 @@ class RegistrationPage extends React.Component {
                         <Trans>Confirm Email address</Trans>
                       </span>
                       <ValidationMessage
-                        id="email-error"
+                        id="emailConfirm-error"
                         message={
                           submitError && this.validate(values).email
                             ? this.validate(values).email
