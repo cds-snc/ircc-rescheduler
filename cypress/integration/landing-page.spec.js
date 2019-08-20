@@ -11,7 +11,6 @@ function checkA11y(cy){
 
 describe('Items shown on the Landing page', () => {
   beforeEach(() => {
-   
     cy.visit('/')
    
   })
