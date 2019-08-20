@@ -299,7 +299,7 @@ class RegistrationPage extends React.Component {
                   >
                     <label htmlFor="paperFileNumber" id="paperFileNumber-label">
                       <span id="paperFileNumber-header">
-                        <Trans>Bill file number</Trans>
+                        <Trans>BIL file number</Trans>
                       </span>
                       <ValidationMessage
                         id="paperFileNumber-error"
