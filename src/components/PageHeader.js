@@ -1,29 +1,29 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'emotion'
-import { theme, horizontalPadding, mediaQuery } from '../styles'
-import { Trans, withI18n } from '@lingui/react'
-import PhaseBanner from './PhaseBanner'
+import { theme, mediaQuery } from '../styles'
+import { withI18n } from '@lingui/react'
 
-const bigBanner = css`
-  ${horizontalPadding};
-  background-color: ${theme.colour.blue};
-  color: ${theme.colour.white};
-  padding-top: ${theme.spacing.lg};
-  padding-bottom: ${theme.spacing.lg};
-`
 
-const skinnyBanner = css`
-  ${horizontalPadding};
-  background-color: ${theme.colour.blue};
-  color: ${theme.colour.white};
-  padding-top: ${theme.spacing.sm};
-  padding-bottom: 0.55rem;
+// const bigBanner = css`
+//   ${horizontalPadding};
+//   background-color: ${theme.colour.blue};
+//   color: ${theme.colour.white};
+//   padding-top: ${theme.spacing.lg};
+//   padding-bottom: ${theme.spacing.lg};
+// `
 
-  div {
-    margin-bottom: 0;
-  }
-`
+// const skinnyBanner = css`
+//   ${horizontalPadding};
+//   background-color: ${theme.colour.blue};
+//   color: ${theme.colour.white};
+//   padding-top: ${theme.spacing.sm};
+//   padding-bottom: 0.55rem;
+
+//   div {
+//     margin-bottom: 0;
+//   }
+// `
 
 const pageTitle = css`
   font-size: ${theme.font.xxl};
@@ -34,20 +34,7 @@ const pageTitle = css`
 `
 
 const PageHeader = ({ children, i18n }) => (
-  <div className={children ? bigBanner : skinnyBanner}>
-    <PhaseBanner phase="beta">
-      <Trans>This is a new service, help us improve by</Trans>{' '}
-      <a
-        href={i18n._(
-          'https://docs.google.com/forms/d/e/1FAIpQLSdEF3D7QCZ1ecPVKdqz_-dQAvlVdwdCQtHHLzg_v2q5q7XBlg/viewform',
-        )}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Trans>sending your feedback</Trans>
-      </a>
-      .
-    </PhaseBanner>
+  <div>
     {children ? <div className={pageTitle}>{children}</div> : ''}
   </div>
 )

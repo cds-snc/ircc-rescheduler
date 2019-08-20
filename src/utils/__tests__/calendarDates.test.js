@@ -32,7 +32,7 @@ it('gets month and year FR', () => {
 })
 
 it('gets start month', () => {
-  const today = new Date('September 05, 2018')
+  const today = new Date('October 10 2018')
   expect(yearMonthDay(getStartMonth(today))).toEqual('2018-10-01')
 })
 

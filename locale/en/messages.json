@@ -587,8 +587,8 @@
       ]
     ]
   },
-  "Make sure you stay available on all of the days you select.": {
-    "translation": "Make sure you stay available on all of the days you select.",
+  "Make sure you stay available on the day you selected.": {
+    "translation": "Make sure you stay available on the day you selected.",
     "origin": [
       [
         "src/pages/calendar/CalBottom.js",
