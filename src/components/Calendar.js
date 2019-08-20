@@ -738,8 +738,8 @@ class Calendar extends Component {
 
       .DayPicker-Weekday:nth-of-type(${dayOfWeek1}),
       .DayPicker-Weekday:nth-of-type(${dayOfWeek2}) {
-        background: ${theme.colour.greenLighter};
-        font-weight: 700;
+        // background: ${theme.colour.greenLighter};
+        // font-weight: 700;
       }
 
       .DayPicker-Day--outside:nth-of-type(${dayOfWeek1}),

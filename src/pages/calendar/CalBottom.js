@@ -17,7 +17,7 @@ export const CalBottom = ({ availability, submit }) => {
         {!availability && (
           <CalReminder>
             <Trans>
-              Make sure you stay available on all of the days you select.
+              Make sure you stay available on the day you selected.
             </Trans>
           </CalReminder>
         )}
