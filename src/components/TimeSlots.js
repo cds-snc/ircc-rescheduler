@@ -6,7 +6,10 @@ import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import { SelectTimeSlotField, getFieldNames } from '../validation'
 /* eslint-disable no-console */
-// import Language from '../components/Language'
+// import Language from '../components/anguaLge'
+
+
+/* eslint-disable no-console */
 
 const mockData = [
     {
@@ -48,9 +51,60 @@ const mockData = [
     },{
         id: 13,
         Time: '12:00 pm',
+    },{
+        id: 14,
+        Time: '12:15 pm',
+    },{
+        id: 15,
+        Time: '12:30 pm',
+    },{
+        id: 16,
+        Time: '12:45 pm',
+    },{
+        id: 17,
+        Time: '01:00 pm',
+    },{
+        id: 18,
+        Time: '01:15 pm',
+    },{
+        id: 19,
+        Time: '01:30 pm',
+    },{
+        id: 20,
+        Time: '01:45 pm',
+    },{
+        id: 21,
+        Time: '02:00 pm',
+    },{
+        id: 22,
+        Time: '02:15 pm',
+    },{
+        id: 23,
+        Time: '02:30 pm',
+    },{
+        id: 24,
+        Time: '02:45 pm',
+    },{
+        id: 25,
+        Time: '03:00 pm',
+    },{
+        id: 26,
+        Time: '03:15 pm',
+    },{
+        id: 27,
+        Time: '03:30 pm',
+    },{
+        id: 28,
+        Time: '03:45 pm',
+    },{
+        id: 29,
+        Time: '04:00 pm',
     },
 
+
 ];
+
+
 
 class TimeSlots extends Component {
   constructor(props) {
@@ -101,9 +155,8 @@ class TimeSlots extends Component {
     });
   };
 
+
   render() {
-
-
     return (
       <table>
         <tbody>
@@ -127,5 +180,6 @@ TimeSlots.propTypes = {
   history: PropTypes.any,
 }
 
-
 export default withContext(TimeSlots)
+
+
