@@ -21,7 +21,7 @@ describe('Server Side Rendering', () => {
   it('renders the calendar page at /calendar', async () => {
     let response = await request(server).get('/calendar')
     expect(response.text).toMatch(
-      /Make sure you stay available on all of the days you select/,
+      /Make sure you stay available on the day you selected/,
     )
   })
 
