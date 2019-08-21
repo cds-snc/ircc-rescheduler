@@ -29,6 +29,18 @@ errorMessages.emailInvalidErrorMessage = (
   </Trans>
 )
 
+errorMessages.emailConfirmErrorMessage = (
+  <Trans>
+    We need your email address so we can send you a confirmation message.
+  </Trans>
+)
+
+errorMessages.emailConfirmInvalidErrorMessage = (
+  <Trans>
+    Email does not match. Please re-enter matching email.
+  </Trans>
+)
+
 
 errorMessages.paperFileNumberErrorMessage = (
   <Trans>We need your BIL file number so we can confirm your identity.</Trans>
@@ -100,7 +112,7 @@ export const defaultMessages = {
 
 export const RegistrationFields = {
   email: 'required|email',
-  emailConfirm: 'required|emailConfirm',
+  emailConfirm: 'required|email',
   familyCheck: `required_with:familyOption`,
   familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
@@ -168,3 +180,4 @@ Validator.register(
   },
   'paperFileNumberInvalidErrorMessage',
 )
+
