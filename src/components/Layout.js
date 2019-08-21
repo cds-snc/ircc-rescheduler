@@ -110,6 +110,7 @@ class Layout extends React.Component {
             <FederalBanner />
             <Devider />
             <PageHeader>{this.props.header}</PageHeader>
+            <a href="/" style={{ marginLeft: `${theme.spacing.xxxl}` }}>Home</a>
           </div>
           <main role="main">
             <div
