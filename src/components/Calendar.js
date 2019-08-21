@@ -32,6 +32,7 @@ import { windowExists } from '../utils/windowExists'
 import TimeSlots from './TimeSlots'
 
 
+
 const jiggle = keyframes`
 10%, 60% {
   transform: translate3d(-1px, 0, 0);
@@ -738,8 +739,8 @@ class Calendar extends Component {
 
       .DayPicker-Weekday:nth-of-type(${dayOfWeek1}),
       .DayPicker-Weekday:nth-of-type(${dayOfWeek2}) {
-        background: ${theme.colour.greenLighter};
-        font-weight: 700;
+        // background: ${theme.colour.greenLighter};
+        // font-weight: 700;
       }
 
       .DayPicker-Day--outside:nth-of-type(${dayOfWeek1}),
@@ -759,6 +760,15 @@ class Calendar extends Component {
         ${arrowAnimate};
       }
     `
+
+    const scrollBar={
+      overflowY: 'scroll',
+    
+      width:'335px',
+      float: 'left',
+      height:'275px',
+      position:'relative',
+    };
 
     return (
       <div>
@@ -863,7 +873,15 @@ class Calendar extends Component {
                       i18n !== undefined ? i18n._('Remove day') : 'Remove day',
                   })}
                 </ul>
+
+       
+                <div style={scrollBar}>
                   <TimeSlots/>
+
+                  </div>
+           
+
+
               </div>
             </div>
 
