@@ -325,7 +325,7 @@ class SelectlocationsPage extends React.Component {
               <ValidationMessage
                 id="selectProvinceError"
                 message={
-                  this.state.pageError === 2 
+                  this.state.pageError === 1 
                     ? <Trans>No service at this moment, please try again later</Trans>
                     : ''
                 }
