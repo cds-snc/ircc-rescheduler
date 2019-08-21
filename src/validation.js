@@ -63,6 +63,7 @@ export const defaultMessages = {
   'required.fullName': 'fullNameErrorMessage',
   'max.fullName': 'fullNameMaxErrorMessage',
   'required.email': 'emailErrorMessage',
+  'required.emailConfirm': 'emailConfirmErrorMessage',
   'email.email': 'emailInvalidErrorMessage',
   'emailConfirm.emailConfirm': 'emailConfirmInvalidErrorMessage',
   'required.paperFileNumber': 'paperFileNumberErrorMessage',
