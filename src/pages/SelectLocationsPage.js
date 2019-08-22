@@ -16,6 +16,7 @@ import { Radio } from '../components/forms/MultipleChoice'
 import Language from '../components/Language'
 import Button from '../components/forms/Button'
 import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
+import Loading from '../components/Loading'
 
 // import styled from '@emotion/styled'
 //import { H1, theme, mediaQuery , arrow } from '../styles'
@@ -321,7 +322,7 @@ class SelectlocationsPage extends React.Component {
           <section>
             <div>
 
-              {/* Next line check for Server errors to display an error */}
+              {/* Next line check for Server errors to display a message */}
               <ValidationMessage
                 id="selectProvinceError"
                 message={
@@ -358,6 +359,9 @@ class SelectlocationsPage extends React.Component {
                   )}
                 />
               </div>
+
+              {/* Next line display a Loading animation while getting data from the DB */}
+              {this.state.loading === true ? <Loading /> : null}
 
               {/* Display the cities where an office is available */}
 
