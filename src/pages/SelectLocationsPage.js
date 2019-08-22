@@ -193,9 +193,6 @@ class SelectlocationsPage extends React.Component {
 
     let values = { 'locationCity' : this.state.cityName ,'locationId' : this.state.locationNumber, 'locationAddress': this.state.locationAddress }
 
-    // eslint-disable-next-line no-unused-vars
-    //const justValidate = this.validate( values, true) 
-
     if ( this.state.locationNumber === null ) {
       this.setState( {pageError : 2} )
       this.selectOfficeError.focus()
@@ -225,9 +222,7 @@ class SelectlocationsPage extends React.Component {
       .then( (data) => data.json() )
       .then( (locs) => locs )
       .catch( (error) => {
-        this.setState( {pageError : 1} )
-        this.selectProvinceError.focus()
-        return [{'locationCity' : 'Aucun service en ce moment, veuillez réessayer plus tard '}]
+        return null
       } );
   }
    
@@ -239,17 +234,9 @@ class SelectlocationsPage extends React.Component {
     console.log(this.props.context.store)
     this.fetchLocations( selectedProvince )
       .then((locs) => {
-
-        locs.splice(0,0, 
-          { 'id': null, 
-            'locationCity': (
-              this.props.context.store.language === 'en' 
-              ? 'Select a City' 
-              : 'Sélectionnez une ville') } 
-        )
-
         //console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
-        this.setState ({
+        if ( locs ) {
+          this.setState ({
             provLocations: locs,
             cityLocations: [],
             cityName: null,
@@ -257,7 +244,11 @@ class SelectlocationsPage extends React.Component {
             locationAddress: null,
             pageError: 0,
             loading: false,
-        })
+          })
+        } else { 
+          this.setState( {pageError : 1} )
+          this.selectProvinceError.focus()
+        }
       })
   }
 

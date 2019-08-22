@@ -214,7 +214,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        540
+        543
       ]
     ]
   },
@@ -236,7 +236,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        509
+        512
       ]
     ]
   },
@@ -311,7 +311,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        345
+        348
       ]
     ]
   },
@@ -355,7 +355,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        484
+        487
       ],
       [
         "src/pages/ReviewPage.js",
@@ -390,7 +390,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        235
+        237
       ]
     ]
   },
@@ -399,7 +399,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        419
+        422
       ]
     ]
   },
@@ -455,7 +455,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        321
+        324
       ]
     ]
   },
@@ -493,6 +493,15 @@
       ]
     ]
   },
+  "I Agree TODO: TRANS": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        166
+      ]
+    ]
+  },
   "I cannot attend any of the available appointments": {
     "translation": "Je ne peux pas assister à l’ensemble des rendez-vous disponibles",
     "origin": [
@@ -508,7 +517,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        409
+        412
       ]
     ]
   },
@@ -637,7 +646,7 @@
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        369
+        399
       ]
     ]
   },
@@ -673,7 +682,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        467
+        470
       ],
       [
         "src/pages/ReviewPage.js",
@@ -758,6 +767,15 @@
       ]
     ]
   },
+  "No service at this moment, please try again later": {
+    "translation": "pas de service en ce moment, veuillez réessayer plus tard",
+    "origin": [
+      [
+        "src/pages/SelectLocationsPage.js",
+        330
+      ]
+    ]
+  },
   "Nothing about your application or appointment has been changed.": {
     "translation": "Votre demande de citoyenneté ou votre rendez-vous n’a pas été modifié(e).",
     "origin": [
@@ -798,11 +816,11 @@
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        391
+        429
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        397
+        435
       ]
     ]
   },
@@ -811,7 +829,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        492
+        495
       ],
       [
         "src/pages/ReviewPage.js",
@@ -876,7 +894,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        373
+        376
       ]
     ]
   },
@@ -890,6 +908,15 @@
       [
         "src/components/Contact.js",
         84
+      ]
+    ]
+  },
+  "Please Select an Office. Please pick one.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/SelectLocationsPage.js",
+        408
       ]
     ]
   },
@@ -961,7 +988,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        518
+        519
       ]
     ]
   },
@@ -970,7 +997,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        848
+        858
       ]
     ]
   },
@@ -1024,7 +1051,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        522
+        525
       ]
     ]
   },
@@ -1042,7 +1069,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        433
+        436
       ]
     ]
   },
@@ -1082,7 +1109,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        863
+        873
       ]
     ]
   },
@@ -1198,6 +1225,16 @@
         "src/pages/SelectLocationsPage.js",
         345
       ]
+    ],
+    "obsolete": true
+  },
+  "Select a cityx:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/SelectLocationsPage.js",
+        377
+      ]
     ]
   },
   "Select a day:": {
@@ -1205,7 +1242,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        850
+        860
       ]
     ]
   },
@@ -1227,7 +1264,7 @@
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        306
+        336
       ]
     ]
   },
@@ -1276,7 +1313,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        177
+        179
       ]
     ]
   },
@@ -1348,7 +1385,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        296
+        316
       ]
     ]
   },
@@ -1359,7 +1396,8 @@
         "src/pages/LandingPage.js",
         161
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Start over": {
     "translation": "Recommencer",
@@ -1388,6 +1426,15 @@
       ]
     ]
   },
+  "THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. This is where you have to agree to all of the things that are in here blah blah its the EULA.  Its a whole bunch of everyhthing.  If you agree to all of this then click the button below to get started. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        97
+      ]
+    ]
+  },
   "TRANS: This is our policy page!!  If you agree to the policy below - please continue": {
     "translation": "",
     "origin": [
@@ -1395,7 +1442,8 @@
         "src/pages/LandingPage.js",
         94
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Tell IRCC you can’t attend your citizenship appointment, and request a new one.": {
     "translation": "Avisez IRCC que vous ne pouvez pas vous présenter à votre rendez-vous d’examen de citoyenneté et demandez un nouveau rendez-vous.",
@@ -1478,7 +1526,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        332
+        335
       ]
     ]
   },
@@ -1487,7 +1535,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        356
+        359
       ]
     ]
   },
@@ -1496,7 +1544,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        384
+        387
       ]
     ]
   },
@@ -1536,7 +1584,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        787
+        797
       ]
     ]
   },
@@ -1568,7 +1616,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        459
+        462
       ]
     ]
   },
@@ -1662,6 +1710,15 @@
       ]
     ]
   },
+  "Welcome to the Biometrics Scheduler": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        94
+      ]
+    ]
+  },
   "We’ve sent you a confirmation email.": {
     "translation": "Nous vous avons envoyé un courriel de confirmation.",
     "origin": [
@@ -1717,7 +1774,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        476
+        479
       ]
     ]
   },
@@ -1726,7 +1783,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        661
+        662
       ]
     ]
   },
