@@ -51,8 +51,8 @@ describe('Items shown on the Landing page', () => {
 
   it('Start now button take the user to the register page', () => {
     cy.injectAxe()
-      let startText = 'Start now'
-    cy.get('main a').should('have.text', startText)
+      let startText = 'I Agree'
+    cy.get('main a').should('contain.text', startText)
     cy.get('main a').click({ force: true })
    
     checkA11y(cy)
