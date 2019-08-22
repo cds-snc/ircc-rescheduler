@@ -234,6 +234,15 @@ class SelectlocationsPage extends React.Component {
     console.log(this.props.context.store)
     this.fetchLocations( selectedProvince )
       .then((locs) => {
+
+        locs.splice(0,0, 
+          { 'id':'null', 
+            'locationCity': (
+              this.props.context.store.language === 'en' 
+              ? 'Select a City' 
+              : 'Sélectionnez une ville') } 
+        )
+          
         //console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
         if ( locs ) {
           this.setState ({
