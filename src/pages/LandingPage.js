@@ -87,17 +87,21 @@ const landingArrow = css`
 class LandingPage extends React.Component {
   render() {
     return (
-      <Layout
-        contentClass={contentClass}
-        header={
-          <H1>
-            <Trans>TRANS: This is our policy page!!  If you agree to the policy below - please continue</Trans>
-          </H1>
-        }
-      >
+      <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <section>
-          {/* <H2Landing>
+          <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
+            <Trans>Welcome to the Biometrics Scheduler</Trans>
+          </H1>
+          <p>
+            <Trans>
+            THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. This is where you have to agree to all of the things that are in here blah blah its the EULA.  Its a whole bunch of everyhthing.  If you agree to all of this then click the button below to get started. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. 
+            </Trans>{' '}
+          </p>
+        </section>
+        {/* <Title path={this.props.match.path} />
+        <section>
+          <H2Landing>
             <Trans>
               Tell IRCC you can&rsquo;t attend your citizenship appointment, and
               request a new one.
@@ -119,8 +123,8 @@ class LandingPage extends React.Component {
                 <Trans>To describe your reason for rescheduling</Trans>
               </p>
             </li>
-          </ul> */}
-          {/* <div className={messageContainer}>
+          </ul>
+          <div className={messageContainer}>
             <div className={iconContainer}>
               <CalendarIcon />
             </div>
@@ -147,18 +151,19 @@ class LandingPage extends React.Component {
               Then we’ll review your request and send you a new appointment for
               one of the days you selected.
             </Trans>
-          </p>*/}
-        </section> 
+          </p>
+        </section>
 
-        {/* <LongReminder>
+        <LongReminder>
           <Trans>
             Requesting a new appointment will cancel your current one. Do not
             attend your old appointment after you complete this request.
           </Trans>
-        </LongReminder> */} 
+        </LongReminder> */}
+
         <div>
           <NavLink to="/register" className={buttonStyles}>
-            <Trans>Start now</Trans>
+            <Trans>I Agree TODO: TRANS</Trans>
             <img src={rightArrow} className={landingArrow} alt="" />
           </NavLink>
         </div>
@@ -168,7 +173,7 @@ class LandingPage extends React.Component {
 }
 
 LandingPage.propTypes = {
-  ...matchPropTypes,
+   ...matchPropTypes,
 }
 
 export default LandingPage

@@ -32,6 +32,7 @@ import { windowExists } from '../utils/windowExists'
 import TimeSlots from './TimeSlots'
 
 
+
 const jiggle = keyframes`
 10%, 60% {
   transform: translate3d(-1px, 0, 0);
@@ -760,6 +761,15 @@ class Calendar extends Component {
       }
     `
 
+    const scrollBar={
+      overflowY: 'scroll',
+    
+      width:'335px',
+      float: 'left',
+      height:'275px',
+      position:'relative',
+    };
+
     return (
       <div>
         <div
@@ -863,7 +873,15 @@ class Calendar extends Component {
                       i18n !== undefined ? i18n._('Remove day') : 'Remove day',
                   })}
                 </ul>
+
+       
+                <div style={scrollBar}>
                   <TimeSlots/>
+
+                  </div>
+           
+
+
               </div>
             </div>
 
