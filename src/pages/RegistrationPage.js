@@ -145,6 +145,8 @@ class RegistrationPage extends React.Component {
       }
 
       RegistrationPage.errStrings = getFieldErrorStrings(validate)
+      // eslint-disable-next-line no-console
+      console.log(RegistrationPage.errStrings)
     }
 
     return RegistrationPage.errStrings
@@ -259,7 +261,8 @@ class RegistrationPage extends React.Component {
             }
 
             let disabled = { disabled: false }
-
+            // eslint-disable-next-line no-console
+            console.log(values)
             if (this.state.mounted) {
               /*
               'mounted' will be true after ComponentDidMount

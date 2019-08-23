@@ -149,20 +149,19 @@ class ConfirmationPage extends React.Component {
       )
     }
 
-
     return (
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <section>
-          <FocusedH1>
-            <Trans>Confirmation:</Trans>&nbsp;A{this.hashFromData( fullName, email, paperFileNumber )}
+          <FocusedH1 className='confirmation'>
+            Confirmation #: A {this.hashFromData( fullName, email, paperFileNumber ).toString} 
           </FocusedH1>
 
           <Confirmation
             fullName={fullName}
             paperFileNumber={paperFileNumber}
             email={email}
-            locationAddress={ ( locationCity && locationAddress ) ? locationCity + ',' + locationAddress : '' } 
+            location={ ( locationCity && locationAddress ) ? locationCity + ', ' + locationAddress : '' } 
             selectedDays={days}
           />
 
