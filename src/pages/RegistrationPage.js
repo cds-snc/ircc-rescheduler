@@ -129,12 +129,22 @@ class RegistrationPage extends React.Component {
       if (windowExists()) {
         registrationFields.familyCheck = 'accept_anything'
       }
+      
+      
 
       const validate = new Validator(
         trimInput(values),
         registrationFields,
         defaultMessages,
       )
+      // if (values.email !== values.emailConfirm){
+      //   // eslint-disable-next-line no-console
+      //   console.log('error check')
+      //   RegistrationPage.errStrings= {emailConfirm : 'emailConfirmInvalidErrorMessage'}
+      //   return RegistrationPage.errStrings  
+      // } 
+      // eslint-disable-next-line no-console
+      console.log(values.email) , console.log(values.emailConfirm)
 
       if (validate.passes()) {
         values.familyOption = values.familyCheck ? values.familyOption : ''
@@ -144,7 +154,8 @@ class RegistrationPage extends React.Component {
 
       RegistrationPage.errStrings = getFieldErrorStrings(validate)
     }
-
+    // eslint-disable-next-line no-console
+    console.log(RegistrationPage.errStrings)
     return RegistrationPage.errStrings
   }
 
@@ -350,10 +361,10 @@ class RegistrationPage extends React.Component {
                         <Trans>Confirm Email address</Trans>
                       </span>
                       <ValidationMessage
-                        id="emailConfirm-error"
+                        id="email-Confirm-error"
                         message={
-                          submitError && this.validate(values).email
-                            ? this.validate(values).email
+                          submitError && this.validate(values).emailConfirm
+                            ? this.validate(values).emailConfirm
                             : ''
                         }
                       />
@@ -388,7 +399,7 @@ class RegistrationPage extends React.Component {
                       type="checkbox"
                       component={CheckboxAdapter}  
                       label={<Trans>Agree</Trans>}
-                      value="True"
+                      value="Yes"
                       name="accessibility required"
                       id="reason-0"
                       

@@ -2,6 +2,7 @@ import React from 'react'
 import Validator from 'validatorjs'
 import { Trans } from '@lingui/react'
 
+
 /*--------------------------------------------*
  * Character limits
  *--------------------------------------------*/
@@ -18,7 +19,7 @@ export const errorMessages = {}
 
 errorMessages.emailErrorMessage = (
   <Trans>
-    We need your email address so we can send you a confirmation message.
+    We need your email address.
   </Trans>
 )
 
@@ -31,7 +32,7 @@ errorMessages.emailInvalidErrorMessage = (
 
 errorMessages.emailConfirmErrorMessage = (
   <Trans>
-    We need your email address so we can send you a confirmation message.
+    Please re-enter your email address.
   </Trans>
 )
 
@@ -75,7 +76,7 @@ export const defaultMessages = {
   'required.fullName': 'fullNameErrorMessage',
   'max.fullName': 'fullNameMaxErrorMessage',
   'required.email': 'emailErrorMessage',
-  'required.emailConfirm': 'emailConfirmErrorMessage',
+  'required_with.emailConfirm': 'emailConfirmErrorMessage',
   'email.email': 'emailInvalidErrorMessage',
   'emailConfirm.emailConfirm': 'emailConfirmInvalidErrorMessage',
   'required.paperFileNumber': 'paperFileNumberErrorMessage',
@@ -111,8 +112,8 @@ export const defaultMessages = {
 // }
 
 export const RegistrationFields = {
-  email: 'required|email',
-  emailConfirm: 'required|email',
+  email: `required|email`,
+  emailConfirm: `required_with:email|same:email`,
   familyCheck: `required_with:familyOption`,
   familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
@@ -149,6 +150,8 @@ export const getFieldErrorStrings = validate => {
   Object.keys(allErrors).forEach(val => {
     mapped[val] = allErrors[val][0] // eslint-disable-line  security/detect-object-injection
   })
+   // eslint-disable-next-line no-console
+   console.log("error string")
 
   return mapped
 }
@@ -180,4 +183,14 @@ Validator.register(
   },
   'paperFileNumberInvalidErrorMessage',
 )
+
+// Validator.register(
+//   'emailConfirm',
+//   function (value, requirement, email){
+// return value
+//   },
+//   'emailConfirmInvalidErrorMessage',
+// )
+
+
 
