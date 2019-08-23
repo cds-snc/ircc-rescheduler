@@ -9,12 +9,14 @@ import Layout from '../components/Layout'
 //import SelectProvince from '../components/SelectProvince'
 import Title, { matchPropTypes } from '../components/Title'
 import { SelectLocationFields, getFieldNames } from '../validation'
+import { ValidationMessage } from '../components/ErrorMessage'
 import { Trans } from '@lingui/react'
 import { provinceNames, provinceNamesFr } from '../utils/linguiUtils'
 import { Radio } from '../components/forms/MultipleChoice'
 import Language from '../components/Language'
 import Button from '../components/forms/Button'
 import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
+import Loading from '../components/Loading'
 
 // import styled from '@emotion/styled'
 //import { H1, theme, mediaQuery , arrow } from '../styles'
@@ -48,9 +50,13 @@ const govuk_select = css`
   font-size: ${theme.font.base};
   background: ${theme.colour.white};
   line-height: 1.4;
+  border: 3px solid #000000;
   margin-bottom: 2em;
   width:100%;
   height:40px;
+  select {
+    display: none;
+  }
   option {
     background-color: ${theme.colour.white};
   }
@@ -153,12 +159,14 @@ class SelectlocationsPage extends React.Component {
     super(props);
 
     this.state = {
-      provinceName: null,
+      provinceName: "0",
       cityName: null,
-      officeNumber: null, 
-      officeAddress: null,
+      locationNumber: null, 
+      locationAddress: null,
       provLocations: [],
       cityLocations:[],
+      loading: false,
+      pageError: false,
     }
 
     this.getProvinceLocations = this.getProvinceLocations.bind(this);
@@ -187,16 +195,20 @@ class SelectlocationsPage extends React.Component {
     // eslint-disable-next-line no-console
     console.log(this.props) 
 
-    let values = { 'locationCity' : this.state.cityName ,'locationId' : this.state.officeNumber, 'locationAddress': this.state.officeAddress }
-    console.log(values)
-    // eslint-disable-next-line no-unused-vars
-    let justValidate = this.validate( values, true) 
+    let values = { 'locationCity' : this.state.cityName ,'locationId' : this.state.locationNumber, 'locationAddress': this.state.locationAddress }
 
-    await this.props.context.setStore('selectProvince', values)
-
-    // eslint-disable-next-line no-console
-    console.log(this.props.context.store )
-    await this.props.history.push('/calendar')
+    if ( this.state.locationNumber === null ) {
+      this.setState( {pageError : 2} )
+      this.selectOfficeError.focus()
+      return { 
+      }
+    } else {
+      this.setState( {pageError : 0} )
+      await this.props.context.setStore('selectProvince', values)
+      // eslint-disable-next-line no-console
+      console.log(this.props.context.store )
+      await this.props.history.push('/calendar')
+    }
   }
 
   fetchLocations(province, city) {
@@ -214,16 +226,21 @@ class SelectlocationsPage extends React.Component {
       .then( (data) => data.json() )
       .then( (locs) => locs )
       .catch( (error) => {
-        console.warn(error)
-        return [{'locationCity' : 'Aucun service en ce moment, réessayez plus tard / No service at this moment try again later'}]
+        return null
       } );
   }
    
 
   getProvinceLocations(selectedProvince) {
+    if (selectedProvince === "0" ) {
+      // Ignore Default Value 
+      return
+    }
+
     this.setState({
       loading: true,
     })
+    console.log(this.props.context.store)
     this.fetchLocations( selectedProvince )
       .then((locs) => {
 
@@ -231,19 +248,25 @@ class SelectlocationsPage extends React.Component {
           { 'id':'null', 
             'locationCity': (
               this.props.context.store.language === 'en' 
-              ? 'Select a City' 
-              : 'Sélectionnez une ville') } 
+              ? '' 
+              : '') } 
         )
-
+          
         //console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
-        this.setState ({
+        if ( locs ) {
+          this.setState ({
             provLocations: locs,
             cityLocations: [],
             cityName: null,
             locationNumber: null,
             locationAddress: null,
+            pageError: 0,
             loading: false,
-        })
+          })
+        } else { 
+          this.setState( {pageError : 1} )
+          this.selectProvinceError.focus()
+        }
       })
   }
 
@@ -255,26 +278,33 @@ class SelectlocationsPage extends React.Component {
       .then((locs) => {
         this.setState ({
             cityLocations: locs,
+            locationNumber: null,
+            locationAddress: null,
+            pageError: 0,
             loading: false,
         })
       })
   }
 
   handleProvinceChange(event) {
+    event.preventDefault();
     this.setState({ provinceName : event.target.value });
     this.getProvinceLocations( event.target.value )
   }
 
   handleCityChange(event) {
-    console.log ('city is :' + event.target.value)
-    this.setState({ cityName : event.target.value });
-    this.getCityLocations( this.state.provinceName,  event.target.value )
+    if ( event.target.value === 'Sélectionnez une ville' || event.target.value === 'Select a City' ) {
+      this.setState({ cityName : null, locationNumber: null, locationAddress: null });
+    } else {
+      this.setState({ cityName : event.target.value });
+      this.getCityLocations( this.state.provinceName,  event.target.value )
+    }
   }
 
   handleLocation(LocationId, LocationAddress) {
-    this.setState({ officeNumber : LocationId, officeAddress: LocationAddress });
+    this.setState({ locationNumber: LocationId, locationAddress: LocationAddress });
+    console.log ('locationId == ' + this.state.locationNumber + ' should be = ' + LocationId)
   }
-
 
   render() {
 
@@ -301,32 +331,48 @@ class SelectlocationsPage extends React.Component {
           <section>
             <div>
 
-              <label className={govuk_label} htmlFor="ProvinceList">
-                <Trans>Select a province:</Trans>
-              </label>
-              <Language
-                render={language => (
-                  <React.Fragment>
-                    {language === 'en' ? (
-                      <select className={govuk_select} name="ProvinceListEn" id="ProvinceList" onChange={this.handleProvinceChange} >
-                        {provinceNames.map(({ _id, name }) => (
-                          <option key={_id} value={name}>
-                            {name}
-                          </option>
-                        ))} 
-                      </select>
-                    ) : (
-                      <select className={govuk_select}  name="ProvinceListFr" id="ProvinceList" onChange={this.handleProvinceChange} >
-                        {provinceNamesFr.map(({ name, namefr }) => (
-                          <option key={name} value={name}>
-                            {namefr}
-                          </option>
-                        ))} 
-                      </select>
-                    )}
-                  </React.Fragment>
-                )}
+              {/* Next line check for Server errors to display a message */}
+              <ValidationMessage
+                id="selectProvinceError"
+                message={
+                  this.state.pageError === 1 
+                    ? <Trans>No service at this moment, please try again later</Trans>
+                    : ''
+                }
               />
+              <div id="selectProvince" ref={selectProvinceError => { this.selectProvinceError = selectProvinceError }}>
+                <label className={govuk_label} htmlFor="ProvinceList">
+                  <Trans>Select a province:</Trans>
+                </label>
+                <Language
+                  render={language => (
+                    <React.Fragment>
+                      {language === 'en' ? (
+                        <select className={govuk_select} name="ProvinceListEn" id="ProvinceList" defaultValue="0" onChange={this.handleProvinceChange} >
+                          <option key="0" value="0" disabled>Select a Province</option>
+                          {provinceNames.map(({ _id, name }) => (
+                            <option key={_id} value={name}>
+                              {name}
+                            </option>
+                          ))} 
+                        </select>
+                      ) : (
+                        <select className={govuk_select}  name="ProvinceListFr" id="ProvinceList" defaultValue="0" onChange={this.handleProvinceChange} >
+                          <option key="0" value="0" disabled>Sélectionnez une province</option>
+                          {provinceNamesFr.map(({ _id, name }) => (
+                            <option key={_id} value={name}>
+                              {name}
+                            </option>
+                          ))} 
+                        </select>
+                      )}
+                    </React.Fragment>
+                  )}
+                />
+              </div>
+
+              {/* Next line display a Loading animation while getting data from the DB */}
+              {this.state.loading === true ? <Loading /> : null}
 
               {/* Display the cities where an office is available */}
 
@@ -337,16 +383,13 @@ class SelectlocationsPage extends React.Component {
                   null 
                 ) : (
                   <React.Fragment>
-                    {/* <p>&nbsp;</p> */}
-                    {/* <p className={govuk_p}> <Trans>Selected province</Trans> : {this.state.provinceName} </p> */}
                     <hr /> 
                     <label className={govuk_label} htmlFor="CitiesList">
                       <Trans>Select a city:</Trans>
                     </label>
                     <select className={govuk_select} name="CitiesList" id="CitiesList" onChange={this.handleCityChange} >
-                      {locationsData.map(({ locationCity }) => (
-                          <option key={locationCity} value={locationCity}>
-                              {/* <button className={govuk_ListButton} onClick={() => this.handleCity(locationCity)}>&nbsp;{locationCity}&nbsp;</button> */}
+                      {locationsData.map(({ id, locationCity }) => (
+                          <option key={locationCity} value={id}>
                               {locationCity}
                           </option>
                       ))}
@@ -355,7 +398,6 @@ class SelectlocationsPage extends React.Component {
                   </React.Fragment>
                 )
               )}
-
               
               {/* Display the results below only when user has selected a city */}
 
@@ -368,11 +410,19 @@ class SelectlocationsPage extends React.Component {
                     <Trans>Locations in:</Trans> {this.state.cityName}
                   </label>
 
-                  {/* Display the city locations found for the selected city */}
-
-                  <div>
+                  {/* Display the offices for the selected city */}
+                  {/* Next line check for any error messages to be displayed */}
+                  <ValidationMessage
+                    id="selectOffice"
+                    message={
+                      this.state.pageError === 2 
+                        ? <Trans>Please Select an Office. Please pick one.</Trans>
+                        : ''
+                    }
+                  />
+                  <div id="selectOffice" ref={selectOfficeError => { this.selectOfficeError = selectOfficeError }}>
                     {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-                      <div key={locationId} id='Locations'>
+                      <div key={locationId} id='Locations' onClick= {() => {this.handleLocation(locationId, locationAddress)}}>
                         <Radio 
                           type="radio"
                           name='selectcity'
