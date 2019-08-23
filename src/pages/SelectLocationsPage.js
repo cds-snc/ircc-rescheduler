@@ -239,8 +239,8 @@ class SelectlocationsPage extends React.Component {
           { 'id':'null', 
             'locationCity': (
               this.props.context.store.language === 'en' 
-              ? 'Select a City' 
-              : 'Sélectionnez une ville') } 
+              ? '' 
+              : '') } 
         )
           
         //console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
@@ -296,6 +296,12 @@ class SelectlocationsPage extends React.Component {
     console.log ('locationId == ' + this.state.locationNumber + ' should be = ' + LocationId)
   }
 
+  componentDidUpdate() {
+    console.log('Did Update Prov: ' + this.state.provinceName) 
+  }
+  componentDidMount() {
+    console.log('Did Mount Prov: ' + this.state.provinceName)
+  }
 
   render() {
 
