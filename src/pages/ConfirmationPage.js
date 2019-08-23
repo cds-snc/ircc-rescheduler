@@ -149,14 +149,12 @@ class ConfirmationPage extends React.Component {
       )
     }
 
-    const confirmationText = "Confirmation #: " + "A" + this.hashFromData( fullName, email, paperFileNumber )
-
     return (
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <section>
           <FocusedH1 className='confirmation'>
-            {confirmationText}
+            Confirmation #: A {this.hashFromData( fullName, email, paperFileNumber ).toString} 
           </FocusedH1>
 
           <Confirmation

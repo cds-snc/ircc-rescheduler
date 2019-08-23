@@ -50,9 +50,13 @@ const govuk_select = css`
   font-size: ${theme.font.base};
   background: ${theme.colour.white};
   line-height: 1.4;
+  border: 3px solid #000000;
   margin-bottom: 2em;
   width:100%;
   height:40px;
+  select {
+    display: none;
+  }
   option {
     background-color: ${theme.colour.white};
   }
@@ -155,7 +159,7 @@ class SelectlocationsPage extends React.Component {
     super(props);
 
     this.state = {
-      provinceName: null,
+      provinceName: "0",
       cityName: null,
       locationNumber: null, 
       locationAddress: null,
@@ -228,6 +232,11 @@ class SelectlocationsPage extends React.Component {
    
 
   getProvinceLocations(selectedProvince) {
+    if (selectedProvince === "0" ) {
+      // Ignore Default Value 
+      return
+    }
+
     this.setState({
       loading: true,
     })
@@ -278,6 +287,7 @@ class SelectlocationsPage extends React.Component {
   }
 
   handleProvinceChange(event) {
+    event.preventDefault();
     this.setState({ provinceName : event.target.value });
     this.getProvinceLocations( event.target.value )
   }
@@ -294,13 +304,6 @@ class SelectlocationsPage extends React.Component {
   handleLocation(LocationId, LocationAddress) {
     this.setState({ locationNumber: LocationId, locationAddress: LocationAddress });
     console.log ('locationId == ' + this.state.locationNumber + ' should be = ' + LocationId)
-  }
-
-  componentDidUpdate() {
-    console.log('Did Update Prov: ' + this.state.provinceName) 
-  }
-  componentDidMount() {
-    console.log('Did Mount Prov: ' + this.state.provinceName)
   }
 
   render() {
@@ -345,7 +348,8 @@ class SelectlocationsPage extends React.Component {
                   render={language => (
                     <React.Fragment>
                       {language === 'en' ? (
-                        <select className={govuk_select} name="ProvinceListEn" id="ProvinceList" onChange={this.handleProvinceChange} >
+                        <select className={govuk_select} name="ProvinceListEn" id="ProvinceList" defaultValue="0" onChange={this.handleProvinceChange} >
+                          <option key="0" value="0" disabled>Select a Province</option>
                           {provinceNames.map(({ _id, name }) => (
                             <option key={_id} value={name}>
                               {name}
@@ -353,10 +357,11 @@ class SelectlocationsPage extends React.Component {
                           ))} 
                         </select>
                       ) : (
-                        <select className={govuk_select}  name="ProvinceListFr" id="ProvinceList" onChange={this.handleProvinceChange} >
-                          {provinceNamesFr.map(({ name, namefr }) => (
-                            <option key={name} value={name}>
-                              {namefr}
+                        <select className={govuk_select}  name="ProvinceListFr" id="ProvinceList" defaultValue="0" onChange={this.handleProvinceChange} >
+                          <option key="0" value="0" disabled>Sélectionnez une province</option>
+                          {provinceNamesFr.map(({ _id, name }) => (
+                            <option key={_id} value={name}>
+                              {name}
                             </option>
                           ))} 
                         </select>
