@@ -14,7 +14,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        189
+        188
       ]
     ]
   },
@@ -193,7 +193,8 @@
         "src/pages/ConfirmationPage.js",
         158
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Contact": {
     "translation": "Contact",
@@ -646,7 +647,7 @@
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        399
+        418
       ]
     ]
   },
@@ -772,7 +773,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        330
+        357
       ]
     ]
   },
@@ -816,11 +817,11 @@
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        429
+        448
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        435
+        454
       ]
     ]
   },
@@ -916,7 +917,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        408
+        427
       ]
     ]
   },
@@ -1100,7 +1101,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        182
+        181
       ]
     ]
   },
@@ -1213,10 +1214,13 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        345
+        396
+      ],
+      [
+        "src/pages/SelectLocationsPage.js",
+        399
       ]
-    ],
-    "obsolete": true
+    ]
   },
   "Select a cityx:": {
     "translation": "Select a cityx:",
@@ -1225,7 +1229,8 @@
         "src/pages/SelectLocationsPage.js",
         377
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Select a day:": {
     "translation": "Select a day:",
@@ -1254,7 +1259,7 @@
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        336
+        363
       ]
     ]
   },
@@ -1272,7 +1277,7 @@
     "origin": [
       [
         "src/components/SubmissionForm.js",
-        33
+        34
       ]
     ]
   },
@@ -1375,7 +1380,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        316
+        343
       ]
     ]
   },
@@ -1728,7 +1733,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        179
+        178
       ]
     ]
   },
