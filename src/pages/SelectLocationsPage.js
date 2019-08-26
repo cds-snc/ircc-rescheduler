@@ -392,7 +392,7 @@ class SelectlocationsPage extends React.Component {
 
               {/* Display the cities where an office is available */}
 
-              {this.state.provinceName === null ? ( 
+              {this.state.provinceName === "0" ? ( 
                 null
               ) : (
                 (this.state.loading === true && this.state.cityName === null ) ? (
