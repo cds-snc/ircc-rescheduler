@@ -25,23 +25,26 @@ describe('select provice, city and office page functions', () => {
 
     it('should click into the province selection dropdown and show Select a City dropdown', () => {  
       cy.injectAxe()
-      cy.get('#ProvinceList').should('contains.text', 'Select')
-     cy.get('#ProvinceList').select('Select a Province', { force: true })
-     checkA11y(cy)
-     cy.get('#CitiesList').should('contain.text', 'Select a City')
- 
+      cy.get('#ProvinceList').should('contains.text', 'Select a Province')
+       checkA11y(cy)
+      cy.get('select[name="ProvinceListEn"]').select('Alberta').should('have.value', 'Alberta')
+      cy.get('select[name="CitiesList"]').select('null').should('have.value', 'null')
+      cy.get('#CitiesList').should('contain.text', 'Select a City')
+      cy.get('select[name="CitiesList"]').select('Edmonton').should('have.value', 'Edmonton')
+      // cy.get('[for="Locations"]').should('contain.text', 'Edmonton')
+
      })
 
-     it('should click into the province selection dropdown and show Select a City dropdown', () => {  
-      cy.injectAxe()
-      cy.get('#ProvinceList').should('contains.text', 'Select')
-      cy.get('#ProvinceList').select('Select a Province', { force: true })
-      cy.get('#CitiesList').should('contains.text', 'Select a City')
-     cy.get('#CitiesList').select('Select a City', { force: true })
-     checkA11y(cy)
-     cy.get('[for="Locations"]').should('contains.text', 'Locations in:')
-     cy.get('.css-arysfy-govuk_button-button-mediaQuery-button').should('be.visible')
+     it.only('should click into the Select a City dropdown and show city and locations and button ', () => {  
+    //  cy.injectAxe()
+      cy.get('select[name="ProvinceListEn"]').select('Alberta').should('have.value', 'Alberta')
+      cy.get('select[name="CitiesList"]').select('Edmonton').should('have.value', 'Edmonton')
+     //  checkA11y(cy)
+      cy.get('[for="Locations"]').should('contains.text', 'Locations in:')
+      cy.get('[for="Locations"]').should('contain.text', 'Edmonton')
+      cy.get('.css-arysfy-govuk_button-button-mediaQuery-button').should('be.visible')
      })
+
 
      // There seems to be a bug where the text context does not match the server. 
      xit('should find the city in the dropdown', () => {  
