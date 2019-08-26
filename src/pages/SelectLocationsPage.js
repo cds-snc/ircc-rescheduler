@@ -429,7 +429,7 @@ class SelectlocationsPage extends React.Component {
                   {/* Display the offices for the selected city */}
                   {/* Next line check for any error messages to be displayed */}
                   <ValidationMessage
-                    id="selectOffice"
+                    id="selectOfficeError"
                     message={
                       this.state.pageError === 2 
                         ? <Trans>Please Select an Office. Please pick one.</Trans>
