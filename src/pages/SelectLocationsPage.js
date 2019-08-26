@@ -52,7 +52,7 @@ const govuk_select = css`
   line-height: 1.4;
   border: 3px solid #000000;
   margin-bottom: 2em;
-  width:100%;
+  width: 500px;
   height:40px;
   select {
     display: none;
@@ -65,6 +65,14 @@ const govuk_select = css`
     -moz-box-shadow: 0 0 0 4px #ffbf47;
     box-shadow: 0 0 0 4px #ffbf47;
   }
+
+  ${mediaQuery.md(css`
+  width: 80%;
+  `)};
+
+  ${mediaQuery.sm(css`
+    width: 100%;
+  `)};
 `
 const govuk_label = css`
   margin-bottom: 0.17rem;
@@ -151,6 +159,30 @@ const clearFix = css`
 //  ${arrow};
 //  margin-left: 4px;
 //`
+
+class SelectDropDown extends React.Component {
+  render() {
+    return (
+      <select className={this.props.selClass} name={this.props.selName} id={this.props.selId} defaultValue="0" onChange={this.props.selOnChange} >
+        <option key="0" value="0">{this.props.optName1}</option>
+          {this.props.optData.map(({ name, value }) => (
+          <option key={value} value={value}>
+            {name}
+          </option>
+        ))} 
+      </select>
+    )
+  }
+}
+SelectDropDown.propTypes = {
+  selClass: PropTypes.string,
+  selName: PropTypes.string,
+  selId: PropTypes.string,
+  selOnChange: PropTypes.func,
+  optName1: PropTypes.string,
+  optData: PropTypes.array,
+}
+
 
 
 class SelectlocationsPage extends React.Component {
@@ -243,15 +275,6 @@ class SelectlocationsPage extends React.Component {
     console.log(this.props.context.store)
     this.fetchLocations( selectedProvince )
       .then((locs) => {
-
-        locs.splice(0,0, 
-          { 'id':'null', 
-            'locationCity': (
-              this.props.context.store.language === 'en' 
-              ? '' 
-              : '') } 
-        )
-          
         //console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
         if ( locs ) {
           this.setState ({
@@ -306,6 +329,9 @@ class SelectlocationsPage extends React.Component {
     console.log ('locationId == ' + this.state.locationNumber + ' should be = ' + LocationId)
   }
 
+
+
+
   render() {
 
     // eslint-disable-next-line no-unused-vars
@@ -348,23 +374,13 @@ class SelectlocationsPage extends React.Component {
                   render={language => (
                     <React.Fragment>
                       {language === 'en' ? (
-                        <select className={govuk_select} name="ProvinceListEn" id="ProvinceList" defaultValue="0" onChange={this.handleProvinceChange} >
-                          <option key="0" value="0" disabled>Select a Province</option>
-                          {provinceNames.map(({ _id, name }) => (
-                            <option key={_id} value={name}>
-                              {name}
-                            </option>
-                          ))} 
-                        </select>
+                        <SelectDropDown  selClass={govuk_select} selName="ProvinceList" selId="ProvinceList" 
+                                selOnChange={this.handleProvinceChange} optName1="Select a Province" optData={provinceNames}
+                         />
                       ) : (
-                        <select className={govuk_select}  name="ProvinceListFr" id="ProvinceList" defaultValue="0" onChange={this.handleProvinceChange} >
-                          <option key="0" value="0" disabled>Sélectionnez une province</option>
-                          {provinceNamesFr.map(({ _id, name }) => (
-                            <option key={_id} value={name}>
-                              {name}
-                            </option>
-                          ))} 
-                        </select>
+                        <SelectDropDown  selClass={govuk_select} selName="ProvinceList" selId="ProvinceList" 
+                                selOnChange={this.handleProvinceChange} optName1="Sélectionnez une province" optData={provinceNamesFr}
+                         />
                       )}
                     </React.Fragment>
                   )}
@@ -388,13 +404,13 @@ class SelectlocationsPage extends React.Component {
                       <Trans>Select a city:</Trans>
                     </label>
                     <select className={govuk_select} name="CitiesList" id="CitiesList" onChange={this.handleCityChange} >
+                      <option key="0" value="0">{this.props.context.store.language === 'en' ? "Select a city" : "Sélectionnez une ville"}</option>
                       {locationsData.map(({ id, locationCity }) => (
                           <option key={locationCity} value={id}>
                               {locationCity}
                           </option>
                       ))}
                     </select>
-
                   </React.Fragment>
                 )
               )}

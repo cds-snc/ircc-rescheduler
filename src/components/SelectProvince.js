@@ -17,7 +17,8 @@ const govuk_select = css`
   font-size: ${theme.font.base};
   background: transparent;
   line-height: 1.4;
-  max-width:100%;
+  width: 80%
+  max-width:600px;
   height:40px;
   option {
     background-color: #1d70b8;
