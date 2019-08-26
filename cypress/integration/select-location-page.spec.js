@@ -27,38 +27,72 @@ describe('select provice, city and office page functions', () => {
       cy.injectAxe()
       cy.get('#ProvinceList').should('contains.text', 'Select a Province')
        checkA11y(cy)
-      cy.get('select[name="ProvinceListEn"]').select('Alberta').should('have.value', 'Alberta')
+      cy.get('select[name="ProvinceList"]').select('Alberta').should('have.value', 'Alberta')
       cy.get('select[name="CitiesList"]').select('null').should('have.value', 'null')
       cy.get('#CitiesList').should('contain.text', 'Select a City')
       cy.get('select[name="CitiesList"]').select('Edmonton').should('have.value', 'Edmonton')
-      // cy.get('[for="Locations"]').should('contain.text', 'Edmonton')
 
      })
 
-     it.only('should click into the Select a City dropdown and show city and locations and button ', () => {  
-    //  cy.injectAxe()
-      cy.get('select[name="ProvinceListEn"]').select('Alberta').should('have.value', 'Alberta')
+     it('should click into the Select a City dropdown and show city and locations and button ', () => {  
+      cy.injectAxe()
+      cy.get('select[name="ProvinceList"]').select('Alberta').should('have.value', 'Alberta')
       cy.get('select[name="CitiesList"]').select('Edmonton').should('have.value', 'Edmonton')
-     //  checkA11y(cy)
+     
       cy.get('[for="Locations"]').should('contains.text', 'Locations in:')
       cy.get('[for="Locations"]').should('contain.text', 'Edmonton')
       cy.get('.css-arysfy-govuk_button-button-mediaQuery-button').should('be.visible')
+      cy.get('input[name="selectcity"]').should('not.be.enabled')
+      cy.get('#4754').click()
+      cy.get('input[name="selectcity"]').should('be.enabled')
+      cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
+       checkA11y(cy)
+ 
      })
+     
+     it('should find Alberta and the cities in the dropdown', () => {  
+       // Alberta - Edomonton - checked in previous test - Calgary
+      cy.get('select[name="ProvinceList"]').select('Alberta')
+      cy.get('select[name="CitiesList"]').select('Calgary')
+      cy.get('[for="Locations"]').should('contain.text', 'Calgary')
+      cy.get('input[name="selectcity"]').should('not.be.enabled')
+      cy.get('#4802').click()
+      cy.get('input[name="selectcity"]').should('be.enabled')
+      cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
+})
 
 
-     // There seems to be a bug where the text context does not match the server. 
-     xit('should find the city in the dropdown', () => {  
-     // cy.injectAxe()
-    // cy.get('select').select('Alberta').should('have.value', 'Alberta').select('Alberta', { force: true })
-    //   .invoke('val').should('deep.equal', 'Alberta')
-      cy.get('#ProvinceList').should('contain.value', 'Alberta').should('be.visible')
-    //  cy.get('#CitiesList').should('contains.text', 'Select a City')
-   //  cy.get('#CitiesList').select('Select a City', { force: true })
-   //  checkA11y(cy)
-    // cy.get('#CitiesList').should('contain.text', 'Select a City')
-   //  cy.get('#CitiesList').select('Select a City', { force: true }).select('Edmonton', { force: true })
-  //   cy.get('[for="Locations"]').should('contains.text', 'Locations in:')
-  //   cy.get('.css-arysfy-govuk_button-button-mediaQuery-button').should('be.visible')
+it('should find British Columbia and the cities in the dropdown', () => {  
+  // British Columbia - Vancouver
+ cy.get('select[name="ProvinceList"]').select('British Columbia').should('have.value', 'British Columbia')
+ cy.get('select[name="CitiesList"]').select('Vancouver')
+ cy.get('[for="Locations"]').should('contain.text', 'Vancouver')
+ cy.get('input[name="selectcity"]').should('not.be.enabled')
+ cy.get('#5823').click()
+ cy.get('input[name="selectcity"]').should('be.enabled')
+ cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
+})
+
+it('should find Manitoba and the cities in the dropdown', () => {  
+  // Manitoba - Winnipeg
+ cy.get('select[name="ProvinceList"]').select('Manitoba').should('have.value', 'Manitoba')
+ cy.get('select[name="CitiesList"]').select('Winnipeg')
+ cy.get('[for="Locations"]').should('contain.text', 'Winnipeg')
+ cy.get('input[name="selectcity"]').should('not.be.enabled')
+ cy.get('#4123').click()
+ cy.get('input[name="selectcity"]').should('be.enabled')
+ cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
+})
+
+it.only('should find Ontario and the cities in the dropdown', () => {  
+  // Manitoba - Winnipeg
+ cy.get('select[name="ProvinceList"]').select('Ontario').should('have.value', 'Ontario')
+ cy.get('select[name="CitiesList"]').select('Ottawa')
+ cy.get('[for="Locations"]').should('contain.text', 'Ottawa')
+ cy.get('input[name="selectcity"]').should('not.be.enabled')
+ cy.get('#3747').click()
+ cy.get('input[name="selectcity"]').should('be.enabled')
+ cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
 })
 
 });
