@@ -14,19 +14,6 @@ import withContext from '../withContext'
 
 const govuk_select = css`
   font-family: SourceSans,Helvetica,Arial,sans-serif;
-  font-size: ${theme.font.base};
-  background: transparent;
-  line-height: 1.4;
-  max-width:100%;
-  height:40px;
-  option {
-    background-color: #1d70b8;
-  }
-  &:focus, &:before {
-    -webkit-box-shadow: 0 0 0 4px #ffbf47;
-    -moz-box-shadow: 0 0 0 4px #ffbf47;
-    box-shadow: 0 0 0 4px #ffbf47;
-  }
 `
 const govuk_label = css`
   margin-bottom: 0.17rem;

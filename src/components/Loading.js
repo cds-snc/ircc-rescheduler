@@ -16,7 +16,7 @@ const loading = css`
   content:'';
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 10%;
   z-index: 999;
   width: 150px;
   border-radius: 10px;
@@ -28,7 +28,7 @@ const loading = css`
     content:'';
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 10%;
     width: 15px;
     height: 15px;
     z-index: 999;
