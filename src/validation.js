@@ -76,9 +76,9 @@ export const defaultMessages = {
   'required.fullName': 'fullNameErrorMessage',
   'max.fullName': 'fullNameMaxErrorMessage',
   'required.email': 'emailErrorMessage',
-  'required_with.emailConfirm': 'emailConfirmErrorMessage',
+  'required.emailConfirm': 'emailConfirmErrorMessage',
   'email.email': 'emailInvalidErrorMessage',
-  'emailConfirm.emailConfirm': 'emailConfirmInvalidErrorMessage',
+  'same.emailConfirm': 'emailConfirmInvalidErrorMessage',
   'required.paperFileNumber': 'paperFileNumberErrorMessage',
   'required.reason': 'reasonErrorMessage',
   'required.explanation': 'explanationErrorMessage',
@@ -113,7 +113,7 @@ export const defaultMessages = {
 
 export const RegistrationFields = {
   email: `required|email`,
-  emailConfirm: `required_with:email|same:email`,
+  emailConfirm: 'required|email|same:email',
   familyCheck: `required_with:familyOption`,
   familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
@@ -184,13 +184,13 @@ Validator.register(
   'paperFileNumberInvalidErrorMessage',
 )
 
-// Validator.register(
-//   'emailConfirm',
-//   function (value, requirement, email){
-// return value
-//   },
-//   'emailConfirmInvalidErrorMessage',
-// )
+
+ 
+
+
+
+  
+
 
 
 

@@ -136,6 +136,7 @@ class RegistrationPage extends React.Component {
         trimInput(values),
         registrationFields,
         defaultMessages,
+        
       )
       // if (values.email !== values.emailConfirm){
       //   // eslint-disable-next-line no-console
@@ -356,7 +357,7 @@ class RegistrationPage extends React.Component {
                           {/* Email Confirm*/}
                  <div>
                   <Field component={TextFieldAdapter} name="emailConfirm" id="emailConfirm">
-                    <label htmlFor="email" id="emailConfirm-label">
+                    <label htmlFor="emailConfirm" id="emailConfirm-label">
                       <span id="confirm-email-header">
                         <Trans>Confirm Email address</Trans>
                       </span>
