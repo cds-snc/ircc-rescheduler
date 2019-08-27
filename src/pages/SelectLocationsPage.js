@@ -17,6 +17,7 @@ import Button from '../components/forms/Button'
 import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
 import Loading from '../components/Loading'
 import SelectDropDown from '../components/forms/Select'
+import { ApiFetch } from '../components/ApiFetch'
 
 // import styled from '@emotion/styled'
 //import { buttonStyles } from '../components/forms/Button'
@@ -80,7 +81,7 @@ class SelectlocationsPage extends React.Component {
     this.handleCityChange = this.handleCityChange.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
     this.submit = this.submit.bind(this) 
-    this.fetchLocations = this.fetchLocations.bind(this);
+    // this.fetchLocations = this.fetchLocations.bind(this);
     this.validate = SelectlocationsPage.validate
     this.fields = SelectlocationsPage.fields
   }
@@ -116,26 +117,6 @@ class SelectlocationsPage extends React.Component {
     }
   }
 
-  // Get the cities within a province and the locations within a city 
-  fetchLocations(province, city) {
-    
-    var encodedURI
-
-    if ( city != null )
-      {encodedURI = encodeURI(`http://localhost:4011/locationsbyprov/${province}/${city}`)}
-    else 
-      {encodedURI = encodeURI(`http://localhost:4011/locationsbyprov/${province}`)}
-
-    console.log( "url: " + encodedURI )
-    // eslint-disable-next-line no-undef
-    return fetch(encodedURI)
-      .then( (data) => data.json() )
-      .then( (locs) => locs )
-      .catch( (error) => {
-        return null
-      } );
-  }
-   
   // Get the cities within a province 
   getProvinceLocations(selectedProvince) {
     if (selectedProvince === "0" ) {
@@ -147,7 +128,8 @@ class SelectlocationsPage extends React.Component {
       loading: true,
     })
     console.log(this.props.context.store)
-    this.fetchLocations( selectedProvince )
+
+    ApiFetch(encodeURI(`http://localhost:4011/locationsbyprov/${selectedProvince}`))
       .then((locs) => {
         //console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
         if ( locs ) {
@@ -172,7 +154,7 @@ class SelectlocationsPage extends React.Component {
     this.setState({
       loading: true,
     })
-    this.fetchLocations( selectedProvince, selectedCity )
+    ApiFetch( encodeURI(`http://localhost:4011/locationsbyprov/${selectedProvince}/${selectedCity}`) )
       .then((locs) => {
         this.setState ({
             cityLocations: locs,
