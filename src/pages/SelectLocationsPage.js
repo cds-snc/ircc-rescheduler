@@ -57,6 +57,7 @@ const clearFix = css`
 //  margin-left: 4px;
 //`
 
+const dbHost = "http://localhost:4011"
 
 
 class SelectlocationsPage extends React.Component {
@@ -128,7 +129,7 @@ class SelectlocationsPage extends React.Component {
     })
     console.log(this.props.context.store)
 
-    ApiFetch(encodeURI(`http://localhost:4011/locationsbyprov/${selectedProvince}`))
+    ApiFetch(encodeURI( dbHost + `/locationsbyprov/${selectedProvince}`))
       .then((locs) => {
         //console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
         if ( locs ) {
@@ -153,7 +154,7 @@ class SelectlocationsPage extends React.Component {
     this.setState({
       loading: true,
     })
-    ApiFetch( encodeURI(`http://localhost:4011/locationsbyprov/${selectedProvince}/${selectedCity}`) )
+    ApiFetch( encodeURI( dbHost + `/locationsbyprov/${selectedProvince}/${selectedCity}`) )
       .then((locs) => {
         this.setState ({
             cityLocations: locs,
@@ -272,7 +273,7 @@ class SelectlocationsPage extends React.Component {
               ) : (
                 <React.Fragment>
                   <hr /> 
-                  <label className={govuk_label} htmlFor="Locations">
+                  <label className={govuk_label} htmlFor="OfficeList">
                     <Trans>Locations in:</Trans> {this.state.cityName}
                   </label>
 
@@ -286,19 +287,20 @@ class SelectlocationsPage extends React.Component {
                         : ''
                     }
                   />
-                  <div id="selectOffice" ref={selectOfficeError => { this.selectOfficeError = selectOfficeError }}>
+                  <div id="OfficeList" ref={selectOfficeError => { this.selectOfficeError = selectOfficeError }}>
                     {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-                      <div key={locationId} id='Locations' onClick= {() => {this.handleLocation(locationId, locationAddress)}}>
+                      <div key={locationId} id='locations' onClick= {() => {this.handleLocation(locationId, locationAddress)}}>
                         <Radio 
                           type="radio"
                           name='selectcity'
                           value={locationId}
                           id={locationId}
+                          aria-labelledby={`${locationId}-label`}
                           label = {
-                            <ul key={_id} id={_id} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
-                              <li>
+                            <div id={_id} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
+                              <span>
                                 <FaExternalLinkAlt color='#ffbf47' size='18' /> 
-                                <Language
+                                <Language 
                                   render={language =>
                                     language === 'fr' ? (
                                       <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
@@ -309,17 +311,17 @@ class SelectlocationsPage extends React.Component {
                                     ) : (
                                       <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} 
                                         rel="noopener noreferrer" target='_blank' > 
-                                        <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                                        <span className={visuallyhidden}><Trans>Opens a new window</Trans></span> 
                                         <span> ServiceCanada.gc.ca</span>
                                       </a>  
-                                      )
+                                    )
                                   }
                                 />
-                              </li>
-                              <li> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</li>
-                              <li> <FaClock color='#ffbf47' size='18' /> {hours}</li>
-                            </ul>
-                          }
+                              </span>  <br />
+                              <span> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</span> <br />
+                              <span> <FaClock color='#ffbf47' size='18' /> {hours}</span> 
+                            </div>  
+                          }  
                         />
                       </div>
                     ))} 
