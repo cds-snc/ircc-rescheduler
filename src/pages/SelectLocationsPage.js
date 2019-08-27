@@ -6,7 +6,6 @@ import withContext from '../withContext'
 import { css } from 'emotion'
 import { H1, theme, mediaQuery, visuallyhidden } from '../styles'
 import Layout from '../components/Layout'
-//import SelectProvince from '../components/SelectProvince'
 import Title, { matchPropTypes } from '../components/Title'
 import { SelectLocationFields, getFieldNames } from '../validation'
 import { ValidationMessage } from '../components/ErrorMessage'
@@ -17,13 +16,12 @@ import Language from '../components/Language'
 import Button from '../components/forms/Button'
 import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
 import Loading from '../components/Loading'
+import SelectDropDown from '../components/forms/Select'
+import { ApiFetch } from '../components/ApiFetch'
 
 // import styled from '@emotion/styled'
-//import { H1, theme, mediaQuery , arrow } from '../styles'
 //import { buttonStyles } from '../components/forms/Button'
 //import rightArrow from '../assets/rightArrow.svg'
-
-
 
 
 /* eslint-disable no-console */
@@ -45,113 +43,12 @@ const messageContainer = css`
     margin-bottom: 0;
   }
 `
-const govuk_select = css`
-  font-family: SourceSans,Helvetica,Arial,sans-serif;
-  font-size: ${theme.font.base};
-  background: ${theme.colour.white};
-  line-height: 1.4;
-  border: 3px solid #000000;
-  margin-bottom: 2em;
-  width: 500px;
-  height:40px;
-  select {
-    display: none;
-  }
-  option {
-    background-color: ${theme.colour.white};
-  }
-  &:focus, &:before {
-    -webkit-box-shadow: 0 0 0 4px #ffbf47;
-    -moz-box-shadow: 0 0 0 4px #ffbf47;
-    box-shadow: 0 0 0 4px #ffbf47;
-  }
-
-  ${mediaQuery.md(css`
-  width: 80%;
-  `)};
-
-  ${mediaQuery.sm(css`
-    width: 100%;
-  `)};
-`
 const govuk_label = css`
   margin-bottom: 0.17rem;
   display: block;
   font-size: ${theme.font.lg}
 `
-// const govuk_p = css`
-//   margin-bottom: 0.37rem;
-//   display: block;
-//   font-size: 1.2rem 
-// `
-// const govuk_List = css`
-//   margin: 2px 0px 5px 0px;
-//   padding: 0px 8px 0px 8px;
-//   background-color: ${theme.colour.greyLight}
-// `
-// const govuk_ListButton = css`
-//   width: 275px;
-//   font-size: ${theme.font.sm}; 
-//   background-color: ${theme.colour.greyLight}
-//   cursor: pointer;
-//   padding: 0px 8px 0px 8px;
-//   &:hover {
-//     background-color: #00692f;
-//     color: ${theme.colour.white};
-//     -webkit-box-shadow: 0 0 0 4px #ffbf47;
-//     -moz-box-shadow: 0 0 0 4px #ffbf47;
-//     box-shadow: 0 0 0 4px #ffbf47; 
-//   }
-// `
 
-// const LocationLabel = css`
-//   width: 100%;
-//   float: left; 
-//   clear: none;
-//   background-color: ${theme.colour.green};
-//   background-color: #335075;
-//   color: ${theme.colour.white};
-//   box-shadow: 0 2px 0 #141414;
-//   padding: 10px;
-//   margin-bottom: 20px;
-//   border: 2px;
-//   overflow: auto;
-//   &:hover {
-//     background-color: ${theme.colour.greenDark};
-//     background-color: #333333;
-//     -webkit-box-shadow: 0 0 0 4px #ffbf47;
-//     -moz-box-shadow: 0 0 0 4px #ffbf47;
-//     box-shadow: 0 0 0 4px #ffbf47; 
-//   }
-//   a {color: inherit;}
-//   }
-// `
-// const LocationInput = css`
-//   float: left; 
-//   clear: none;
-//   background-color: ${theme.colour.green};
-//   background-color: #335075;
-//   color: ${theme.colour.white};
-//   margin: 28px 10px 10px 2px;
-//   box-shadow: 0 2px 0 #141414;
-//   height: 34px;
-//   width: 34px;
-//   padding: 10px;
-//   border: 2px solid;
-//   &:hover {
-//     background-color: ${theme.colour.greenDark};
-//     background-color: #333333;
-//     -webkit-box-shadow: 0 0 0 4px #ffbf47;
-//     -moz-box-shadow: 0 0 0 4px #ffbf47;
-//     box-shadow: 0 0 0 4px #ffbf47; 
-//   }
-//   a {color: inherit;}
-//   }
-// `
-// const listLocations = css`
-//   text-align: left;
-//   padding: 0 0 0 45px;
-// `
 const clearFix = css`
   content:''; clear: both; display: table;
 `
@@ -160,29 +57,7 @@ const clearFix = css`
 //  margin-left: 4px;
 //`
 
-class SelectDropDown extends React.Component {
-  render() {
-    return (
-      <select className={this.props.selClass} name={this.props.selName} id={this.props.selId} defaultValue="0" onChange={this.props.selOnChange} >
-        <option key="0" value="0">{this.props.optName1}</option>
-          {this.props.optData.map(({ name, value }) => (
-          <option key={value} value={value}>
-            {name}
-          </option>
-        ))} 
-      </select>
-    )
-  }
-}
-SelectDropDown.propTypes = {
-  selClass: PropTypes.string,
-  selName: PropTypes.string,
-  selId: PropTypes.string,
-  selOnChange: PropTypes.func,
-  optName1: PropTypes.string,
-  optData: PropTypes.array,
-}
-
+const dbHost = "http://localhost:4011"
 
 
 class SelectlocationsPage extends React.Component {
@@ -207,7 +82,6 @@ class SelectlocationsPage extends React.Component {
     this.handleCityChange = this.handleCityChange.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
     this.submit = this.submit.bind(this) 
-    this.fetchLocations = this.fetchLocations.bind(this);
     this.validate = SelectlocationsPage.validate
     this.fields = SelectlocationsPage.fields
   }
@@ -222,7 +96,7 @@ class SelectlocationsPage extends React.Component {
     return SelectlocationsPage.errStrings
   }
 
-
+  // Submit the location, saves in store & cookie and redircets to the calendar page if no errors 
   async submit () {
     // eslint-disable-next-line no-console
     console.log(this.props) 
@@ -243,26 +117,7 @@ class SelectlocationsPage extends React.Component {
     }
   }
 
-  fetchLocations(province, city) {
-    
-    var encodedURI
-
-    if ( city != null )
-      {encodedURI = encodeURI(`http://localhost:4011/locationsbyprov/${province}/${city}`)}
-    else 
-      {encodedURI = encodeURI(`http://localhost:4011/locationsbyprov/${province}`)}
-
-    console.log( "url: " + encodedURI )
-    // eslint-disable-next-line no-undef
-    return fetch(encodedURI)
-      .then( (data) => data.json() )
-      .then( (locs) => locs )
-      .catch( (error) => {
-        return null
-      } );
-  }
-   
-
+  // Get the cities within a province 
   getProvinceLocations(selectedProvince) {
     if (selectedProvince === "0" ) {
       // Ignore Default Value 
@@ -273,7 +128,8 @@ class SelectlocationsPage extends React.Component {
       loading: true,
     })
     console.log(this.props.context.store)
-    this.fetchLocations( selectedProvince )
+
+    ApiFetch(encodeURI( dbHost + `/locationsbyprov/${selectedProvince}`))
       .then((locs) => {
         //console.log('Data in getProvince is : ' + JSON.stringify(locs)) 
         if ( locs ) {
@@ -293,11 +149,12 @@ class SelectlocationsPage extends React.Component {
       })
   }
 
+  // Get the locations within a city 
   getCityLocations(selectedProvince, selectedCity) {
     this.setState({
       loading: true,
     })
-    this.fetchLocations( selectedProvince, selectedCity )
+    ApiFetch( encodeURI( dbHost + `/locationsbyprov/${selectedProvince}/${selectedCity}`) )
       .then((locs) => {
         this.setState ({
             cityLocations: locs,
@@ -309,12 +166,14 @@ class SelectlocationsPage extends React.Component {
       })
   }
 
+  // Save in State the current Province selected & gets the cities within the province  
   handleProvinceChange(event) {
     event.preventDefault();
     this.setState({ provinceName : event.target.value });
     this.getProvinceLocations( event.target.value )
   }
 
+  // Save in State the current city then gets the locations in the city
   handleCityChange(event) {
     if ( event.target.value === 'Sélectionnez une ville' || event.target.value === 'Select a City' ) {
       this.setState({ cityName : null, locationNumber: null, locationAddress: null });
@@ -324,11 +183,11 @@ class SelectlocationsPage extends React.Component {
     }
   }
 
+  // Save in State the selected location to be validated in the submit 
   handleLocation(LocationId, LocationAddress) {
     this.setState({ locationNumber: LocationId, locationAddress: LocationAddress });
     console.log ('locationId == ' + this.state.locationNumber + ' should be = ' + LocationId)
   }
-
 
 
 
@@ -370,21 +229,16 @@ class SelectlocationsPage extends React.Component {
                 <label className={govuk_label} htmlFor="ProvinceList">
                   <Trans>Select a province:</Trans>
                 </label>
-                <Language
-                  render={language => (
-                    <React.Fragment>
-                      {language === 'en' ? (
-                        <SelectDropDown  selClass={govuk_select} selName="ProvinceList" selId="ProvinceList" 
-                                selOnChange={this.handleProvinceChange} optName1="Select a Province" optData={provinceNames}
-                         />
-                      ) : (
-                        <SelectDropDown  selClass={govuk_select} selName="ProvinceList" selId="ProvinceList" 
-                                selOnChange={this.handleProvinceChange} optName1="Sélectionnez une province" optData={provinceNamesFr}
-                         />
-                      )}
-                    </React.Fragment>
-                  )}
-                />
+                
+                {this.props.context.store.language === 'en' ? (
+                  <SelectDropDown selName="ProvinceList" selId="ProvinceList" optName1="Select a Province"
+                                selOnChange={this.handleProvinceChange} optData={provinceNames}
+                    />
+                ) : (
+                  <SelectDropDown selName="ProvinceList" selId="ProvinceList" optName1="Sélectionnez une province"
+                                selOnChange={this.handleProvinceChange} optData={provinceNamesFr}
+                    />
+                )}
               </div>
 
               {/* Next line display a Loading animation while getting data from the DB */}
@@ -403,14 +257,11 @@ class SelectlocationsPage extends React.Component {
                     <label className={govuk_label} htmlFor="CitiesList">
                       <Trans>Select a city:</Trans>
                     </label>
-                    <select className={govuk_select} name="CitiesList" id="CitiesList" onChange={this.handleCityChange} >
-                      <option key="0" value="0">{this.props.context.store.language === 'en' ? "Select a city" : "Sélectionnez une ville"}</option>
-                      {locationsData.map(({ id, locationCity }) => (
-                          <option key={locationCity} value={id}>
-                              {locationCity}
-                          </option>
-                      ))}
-                    </select>
+
+                    <SelectDropDown selName="CitiesList" selId="CitiesList" 
+                                    selOnChange={this.handleCityChange} optData={locationsData}  
+                                    optName1={this.props.context.store.language === 'en' ? "Select a city" : "Sélectionnez une ville"} 
+                    />
                   </React.Fragment>
                 )
               )}
@@ -422,7 +273,7 @@ class SelectlocationsPage extends React.Component {
               ) : (
                 <React.Fragment>
                   <hr /> 
-                  <label className={govuk_label} htmlFor="Locations">
+                  <label className={govuk_label} htmlFor="OfficeList">
                     <Trans>Locations in:</Trans> {this.state.cityName}
                   </label>
 
@@ -436,19 +287,20 @@ class SelectlocationsPage extends React.Component {
                         : ''
                     }
                   />
-                  <div id="selectOffice" ref={selectOfficeError => { this.selectOfficeError = selectOfficeError }}>
+                  <div id="OfficeList" ref={selectOfficeError => { this.selectOfficeError = selectOfficeError }}>
                     {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-                      <div key={locationId} id='Locations' onClick= {() => {this.handleLocation(locationId, locationAddress)}}>
+                      <div key={locationId} id='locations' onClick= {() => {this.handleLocation(locationId, locationAddress)}}>
                         <Radio 
                           type="radio"
                           name='selectcity'
                           value={locationId}
                           id={locationId}
+                          aria-labelledby={`${locationId}-label`}
                           label = {
-                            <ul key={_id} id={_id} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
-                              <li>
+                            <div id={_id} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
+                              <span>
                                 <FaExternalLinkAlt color='#ffbf47' size='18' /> 
-                                <Language
+                                <Language 
                                   render={language =>
                                     language === 'fr' ? (
                                       <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
@@ -459,17 +311,17 @@ class SelectlocationsPage extends React.Component {
                                     ) : (
                                       <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} 
                                         rel="noopener noreferrer" target='_blank' > 
-                                        <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                                        <span className={visuallyhidden}><Trans>Opens a new window</Trans></span> 
                                         <span> ServiceCanada.gc.ca</span>
                                       </a>  
-                                      )
+                                    )
                                   }
                                 />
-                              </li>
-                              <li> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</li>
-                              <li> <FaClock color='#ffbf47' size='18' /> {hours}</li>
-                            </ul>
-                          }
+                              </span>  <br />
+                              <span> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</span> <br />
+                              <span> <FaClock color='#ffbf47' size='18' /> {hours}</span> 
+                            </div>  
+                          }  
                         />
                       </div>
                     ))} 
