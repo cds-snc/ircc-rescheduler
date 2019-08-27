@@ -81,7 +81,6 @@ class SelectlocationsPage extends React.Component {
     this.handleCityChange = this.handleCityChange.bind(this);
     this.handleLocation = this.handleLocation.bind(this);
     this.submit = this.submit.bind(this) 
-    // this.fetchLocations = this.fetchLocations.bind(this);
     this.validate = SelectlocationsPage.validate
     this.fields = SelectlocationsPage.fields
   }
