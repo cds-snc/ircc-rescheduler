@@ -66,19 +66,19 @@ describe('<Summary />', () => {
     const numOfSummaryRows = wrapper.find('SummaryRow')
     const numOfTextSummaryRows = wrapper.find('TextAreaSummaryRow')
 
-    expect(numOfSummaryRows.length).toBe(6)
+    expect(numOfSummaryRows.length).toBe(7)
     expect(numOfTextSummaryRows.length).toBe(1)
     expect(numOfSummaryRows.at(0).prop('summaryBody')).toEqual('Test1')
     expect(numOfSummaryRows.at(1).prop('summaryBody')).toEqual('test@test.com')
-    expect(numOfSummaryRows.at(2).prop('summaryBody')).toEqual('12346789')
-    expect(numOfSummaryRows.at(3).prop('summaryBody').props.id).toEqual(
+    expect(numOfSummaryRows.at(3).prop('summaryBody')).toEqual('12346789')
+    expect(numOfSummaryRows.at(4).prop('summaryBody').props.id).toEqual(
       'Travel',
     )
     expect(numOfTextSummaryRows.at(0).prop('summaryBody')).toEqual(
       'feeling lazy',
     )
     expect(
-      numOfSummaryRows.at(5).prop('summaryBody').props.selectedDays,
+      numOfSummaryRows.at(6).prop('summaryBody').props.selectedDays,
     ).toMatchObject(selectedDays)
   })
 })

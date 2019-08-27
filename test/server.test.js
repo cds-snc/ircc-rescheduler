@@ -15,7 +15,7 @@ describe('Server Side Rendering', () => {
 
   it('renders the register page at /register', async () => {
     let response = await request(server).get('/register')
-    expect(response.text).toMatch(/Full name/)
+    expect(response.text).toMatch(/Email/)
   })
 
   it('renders the calendar page at /calendar', async () => {

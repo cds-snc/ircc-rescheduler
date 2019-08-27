@@ -73,10 +73,9 @@ errorMessages.inErrorMessage = (
 /* Error message object */
 
 export const defaultMessages = {
-  'required.fullName': 'fullNameErrorMessage',
+  'required.emailConfirm': 'emailConfirmErrorMessage',
   'max.fullName': 'fullNameMaxErrorMessage',
   'required.email': 'emailErrorMessage',
-  'required.emailConfirm': 'emailConfirmErrorMessage',
   'email.email': 'emailInvalidErrorMessage',
   'same.emailConfirm': 'emailConfirmInvalidErrorMessage',
   'required.paperFileNumber': 'paperFileNumberErrorMessage',

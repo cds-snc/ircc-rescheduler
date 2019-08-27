@@ -38,13 +38,13 @@ const Summary = ({
     />
     <SummaryRow
       summaryHeader={<Trans>Email</Trans>}
-      summaryBody={emailConfirm}
+      summaryBody={email}
       summaryLink={'/register#email-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
     />
     <SummaryRow
-      summaryHeader={<Trans>Email</Trans>}
-      summaryBody={email}
+      summaryHeader={<Trans>Email Confirmation</Trans>}
+      summaryBody={emailConfirm}
       summaryLink={'/register#emailConfirm-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
     />
