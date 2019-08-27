@@ -403,14 +403,11 @@ class SelectlocationsPage extends React.Component {
                     <label className={govuk_label} htmlFor="CitiesList">
                       <Trans>Select a city:</Trans>
                     </label>
-                    <select className={govuk_select} name="CitiesList" id="CitiesList" onChange={this.handleCityChange} >
-                      <option key="0" value="0">{this.props.context.store.language === 'en' ? "Select a city" : "Sélectionnez une ville"}</option>
-                      {locationsData.map(({ id, locationCity }) => (
-                          <option key={locationCity} value={id}>
-                              {locationCity}
-                          </option>
-                      ))}
-                    </select>
+
+                    <SelectDropDown  selClass={govuk_select} selName="CitiesList" selId="CitiesList" 
+                                    selOnChange={this.handleCityChange} optData={locationsData}  
+                                    optName1={this.props.context.store.language === 'en' ? "Select a city" : "Sélectionnez une ville"} 
+                    />
                   </React.Fragment>
                 )
               )}
