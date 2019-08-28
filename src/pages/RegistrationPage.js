@@ -154,6 +154,8 @@ class RegistrationPage extends React.Component {
       }
 
       RegistrationPage.errStrings = getFieldErrorStrings(validate)
+      // eslint-disable-next-line no-console
+      console.log(RegistrationPage.errStrings)
     }
     
     return RegistrationPage.errStrings
@@ -260,6 +262,19 @@ class RegistrationPage extends React.Component {
             const notValid = this.hasNotValid()
             const generalMessage = this.generalErrorMessage()
 
+<<<<<<< HEAD
+=======
+            let disabled = { disabled: false }
+            // eslint-disable-next-line no-console
+            console.log(values)
+            if (this.state.mounted) {
+              /*
+              'mounted' will be true after ComponentDidMount
+              which won't be called server-side
+                */
+              disabled = { disabled: !familyCheck.length }
+            }
+>>>>>>> master
 
             submitError =
               Object.keys(errorsNoJS).length && !submitError

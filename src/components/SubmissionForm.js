@@ -23,6 +23,7 @@ const SubmissionForm = props => {
         <input type="hidden" name="emailConfirm" value={props.emailConfirm} />
         <input type="hidden" name="explanation" value={props.explanation} />
         <input type="hidden" name="reason" value={props.reason} />
+        <input type="hidden" name="location" value={props.location} />
         <input type="hidden" name="selectedDays" value={props.selectedDays} />
         <input
           type="hidden"
@@ -48,6 +49,7 @@ SubmissionForm.propTypes = {
   email: PropTypes.string,
   emailConfirm:PropTypes.string,
   reason: PropTypes.string,
+  location: PropTypes.string,
   explanation: PropTypes.string,
   selectedDays: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
   availabilityExplanation: PropTypes.string,

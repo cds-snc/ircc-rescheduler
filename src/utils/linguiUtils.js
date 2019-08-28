@@ -74,19 +74,34 @@ export const getDateInfo = i18n => {
 }
 
 export const provinceNames = [
-  { _id:0, idfr:0, name:"Select a Province", namefr:"Sélectionnez une province" },
-  { _id:1, idfr:1, name:"Alberta", namefr:"Alberta" },
-  { _id:2, idfr:2, name:"British Columbia", namefr:"Colombie-Britannique" },
-  { _id:3, idfr:4, name:"Manitoba", namefr:"Manitoba" },
-  { _id:4, idfr:5, name:"New Brunswick", namefr:"Nouveau-Brunswick" },
-  { _id:5, idfr:11, name:"Newfoundland and Labrador", namefr:"Terre-Neuve-et-Labrador" },
-  { _id:6, idfr:12, name:"Northwest Territories", namefr:"Territoires du Nord-Ouest" },
-  { _id:7, idfr:6, name:"Nova Scotia", namefr:"Nouvelle-Écosse" },
-  { _id:8, idfr:7, name:"Nunavut", namefr:"Nunavut" },
-  { _id:9, idfr:8, name:"Ontario", namefr:"Ontario" },
-  { _id:10, idfr:3, name:"Prince Edward Island", namefr:"Île-du-Prince-Édouard" },
-  { _id:11, idfr:9, name:"Quebec", namefr:"Québec" },
-  { _id:12, idfr:10, name:"Saskatchewan", namefr:"Saskatchewan" },
-  { _id:13, idfr:13, name:"Yukon", namefr:"Yukon" },
+   { value:"Alberta", name:"Alberta" },
+   { value:"British Columbia", name:"British Columbia" },
+   { value:"Manitoba", name:"Manitoba" },
+   { value:"New Brunswick", name:"New Brunswick" },
+   { value:"Newfoundland and Labrador", name:"Newfoundland and Labrador" },
+   { value:"Northwest Territories", name:"Northwest Territories" },
+   { value:"Nova Scotia", name:"Nova Scotia" },
+   { value:"Nunavut", name:"Nunavut" },
+   { value:"Ontario", name:"Ontario" },
+   { value:"Prince Edward Island", name:"Prince Edward Island" },
+   { value:"Quebec", name:"Quebec" },
+   { value:"Saskatchewan", name:"Saskatchewan" },
+   { value:"Yukon", name:"Yukon" },
+ ]
+
+export const provinceNamesFr = [
+  { value:"Alberta", name:"Alberta" },
+  { value:"British Columbia", name:"Colombie-Britannique" },
+  { value:"Prince Edward Island", name:"Île-du-Prince-Édouard" },
+  { value:"Manitoba", name:"Manitoba" },
+  { value:"New Brunswick", name:"Nouveau-Brunswick" },
+  { value:"Nova Scotia", name:"Nouvelle-Écosse" },
+  { value:"Nunavut", name:"Nunavut" },
+  { value:"Ontario", name:"Ontario" },
+  { value:"Quebec", name:"Québec" },
+  { value:"Saskatchewan", name:"Saskatchewan" },
+  { value:"Newfoundland and Labrador", name:"Terre-Neuve-et-Labrador" },
+  { value:"Northwest Territories", name:"Territoires du Nord-Ouest" },
+  { value:"Yukon", name:"Yukon" },
 ]
-export const provinceNamesFr = provinceNames.sort((a, b) => a.idfr > b.idfr);
+

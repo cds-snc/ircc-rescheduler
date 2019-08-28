@@ -6,6 +6,16 @@
         "src/pages/LandingPage.js",
         130
       ]
+    ],
+    "obsolete": true
+  },
+  "<0>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...</0>": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        188
+      ]
     ]
   },
   "ALPHA": {
@@ -52,20 +62,24 @@
     "translation": "Disponibilité",
     "origin": [
       [
-        "src/components/Summary.js",
-        180
+        "src/components/Confirmation.js",
+        54
       ],
       [
         "src/components/Summary.js",
-        183
+        81
       ],
       [
         "src/components/Summary.js",
-        187
+        84
       ],
       [
         "src/components/Summary.js",
-        190
+        88
+      ],
+      [
+        "src/components/Summary.js",
+        91
       ]
     ]
   },
@@ -74,7 +88,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        54
+        57
       ]
     ]
   },
@@ -96,6 +110,15 @@
       ]
     ]
   },
+  "Biometric appointments in": {
+    "translation": "Les rendez-vous d’examen de Biométrique en",
+    "origin": [
+      [
+        "src/pages/calendar/CalHeader.js",
+        71
+      ]
+    ]
+  },
   "Cancel request": {
     "translation": "Annuler la demande",
     "origin": [
@@ -110,52 +133,47 @@
     "origin": [
       [
         "src/components/Summary.js",
-        88
+        36
       ],
       [
         "src/components/Summary.js",
-        117
+        42
       ],
       [
         "src/components/Summary.js",
-        141
+        49
       ],
       [
         "src/components/Summary.js",
-        147
+        57
       ],
       [
         "src/components/Summary.js",
-        154
+        64
       ],
       [
         "src/components/Summary.js",
-        162
+        70
       ],
       [
         "src/components/Summary.js",
-        169
+        76
       ],
       [
         "src/components/Summary.js",
-        175
+        84
       ],
       [
         "src/components/Summary.js",
-        183
+        91
       ],
       [
-        "src/components/Summary.js",
-        190
-      ]
-    ]
-  },
-  "Biometric appointments in": {
-    "translation": "Les rendez-vous d’examen de Biométrique en",
-    "origin": [
+        "src/components/SummaryRow.js",
+        81
+      ],
       [
-        "src/pages/calendar/CalHeader.js",
-        71
+        "src/components/SummaryRow.js",
+        113
       ]
     ]
   },
@@ -168,6 +186,16 @@
       ]
     ]
   },
+  "Confirmation:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        158
+      ]
+    ],
+    "obsolete": true
+  },
   "Contact": {
     "translation": "Contact",
     "origin": [
@@ -175,7 +203,8 @@
         "src/components/Footer.js",
         117
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Continue": {
     "translation": "Continuer",
@@ -186,7 +215,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        535
+        543
       ]
     ]
   },
@@ -208,7 +237,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        504
+        512
       ]
     ]
   },
@@ -217,7 +246,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        125
+        130
       ]
     ]
   },
@@ -261,12 +290,16 @@
     "translation": "Courriel",
     "origin": [
       [
-        "src/components/Summary.js",
-        144
+        "src/components/Confirmation.js",
+        35
       ],
       [
         "src/components/Summary.js",
-        147
+        39
+      ],
+      [
+        "src/components/Summary.js",
+        42
       ]
     ]
   },
@@ -279,7 +312,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        341
+        348
       ]
     ]
   },
@@ -310,11 +343,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        172
+        73
       ],
       [
         "src/components/Summary.js",
-        175
+        76
       ]
     ]
   },
@@ -323,7 +356,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        479
+        487
       ],
       [
         "src/pages/ReviewPage.js",
@@ -336,11 +369,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        159
+        54
       ],
       [
         "src/components/Summary.js",
-        162
+        57
       ]
     ]
   },
@@ -358,7 +391,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        231
+        237
       ]
     ]
   },
@@ -367,7 +400,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        415
+        422
       ]
     ]
   },
@@ -406,12 +439,16 @@
     "translation": "Nom complet",
     "origin": [
       [
-        "src/components/Summary.js",
-        138
+        "src/components/Confirmation.js",
+        29
       ],
       [
         "src/components/Summary.js",
-        141
+        33
+      ],
+      [
+        "src/components/Summary.js",
+        36
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -419,7 +456,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        317
+        324
       ]
     ]
   },
@@ -432,7 +469,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        93
+        97
       ],
       [
         "src/pages/calendar/CalHeader.js",
@@ -457,6 +494,15 @@
       ]
     ]
   },
+  "I Agree TODO: TRANS": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        166
+      ]
+    ]
+  },
   "I cannot attend any of the available appointments": {
     "translation": "Je ne peux pas assister à l’ensemble des rendez-vous disponibles",
     "origin": [
@@ -464,14 +510,15 @@
         "src/components/Calendar.js",
         865
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "I need to reschedule my family too": {
     "translation": "J’ai aussi besoin de reporter le rendez-vous pour un ou plusieurs membres de ma famille.",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        405
+        412
       ]
     ]
   },
@@ -490,10 +537,6 @@
       [
         "src/pages/CancelPage.js",
         67
-      ],
-      [
-        "src/pages/ConfirmationPage.js",
-        121
       ]
     ]
   },
@@ -578,12 +621,33 @@
       ]
     ]
   },
+  "Location": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Confirmation.js",
+        48
+      ],
+      [
+        "src/components/Summary.js",
+        67
+      ],
+      [
+        "src/components/Summary.js",
+        70
+      ]
+    ]
+  },
   "Locations in:": {
     "translation": "Emplacements en :",
     "origin": [
       [
         "src/components/SelectProvince.js",
-        214
+        275
+      ],
+      [
+        "src/pages/SelectLocationsPage.js",
+        418
       ]
     ]
   },
@@ -619,7 +683,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        463
+        470
       ],
       [
         "src/pages/ReviewPage.js",
@@ -692,7 +756,8 @@
         "src/pages/LandingPage.js",
         128
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "No days selected": {
     "translation": "Aucune journée sélectionnée",
@@ -700,6 +765,15 @@
       [
         "src/components/SelectedDayList.js",
         19
+      ]
+    ]
+  },
+  "No service at this moment, please try again later": {
+    "translation": "pas de service en ce moment, veuillez réessayer plus tard",
+    "origin": [
+      [
+        "src/pages/SelectLocationsPage.js",
+        357
       ]
     ]
   },
@@ -730,12 +804,33 @@
       ]
     ]
   },
+  "Opens a new window": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/SelectProvince.js",
+        290
+      ],
+      [
+        "src/components/SelectProvince.js",
+        295
+      ],
+      [
+        "src/pages/SelectLocationsPage.js",
+        448
+      ],
+      [
+        "src/pages/SelectLocationsPage.js",
+        454
+      ]
+    ]
+  },
   "Other": {
     "translation": "Autre raison",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        487
+        495
       ],
       [
         "src/pages/ReviewPage.js",
@@ -783,12 +878,16 @@
     "translation": "Numéro de dossier papier",
     "origin": [
       [
-        "src/components/Summary.js",
-        150
+        "src/components/Confirmation.js",
+        41
       ],
       [
         "src/components/Summary.js",
-        154
+        45
+      ],
+      [
+        "src/components/Summary.js",
+        49
       ],
       [
         "src/pages/RegistrationPage.js",
@@ -796,7 +895,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        369
+        376
       ]
     ]
   },
@@ -810,6 +909,15 @@
       [
         "src/components/Contact.js",
         84
+      ]
+    ]
+  },
+  "Please Select an Office. Please pick one.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/SelectLocationsPage.js",
+        427
       ]
     ]
   },
@@ -881,7 +989,16 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        512
+        519
+      ]
+    ]
+  },
+  "Please select your time slot": {
+    "translation": "Veuillez sélectionner votre créneau horaire :",
+    "origin": [
+      [
+        "src/components/Calendar.js",
+        858
       ]
     ]
   },
@@ -917,7 +1034,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        122
+        120
       ]
     ]
   },
@@ -935,7 +1052,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        517
+        525
       ]
     ]
   },
@@ -953,7 +1070,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        429
+        436
       ]
     ]
   },
@@ -962,11 +1079,11 @@
     "origin": [
       [
         "src/components/Summary.js",
-        166
+        61
       ],
       [
         "src/components/Summary.js",
-        169
+        64
       ]
     ]
   },
@@ -979,12 +1096,21 @@
       ]
     ]
   },
+  "Remember to bring: <0/>1.- Your BIL letter <1/>2.- This confirmation number <2/>3.- Your immigration papers <3/> <4/>": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        181
+      ]
+    ]
+  },
   "Remove day": {
     "translation": "Supprimer cette journée",
     "origin": [
       [
         "src/components/Calendar.js",
-        851
+        873
       ]
     ]
   },
@@ -994,10 +1120,6 @@
       [
         "src/components/Title.js",
         13
-      ],
-      [
-        "src/pages/LandingPage.js",
-        94
       ]
     ]
   },
@@ -1026,7 +1148,8 @@
         "src/pages/LandingPage.js",
         154
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Reschedule family members": {
     "translation": "Reporter le rendez-vous pour des membres de votre famille",
@@ -1064,7 +1187,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        97
+        101
       ]
     ]
   },
@@ -1093,14 +1216,47 @@
         "src/components/Title.js",
         27
       ]
+    ],
+    "obsolete": true
+  },
+  "Select a city:": {
+    "translation": "Sélectionnez une ville :",
+    "origin": [
+      [
+        "src/pages/SelectLocationsPage.js",
+        396
+      ],
+      [
+        "src/pages/SelectLocationsPage.js",
+        399
+      ]
     ]
+  },
+  "Select a cityx:": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/SelectLocationsPage.js",
+        377
+      ]
+    ],
+    "obsolete": true
   },
   "Select a day:": {
     "translation": "Sélectionnez un jour",
     "origin": [
       [
         "src/components/Calendar.js",
-        839
+        860
+      ]
+    ]
+  },
+  "Select a days you’re available": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Title.js",
+        27
       ]
     ]
   },
@@ -1109,7 +1265,11 @@
     "origin": [
       [
         "src/components/SelectProvince.js",
-        173
+        216
+      ],
+      [
+        "src/pages/SelectLocationsPage.js",
+        363
       ]
     ]
   },
@@ -1118,7 +1278,7 @@
     "origin": [
       [
         "src/components/SelectProvince.js",
-        199
+        251
       ]
     ]
   },
@@ -1127,7 +1287,7 @@
     "origin": [
       [
         "src/components/SubmissionForm.js",
-        33
+        34
       ]
     ]
   },
@@ -1136,7 +1296,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        121
+        126
       ]
     ]
   },
@@ -1158,7 +1318,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        177
+        179
       ]
     ]
   },
@@ -1194,7 +1354,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        45
+        48
       ]
     ]
   },
@@ -1230,7 +1390,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        50
+        343
       ]
     ]
   },
@@ -1239,9 +1399,10 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        162
+        161
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Start over": {
     "translation": "Recommencer",
@@ -1270,6 +1431,25 @@
       ]
     ]
   },
+  "THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. This is where you have to agree to all of the things that are in here blah blah its the EULA.  Its a whole bunch of everyhthing.  If you agree to all of this then click the button below to get started. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        97
+      ]
+    ]
+  },
+  "TRANS: This is our policy page!!  If you agree to the policy below - please continue": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        94
+      ]
+    ],
+    "obsolete": true
+  },
   "Tell IRCC you can’t attend your citizenship appointment, and request a new one.": {
     "translation": "Avisez IRCC que vous ne pouvez pas vous présenter à votre rendez-vous d’examen de citoyenneté et demandez un nouveau rendez-vous.",
     "origin": [
@@ -1277,14 +1457,15 @@
         "src/pages/LandingPage.js",
         101
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Terms": {
     "translation": "Avis",
     "origin": [
       [
         "src/components/Footer.js",
-        126
+        124
       ]
     ]
   },
@@ -1295,7 +1476,8 @@
         "src/pages/ConfirmationPage.js",
         92
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "The first available day is": {
     "translation": "La première journée disponible est le",
@@ -1322,7 +1504,8 @@
         "src/pages/LandingPage.js",
         146
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "There is a limit of 150 words for your family’s names. Please shorten your explanation.": {
     "translation": "Il y a une limite de 150 mots pour les noms des membres de votre famille. Veuillez raccourcir votre explication.",
@@ -1340,14 +1523,15 @@
         "src/components/PageHeader.js",
         39
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "This is the full name you used on your citizenship application.": {
     "translation": "Il s’agit du nom complet que vous avez utilisé dans votre demande de citoyenneté.",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        328
+        335
       ]
     ]
   },
@@ -1356,7 +1540,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        352
+        359
       ]
     ]
   },
@@ -1365,7 +1549,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        380
+        387
       ]
     ]
   },
@@ -1405,7 +1589,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        772
+        797
       ]
     ]
   },
@@ -1416,7 +1600,8 @@
         "src/pages/LandingPage.js",
         119
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Travel": {
     "translation": "Voyage",
@@ -1436,7 +1621,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        455
+        462
       ]
     ]
   },
@@ -1478,7 +1663,8 @@
         "src/components/FlashBanner.js",
         32
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "We": {
     "translation": "me",
@@ -1529,6 +1715,15 @@
       ]
     ]
   },
+  "Welcome to the Biometrics Scheduler": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        94
+      ]
+    ]
+  },
   "We’ve sent you a confirmation email.": {
     "translation": "Nous vous avons envoyé un courriel de confirmation.",
     "origin": [
@@ -1536,7 +1731,8 @@
         "src/pages/ConfirmationPage.js",
         97
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "What happens next?": {
     "translation": "Quelles sont les étapes suivantes?",
@@ -1547,7 +1743,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        104
+        178
       ]
     ]
   },
@@ -1583,7 +1779,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        471
+        479
       ]
     ]
   },
@@ -1592,7 +1788,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        648
+        662
       ]
     ]
   },
@@ -1650,7 +1846,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        115
+        120
       ]
     ]
   },
@@ -1661,16 +1857,8 @@
         "src/pages/LandingPage.js",
         108
       ]
-    ]
-  },
-  "Please select your time slot": {
-    "translation": "Veuillez sélectionner votre créneau horaire :",
-    "origin": [
-      [
-        "src/components/Calendar.js",
-        837
-      ]
-    ]
+    ],
+    "obsolete": true
   },
   "Your appointment or application wasn’t changed in any way": {
     "translation": "Votre demande de citoyenneté ou votre rendez-vous n’a pas été modifié(e)",
@@ -1688,7 +1876,8 @@
         "src/pages/LandingPage.js",
         113
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Your request": {
     "translation": "Votre demande",
@@ -1713,7 +1902,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        127
+        132
       ]
     ]
   },
@@ -1723,10 +1912,6 @@
       [
         "src/pages/CalendarPage.js",
         145
-      ],
-      [
-        "src/pages/LandingPage.js",
-        136
       ]
     ]
   },
@@ -1762,7 +1947,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        125
+        123
       ]
     ]
   },
@@ -1773,7 +1958,8 @@
         "src/components/PageHeader.js",
         41
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "let us know what happened": {
     "translation": "nous aider en décrivant ce qui s’est passé",
@@ -1800,7 +1986,8 @@
         "src/components/PageHeader.js",
         47
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "was not completed": {
     "translation": "n’a pas été complétée",
@@ -1818,7 +2005,8 @@
         "src/pages/ConfirmationPage.js",
         109
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "will send you a new appointment. You will always be contacted at least 3 weeks before your appointment.": {
     "translation": "vous enverra un nouveau rendez-vous. Nous communiquerons avec vous au moins 3 semaines avant votre rendez-vous.",
@@ -1827,7 +2015,8 @@
         "src/pages/ConfirmationPage.js",
         113
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "you’re available between": {
     "translation": "quand vous serez disponible entre",
@@ -1836,6 +2025,7 @@
         "src/pages/LandingPage.js",
         132
       ]
-    ]
+    ],
+    "obsolete": true
   }
 }
