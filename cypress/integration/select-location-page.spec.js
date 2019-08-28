@@ -1,4 +1,6 @@
 /* eslint-disable no-undef */
+import { headerImg, langLink, contactLink, privacyLink, privacyHref, tocLink, footerImg } from './utils'
+
 // Verify Items and functions on the select location, and office page. 
 function checkA11y(cy){ 
   cy.checkA11y({
@@ -18,18 +20,28 @@ describe('select provice, city and office page functions', () => {
       checkA11y(cy)
     })
   
-    it('should go to the selectProvince page', () => {  
+    it('should go to the selectProvince page and show header info', () => {  
      cy.url().should('contains', '/selectProvince')
+    cy.get(headerImg).should('be.visible')
+     cy.get(langLink).should('be.visible', 'Français')
 
     })
+    it('should check footer info', () => {
+      cy.url().should('contains', '/selectProvince')
+     cy.get(contactLink).should('be.visible')
+     cy.get(privacyLink).should('not.contain', 'Contact')
+     cy.get(privacyHref).should('contain', 'Privacy')
+     cy.get(tocLink).should('contain', 'Terms and Conditions')
+      cy.get(footerImg).should('be.visible')
+     })
+ 
 
-    it('should click into the province selection dropdown and show Select a City dropdown', () => {  
+    it.only('should click into the province selection dropdown and show Select a City dropdown', () => {  
       cy.injectAxe()
       cy.get('#ProvinceList').should('contains.text', 'Select a Province')
        checkA11y(cy)
       cy.get('select[name="ProvinceList"]').select('Alberta').should('have.value', 'Alberta')
-      cy.get('select[name="CitiesList"]').select('null').should('have.value', 'null')
-      cy.get('#CitiesList').should('contain.text', 'Select a City')
+      cy.get('#CitiesList').should('contain.text', 'Select a city')
       cy.get('select[name="CitiesList"]').select('Edmonton').should('have.value', 'Edmonton')
 
      })
@@ -54,7 +66,7 @@ describe('select provice, city and office page functions', () => {
        // Alberta - Edomonton - checked in previous test - Calgary
       cy.get('select[name="ProvinceList"]').select('Alberta')
       cy.get('select[name="CitiesList"]').select('Calgary')
-      cy.get('[for="Locations"]').should('contain.text', 'Calgary')
+      cy.get('[for="OfficeList"]').should('contain.text', 'Calgary')
       cy.get('input[name="selectcity"]').should('not.be.enabled')
       cy.get('#4802').click()
       cy.get('input[name="selectcity"]').should('be.enabled')
@@ -66,7 +78,7 @@ it('should find British Columbia and the cities in the dropdown', () => {
   // British Columbia - Vancouver
  cy.get('select[name="ProvinceList"]').select('British Columbia').should('have.value', 'British Columbia')
  cy.get('select[name="CitiesList"]').select('Vancouver')
- cy.get('[for="Locations"]').should('contain.text', 'Vancouver')
+ cy.get('[for="OfficeList"]').should('contain.text', 'Vancouver')
  cy.get('input[name="selectcity"]').should('not.be.enabled')
  cy.get('#5823').click()
  cy.get('input[name="selectcity"]').should('be.enabled')
@@ -77,22 +89,27 @@ it('should find Manitoba and the cities in the dropdown', () => {
   // Manitoba - Winnipeg
  cy.get('select[name="ProvinceList"]').select('Manitoba').should('have.value', 'Manitoba')
  cy.get('select[name="CitiesList"]').select('Winnipeg')
- cy.get('[for="Locations"]').should('contain.text', 'Winnipeg')
+ cy.get('[for="OfficeList"]').should('contain.text', 'Winnipeg')
  cy.get('input[name="selectcity"]').should('not.be.enabled')
  cy.get('#4123').click()
  cy.get('input[name="selectcity"]').should('be.enabled')
  cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
 })
 
-it.only('should find Ontario and the cities in the dropdown', () => {  
-  // Manitoba - Winnipeg
+it('should find Ontario and the cities in the dropdown', () => {  
+  cy.injectAxe()
+  // Ontario - Ottawa - others
  cy.get('select[name="ProvinceList"]').select('Ontario').should('have.value', 'Ontario')
  cy.get('select[name="CitiesList"]').select('Ottawa')
- cy.get('[for="Locations"]').should('contain.text', 'Ottawa')
+ cy.get('[for="OfficeList"]').should('contain.text', 'Ottawa')
  cy.get('input[name="selectcity"]').should('not.be.enabled')
  cy.get('#3747').click()
  cy.get('input[name="selectcity"]').should('be.enabled')
- cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
+ cy.get('a > :nth-child(2)').should('contain.text', ' ServiceCanada.gc.ca')
+ cy.get('input[type="radio"]').next().should('not.be.enabled')
+ cy.get('#3745').click()
+ cy.get('input[name="selectcity"]').should('be.enabled')
+ checkA11y(cy)
 })
 
 });
