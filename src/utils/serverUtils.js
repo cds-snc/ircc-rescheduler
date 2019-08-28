@@ -142,4 +142,4 @@ export const cspConfig = {
     "'unsafe-inline'", 
   ],
   styleSrc: ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'"],
-}
+ }
