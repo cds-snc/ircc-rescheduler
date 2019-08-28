@@ -145,7 +145,7 @@ class RegistrationPage extends React.Component {
       //   return RegistrationPage.errStrings  
       // } 
       // eslint-disable-next-line no-console
-      console.log(values.email) , console.log(values.emailConfirm)
+     
 
       if (validate.passes()) {
         values.familyOption = values.familyCheck ? values.familyOption : ''
@@ -155,8 +155,7 @@ class RegistrationPage extends React.Component {
 
       RegistrationPage.errStrings = getFieldErrorStrings(validate)
     }
-    // eslint-disable-next-line no-console
-    console.log(RegistrationPage.errStrings)
+    
     return RegistrationPage.errStrings
   }
 
@@ -386,14 +385,6 @@ class RegistrationPage extends React.Component {
                   <FieldSet legendHidden={false} id="reason">
                     <legend>
                       <span id="reason-header">{labelNames('reason')}</span>
-                      <ValidationMessage
-                        id="reason-error"
-                        message={
-                          submitError && this.validate(values).reason
-                            ? this.validate(values).reason
-                            : ''
-                        }
-                      />
                     </legend>
 
                     <Field
