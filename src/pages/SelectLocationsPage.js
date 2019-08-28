@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { css } from 'emotion'
-import { H1, theme, mediaQuery, visuallyhidden } from '../styles'
+import { theme, mediaQuery, visuallyhidden, contentClass } from '../styles'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import { SelectLocationFields, getFieldNames } from '../validation'
@@ -18,6 +18,7 @@ import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
 import Loading from '../components/Loading'
 import SelectDropDown from '../components/forms/Select'
 import { ApiFetch } from '../components/ApiFetch'
+import FocusedH1 from '../components/FocusedH1'
 
 // import styled from '@emotion/styled'
 //import { buttonStyles } from '../components/forms/Button'
@@ -26,7 +27,8 @@ import { ApiFetch } from '../components/ApiFetch'
 
 /* eslint-disable no-console */
 
-const contentClass = css`
+const locationsContentClass = css`
+  ${contentClass};
   p {
     margin-bottom: ${theme.spacing.sm};
 
@@ -34,9 +36,10 @@ const contentClass = css`
       margin-bottom: ${theme.spacing.lg};
     `)};
   }
+  fieldset { border: none;}
 `
 const messageContainer = css`
-  width: 80% !important;
+  width: 95% !important;
   align-items: center;
   margin-bottom: ${theme.spacing.lg};
   p {
@@ -203,15 +206,12 @@ class SelectlocationsPage extends React.Component {
     //console.log('State Data in Cities is : ' + JSON.stringify(cityLocations)) 
 
     return (
-      <Layout
-        contentClass={contentClass}
-        header={
-          <H1>
-            <Trans>Start by selecting a province</Trans>
-          </H1>
-        }
-      >
+      <Layout contentClass={locationsContentClass}>
         <Title path={this.props.match.path} />
+        <FocusedH1 className={visuallyhidden}>
+          <Trans>Start by selecting a province</Trans>
+        </FocusedH1>
+        {/* <Trans>Start by selecting a province</Trans> */}
         <div className={messageContainer}>
           <section>
             <div>
@@ -288,22 +288,25 @@ class SelectlocationsPage extends React.Component {
                     }
                   />
                   <div id="OfficeList" ref={selectOfficeError => { this.selectOfficeError = selectOfficeError }}>
-                    {cityLocations.map(( {_id, locationId, locationAddress, hours} ) => (
-                      <div key={locationId} id='locations' onClick= {() => {this.handleLocation(locationId, locationAddress)}}>
+                  <fieldset >
+                  <legend className={visuallyhidden}>List of offices</legend>  
+                    {cityLocations.map(( {locationId, locationAddress, hours} ) => (
+                      <div key={locationId} id={`${locationId}-div`} name='locations' onClick= {() => {this.handleLocation(locationId, locationAddress)}}>
                         <Radio 
                           type="radio"
-                          name='selectcity'
+                          name='OfficeList'
                           value={locationId}
                           id={locationId}
-                          aria-labelledby={`${locationId}-label`}
+                          //aria-labelledby={`${locationId}-label`}
+                          aria-labelledby="OfficeList"
                           label = {
-                            <div id={_id} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
-                              <span>
+                            <div id={`${locationId}-data`} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
+                              <span id={`${locationId}-off`}>
                                 <FaExternalLinkAlt color='#ffbf47' size='18' /> 
                                 <Language 
                                   render={language =>
                                     language === 'fr' ? (
-                                      <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
+                                      <a id={`${locationId}-href`} href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
                                         rel="noopener noreferrer" target='_blank' > 
                                         <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
                                         <span> ServiceCanada.gc.ca</span> 
@@ -318,13 +321,14 @@ class SelectlocationsPage extends React.Component {
                                   }
                                 />
                               </span>  <br />
-                              <span> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</span> <br />
-                              <span> <FaClock color='#ffbf47' size='18' /> {hours}</span> 
+                              <span id={`${locationId}-addr`}> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</span> <br />
+                              <span id={`${locationId}-time`}> <FaClock color='#ffbf47' size='18' /> {hours}</span> 
                             </div>  
                           }  
                         />
                       </div>
                     ))} 
+                  </fieldset>    
                   </div>
 
                   <Button type="submit" value="Submit" onClick={this.submit} > Submit </Button> 
