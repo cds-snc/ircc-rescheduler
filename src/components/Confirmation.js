@@ -17,17 +17,17 @@ const TableContainer = styled.div`
 `
 
 const Review = ({
-  fullName,
   paperFileNumber,
   email,
+  familyCheck,
   location,
   selectedDays,
   i18n,
 }) => (
   <TableContainer>
     <SummaryRow
-      summaryHeader={<Trans>Full name</Trans>}
-      summaryBody={fullName}
+      summaryHeader={<Trans>Paper file number</Trans>}
+      summaryBody={paperFileNumber}
       summaryLink={''}
       summaryLabel={''}
     />
@@ -38,12 +38,11 @@ const Review = ({
       summaryLabel={''}
     />
     <SummaryRow
-      summaryHeader={<Trans>Paper file number</Trans>}
-      summaryBody={paperFileNumber}
+      summaryHeader={<Trans>Accesibility</Trans>}
+      summaryBody={familyCheck}
       summaryLink={''}
       summaryLabel={''}
     />
-
     <SummaryRow
       summaryHeader={<Trans>Location</Trans>}
       summaryBody={location}
@@ -60,9 +59,9 @@ const Review = ({
 )
 
 Review.propTypes = {
-  fullName: PropTypes.string,
   paperFileNumber: PropTypes.string,
   email: PropTypes.string,
+  familyCheck: PropTypes.string, 
   location: PropTypes.string,
   selectedDays: PropTypes.array,
   i18n: PropTypes.object,
