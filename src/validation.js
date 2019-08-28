@@ -36,12 +36,17 @@ errorMessages.emailConfirmErrorMessage = (
   </Trans>
 )
 
-errorMessages.emailConfirmInvalidErrorMessage = (
+errorMessages.emailConfirmMatchErrorMessage = (
   <Trans>
     Email does not match. Please re-enter matching email.
   </Trans>
 )
 
+errorMessages.emailConfirmInvalidErrorMessage = (
+  <Trans>
+    Must be a valid email address.
+  </Trans>
+)
 
 errorMessages.paperFileNumberErrorMessage = (
   <Trans>We need your BIL file number so we can confirm your identity.</Trans>
@@ -77,7 +82,8 @@ export const defaultMessages = {
   'max.fullName': 'fullNameMaxErrorMessage',
   'required.email': 'emailErrorMessage',
   'email.email': 'emailInvalidErrorMessage',
-  'same.emailConfirm': 'emailConfirmInvalidErrorMessage',
+  'email.emailConfirm': 'emailConfirmInvalidErrorMessage',
+  'same.emailConfirm': 'emailConfirmMatchErrorMessage',
   'required.paperFileNumber': 'paperFileNumberErrorMessage',
   'required.reason': 'reasonErrorMessage',
   'required.explanation': 'explanationErrorMessage',

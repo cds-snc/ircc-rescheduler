@@ -84,7 +84,7 @@ const forNowSubmitErrorStyles = css`
 const labelNames = id => {
   switch (id) {
     case 'paperFileNumber':
-      return <Trans>Bill file number</Trans>
+      return <Trans>BIL file number</Trans>
     case 'email':
       return <Trans>Email address</Trans>
     case 'emailConfirm':
@@ -262,19 +262,6 @@ class RegistrationPage extends React.Component {
             const notValid = this.hasNotValid()
             const generalMessage = this.generalErrorMessage()
 
-<<<<<<< HEAD
-=======
-            let disabled = { disabled: false }
-            // eslint-disable-next-line no-console
-            console.log(values)
-            if (this.state.mounted) {
-              /*
-              'mounted' will be true after ComponentDidMount
-              which won't be called server-side
-                */
-              disabled = { disabled: !familyCheck.length }
-            }
->>>>>>> master
 
             submitError =
               Object.keys(errorsNoJS).length && !submitError
