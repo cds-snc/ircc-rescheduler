@@ -21,7 +21,8 @@ const Summary = ({
   paperFileNumber,
   familyOption,
   email,
-  reason,
+  emailConfirm,
+  accessibility,
   explanation,
   location,
   availabilityExplanation,
@@ -42,7 +43,13 @@ const Summary = ({
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
     />
     <SummaryRow
-      summaryHeader={<Trans>Paper file number</Trans>}
+      summaryHeader={<Trans>Email Confirmation</Trans>}
+      summaryBody={emailConfirm}
+      summaryLink={'/register#emailConfirm-label'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
+    />
+    <SummaryRow
+      summaryHeader={<Trans>BIL file number</Trans>}
       summaryBody={paperFileNumber}
       summaryLink={'/register#paperFileNumber-label'}
       summaryLabel={
@@ -58,8 +65,8 @@ const Summary = ({
       />
     )}
     <SummaryRow
-      summaryHeader={<Trans>Reason</Trans>}
-      summaryBody={reason}
+      summaryHeader={<Trans>Accessibility required</Trans>}
+      summaryBody={accessibility}
       summaryLink={'/register#reason-header'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Reason')}`}
     />
@@ -99,7 +106,8 @@ Summary.propTypes = {
   paperFileNumber: PropTypes.string,
   familyOption: PropTypes.string,
   email: PropTypes.string,
-  reason: PropTypes.object,
+  emailConfirm: PropTypes.string,
+  accessibility: PropTypes.object,
   location: PropTypes.string,
   explanation: PropTypes.string,
   selectedDays: PropTypes.array,

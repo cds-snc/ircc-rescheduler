@@ -23,12 +23,10 @@ import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import {
   TextFieldAdapter,
-  TextAreaAdapter,
 } from '../components/forms/TextInput'
 import FieldSet from '../components/forms/FieldSet'
 import {
   Radio,
-  RadioAdapter,
   CheckboxAdapter,
 } from '../components/forms/MultipleChoice'
 import Button from '../components/forms/Button'
@@ -85,14 +83,14 @@ const forNowSubmitErrorStyles = css`
 
 const labelNames = id => {
   switch (id) {
-    case 'fullName':
-      return <Trans>Full name</Trans>
+    case 'paperFileNumber':
+      return <Trans>BIL file number</Trans>
     case 'email':
       return <Trans>Email address</Trans>
-    case 'paperFileNumber':
-      return <Trans>Paper file number</Trans>
+    case 'emailConfirm':
+        return <Trans>Confirm Email address</Trans>
     case 'reason':
-      return <Trans>Why are you rescheduling?</Trans>
+      return <Trans>Do you require accessibility?</Trans>
     case 'explanation':
       return <Trans>Describe why you can’t attend your appointment</Trans>
     case 'familyCheck':
@@ -131,12 +129,23 @@ class RegistrationPage extends React.Component {
       if (windowExists()) {
         registrationFields.familyCheck = 'accept_anything'
       }
+      
+      
 
       const validate = new Validator(
         trimInput(values),
         registrationFields,
         defaultMessages,
+        
       )
+      // if (values.email !== values.emailConfirm){
+      //   // eslint-disable-next-line no-console
+      //   console.log('error check')
+      //   RegistrationPage.errStrings= {emailConfirm : 'emailConfirmInvalidErrorMessage'}
+      //   return RegistrationPage.errStrings  
+      // } 
+      // eslint-disable-next-line no-console
+     
 
       if (validate.passes()) {
         values.familyOption = values.familyCheck ? values.familyOption : ''
@@ -148,7 +157,7 @@ class RegistrationPage extends React.Component {
       // eslint-disable-next-line no-console
       console.log(RegistrationPage.errStrings)
     }
-
+    
     return RegistrationPage.errStrings
   }
 
@@ -218,7 +227,7 @@ class RegistrationPage extends React.Component {
   render() {
     let {
       context: { store: { register = {} } = {} } = {},
-      i18n,
+      
       post = false,
     } = this.props
     let errorsNoJS = {}
@@ -252,24 +261,7 @@ class RegistrationPage extends React.Component {
           render={({ handleSubmit, submitError, submitting, values }) => {
             const notValid = this.hasNotValid()
             const generalMessage = this.generalErrorMessage()
-            let { familyCheck = [] } = values
 
-            /* if the values is passed via the url we need to convert
-            the value for final form */
-            if (typeof familyCheck === 'string' && familyCheck.length > 0) {
-              values.familyCheck = ['familyCheck']
-            }
-
-            let disabled = { disabled: false }
-            // eslint-disable-next-line no-console
-            console.log(values)
-            if (this.state.mounted) {
-              /*
-              'mounted' will be true after ComponentDidMount
-              which won't be called server-side
-                */
-              disabled = { disabled: !familyCheck.length }
-            }
 
             submitError =
               Object.keys(errorsNoJS).length && !submitError
@@ -311,36 +303,36 @@ class RegistrationPage extends React.Component {
                     ))}
                   </ErrorList>
                 </div>
-                {/* Full name*/}
+                      {/* Paper file number */}
                 <div>
                   <Field
                     component={TextFieldAdapter}
-                    name="fullName"
-                    id="fullName"
+                    name="paperFileNumber"
+                    id="paperFileNumber"
                   >
-                    <label htmlFor="fullName" id="fullName-label">
-                      <span id="fullName-header">
-                        {}
-                        <Trans>Full name</Trans>
+                    <label htmlFor="paperFileNumber" id="paperFileNumber-label">
+                      <span id="paperFileNumber-header">
+                        <Trans>BIL file number</Trans>
                       </span>
                       <ValidationMessage
-                        id="fullName-error"
+                        id="paperFileNumber-error"
                         message={
-                          submitError && this.validate(values).fullName
-                            ? this.validate(values).fullName
+                          submitError && this.validate(values).paperFileNumber
+                            ? this.validate(values).paperFileNumber
                             : ''
                         }
                       />
-                      <span id="fullName-details">
+                      <span id="paperFileNumber-details">
                         <Trans>
-                          This is the full name you used on your citizenship
-                          application.
+                          This number is at the top of the mailed letter we
+                          sent you.
                         </Trans>
                       </span>
                     </label>
                   </Field>
                 </div>
-                {/* Email */}
+                
+                        {/* Email */}
                 <div>
                   <Field component={TextFieldAdapter} name="email" id="email">
                     <label htmlFor="email" id="email-label">
@@ -357,183 +349,64 @@ class RegistrationPage extends React.Component {
                       />
                       <span id="email-details">
                         <Trans>
-                          This is where we’ll send a confirmation email when
-                          you’re done.
+                          Please enter your email address.
                         </Trans>
                       </span>
                     </label>
                   </Field>
                 </div>
-                {/* Paper file number */}
-                <div>
-                  <Field
-                    component={TextFieldAdapter}
-                    name="paperFileNumber"
-                    id="paperFileNumber"
-                  >
-                    <label htmlFor="paperFileNumber" id="paperFileNumber-label">
-                      <span id="paperFileNumber-header">
-                        <Trans>Paper file number</Trans>
+                          {/* Email Confirm*/}
+                 <div>
+                  <Field component={TextFieldAdapter} name="emailConfirm" id="emailConfirm">
+                    <label htmlFor="emailConfirm" id="emailConfirm-label">
+                      <span id="confirm-email-header">
+                        <Trans>Confirm Email address</Trans>
                       </span>
                       <ValidationMessage
-                        id="paperFileNumber-error"
+                        id="email-Confirm-error"
                         message={
-                          submitError && this.validate(values).paperFileNumber
-                            ? this.validate(values).paperFileNumber
+                          submitError && this.validate(values).emailConfirm
+                            ? this.validate(values).emailConfirm
                             : ''
                         }
                       />
-                      <span id="paperFileNumber-details">
+                      <span id="confirm-email-details">
                         <Trans>
-                          This number is at the top of the email attachment we
-                          sent you.
+                          Please re-enter your email for confirmation.
                         </Trans>
                       </span>
                     </label>
                   </Field>
                 </div>
+                
+               
 
-                {/* Family option (checkbox and textarea) */}
-                <div>
-                  {/* Checkbox - Family option */}
-                  <ValidationMessage
-                    id="familyCheck-error"
-                    message={
-                      submitError && this.validate(values).familyCheck
-                        ? this.validate(values).familyCheck
-                        : ''
-                    }
-                  />
-                  <Field
-                    type="checkbox"
-                    component={CheckboxAdapter}
-                    name="familyCheck"
-                    id="familyCheck"
-                    label={<Trans>I need to reschedule my family too</Trans>}
-                    value="familyCheck"
-                    aria-labelledby="familyCheck-error familyCheck-label"
-                  />
-                  {/* Textarea - Family option */}
-                  <Field
-                    name="familyOption"
-                    id="familyOption"
-                    component={TextAreaAdapter}
-                    {...disabled}
-                    placeholder={`${i18n._(
-                      'For example: Full Name, Full Name, Full Name',
-                    )}`}
-                  >
-                    <label htmlFor="familyOption" id="familyOption-label">
-                      <ValidationMessage
-                        id="familyOption-error"
-                        message={
-                          submitError && this.validate(values).familyOption
-                            ? this.validate(values).familyOption
-                            : ''
-                        }
-                      />
-                      <span id="familyOption-details">
-                        <Trans>
-                          Provide the full name of each family member you want
-                          to reschedule.
-                        </Trans>
-                      </span>
-                    </label>
-                  </Field>
-                </div>
+                
                 {/* Reason */}
                 <div>
                   <FieldSet legendHidden={false} id="reason">
                     <legend>
                       <span id="reason-header">{labelNames('reason')}</span>
-                      <ValidationMessage
-                        id="reason-error"
-                        message={
-                          submitError && this.validate(values).reason
-                            ? this.validate(values).reason
-                            : ''
-                        }
-                      />
                     </legend>
 
                     <Field
-                      type="radio"
-                      component={RadioAdapter}
-                      label={<Trans>Travel (business or vacation)</Trans>}
-                      value="travel"
-                      name="reason"
+                      type="checkbox"
+                      component={CheckboxAdapter}  
+                      label={<Trans>Agree</Trans>}
+                      value="Yes"
+                      name="accessibility required"
                       id="reason-0"
-                    />
-                    <Field
-                      type="radio"
-                      component={RadioAdapter}
-                      label={<Trans>Medical</Trans>}
-                      value="medical"
-                      name="reason"
-                      id="reason-1"
                       
                     />
-                    <Field
-                      type="radio"
-                      component={RadioAdapter}
-                      label={<Trans>Work or school</Trans>}
-                      value="workOrSchool"
-                      name="reason"
-                      id="reason-2"
-                    />
-                    <Field
-                      type="radio"
-                      component={RadioAdapter}
-                      label={<Trans>Family</Trans>}
-                      value="family"
-                      name="reason"
-                      id="reason-3"
-                    />
-                    <Field
-                      type="radio"
-                      component={RadioAdapter}
-                      label={<Trans>Other</Trans>}
-                      value="other"
-                      name="reason"
-                      id="reason-4"
-                    />
+                    
                   </FieldSet>
                 </div>
-                {/* Explanation */}
-                <div>
-                  <Field
-                    name="explanation"
-                    id="explanation"
-                    component={TextAreaAdapter}
-                    aria-labelledby="explanation-label explanation-error"
-                  >
-                    <label htmlFor="explanation" id="explanation-label">
-                      <span id="explanation-header">
-                        <Trans>
-                          Describe why you can’t attend your appointment
-                        </Trans>
-                      </span>
-                      <ValidationMessage
-                        id="explanation-error"
-                        message={
-                          submitError && this.validate(values).explanation
-                            ? this.validate(values).explanation
-                            : ''
-                        }
-                      />
-                      <span id="explanation-details">
-                        <Trans>
-                          Provide enough detail so that staff can understand
-                          your situation.
-                        </Trans>
-                      </span>
-                    </label>
-                  </Field>
-                </div>
+                
                 {/*
                Button is disabled if form has been submitted (and is waiting)
               */}
                 <BottomContainer>
+                  
                   <Button
                     onClick={() => {
                       this.setState({ submitClicked: true })
