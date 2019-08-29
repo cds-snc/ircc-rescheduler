@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { H2, theme } from '../styles'
+import { H2, theme, visuallyhidden } from '../styles'
 import styled from '@emotion/styled'
 import { css } from 'emotion'
 import { Trans } from '@lingui/react'
@@ -152,11 +152,12 @@ class ConfirmationPage extends React.Component {
     return (
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
-        <section>
-          <FocusedH1 className='confirmation'>
-            Confirmation #: A {this.hashFromData( fullName, email, paperFileNumber ).toString} 
-          </FocusedH1>
+        <FocusedH1 className={visuallyhidden}>
+          <Trans>Confirmation</Trans>
+        </FocusedH1>
 
+        <section>
+          <H2>Confirmation #: A {this.hashFromData( fullName, email, paperFileNumber ).toString()}</H2>
           <Confirmation
             fullName={fullName}
             paperFileNumber={paperFileNumber}
