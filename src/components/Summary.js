@@ -22,11 +22,13 @@ const Summary = ({
   familyOption,
   email,
   emailConfirm,
-  accessibility,
+  reason,
   explanation,
   location,
   availabilityExplanation,
   selectedDays,
+  // eslint-disable-next-line react/prop-types
+  familyCheck,
   i18n,
 }) => (
   <TableContainer>
@@ -59,15 +61,15 @@ const Summary = ({
     {familyOption && (
       <TextAreaSummaryRow
         summaryHeader={<Trans>Family members</Trans>}
-        summaryBody={familyOption}
+        summaryBody={familyCheck}
         summaryLink={'/register#familyOption-label'}
         summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Family members')}`}
       />
     )}
     <SummaryRow
       summaryHeader={<Trans>Accessibility required</Trans>}
-      summaryBody={accessibility}
-      summaryLink={'/register#reason-header'}
+      summaryBody={familyCheck}
+      summaryLink={'/register#familyOption-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Reason')}`}
     />
     <SummaryRow
@@ -107,7 +109,7 @@ Summary.propTypes = {
   familyOption: PropTypes.string,
   email: PropTypes.string,
   emailConfirm: PropTypes.string,
-  accessibility: PropTypes.object,
+  reason: PropTypes.object,
   location: PropTypes.string,
   explanation: PropTypes.string,
   selectedDays: PropTypes.array,

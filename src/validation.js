@@ -7,7 +7,7 @@ import { Trans } from '@lingui/react'
  * Character limits
  *--------------------------------------------*/
 
-const INPUT_FIELD_MAX_CHARS = 500
+// const INPUT_FIELD_MAX_CHARS = 500
 
 
 /*--------------------------------------------*
@@ -119,8 +119,8 @@ export const defaultMessages = {
 export const RegistrationFields = {
   email: `required|email`,
   emailConfirm: 'required|email|same:email',
-  familyCheck: `required_with:familyOption`,
-  familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
+  // // familyCheck: `required_with:familyOption`,
+  // familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
 }
 

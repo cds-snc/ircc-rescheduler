@@ -391,11 +391,12 @@ class RegistrationPage extends React.Component {
 
                     <Field
                       type="checkbox"
-                      component={CheckboxAdapter}  
+                      component={CheckboxAdapter}
+                      name="familyCheck"
+                      id="familyCheck"
                       label={<Trans>Agree</Trans>}
-                      value="Yes"
-                      name="accessibility required"
-                      id="reason-0"
+                      value="yes"
+                      aria-labelledby="familyCheck-error familyCheck-label"
                       
                     />
                     
@@ -407,7 +408,7 @@ class RegistrationPage extends React.Component {
               */}
                 <BottomContainer>
                   
-                  <Button
+                  <Button id="regButton"
                     onClick={() => {
                       this.setState({ submitClicked: true })
                     }}

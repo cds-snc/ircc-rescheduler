@@ -1,9 +1,9 @@
 
 {
-"fullName": "Leanne Graham",
-"email": "cds@example.com",
-"paperFileNumber": "123456",
-"reason": "workOrSchool",
-"explanation": "On business trip!",
-"familyOption": "Peter"
+"bilNumber": "B123456789012",
+"email": "DTS@example.com",
+"emailIncorrectMatch": "TDS@example.com",
+"emailIncorrectFormat": "cds@example,com",
+"wrongFileNumber": "123456"
+
 }
