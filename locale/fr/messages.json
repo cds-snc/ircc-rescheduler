@@ -14,7 +14,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        188
+        181
       ]
     ]
   },
@@ -27,6 +27,37 @@
       ]
     ]
   },
+  "Accessibility": {
+    "translation": "Accessibilité",
+    "origin": [
+      [
+        "src/components/Summary.js",
+        48
+      ]
+    ]
+  },
+  "Accessibility required": {
+    "translation": "Accessibilité requise",
+    "origin": [
+      [
+        "src/components/Confirmation.js",
+        41
+      ],
+      [
+        "src/components/Summary.js",
+        45
+      ]
+    ]
+  },
+  "Agree": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        397
+      ]
+    ]
+  },
   "Apply for an appointment extension": {
     "translation": "Demander une prolongation du rendez-vous",
     "origin": [
@@ -36,7 +67,7 @@
       ],
       [
         "src/pages/ExplanationPage.js",
-        174
+        175
       ]
     ]
   },
@@ -63,23 +94,15 @@
     "origin": [
       [
         "src/components/Confirmation.js",
-        54
+        53
       ],
       [
         "src/components/Summary.js",
-        81
+        57
       ],
       [
         "src/components/Summary.js",
-        84
-      ],
-      [
-        "src/components/Summary.js",
-        88
-      ],
-      [
-        "src/components/Summary.js",
-        91
+        60
       ]
     ]
   },
@@ -110,6 +133,32 @@
       ]
     ]
   },
+  "BIL file number": {
+    "translation": "",
+    "origin": [
+      [
+        "src/components/Summary.js",
+        31
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        87
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        315
+      ]
+    ]
+  },
+  "BIL file number requires 1 letter and 12 digits.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        56
+      ]
+    ]
+  },
   "Biometric appointments in": {
     "translation": "Les rendez-vous d’examen de Biométrique en",
     "origin": [
@@ -133,7 +182,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        36
+        35
       ],
       [
         "src/components/Summary.js",
@@ -141,31 +190,15 @@
       ],
       [
         "src/components/Summary.js",
-        49
+        48
       ],
       [
         "src/components/Summary.js",
-        57
+        54
       ],
       [
         "src/components/Summary.js",
-        64
-      ],
-      [
-        "src/components/Summary.js",
-        70
-      ],
-      [
-        "src/components/Summary.js",
-        76
-      ],
-      [
-        "src/components/Summary.js",
-        84
-      ],
-      [
-        "src/components/Summary.js",
-        91
+        60
       ],
       [
         "src/components/SummaryRow.js",
@@ -186,15 +219,27 @@
       ]
     ]
   },
-  "Confirmation:": {
+  "Confirm Email address": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        91
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        363
+      ]
+    ]
+  },
+  "Confirmation": {
     "translation": "",
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        158
+        148
       ]
-    ],
-    "obsolete": true
+    ]
   },
   "Contact": {
     "translation": "Contact",
@@ -211,11 +256,11 @@
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        260
+        261
       ],
       [
         "src/pages/RegistrationPage.js",
-        543
+        417
       ]
     ]
   },
@@ -233,11 +278,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        97
-      ],
-      [
-        "src/pages/RegistrationPage.js",
-        512
+        95
       ]
     ]
   },
@@ -247,6 +288,16 @@
       [
         "src/pages/ReviewPage.js",
         130
+      ]
+    ],
+    "obsolete": true
+  },
+  "Do you require accessibility?": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        93
       ]
     ]
   },
@@ -308,11 +359,20 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        91
+        89
       ],
       [
         "src/pages/RegistrationPage.js",
-        348
+        340
+      ]
+    ]
+  },
+  "Email does not match. Please re-enter matching email.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        40
       ]
     ]
   },
@@ -334,7 +394,7 @@
     "origin": [
       [
         "src/validation.js",
-        116
+        71
       ]
     ]
   },
@@ -349,7 +409,8 @@
         "src/components/Summary.js",
         76
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Family": {
     "translation": "Raisons familiales",
@@ -362,7 +423,8 @@
         "src/pages/ReviewPage.js",
         40
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Family members": {
     "translation": "Les membres de votre famille",
@@ -375,7 +437,8 @@
         "src/components/Summary.js",
         57
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "February": {
     "translation": "février",
@@ -391,7 +454,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        237
+        246
       ]
     ]
   },
@@ -402,7 +465,8 @@
         "src/pages/RegistrationPage.js",
         422
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Fri": {
     "translation": "ve",
@@ -458,18 +522,19 @@
         "src/pages/RegistrationPage.js",
         324
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Go back": {
     "translation": "Retour",
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        171
+        172
       ],
       [
         "src/pages/ReviewPage.js",
-        97
+        83
       ],
       [
         "src/pages/calendar/CalHeader.js",
@@ -520,14 +585,15 @@
         "src/pages/RegistrationPage.js",
         412
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "If you cannot attend an appointment on any of the available days, staff may not be able to accommodate your request to reschedule.": {
     "translation": "Si vous ne pouvez pas assister à un rendez-vous pour l’ensemble des jours disponibles, le personnel pourrait ne pas être en mesure de satisfaire votre demande.",
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        177
+        178
       ]
     ]
   },
@@ -545,7 +611,7 @@
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        242
+        243
       ]
     ]
   },
@@ -622,19 +688,19 @@
     ]
   },
   "Location": {
-    "translation": "",
+    "translation": "Emplacement",
     "origin": [
       [
         "src/components/Confirmation.js",
-        48
+        47
       ],
       [
         "src/components/Summary.js",
-        67
+        51
       ],
       [
         "src/components/Summary.js",
-        70
+        54
       ]
     ]
   },
@@ -643,11 +709,11 @@
     "origin": [
       [
         "src/components/SelectProvince.js",
-        275
+        262
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        418
+        276
       ]
     ]
   },
@@ -689,7 +755,8 @@
         "src/pages/ReviewPage.js",
         42
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Mo": {
     "translation": "lu",
@@ -722,6 +789,15 @@
       ]
     ]
   },
+  "Must be a valid email address.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        46
+      ]
+    ]
+  },
   "Needs a number with a different format. Please make sure this is your correct Paper file number.": {
     "translation": "Le numéro doit avoir un format différent. Veuillez vérifier que votre numéro de dossier papier est exact.",
     "origin": [
@@ -729,7 +805,8 @@
         "src/validation.js",
         70
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Needs to be shorter than 20 words. Please use the name recorded on your application.": {
     "translation": "Maximum de 20 mots. Veuillez utiliser le nom inclus dans votre demande de citoyenneté.",
@@ -738,7 +815,8 @@
         "src/validation.js",
         25
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Next": {
     "translation": "Prochain",
@@ -759,6 +837,19 @@
     ],
     "obsolete": true
   },
+  "No": {
+    "translation": "Non",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        86
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        40
+      ]
+    ]
+  },
   "No days selected": {
     "translation": "Aucune journée sélectionnée",
     "origin": [
@@ -773,7 +864,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        357
+        223
       ]
     ]
   },
@@ -809,19 +900,15 @@
     "origin": [
       [
         "src/components/SelectProvince.js",
-        290
+        277
       ],
       [
         "src/components/SelectProvince.js",
-        295
+        282
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        448
-      ],
-      [
-        "src/pages/SelectLocationsPage.js",
-        454
+        310
       ]
     ]
   },
@@ -836,14 +923,15 @@
         "src/pages/ReviewPage.js",
         46
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Our policy is to delay appointments a maximum of two months. We’ll review your request and determine if we can accommodate your unavailability and get back to you within 1 week.": {
     "translation": "Notre politique est de repousser les rendez-vous jusqu’à deux mois au maximum. Nous examinerons votre demande et déterminerons si nous pouvons répondre à votre indisponibilité. Nous communiquerons avec vous dans un délai d’une semaine.",
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        183
+        184
       ]
     ]
   },
@@ -879,23 +967,11 @@
     "origin": [
       [
         "src/components/Confirmation.js",
-        41
+        29
       ],
       [
         "src/components/Summary.js",
-        45
-      ],
-      [
-        "src/components/Summary.js",
-        49
-      ],
-      [
-        "src/pages/RegistrationPage.js",
-        93
-      ],
-      [
-        "src/pages/RegistrationPage.js",
-        376
+        35
       ]
     ]
   },
@@ -917,7 +993,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        427
+        285
       ]
     ]
   },
@@ -948,12 +1024,21 @@
       ]
     ]
   },
+  "Please enter your email address.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        351
+      ]
+    ]
+  },
   "Please make sure you provide a valid email address. For example, ‘yourname@example.com’.": {
     "translation": "Veuillez vous assurez que l’adresse courriel est valide. Par exemple, « votrenom@exemple.com ».",
     "origin": [
       [
         "src/validation.js",
-        38
+        27
       ]
     ]
   },
@@ -963,6 +1048,25 @@
       [
         "src/validation.js",
         97
+      ]
+    ],
+    "obsolete": true
+  },
+  "Please re-enter your email address.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        34
+      ]
+    ]
+  },
+  "Please re-enter your email for confirmation.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        374
       ]
     ]
   },
@@ -1009,7 +1113,8 @@
         "src/validation.js",
         84
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Please tell us why you need to reschedule your appointment. If none of the options fit your situation, choose ‘Other’.": {
     "translation": "Veuillez nous fournir la raison pour laquelle vous devez reporter votre rendez-vous. Si aucune des raisons énumérées ne s’applique à votre situation, choisissez « Autre raison ».",
@@ -1018,7 +1123,8 @@
         "src/validation.js",
         77
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Please try the link in your email or letter again. If you keep seeing this page, please contact": {
     "translation": "Veuillez réessayer le lien fourni dans votre courriel ou votre lettre. Si vous continuez à voir cette page, veuillez communiquer directement avec IRCC afin de reporter votre rendez-vous.",
@@ -1054,7 +1160,8 @@
         "src/pages/RegistrationPage.js",
         525
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Provide some basic information": {
     "translation": "Veuillez fournir quelques renseignements de base",
@@ -1072,7 +1179,8 @@
         "src/pages/RegistrationPage.js",
         436
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Reason": {
     "translation": "Raison",
@@ -1085,14 +1193,15 @@
         "src/components/Summary.js",
         64
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Reason needs to be on the list provided. Please pick one.": {
     "translation": "La raison doit faire partie de la liste. Veuillez choisir une des options ci-dessous.",
     "origin": [
       [
         "src/validation.js",
-        120
+        75
       ]
     ]
   },
@@ -1101,7 +1210,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        181
+        174
       ]
     ]
   },
@@ -1156,11 +1265,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        99
+        97
       ],
       [
         "src/pages/RegistrationPage.js",
-        101
+        99
       ]
     ]
   },
@@ -1187,7 +1296,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        101
+        87
       ]
     ]
   },
@@ -1224,11 +1333,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        396
-      ],
-      [
-        "src/pages/SelectLocationsPage.js",
-        399
+        257
       ]
     ]
   },
@@ -1265,11 +1370,11 @@
     "origin": [
       [
         "src/components/SelectProvince.js",
-        216
+        203
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        363
+        229
       ]
     ]
   },
@@ -1278,7 +1383,7 @@
     "origin": [
       [
         "src/components/SelectProvince.js",
-        251
+        238
       ]
     ]
   },
@@ -1287,7 +1392,7 @@
     "origin": [
       [
         "src/components/SubmissionForm.js",
-        34
+        35
       ]
     ]
   },
@@ -1298,7 +1403,8 @@
         "src/pages/ReviewPage.js",
         126
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "September": {
     "translation": "septembre",
@@ -1314,11 +1420,11 @@
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        120
+        121
       ],
       [
         "src/pages/RegistrationPage.js",
-        179
+        188
       ]
     ]
   },
@@ -1365,7 +1471,8 @@
         "src/validation.js",
         90
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Sorry, there’s a limit of 150 words for this explanation. Please shorten your explanation.": {
     "translation": "Désolé, il y a une limite de 150 mots. Veuillez racourcir votre explication.",
@@ -1374,7 +1481,8 @@
         "src/validation.js",
         101
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Start by selecting a Province": {
     "translation": "Commencez par sélectionner une province",
@@ -1390,7 +1498,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        343
+        211
       ]
     ]
   },
@@ -1514,7 +1622,8 @@
         "src/validation.js",
         59
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "This is a new service, help us improve by": {
     "translation": "Il s’agit d’un nouveau service. Aidez-nous à l’améliorer en nous",
@@ -1533,7 +1642,8 @@
         "src/pages/RegistrationPage.js",
         335
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "This is where we’ll send a confirmation email when you’re done.": {
     "translation": "Il s’agit de l’adresse à laquelle nous enverrons un courriel de confirmation une fois que vous aurez complété le processus.",
@@ -1542,7 +1652,8 @@
         "src/pages/RegistrationPage.js",
         359
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "This number is at the top of the email attachment we sent you.": {
     "translation": "Il s’agit du numéro qui est affiché en haut du fichier que nous vous avons envoyé par courriel.",
@@ -1550,6 +1661,16 @@
       [
         "src/pages/RegistrationPage.js",
         387
+      ]
+    ],
+    "obsolete": true
+  },
+  "This number is at the top of the mailed letter we sent you.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        326
       ]
     ]
   },
@@ -1609,10 +1730,6 @@
       [
         "src/components/__tests__/Summary.test.js",
         19
-      ],
-      [
-        "src/pages/ReviewPage.js",
-        38
       ]
     ]
   },
@@ -1623,7 +1740,8 @@
         "src/pages/RegistrationPage.js",
         462
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Tu": {
     "translation": "ma",
@@ -1675,12 +1793,31 @@
       ]
     ]
   },
+  "We need your BIL file number so we can confirm your identity.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        52
+      ]
+    ]
+  },
   "We need your email address so we can send you a confirmation message.": {
     "translation": "Nous avons besoin de votre adresse courriel afin de vous envoyer un message de confirmation.",
     "origin": [
       [
         "src/validation.js",
         32
+      ]
+    ],
+    "obsolete": true
+  },
+  "We need your email address.": {
+    "translation": "",
+    "origin": [
+      [
+        "src/validation.js",
+        21
       ]
     ]
   },
@@ -1691,7 +1828,8 @@
         "src/validation.js",
         66
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Wednesday": {
     "translation": "mercredi",
@@ -1743,7 +1881,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        178
+        171
       ]
     ]
   },
@@ -1752,7 +1890,7 @@
     "origin": [
       [
         "src/pages/ExplanationPage.js",
-        231
+        232
       ]
     ]
   },
@@ -1763,7 +1901,8 @@
         "src/pages/RegistrationPage.js",
         95
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Work or School": {
     "translation": "Travail ou études",
@@ -1772,7 +1911,8 @@
         "src/pages/ReviewPage.js",
         44
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Work or school": {
     "translation": "Travail ou études",
@@ -1780,6 +1920,20 @@
       [
         "src/pages/RegistrationPage.js",
         479
+      ]
+    ],
+    "obsolete": true
+  },
+  "Yes": {
+    "translation": "Oui",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        84
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        38
       ]
     ]
   },
@@ -1799,7 +1953,8 @@
         "src/validation.js",
         52
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "You must click ‘I need to reschedule my family too’ if you are rescheduling family members.": {
     "translation": "Vous devez sélectionner la case si vous désirez aussi reporter le rendez-vous pour des membres de votre famille.",
@@ -1808,18 +1963,19 @@
         "src/validation.js",
         45
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "You must select 3 days on the calendar below.": {
     "translation": "Vous devez sélectionner 3 jours sur le calendrier ci-dessous.",
     "origin": [
       [
         "src/validation.js",
-        108
+        63
       ],
       [
         "src/validation.js",
-        112
+        67
       ]
     ]
   },
@@ -1839,7 +1995,8 @@
         "src/validation.js",
         18
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "You should plan to attend your existing appointment until we contact you. This may take 1 week.": {
     "translation": "Vous devriez prévoir assister à votre rendez-vous actuel jusqu’à ce que nous communiquions avec vous. Cela pourrait prendre jusqu’à une semaine.",
@@ -1848,7 +2005,8 @@
         "src/pages/ReviewPage.js",
         120
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "You will need:": {
     "translation": "Vous devez :",
@@ -1904,7 +2062,8 @@
         "src/pages/ReviewPage.js",
         132
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "and": {
     "translation": "et",

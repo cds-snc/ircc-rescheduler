@@ -12,7 +12,6 @@ import { ValidationMessage } from '../components/ErrorMessage'
 import { Trans } from '@lingui/react'
 import { provinceNames, provinceNamesFr } from '../utils/linguiUtils'
 import { Radio } from '../components/forms/MultipleChoice'
-import Language from '../components/Language'
 import Button from '../components/forms/Button'
 import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
 import Loading from '../components/Loading'
@@ -288,7 +287,7 @@ class SelectlocationsPage extends React.Component {
                     }
                   />
                   <div id="OfficeList" ref={selectOfficeError => { this.selectOfficeError = selectOfficeError }}>
-                  <fieldset >
+                  <fieldset id="SetListOffices">
                   <legend className={visuallyhidden}>List of offices</legend>  
                     {cityLocations.map(( {locationId, locationAddress, hours} ) => (
                       <div key={locationId} id={`${locationId}-div`} name='locations' onClick= {() => {this.handleLocation(locationId, locationAddress)}}>
@@ -297,30 +296,21 @@ class SelectlocationsPage extends React.Component {
                           name='OfficeList'
                           value={locationId}
                           id={locationId}
-                          //aria-labelledby={`${locationId}-label`}
                           aria-labelledby="OfficeList"
                           label = {
                             <div id={`${locationId}-data`} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
-                              <span id={`${locationId}-off`}>
-                                <FaExternalLinkAlt color='#ffbf47' size='18' /> 
-                                <Language 
-                                  render={language =>
-                                    language === 'fr' ? (
-                                      <a id={`${locationId}-href`} href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}`} 
-                                        rel="noopener noreferrer" target='_blank' > 
-                                        <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
-                                        <span> ServiceCanada.gc.ca</span> 
-                                      </a>
-                                    ) : (
-                                      <a href={`http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng`} 
-                                        rel="noopener noreferrer" target='_blank' > 
-                                        <span className={visuallyhidden}><Trans>Opens a new window</Trans></span> 
-                                        <span> ServiceCanada.gc.ca</span>
-                                      </a>  
-                                    )
-                                  }
-                                />
-                              </span>  <br />
+                              <span id={`${locationId}-off`}> 
+                                <FaExternalLinkAlt color='#ffbf47' size='18' />
+                                <a id={`${locationId}-href`} rel="noopener noreferrer" target='_blank' 
+                                   href={this.props.context.store.language === 'en' ? (
+                                          `http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?rc=${locationId}&lang=eng` 
+                                        ) : ( 
+                                          `http://www.servicecanada.gc.ca/tbsc-fsco/sc-dsp.jsp?lang=fra&rc=${locationId}` 
+                                        )}> 
+                                  <span className={visuallyhidden}><Trans>Opens a new window</Trans></span>
+                                  <span> ServiceCanada.gc.ca</span> 
+                                </a> 
+                              </span> <br />
                               <span id={`${locationId}-addr`}> <FaBuilding color='#ffbf47' size='18' /> {locationAddress}</span> <br />
                               <span id={`${locationId}-time`}> <FaClock color='#ffbf47' size='18' /> {hours}</span> 
                             </div>  

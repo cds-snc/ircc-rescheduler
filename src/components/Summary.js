@@ -4,7 +4,8 @@ import styled from '@emotion/styled'
 import { theme } from '../styles'
 import { Trans, withI18n } from '@lingui/react'
 import { SelectedDayList } from './SelectedDayList'
-import { SummaryRow, TextAreaSummaryRow } from './SummaryRow'
+import { SummaryRow } from './SummaryRow'
+//import { SummaryRow, TextAreaSummaryRow } from './SummaryRow'
 
 
 const TableContainer = styled.div`
@@ -17,39 +18,15 @@ const TableContainer = styled.div`
 `
 
 const Summary = ({
-  fullName,
   paperFileNumber,
-  familyOption,
   email,
-  emailConfirm,
-  reason,
-  explanation,
   location,
-  availabilityExplanation,
   selectedDays,
   // eslint-disable-next-line react/prop-types
-  familyCheck,
+  accessibility,
   i18n,
 }) => (
   <TableContainer>
-    <SummaryRow
-      summaryHeader={<Trans>Full name</Trans>}
-      summaryBody={fullName}
-      summaryLink={'/register#fullName-label'}
-      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Full name')}`}
-    />
-    <SummaryRow
-      summaryHeader={<Trans>Email</Trans>}
-      summaryBody={email}
-      summaryLink={'/register#email-label'}
-      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
-    />
-    <SummaryRow
-      summaryHeader={<Trans>Email Confirmation</Trans>}
-      summaryBody={emailConfirm}
-      summaryLink={'/register#emailConfirm-label'}
-      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
-    />
     <SummaryRow
       summaryHeader={<Trans>BIL file number</Trans>}
       summaryBody={paperFileNumber}
@@ -58,19 +35,17 @@ const Summary = ({
         i18n && `${i18n._('Change')} ${i18n._('Paper file number')}`
       }
     />
-    {familyOption && (
-      <TextAreaSummaryRow
-        summaryHeader={<Trans>Family members</Trans>}
-        summaryBody={familyCheck}
-        summaryLink={'/register#familyOption-label'}
-        summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Family members')}`}
-      />
-    )}
+    <SummaryRow
+      summaryHeader={<Trans>Email</Trans>}
+      summaryBody={email}
+      summaryLink={'/register#email-label'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
+    />
     <SummaryRow
       summaryHeader={<Trans>Accessibility required</Trans>}
-      summaryBody={familyCheck}
-      summaryLink={'/register#familyOption-label'}
-      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Reason')}`}
+      summaryBody={accessibility}
+      summaryLink={'/register#familyCheck-label'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Accessibility')}`}
     />
     <SummaryRow
       summaryHeader={<Trans>Location</Trans>}
@@ -78,42 +53,21 @@ const Summary = ({
       summaryLink={'/selectProvince'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
     />
-    <TextAreaSummaryRow
-      summaryHeader={<Trans>Explanation</Trans>}
-      summaryBody={explanation}
-      summaryLink={'/register#explanation-label'}
-      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Explanation')}`}
+    <SummaryRow
+      summaryHeader={<Trans>Availability</Trans>}
+      summaryBody={<SelectedDayList selectedDays={selectedDays} />}
+      summaryLink={'/calendar#selectedDaysBox'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
     />
-
-    {!availabilityExplanation ? (
-      <SummaryRow
-        summaryHeader={<Trans>Availability</Trans>}
-        summaryBody={<SelectedDayList selectedDays={selectedDays} />}
-        summaryLink={'/calendar#selectedDaysBox'}
-        summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
-      />
-    ) : (
-      <TextAreaSummaryRow
-        summaryHeader={<Trans>Availability</Trans>}
-        summaryBody={availabilityExplanation}
-        summaryLink={'/explanation#explanationPage-label'}
-        summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
-      />
-    )}
   </TableContainer>
 )
 
 Summary.propTypes = {
-  fullName: PropTypes.string,
   paperFileNumber: PropTypes.string,
-  familyOption: PropTypes.string,
   email: PropTypes.string,
-  emailConfirm: PropTypes.string,
-  reason: PropTypes.object,
   location: PropTypes.string,
   explanation: PropTypes.string,
   selectedDays: PropTypes.array,
-  availabilityExplanation: PropTypes.string,
   i18n: PropTypes.object,
 }
 

@@ -7,16 +7,13 @@ import MemoryRouter from 'react-router-dom/MemoryRouter'
 
 const selectedDays = [
   new Date('2018-06-01T12:00:00.000'),
-  new Date('2018-06-05T12:00:00.000'),
-  new Date('2018-06-08T12:00:00.000'),
 ]
 
 const defaultProps = {
-  fullName: 'Test1',
+  paperFileNumber: 'A123467890112',
   email: 'test@test.com',
-  paperFileNumber: '12346789',
-  explanation: 'feeling lazy',
-  reason: <Trans>Travel</Trans>,
+  accessibility: <Trans>No</Trans>,
+  location: 'Ottawa, 123 Somewhere Street',
   selectedDays: selectedDays,
 }
 
@@ -66,17 +63,14 @@ describe('<Summary />', () => {
     const numOfSummaryRows = wrapper.find('SummaryRow')
     const numOfTextSummaryRows = wrapper.find('TextAreaSummaryRow')
 
-    expect(numOfSummaryRows.length).toBe(7)
-    expect(numOfTextSummaryRows.length).toBe(1)
-    expect(numOfSummaryRows.at(0).prop('summaryBody')).toEqual('Test1')
+    expect(numOfSummaryRows.length).toBe(5)
+    expect(numOfTextSummaryRows.length).toBe(0)
+    expect(numOfSummaryRows.at(0).prop('summaryBody')).toEqual('A123467890112')
     expect(numOfSummaryRows.at(1).prop('summaryBody')).toEqual('test@test.com')
-    expect(numOfSummaryRows.at(3).prop('summaryBody')).toEqual('12346789')
-   
-    expect(numOfTextSummaryRows.at(0).prop('summaryBody')).toEqual(
-      'feeling lazy',
-    )
+    expect(numOfSummaryRows.at(3).prop('summaryBody')).toEqual('Ottawa, 123 Somewhere Street')
+    
     expect(
-      numOfSummaryRows.at(6).prop('summaryBody').props.selectedDays,
+      numOfSummaryRows.at(4).prop('summaryBody').props.selectedDays,
     ).toMatchObject(selectedDays)
   })
 })

@@ -79,21 +79,21 @@ errorMessages.inErrorMessage = (
 
 export const defaultMessages = {
   'required.emailConfirm': 'emailConfirmErrorMessage',
-  'max.fullName': 'fullNameMaxErrorMessage',
+  //'max.fullName': 'fullNameMaxErrorMessage',
   'required.email': 'emailErrorMessage',
   'email.email': 'emailInvalidErrorMessage',
   'email.emailConfirm': 'emailConfirmInvalidErrorMessage',
   'same.emailConfirm': 'emailConfirmMatchErrorMessage',
   'required.paperFileNumber': 'paperFileNumberErrorMessage',
   'required.reason': 'reasonErrorMessage',
-  'required.explanation': 'explanationErrorMessage',
-  'max.explanation': 'explanationMaxErrorMessage',
+  //'required.explanation': 'explanationErrorMessage',
+  //'max.explanation': 'explanationMaxErrorMessage',
   'required_with.familyCheck': 'familyCheckRequiredWithErrorMessage',
-  'required_with.familyOption': 'familyOptionRequiredWithErrorMessage',
-  'max.familyOption': 'familyOptionMaxErrorMessage',
+  //'required_with.familyOption': 'familyOptionRequiredWithErrorMessage',
+  //'max.familyOption': 'familyOptionMaxErrorMessage',
   'required.selectedDays': 'selectedDaysEmptyErrorMessage',
-  'required.explanationPage': 'explanationPageErrorMessage',
-  'max.explanationPage': 'explanationPageMaxErrorMessage',
+  //'required.explanationPage': 'explanationPageErrorMessage',
+  //'max.explanationPage': 'explanationPageMaxErrorMessage',
   in: 'inErrorMessage',
 }
 
@@ -119,7 +119,7 @@ export const defaultMessages = {
 export const RegistrationFields = {
   email: `required|email`,
   emailConfirm: 'required|email|same:email',
-  // // familyCheck: `required_with:familyOption`,
+  familyCheck: 'present',
   // familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
   paperFileNumber: 'required|paper_file_number',
 }
