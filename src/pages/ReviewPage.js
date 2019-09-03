@@ -34,8 +34,8 @@ class ReviewPage extends React.Component {
 
   translateReason(reason) {
     switch (reason) {
-      case 'travel':
-        return <Trans>Travel</Trans>
+      case 'yes':
+        return <Trans>Yes</Trans>
       case 'family':
         return <Trans>Family</Trans>
       case 'medical':
