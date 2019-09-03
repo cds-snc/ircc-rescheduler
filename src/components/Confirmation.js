@@ -16,6 +16,16 @@ const TableContainer = styled.div`
   }
 `
 
+function familyCheckValue (val) {
+  // eslint-disable-next-line no-console
+  console.log(val)
+  if ( !val.familyCheck || val.familyCheck === "" ) {
+    return (this.props.context.store.language === "en" ? "No" : "Non")
+  } else {
+    return (this.props.context.store.language === "en" ? "Yes" : "Oui")
+  }
+}
+
 const Review = ({
   paperFileNumber,
   email,
@@ -39,7 +49,7 @@ const Review = ({
     />
     <SummaryRow
       summaryHeader={<Trans>Accesibility</Trans>}
-      summaryBody={familyCheck}
+      summaryBody={familyCheckValue(familyCheck)}
       summaryLink={''}
       summaryLabel={''}
     />
