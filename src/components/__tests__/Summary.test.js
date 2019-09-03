@@ -12,7 +12,7 @@ const selectedDays = [
 const defaultProps = {
   paperFileNumber: 'A123467890112',
   email: 'test@test.com',
-  accessibility: 'No',
+  accessibility: <Trans>No</Trans>,
   location: 'Ottawa, 123 Somewhere Street',
   selectedDays: selectedDays,
 }
@@ -67,7 +67,6 @@ describe('<Summary />', () => {
     expect(numOfTextSummaryRows.length).toBe(0)
     expect(numOfSummaryRows.at(0).prop('summaryBody')).toEqual('A123467890112')
     expect(numOfSummaryRows.at(1).prop('summaryBody')).toEqual('test@test.com')
-    expect(numOfSummaryRows.at(2).prop('summaryBody')).toEqual('No')
     expect(numOfSummaryRows.at(3).prop('summaryBody')).toEqual('Ottawa, 123 Somewhere Street')
     
     expect(
