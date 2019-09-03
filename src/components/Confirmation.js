@@ -16,27 +16,17 @@ const TableContainer = styled.div`
   }
 `
 
-function familyCheckValue (val) {
-  // eslint-disable-next-line no-console
-  console.log(val)
-  if ( !val.familyCheck || val.familyCheck === "" ) {
-    return (this.props.context.store.language === "en" ? "No" : "Non")
-  } else {
-    return (this.props.context.store.language === "en" ? "Yes" : "Oui")
-  }
-}
-
 const Review = ({
   paperFileNumber,
   email,
-  familyCheck,
+  accessibility,
   location,
   selectedDays,
   i18n,
 }) => (
   <TableContainer>
     <SummaryRow
-      summaryHeader={<Trans>Paper file number</Trans>}
+      summaryHeader={<Trans>BIL file number</Trans>}
       summaryBody={paperFileNumber}
       summaryLink={''}
       summaryLabel={''}
@@ -48,8 +38,8 @@ const Review = ({
       summaryLabel={''}
     />
     <SummaryRow
-      summaryHeader={<Trans>Accesibility</Trans>}
-      summaryBody={familyCheckValue(familyCheck)}
+      summaryHeader={<Trans>Accessibility required</Trans>}
+      summaryBody={accessibility}
       summaryLink={''}
       summaryLabel={''}
     />
@@ -71,7 +61,7 @@ const Review = ({
 Review.propTypes = {
   paperFileNumber: PropTypes.string,
   email: PropTypes.string,
-  familyCheck: PropTypes.string, 
+  accessibility: PropTypes.string, 
   location: PropTypes.string,
   selectedDays: PropTypes.array,
   i18n: PropTypes.object,

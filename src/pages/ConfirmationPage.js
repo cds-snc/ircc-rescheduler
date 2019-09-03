@@ -78,22 +78,14 @@ class ConfirmationPage extends React.Component {
     this.setState({ sending: true })
   }
 
-  // translateReason(reason) {
-  //   switch (reason) {
-  //     case 'travel':
-  //       return <Trans>Travel</Trans>
-  //     case 'family':
-  //       return <Trans>Family</Trans>
-  //     case 'medical':
-  //       return <Trans>Medical</Trans>
-  //     case 'workOrSchool':
-  //       return <Trans>Work or School</Trans>
-  //     case 'other':
-  //       return <Trans>Other</Trans>
-  //     default:
-  //       return null
-  //   }
-  // }
+  translateReason(reason) {
+    switch (reason) {
+      case 'yes':
+        return <Trans>Yes</Trans>
+      default:
+        return <Trans>No</Trans>
+    }
+  }
 
   hasEmailError() {
     const { match } = this.props
@@ -161,7 +153,7 @@ class ConfirmationPage extends React.Component {
           <Confirmation
             paperFileNumber={paperFileNumber}
             email={email}
-            accesibility={familyCheck}
+            accessibility={this.translateReason(familyCheck)}
             location={ ( locationCity && locationAddress ) ? locationCity + ', ' + locationAddress : '' } 
             selectedDays={days}
           />
