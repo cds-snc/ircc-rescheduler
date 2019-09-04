@@ -469,6 +469,7 @@ const removeDateMessage = css`
   ${focusRing};
   outline-offset: ${theme.spacing.md};
 `
+var  selectedId = ""
 
 const renderDayBoxes = ({
   dayLimit,
@@ -698,6 +699,17 @@ class Calendar extends Component {
     this.props.forceRender(selectedDays)
   }
 
+
+  changeHandler = (timeId) => {
+    if (timeId) {
+      // eslint-disable-next-line no-console
+      console.log(timeId)
+      this.props.onSelect(timeId);
+    } else {
+      // handle de-select
+    }
+  };
+
   render() {
 
     
@@ -876,10 +888,11 @@ class Calendar extends Component {
 
        
                 <div style={scrollBar}>
-                  <TimeSlots/>
+                  <TimeSlots
+                  onSelect={this.changeHandler()}/>
 
                   </div>
-           
+                  <h1> value here { selectedId } </h1>
 
 
               </div>
