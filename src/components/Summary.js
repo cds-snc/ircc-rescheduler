@@ -28,6 +28,7 @@ const Summary = ({
 }) => (
   <TableContainer>
     <SummaryRow
+      summaryId={'bilNumber'}
       summaryHeader={<Trans>BIL file number</Trans>}
       summaryBody={paperFileNumber}
       summaryLink={'/register#paperFileNumber-label'}
@@ -36,24 +37,28 @@ const Summary = ({
       }
     />
     <SummaryRow
+      summaryId={'email'}
       summaryHeader={<Trans>Email</Trans>}
       summaryBody={email}
       summaryLink={'/register#email-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
     />
     <SummaryRow
+      summaryId={'a11y'}
       summaryHeader={<Trans>Accessibility required</Trans>}
       summaryBody={accessibility}
       summaryLink={'/register#familyCheck-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Accessibility')}`}
     />
     <SummaryRow
+      summaryId={'location'}
       summaryHeader={<Trans>Location</Trans>}
       summaryBody={location}
       summaryLink={'/selectProvince'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
     />
     <SummaryRow
+      summaryId={'dates'}
       summaryHeader={<Trans>Availability</Trans>}
       summaryBody={<SelectedDayList selectedDays={selectedDays} />}
       summaryLink={'/calendar#selectedDaysBox'}
