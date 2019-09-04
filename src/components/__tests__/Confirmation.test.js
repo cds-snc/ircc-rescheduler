@@ -1,7 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Confirmation, { SelectedDayList } from '../Confirmation'
-import { Trans } from '@lingui/react'
 import Time from '../Time'
 import MemoryRouter from 'react-router-dom/MemoryRouter'
 
@@ -12,7 +11,7 @@ const selectedDays = [
 const defaultProps = {
   paperFileNumber: 'A123467890112',
   email: 'test@test.com',
-  accessibility: <Trans>No</Trans>,
+  accessibility: 'Yes',
   location: 'Ottawa, 123 Somewhere Street',
   selectedDays: selectedDays,
 }
@@ -65,6 +64,7 @@ describe('<Confirmation />', () => {
     expect(numOfSummaryRows.length).toBe(5)
     expect(numOfSummaryRows.at(0).prop('summaryBody')).toEqual('A123467890112')
     expect(numOfSummaryRows.at(1).prop('summaryBody')).toEqual('test@test.com')
+    expect(numOfSummaryRows.at(2).prop('summaryBody')).toEqual('Yes')
     expect(numOfSummaryRows.at(3).prop('summaryBody')).toEqual('Ottawa, 123 Somewhere Street')
     
     expect(
