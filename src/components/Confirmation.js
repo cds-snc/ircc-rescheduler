@@ -61,7 +61,7 @@ const Review = ({
 Review.propTypes = {
   paperFileNumber: PropTypes.string,
   email: PropTypes.string,
-  accessibility: PropTypes.string, 
+  accessibility: PropTypes.object, 
   location: PropTypes.string,
   selectedDays: PropTypes.array,
   i18n: PropTypes.object,
