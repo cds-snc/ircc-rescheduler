@@ -154,14 +154,14 @@ class TimeSlots extends Component {
     this.setState({
       selectedId: id,
     });
+    // eslint-disable-next-line react/prop-types
+    this.props.selectedTimeId(id)
     // eslint-disable-next-line no-undef
     console.log(id)
   };
 
 
   render() {
-
-
 
     return (
       <table>
@@ -188,8 +188,4 @@ class TimeSlots extends Component {
 // }
 
 
-
 export default (TimeSlots)
-
-
-
