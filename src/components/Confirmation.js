@@ -19,6 +19,7 @@ const TableContainer = styled.div`
 const Review = ({
   paperFileNumber,
   email,
+  // eslint-disable-next-line react/prop-types
   accessibility,
   location,
   selectedDays,
@@ -61,7 +62,6 @@ const Review = ({
 Review.propTypes = {
   paperFileNumber: PropTypes.string,
   email: PropTypes.string,
-  accessibility: PropTypes.string, 
   location: PropTypes.string,
   selectedDays: PropTypes.array,
   i18n: PropTypes.object,

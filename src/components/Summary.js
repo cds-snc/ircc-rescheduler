@@ -66,7 +66,6 @@ Summary.propTypes = {
   paperFileNumber: PropTypes.string,
   email: PropTypes.string,
   location: PropTypes.string,
-  explanation: PropTypes.string,
   selectedDays: PropTypes.array,
   i18n: PropTypes.object,
 }

@@ -33,11 +33,14 @@ class ReviewPage extends React.Component {
   }
 
   translateReason(reason) {
-    switch (reason) {
+    if (reason) {
+      switch (reason[0]) {
       case 'yes':
         return <Trans>Yes</Trans>
       default:
         return <Trans>No</Trans>
+    }} else {
+      return <Trans>No</Trans>
     }
   }
 
@@ -117,7 +120,7 @@ class ReviewPage extends React.Component {
           <SubmissionForm
             email={email}
             paperFileNumber={paperFileNumber}
-            accessibility={familyCheck}
+            accessibility={this.translateReason(familyCheck)}
             location={locationCity + ', ' + locationAddress}
             selectedDays={selectedDays}
             sending={sending}
