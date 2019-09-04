@@ -79,13 +79,17 @@ class ConfirmationPage extends React.Component {
   }
 
   translateReason(reason) {
-    switch (reason) {
+    if (reason) {
+      switch (reason[0]) {
       case 'yes':
         return <Trans>Yes</Trans>
       default:
         return <Trans>No</Trans>
+    }} else {
+      return <Trans>No</Trans>
     }
   }
+
 
   hasEmailError() {
     const { match } = this.props
