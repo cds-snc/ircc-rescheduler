@@ -102,7 +102,7 @@
     "require-all": "^3.0.0",
     "start-server-and-test": "^1.7.10",
     "supertest": "^3.3.0",
-    "webpack-bundle-analyzer": "^3.0.2"
+    "webpack-bundle-analyzer": "^3.3.2"
   },
   "lingui": {
     "srcPathIgnorePatterns": [
