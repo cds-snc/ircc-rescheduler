@@ -95,12 +95,14 @@ class CalendarPage extends Component {
     this.forceRender = this.forceRender.bind(this)
     this.changeMonth = this.changeMonth.bind(this)
     this.hasNotValid = this.hasNotValid.bind(this)
+    this.updateTime = this.updateTime.bind(this)
     this.form = null
     this.state = {
       month: initialMonth(this.props),
       headerMonth: '',
       headerNote: [],
       calValues: false,
+      timeValue: '',
       disabled: false,
     }
   }
@@ -125,6 +127,9 @@ class CalendarPage extends Component {
     return this.props.location.search.indexOf('not-valid') !== -1
   }
 
+  updateTime(id) {
+    this.setState({ timeValue: id })
+  }
   forceRender(values) {
     // call setState to force a render
     this.setState({ calValues: values })
@@ -186,9 +191,12 @@ class CalendarPage extends Component {
       dateToISODateString(date),
     )
 
+    let selectedTime = (values.selectedTime)
+
     values = {
       ...values,
       selectedDays,
+      selectedTime,
     }
 
     await this.props.context.setStore(this.props.match.path.slice(1), values)
@@ -252,6 +260,11 @@ class CalendarPage extends Component {
 
             const notValid = this.hasNotValid()
             const { availability } = values
+
+            // eslint-disable-next-line no-console
+            console.log(values.selectedDays)  
+            // eslint-disable-next-line no-console
+            console.log(this.state.timeValue)
 
             if (submitError && this.validate(values).selectedDays) {
               let valuesLength =
@@ -318,6 +331,7 @@ class CalendarPage extends Component {
                     component={CalendarAdapter}
                     dayLimit={DAY_LIMIT}
                     showAvailability={true}
+                    timeslotSelected={this.updateTime}
                     forceRender={this.forceRender}
                     changeMonth={this.changeMonth}
                     month={month}
