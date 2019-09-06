@@ -89,8 +89,10 @@ const labelNames = id => {
       return <Trans>Email address</Trans>
     case 'emailConfirm':
         return <Trans>Confirm Email address</Trans>
-    case 'reason':
+    case 'accessibility':
       return <Trans>Do you require accessibility?</Trans>
+    case 'privacy':
+        return <Trans>Do you require privacy booth?</Trans>  
     case 'explanation':
       return <Trans>Describe why you can’t attend your appointment</Trans>
     case 'familyCheck':
@@ -386,8 +388,34 @@ class RegistrationPage extends React.Component {
                 <div>
                   <FieldSet legendHidden={false} id="reason">
                     <legend>
-                      <span id="reason-header">{labelNames('reason')}</span>
+                      <span id="reason-header">{labelNames('accessibility')}</span>
                     </legend>
+
+                    {/* Accessibility */}
+
+                    <Field
+                      type="checkbox"
+                      component={CheckboxAdapter}
+                      name="familyOption"
+                      id="familyOption"
+                      label={<Trans>Agree</Trans>}
+                      value="yes"
+                      aria-labelledby="familyCheck-error familyCheck-label"
+                      
+                    />
+                    
+                    
+                  </FieldSet>
+                </div>
+
+                <div>
+                  <FieldSet legendHidden={false} id="reason">
+                    <legend>
+                      <span id="reason-header">{labelNames('privacy')}</span>
+                    </legend>
+
+                    
+                    {/* Privacy */}
 
                     <Field
                       type="checkbox"
