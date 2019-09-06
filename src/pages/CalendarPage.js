@@ -51,6 +51,8 @@ class CalendarPage extends Component {
     // create a cloned object from the original CalendarFields
     let calendarFields = Object.assign({}, CalendarFields)
 
+
+
     /* if the availability checkbox is set, remove the validation for selectedDays */
     calendarFields.selectedDays =
       values.availability && values.availability.length
@@ -133,6 +135,8 @@ class CalendarPage extends Component {
   forceRender(values) {
     // call setState to force a render
     this.setState({ calValues: values })
+        // eslint-disable-next-line no-console
+        console.log(values)
   }
 
   changeMonth(month = this.state.month) {
@@ -165,6 +169,9 @@ class CalendarPage extends Component {
   async onSubmit(values, event) {
     const submitErrors = this.validate(values)
 
+    // eslint-disable-next-line no-console
+    console.log(values)
+
     if (Object.keys(submitErrors).length) {
       if (windowExists()) {
         window.scrollTo(0, this.errorContainer.offsetTop - 20)
@@ -191,7 +198,7 @@ class CalendarPage extends Component {
       dateToISODateString(date),
     )
 
-    let selectedTime = (values.selectedTime)
+    let selectedTime = (this.state.timeValue)
 
     values = {
       ...values,
@@ -199,6 +206,8 @@ class CalendarPage extends Component {
       selectedTime,
     }
 
+    // eslint-disable-next-line no-console
+    console.log(this.props)
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
     if (values.availability && values.availability.length) {

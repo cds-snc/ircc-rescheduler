@@ -64,7 +64,7 @@ class ReviewPage extends React.Component {
           } = {},
           explanation: { explanationPage } = {},
 
-          calendar: { selectedDays = [] } = {},
+          calendar: { selectedDays = [], selectedTime } = {},
           selectProvince: {
             locationCity,
             locationAddress,
@@ -85,6 +85,9 @@ class ReviewPage extends React.Component {
       )
     }
 
+    // eslint-disable-next-line no-console
+    console.log(this.props) 
+    
     return (
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
@@ -112,6 +115,7 @@ class ReviewPage extends React.Component {
             reason={this.translateReason(reason)}
             locationAddress={locationCity + ', ' + locationAddress} 
             selectedDays={days}
+            selectedTime={selectedTime}
             availabilityExplanation={explanationPage}
           />
           {/* Note: if updating this text don't forget to update the email templates */}

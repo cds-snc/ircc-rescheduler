@@ -26,6 +26,7 @@ const Summary = ({
   location,
   availabilityExplanation,
   selectedDays,
+  selectedTime,
   i18n,
 }) => (
   <TableContainer>
@@ -69,6 +70,7 @@ const Summary = ({
       summaryLink={'/selectProvince'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
     />
+    
     <TextAreaSummaryRow
       summaryHeader={<Trans>Explanation</Trans>}
       summaryBody={explanation}
@@ -83,7 +85,9 @@ const Summary = ({
         summaryLink={'/calendar#selectedDaysBox'}
         summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
       />
-    ) : (
+      
+    ) 
+    : (
       <TextAreaSummaryRow
         summaryHeader={<Trans>Availability</Trans>}
         summaryBody={availabilityExplanation}
@@ -91,6 +95,13 @@ const Summary = ({
         summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
       />
     )}
+
+    <SummaryRow
+      summaryHeader={<Trans>Time Slot</Trans>}
+      summaryBody={selectedTime}
+      summaryLink={'/calendar#selectedDaysBox'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
+    />
   </TableContainer>
 )
 
