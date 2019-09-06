@@ -51,6 +51,7 @@ jobs:
 
 - job: Deploy_Jenkins
   dependsOn: Publish_Artifact
+  condition: and(succeeded(), eq(variables['Build.Reason'], 'PullRequest'))
   steps:
   - task: JenkinsQueueJob@2
     inputs:
