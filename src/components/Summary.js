@@ -44,13 +44,13 @@ const Summary = ({
     <SummaryRow
       summaryHeader={<Trans>Accessibility required</Trans>}
       summaryBody={accessibility}
-      summaryLink={'/register#familyCheck-label'}
+      summaryLink={'/register#accessibility-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Accessibility')}`}
     /> <SummaryRow
     summaryHeader={<Trans>Privacy booth required</Trans>}
     summaryBody={accessibility}
-    summaryLink={'/register#familyCheck-label'}
-    summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Accessibility')}`}
+    summaryLink={'/register#privacy-label'}
+    summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Privacy')}`}
   />
 
     <SummaryRow
