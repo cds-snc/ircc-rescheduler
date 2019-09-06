@@ -396,11 +396,11 @@ class RegistrationPage extends React.Component {
                     <Field
                       type="checkbox"
                       component={CheckboxAdapter}
-                      name="familyOption"
+                      name="accessibilityOption"
                       id="familyOption"
                       label={<Trans>Agree</Trans>}
                       value="yes"
-                      aria-labelledby="familyCheck-error familyCheck-label"
+                      aria-labelledby="accessibility-label"
                       
                     />
                     
@@ -420,11 +420,11 @@ class RegistrationPage extends React.Component {
                     <Field
                       type="checkbox"
                       component={CheckboxAdapter}
-                      name="familyCheck"
+                      name="privacyCheck"
                       id="familyCheck"
                       label={<Trans>Agree</Trans>}
                       value="yes"
-                      aria-labelledby="familyCheck-error familyCheck-label"
+                      aria-labelledby="privacy-label"
                       
                     />
                     
