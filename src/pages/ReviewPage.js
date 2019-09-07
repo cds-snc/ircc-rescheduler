@@ -9,7 +9,7 @@ import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import Chevron from '../components/Chevron'
 import Summary from '../components/Summary'
-import Reminder from '../components/Reminder'
+//import Reminder from '../components/Reminder'
 import SubmissionForm from '../components/SubmissionForm'
 import { sortSelectedDays } from '../utils/calendarDates'
 import { dateToISODateString } from '../components/Time'
@@ -33,19 +33,14 @@ class ReviewPage extends React.Component {
   }
 
   translateReason(reason) {
-    switch (reason) {
-      case 'travel':
-        return <Trans>Travel</Trans>
-      case 'family':
-        return <Trans>Family</Trans>
-      case 'medical':
-        return <Trans>Medical</Trans>
-      case 'workOrSchool':
-        return <Trans>Work or School</Trans>
-      case 'other':
-        return <Trans>Other</Trans>
+    if (reason) {
+      switch (reason[0]) {
+      case 'yes':
+        return <Trans>Yes</Trans>
       default:
-        return null
+        return <Trans>No</Trans>
+    }} else {
+      return <Trans>No</Trans>
     }
   }
 
@@ -54,15 +49,10 @@ class ReviewPage extends React.Component {
       context: {
         store: {
           register: {
-            fullName,
-            email,
             paperFileNumber,
+            email,
             familyCheck,
-            familyOption,
-            reason,
-            explanation,
           } = {},
-          explanation: { explanationPage } = {},
 
           calendar: { selectedDays = [], selectedTime } = {},
           selectProvince: {
@@ -84,6 +74,8 @@ class ReviewPage extends React.Component {
         }),
       )
     }
+    // eslint-disable-next-line no-console
+    console.log(this.props.context.store)
 
     // eslint-disable-next-line no-console
     console.log(this.props) 
@@ -92,10 +84,7 @@ class ReviewPage extends React.Component {
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <TopContainer>
-          <NavLink
-            className="chevron-link"
-            to={explanationPage ? '/explanation' : '/calendar'}
-          >
+          <NavLink className="chevron-link" to='/calendar'>
             <Chevron dir="left" />
             <Trans>Go back</Trans>
           </NavLink>
@@ -106,20 +95,16 @@ class ReviewPage extends React.Component {
 
         <section>
           <Summary
-            fullName={fullName}
             paperFileNumber={paperFileNumber}
-            familyCheck={familyCheck}
-            familyOption={familyOption}
             email={email}
-            explanation={explanation}
-            reason={this.translateReason(reason)}
-            locationAddress={locationCity + ', ' + locationAddress} 
+            accessibility={this.translateReason(familyCheck)}
+            location={locationCity + ', ' + locationAddress} 
             selectedDays={days}
             selectedTime={selectedTime}
             availabilityExplanation={explanationPage}
           />
           {/* Note: if updating this text don't forget to update the email templates */}
-          <Reminder>
+          {/* <Reminder>
             {explanationPage ? (
               <Trans>
                 You should plan to attend your existing appointment until we
@@ -136,18 +121,13 @@ class ReviewPage extends React.Component {
                 <Trans>after you send this request.</Trans>
               </React.Fragment>
             )}
-          </Reminder>
+          </Reminder> */}
           <SubmissionForm
-            fullName={fullName}
             email={email}
             paperFileNumber={paperFileNumber}
-            familyCheck={familyCheck}
-            familyOption={familyOption}
-            explanation={explanation}
-            reason={reason}
-            locationAddress={locationCity + ', ' + locationAddress}
+            accessibility={this.translateReason(familyCheck)}
+            location={locationCity + ', ' + locationAddress}
             selectedDays={selectedDays}
-            availabilityExplanation={explanationPage}
             sending={sending}
             onSubmit={this.handleSubmit}
           />

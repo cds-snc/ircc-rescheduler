@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 // ***********************************************************
 // This example support/index.js is processed and
 // loaded automatically before your test files.
@@ -14,7 +16,10 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+
+import './commands';
+import 'cypress-axe';
+import '../integration/utils';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

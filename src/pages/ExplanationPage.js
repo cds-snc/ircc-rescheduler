@@ -13,6 +13,7 @@ import {
   contentClass,
 } from '../styles'
 import {
+  // eslint-disable-next-line import/named
   ExplanationFields,
   getFieldNames,
   defaultMessages,

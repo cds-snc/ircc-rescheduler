@@ -11,7 +11,7 @@ const SubmissionForm = props => {
   return (
     <BottomContainer>
       <form id="review-form" action="/submit" method="post" onSubmit={onSubmit}>
-        <input type="hidden" name="fullName" value={props.fullName} />
+        {/* <input type="hidden" name="fullName" value={props.fullName} /> */}
         <input
           type="hidden"
           name="paperFileNumber"
@@ -20,14 +20,16 @@ const SubmissionForm = props => {
         <input type="hidden" name="familyCheck" value={props.familyCheck} />
         <input type="hidden" name="familyOption" value={props.familyOption} />
         <input type="hidden" name="email" value={props.email} />
-        <input type="hidden" name="explanation" value={props.explanation} />
-        <input type="hidden" name="reason" value={props.reason} />
+        {/* <input type="hidden" name="emailConfirm" value={props.emailConfirm} /> */}
+        {/* <input type="hidden" name="explanation" value={props.explanation} /> */}
+        {/* <input type="hidden" name="reason" value={props.reason} /> */}
+        <input type="hidden" name="location" value={props.location} />
         <input type="hidden" name="selectedDays" value={props.selectedDays} />
-        <input
+        {/* <input
           type="hidden"
           name="availabilityExplanation"
           value={props.availabilityExplanation}
-        />
+        /> */}
 
         <Button type="submit" disabled={sending}>
           <Trans>Send request</Trans>{' '}
@@ -40,15 +42,17 @@ const SubmissionForm = props => {
 }
 
 SubmissionForm.propTypes = {
-  fullName: PropTypes.string,
+//  fullName: PropTypes.string,
   paperFileNumber: PropTypes.string,
-  familyCheck: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
-  familyOption: PropTypes.string,
+  familyCheck: PropTypes.array,
+  familyOption: PropTypes.array,
   email: PropTypes.string,
-  reason: PropTypes.string,
-  explanation: PropTypes.string,
+//  emailConfirm:PropTypes.string,
+//  reason: PropTypes.string,
+  location: PropTypes.string,
+//  explanation: PropTypes.string,
   selectedDays: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
-  availabilityExplanation: PropTypes.string,
+//  availabilityExplanation: PropTypes.string,
   sending: PropTypes.bool.isRequired,
   onSubmit: PropTypes.func.isRequired,
 }

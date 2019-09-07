@@ -10,7 +10,7 @@ import Validator from 'validatorjs'
 
 describe('Validation', () => {
   it('Gets ar array of field names from Object Keys', () => {
-    expect(getFieldNames(RegistrationFields)[0]).toEqual('fullName')
+    expect(getFieldNames(RegistrationFields)[0]).toEqual('email')
     expect(getFieldNames(CalendarFields)[0]).toEqual('selectedDays')
   })
 
@@ -31,15 +31,15 @@ describe('Validation', () => {
     expect(validate.errors.first('email')).toEqual('emailInvalidErrorMessage')
   })
 
-  it('Show correct error message when passing invalid fields', () => {
-    const vals = {
-      fullName: 'John Li',
-      reason: 'not on the list',
-    }
-    const validate = new Validator(vals, RegistrationFields, defaultMessages)
-    validate.passes()
-    expect(validate.errors.first('reason')).toEqual('inErrorMessage')
-  })
+  // it('Show correct error message when passing invalid fields', () => {
+  //   const vals = {
+  //     fullName: 'John Li',
+  //     reason: 'not on the list',
+  //   }
+  //   const validate = new Validator(vals, RegistrationFields, defaultMessages)
+  //   validate.passes()
+  //   expect(validate.errors.first('reason')).toEqual('inErrorMessage')
+  // })
 
   it('Validates empty dates', () => {
     const vals = {
@@ -105,7 +105,7 @@ describe('Validation', () => {
 
     const validate = new Validator(vals, RegistrationFields, defaultMessages)
     validate.passes()
-    expect(validate.errors.all().fullName[0]).toEqual('fullNameErrorMessage')
+    expect(validate.errors.all().emailConfirm[0]).toEqual('emailConfirmErrorMessage')
   })
 
   it('Gives back an first error in the array for each key', () => {
@@ -113,13 +113,13 @@ describe('Validation', () => {
 
     const validate = new Validator(vals, RegistrationFields, defaultMessages)
     validate.passes()
-    expect(getFieldErrorStrings(validate)['fullName']).toEqual(
-      'fullNameErrorMessage',
+    expect(getFieldErrorStrings(validate)['emailConfirm']).toEqual(
+      'emailConfirmErrorMessage',
     )
   })
 
   it('Gets ar array of field names from Object Keys', () => {
-    expect(getFieldNames(RegistrationFields)[0]).toEqual('fullName')
+    expect(getFieldNames(RegistrationFields)[0]).toEqual('email')
     expect(getFieldNames(CalendarFields)[0]).toEqual('selectedDays')
   })
 

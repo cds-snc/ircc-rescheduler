@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { css, injectGlobal } from 'emotion'
 import { theme, mediaQuery, content } from '../styles'
@@ -110,6 +111,7 @@ class Layout extends React.Component {
             <FederalBanner />
             <Devider />
             <PageHeader>{this.props.header}</PageHeader>
+            <Link to="/" style={{ marginLeft: `${theme.spacing.xxxl}` }}>Home</Link>
           </div>
           <main role="main">
             <div

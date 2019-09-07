@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { H2, theme } from '../styles'
+import { H2, theme, visuallyhidden } from '../styles'
 import styled from '@emotion/styled'
 import { css } from 'emotion'
 import { Trans } from '@lingui/react'
@@ -78,22 +78,18 @@ class ConfirmationPage extends React.Component {
     this.setState({ sending: true })
   }
 
-  // translateReason(reason) {
-  //   switch (reason) {
-  //     case 'travel':
-  //       return <Trans>Travel</Trans>
-  //     case 'family':
-  //       return <Trans>Family</Trans>
-  //     case 'medical':
-  //       return <Trans>Medical</Trans>
-  //     case 'workOrSchool':
-  //       return <Trans>Work or School</Trans>
-  //     case 'other':
-  //       return <Trans>Other</Trans>
-  //     default:
-  //       return null
-  //   }
-  // }
+  translateReason(reason) {
+    if (reason) {
+      switch (reason[0]) {
+      case 'yes':
+        return <Trans>Yes</Trans>
+      default:
+        return <Trans>No</Trans>
+    }} else {
+      return <Trans>No</Trans>
+    }
+  }
+
 
   hasEmailError() {
     const { match } = this.props
@@ -105,9 +101,9 @@ class ConfirmationPage extends React.Component {
   }
 
   // from: stackoverflow 'generate a hash from string...'
-  hashFromData( fullName, email, paperFileNumber) {
+  hashFromData( email, paperFileNumber) {
       var hash = 0, i, chr
-      const keys = fullName+email+paperFileNumber
+      const keys = email+paperFileNumber
       if (keys.length === 0) return hash;
       for (i = 0; i < keys.length; i++) {
         chr   = keys.charCodeAt(i);
@@ -123,9 +119,9 @@ class ConfirmationPage extends React.Component {
       context: {
         store: {
           register: {
-            fullName,
-            email,
             paperFileNumber,
+            email,
+            familyCheck,
           } = {},
 
           calendar: { selectedDays = [] } = {},
@@ -149,20 +145,20 @@ class ConfirmationPage extends React.Component {
       )
     }
 
-
     return (
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
-        <section>
-          <FocusedH1>
-            <Trans>Confirmation:</Trans>&nbsp;A{this.hashFromData( fullName, email, paperFileNumber )}
-          </FocusedH1>
+        <FocusedH1 className={visuallyhidden}>
+          <Trans>Confirmation</Trans>
+        </FocusedH1>
 
+        <section>
+          <H2>Confirmation #: A {this.hashFromData( email, paperFileNumber ).toString()}</H2>
           <Confirmation
-            fullName={fullName}
             paperFileNumber={paperFileNumber}
             email={email}
-            locationAddress={ ( locationCity && locationAddress ) ? locationCity + ',' + locationAddress : '' } 
+            accessibility={this.translateReason(familyCheck)}
+            location={ ( locationCity && locationAddress ) ? locationCity + ', ' + locationAddress : '' } 
             selectedDays={days}
           />
 

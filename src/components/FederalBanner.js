@@ -70,11 +70,11 @@ const FederalBanner = () => (
                     : 'Gouvernement du Canada'
                 }
               >
-                <img src={English} alt="" className={engSVG} />
+                <a href="https://www.canada.ca/en.html"><img src={English} alt="Government of Canada" className={engSVG} /></a>
               </div>
             ) : (
               <div className={gocContainer}>
-                <img src={French} alt="" className={frSVG} />
+                <a href="https://www.canada.ca/fr.html"><img src={French} alt="Gouvernement du Canada" className={frSVG} /></a>
               </div>
             )}
           </React.Fragment>
