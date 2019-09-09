@@ -30,6 +30,7 @@ import { windowExists } from '../utils/windowExists'
 // import { CheckboxAdapter } from '../components/forms/MultipleChoice'
 // import { Field } from 'react-final-form'
 import TimeSlots from './TimeSlots'
+import FetchTimeSlots from './FetchTimeSlots'
 
 
 
@@ -892,8 +893,10 @@ class Calendar extends Component {
                   <TimeSlots
                     selectedTimeId={this.selectedTime}
                   />
+                  <FetchTimeSlots/>
                 </div>
                 <h1> value here { this.state.timeSelected } </h1>
+                
 
               </div>
             </div>
