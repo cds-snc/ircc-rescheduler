@@ -91,6 +91,7 @@ describe('Validation', () => {
   it('Validates when correct amount of dates have been passed', () => {
     const vals = {
       selectedDays: ['2018-01-01'],
+      selectedTime: '9:15',
     }
 
     const validate = new Validator(vals, CalendarFields, defaultMessages)

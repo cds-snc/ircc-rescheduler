@@ -22,6 +22,7 @@ const Summary = ({
   email,
   location,
   selectedDays,
+  selectedTime,
   // eslint-disable-next-line react/prop-types
   accessibility,
   i18n,
@@ -52,11 +53,16 @@ const Summary = ({
     summaryLink={'/register#privacy-label'}
     summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Privacy')}`}
   />
-
     <SummaryRow
       summaryHeader={<Trans>Location</Trans>}
       summaryBody={location}
       summaryLink={'/selectProvince'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
+    />
+    <SummaryRow
+      summaryHeader={<Trans>Time Slot</Trans>}
+      summaryBody={selectedTime}
+      summaryLink={'/calendar#selectedDaysBox'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
     />
     <SummaryRow

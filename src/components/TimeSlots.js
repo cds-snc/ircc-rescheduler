@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 import React, { Component } from "react";
 import TimeForm from "./TimeForm";
-import withContext from '../withContext'
-import PropTypes from 'prop-types'
-import { contextPropTypes } from '../context'
-import { SelectTimeSlotField, getFieldNames } from '../validation'
+// import withContext from '../withContext'
+// import PropTypes from 'prop-types'
+// import { contextPropTypes } from '../context'
+// import { SelectTimeSlotField, getFieldNames } from '../validation'
 /* eslint-disable no-console */
 // import Language from '../components/anguaLge'
+
 
 
 /* eslint-disable no-console */
@@ -112,40 +113,40 @@ class TimeSlots extends Component {
 
     this.state = {
       selectedId: 0,
-      selectedTime: [],
+    
     }
 
-    this.validate = TimeSlots.validate
-    this.fields = TimeSlots.fields
+    // this.validate = TimeSlots.validate
+    // this.fields = TimeSlots.fields
   }
 
-  static errStrings = {}
+  // static errStrings = {}
 
 
-  static get fields() {
-    return getFieldNames(SelectTimeSlotField)
-  }
+  // static get fields() {
+  //   return getFieldNames(SelectTimeSlotField)
+  // }
 
-  static validate(values, submitted) {
-    return TimeSlots.errStrings
-  }
+  // static validate(values, submitted) {
+  //   return TimeSlots.errStrings
+  // }
 
 
-  async handleTime ( selectedTime ) {
-    // eslint-disable-next-line no-console
-    console.log(this.props) 
+  // async handleTime ( selectedTime ) {
+  //   // eslint-disable-next-line no-console
+  //   console.log(this.props) 
 
-    let values = { 'TimeSlot' : selectedTime }
-    console.log(values)
-    // eslint-disable-next-line no-unused-vars
-    let justValidate = this.validate( values, true) 
+  //   let values = { 'TimeSlot' : selectedTime }
+  //   console.log(values)
+  //   // eslint-disable-next-line no-unused-vars
+  //   let justValidate = this.validate( values, true) 
 
-    await this.props.context.setStore('selectTime', values)
+  //   await this.props.context.setStore('selectTime', values)
 
-    // eslint-disable-next-line no-console
-    console.log(this.props.context.store )
-    await this.props.history.push('/review')
-  }
+  //   // eslint-disable-next-line no-console
+  //   console.log(this.props.context.store )
+  //   await this.props.history.push('/review')
+  // }
 
 
 
@@ -153,10 +154,15 @@ class TimeSlots extends Component {
     this.setState({
       selectedId: id,
     });
+    // eslint-disable-next-line react/prop-types
+    this.props.selectedTimeId(id)
+    // eslint-disable-next-line no-undef
+    console.log(id)
   };
 
 
   render() {
+
     return (
       <table>
         <tbody>
@@ -168,6 +174,7 @@ class TimeSlots extends Component {
               onSelect={this.changeHandler}
             />
           ))}
+        
         </tbody>
       </table>
     );
@@ -175,11 +182,10 @@ class TimeSlots extends Component {
 }
 
 
-TimeSlots.propTypes = {
-  ...contextPropTypes,
-  history: PropTypes.any,
-}
-
-export default withContext(TimeSlots)
+// TimeSlots.propTypes = {
+//   ...contextPropTypes,
+//   history: PropTypes.any,
+// }
 
 
+export default (TimeSlots)

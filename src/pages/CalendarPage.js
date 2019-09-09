@@ -51,6 +51,8 @@ class CalendarPage extends Component {
     // create a cloned object from the original CalendarFields
     let calendarFields = Object.assign({}, CalendarFields)
 
+
+
     /* if the availability checkbox is set, remove the validation for selectedDays */
     calendarFields.selectedDays =
       values.availability && values.availability.length
@@ -95,12 +97,14 @@ class CalendarPage extends Component {
     this.forceRender = this.forceRender.bind(this)
     this.changeMonth = this.changeMonth.bind(this)
     this.hasNotValid = this.hasNotValid.bind(this)
+    this.updateTime = this.updateTime.bind(this)
     this.form = null
     this.state = {
       month: initialMonth(this.props),
       headerMonth: '',
       headerNote: [],
       calValues: false,
+      timeValue: '',
       disabled: false,
     }
   }
@@ -125,9 +129,14 @@ class CalendarPage extends Component {
     return this.props.location.search.indexOf('not-valid') !== -1
   }
 
+  updateTime(id) {
+    this.setState({ timeValue: id })
+  }
   forceRender(values) {
     // call setState to force a render
     this.setState({ calValues: values })
+        // eslint-disable-next-line no-console
+        console.log(values)
   }
 
   changeMonth(month = this.state.month) {
@@ -160,6 +169,9 @@ class CalendarPage extends Component {
   async onSubmit(values, event) {
     const submitErrors = this.validate(values)
 
+    // eslint-disable-next-line no-console
+    console.log(values)
+
     if (Object.keys(submitErrors).length) {
       if (windowExists()) {
         window.scrollTo(0, this.errorContainer.offsetTop - 20)
@@ -186,11 +198,16 @@ class CalendarPage extends Component {
       dateToISODateString(date),
     )
 
+    let selectedTime = (this.state.timeValue)
+
     values = {
       ...values,
       selectedDays,
+      selectedTime,
     }
 
+    // eslint-disable-next-line no-console
+    console.log(this.props)
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
     if (values.availability && values.availability.length) {
@@ -252,6 +269,11 @@ class CalendarPage extends Component {
 
             const notValid = this.hasNotValid()
             const { availability } = values
+
+            // eslint-disable-next-line no-console
+            console.log(values.selectedDays)  
+            // eslint-disable-next-line no-console
+            console.log(this.state.timeValue)
 
             if (submitError && this.validate(values).selectedDays) {
               let valuesLength =
@@ -318,6 +340,7 @@ class CalendarPage extends Component {
                     component={CalendarAdapter}
                     dayLimit={DAY_LIMIT}
                     showAvailability={true}
+                    timeslotSelected={this.updateTime}
                     forceRender={this.forceRender}
                     changeMonth={this.changeMonth}
                     month={month}
