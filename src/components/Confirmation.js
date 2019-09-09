@@ -66,8 +66,8 @@ const Review = ({
       summaryId={'time'}
       summaryHeader={<Trans>Time Slot</Trans>}
       summaryBody={selectedTime}
-      summaryLink={'/calendar#selectedDaysBox'}
-      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
+      summaryLink={''}
+      summaryLabel={''}
     />    
     <SummaryRow
       summaryId={'date'}
