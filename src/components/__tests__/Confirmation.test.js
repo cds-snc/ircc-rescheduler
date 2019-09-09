@@ -12,8 +12,10 @@ const defaultProps = {
   paperFileNumber: 'A123467890112',
   email: 'test@test.com',
   accessibility: 'Yes',
+  privacy: 'Yes',
   location: 'Ottawa, 123 Somewhere Street',
   selectedDays: selectedDays,
+  selectedTime: '10:00',
 }
 
 describe('<SelectedDayList />', () => {
@@ -61,14 +63,16 @@ describe('<Confirmation />', () => {
 
     const numOfSummaryRows = wrapper.find('SummaryRow')
 
-    expect(numOfSummaryRows.length).toBe(5)
+    expect(numOfSummaryRows.length).toBe(7)
     expect(numOfSummaryRows.at(0).prop('summaryBody')).toEqual('A123467890112')
     expect(numOfSummaryRows.at(1).prop('summaryBody')).toEqual('test@test.com')
     expect(numOfSummaryRows.at(2).prop('summaryBody')).toEqual('Yes')
-    expect(numOfSummaryRows.at(3).prop('summaryBody')).toEqual('Ottawa, 123 Somewhere Street')
+    expect(numOfSummaryRows.at(3).prop('summaryBody')).toEqual('Yes')
+    expect(numOfSummaryRows.at(4).prop('summaryBody')).toEqual('Ottawa, 123 Somewhere Street')
+    expect(numOfSummaryRows.at(5).prop('summaryBody')).toEqual('10:00')
     
     expect(
-      numOfSummaryRows.at(4).prop('summaryBody').props.selectedDays,
+      numOfSummaryRows.at(6).prop('summaryBody').props.selectedDays,
     ).toMatchObject(selectedDays)
   })
 })

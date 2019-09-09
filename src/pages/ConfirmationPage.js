@@ -122,6 +122,7 @@ class ConfirmationPage extends React.Component {
             paperFileNumber,
             email,
             familyCheck,
+            familyOption,
           } = {},
 
           calendar: { selectedDays = [], selectedTime } = {},
@@ -158,6 +159,7 @@ class ConfirmationPage extends React.Component {
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(familyCheck)}
+            privacy={this.translateReason(familyOption)}
             location={ ( locationCity && locationAddress ) ? locationCity + ', ' + locationAddress : '' } 
             selectedDays={days}
             selectedTime={selectedTime}
