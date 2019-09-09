@@ -53,38 +53,12 @@ const Summary = ({
     summaryLink={'/register#privacy-label'}
     summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Privacy')}`}
   />
-
     <SummaryRow
       summaryHeader={<Trans>Location</Trans>}
       summaryBody={location}
       summaryLink={'/selectProvince'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
     />
-    <TextAreaSummaryRow
-      summaryHeader={<Trans>Explanation</Trans>}
-      summaryBody={explanation}
-      summaryLink={'/register#explanation-label'}
-      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Explanation')}`}
-    />
-
-    {!availabilityExplanation ? (
-      <SummaryRow
-        summaryHeader={<Trans>Availability</Trans>}
-        summaryBody={<SelectedDayList selectedDays={selectedDays} />}
-        summaryLink={'/calendar#selectedDaysBox'}
-        summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
-      />
-      
-    ) 
-    : (
-      <TextAreaSummaryRow
-        summaryHeader={<Trans>Availability</Trans>}
-        summaryBody={availabilityExplanation}
-        summaryLink={'/explanation#explanationPage-label'}
-        summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
-      />
-    )}
-
     <SummaryRow
       summaryHeader={<Trans>Time Slot</Trans>}
       summaryBody={selectedTime}
