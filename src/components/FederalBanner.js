@@ -34,8 +34,8 @@ const gocContainer = css`
 `
 
 const baseSVG = css`
-  height: 1.21rem;
-  margin-right: 1rem;
+  height: 2.0rem;
+  margsin-right: 1rem;
 `
 
 

@@ -18,7 +18,7 @@ const SubmissionForm = props => {
           value={props.paperFileNumber}
         />
         <input type="hidden" name="familyCheck" value={props.familyCheck} />
-        {/* <input type="hidden" name="familyOption" value={props.familyOption} /> */}
+        <input type="hidden" name="familyOption" value={props.familyOption} />
         <input type="hidden" name="email" value={props.email} />
         {/* <input type="hidden" name="emailConfirm" value={props.emailConfirm} /> */}
         {/* <input type="hidden" name="explanation" value={props.explanation} /> */}
@@ -45,6 +45,7 @@ SubmissionForm.propTypes = {
 //  fullName: PropTypes.string,
   paperFileNumber: PropTypes.string,
   familyCheck: PropTypes.array,
+  familyOption: PropTypes.array,
   email: PropTypes.string,
 //  emailConfirm:PropTypes.string,
 //  reason: PropTypes.string,

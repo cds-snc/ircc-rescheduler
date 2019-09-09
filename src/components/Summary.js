@@ -22,6 +22,7 @@ const Summary = ({
   email,
   location,
   selectedDays,
+  selectedTime,
   // eslint-disable-next-line react/prop-types
   accessibility,
   i18n,
@@ -47,8 +48,15 @@ const Summary = ({
       summaryId={'a11y'}
       summaryHeader={<Trans>Accessibility required</Trans>}
       summaryBody={accessibility}
-      summaryLink={'/register#familyCheck-label'}
+      summaryLink={'/register#accessibility-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Accessibility')}`}
+    /> 
+    <SummaryRow
+      summaryId={'privacy'}
+      summaryHeader={<Trans>Privacy booth required</Trans>}
+      summaryBody={accessibility}
+      summaryLink={'/register#privacy-label'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Privacy')}`}
     />
     <SummaryRow
       summaryId={'location'}
@@ -58,7 +66,14 @@ const Summary = ({
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
     />
     <SummaryRow
-      summaryId={'dates'}
+      summaryId={'time'}
+      summaryHeader={<Trans>Time Slot</Trans>}
+      summaryBody={selectedTime}
+      summaryLink={'/calendar#selectedDaysBox'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
+    />
+    <SummaryRow
+      summaryId={'date'}
       summaryHeader={<Trans>Availability</Trans>}
       summaryBody={<SelectedDayList selectedDays={selectedDays} />}
       summaryLink={'/calendar#selectedDaysBox'}
@@ -68,6 +83,7 @@ const Summary = ({
 )
 
 Summary.propTypes = {
+  selectedTime: PropTypes.string,
   paperFileNumber: PropTypes.string,
   email: PropTypes.string,
   location: PropTypes.string,

@@ -54,7 +54,7 @@ class ReviewPage extends React.Component {
             familyCheck,
           } = {},
 
-          calendar: { selectedDays = [] } = {},
+          calendar: { selectedDays = [], selectedTime } = {},
           selectProvince: {
             locationCity,
             locationAddress,
@@ -77,6 +77,9 @@ class ReviewPage extends React.Component {
     // eslint-disable-next-line no-console
     console.log(this.props.context.store)
 
+    // eslint-disable-next-line no-console
+    console.log(this.props) 
+    
     return (
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
@@ -97,6 +100,7 @@ class ReviewPage extends React.Component {
             accessibility={this.translateReason(familyCheck)}
             location={locationCity + ', ' + locationAddress} 
             selectedDays={days}
+            selectedTime={selectedTime}
           />
           {/* Note: if updating this text don't forget to update the email templates */}
           {/* <Reminder>

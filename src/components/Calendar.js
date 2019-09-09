@@ -473,6 +473,7 @@ const removeDateMessage = css`
 const renderDayBoxes = ({
   dayLimit,
   selectedDays,
+  selectedTime,
   removeDayOnClickOrKeyPress,
   locale,
   errorMessage,
@@ -597,6 +598,7 @@ class Calendar extends Component {
       errorMessage: null,
       daysOfWeek: false,
       daysModified: false,
+      timeSelected: '',
     }
     this.oneDatesArePicked =
       this.props.input.value &&
@@ -645,6 +647,8 @@ class Calendar extends Component {
     day = makeGMTDate(day)
 
     let { dayLimit } = this.props
+    // eslint-disable-next-line no-console
+    console.log(this.props)
 
     const selectedDays = this.props.input.value || []
 
@@ -687,7 +691,7 @@ class Calendar extends Component {
     }
 
     this.props.input.value = selectedDays
-
+    this.props.input.time = '10:00'
     this.props.input.onChange(this.props.input.value)
 
     await this.setState({
@@ -696,6 +700,15 @@ class Calendar extends Component {
 
     // force a render to keep calendar errors in sync
     this.props.forceRender(selectedDays)
+  }
+
+  selectedTime = id => {
+    this.props.timeslotSelected(id)
+    // eslint-disable-next-line no-console
+    console.log(this.props.timeslotSelected)
+    this.setState({
+      timeSelected : id,
+    })
   }
 
   render() {
@@ -713,7 +726,7 @@ class Calendar extends Component {
     const startMonth = parse(getStartMonth())
     const endDate = parse(getEndDate())
     value = value || []
-
+    
     const initialMonth = getInitialMonth(value, startMonth)
 
     /*
@@ -867,24 +880,23 @@ class Calendar extends Component {
                     dayLimit,
                     errorMessage: this.state.errorMessage,
                     selectedDays: value,
+                    selectedTime: this.state.timeSelected,
                     removeDayOnClickOrKeyPress: this.removeDayOnClickOrKeyPress,
                     locale,
                     removeDayAltText:
                       i18n !== undefined ? i18n._('Remove day') : 'Remove day',
                   })}
                 </ul>
-
        
                 <div style={scrollBar}>
-                  <TimeSlots/>
-
-                  </div>
-           
-
+                  <TimeSlots
+                    selectedTimeId={this.selectedTime}
+                  />
+                </div>
+                <h1> value here { this.state.timeSelected } </h1>
 
               </div>
             </div>
-
           </div>
         </div>
       </div>
