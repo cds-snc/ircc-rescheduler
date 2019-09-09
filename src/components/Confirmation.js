@@ -23,6 +23,7 @@ const Review = ({
   accessibility,
   location,
   selectedDays,
+  selectedTime,
   i18n,
 }) => (
   <TableContainer>
@@ -45,11 +46,23 @@ const Review = ({
       summaryLabel={''}
     />
     <SummaryRow
+    summaryHeader={<Trans>Privacy booth required</Trans>}
+    summaryBody={accessibility}
+    summaryLink={''}
+    summaryLabel={''}
+    />
+    <SummaryRow
       summaryHeader={<Trans>Location</Trans>}
       summaryBody={location}
       summaryLink={''}
       summaryLabel={''}
     />
+    <SummaryRow
+      summaryHeader={<Trans>Time Slot</Trans>}
+      summaryBody={selectedTime}
+      summaryLink={'/calendar#selectedDaysBox'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
+    />    
     <SummaryRow
       summaryHeader={<Trans>Availability</Trans>}
       summaryBody={<SelectedDayList selectedDays={selectedDays} />}
@@ -64,6 +77,7 @@ Review.propTypes = {
   email: PropTypes.string,
   location: PropTypes.string,
   selectedDays: PropTypes.array,
+  selectedTime: PropTypes.string,
   i18n: PropTypes.object,
 }
 
