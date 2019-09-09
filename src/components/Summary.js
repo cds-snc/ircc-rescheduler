@@ -22,6 +22,7 @@ const Summary = ({
   email,
   location,
   selectedDays,
+  selectedTime,
   // eslint-disable-next-line react/prop-types
   accessibility,
   // eslint-disable-next-line react/prop-types
@@ -31,6 +32,7 @@ const Summary = ({
 }) => (
   <TableContainer>
     <SummaryRow
+      summaryId={'bilNumber'}
       summaryHeader={<Trans>BIL file number</Trans>}
       summaryBody={paperFileNumber}
       summaryLink={'/register#paperFileNumber-label'}
@@ -39,30 +41,43 @@ const Summary = ({
       }
     />
     <SummaryRow
+      summaryId={'email'}
       summaryHeader={<Trans>Email</Trans>}
       summaryBody={email}
       summaryLink={'/register#email-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
     />
     <SummaryRow
+      summaryId={'a11y'}
       summaryHeader={<Trans>Accessibility required</Trans>}
       summaryBody={accessibility}
       summaryLink={'/register#accessibility-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Accessibility')}`}
-    /> <SummaryRow
-    summaryHeader={<Trans>Privacy booth required</Trans>}
-    summaryBody={privacy}
-    summaryLink={'/register#privacy-label'}
-    summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Privacy')}`}
-  />
 
+    /> 
     <SummaryRow
+      summaryId={'privacy'}
+      summaryHeader={<Trans>Privacy booth required</Trans>}
+      summaryBody={accessibility}
+      summaryLink={'/register#privacy-label'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Privacy')}`}
+    />
+    <SummaryRow
+      summaryId={'location'}
       summaryHeader={<Trans>Location</Trans>}
       summaryBody={location}
       summaryLink={'/selectProvince'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
     />
     <SummaryRow
+      summaryId={'time'}
+      summaryHeader={<Trans>Time Slot</Trans>}
+      summaryBody={selectedTime}
+      summaryLink={'/calendar#selectedDaysBox'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
+    />
+    <SummaryRow
+      summaryId={'date'}
       summaryHeader={<Trans>Availability</Trans>}
       summaryBody={<SelectedDayList selectedDays={selectedDays} />}
       summaryLink={'/calendar#selectedDaysBox'}
@@ -79,7 +94,7 @@ Summary.propTypes = {
   email: PropTypes.string,
   location: PropTypes.string,
   selectedDays: PropTypes.array,
-  familyOption: PropTypes.string,
+  selectedTime: PropTypes.string,
   i18n: PropTypes.object,
 }
 

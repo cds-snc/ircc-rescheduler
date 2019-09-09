@@ -14,7 +14,7 @@ export default class TimeForm extends Component {
   render() {
     const { rowData, selectedId } = this.props;
     const { id, Time } = rowData;
-    const isChecked = id === selectedId;
+    const isChecked = Time === selectedId;
 
     return (
       <tr>
@@ -22,7 +22,7 @@ export default class TimeForm extends Component {
           <input
             id={`checkbox_${id}`}
             checked={isChecked}
-            onChange={e => this.changeHandler(e.target.checked, id)}
+            onChange={e => this.changeHandler(e.target.checked, Time)}
             type="checkbox"
             name="record"
           />

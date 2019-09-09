@@ -101,7 +101,7 @@ class ConfirmationPage extends React.Component {
   }
 
   // from: stackoverflow 'generate a hash from string...'
-  hashFromData( email, paperFileNumber) {
+  hashFromData( email, paperFileNumber ) {
       var hash = 0, i, chr
       const keys = email+paperFileNumber
       if (keys.length === 0) return hash;
@@ -122,9 +122,10 @@ class ConfirmationPage extends React.Component {
             paperFileNumber,
             email,
             familyCheck,
+            familyOption,
           } = {},
 
-          calendar: { selectedDays = [] } = {},
+          calendar: { selectedDays = [], selectedTime } = {},
           selectProvince: {
             locationCity,
             locationAddress,
@@ -158,8 +159,10 @@ class ConfirmationPage extends React.Component {
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(familyCheck)}
+            privacy={this.translateReason(familyOption)}
             location={ ( locationCity && locationAddress ) ? locationCity + ', ' + locationAddress : '' } 
             selectedDays={days}
+            selectedTime={selectedTime}
           />
 
           

@@ -127,6 +127,7 @@ export const RegistrationFields = {
 
 export const CalendarFields = {
   selectedDays: 'required|array|date_count',
+  selectedTime: 'accept_anything',
   availability: 'accept_anything',
 }
 
@@ -136,9 +137,9 @@ export const SelectLocationFields = {
   locationAddress: 'required',
 }
 
-export const SelectTimeSlotField = {
-  timeSlot: 'required', 
-}
+// export const SelectTimeSlotField = {
+//   timeSlot: 'required', 
+// }
 
 
 /*--------------------------------------------*
