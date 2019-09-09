@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import { theme } from '../styles'
 import { Trans, withI18n } from '@lingui/react'
 import { SelectedDayList } from './SelectedDayList'
-import { SummaryRow } from './SummaryRow'
+import { SummaryRow, TextAreaSummaryRow } from './SummaryRow'
 //import { SummaryRow, TextAreaSummaryRow } from './SummaryRow'
 
 
@@ -24,6 +24,11 @@ const Summary = ({
   selectedDays,
   // eslint-disable-next-line react/prop-types
   accessibility,
+  // eslint-disable-next-line react/prop-types
+  privacy,
+  
+  // eslint-disable-next-line react/prop-types
+  familyOption,
   i18n,
 }) => (
   <TableContainer>
@@ -48,7 +53,7 @@ const Summary = ({
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Accessibility')}`}
     /> <SummaryRow
     summaryHeader={<Trans>Privacy booth required</Trans>}
-    summaryBody={accessibility}
+    summaryBody={privacy}
     summaryLink={'/register#privacy-label'}
     summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Privacy')}`}
   />
@@ -65,6 +70,15 @@ const Summary = ({
       summaryLink={'/calendar#selectedDaysBox'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
     />
+
+      {familyOption && (
+      <TextAreaSummaryRow
+        summaryHeader={<Trans>Family members</Trans>}
+        summaryBody={familyOption}
+        summaryLink={'/register#familyOption-label'}
+        summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Family members')}`}
+      />
+    )}
   </TableContainer>
 )
 
@@ -73,6 +87,7 @@ Summary.propTypes = {
   email: PropTypes.string,
   location: PropTypes.string,
   selectedDays: PropTypes.array,
+  familyOption: PropTypes.string,
   i18n: PropTypes.object,
 }
 

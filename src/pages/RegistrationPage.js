@@ -1,3 +1,4 @@
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
@@ -41,30 +42,24 @@ import FocusedH1 from '../components/FocusedH1'
 
 const registrationContentClass = css`
   ${contentClass};
-
   input[name='paperFileNumber'] {
     margin-bottom: ${theme.spacing.sm};
   }
-
   input#familyCheck + label::before {
     border-width: 3px;
   }
-
   #familyCheck-error {
     margin-bottom: ${theme.spacing.sm};
   }
-
   label[for='familyCheck'],
   label[for='familyOption'] {
     display: block;
     margin-bottom: 0;
     padding-bottom: 0;
   }
-
   textarea[name='familyOption'] {
     height: 5.3em;
   }
-
   #familyOption-details {
     padding: ${theme.spacing.xxs} 0;
   }
@@ -72,9 +67,7 @@ const registrationContentClass = css`
 
 const forNowSubmitErrorStyles = css`
   margin-bottom: 0 !important;
-
   ${focusRing};
-
   > span:not(.empty) {
     margin-bottom: ${theme.spacing.lg};
     font-size: ${theme.font.lg};
@@ -125,7 +118,6 @@ class RegistrationPage extends React.Component {
       - has filled in family members
       - has not checked the Checkbox
       So this is the default behaviour
-
       In JS mode, we will not validate this
       */
       if (windowExists()) {
@@ -140,17 +132,10 @@ class RegistrationPage extends React.Component {
         defaultMessages,
         
       )
-      // if (values.email !== values.emailConfirm){
-      //   // eslint-disable-next-line no-console
-      //   console.log('error check')
-      //   RegistrationPage.errStrings= {emailConfirm : 'emailConfirmInvalidErrorMessage'}
-      //   return RegistrationPage.errStrings  
-      // } 
-      // eslint-disable-next-line no-console
      
 
       if (validate.passes()) {
-        //values.familyOption = values.familyCheck ? values.familyOption : ''
+        // values.familyOption = values.familyCheck ? values.familyOption : ''
         RegistrationPage.errStrings = {}
         return RegistrationPage.errStrings
       }
@@ -179,7 +164,6 @@ class RegistrationPage extends React.Component {
     /*
     this is used to see if we're in JS vs NoJS
     in place of windowExists in this case.
-
     using windowExists doesn't work in this case
     as it won't exist server-side but than will client-side
     */
@@ -386,7 +370,7 @@ class RegistrationPage extends React.Component {
                 
                 {/* Reason */}
                 <div>
-                  <FieldSet legendHidden={false} id="reason">
+                  <FieldSet legendHidden={false} id="accessibility">
                     <legend>
                       <span id="reason-header">{labelNames('accessibility')}</span>
                     </legend>
@@ -409,7 +393,7 @@ class RegistrationPage extends React.Component {
                 </div>
 
                 <div>
-                  <FieldSet legendHidden={false} id="reason">
+                  <FieldSet legendHidden={false} id="privacy">
                     <legend>
                       <span id="reason-header">{labelNames('privacy')}</span>
                     </legend>
@@ -430,7 +414,6 @@ class RegistrationPage extends React.Component {
                     
                   </FieldSet>
                 </div>
-                
                 {/*
                Button is disabled if form has been submitted (and is waiting)
               */}
