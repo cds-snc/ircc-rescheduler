@@ -83,11 +83,11 @@ const Summary = ({
 )
 
 Summary.propTypes = {
-  selectedTime: PropTypes.string,
   paperFileNumber: PropTypes.string,
   email: PropTypes.string,
   location: PropTypes.string,
   selectedDays: PropTypes.array,
+  selectedTime: PropTypes.string,
   i18n: PropTypes.object,
 }
 
