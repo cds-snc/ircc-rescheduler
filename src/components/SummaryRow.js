@@ -63,20 +63,21 @@ const SummaryH2 = styled(H2)`
   margin-bottom: ${theme.spacing.sm};
 `
 const SummaryRow = ({
+  summaryId,
   summaryHeader,
   summaryBody,
   summaryLink,
   summaryLabel,
 }) => (
-  <Row>
+  <Row id={summaryId}>
     <SummaryHeader>
-      <SummaryH2>{summaryHeader}</SummaryH2>
-      <SummaryBody>{summaryBody}</SummaryBody>
+      <SummaryH2 id={`${summaryId}-header`} >{summaryHeader}</SummaryH2>
+      <SummaryBody id={`${summaryId}-body`} >{summaryBody}</SummaryBody>
     </SummaryHeader>
 
     {( summaryLink ) 
     ? 
-      <SummaryLink>
+      <SummaryLink id={`${summaryId}-link`} >
         <NavLink to={summaryLink} aria-label={summaryLabel}>
           <Trans>Change</Trans>
         </NavLink>
@@ -86,6 +87,7 @@ const SummaryRow = ({
 )
 
 const summaryRowProps = {
+  summaryId: PropTypes.string,
   summaryHeader: PropTypes.object.isRequired,
   summaryBody: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   summaryLink: PropTypes.string.isRequired,
