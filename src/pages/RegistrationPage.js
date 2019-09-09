@@ -122,6 +122,7 @@ class RegistrationPage extends React.Component {
       */
       if (windowExists()) {
         registrationFields.familyCheck = 'accept_anything'
+        registrationFields.familyOption = 'accept_anything'
       }
       
       
@@ -132,10 +133,17 @@ class RegistrationPage extends React.Component {
         defaultMessages,
         
       )
+      // if (values.email !== values.emailConfirm){
+      //   // eslint-disable-next-line no-console
+      //   console.log('error check')
+      //   RegistrationPage.errStrings= {emailConfirm : 'emailConfirmInvalidErrorMessage'}
+      //   return RegistrationPage.errStrings  
+      // } 
+      // eslint-disable-next-line no-console
      
 
       if (validate.passes()) {
-        // values.familyOption = values.familyCheck ? values.familyOption : ''
+        //values.familyOption = values.familyCheck ? values.familyOption : ''
         RegistrationPage.errStrings = {}
         return RegistrationPage.errStrings
       }
@@ -370,7 +378,7 @@ class RegistrationPage extends React.Component {
                 
                 {/* Reason */}
                 <div>
-                  <FieldSet legendHidden={false} id="accessibility">
+                  <FieldSet legendHidden={false} id="reason">
                     <legend>
                       <span id="reason-header">{labelNames('accessibility')}</span>
                     </legend>
@@ -380,20 +388,21 @@ class RegistrationPage extends React.Component {
                     <Field
                       type="checkbox"
                       component={CheckboxAdapter}
-                      name="accessibilityOption"
-                      id="familyOption"
+                      name="familyCheck"
+                      id="familyCheck"
                       label={<Trans>Agree</Trans>}
                       value="yes"
                       aria-labelledby="accessibility-label"
                       
                     />
-                    
-                    
+
+                 
+
                   </FieldSet>
                 </div>
 
                 <div>
-                  <FieldSet legendHidden={false} id="privacy">
+                  <FieldSet legendHidden={false} id="reason">
                     <legend>
                       <span id="reason-header">{labelNames('privacy')}</span>
                     </legend>
@@ -404,8 +413,8 @@ class RegistrationPage extends React.Component {
                     <Field
                       type="checkbox"
                       component={CheckboxAdapter}
-                      name="privacyCheck"
-                      id="familyCheck"
+                      name="familyOption"
+                      id="familyOption"
                       label={<Trans>Agree</Trans>}
                       value="yes"
                       aria-labelledby="privacy-label"
@@ -414,6 +423,7 @@ class RegistrationPage extends React.Component {
                     
                   </FieldSet>
                 </div>
+                
                 {/*
                Button is disabled if form has been submitted (and is waiting)
               */}

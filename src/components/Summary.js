@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 import { theme } from '../styles'
 import { Trans, withI18n } from '@lingui/react'
 import { SelectedDayList } from './SelectedDayList'
-import { SummaryRow, TextAreaSummaryRow } from './SummaryRow'
+import { SummaryRow } from './SummaryRow'
 //import { SummaryRow, TextAreaSummaryRow } from './SummaryRow'
 
 
@@ -27,8 +27,6 @@ const Summary = ({
   // eslint-disable-next-line react/prop-types
   privacy,
   
-  // eslint-disable-next-line react/prop-types
-  familyOption,
   i18n,
 }) => (
   <TableContainer>
@@ -71,14 +69,8 @@ const Summary = ({
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
     />
 
-      {familyOption && (
-      <TextAreaSummaryRow
-        summaryHeader={<Trans>Family members</Trans>}
-        summaryBody={familyOption}
-        summaryLink={'/register#familyOption-label'}
-        summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Family members')}`}
-      />
-    )}
+   
+    
   </TableContainer>
 )
 
