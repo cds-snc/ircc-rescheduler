@@ -101,7 +101,6 @@ class ReviewPage extends React.Component {
             location={locationCity + ', ' + locationAddress} 
             selectedDays={days}
             selectedTime={selectedTime}
-            availabilityExplanation={explanationPage}
           />
           {/* Note: if updating this text don't forget to update the email templates */}
           {/* <Reminder>
