@@ -49,7 +49,7 @@ describe('Calendar page functions', () => {
      cy.get('#calendar-header').should('contains.text', 'Select a day')
     })
 
-    it('should find selectable days', () => {  
+    xit('should find selectable days', () => {  
       cy.url().should('contains', '/calendar')
       cy.get('#calendar-header').should('contains.text', 'Select a day')
 
