@@ -88,7 +88,7 @@ export const defaultMessages = {
   'required.reason': 'reasonErrorMessage',
   //'required.explanation': 'explanationErrorMessage',
   //'max.explanation': 'explanationMaxErrorMessage',
-  'required_with.familyCheck': 'familyCheckRequiredWithErrorMessage',
+  // 'required_with.familyCheck': 'familyCheckRequiredWithErrorMessage',
   //'required_with.familyOption': 'familyOptionRequiredWithErrorMessage',
   //'max.familyOption': 'familyOptionMaxErrorMessage',
   'required.selectedDays': 'selectedDaysEmptyErrorMessage',
@@ -120,7 +120,7 @@ export const RegistrationFields = {
   email: `required|email`,
   emailConfirm: 'required|email|same:email',
   familyCheck: 'present',
-  // familyOption: `required_with:familyCheck|max:${INPUT_FIELD_MAX_CHARS}`,
+  familyOption: 'present',
   paperFileNumber: 'required|paper_file_number',
 }
 
@@ -135,6 +135,8 @@ export const SelectLocationFields = {
   locationCity: 'required', 
   locationId: 'required',
   locationAddress: 'required',
+  locationHours: 'required',
+  locationBiokitNumber: 'required',
 }
 
 // export const SelectTimeSlotField = {
