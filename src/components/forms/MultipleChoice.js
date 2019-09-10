@@ -79,7 +79,7 @@ const govuk_label_pseudo_elements = css`
 
   input[type='checkbox'] + &::before {
     content: '';
-    border: 2px solid;
+    border: 4px solid;
     background: transparent;
     width: 34px;
     height: 34px;
@@ -137,7 +137,7 @@ const cds_multiple_choice = css`
 
   input[type='radio'] + label::before,
   input[type='checkbox'] + label::before {
-    border: 2px solid ${theme.colour.black};
+    border: 3px solid ${theme.colour.black};
     background-color: ${theme.colour.white};
   }
 

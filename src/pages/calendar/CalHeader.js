@@ -48,7 +48,7 @@ export const CalHeader = ({
   path,
   headerMonth = '',
   headerNote = [],
-  familyOption,
+  familyOption = [],
 }) => {
   return (
     <div>
@@ -84,5 +84,5 @@ CalHeader.propTypes = {
   path: PropTypes.string.isRequired,
   headerMonth: PropTypes.string,
   headerNote: PropTypes.array,
-  familyOption: PropTypes.string,
+  familyOption: PropTypes.array,
 }

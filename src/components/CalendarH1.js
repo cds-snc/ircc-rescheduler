@@ -24,7 +24,7 @@ class CalendarH1 extends Component {
 }
 
 CalendarH1.propTypes = {
-  familyOption: PropTypes.string,
+  familyOption: PropTypes.array,
   locale: PropTypes.string.isRequired,
 }
 
