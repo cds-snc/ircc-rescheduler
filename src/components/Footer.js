@@ -116,9 +116,42 @@ const Footer = ({ contact = true, topBarBackground, i18n }) => (
     <footer id="footer" className={footer}>
       <div className={bottomLinks}>
 
-        <NavLink to="/privacy">
-          <Trans>Privacy</Trans>
-        </NavLink>
+
+       <a href={('https://www.canada.ca/en/government/about.html')} >
+        <Trans>About</Trans>
+        <Language
+            render={language =>
+              language === 'fr' ? null : (
+                <span className={visuallyhiddenMobile}> Canada.ca</span>
+              )
+            }
+          />
+       </a>
+
+
+       <a href={('https://www.canada.ca/en/social.html')} >
+        <Trans>Social</Trans>
+        <Language
+            render={language =>
+              language === 'fr' ? null : (
+                <span className={visuallyhiddenMobile}> media</span>
+              )
+            }
+          />
+       </a>
+      
+
+       <a href={('https://www.canada.ca/en/mobile.html')} >
+        <Trans>Mobile</Trans>
+        <Language
+            render={language =>
+              language === 'fr' ? null : (
+                <span className={visuallyhiddenMobile}> applications</span>
+              )
+            }
+          />
+       </a>
+
 
         <a href={i18n._('https://digital.canada.ca/legal/terms/')}>
           <Trans>Terms</Trans>
@@ -130,6 +163,12 @@ const Footer = ({ contact = true, topBarBackground, i18n }) => (
             }
           />
         </a>
+
+
+        <NavLink to="/privacy">
+          <Trans>Privacy</Trans>
+        </NavLink>
+
       </div>
 
       <div className="svg-container">
