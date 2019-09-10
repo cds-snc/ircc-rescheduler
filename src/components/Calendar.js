@@ -30,9 +30,19 @@ import { windowExists } from '../utils/windowExists'
 // import { CheckboxAdapter } from '../components/forms/MultipleChoice'
 // import { Field } from 'react-final-form'
 import TimeSlots from './TimeSlots'
-import FetchTimeSlots from './FetchTimeSlots'
 
 
+// export const Body2 = () => (
+
+ 
+  
+//   <div>
+  
+//     <div> hi {   // eslint-disable-next-line no-console
+//     console.log(this.props.timeSelected) }
+//     </div>
+//   </div>
+// )
 
 const jiggle = keyframes`
 10%, 60% {
@@ -586,7 +596,6 @@ renderMonthName.propTypes = {
 
 
 
-
 class Calendar extends Component {
 
 
@@ -652,6 +661,8 @@ class Calendar extends Component {
     console.log(this.props)
 
     const selectedDays = this.props.input.value || []
+    // eslint-disable-next-line no-console
+    console.log(selectedDays)
 
     if (selected) {
       this.setState({ daysModified: true })
@@ -893,7 +904,6 @@ class Calendar extends Component {
                   <TimeSlots
                     selectedTimeId={this.selectedTime}
                   />
-                  <FetchTimeSlots/>
                 </div>
                 <h1> value here { this.state.timeSelected } </h1>
                 
@@ -922,3 +932,4 @@ Calendar.propTypes = {
 
 const CalendarAdapter = withI18n()(Calendar)
 export { CalendarAdapter as default, renderDayBoxes }
+

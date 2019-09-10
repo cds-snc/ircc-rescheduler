@@ -1,16 +1,13 @@
 /* eslint-disable no-console */
 import React, { Component } from "react";
 import TimeForm from "./TimeForm";
-// import withContext from '../withContext'
-// import PropTypes from 'prop-types'
-// import { contextPropTypes } from '../context'
-// import { SelectTimeSlotField, getFieldNames } from '../validation'
-/* eslint-disable no-console */
-// import Language from '../components/anguaLge'
+import { contextPropTypes } from '../context'
+import PropTypes from 'prop-types'
+import Title, { matchPropTypes } from '../components/Title'
+import withContext from '../withContext'
+import { Body2 } from './Calendar'
 
 
-
-/* eslint-disable no-console */
 
 const mockData = [
     {
@@ -106,49 +103,82 @@ const mockData = [
 
 
 
+
 class TimeSlots extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       selectedId: 0,
-    
+      appointments: [],
     }
-
-    // this.validate = TimeSlots.validate
-    // this.fields = TimeSlots.fields
   }
 
-  // static errStrings = {}
 
+  async componentDidMount() {
 
-  // static get fields() {
-  //   return getFieldNames(SelectTimeSlotField)
-  // }
+    let {
+      context: {
+        store: {
+          selectProvince: {
+            locationId,
+          } = {},
+        } = {},
+      } = {},
+    } = this.props
 
-  // static validate(values, submitted) {
-  //   return TimeSlots.errStrings
-  // }
+    
+    console.log(locationId)
+    console.log(this.props) 
+    const url = `http://localhost:4011/appointmentsByLocId/${locationId}`;
+    // eslint-disable-next-line no-undef
+    console.log(url)
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({ appointments: data, loading: true });
+    // eslint-disable-next-line no-console
+    this.removeTimeSlot()
 
+  }
+    removeTimeSlot(){
 
-  // async handleTime ( selectedTime ) {
-  //   // eslint-disable-next-line no-console
-  //   console.log(this.props) 
+        const dbTimeSlots = this.state.appointments;
+        const TimeSlotArray = mockData;
+        // eslint-disable-next-line no-console
+        // console.log(TimeSlotArray[1].Time)
+        // eslint-disable-next-line no-console
+        // console.log(dbTimeSlots)
+      
 
-  //   let values = { 'TimeSlot' : selectedTime }
-  //   console.log(values)
-  //   // eslint-disable-next-line no-unused-vars
-  //   let justValidate = this.validate( values, true) 
+        for (var i = 0; i < TimeSlotArray.length; i++) {
+          for (var j = 0; j < dbTimeSlots.length; j++) {
+         // eslint-disable-next-line security/detect-object-injection
+         if (dbTimeSlots[j].time.toString() ===
+           // eslint-disable-next-line security/detect-object-injection
+           TimeSlotArray[i].Time.toString()
+         ) {
+           // eslint-disable-next-line no-console
+          //  console.log('its true');
+           TimeSlotArray.splice(i, 1);
+           
+         }
+         // eslint-disable-next-line no-console
+        //  console.log('its false');
+        }
+      
+        }
+      
+      
+        // const NewTimeSlotArray = TimeSlotArray
+      // eslint-disable-next-line no-console
+        console.log(TimeSlotArray)
 
-  //   await this.props.context.setStore('selectTime', values)
+              // eslint-disable-next-line no-console
+  
+      
+      
+        }
 
-  //   // eslint-disable-next-line no-console
-  //   console.log(this.props.context.store )
-  //   await this.props.history.push('/review')
-  // }
-
-
-
+        
   changeHandler = id => {
     this.setState({
       selectedId: id,
@@ -157,12 +187,24 @@ class TimeSlots extends Component {
     this.props.selectedTimeId(id)
     // eslint-disable-next-line no-undef
     console.log(id)
+    console.log(this.props )
   };
+
+  daySelected = value => {
+    this.props.selectedDay(value)
+    // eslint-disable-next-line no-console
+    console.log(this.props.selectedDay)
+    this.setState({
+      selectedDay : value,
+    })
+  }
 
 
   render() {
 
     return (
+      <div>
+   
       <table>
         <tbody>
           {mockData.map(rowData => (
@@ -173,18 +215,18 @@ class TimeSlots extends Component {
               onSelect={this.changeHandler}
             />
           ))}
-        
         </tbody>
-      </table>
+      </table>   
+      </div>
     );
+    
   }
 }
 
+TimeSlots.propTypes = {
+  ...contextPropTypes,
+  ...matchPropTypes,
+}
 
-// TimeSlots.propTypes = {
-//   ...contextPropTypes,
-//   history: PropTypes.any,
-// }
 
-
-export default (TimeSlots)
+export default withContext(TimeSlots)
