@@ -44,6 +44,20 @@ class ReviewPage extends React.Component {
     }
   }
 
+  translate(reason) {
+    if (reason) {
+      switch (reason[0]) {
+      case 'yes':
+        return <Trans>Yes</Trans>
+      default:
+        return <Trans>No</Trans>
+    }} else {
+      return <Trans>No</Trans>
+    }
+  }
+
+
+
   render() {
     let {
       context: {
@@ -52,6 +66,7 @@ class ReviewPage extends React.Component {
             paperFileNumber,
             email,
             familyCheck,
+            familyOption,
           } = {},
 
           calendar: { selectedDays = [], selectedTime } = {},
@@ -98,6 +113,7 @@ class ReviewPage extends React.Component {
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(familyCheck)}
+            privacy={this.translate(familyOption)}
             location={locationCity + ', ' + locationAddress} 
             selectedDays={days}
             selectedTime={selectedTime}
@@ -125,6 +141,7 @@ class ReviewPage extends React.Component {
             email={email}
             paperFileNumber={paperFileNumber}
             accessibility={this.translateReason(familyCheck)}
+            privacy={this.translate(familyOption)}
             location={locationCity + ', ' + locationAddress}
             selectedDays={selectedDays}
             sending={sending}

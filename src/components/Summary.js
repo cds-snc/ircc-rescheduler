@@ -25,6 +25,9 @@ const Summary = ({
   selectedTime,
   // eslint-disable-next-line react/prop-types
   accessibility,
+  // eslint-disable-next-line react/prop-types
+  privacy,
+  
   i18n,
 }) => (
   <TableContainer>
@@ -50,6 +53,7 @@ const Summary = ({
       summaryBody={accessibility}
       summaryLink={'/register#accessibility-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Accessibility')}`}
+
     /> 
     <SummaryRow
       summaryId={'privacy'}
@@ -79,6 +83,9 @@ const Summary = ({
       summaryLink={'/calendar#selectedDaysBox'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
     />
+
+   
+    
   </TableContainer>
 )
 
