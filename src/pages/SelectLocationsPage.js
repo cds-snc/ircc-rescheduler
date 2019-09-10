@@ -72,6 +72,8 @@ class SelectlocationsPage extends React.Component {
       cityName: null,
       locationNumber: null, 
       locationAddress: null,
+      locationHours: null,
+      biokitNumber: null,
       provLocations: [],
       cityLocations:[],
       loading: false,
@@ -103,7 +105,11 @@ class SelectlocationsPage extends React.Component {
     // eslint-disable-next-line no-console
     console.log(this.props) 
 
-    let values = { 'locationCity' : this.state.cityName ,'locationId' : this.state.locationNumber, 'locationAddress': this.state.locationAddress }
+    let values = { 'locationCity' : this.state.cityName ,
+                   'locationId' : this.state.locationNumber, 
+                   'locationAddress' : this.state.locationAddress, 
+                   'locationHours' : this.state.locationHours,
+                   'locationBiokitNumber' : this.state.biokitNumber }
 
     if ( this.state.locationNumber === null ) {
       this.setState( {pageError : 2} )
@@ -113,6 +119,8 @@ class SelectlocationsPage extends React.Component {
     } else {
       this.setState( {pageError : 0} )
       await this.props.context.setStore('selectProvince', values)
+      // eslint-disable-next-line no-console
+      console.log(values )
       // eslint-disable-next-line no-console
       console.log(this.props.context.store )
       await this.props.history.push('/calendar')
@@ -141,6 +149,8 @@ class SelectlocationsPage extends React.Component {
             cityName: null,
             locationNumber: null,
             locationAddress: null,
+            locationHours: null, 
+            biokitNumber: null,
             pageError: 0,
             loading: false,
           })
@@ -162,6 +172,8 @@ class SelectlocationsPage extends React.Component {
             cityLocations: locs,
             locationNumber: null,
             locationAddress: null,
+            locationHours: null,
+            biokitNumber: null,
             pageError: 0,
             loading: false,
         })
@@ -178,7 +190,7 @@ class SelectlocationsPage extends React.Component {
   // Save in State the current city then gets the locations in the city
   handleCityChange(event) {
     if ( event.target.value === 'Sélectionnez une ville' || event.target.value === 'Select a City' ) {
-      this.setState({ cityName : null, locationNumber: null, locationAddress: null });
+      this.setState({ cityName : null, locationNumber: null, locationAddress: null, locationHours: null, biokitNumber: null });
     } else {
       this.setState({ cityName : event.target.value });
       this.getCityLocations( this.state.provinceName,  event.target.value )
@@ -186,9 +198,8 @@ class SelectlocationsPage extends React.Component {
   }
 
   // Save in State the selected location to be validated in the submit 
-  handleLocation(LocationId, LocationAddress) {
-    this.setState({ locationNumber: LocationId, locationAddress: LocationAddress });
-    console.log ('locationId == ' + this.state.locationNumber + ' should be = ' + LocationId)
+  handleLocation(locId, locAddress, locHours, locBiokits) {
+    this.setState({ locationNumber: locId, locationAddress: locAddress, locationHours: locHours, biokitNumber: locBiokits });
   }
 
 
@@ -289,8 +300,8 @@ class SelectlocationsPage extends React.Component {
                   <div id="OfficeList" ref={selectOfficeError => { this.selectOfficeError = selectOfficeError }}>
                   <fieldset id="SetListOffices">
                   <legend className={visuallyhidden}>List of offices</legend>  
-                    {cityLocations.map(( {locationId, locationAddress, hours} ) => (
-                      <div key={locationId} id={`${locationId}-div`} name='locations' onClick= {() => {this.handleLocation(locationId, locationAddress)}}>
+                    {cityLocations.map(( {locationId, locationAddress, hours, biokitAmount} ) => (
+                      <div key={locationId} id={`${locationId}-div`} name='locations' onClick= {() => {this.handleLocation(locationId, locationAddress, hours, biokitAmount)}}>
                         <Radio 
                           type="radio"
                           name='OfficeList'
@@ -298,7 +309,7 @@ class SelectlocationsPage extends React.Component {
                           id={locationId}
                           aria-labelledby="OfficeList"
                           label = {
-                            <div id={`${locationId}-data`} onClick={() => {this.handleLocation(locationId, locationAddress)}}> 
+                            <div id={`${locationId}-data`} onClick={() => {this.handleLocation(locationId, locationAddress, hours, biokitAmount)}}> 
                               <span id={`${locationId}-off`}> 
                                 <FaExternalLinkAlt color='#ffbf47' size='18' />
                                 <a id={`${locationId}-href`} rel="noopener noreferrer" target='_blank' 

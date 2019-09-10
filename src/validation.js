@@ -135,6 +135,8 @@ export const SelectLocationFields = {
   locationCity: 'required', 
   locationId: 'required',
   locationAddress: 'required',
+  locationHours: 'required',
+  locationBiokitNumber: 'required',
 }
 
 // export const SelectTimeSlotField = {
