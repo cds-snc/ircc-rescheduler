@@ -22,6 +22,7 @@ const Summary = ({
   email,
   location,
   selectedDays,
+    // eslint-disable-next-line react/prop-types
   selectedTime,
   // eslint-disable-next-line react/prop-types
   accessibility,

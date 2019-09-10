@@ -2,11 +2,45 @@
 import React, { Component } from "react";
 import TimeForm from "./TimeForm";
 import { contextPropTypes } from '../context'
-import PropTypes from 'prop-types'
-import Title, { matchPropTypes } from '../components/Title'
+// import PropTypes from 'prop-types'
+import { matchPropTypes } from '../components/Title'
 import withContext from '../withContext'
-import { Body2 } from './Calendar'
+import { Form } from "react-final-form";
+import moment from "moment";
 
+
+
+function getTimeStops(start, end){
+  var startTime = moment(start, 'hh:mm');
+  var endTime = moment(end, 'hh:mm');
+  
+  if( endTime.isBefore(startTime) ){
+    endTime.add(1, 'day');
+  }
+
+  var timeStops = [];
+
+  while(startTime <= endTime){
+    timeStops.push(new moment(startTime).format('hh:mm A'));
+    startTime.add(15, 'minutes');
+  }
+  return timeStops;
+}
+
+var timeStops = getTimeStops('08:00', '16:00');
+console.log('timeStops ', timeStops);
+
+
+var str = '92-3',
+    array = str.split('-');
+
+(function(a, b, c) {
+    a; // 1
+    b; // 2
+    
+}).apply(null, array)
+
+console.log(array[0])
 
 
 const mockData = [
@@ -101,20 +135,19 @@ const mockData = [
 
 ];
 
-
-
-
 class TimeSlots extends Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedId: 0,
       appointments: [],
+      selectedDay: [],
     }
   }
 
 
-  async componentDidMount() {
+  // eslint-disable-next-line react/no-deprecated
+  async componentWillReceiveProps() {
 
     let {
       context: {
@@ -125,13 +158,24 @@ class TimeSlots extends Component {
         } = {},
       } = {},
     } = this.props
+  
 
-    
+    console.log ('this is the componentdidmount ')
+    // console.log(this.props.selectedDay[0])
+
+    const currentDate = this.props.selectedDay[0]
+
+
+    console.log(currentDate)
+
+
     console.log(locationId)
     console.log(this.props) 
     const url = `http://localhost:4011/appointmentsByLocId/${locationId}`;
     // eslint-disable-next-line no-undef
     console.log(url)
+
+    // eslint-disable-next-line no-undef
     const response = await fetch(url);
     const data = await response.json();
     this.setState({ appointments: data, loading: true });
@@ -139,6 +183,7 @@ class TimeSlots extends Component {
     this.removeTimeSlot()
 
   }
+
     removeTimeSlot(){
 
         const dbTimeSlots = this.state.appointments;
@@ -190,21 +235,24 @@ class TimeSlots extends Component {
     console.log(this.props )
   };
 
-  daySelected = value => {
-    this.props.selectedDay(value)
+  daySelected = selectedDay => {
+    this.props.selectedDay(selectedDay)
     // eslint-disable-next-line no-console
     console.log(this.props.selectedDay)
     this.setState({
-      selectedDay : value,
+      selectedDay : selectedDay,
     })
   }
 
 
   render() {
 
+    // const { selectedDay } = this.props;
+
+    // console.log(selectedDay)
+    
     return (
       <div>
-   
       <table>
         <tbody>
           {mockData.map(rowData => (
@@ -218,6 +266,7 @@ class TimeSlots extends Component {
         </tbody>
       </table>   
       </div>
+      
     );
     
   }

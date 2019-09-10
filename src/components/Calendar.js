@@ -32,17 +32,7 @@ import { windowExists } from '../utils/windowExists'
 import TimeSlots from './TimeSlots'
 
 
-// export const Body2 = () => (
 
- 
-  
-//   <div>
-  
-//     <div> hi {   // eslint-disable-next-line no-console
-//     console.log(this.props.timeSelected) }
-//     </div>
-//   </div>
-// )
 
 const jiggle = keyframes`
 10%, 60% {
@@ -903,9 +893,13 @@ class Calendar extends Component {
                 <div style={scrollBar}>
                   <TimeSlots
                     selectedTimeId={this.selectedTime}
+                    selectedDay={value}
                   />
                 </div>
-                <h1> value here { this.state.timeSelected } </h1>
+                
+                <h1> value here 
+              
+                { this.state.timeSelected } </h1>
                 
 
               </div>
