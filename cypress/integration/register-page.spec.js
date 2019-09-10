@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 // Verify Items and functions on the register page - BIL # - email and radio button.
-import { headerImg, langLink, contactLink, privacyLink, privacyHref, tocLink, footerImg, homeLink, enterButton } from './utils'
+import { enterButton, headerImg, langLink, privacyLink, tocLink, aboutCA, sMedia, mobileApp, aboutCAHref, sMediaHref, mobileHref, tocHref, privacyHref,footerImg } from './utils'
+// verify items on the register page. 
 
 function checkA11y(cy){ 
   cy.checkA11y({
@@ -20,27 +21,30 @@ describe('Register page functions', () => {
       checkA11y(cy)
     })
 
-    it('should go to the selectProvince page and show header info', () => {  
+    it('should go to the register page and show header image and links ', () => {  
       cy.url().should('contains', '/register')
      cy.get(headerImg).should('be.visible')
       cy.get(langLink).should('be.visible', 'Français')
- 
+  
      })
-     it('should check footer info', () => {
+     it('should check footer info for links and canada image', () => {
        cy.url().should('contains', '/register')
-      cy.get(contactLink).should('be.visible')
-      cy.get(privacyLink).should('not.contain', 'Contact')
-      cy.get(privacyHref).should('contain', 'Privacy')
+      cy.get(aboutCA).should('be.visible').and('contain', 'About Canada.ca')
+      cy.get(sMedia).should('be.visible').and('contain', 'Social media')
+      cy.get(mobileApp).should('be.visible').and('contain', 'Mobile applications')
       cy.get(tocLink).should('contain', 'Terms and Conditions')
+      cy.get(privacyLink).should('contain', 'Privacy')
+     
+      cy.get(aboutCAHref).should('have.attr', 'href', 'https://www.canada.ca/en/government/about.html')
+      cy.get(sMediaHref).should('have.attr', 'href', 'https://www.canada.ca/en/social.html')
+      cy.get(mobileHref).should('have.attr', 'href', 'https://www.canada.ca/en/mobile.html')
+      cy.get(tocHref).should('have.attr', 'href', 'https://digital.canada.ca/legal/terms/')
+      cy.get(privacyHref).should('have.attr', 'href', '/privacy')
+      
        cy.get(footerImg).should('be.visible')
       })
     
-    it('should have header and footer canada svg', () => {
-        cy.get('.svg-container').eq(1).should('be.visible')
-        cy.get('.css-1e5qbzj-baseSVG-engSVG').should('be.visible')
-       
-      })
-      it('should have Home link breadcrumb', () => {
+      xit('should have Home link breadcrumb', () => {
         cy.get(homeLink).should('be.visible')
       })
 
@@ -114,7 +118,7 @@ describe('Register page functions', () => {
             cy.get('li > a').should('contain.text', 'Confirm Email address')   
           })})
 
-          it.only('should scroll on error message click', () => {
+          it('should scroll on error message click', () => {
             cy.injectAxe()
             cy.fixture('user').then(data => {
               cy.get('#paperFileNumber').type(data.wrongFileNumber, { force: true })
