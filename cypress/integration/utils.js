@@ -12,13 +12,19 @@ export const langLink = () => cy.get('#language-toggle');
 export const homeLink = () => cy.get('[style="margin-left:4.5rem"]').eq(0);
 
 // Check the footer for links and Canada wordmark
-export const contactLink = () => cy.get('#footer div a').eq(0);
+export const aboutCA = () => cy.get('#footer a').eq(0);
+export const sMedia = () => cy.get('#footer a').eq(1);
+export const mobileApp = () => cy.get('#footer a').eq(2);
+export const tocLink = () => cy.get('#footer a').eq(3);
+export const privacyLink = () => cy.get('#footer a').eq(4);
 
-export const privacyLink = () => cy.get('#footer a').eq(0);
-
-export const privacyHref = () =>cy.get('#footer div a').eq(0);
+export const aboutCAHref = () => cy.get('#footer div a').eq(0);
+export const sMediaHref = () => cy.get('#footer div a').eq(1);
+export const mobileHref = () => cy.get('#footer div a').eq(2);
+export const tocHref = () => cy.get('#footer div a').eq(3);
+export const privacyHref = () =>cy.get('#footer div a').eq(4);
 // todo, check the privacy link text once complete
-export const tocLink = () => cy.get('#footer a').eq(1);
+
 
 export const enterButton = () => cy.get('.css-arysfy-govuk_button-button-mediaQuery-button')
 

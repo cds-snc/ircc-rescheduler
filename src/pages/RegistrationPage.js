@@ -378,9 +378,9 @@ class RegistrationPage extends React.Component {
                 
                 {/* Reason */}
                 <div>
-                  <FieldSet legendHidden={false} id="reason">
+                  <FieldSet legendHidden={false} id="a11y-reason">
                     <legend>
-                      <span id="reason-header">{labelNames('accessibility')}</span>
+                      <span id="a11y-reason-header">{labelNames('accessibility')}</span>
                     </legend>
 
                     {/* Accessibility */}
@@ -388,11 +388,11 @@ class RegistrationPage extends React.Component {
                     <Field
                       type="checkbox"
                       component={CheckboxAdapter}
-                      name="familyCheck"
+                      name="accessibilityCheck"
                       id="familyCheck"
                       label={<Trans>Agree</Trans>}
                       value="yes"
-                      aria-labelledby="accessibility-label"
+                      aria-label="accessibility-label"
                       
                     />
 
@@ -402,9 +402,9 @@ class RegistrationPage extends React.Component {
                 </div>
 
                 <div>
-                  <FieldSet legendHidden={false} id="reason">
+                  <FieldSet legendHidden={false} id="privacy-reason">
                     <legend>
-                      <span id="reason-header">{labelNames('privacy')}</span>
+                      <span id="privacy-reason-header">{labelNames('privacy')}</span>
                     </legend>
 
                     
@@ -413,11 +413,11 @@ class RegistrationPage extends React.Component {
                     <Field
                       type="checkbox"
                       component={CheckboxAdapter}
-                      name="familyOption"
+                      name="privacyOption"
                       id="familyOption"
                       label={<Trans>Agree</Trans>}
                       value="yes"
-                      aria-labelledby="privacy-label"
+                      aria-label="privacy-label"
                       
                     />
                     
