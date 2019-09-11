@@ -1,20 +1,20 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-console */
-import React, { Component } from "react";
+import React, { Component } from 'react'
 
 export default class TimeForm extends Component {
   changeHandler = (value, id) => {
     if (value) {
-      this.props.onSelect(id);
+      this.props.onSelect(id)
     } else {
       // handle de-select
     }
-  };
+  }
 
   render() {
-    const { rowData, selectedId } = this.props;
-    const { id, Time } = rowData;
-    const isChecked = Time === selectedId;
+    const { rowData, selectedId } = this.props
+    const { id, Time } = rowData
+    const isChecked = Time === selectedId
 
     return (
       <tr>
@@ -28,8 +28,7 @@ export default class TimeForm extends Component {
           />
         </td>
         <td>{Time}</td>
-
       </tr>
-    );
+    )
   }
 }
