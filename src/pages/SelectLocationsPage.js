@@ -62,7 +62,7 @@ const clearFix = css`
 //  margin-left: 4px;
 //`
 
-const dbHost = process.env.CONNECTION_STRING
+const dbHost = process.env.RAZZLE_CONNECTION_STRING
 
 class SelectlocationsPage extends React.Component {
   constructor(props) {

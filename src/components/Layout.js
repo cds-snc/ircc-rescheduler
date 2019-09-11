@@ -11,7 +11,6 @@ import { ErrorBoundary } from './ErrorBoundary'
 import { ErrorPageContent } from '../pages/ErrorPage'
 import { initGA, logPageView } from '../utils/analytics'
 
-
 injectGlobal`
   html, body {
     padding: 0;
@@ -111,7 +110,9 @@ class Layout extends React.Component {
             <FederalBanner />
             <Devider />
             <PageHeader>{this.props.header}</PageHeader>
-            <Link to="/" style={{ marginLeft: `${theme.spacing.xxxl}` }}>Home</Link>
+            <Link to="/" style={{ marginLeft: `${theme.spacing.xxxl}` }}>
+              Home
+            </Link>
           </div>
           <main role="main">
             <div

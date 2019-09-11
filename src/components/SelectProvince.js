@@ -144,11 +144,12 @@ class SelectProvince extends Component {
 
     if (city != null) {
       encodedURI = encodeURI(
-        `{process.env.CONNECTION_STRING} + /locationsbyprov/${province}/${city}`,
+        process.env.RAZZLE_CONNECTION_STRING +
+          `/locationsbyprov/${province}/${city}`,
       )
     } else {
       encodedURI = encodeURI(
-        `{process.env.CONNECTION_STRING} + /1/locationsbyprov/${province}`,
+        process.env.RAZZLE_CONNECTION_STRING + `/1/locationsbyprov/${province}`,
       )
     }
 
