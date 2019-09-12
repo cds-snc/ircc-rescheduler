@@ -84,6 +84,12 @@ const landingArrow = css`
   margin-left: 4px;
 `
 
+const googleAnalyticsAPI = {
+  getAvgTimeOnPage: function() {
+    return '10-15'
+  },
+}
+
 class LandingPage extends React.Component {
   render() {
     return (
@@ -117,6 +123,13 @@ class LandingPage extends React.Component {
             <li>
               <p>
                 <Trans>To describe your reason for rescheduling</Trans>
+              </p>
+            </li>
+            <li>
+              <p>
+                <Trans>About</Trans>{' '}
+                <strong>{googleAnalyticsAPI.getAvgTimeOnPage()}</strong>{' '}
+                <Trans>minutes</Trans> 🕖
               </p>
             </li>
           </ul>
