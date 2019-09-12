@@ -132,7 +132,10 @@ class LandingPage extends React.Component {
               <p>
                 <Trans>About</Trans>{' '}
                 <strong>{googleAnalyticsAPI.getAvgTimeOnPage()}</strong>{' '}
-                <Trans>minutes</Trans> 🕖
+                <Trans>minutes</Trans>{' '}
+                <span role="img" aria-label="clock" aria-hidden="true">
+                  🕖
+                </span>
               </p>
             </li>
           </ul>
@@ -180,7 +183,9 @@ class LandingPage extends React.Component {
           </NavLink>
         </div>
         <p>
-          ✓{' '}
+          <span role="img" aria-label="check" aria-hidden="true">
+            ✓
+          </span>{' '}
           <strong>
             {googleAnalyticsAPI.getCompletionFunnel()} <Trans>people</Trans>
           </strong>{' '}
