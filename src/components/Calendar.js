@@ -33,6 +33,7 @@ import TimeSlots from './TimeSlots'
 
 
 
+
 const jiggle = keyframes`
 10%, 60% {
   transform: translate3d(-1px, 0, 0);
@@ -585,7 +586,6 @@ renderMonthName.propTypes = {
 
 
 
-
 class Calendar extends Component {
 
 
@@ -651,6 +651,8 @@ class Calendar extends Component {
     console.log(this.props)
 
     const selectedDays = this.props.input.value || []
+    // eslint-disable-next-line no-console
+    console.log(selectedDays)
 
     if (selected) {
       this.setState({ daysModified: true })
@@ -891,9 +893,14 @@ class Calendar extends Component {
                 <div style={scrollBar}>
                   <TimeSlots
                     selectedTimeId={this.selectedTime}
+                    selectedDay={value}
                   />
                 </div>
-                <h1> value here { this.state.timeSelected } </h1>
+                
+                <h1> value here 
+              
+                { this.state.timeSelected } </h1>
+                
 
               </div>
             </div>
@@ -919,3 +926,4 @@ Calendar.propTypes = {
 
 const CalendarAdapter = withI18n()(Calendar)
 export { CalendarAdapter as default, renderDayBoxes }
+
