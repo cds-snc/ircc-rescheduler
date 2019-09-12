@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { headerImg, langLink, privacyLink, tocLink, aboutCA, sMedia, mobileApp, aboutCAHref, sMediaHref, mobileHref, tocHref, privacyHref,footerImg } from './utils'
+import { enterButton, headerImg, langLink, privacyLink, tocLink, aboutCA, sMedia, mobileApp, aboutCAHref, sMediaHref, mobileHref, tocHref, privacyHref,footerImg } from './utils'
 
 // Verify Items and functions on the calendar page. 
 
@@ -44,12 +44,12 @@ describe('Calendar page functions', () => {
      })
   
     // This needs to be updated for the text TBD
-    it('should do something', () => {  
+    it('should contain some text', () => {  
      cy.url().should('contains', '/calendar')
      cy.get('#calendar-header').should('contains.text', 'Select a day')
     })
 
-    xit('should find selectable days', () => {  
+    it('should find selectable days', () => {  
       cy.url().should('contains', '/calendar')
       cy.get('#calendar-header').should('contains.text', 'Select a day')
 
@@ -63,16 +63,45 @@ describe('Calendar page functions', () => {
       cy.get('.css-ex3iit-daySelection-mediaQuery-daySelection').should('contain.text', 'Please select your time slot:')
       cy.get('time').should('contain', todaysDate)
 
-
+    })
+  
+  xit('should count the number of days available for appointments (30)', () => {  
+    cy.url().should('contains', '/calendar')
+    cy.get('#calendar-header').should('contains.text', 'Select a day')
     cy.get('.DayPicker-Day[aria-disabled=false]').then(el => {
       const count = el.length
-      expect(count).eq(15)
+      expect(count).eq(13)
+   })
+  })
       // make sure we're on a month that has 3 selectable days
      // if (count <= 30) {
 
        // cy.get('.DayPicker-NavButton--next').click({ force: true })
    //   }
-    })
+   
+   it('should check a timeslot', () => {  
+    cy.url().should('contains', '/calendar')
+    // compare today's actual date with the Day--today
+     const todaysDate = Cypress.moment().format('LL')//('dddd,MMMMDD,YYYY')
+    cy.get('.DayPicker-Day--today').click()
+    cy.get('.DayPicker-Day--selected').should('be.visible')
+    cy.get('time').should('contain', todaysDate)
+     // cy.get('[type="checkbox"]').check(['#checkbox_1'])
+    cy.get('#checkbox_1').should('not.be.checked')
+    cy.get('#checkbox_1').check()
+    cy.get('#checkbox_1').should('be.checked')
+  })
+  it('should select a time an click enter button', () => {  
+    cy.url().should('contains', '/calendar')
+    // compare today's actual date with the Day--today
+     const todaysDate = Cypress.moment().format('LL')//('dddd,MMMMDD,YYYY')
+    cy.get('.DayPicker-Day--today').click()
+ //   cy.get('.DayPicker-Day--selected').should('be.visible')
+    cy.get('time').should('contain', todaysDate)
+     // cy.get('[type="checkbox"]').check(['#checkbox_1'])
+    cy.get('#checkbox_1').check()
+    cy.get(enterButton).click()
+    cy.url().should('contains', '/review')
   })
 
 });
