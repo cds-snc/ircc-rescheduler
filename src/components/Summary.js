@@ -33,7 +33,7 @@ const Summary = ({
   <TableContainer>
     <SummaryRow
       summaryId={'bilNumber'}
-      summaryHeader={<Trans>BIL file number</Trans>}
+      summaryHeader={<Trans>Application number</Trans>}
       summaryBody={paperFileNumber}
       summaryLink={'/register#paperFileNumber-label'}
       summaryLabel={
@@ -71,14 +71,14 @@ const Summary = ({
     />
     <SummaryRow
       summaryId={'time'}
-      summaryHeader={<Trans>Time Slot</Trans>}
+      summaryHeader={<Trans>Time</Trans>}
       summaryBody={selectedTime}
       summaryLink={'/calendar#selectedDaysBox'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
     />
     <SummaryRow
       summaryId={'date'}
-      summaryHeader={<Trans>Availability</Trans>}
+      summaryHeader={<Trans>Date</Trans>}
       summaryBody={<SelectedDayList selectedDays={selectedDays} />}
       summaryLink={'/calendar#selectedDaysBox'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}

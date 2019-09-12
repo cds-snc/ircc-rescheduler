@@ -893,7 +893,6 @@ class Calendar extends Component {
                     selectedTimeId={this.selectedTime}
                   />
                 </div>
-                <h1> value here { this.state.timeSelected } </h1>
 
               </div>
             </div>

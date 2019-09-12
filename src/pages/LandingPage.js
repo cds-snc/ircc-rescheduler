@@ -163,7 +163,7 @@ class LandingPage extends React.Component {
 
         <div>
           <NavLink to="/register" className={buttonStyles}>
-            <Trans>I Agree TODO: TRANS</Trans>
+            <Trans>Start request</Trans>
             <img src={rightArrow} className={landingArrow} alt="" />
           </NavLink>
         </div>

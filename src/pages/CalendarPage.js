@@ -4,7 +4,7 @@ import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { Trans } from '@lingui/react'
 import { css } from 'emotion'
-import { focusRing } from '../styles'
+import { focusRing, arrow } from '../styles'
 import {
   CalendarFields,
   getFieldNames,
@@ -35,11 +35,16 @@ import {
 import { CalHeader } from './calendar/CalHeader'
 import { CalBottom } from './calendar/CalBottom'
 import CalendarPageNoJS from './CalendarPageNoJS'
+import rightArrow from '../assets/rightArrow.svg'
 
 const DAY_LIMIT = 1
 
 const fullWidth = css`
   width: 100% !important;
+`
+const landingArrow = css`
+  ${arrow};
+  margin-left: 4px;
 `
 
 class CalendarPage extends Component {
@@ -357,6 +362,7 @@ class CalendarPage extends Component {
                     return (
                       <Button disabled={submitting}>
                         <Trans>Next</Trans>
+                        <img src={rightArrow} className={landingArrow} alt="" />
                       </Button>
                     )
                   }}

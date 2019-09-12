@@ -29,7 +29,7 @@ const Review = ({
   <TableContainer>
     <SummaryRow
       summaryId={'bilNumber'}
-      summaryHeader={<Trans>BIL file number</Trans>}
+      summaryHeader={<Trans>Application number</Trans>}
       summaryBody={paperFileNumber}
       summaryLink={''}
       summaryLabel={''}
@@ -64,14 +64,14 @@ const Review = ({
     />
     <SummaryRow
       summaryId={'time'}
-      summaryHeader={<Trans>Time Slot</Trans>}
+      summaryHeader={<Trans>Time</Trans>}
       summaryBody={selectedTime}
       summaryLink={''}
       summaryLabel={''}
     />    
     <SummaryRow
       summaryId={'date'}
-      summaryHeader={<Trans>Availability</Trans>}
+      summaryHeader={<Trans>Date</Trans>}
       summaryBody={<SelectedDayList selectedDays={selectedDays} />}
       summaryLink={''}
       summaryLabel={''}

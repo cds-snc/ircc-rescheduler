@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { css } from 'emotion'
-import { theme, mediaQuery, visuallyhidden, contentClass } from '../styles'
+import { theme, mediaQuery, visuallyhidden, contentClass, arrow } from '../styles'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import { SelectLocationFields, getFieldNames } from '../validation'
@@ -18,10 +18,10 @@ import Loading from '../components/Loading'
 import SelectDropDown from '../components/forms/Select'
 import { ApiFetch } from '../components/ApiFetch'
 import FocusedH1 from '../components/FocusedH1'
+import rightArrow from '../assets/rightArrow.svg'
 
 // import styled from '@emotion/styled'
 //import { buttonStyles } from '../components/forms/Button'
-//import rightArrow from '../assets/rightArrow.svg'
 
 /* eslint-disable no-console */
 
@@ -57,10 +57,10 @@ const clearFix = css`
   clear: both;
   display: table;
 `
-//const landingArrow = css`
-//  ${arrow};
-//  margin-left: 4px;
-//`
+const landingArrow = css`
+  ${arrow};
+  margin-left: 4px;
+`
 
 const dbHost = 'http://localhost:4011'
 
@@ -428,7 +428,8 @@ class SelectlocationsPage extends React.Component {
 
                   <Button type="submit" value="Submit" onClick={this.submit}>
                     {' '}
-                    Submit{' '}
+                    Next{' '}
+                    <img src={rightArrow} className={landingArrow} alt="" />
                   </Button>
                 </React.Fragment>
               )}

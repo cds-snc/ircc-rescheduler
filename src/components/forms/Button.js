@@ -96,7 +96,7 @@ const button = css`
   text-align: center;
 
   color: ${theme.colour.white} !important;
-  background-color: ${theme.colour.green};
+  background-color: ${theme.colour.canadaBlue};
   overflow: hidden;
 
   // Size and shape
@@ -109,7 +109,7 @@ const button = css`
 
   &:visited {
     color: ${theme.colour.white} !important;
-    background-color: ${theme.colour.green};
+    background-color: ${theme.colour.canadaBlue};
   }
 
   &:focus {
@@ -119,20 +119,20 @@ const button = css`
 
   &:hover,
   &:focus {
-    background-color: ${theme.colour.greenDark};
+    background-color: ${theme.colour.canadaBlueDark};
     box-shadow: 0 2px 0 ${incrementColor(theme.colour.black, 20)};
   }
 
   &:active {
     top: 2px;
-    background-color: ${theme.colour.greenDark};
-    box-shadow: 0 0 0 ${theme.colour.greenDark};
+    background-color: ${theme.colour.canadaBlueDark};
+    box-shadow: 0 0 0 ${theme.colour.canadaBlueDark};
   }
 
   &:disabled {
     &:hover {
       cursor: not-allowed;
-      background-color: ${incrementColor(theme.colour.greenDark, 50)};
+      background-color: ${incrementColor(theme.colour.canadaBlueDark, 50)};
     }
   }
 `

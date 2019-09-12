@@ -10,7 +10,7 @@ import {
   visuallyhidden,
   BottomContainer,
   focusRing,
-  contentClass,
+  contentClass, arrow, 
 } from '../styles'
 import {
   RegistrationFields,
@@ -39,6 +39,7 @@ import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
+import rightArrow from '../assets/rightArrow.svg'
 
 const registrationContentClass = css`
   ${contentClass};
@@ -63,6 +64,10 @@ const registrationContentClass = css`
   #familyOption-details {
     padding: ${theme.spacing.xxs} 0;
   }
+`
+const landingArrow = css`
+  ${arrow};
+  margin-left: 4px;
 `
 
 const forNowSubmitErrorStyles = css`
@@ -306,7 +311,7 @@ class RegistrationPage extends React.Component {
                   >
                     <label htmlFor="paperFileNumber" id="paperFileNumber-label">
                       <span id="paperFileNumber-header">
-                        <Trans>BIL file number</Trans>
+                        <Trans>Application number</Trans>
                       </span>
                       <ValidationMessage
                         id="paperFileNumber-error"
@@ -373,17 +378,13 @@ class RegistrationPage extends React.Component {
                   </Field>
                 </div>
                 
-               
-
-                
-                {/* Reason */}
+              
+                {/* Accessibility */}
                 <div>
                   <FieldSet legendHidden={false} id="a11y-reason">
                     <legend>
                       <span id="a11y-reason-header">{labelNames('accessibility')}</span>
                     </legend>
-
-                    {/* Accessibility */}
 
                     <Field
                       type="checkbox"
@@ -393,23 +394,18 @@ class RegistrationPage extends React.Component {
                       label={<Trans>Agree</Trans>}
                       value="yes"
                       aria-label="accessibility-label"
-                      
                     />
-
-                 
-
                   </FieldSet>
                 </div>
+
+                {/* Privacy */}
 
                 <div>
                   <FieldSet legendHidden={false} id="privacy-reason">
                     <legend>
                       <span id="privacy-reason-header">{labelNames('privacy')}</span>
                     </legend>
-
                     
-                    {/* Privacy */}
-
                     <Field
                       type="checkbox"
                       component={CheckboxAdapter}
@@ -418,9 +414,7 @@ class RegistrationPage extends React.Component {
                       label={<Trans>Agree</Trans>}
                       value="yes"
                       aria-label="privacy-label"
-                      
                     />
-                    
                   </FieldSet>
                 </div>
                 
@@ -435,7 +429,8 @@ class RegistrationPage extends React.Component {
                     }}
                     disabled={submitting}
                   >
-                    <Trans>Continue</Trans>
+                    <Trans>Next</Trans>
+                    <img src={rightArrow} className={landingArrow} alt="" />
                   </Button>
 
                   <CancelButton />
