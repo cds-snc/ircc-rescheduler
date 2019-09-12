@@ -100,7 +100,7 @@ class LandingPage extends React.Component {
         contentClass={contentClass}
         header={
           <H1>
-            <Trans>Request a new citizenship appointment</Trans>
+            <Trans>Request a new appointment</Trans>
           </H1>
         }
       >
@@ -108,8 +108,8 @@ class LandingPage extends React.Component {
         <section>
           <H2Landing>
             <Trans>
-              Tell IRCC you can&rsquo;t attend your citizenship appointment, and
-              request a new one.
+              Tell the Government of Canada you can&rsquo;t attend your
+              appointment, and request a new one.
             </Trans>
           </H2Landing>
 

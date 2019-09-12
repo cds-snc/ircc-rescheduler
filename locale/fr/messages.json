@@ -939,16 +939,21 @@
       ]
     ]
   },
+  "Request a new appointment": {
+    "translation": "Demander un nouveau rendez-vous",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        103
+      ]
+    ]
+  },
   "Request a new citizenship appointment": {
     "translation": "Demander un nouveau rendez-vous d’examen de citoyenneté",
     "origin": [
       [
         "src/components/Title.js",
         13
-      ],
-      [
-        "src/pages/LandingPage.js",
-        103
       ]
     ]
   },
@@ -1187,6 +1192,16 @@
   },
   "Tell IRCC you can’t attend your citizenship appointment, and request a new one.": {
     "translation": "Avisez IRCC que vous ne pouvez pas vous présenter à votre rendez-vous d’examen de citoyenneté et demandez un nouveau rendez-vous.",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        110
+      ]
+    ],
+    "obsolete": true
+  },
+  "Tell the Government of Canada you can’t attend your appointment, and request a new one.": {
+    "translation": "Avisez le gouvernement du canada que vous ne pouvez pas vous présenter à votre rendez-vous et demandez un nouveau rendez-vous.",
     "origin": [
       [
         "src/pages/LandingPage.js",
