@@ -428,7 +428,7 @@ class SelectlocationsPage extends React.Component {
 
                   <Button type="submit" value="Submit" onClick={this.submit}>
                     {' '}
-                    Next{' '}
+                    <Trans>Next</Trans>{' '}
                     <img src={rightArrow} className={landingArrow} alt="" />
                   </Button>
                 </React.Fragment>
