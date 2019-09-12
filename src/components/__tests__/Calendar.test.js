@@ -26,6 +26,7 @@ const test_location = {
     dec: ['tues', 'wed'],
   },
   blocked: '2018-10-02, 2018-10-03, 2018-10-10', // use CSV format => 2018-10-02, 2018-10-03, 2018-11-21
+  locationHours: '8:00-16:00',
 }
 
 // Prevent jsdom console.error output from cluttering test output
@@ -254,9 +255,7 @@ describe('<CalendarAdapter />', () => {
     )
 
     expect(wrapper.find('#selectedDays-list .empty.day-box').length).toBe(2)
-    expect(wrapper.find('h3').text()).toEqual(
-      'Please select your time slot',
-    )
+    expect(wrapper.find('h3').text()).toEqual('Please select your time slot')
 
     // clickDate(wrapper, 1)
     // expect(getDateStrings(wrapper)).toEqual(`${day1} ${day2}`)
@@ -492,7 +491,6 @@ describe('renderDayBoxes', () => {
     expect(imgs.length).toBe(1)
     expect(imgs.find('#titleId-0').text()).toEqual(label)
   })
-
 
   //to do (needs to be updated with calendar updates)
   xit('will block days on calendar', () => {

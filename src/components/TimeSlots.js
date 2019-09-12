@@ -22,6 +22,7 @@ class TimeSlots extends Component {
     let {
       context: {
         store: {
+          // eslint-disable-next-line no-unused-vars
           selectProvince: { locationId, locationBiokitNumber } = {},
         } = {},
       } = {},
@@ -29,9 +30,9 @@ class TimeSlots extends Component {
 
     console.log('this is the componentdidmount ')
 
-    var d = new moment(this.props.selectedDay[0])
+    // var d = new moment(this.props.selectedDay[0])
 
-    var newDate = moment(d).format('DD-MM-YYYY')
+    var newDate = moment(this.props.selectedDay[0]).format('DD-MM-YYYY')
 
     console.log(newDate)
 
@@ -74,24 +75,18 @@ class TimeSlots extends Component {
       for (var j = 0; j < dbTimeSlots.length; j++) {
         // eslint-disable-next-line security/detect-object-injection
         if (
+          // eslint-disable-next-line security/detect-object-injection
           dbTimeSlots[j].time.toString() ===
           // eslint-disable-next-line security/detect-object-injection
           TimeSlotArray[i].Time.toString()
         ) {
-          // eslint-disable-next-line no-console
-          //  console.log('its true');
           TimeSlotArray.splice(i, 1)
         }
         // eslint-disable-next-line no-console
         //  console.log('its false');
       }
     }
-
-    // const NewTimeSlotArray = TimeSlotArray
-    // eslint-disable-next-line no-console
-    console.log(TimeSlotArray)
-
-    // eslint-disable-next-line no-console
+    // console.log(TimeSlotArray)
     return TimeSlotArray
   }
 
@@ -139,21 +134,32 @@ class TimeSlots extends Component {
     return timeStops
   }
 
+  splitTheString(CommaSepStr) {
+    var ResultArray = null
+
+    if (CommaSepStr != null) {
+      var SplitChars = '-'
+      if (CommaSepStr.indexOf(SplitChars) >= 0) {
+        ResultArray = CommaSepStr.split(SplitChars)
+      }
+    }
+    return ResultArray
+  }
+
   render() {
     let {
       context: { store: { selectProvince: { locationHours } = {} } = {} } = {},
     } = this.props
 
-    var str = locationHours,
-      array = str.split('-')
+    if (!locationHours) {
+      locationHours = '0:00-00:00'
+    }
 
-    ;(function timeSplit(a, b) {
-      a
-      b
-    }.apply(null, array))
+    const openingHour = this.splitTheString(locationHours)
+    console.log(openingHour)
 
-    const start = array[0]
-    const end = array[1]
+    const start = openingHour[0]
+    const end = openingHour[1]
 
     const mockData = this.getTimeStops(start, end)
     const timeSlot = this.removeTimeSlot(mockData)
