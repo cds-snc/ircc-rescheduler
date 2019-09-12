@@ -4,7 +4,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        130
+        149
       ]
     ]
   },
@@ -14,6 +14,15 @@
       [
         "src/components/PhaseBanner.js",
         83
+      ]
+    ]
+  },
+  "About": {
+    "translation": "Environ",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        133
       ]
     ]
   },
@@ -36,6 +45,15 @@
       [
         "src/utils/linguiUtils.js",
         16
+      ]
+    ]
+  },
+  "As you chose at least one date in": {
+    "translation": "Comme vous avez choisi au moins une date dans",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        146
       ]
     ]
   },
@@ -74,7 +92,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        54
+        55
       ]
     ]
   },
@@ -435,7 +453,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        121
+        161
       ]
     ]
   },
@@ -623,7 +641,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        128
+        147
       ]
     ]
   },
@@ -930,7 +948,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        94
+        103
       ]
     ]
   },
@@ -957,7 +975,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        154
+        173
       ]
     ]
   },
@@ -1109,7 +1127,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        45
+        46
       ]
     ]
   },
@@ -1136,7 +1154,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        162
+        181
       ]
     ]
   },
@@ -1172,7 +1190,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        101
+        110
       ]
     ]
   },
@@ -1190,7 +1208,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        92
+        123
       ]
     ]
   },
@@ -1217,7 +1235,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        146
+        165
       ]
     ]
   },
@@ -1311,7 +1329,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        119
+        128
       ]
     ]
   },
@@ -1431,7 +1449,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        97
+        128
       ]
     ]
   },
@@ -1444,7 +1462,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        104
+        135
       ]
     ]
   },
@@ -1556,7 +1574,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        108
+        117
       ]
     ]
   },
@@ -1601,7 +1619,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        113
+        122
       ]
     ]
   },
@@ -1641,7 +1659,7 @@
       ],
       [
         "src/pages/LandingPage.js",
-        136
+        155
       ]
     ]
   },
@@ -1672,6 +1690,15 @@
       ]
     ]
   },
+  "have completed this application in the past month": {
+    "translation": "avoir rempli ce formulaire le mois dernier",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        192
+      ]
+    ]
+  },
   "https://digital.canada.ca/legal/terms/": {
     "translation": "https://numerique.canada.ca/transparence/avis/",
     "origin": [
@@ -1696,6 +1723,24 @@
       [
         "src/pages/ErrorPage.js",
         64
+      ]
+    ]
+  },
+  "minutes": {
+    "translation": "minutes",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        135
+      ]
+    ]
+  },
+  "people": {
+    "translation": "personnes",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        190
       ]
     ]
   },
@@ -1731,7 +1776,16 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        109
+        140
+      ]
+    ]
+  },
+  "will send you a new appointment.": {
+    "translation": "vous enverra un nouveau rendez-vous.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        145
       ]
     ]
   },
@@ -1742,6 +1796,25 @@
         "src/pages/ConfirmationPage.js",
         113
       ]
+    ],
+    "obsolete": true
+  },
+  "with your new appointment date.": {
+    "translation": "avec la date de votre nouveau rendez-vous.",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        155
+      ]
+    ]
+  },
+  "you’ll be contacted by": {
+    "translation": "vous serez contacté d’ici",
+    "origin": [
+      [
+        "src/pages/ConfirmationPage.js",
+        148
+      ]
     ]
   },
   "you’re available between": {
@@ -1749,7 +1822,7 @@
     "origin": [
       [
         "src/pages/LandingPage.js",
-        132
+        151
       ]
     ]
   }

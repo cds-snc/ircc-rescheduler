@@ -145,7 +145,7 @@ class ConfirmationPage extends React.Component {
                 <Trans>will send you a new appointment.</Trans>{' '}
                 <Trans>As you chose at least one date in</Trans>{' '}
                 <strong>{this.getLastMonth(selectedDays, language)}</strong>,{' '}
-                <Trans>you’ll be contacted in</Trans>{' '}
+                <Trans>you’ll be contacted by</Trans>{' '}
                 <strong>
                   {this.getPreviousMonth(
                     this.getLastMonth(selectedDays),
