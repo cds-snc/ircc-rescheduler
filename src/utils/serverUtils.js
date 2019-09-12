@@ -48,12 +48,9 @@ export const getPrimarySubdomain = function(req, res, next) {
     req.subdomain = 'vancouver'
   }
 
-  if (
-    !notPageMatch(req.path, 'not-found') &&
-    !notPageMatch(req.path, '500')
-  ) {
+  if (!notPageMatch(req.path, 'not-found') && !notPageMatch(req.path, '500')) {
     // eslint-disable-next-line no-undef
-    Console.log("Invalid Domain" + req.subdomain );
+    Console.log('Invalid Domain' + req.subdomain)
     return res.redirect(
       `${protocol}://${process.env.RAZZLE_SITE_URL}/not-found`,
     )
@@ -123,23 +120,25 @@ export const setRavenContext = (req, res, next) => {
 /* IMPORTANT : Content policy is blocking localhost:3005 so it was added below */
 
 export const cspConfig = {
-  defaultSrc: ["'self'",
-                'http://localhost:3005/', 
-                'ws://localhost:3005/', 
-                'http://localhost:4011/'],
-  fontSrc: ["'self'", 
-             'https://fonts.gstatic.com'],
-  imgSrc: ["'self'", 
-            'data:', 
-            'https://www.google-analytics.com', 
-            'http://localhost:3005',
-          ],
+  defaultSrc: [
+    "'self'",
+    'http://localhost:3005/',
+    'ws://localhost:3005/',
+    `${process.env.RAZZLE_CONNECTION_STRING}`,
+  ],
+  fontSrc: ["'self'", 'https://fonts.gstatic.com'],
+  imgSrc: [
+    "'self'",
+    'data:',
+    'https://www.google-analytics.com',
+    'http://localhost:3005',
+  ],
   scriptSrc: [
     "'self'",
     'https://cdn.ravenjs.com',
     'http://localhost:3005/',
     'https://www.google-analytics.com',
-    "'unsafe-inline'", 
+    "'unsafe-inline'",
   ],
   styleSrc: ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'"],
- }
+}
