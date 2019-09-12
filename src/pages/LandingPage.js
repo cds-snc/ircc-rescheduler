@@ -88,6 +88,9 @@ const googleAnalyticsAPI = {
   getAvgTimeOnPage: function() {
     return '10-15'
   },
+  getCompletionFunnel: function() {
+    return '48'
+  },
 }
 
 class LandingPage extends React.Component {
@@ -176,6 +179,13 @@ class LandingPage extends React.Component {
             <img src={rightArrow} className={landingArrow} alt="" />
           </NavLink>
         </div>
+        <p>
+          ✓{' '}
+          <strong>
+            {googleAnalyticsAPI.getCompletionFunnel()} <Trans>people</Trans>
+          </strong>{' '}
+          <Trans>have completed this application in the past month</Trans>
+        </p>
       </Layout>
     )
   }
