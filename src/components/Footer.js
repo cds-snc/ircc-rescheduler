@@ -64,6 +64,7 @@ const footer = css`
 const bottomLinks = css`
   margin-top: ${theme.spacing.md};
   font-size: ${theme.font.md};
+  font-size: .875em;
   display: inline-block;
 
   > * {
