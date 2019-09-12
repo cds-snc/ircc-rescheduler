@@ -124,7 +124,7 @@ export const cspConfig = {
     "'self'",
     'http://localhost:3005/',
     'ws://localhost:3005/',
-    `${process.env.RAZZLE_CONNECTION_STRING}`,
+    'http://localhost:4011/',
   ],
   fontSrc: ["'self'", 'https://fonts.gstatic.com'],
   imgSrc: [

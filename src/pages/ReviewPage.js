@@ -30,6 +30,7 @@ class ReviewPage extends React.Component {
 
   handleSubmit() {
     this.setState({ sending: true })
+    this.props.history.push('/confirmation')
   }
 
   translateReason(reason) {
