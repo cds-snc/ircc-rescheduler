@@ -75,32 +75,32 @@ class ConfirmationPage extends React.Component {
     return false
   }
 
-  getLastMonth(arr) {
+  getLastMonth(arr, lang = 'en') {
     const month = getMonth(arr.sort((a, b) => a > b)[arr.length - 1])
 
     if (month === 9) {
-      return 'October'
+      return lang === 'en' ? 'October' : 'octobre'
     }
     if (month === 10) {
-      return 'November'
+      return lang === 'en' ? 'November' : 'novembre'
     }
 
     if (month === 11) {
-      return 'December'
+      return lang === 'en' ? 'December' : 'décembre'
     }
 
     return false
   }
 
-  getPreviousMonth(monthString) {
+  getPreviousMonth(monthString, lang = 'en') {
     if (monthString === 'December') {
-      return 'November'
+      return lang === 'en' ? 'November' : 'novembre'
     }
     if (monthString === 'November') {
-      return 'October'
+      return lang === 'en' ? 'October' : 'octobre'
     }
     if (monthString === 'October') {
-      return 'September'
+      return lang === 'en' ? 'September' : 'septembre'
     }
   }
 
@@ -110,6 +110,7 @@ class ConfirmationPage extends React.Component {
         store: {
           calendar: { selectedDays = [] } = {},
           explanation: { explanationPage } = {},
+          language,
         } = {},
       } = {},
     } = this.props
@@ -143,10 +144,13 @@ class ConfirmationPage extends React.Component {
               <React.Fragment>
                 <Trans>will send you a new appointment.</Trans>{' '}
                 <Trans>As you chose at least one date in</Trans>{' '}
-                <strong>{this.getLastMonth(selectedDays)}</strong>,{' '}
+                <strong>{this.getLastMonth(selectedDays, language)}</strong>,{' '}
                 <Trans>you’ll be contacted in</Trans>{' '}
                 <strong>
-                  {this.getPreviousMonth(this.getLastMonth(selectedDays))}
+                  {this.getPreviousMonth(
+                    this.getLastMonth(selectedDays),
+                    language,
+                  )}
                 </strong>{' '}
                 <Trans>with your new appointment date.</Trans>
               </React.Fragment>
