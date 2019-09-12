@@ -13,6 +13,7 @@ import { contextPropTypes } from '../context'
 import { LongReminder } from '../components/Reminder'
 import { SelectedDayList } from '../components/SelectedDayList'
 import FocusedH1 from '../components/FocusedH1'
+import getMonth from 'date-fns/get_month'
 
 const contentClass = css`
   p {
@@ -74,6 +75,35 @@ class ConfirmationPage extends React.Component {
     return false
   }
 
+  getLastMonth(arr) {
+    const month = getMonth(arr.sort((a, b) => a > b)[arr.length - 1])
+
+    if (month === 9) {
+      return 'October'
+    }
+    if (month === 10) {
+      return 'November'
+    }
+
+    if (month === 11) {
+      return 'December'
+    }
+
+    return false
+  }
+
+  getPreviousMonth(monthString) {
+    if (monthString === 'December') {
+      return 'November'
+    }
+    if (monthString === 'November') {
+      return 'October'
+    }
+    if (monthString === 'October') {
+      return 'September'
+    }
+  }
+
   render() {
     let {
       context: {
@@ -110,10 +140,16 @@ class ConfirmationPage extends React.Component {
                 will review your request and get back to you within 1 week.
               </Trans>
             ) : (
-              <Trans>
-                will send you a new appointment. You will always be contacted at
-                least 3 weeks before your appointment.
-              </Trans>
+              <React.Fragment>
+                <Trans>will send you a new appointment.</Trans>{' '}
+                <Trans>As you chose at least one date in</Trans>{' '}
+                <strong>{this.getLastMonth(selectedDays)}</strong>,{' '}
+                <Trans>you’ll be contacted in</Trans>{' '}
+                <strong>
+                  {this.getPreviousMonth(this.getLastMonth(selectedDays))}
+                </strong>{' '}
+                <Trans>with your new appointment date.</Trans>
+              </React.Fragment>
             )}
           </p>
           <Contact>
