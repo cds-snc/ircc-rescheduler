@@ -21,6 +21,7 @@ const Review = ({
   email,
   // eslint-disable-next-line react/prop-types
   accessibility,
+  // eslint-disable-next-line react/prop-types
   privacy,
   location,
   selectedDays,
