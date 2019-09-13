@@ -104,7 +104,7 @@ describe('Calendar page functions', () => {
     cy.url().should('contains', '/calendar')
     const thisMonth = Cypress.moment().format('MMMM')
     cy.get('#renderMonthName').should('contain', thisMonth)
-    const thisDay = Cypress.moment().format('DD')
+   // const thisDay = Cypress.moment().format('DD')
     cy.get('.DayPicker-Body > :nth-child(1) > [tabindex="0"]').should('contain', '1')
       // make sure the available days span into the next month
 
