@@ -73,11 +73,7 @@ describe('Calendar page functions', () => {
       expect(count).eq(13)
    })
   })
-      // make sure we're on a month that has 3 selectable days
-     // if (count <= 30) {
-
-       // cy.get('.DayPicker-NavButton--next').click({ force: true })
-   //   }
+    
    
    it('should check a timeslot', () => {  
     cy.url().should('contains', '/calendar')
@@ -102,6 +98,37 @@ describe('Calendar page functions', () => {
     cy.get('#checkbox_1').check()
     cy.get(enterButton).click()
     cy.url().should('contains', '/review')
+  })
+  // aria-label="Next Month"
+  it.only('should cilck to show the next month unless the last day is the end of the month', () => {  
+    cy.url().should('contains', '/calendar')
+    const thisMonth = Cypress.moment().format('MMMM')
+    cy.get('#renderMonthName').should('contain', thisMonth)
+    const thisDay = Cypress.moment().format('DD')
+    cy.get('.DayPicker-Body > :nth-child(1) > [tabindex="0"]').should('contain', '1')
+      // make sure the available days span into the next month
+
+     // if (count <= 30) {
+
+       // cy.get('.DayPicker-NavButton--next').click({ force: true })
+   //   }
+   cy.get('.DayPicker-Body > :nth-child(1) > [tabindex="0"]').then(el => {
+    const count = el.length
+    expect(count + 30).eq(31)
+    cy.get('.DayPicker-Day').should('contain', '31')
+    cy.get('[aria-label="Monday, September 30, 2019"]')
+    // make sure we're on a month that has 3 selectable days
+   // if (count < 3) {
+    //  cy.get('.DayPicker-NavButton--next').click({ force: true })
+    })
+
+    // cy.get('.DayPicker-NavButton--next').click()
+    // const nextMonth = Cypress.moment().add(1, 'month').format('MMMM')
+    // cy.get('#renderMonthName').should('contain', nextMonth)
+  //   cy.get('.DayPicker-Day[aria-disabled=false]').then(el => {
+  //     const count = el.length
+  //     expect(count).eq(30)
+  //  })
   })
 
 });
