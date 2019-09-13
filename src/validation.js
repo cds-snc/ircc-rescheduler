@@ -167,7 +167,7 @@ Validator.register(
   'paper_file_number',
   function(value, requirement, attribute) {
     // eslint-disable-next-line security/detect-non-literal-regexp
-    const regex = new RegExp('^[a-zA-Z]{1}[0-9]{12}$i')
+    const regex = new RegExp('^[a-zA-Z]{1}[0-9]{12}$')
     return regex.test(value)
   },
   'paperFileNumberInvalidErrorMessage',
