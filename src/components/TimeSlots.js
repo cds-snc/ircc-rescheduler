@@ -50,7 +50,9 @@ class TimeSlots extends Component {
     // console.log(this.props)
 
     // const url = `http://localhost:4011/appointmentsByLocId/${locationId}`
-    const url = `http://localhost:4011/appointmentss/${locationId}/${newDate}`
+    const url = `${
+      process.env.RAZZLE_CONNECTION_STRING
+    }/appointments/${locationId}/${newDate}`
 
     // eslint-disable-next-line no-undef
     console.log(url)
