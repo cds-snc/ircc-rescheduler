@@ -409,7 +409,7 @@ class RegistrationPage extends React.Component {
                     <Field
                       type="checkbox"
                       component={CheckboxAdapter}
-                      name="privacyOption"
+                      name="familyOption"
                       id="familyOption"
                       label={<Trans>Agree</Trans>}
                       value="yes"

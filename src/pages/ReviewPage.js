@@ -114,7 +114,7 @@ class ReviewPage extends React.Component {
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(familyCheck)}
-            privacy={this.translate(familyOption)}
+            privacy={this.translateReason(familyOption)}
             location={locationCity + ', ' + locationAddress} 
             selectedDays={days}
             selectedTime={selectedTime}

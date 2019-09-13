@@ -21,6 +21,7 @@ const Review = ({
   email,
   // eslint-disable-next-line react/prop-types
   accessibility,
+  privacy,
   location,
   selectedDays,
   selectedTime,
@@ -51,7 +52,7 @@ const Review = ({
     <SummaryRow
       summaryId={'privacy'}
       summaryHeader={<Trans>Privacy booth required</Trans>}
-      summaryBody={accessibility}
+      summaryBody={privacy}
       summaryLink={''}
       summaryLabel={''}
     />

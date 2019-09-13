@@ -58,7 +58,7 @@ const Summary = ({
     <SummaryRow
       summaryId={'privacy'}
       summaryHeader={<Trans>Privacy booth required</Trans>}
-      summaryBody={accessibility}
+      summaryBody={privacy}
       summaryLink={'/register#privacy-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Privacy')}`}
     />
