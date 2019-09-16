@@ -1,11 +1,12 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react'
-import TimeForm from './TimeForm'
 import { contextPropTypes } from '../context'
 // import PropTypes from 'prop-types'
 import { matchPropTypes } from '../components/Title'
 import withContext from '../withContext'
 import moment from 'moment'
+import SelectDropDown from '../components/forms/Select'
+import { css } from 'emotion'
 
 class TimeSlots extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class TimeSlots extends Component {
       appointments: [],
       selectedDay: [],
     }
+    this.changeHandler = this.changeHandler.bind(this)
   }
 
   // eslint-disable-next-line react/no-deprecated
@@ -30,52 +32,29 @@ class TimeSlots extends Component {
 
     console.log('this is the componentdidmount ')
 
-    // var d = new moment(this.props.selectedDay[0])
-
     var newDate = moment(this.props.selectedDay[0]).format('DD-MM-YYYY')
 
     console.log(newDate)
-
-    // const day = d.date()
-    // const year = d.year().toString()
-    // const month1 = d.month() + 1
-    // const month = month1.toString()
-
-    // const newDate = day + '-' + month + '-' + year
-    // console.log(newDate)
-
-    // console.log(locationBiokitNumber)
-    // console.log(currentDate)
-    // console.log(locationId)
-    // console.log(this.props)
 
     // const url = `http://localhost:4011/appointmentsByLocId/${locationId}`
     const url = `${
       process.env.RAZZLE_CONNECTION_STRING
     }/appointments/${locationId}/${newDate}`
 
-    // eslint-disable-next-line no-undef
     console.log(url)
 
     // eslint-disable-next-line no-undef
     const response = await fetch(url)
     const data = await response.json()
     this.setState({ appointments: data, loading: true })
-    // eslint-disable-next-line no-console
-    // this.removeTimeSlot()
   }
 
   removeTimeSlot(mockData) {
     const dbTimeSlots = this.state.appointments
     const TimeSlotArray = mockData
-    // eslint-disable-next-line no-console
-    // console.log(TimeSlotArray[1].Time)
-    // eslint-disable-next-line no-console
-    // console.log(dbTimeSlots)
 
     for (var i = 0; i < TimeSlotArray.length; i++) {
       for (var j = 0; j < dbTimeSlots.length; j++) {
-        // eslint-disable-next-line security/detect-object-injection
         if (
           // eslint-disable-next-line security/detect-object-injection
           dbTimeSlots[j].time.toString() ===
@@ -84,32 +63,17 @@ class TimeSlots extends Component {
         ) {
           TimeSlotArray.splice(i, 1)
         }
-        // eslint-disable-next-line no-console
-        //  console.log('its false');
       }
     }
-    // console.log(TimeSlotArray)
+
     return TimeSlotArray
   }
 
-  changeHandler = id => {
-    this.setState({
-      selectedId: id,
-    })
-    // eslint-disable-next-line react/prop-types
-    this.props.selectedTimeId(id)
-    // eslint-disable-next-line no-undef
-    // console.log(id)
-    // console.log(this.props)
-  }
-
-  daySelected = selectedDay => {
-    this.props.selectedDay(selectedDay)
-    // eslint-disable-next-line no-console
-    // console.log(this.props.selectedDay)
-    this.setState({
-      selectedDay: selectedDay,
-    })
+  changeHandler(event) {
+    // event.preventDefault()
+    this.setState({ selectedId: event.target.value })
+    this.props.selectedTimeId(event.target.value)
+    console.log(event)
   }
 
   getTimeStops(start, end) {
@@ -127,8 +91,8 @@ class TimeSlots extends Component {
     while (startTime <= endTime) {
       ++index
       timeStops.push({
-        id: index,
-        Time: new moment(startTime).format('hh:mm a'),
+        value: new moment(startTime).format('hh:mm a'),
+        name: new moment(startTime).format('hh:mm a'),
       })
       startTime.add(15, 'minutes')
     }
@@ -165,21 +129,16 @@ class TimeSlots extends Component {
 
     const mockData = this.getTimeStops(start, end)
     const timeSlot = this.removeTimeSlot(mockData)
-
+    console.log(timeSlot)
     return (
       <div>
-        <table>
-          <tbody>
-            {timeSlot.map(rowData => (
-              <TimeForm
-                key={rowData.id}
-                selectedId={this.state.selectedId}
-                rowData={rowData}
-                onSelect={this.changeHandler}
-              />
-            ))}
-          </tbody>
-        </table>
+        <SelectDropDown
+          selName="TimeSlot"
+          selId="TimeSlot"
+          optName1="Select a time"
+          selOnChange={this.changeHandler}
+          optData={timeSlot}
+        />
       </div>
     )
   }
