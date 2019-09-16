@@ -893,14 +893,9 @@ class Calendar extends Component {
                 <div style={scrollBar}>
                   <TimeSlots
                     selectedTimeId={this.selectedTime}
-                    selectedDay={value}
+                    selectedDay={value} 
                   />
                 </div>
-                
-                <h1> value here 
-              
-                { this.state.timeSelected } </h1>
-                
 
               </div>
             </div>
