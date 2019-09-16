@@ -30,6 +30,7 @@ class ReviewPage extends React.Component {
 
   handleSubmit() {
     this.setState({ sending: true })
+    this.props.history.push('/confirmation')
   }
 
   translateReason(reason) {
@@ -113,7 +114,7 @@ class ReviewPage extends React.Component {
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(familyCheck)}
-            privacy={this.translate(familyOption)}
+            privacy={this.translateReason(familyOption)}
             location={locationCity + ', ' + locationAddress} 
             selectedDays={days}
             selectedTime={selectedTime}

@@ -2,26 +2,18 @@ import React from 'react'
 import Validator from 'validatorjs'
 import { Trans } from '@lingui/react'
 
-
 /*--------------------------------------------*
  * Character limits
  *--------------------------------------------*/
 
 // const INPUT_FIELD_MAX_CHARS = 500
 
-
 /*--------------------------------------------*
  * Error message strings
  *--------------------------------------------*/
 export const errorMessages = {}
 
-
-
-errorMessages.emailErrorMessage = (
-  <Trans>
-    We need your email address.
-  </Trans>
-)
+errorMessages.emailErrorMessage = <Trans>We need your email address.</Trans>
 
 errorMessages.emailInvalidErrorMessage = (
   <Trans>
@@ -31,21 +23,15 @@ errorMessages.emailInvalidErrorMessage = (
 )
 
 errorMessages.emailConfirmErrorMessage = (
-  <Trans>
-    Please re-enter your email address.
-  </Trans>
+  <Trans>Please re-enter your email address.</Trans>
 )
 
 errorMessages.emailConfirmMatchErrorMessage = (
-  <Trans>
-    Email does not match. Please re-enter matching email.
-  </Trans>
+  <Trans>Email does not match. Please re-enter matching email.</Trans>
 )
 
 errorMessages.emailConfirmInvalidErrorMessage = (
-  <Trans>
-    Must be a valid email address.
-  </Trans>
+  <Trans>Must be a valid email address.</Trans>
 )
 
 errorMessages.paperFileNumberErrorMessage = (
@@ -53,11 +39,8 @@ errorMessages.paperFileNumberErrorMessage = (
 )
 
 errorMessages.paperFileNumberInvalidErrorMessage = (
-  <Trans>
-    BIL file number requires 1 letter and 12 digits.
-  </Trans>
+  <Trans>BIL file number requires 1 letter and 12 digits.</Trans>
 )
-
 
 errorMessages.selectedDaysEmptyErrorMessage = (
   <Trans>You must select 3 days on the calendar below.</Trans>
@@ -124,7 +107,6 @@ export const RegistrationFields = {
   paperFileNumber: 'required|paper_file_number',
 }
 
-
 export const CalendarFields = {
   selectedDays: 'required|array|date_count',
   selectedTime: 'accept_anything',
@@ -132,7 +114,7 @@ export const CalendarFields = {
 }
 
 export const SelectLocationFields = {
-  locationCity: 'required', 
+  locationCity: 'required',
   locationId: 'required',
   locationAddress: 'required',
   locationHours: 'required',
@@ -140,9 +122,8 @@ export const SelectLocationFields = {
 }
 
 // export const SelectTimeSlotField = {
-//   timeSlot: 'required', 
+//   timeSlot: 'required',
 // }
-
 
 /*--------------------------------------------*
  * Util Functions
@@ -158,8 +139,8 @@ export const getFieldErrorStrings = validate => {
   Object.keys(allErrors).forEach(val => {
     mapped[val] = allErrors[val][0] // eslint-disable-line  security/detect-object-injection
   })
-   // eslint-disable-next-line no-console
- //  console.log("error string")
+  // eslint-disable-next-line no-console
+  console.log('error string')
 
   return mapped
 }
@@ -186,19 +167,8 @@ Validator.register(
   'paper_file_number',
   function(value, requirement, attribute) {
     // eslint-disable-next-line security/detect-non-literal-regexp
-    const regex = new RegExp('^'+'[a-zA-Z]{1}[0-9]{12}' + '$','i')
+    const regex = new RegExp('^[a-zA-Z]{1}[0-9]{12}$', 'i')
     return regex.test(value)
   },
   'paperFileNumberInvalidErrorMessage',
 )
-
-
- 
-
-
-
-  
-
-
-
-

@@ -55,7 +55,7 @@ export const CalHeader = ({
       <Title path={path} i18n={i18n} />
       <TopContainer>
         <nav>
-          <NavLink className="chevron-link" to="/register">
+          <NavLink className="chevron-link" to="/selectProvince">
             <Chevron dir="left" />
             <Trans>Go back</Trans>
           </NavLink>
