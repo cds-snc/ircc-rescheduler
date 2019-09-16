@@ -123,7 +123,7 @@ export const cspConfig = {
   defaultSrc: ["'self'",
                 'http://localhost:3005/', 
                 'ws://localhost:3005/', 
-                'http://localhost:4011/'],
+                `${process.env.RAZZLE_CONNECTION_STRING}`],
   fontSrc: ["'self'", 
              'https://fonts.gstatic.com'],
   imgSrc: ["'self'", 
@@ -139,4 +139,4 @@ export const cspConfig = {
     "'unsafe-inline'", 
   ],
   styleSrc: ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'"],
- }
+}
