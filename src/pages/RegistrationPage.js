@@ -150,7 +150,7 @@ class RegistrationPage extends React.Component {
 
       RegistrationPage.errStrings = getFieldErrorStrings(validate)
       // eslint-disable-next-line no-console
-      console.log(RegistrationPage.errStrings)
+  //    console.log(RegistrationPage.errStrings)
     }
     
     return RegistrationPage.errStrings

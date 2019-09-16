@@ -159,7 +159,7 @@ export const getFieldErrorStrings = validate => {
     mapped[val] = allErrors[val][0] // eslint-disable-line  security/detect-object-injection
   })
    // eslint-disable-next-line no-console
-   console.log("error string")
+ //  console.log("error string")
 
   return mapped
 }

@@ -90,10 +90,10 @@ class ReviewPage extends React.Component {
       )
     }
     // eslint-disable-next-line no-console
-    console.log(this.props.context.store)
+   // console.log(this.props.context.store)
 
     // eslint-disable-next-line no-console
-    console.log(this.props) 
+  //  console.log(this.props) 
     
     return (
       <Layout contentClass={contentClass}>
