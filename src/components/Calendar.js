@@ -354,6 +354,7 @@ const daySelection = css`
   padding: ${theme.spacing.lg} ${theme.spacing.lg} 0 ${theme.spacing.lg};
   width: 20rem;
   height: auto;
+  box-shadow: 5px 10px #888888;
 
   button {
     padding: 0;
@@ -747,7 +748,7 @@ class Calendar extends Component {
 
       .DayPicker-Day--outside:nth-of-type(${dayOfWeek1}),
       .DayPicker-Day--outside:nth-of-type(${dayOfWeek2}) {
-        background: ${theme.colour.greenLighter};
+        background: ${theme.colour.white};
       }
 
       .DayPicker-Day--disabled:nth-of-type(${dayOfWeek1}),
@@ -762,15 +763,6 @@ class Calendar extends Component {
         ${arrowAnimate};
       }
     `
-
-    const scrollBar = {
-      overflowY: 'scroll',
-
-      width: '335px',
-      float: 'left',
-      height: '275px',
-      position: 'relative',
-    }
 
     return (
       <div>
@@ -878,15 +870,9 @@ class Calendar extends Component {
                 <div>
                   <TimeSlots
                     selectedTimeId={this.selectedTime}
-                    selectedDay={value} 
+                    selectedDay={value}
                   />
                 </div>
-
-                <h1>
-                  {' '}
-                  value here
-                  {this.state.timeSelected}{' '}
-                </h1>
               </div>
             </div>
           </div>

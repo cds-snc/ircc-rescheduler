@@ -121,10 +121,6 @@ export const SelectLocationFields = {
   locationBiokitNumber: 'required',
 }
 
-// export const SelectTimeSlotField = {
-//   timeSlot: 'required',
-// }
-
 /*--------------------------------------------*
  * Util Functions
  *--------------------------------------------*/
