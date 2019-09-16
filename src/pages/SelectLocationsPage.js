@@ -62,7 +62,7 @@ const landingArrow = css`
   margin-left: 4px;
 `
 
-const dbHost = 'http://localhost:4011'
+const dbHost = process.env.RAZZLE_CONNECTION_STRING
 
 class SelectlocationsPage extends React.Component {
   constructor(props) {
