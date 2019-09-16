@@ -31,9 +31,6 @@ import { windowExists } from '../utils/windowExists'
 // import { Field } from 'react-final-form'
 import TimeSlots from './TimeSlots'
 
-
-
-
 const jiggle = keyframes`
 10%, 60% {
   transform: translate3d(-1px, 0, 0);
@@ -356,6 +353,7 @@ const daySelection = css`
   margin-bottom: ${theme.spacing.md};
   padding: ${theme.spacing.lg} ${theme.spacing.lg} 0 ${theme.spacing.lg};
   width: 20rem;
+  height: auto;
 
   button {
     padding: 0;
@@ -494,7 +492,6 @@ const renderDayBoxes = ({
         <li key={i} className={dayBox}>
           <span className="day-box">
             <Time date={selectedDay} locale={locale} />
-            
           </span>
           <button
             type="button"
@@ -510,8 +507,6 @@ const renderDayBoxes = ({
                 }
                 label={dateLabel}
               />
-
-
             </div>
           </button>
         </li>
@@ -583,14 +578,8 @@ renderMonthName.propTypes = {
   locale: PropTypes.string.isRequired,
 }
 
-
-
-
 class Calendar extends Component {
-
-
   constructor(props) {
-    
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
@@ -666,8 +655,8 @@ class Calendar extends Component {
         await this.setState({
           errorMessage: (
             <Trans>
-              You can&rsquo;t select more than 1 day. To change your
-              selections, remove a day first.
+              You can&rsquo;t select more than 1 day. To change your selections,
+              remove a day first.
             </Trans>
           ),
         })
@@ -709,13 +698,11 @@ class Calendar extends Component {
     // eslint-disable-next-line no-console
     console.log(this.props.timeslotSelected)
     this.setState({
-      timeSelected : id,
+      timeSelected: id,
     })
   }
 
   render() {
-
-    
     let {
       input: { onBlur, onFocus, value },
       dayLimit,
@@ -728,7 +715,7 @@ class Calendar extends Component {
     const startMonth = parse(getStartMonth())
     const endDate = parse(getEndDate())
     value = value || []
-    
+
     const initialMonth = getInitialMonth(value, startMonth)
 
     /*
@@ -776,14 +763,14 @@ class Calendar extends Component {
       }
     `
 
-    const scrollBar={
+    const scrollBar = {
       overflowY: 'scroll',
-    
-      width:'335px',
+
+      width: '335px',
       float: 'left',
-      height:'275px',
-      position:'relative',
-    };
+      height: '275px',
+      position: 'relative',
+    }
 
     return (
       <div>
@@ -877,8 +864,7 @@ class Calendar extends Component {
                 </h3>
 
                 <ul id="selectedDays-list">
-                  
-                {renderDayBoxes({
+                  {renderDayBoxes({
                     dayLimit,
                     errorMessage: this.state.errorMessage,
                     selectedDays: value,
@@ -889,19 +875,18 @@ class Calendar extends Component {
                       i18n !== undefined ? i18n._('Remove day') : 'Remove day',
                   })}
                 </ul>
-       
-                <div style={scrollBar}>
+                <div>
                   <TimeSlots
                     selectedTimeId={this.selectedTime}
                     selectedDay={value}
                   />
                 </div>
-                
-                <h1> value here 
-              
-                { this.state.timeSelected } </h1>
-                
 
+                <h1>
+                  {' '}
+                  value here
+                  {this.state.timeSelected}{' '}
+                </h1>
               </div>
             </div>
           </div>
@@ -926,4 +911,3 @@ Calendar.propTypes = {
 
 const CalendarAdapter = withI18n()(Calendar)
 export { CalendarAdapter as default, renderDayBoxes }
-

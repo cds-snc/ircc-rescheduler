@@ -109,7 +109,7 @@ export const RegistrationFields = {
 
 export const CalendarFields = {
   selectedDays: 'required|array|date_count',
-  selectedTime: 'accept_anything',
+  selectedTime: 'required',
   availability: 'accept_anything',
 }
 

@@ -1,12 +1,22 @@
 /* eslint-disable no-console */
 import React, { Component } from 'react'
-import TimeForm from './TimeForm'
 import { contextPropTypes } from '../context'
 // import PropTypes from 'prop-types'
 import { matchPropTypes } from '../components/Title'
 import withContext from '../withContext'
 import moment from 'moment'
+import SelectDropDown from '../components/forms/Select'
+import { css } from 'emotion'
+import { theme } from '../styles'
 
+const TimeSlot = css`
+  width: 95% !important;
+  align-items: center;
+  margin-bottom: ${theme.spacing.lg};
+  p {
+    margin-bottom: 0;
+  }
+`
 class TimeSlots extends Component {
   constructor(props) {
     super(props)
@@ -15,6 +25,7 @@ class TimeSlots extends Component {
       appointments: [],
       selectedDay: [],
     }
+    this.changeHandler = this.changeHandler.bind(this)
   }
 
   // eslint-disable-next-line react/no-deprecated
@@ -92,24 +103,19 @@ class TimeSlots extends Component {
     return TimeSlotArray
   }
 
-  changeHandler = id => {
-    this.setState({
-      selectedId: id,
-    })
-    // eslint-disable-next-line react/prop-types
-    this.props.selectedTimeId(id)
-    // eslint-disable-next-line no-undef
-    // console.log(id)
-    // console.log(this.props)
-  }
+  // changeHandler = id => {
+  //   this.setState({
+  //     selectedId: id,
+  //   })
+  //   this.props.selectedTimeId(id)
 
-  daySelected = selectedDay => {
-    this.props.selectedDay(selectedDay)
-    // eslint-disable-next-line no-console
-    // console.log(this.props.selectedDay)
-    this.setState({
-      selectedDay: selectedDay,
-    })
+  // }
+
+  changeHandler(event) {
+    // event.preventDefault()
+    this.setState({ selectedId: event.target.value })
+    this.props.selectedTimeId(event.target.value)
+    console.log(event)
   }
 
   getTimeStops(start, end) {
@@ -127,8 +133,8 @@ class TimeSlots extends Component {
     while (startTime <= endTime) {
       ++index
       timeStops.push({
-        id: index,
-        Time: new moment(startTime).format('hh:mm a'),
+        value: new moment(startTime).format('hh:mm a'),
+        name: new moment(startTime).format('hh:mm a'),
       })
       startTime.add(15, 'minutes')
     }
@@ -165,21 +171,17 @@ class TimeSlots extends Component {
 
     const mockData = this.getTimeStops(start, end)
     const timeSlot = this.removeTimeSlot(mockData)
-
+    console.log(timeSlot)
     return (
       <div>
-        <table>
-          <tbody>
-            {timeSlot.map(rowData => (
-              <TimeForm
-                key={rowData.id}
-                selectedId={this.state.selectedId}
-                rowData={rowData}
-                onSelect={this.changeHandler}
-              />
-            ))}
-          </tbody>
-        </table>
+        <SelectDropDown
+          selName="TimeSlot"
+          selId="TimeSlot"
+          className={TimeSlot}
+          optName1="Select a time"
+          selOnChange={this.changeHandler}
+          optData={timeSlot}
+        />
       </div>
     )
   }

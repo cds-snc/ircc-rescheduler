@@ -165,7 +165,15 @@ class CalendarPage extends Component {
   }
 
   async onSubmit(values, event) {
+    let issue = {
+      selectedTime: selectedTime,
+    }
+    values.push(issue)
+    // eslint-disable-next-line no-console
+    console.log(values)
     const submitErrors = this.validate(values)
+    // eslint-disable-next-line no-console
+    console.log(submitErrors)
 
     // eslint-disable-next-line no-console
     console.log(values)
@@ -195,6 +203,10 @@ class CalendarPage extends Component {
     let selectedDays = (values.selectedDays || []).map(date =>
       dateToISODateString(date),
     )
+
+    let ipID = {
+      selectedTime: selectedTime,
+    }
 
     let selectedTime = this.state.timeValue
 
