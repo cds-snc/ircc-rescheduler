@@ -14,7 +14,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        181
+        188
       ]
     ]
   },
@@ -27,12 +27,21 @@
       ]
     ]
   },
+  "About": {
+    "translation": "About",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        122
+      ]
+    ]
+  },
   "Accessibility": {
     "translation": "Accessibility",
     "origin": [
       [
         "src/components/Summary.js",
-        48
+        55
       ]
     ]
   },
@@ -41,11 +50,11 @@
     "origin": [
       [
         "src/components/Confirmation.js",
-        41
+        46
       ],
       [
         "src/components/Summary.js",
-        45
+        52
       ]
     ]
   },
@@ -54,7 +63,28 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        397
+        394
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        414
+      ]
+    ]
+  },
+  "Application number": {
+    "translation": "Application number",
+    "origin": [
+      [
+        "src/components/Confirmation.js",
+        32
+      ],
+      [
+        "src/components/Summary.js",
+        36
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        314
       ]
     ]
   },
@@ -93,16 +123,8 @@
     "translation": "Availability",
     "origin": [
       [
-        "src/components/Confirmation.js",
-        53
-      ],
-      [
         "src/components/Summary.js",
-        57
-      ],
-      [
-        "src/components/Summary.js",
-        60
+        84
       ]
     ]
   },
@@ -137,16 +159,8 @@
     "translation": "BIL file number",
     "origin": [
       [
-        "src/components/Summary.js",
-        31
-      ],
-      [
         "src/pages/RegistrationPage.js",
-        87
-      ],
-      [
-        "src/pages/RegistrationPage.js",
-        315
+        85
       ]
     ]
   },
@@ -182,11 +196,7 @@
     "origin": [
       [
         "src/components/Summary.js",
-        35
-      ],
-      [
-        "src/components/Summary.js",
-        42
+        40
       ],
       [
         "src/components/Summary.js",
@@ -194,19 +204,31 @@
       ],
       [
         "src/components/Summary.js",
-        54
+        55
       ],
       [
         "src/components/Summary.js",
-        60
+        63
+      ],
+      [
+        "src/components/Summary.js",
+        70
+      ],
+      [
+        "src/components/Summary.js",
+        77
+      ],
+      [
+        "src/components/Summary.js",
+        84
       ],
       [
         "src/components/SummaryRow.js",
-        81
+        82
       ],
       [
         "src/components/SummaryRow.js",
-        113
+        115
       ]
     ]
   },
@@ -224,11 +246,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        91
+        89
       ],
       [
         "src/pages/RegistrationPage.js",
-        363
+        362
       ]
     ]
   },
@@ -237,7 +259,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        148
+        153
       ]
     ]
   },
@@ -267,10 +289,19 @@
       [
         "src/pages/ExplanationPage.js",
         261
+      ]
+    ]
+  },
+  "Date": {
+    "translation": "Date",
+    "origin": [
+      [
+        "src/components/Confirmation.js",
+        74
       ],
       [
-        "src/pages/RegistrationPage.js",
-        417
+        "src/components/Summary.js",
+        81
       ]
     ]
   },
@@ -304,6 +335,15 @@
   },
   "Do you require accessibility?": {
     "translation": "Do you require accessibility?",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        91
+      ]
+    ]
+  },
+  "Do you require privacy booth?": {
+    "translation": "Do you require privacy booth?",
     "origin": [
       [
         "src/pages/RegistrationPage.js",
@@ -352,15 +392,15 @@
     "origin": [
       [
         "src/components/Confirmation.js",
-        35
-      ],
-      [
-        "src/components/Summary.js",
         39
       ],
       [
         "src/components/Summary.js",
-        42
+        45
+      ],
+      [
+        "src/components/Summary.js",
+        48
       ]
     ]
   },
@@ -369,11 +409,11 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        89
+        87
       ],
       [
         "src/pages/RegistrationPage.js",
-        340
+        339
       ]
     ]
   },
@@ -464,7 +504,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        246
+        245
       ]
     ]
   },
@@ -544,7 +584,7 @@
       ],
       [
         "src/pages/ReviewPage.js",
-        83
+        105
       ],
       [
         "src/pages/calendar/CalHeader.js",
@@ -576,7 +616,8 @@
         "src/pages/LandingPage.js",
         166
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "I cannot attend any of the available appointments": {
     "translation": "I cannot attend any of the available appointments",
@@ -702,15 +743,19 @@
     "origin": [
       [
         "src/components/Confirmation.js",
-        47
+        60
       ],
       [
         "src/components/Summary.js",
-        51
+        67
       ],
       [
         "src/components/Summary.js",
-        54
+        70
+      ],
+      [
+        "src/components/Summary.js",
+        77
       ]
     ]
   },
@@ -719,11 +764,11 @@
     "origin": [
       [
         "src/components/SelectProvince.js",
-        262
+        314
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        276
+        320
       ]
     ]
   },
@@ -774,6 +819,15 @@
       [
         "src/utils/linguiUtils.js",
         37
+      ]
+    ]
+  },
+  "Mobile": {
+    "translation": "Mobile",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        146
       ]
     ]
   },
@@ -833,7 +887,11 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        336
+        364
+      ],
+      [
+        "src/pages/RegistrationPage.js",
+        432
       ]
     ]
   },
@@ -851,12 +909,32 @@
     "translation": "No",
     "origin": [
       [
+        "src/components/__tests__/Summary.test.js",
+        15
+      ],
+      [
         "src/pages/ConfirmationPage.js",
-        86
+        87
+      ],
+      [
+        "src/pages/ConfirmationPage.js",
+        89
       ],
       [
         "src/pages/ReviewPage.js",
-        40
+        42
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        44
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        54
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        56
       ]
     ]
   },
@@ -874,7 +952,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        223
+        250
       ]
     ]
   },
@@ -910,15 +988,15 @@
     "origin": [
       [
         "src/components/SelectProvince.js",
-        277
+        342
       ],
       [
         "src/components/SelectProvince.js",
-        282
+        353
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        310
+        400
       ]
     ]
   },
@@ -976,12 +1054,8 @@
     "translation": "Paper file number",
     "origin": [
       [
-        "src/components/Confirmation.js",
-        29
-      ],
-      [
         "src/components/Summary.js",
-        35
+        40
       ]
     ]
   },
@@ -1003,7 +1077,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        285
+        329
       ]
     ]
   },
@@ -1039,7 +1113,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        351
+        350
       ]
     ]
   },
@@ -1076,7 +1150,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        374
+        373
       ]
     ]
   },
@@ -1085,7 +1159,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        275
+        302
       ]
     ]
   },
@@ -1094,7 +1168,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        267
+        294
       ]
     ]
   },
@@ -1103,7 +1177,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        519
+        520
       ]
     ]
   },
@@ -1112,7 +1186,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        858
+        871
       ]
     ]
   },
@@ -1150,7 +1224,24 @@
     "origin": [
       [
         "src/components/Footer.js",
-        120
+        170
+      ],
+      [
+        "src/components/Summary.js",
+        63
+      ]
+    ]
+  },
+  "Privacy booth required": {
+    "translation": "Privacy booth required",
+    "origin": [
+      [
+        "src/components/Confirmation.js",
+        53
+      ],
+      [
+        "src/components/Summary.js",
+        60
       ]
     ]
   },
@@ -1220,7 +1311,7 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        174
+        181
       ]
     ]
   },
@@ -1229,7 +1320,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        873
+        887
       ]
     ]
   },
@@ -1306,7 +1397,7 @@
     "origin": [
       [
         "src/pages/ReviewPage.js",
-        87
+        109
       ]
     ]
   },
@@ -1333,7 +1424,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        257
+        297
       ]
     ]
   },
@@ -1352,7 +1443,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        860
+        873
       ]
     ]
   },
@@ -1370,11 +1461,11 @@
     "origin": [
       [
         "src/components/SelectProvince.js",
-        203
+        227
       ],
       [
         "src/pages/SelectLocationsPage.js",
-        229
+        265
       ]
     ]
   },
@@ -1383,7 +1474,7 @@
     "origin": [
       [
         "src/components/SelectProvince.js",
-        238
+        278
       ]
     ]
   },
@@ -1415,6 +1506,15 @@
       ]
     ]
   },
+  "Social": {
+    "translation": "Social",
+    "origin": [
+      [
+        "src/components/Footer.js",
+        134
+      ]
+    ]
+  },
   "Some information is missing.": {
     "translation": "Some information is missing.",
     "origin": [
@@ -1424,7 +1524,7 @@
       ],
       [
         "src/pages/RegistrationPage.js",
-        188
+        187
       ]
     ]
   },
@@ -1498,7 +1598,7 @@
     "origin": [
       [
         "src/pages/SelectLocationsPage.js",
-        211
+        239
       ]
     ]
   },
@@ -1518,6 +1618,15 @@
       [
         "src/pages/CancelPage.js",
         37
+      ]
+    ]
+  },
+  "Start request": {
+    "translation": "Start request",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        166
       ]
     ]
   },
@@ -1573,7 +1682,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        124
+        158
       ]
     ]
   },
@@ -1670,7 +1779,7 @@
     "origin": [
       [
         "src/pages/RegistrationPage.js",
-        326
+        325
       ]
     ]
   },
@@ -1705,12 +1814,25 @@
       ]
     ]
   },
+  "Time": {
+    "translation": "Time",
+    "origin": [
+      [
+        "src/components/Confirmation.js",
+        67
+      ],
+      [
+        "src/components/Summary.js",
+        74
+      ]
+    ]
+  },
   "To change your selections, remove a day first": {
     "translation": "To change your selections, remove a day first",
     "origin": [
       [
         "src/components/Calendar.js",
-        797
+        810
       ]
     ]
   },
@@ -1731,7 +1853,8 @@
         "src/components/__tests__/Summary.test.js",
         19
       ]
-    ]
+    ],
+    "obsolete": true
   },
   "Travel (business or vacation)": {
     "translation": "Travel (business or vacation)",
@@ -1881,7 +2004,7 @@
       ],
       [
         "src/pages/ConfirmationPage.js",
-        171
+        178
       ]
     ]
   },
@@ -1929,11 +2052,15 @@
     "origin": [
       [
         "src/pages/ConfirmationPage.js",
-        84
+        85
       ],
       [
         "src/pages/ReviewPage.js",
-        38
+        40
+      ],
+      [
+        "src/pages/ReviewPage.js",
+        52
       ]
     ]
   },
@@ -1942,7 +2069,7 @@
     "origin": [
       [
         "src/components/Calendar.js",
-        662
+        666
       ]
     ]
   },
@@ -2070,7 +2197,7 @@
     "origin": [
       [
         "src/pages/CalendarPage.js",
-        145
+        159
       ]
     ]
   },
@@ -2106,7 +2233,7 @@
     "origin": [
       [
         "src/components/Footer.js",
-        123
+        157
       ]
     ]
   },

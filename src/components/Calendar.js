@@ -878,7 +878,7 @@ class Calendar extends Component {
                 <div>
                   <TimeSlots
                     selectedTimeId={this.selectedTime}
-                    selectedDay={value}
+                    selectedDay={value} 
                   />
                 </div>
 

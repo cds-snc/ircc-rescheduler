@@ -60,6 +60,8 @@ export const theme = {
     focus: '#FFBF47',
     link: '#0000EE',
     visited: '#551A8B',
+    canadaBlue: '#2D4157',
+    canadaBlueDark: '#26374A',
   },
   font: {
     xs: '0.694rem',
