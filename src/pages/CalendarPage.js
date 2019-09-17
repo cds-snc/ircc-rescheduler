@@ -170,10 +170,20 @@ class CalendarPage extends Component {
   }
 
   async onSubmit(values, event) {
-    const submitErrors = this.validate(values)
+    // values.selectedDays (when set) is an array of dates, so cast values to ISO date strings
+    let selectedDays = (values.selectedDays || []).map(date =>
+      dateToISODateString(date),
+    )
 
-    // eslint-disable-next-line no-console
-    console.log(values)
+    let selectedTime = this.state.timeValue
+
+    values = {
+      ...values,
+      selectedDays,
+      selectedTime,
+    }
+
+    const submitErrors = this.validate(values)
 
     if (Object.keys(submitErrors).length) {
       if (windowExists()) {
@@ -196,18 +206,8 @@ class CalendarPage extends Component {
       }
     }
 
-    // values.selectedDays (when set) is an array of dates, so cast values to ISO date strings
-    let selectedDays = (values.selectedDays || []).map(date =>
-      dateToISODateString(date),
-    )
-
-    let selectedTime = this.state.timeValue
-
-    values = {
-      ...values,
-      selectedDays,
-      selectedTime,
-    }
+    // eslint-disable-next-line no-console
+    console.log('here1' + values)
 
     // eslint-disable-next-line no-console
     console.log(this.props)

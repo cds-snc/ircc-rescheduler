@@ -57,6 +57,7 @@
     "inline-css": "^2.4.1",
     "js-cookie": "^2.2.0",
     "memory-cache": "^0.2.0",
+    "moment": "^2.24.0",
     "nodemailer": "^4.7.0",
     "prop-types": "^15.6.2",
     "raven": "^2.6.4",
