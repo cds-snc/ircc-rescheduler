@@ -2,12 +2,19 @@
 import React from 'react'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
-import Title from '../components/Title'
+import { css } from 'emotion'
+import { theme } from '../styles'
+
+const govuk_label = css`
+  margin-bottom: 0.8rem;
+  display: block;
+  font-size: ${theme.font.lg};
+  margin-left: 4.17rem;
+`
 
 class HeaderDescription extends React.Component {
   pageHeaderTitle(pathName) {
     let pathTitle = ''
-
     switch (pathName) {
       case '/':
         pathTitle =
@@ -43,7 +50,7 @@ class HeaderDescription extends React.Component {
     console.log(this.props.pathName.toString())
     return (
       <div>
-        <div>
+        <div className={govuk_label}>
           <h1>{pathTitle}</h1>
         </div>
       </div>
