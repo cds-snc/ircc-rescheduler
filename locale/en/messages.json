@@ -378,6 +378,60 @@
       ]
     ]
   },
+
+  "Request an appointment for fingerprints and photo (biometrics)": {
+    "translation": "Request an appointment for fingerprints and photo (biometrics)",
+    "origin": [
+      [
+        "src/components/HeaderDescription.js",
+        23     ]
+    ]
+  },
+
+
+
+
+  "Step 1 of 4 – Enter your information": {
+    "translation": "Step 1 of 4 – Enter your information",
+    "origin": [
+      [
+        "src/components/HeaderDescription.js",
+        25     ]
+    ]
+  },
+  "Step 2 of 4 – Select a location": {
+    "translation": "Step 2 of 4 – Select a location",
+    "origin": [
+      [
+        "src/components/HeaderDescription.js",
+        31     ]
+    ]
+  },
+  "Step 3 of 4 – Select a day and time": {
+    "translation": "Step 3 of 4 – Select a day and time",
+    "origin": [
+      [
+        "src/components/HeaderDescription.js",
+        34     ]
+    ]
+  },
+  "Step 4 of 4 – Review your request": {
+    "translation": "Step 4 of 4 – Review your request",
+    "origin": [
+      [
+        "src/components/HeaderDescription.js",
+        37     ]
+    ]
+  },
+  "Cancel an appointment": {
+    "translation": "Cancel an appointment",
+    "origin": [
+      [
+        "src/components/HeaderDescription.js",
+        43     ]
+    ]
+  },
+
   "Dummy Appointment Time 4": {
     "translation": "Dummy Appointment Time 4",
     "origin": [
@@ -387,6 +441,13 @@
       ]
     ]
   },
+
+
+
+
+
+
+
   "Email": {
     "translation": "Email",
     "origin": [

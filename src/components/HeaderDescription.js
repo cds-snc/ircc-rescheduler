@@ -1,4 +1,5 @@
 /* eslint-disable react/display-name */
+import { Trans } from '@lingui/react'
 import React from 'react'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
@@ -17,26 +18,29 @@ class HeaderDescription extends React.Component {
     let pathTitle = ''
     switch (pathName) {
       case '/':
-        pathTitle =
-          'Request an appointment for fingerprints and photo (biometrics)'
+        pathTitle = (
+          <Trans>
+            Request an appointment for fingerprints and photo (biometrics)
+          </Trans>
+        )
         break
       case '/register':
-        pathTitle = 'Step 1 of 4 – Enter your information'
+        pathTitle = <Trans>Step 1 of 4 – Enter your information</Trans>
         break
       case '/selectProvince':
-        pathTitle = 'Step 2 of 4 – Select a location'
+        pathTitle = <Trans>Step 2 of 4 – Select a location</Trans>
         break
       case '/calendar':
-        pathTitle = 'Step 3 of 4 – Select a day and time'
+        pathTitle = <Trans>Step 3 of 4 – Select a day and time</Trans>
         break
       case '/review':
-        pathTitle = 'Step 4 of 4 – Review your request'
+        pathTitle = <Trans>Step 4 of 4 – Review your request</Trans>
         break
       case '/confirmation':
-        pathTitle = 'Thank you! Your request has been received.'
+        pathTitle = <Trans>Thank you! Your request has been received.</Trans>
         break
       case '/cancel':
-        pathTitle = 'Cancel an appointment'
+        pathTitle = <Trans>Cancel an appointment</Trans>
         break
       default:
       // code block
