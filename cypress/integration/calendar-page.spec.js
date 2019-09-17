@@ -65,7 +65,7 @@ describe('Calendar page functions', () => {
 
     })
   
-  xit('should count the number of days available for appointments (30)', () => {  
+  it('should count the number of days available for appointments (30)', () => {  
     cy.url().should('contains', '/calendar')
     cy.get('#calendar-header').should('contains.text', 'Select a day')
     cy.get('.DayPicker-Day[aria-disabled=false]').then(el => {
@@ -100,7 +100,7 @@ describe('Calendar page functions', () => {
     cy.url().should('contains', '/review')
   })
   // aria-label="Next Month"
-  it.only('should cilck to show the next month unless the last day is the end of the month', () => {  
+  it('should cilck to show the next month unless the last day is the end of the month', () => {  
     cy.url().should('contains', '/calendar')
     const thisMonth = Cypress.moment().format('MMMM')
     cy.get('#renderMonthName').should('contain', thisMonth)
@@ -129,6 +129,55 @@ describe('Calendar page functions', () => {
   //     const count = el.length
   //     expect(count).eq(30)
   //  })
+  })
+
+  it.only('should see if there is another month to select', () => {  
+    cy.url().should('contains', '/calendar')
+    // find start date of the 30 days.
+
+     const startDate = Cypress.moment().format('MM')
+    // cy.get('.DayPicker-Day--today').as(startDate)
+     // figure out 30 days in future
+     const endDate = Cypress.moment().add(30, 'days').format('MM')
+
+
+     
+     cy.get('.DayPicker-Day--today').then(($el) => {
+       
+      if (startDate < endDate) {
+        cy.get('.DayPicker-NavButton--next').click({ force: true })
+     }})
+    
+  //   .should(($el) => {
+       // parse American time like "3:38 PM"
+      // const m = Cypress.moment($el, 'MM')
+   
+       // display hours + minutes + AM|PM
+      // const f = 'h:mm A'
+ // expect(startDate).not.to.eq(endDate)
+     //  expect(m.isBetween(startDate, endDate),
+      //   `${m.format()} should be between ${startDate.format()} and ${endDate.format()}`).to.be.true
+  //   })
+
+
+
+
+    //    cy.get('.DayPicker-NavButton--next').click({ force: true })
+    
+        
+
+     
+     
+ 
+   
+   
+   // cy.get('.DayPicker-Day--today').click()
+  // cy.get('.DayPicker-Day--today').should('contain', startDate)
+  // cy.get('.DayPicker-Day').should('contain', endDate)
+     // cy.get('[type="checkbox"]').check(['#checkbox_1'])
+   // cy.get('#checkbox_1').check()
+  //  cy.get(enterButton).click()
+  //  cy.url().should('contains', '/review')
   })
 
 });
