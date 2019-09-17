@@ -6,7 +6,6 @@ import { theme, horizontalPadding, mediaQuery } from '../styles'
 import LanguageSwitcher from './LanguageSwitcher'
 import Language from './Language'
 
-
 const container = css`
   ${horizontalPadding};
   padding-top: ${theme.spacing.lg};
@@ -34,26 +33,19 @@ const gocContainer = css`
 `
 
 const baseSVG = css`
-  height: 2.0rem;
+  height: 2rem;
   margsin-right: 1rem;
 `
-
 
 const engSVG = css`
   ${baseSVG};
   width: 400px;
-  
-  
 `
 
 const frSVG = css`
   ${baseSVG};
   width: 500px;
-  
-
-  `
-
-  
+`
 
 const FederalBanner = () => (
   <div className={container}>
@@ -70,11 +62,23 @@ const FederalBanner = () => (
                     : 'Gouvernement du Canada'
                 }
               >
-                <a href="https://www.canada.ca/en.html"><img src={English} alt="Government of Canada" className={engSVG} /></a>
+                <a href="https://www.canada.ca/en.html">
+                  <img
+                    src={English}
+                    alt="Government of Canada"
+                    className={engSVG}
+                  />
+                </a>
               </div>
             ) : (
               <div className={gocContainer}>
-                <a href="https://www.canada.ca/fr.html"><img src={French} alt="Gouvernement du Canada" className={frSVG} /></a>
+                <a href="https://www.canada.ca/fr.html">
+                  <img
+                    src={French}
+                    alt="Gouvernement du Canada"
+                    className={frSVG}
+                  />
+                </a>
               </div>
             )}
           </React.Fragment>
