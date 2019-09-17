@@ -14,6 +14,8 @@ services:
     build:
       context: ./
       dockerfile: cypress.Dockerfile
+    environment: 
+      - RAZZLE_CONNECTION_STRING=${RAZZLE_CONNECTION_STRING}
     container_name: cypress
     depends_on:
       - sab-gui

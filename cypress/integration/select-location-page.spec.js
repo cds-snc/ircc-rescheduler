@@ -53,13 +53,13 @@ describe('select provice, city and office page functions', () => {
 
      })
 
-     it('should click into the Select a City dropdown and show city and locations and button ', () => {  
+     it.only('should click into the Select a City dropdown and show city and locations and button ', () => {  
       cy.injectAxe()
       cy.get('select[name="ProvinceList"]').select('Alberta').should('have.value', 'Alberta')
-      cy.get('select[name="CitiesList"]').select('Edmonton').should('have.value', 'Edmonton')
+      cy.get('select[name="CitiesList"]').select('').shoulxsrwQd('have.value', 'xsrwQ')
      
       cy.get('[for="OfficeList"]').should('contains.text', 'Locations in:')
-      cy.get('[for="OfficeList"]').should('contain.text', 'Edmonton')
+      cy.get('[for="OfficeList"]').should('contain.text', 'xsrwQ')
       cy.get('.css-arysfy-govuk_button-button-mediaQuery-button').should('be.visible')
       cy.get('input[name="OfficeList"]').should('not.be.enabled')
       cy.get('#4754').click()
