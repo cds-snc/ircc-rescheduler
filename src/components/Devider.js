@@ -4,7 +4,6 @@ import styled from '@emotion/styled'
 
 // import { theme, horizontalPadding, mediaQuery } from '../styles'
 
-
 // const container = css`
 //   html:not(.development):not(.staging) & {
 //     display: none;
@@ -23,19 +22,16 @@ import styled from '@emotion/styled'
 
 const TopBar = styled.hr(
   {
-    height: '0.1em',
+    height: '0.065em',
     border: 'none',
     margin: 0,
-    background: 'light-grey',
+    background: '#333333',
   },
   props => ({ background: props.background }),
 )
 
-
-const Devider = (topBarBackground) => (
-  <div>
-     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
-   </div>
+const Devider = topBarBackground => (
+  <div>{topBarBackground ? <TopBar background={topBarBackground} /> : ''}</div>
 )
 
 export default Devider

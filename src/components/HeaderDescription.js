@@ -7,9 +7,11 @@ import { css } from 'emotion'
 import { theme } from '../styles'
 
 const govuk_label = css`
-  margin-bottom: 0.8rem;
-  display: block;
+  margin-bottom: 0.15rem;
+  font-family: 'Lato Bold', 'Lato Regular', 'Lato';
   font-size: ${theme.font.lg};
+  font-weight: bold;
+  font-style: normal;
   margin-left: 4.17rem;
 `
 
