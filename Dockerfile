@@ -18,7 +18,7 @@ COPY yarn.lock .
 COPY script.sh script.sh
 
 EXPOSE 3000
-ENTRYPOINT [ "/bin/sh" ]
+ENTRYPOINT [ "/bin/sh", "script.sh" ]
 # # New stage
 # FROM nginx:1.15-alpine
 
