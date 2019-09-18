@@ -53,7 +53,7 @@ class HeaderDescription extends React.Component {
   render() {
     const pathTitle = this.pageHeaderTitle(this.props.pathName)
     // eslint-disable-next-line no-console
-    console.log(this.props.pathName.toString())
+    // console.log(this.props.pathName.toString())
     return (
       <div>
         <div className={govuk_label}>
