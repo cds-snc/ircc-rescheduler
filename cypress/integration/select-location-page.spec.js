@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { headerImg, langLink, privacyLink, tocLink, aboutCA, sMedia, mobileApp, aboutCAHref, sMediaHref, mobileHref, tocHref, privacyHref,footerImg } from './utils'
+import { enterButton, headerImg, langLink, privacyLink, tocLink, aboutCA, sMedia, mobileApp, aboutCAHref, sMediaHref, mobileHref, tocHref, privacyHref,footerImg } from './utils'
 
 // Verify Items and functions on the select location, and office page. 
 function checkA11y(cy){ 
@@ -56,13 +56,13 @@ describe('select provice, city and office page functions', () => {
      it.only('should click into the Select a City dropdown and show city and locations and button ', () => {  
       cy.injectAxe()
       cy.get('select[name="ProvinceList"]').select('Alberta').should('have.value', 'Alberta')
-      cy.get('select[name="CitiesList"]').select('').shoulxsrwQd('have.value', 'xsrwQ')
+      cy.get('select[name="CitiesList"]').select('xsrwrQ').should('have.value', 'xsrwrQ')
      
       cy.get('[for="OfficeList"]').should('contains.text', 'Locations in:')
-      cy.get('[for="OfficeList"]').should('contain.text', 'xsrwQ')
-      cy.get('.css-arysfy-govuk_button-button-mediaQuery-button').should('be.visible')
+      cy.get('[for="OfficeList"]').should('contain.text', 'xsrwrQ')
+      cy.get(enterButton).should('be.visible')
       cy.get('input[name="OfficeList"]').should('not.be.enabled')
-      cy.get('#4754').click()
+      cy.get('#8').click()
       cy.get('input[name="OfficeList"]').should('be.enabled')
       cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
        checkA11y(cy)

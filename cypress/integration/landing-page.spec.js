@@ -45,7 +45,7 @@ describe('Items shown on the Landing page', () => {
     })
 
   it('Start now button take the user to the register page', () => {
-    cy.get('main a').should('contain.text', 'I Agree')
+    cy.get('main a').should('contain.text', 'Start request')
     cy.get('main a').click({ force: true })
     cy.url().should('contain', '/register')
     })
