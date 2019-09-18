@@ -1583,6 +1583,58 @@
       ]
     ]
   },
+  "Request an appointment for fingerprints and photo (biometrics)": {
+    "translation": "Demander un rendez-vous pour les empreintes digitales et photo (biométrie)",
+    "origin": [
+      [
+        "src/components/HeaderDescription.js",
+        23     ]
+    ]
+  },
+  "Step 1 of 4 – Enter your information": {
+    "translation": "Étape 1 sur 4 - Entrez vos informations",
+    "origin": [
+      [
+        "src/components/HeaderDescription.js",
+        25
+      ]
+    ]
+  },
+  "Step 2 of 4 – Select a location": {
+    "translation": "Étape 2 sur 4 - Choisissez un emplacement",
+    "origin": [
+      [
+        "src/components/HeaderDescription.js",
+        31     ]
+    ]
+  },
+  "Step 3 of 4 – Select a day and time": {
+    "translation": "Étape 3 sur 4 - Sélectionnez un jour et une heure",
+    "origin": [
+      [
+        "src/components/HeaderDescription.js",
+        34     ]
+    ]
+  },
+  "Step 4 of 4 – Review your request": {
+    "translation": "Étape 4 sur 4 - Révisez votre demande",
+    "origin": [
+      [
+        "src/components/HeaderDescription.js",
+        37     ]
+    ]
+  },
+  "Cancel an appointment": {
+    "translation": "Annuler un rendez-vous",
+    "origin": [
+      [
+        "src/components/HeaderDescription.js",
+        43     ]
+    ]
+  },
+
+
+
   "Start by selecting a province": {
     "translation": "Commencez par sélectionner une province",
     "origin": [

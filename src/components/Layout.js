@@ -10,6 +10,7 @@ import Footer from './Footer'
 import { ErrorBoundary } from './ErrorBoundary'
 import { ErrorPageContent } from '../pages/ErrorPage'
 import { initGA, logPageView } from '../utils/analytics'
+import HeaderDescription from '../components/HeaderDescription'
 
 injectGlobal`
   html, body {
@@ -108,6 +109,7 @@ class Layout extends React.Component {
         >
           <div role="banner">
             <FederalBanner />
+            <HeaderDescription pathName={this.props.children[0].props.path} />
             <Devider />
             <PageHeader>{this.props.header}</PageHeader>
             <Link to="/" style={{ marginLeft: `${theme.spacing.xxxl}` }}>
