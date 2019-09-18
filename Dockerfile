@@ -15,10 +15,10 @@ WORKDIR /web
 COPY package.json . 
 
 COPY yarn.lock . 
-COPY script.sh script.sh
+COPY entrypoint.sh entrypoint.sh
 
 EXPOSE 3000
-ENTRYPOINT [ "/bin/sh", "script.sh" ]
+ENTRYPOINT [ "/bin/sh", "entrypoint.sh" ]
 # # New stage
 # FROM nginx:1.15-alpine
 
