@@ -72,6 +72,7 @@
     "react-icons": "^3.7.0",
     "react-router-dom": "^4.3.1",
     "react-router-hash-link": "^1.2.1",
+    "serialize-javascript": "^2.1.0",
     "snarkdown": "^1.2.2",
     "validatorjs": "^3.14.2",
     "yarn": "^1.17.3"
