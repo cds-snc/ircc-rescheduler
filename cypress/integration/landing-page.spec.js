@@ -43,7 +43,12 @@ describe('Items shown on the Landing page', () => {
     
      cy.get(footerImg).should('be.visible')
     })
-
+    it.only('should go to the landing page and show header image and links ', () => {  
+      cy.get('[role="banner"] > :nth-child(2)').should('be.visible')
+      .and('contain.text', 'Request an appointment for fingerprints and photo (biometrics)')
+   
+     })
+ 
   it('Start now button take the user to the register page', () => {
     cy.get('main a').should('contain.text', 'Start request')
     cy.get('main a').click({ force: true })

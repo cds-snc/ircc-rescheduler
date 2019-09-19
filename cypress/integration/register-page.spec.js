@@ -1,7 +1,6 @@
 /* eslint-disable no-undef */
-// Verify Items and functions on the register page - BIL # - email and radio button.
+// Verify Items and functions on the register page - BIL # - email, checkboxes and button.
 import { nextButton, headerImg, langLink, privacyLink, tocLink, aboutCA, sMedia, mobileApp, aboutCAHref, sMediaHref, mobileHref, tocHref, privacyHref,footerImg } from './utils'
-// verify items on the register page. 
 
 function checkA11y(cy){ 
   cy.checkA11y({
@@ -43,10 +42,12 @@ describe('Register page functions', () => {
       
        cy.get(footerImg).should('be.visible')
       })
-    
-      xit('should show the steps for entry at the top of the page', () => {
-       // add tests to verify the steps at the top of the page. 
-      })
+
+      it('should go to the landing page and show header image and links ', () => {  
+        cy.get('[role="banner"] > :nth-child(2)').should('be.visible')
+        .and('contain.text', 'Step 1 of 4 – Enter your information')
+     
+       })
 
       it('should have Application number and email address entry boxes', () => {
         cy.get('#paperFileNumber-header').should('be.visible').and('contain.text', 'Application number')

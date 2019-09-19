@@ -14,6 +14,7 @@ describe('select provice, city and office page functions', () => {
       cy.reload(true)
     })
 
+
     it('Has no detectable a11y violations on load', () => {
       // Test the page at initial load
       cy.injectAxe()
