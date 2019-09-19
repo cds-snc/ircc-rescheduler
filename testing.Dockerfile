@@ -15,10 +15,10 @@ WORKDIR /web
 COPY package.json . 
 
 COPY yarn.lock . 
-COPY entrypoint.sh entrypoint.sh
-
+RUN yarn install --production
+RUN yarn build
 EXPOSE 3000
-ENTRYPOINT [ "/bin/sh", "entrypoint.sh" ]
+ENTRYPOINT [ "yarn", "start" ]
 # # New stage
 # FROM nginx:1.15-alpine
 
@@ -26,4 +26,3 @@ ENTRYPOINT [ "/bin/sh", "entrypoint.sh" ]
 # COPY --from=builder /web/build /usr/share/nginx/html/
 # # Login as node user
 # EXPOSE 80
-
