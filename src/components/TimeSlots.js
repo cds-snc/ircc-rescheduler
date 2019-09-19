@@ -38,7 +38,7 @@ class TimeSlots extends Component {
     // const url = `http://localhost:4011/appointmentsByLocId/${locationId}`
     const url = `${
       process.env.RAZZLE_CONNECTION_STRING
-    }/appointments/${locationId}/${newDate}`
+    }/appointmentsByLocIdDate/${locationId}/${newDate}`
 
     console.log(url)
 
@@ -58,7 +58,7 @@ class TimeSlots extends Component {
           // eslint-disable-next-line security/detect-object-injection
           dbTimeSlots[j].time.toString() ===
           // eslint-disable-next-line security/detect-object-injection
-          TimeSlotArray[i].Time.toString()
+          TimeSlotArray[i].name.toString()
         ) {
           TimeSlotArray.splice(i, 1)
         }

@@ -6,9 +6,9 @@ import withContext from '../withContext'
 import { css } from 'emotion'
 import { theme } from '../styles'
 
-const govuk_label = css`
+const govuk_header_label = css`
   margin-bottom: 0.15rem;
-  font-family: 'Lato Bold', 'Lato Regular', 'Lato';
+  font-family: 'Lato';
   font-size: ${theme.font.lg};
   font-weight: bold;
   font-style: normal;
@@ -56,7 +56,7 @@ class HeaderDescription extends React.Component {
     // console.log(this.props.pathName.toString())
     return (
       <div>
-        <div className={govuk_label}>
+        <div className={govuk_header_label}>
           <h1>{pathTitle}</h1>
         </div>
       </div>
