@@ -8,7 +8,7 @@ import { theme } from '../styles'
 
 const govuk_header_label = css`
   margin-bottom: 0.15rem;
-  font-family: 'Lato';
+  font-family: Lato, sans-serif;
   font-size: ${theme.font.lg};
   font-weight: bold;
   font-style: normal;
