@@ -18,6 +18,8 @@ COPY yarn.lock .
 COPY entrypoint.sh entrypoint.sh
 
 EXPOSE 3000
+RUN yarn install --pure-lockfile --production
+RUN yarn build
 ENTRYPOINT [ "/bin/sh", "entrypoint.sh" ]
 # # New stage
 # FROM nginx:1.15-alpine

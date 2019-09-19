@@ -67,13 +67,14 @@ describe('Register page functions', () => {
         cy.get(nextButton).click()
         cy.get('div > h2').should('be.visible').and('contain.text', 'Some information is missing')
         cy.get('p').should('contain.text', 'Please check these sections for errors:')
-        cy.get('ul > :nth-child(1) > a').should('contain.text', 'Email address')
-        cy.get('ul > :nth-child(2) > a').should('contain.text', 'Confirm Email address')
-        cy.get('ul > :nth-child(3) > a').should('contain.text', 'BIL file number')
+        cy.get('ul > :nth-child(1) > a').should('contain.text', 'Application number')
+        cy.get('ul > :nth-child(2) > a').should('contain.text', 'Email address')
+        cy.get('ul > :nth-child(3) > a').should('contain.text', 'Confirm Email address')
+        
         cy.get('#paperFileNumber-error').should('be.visible')
-          .and('contain.text', 'We need your BIL file number so we can confirm your identity.')
-        cy.get('#email-error').should('contains.text', 'We need your email address.')
-        cy.get('#email-Confirm-error').should('contain.text', 'Please re-enter your email address.')
+          .and('contain.text', 'We need your Application number so we can confirm your identity.')
+        cy.get('#email-error').should('contains.text', 'We need your email address so we can send you a confirmation message.')
+        cy.get('#email-Confirm-error').should('contain.text', 'We need you to confirm your email address.')
         checkA11y(cy)     
        })
 
@@ -85,7 +86,7 @@ describe('Register page functions', () => {
           cy.get('#emailConfirm').type(data.email, { force: true })
           cy.get(nextButton).click()
           cy.get('#paperFileNumber-error').should('be.visible')
-          .and('contain.text', 'We need your Application number so we can confirm your identity')
+          .and('contain.text', 'The Application number entered is not valid.')
           cy.get('li > a').should('contain.text', 'Application number')
           checkA11y(cy)
         })})
@@ -114,7 +115,7 @@ describe('Register page functions', () => {
             cy.get('#email-error')
             .should('not.be.visible')
             cy.get('#email-Confirm-error')
-            .should('contain.text', 'Email does not match. Please re-enter matching email.')
+            .should('contain.text', 'Your email does not match. Please re-enter your email.')
             cy.get('li > a').should('contain.text', 'Confirm Email address')   
           })})
 
@@ -128,7 +129,7 @@ describe('Register page functions', () => {
                 // BIL number click
                 cy.get('ul > :nth-child(3) > a').click()
                 cy.window().then(($window) => {
-                  expect($window.scrollY).to.be.closeTo(370, 200);
+                  expect($window.scrollY).to.be.closeTo(721, 200);
                 })
                 cy.get('#paperFileNumber-error').should('be.visible')
                 checkA11y(cy)
@@ -146,9 +147,6 @@ describe('Register page functions', () => {
               expect($window.scrollY).to.be.closeTo(687, 200);
             })
             checkA11y(cy)
-              cy.get('#email-Confirm-error')
-              .should('contain.text', 'Email does not match. Please re-enter matching email.')
-          
            
             })})
 

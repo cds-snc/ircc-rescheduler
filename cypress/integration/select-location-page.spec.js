@@ -56,31 +56,19 @@ describe('select provice, city and office page functions', () => {
      it.only('should click into the Select a City dropdown and show city and locations and button ', () => {  
       cy.injectAxe()
       cy.get('select[name="ProvinceList"]').select('Alberta').should('have.value', 'Alberta')
-      cy.get('select[name="CitiesList"]').select('xsrwrQ').should('have.value', 'xsrwrQ')
+      cy.get('select[name="CitiesList"]').select('Calgary').should('have.value', 'Calgary')
      
       cy.get('[for="OfficeList"]').should('contains.text', 'Locations in:')
-      cy.get('[for="OfficeList"]').should('contain.text', 'xsrwrQ')
+      cy.get('[for="OfficeList"]').should('contain.text', 'Calgary')
       cy.get(enterButton).should('be.visible')
       cy.get('input[name="OfficeList"]').should('not.be.enabled')
-      cy.get('#8').click()
+      cy.get('#14').click()
       cy.get('input[name="OfficeList"]').should('be.enabled')
-      cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
+      cy.get('#14-href > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
        checkA11y(cy)
  
      })
      
-     it('should find Alberta and the cities in the dropdown', () => {  
-       // Alberta - Edomonton - checked in previous test - Calgary
-      cy.get('select[name="ProvinceList"]').select('Alberta')
-      cy.get('select[name="CitiesList"]').select('Calgary')
-      cy.get('[for="OfficeList"]').should('contain.text', 'Calgary')
-      cy.get('input[name="OfficeList"]').should('not.be.enabled')
-      cy.get('#4802').click()
-      cy.get('input[name="OfficeList"]').should('be.enabled')
-      cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
-})
-
-
     it('should find British Columbia and the cities in the dropdown', () => {  
       // British Columbia - Vancouver
       cy.get('select[name="ProvinceList"]').select('British Columbia').should('have.value', 'British Columbia')
@@ -90,6 +78,17 @@ describe('select provice, city and office page functions', () => {
       cy.get('#5823').click()
       cy.get('input[name="OfficeList"]').should('be.enabled')
       cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
+})
+
+it('should find Alberta and the cities in the dropdown', () => {  
+  // Alberta - Edmonton - checked in previous test - Calgary
+ cy.get('select[name="ProvinceList"]').select('Alberta')
+ cy.get('select[name="CitiesList"]').select('Calgary')
+ cy.get('[for="OfficeList"]').should('contain.text', 'Calgary')
+ cy.get('input[name="OfficeList"]').should('not.be.enabled')
+ cy.get('#4802').click()
+ cy.get('input[name="OfficeList"]').should('be.enabled')
+ cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
 })
 
 it('should find Manitoba and the cities in the dropdown', () => {  

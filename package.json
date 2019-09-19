@@ -27,7 +27,8 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "ci:dev": "start-server-and-test dev http://localhost:3004 cypress:open",
-    "ci:prod": "start-server-and-test build:start http://localhost:3004 cypress:run"
+    "ci:prod": "start-server-and-test build:start http://localhost:3004 cypress:run",
+    "ci:prod-test": "start-server-and-test cypress:run"
   },
   "husky": {
     "hooks": {
@@ -106,7 +107,7 @@
     "puppeteer": "^1.8.0",
     "raf": "^3.4.1",
     "require-all": "^3.0.0",
-    "start-server-and-test": "^1.7.10",
+    "start-server-and-test": "^1.10.2",
     "supertest": "^3.3.0",
     "webpack-bundle-analyzer": "^3.0.2"
   },
