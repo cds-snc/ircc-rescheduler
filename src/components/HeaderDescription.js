@@ -10,7 +10,7 @@ const govuk_header_label = css`
   margin-bottom: 0.15rem;
   font-family: Lato, sans-serif;
   font-size: ${theme.font.lg};
-  font-weight: bold;
+  font-weight: 400;
   font-style: normal;
   margin-left: 4.17rem;
 `
