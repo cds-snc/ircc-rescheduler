@@ -21,6 +21,8 @@ import gitHash from './utils/gitHash'
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
   path.join(process.cwd(), 'build', 'assets.json'))
 
+const apiHost = process.env.CONNECTION_STRING
+
 const server = express()
 const helmet = require('helmet')
 const apiHost = process.env.CONNECTION_STRING
