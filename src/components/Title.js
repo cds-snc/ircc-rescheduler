@@ -10,7 +10,7 @@ const matchPropTypes = {
 }
 
 const Title = ({ i18n, path }) => {
-  let title = `${i18n._('Request a new citizenship appointment')}`
+  let title = `${i18n._('Request an appointment for biometrics')}`
   let divider = '—'
 
   switch (path) {
