@@ -1,24 +1,15 @@
 import React from 'react'
-// import { css } from 'emotion'
+import { css } from 'emotion'
 import styled from '@emotion/styled'
 
-// import { theme, horizontalPadding, mediaQuery } from '../styles'
+import { theme, horizontalPadding } from '../styles'
 
-// const container = css`
-//   html:not(.development):not(.staging) & {
-//     display: none;
-//   }
-
-//   ${horizontalPadding};
-//   padding-top: ${theme.spacing.xxs};
-//   padding-bottom: ${theme.spacing.xxs};
-//   background-color: ${theme.colour.blue};
-
-//   ${mediaQuery.sm(css`
-//     padding-top: ${theme.spacing.md};
-//     padding-bottom: ${theme.spacing.md};
-//   `)};
-// `
+const container = css`
+  ${horizontalPadding};
+  width: auto;
+  justify-content: space-between;
+  background-color: ${theme.colour.white};
+`
 
 const TopBar = styled.hr(
   {
@@ -31,7 +22,11 @@ const TopBar = styled.hr(
 )
 
 const Devider = topBarBackground => (
-  <div>{topBarBackground ? <TopBar background={topBarBackground} /> : ''}</div>
+  <div className={container}>
+    <div>
+      {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
+    </div>
+  </div>
 )
 
 export default Devider

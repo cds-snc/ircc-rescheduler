@@ -54,6 +54,20 @@ class Document extends React.Component {
         <head>
           <link
             rel="preload"
+            href="/fonts/Lato-Regular.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/fonts/Lato-Bold.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
             href="/fonts/SourceSansPro-Regular.woff"
             as="font"
             type="font/woff"
