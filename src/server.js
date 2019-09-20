@@ -47,7 +47,6 @@ server
         console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
         resp.on('data', chunk => {
           // eslint-disable-next-line no-console
-
           console.log(`BODY: ${chunk}`)
           data += chunk
           res.status(200).send(data)
