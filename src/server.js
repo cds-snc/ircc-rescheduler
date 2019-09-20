@@ -1,5 +1,4 @@
 import express from 'express'
-import http from 'http'
 import cookieParser from 'cookie-parser'
 import { getStoreCookie } from './cookies'
 import { render } from '@jaredpalmer/after'
@@ -59,7 +58,7 @@ server
         // eslint-disable-next-line no-console
         console.log(
           'Something went wrong when calling the API. Heres the error: ' + err,
-        )
+        ) // eslint-disable-line no-console
       })
   })
   .get('/clear', (req, res) => {
