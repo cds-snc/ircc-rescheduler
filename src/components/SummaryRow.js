@@ -6,7 +6,6 @@ import { theme, mediaQuery, H2 } from '../styles'
 import { Trans } from '@lingui/react'
 import { HashLink as NavLink } from 'react-router-hash-link'
 
-
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
@@ -71,18 +70,19 @@ const SummaryRow = ({
 }) => (
   <Row id={summaryId}>
     <SummaryHeader>
-      <SummaryH2 id={`${summaryId}-header`} >{summaryHeader}</SummaryH2>
-      <SummaryBody id={`${summaryId}-body`} >{summaryBody}</SummaryBody>
+      <SummaryH2 id={`${summaryId}-header`}>{summaryHeader}</SummaryH2>
+      <SummaryBody id={`${summaryId}-body`}>{summaryBody}</SummaryBody>
     </SummaryHeader>
 
-    {( summaryLink ) 
-    ? 
-      <SummaryLink id={`${summaryId}-link`} >
+    {summaryLink ? (
+      <SummaryLink id={`${summaryId}-link`}>
         <NavLink to={summaryLink} aria-label={summaryLabel}>
           <Trans>Change</Trans>
         </NavLink>
       </SummaryLink>
-    : '' }
+    ) : (
+      ''
+    )}
   </Row>
 )
 
@@ -108,18 +108,18 @@ const TextAreaSummaryRow = ({
       <SummaryBodyWhiteSpace>{summaryBody}</SummaryBodyWhiteSpace>
     </SummaryHeader>
 
-    {( summaryLink ) 
-    ? 
+    {summaryLink ? (
       <SummaryLinkExplanation>
         <NavLink to={summaryLink} aria-label={summaryLabel}>
           <Trans>Change</Trans>
         </NavLink>
       </SummaryLinkExplanation>
-    : ''}
+    ) : (
+      ''
+    )}
   </Row>
 )
 
 TextAreaSummaryRow.propTypes = summaryRowProps
-
 
 export { SummaryRow, TextAreaSummaryRow }

@@ -478,6 +478,20 @@
       ]
     ]
   },
+
+  
+  "I need an accessible or private workstation": {
+    "translation": "I need an accessible or private workstation",
+    "origin": [
+      [
+        "src/components/comfirmation.js",
+        52
+      ]
+    ]
+  },
+
+
+
   "Email does not match. Please re-enter matching email.": {
     "translation": "Email does not match. Please re-enter matching email.",
     "origin": [

@@ -6,7 +6,6 @@ import { Trans, withI18n } from '@lingui/react'
 import { SelectedDayList } from './SelectedDayList'
 import { SummaryRow } from './SummaryRow'
 
-
 const TableContainer = styled.div`
   margin: ${theme.spacing.lg} 0;
 
@@ -19,13 +18,15 @@ const TableContainer = styled.div`
 const Review = ({
   paperFileNumber,
   email,
+  location,
+  selectedDays,
+  // eslint-disable-next-line react/prop-types
+  selectedTime,
   // eslint-disable-next-line react/prop-types
   accessibility,
   // eslint-disable-next-line react/prop-types
   privacy,
-  location,
-  selectedDays,
-  selectedTime,
+
   i18n,
 }) => (
   <TableContainer>
@@ -33,50 +34,43 @@ const Review = ({
       summaryId={'bilNumber'}
       summaryHeader={<Trans>Application number</Trans>}
       summaryBody={paperFileNumber}
-      summaryLink={''}
-      summaryLabel={''}
+      summaryLink={'/register#paperFileNumber-label'}
+      summaryLabel={
+        i18n && `${i18n._('Change')} ${i18n._('Paper file number')}`
+      }
     />
     <SummaryRow
-      summaryId={'email'}
-      summaryHeader={<Trans>Email</Trans>}
+      summaryId={'email address'}
+      summaryHeader={<Trans>Email address</Trans>}
       summaryBody={email}
-      summaryLink={''}
-      summaryLabel={''}
+      summaryLink={'/register#email-label'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
     />
     <SummaryRow
       summaryId={'a11y'}
-      summaryHeader={<Trans>Accessibility required</Trans>}
+      summaryHeader={<Trans>I need an accessible or private workstation</Trans>}
       summaryBody={accessibility}
-      summaryLink={''}
-      summaryLabel={''}
-    />
-    <SummaryRow
-      summaryId={'privacy'}
-      summaryHeader={<Trans>Privacy booth required</Trans>}
-      summaryBody={privacy}
-      summaryLink={''}
-      summaryLabel={''}
+      summaryLink={'/register#accessibility-label'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Accessibility')}`}
     />
     <SummaryRow
       summaryId={'location'}
       summaryHeader={<Trans>Location</Trans>}
       summaryBody={location}
-      summaryLink={''}
-      summaryLabel={''}
+      summaryLink={'/selectProvince'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
     />
     <SummaryRow
-      summaryId={'time'}
-      summaryHeader={<Trans>Time</Trans>}
-      summaryBody={selectedTime}
-      summaryLink={''}
-      summaryLabel={''}
-    />    
-    <SummaryRow
       summaryId={'date'}
-      summaryHeader={<Trans>Date</Trans>}
-      summaryBody={<SelectedDayList selectedDays={selectedDays} />}
-      summaryLink={''}
-      summaryLabel={''}
+      summaryHeader={<Trans>Day and time</Trans>}
+      summaryBody={
+        <SelectedDayList
+          selectedDays={selectedDays}
+          selectedTime={selectedTime}
+        />
+      }
+      summaryLink={'/calendar#selectedDaysBox'}
+      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
     />
   </TableContainer>
 )
