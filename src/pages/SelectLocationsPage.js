@@ -4,7 +4,13 @@ import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { css } from 'emotion'
-import { theme, mediaQuery, visuallyhidden, contentClass, arrow } from '../styles'
+import {
+  theme,
+  mediaQuery,
+  visuallyhidden,
+  contentClass,
+  arrow,
+} from '../styles'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import { SelectLocationFields, getFieldNames } from '../validation'
@@ -19,6 +25,7 @@ import SelectDropDown from '../components/forms/Select'
 import { ApiFetch } from '../components/ApiFetch'
 import FocusedH1 from '../components/FocusedH1'
 import rightArrow from '../assets/rightArrow.svg'
+import http from 'http'
 
 // import styled from '@emotion/styled'
 //import { buttonStyles } from '../components/forms/Button'
@@ -62,8 +69,6 @@ const landingArrow = css`
   margin-left: 4px;
 `
 
-const dbHost = process.env.RAZZLE_CONNECTION_STRING
-
 class SelectlocationsPage extends React.Component {
   constructor(props) {
     super(props)
@@ -89,6 +94,12 @@ class SelectlocationsPage extends React.Component {
     this.submit = this.submit.bind(this)
     this.validate = SelectlocationsPage.validate
     this.fields = SelectlocationsPage.fields
+
+    http.get('/locations', resp => {
+      resp.on('data', chunk => {
+        console.log('In locations page: ' + chunk)
+      })
+    })
   }
 
   static errStrings = {}

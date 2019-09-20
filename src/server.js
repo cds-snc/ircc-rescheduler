@@ -1,4 +1,5 @@
 import express from 'express'
+import http from 'http'
 import cookieParser from 'cookie-parser'
 import { getStoreCookie } from './cookies'
 import { render } from '@jaredpalmer/after'
@@ -20,6 +21,8 @@ import gitHash from './utils/gitHash'
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
   path.join(process.cwd(), 'build', 'assets.json'))
 
+const apiHost = process.env.CONNECTION_STRING
+
 const server = express()
 const helmet = require('helmet')
 
@@ -34,7 +37,23 @@ server
   .use(ensureLocation)
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
-  //.post('/submit', handleSubmitEmail)
+  // Endpoint for calling SAB database API
+  .get('/locations', (req, res) => {
+    let data = ''
+    fetch(`http://${apiHost}/locationsbyprov/Ontario`)
+      .then(response => response.json())
+      .then(chunk => {
+        console.log(`STATUS: ${resp.statusCode}`)
+        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        console.log(`BODY: ${chunk}`)
+        res.status(200).send(chunk)
+      })
+      .catch(err => {
+        console.log(
+          'Something went wrong when calling the API. Heres the error: ' + err,
+        )
+      })
+  })
   .get('/clear', (req, res) => {
     let language = getStoreCookie(req.cookies, 'language') || 'en'
     res.clearCookie('store')
