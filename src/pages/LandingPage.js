@@ -91,11 +91,36 @@ class LandingPage extends React.Component {
         <Title path={this.props.match.path} />
         <section>
           <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
-            <Trans>Welcome to the Biometrics Scheduler</Trans>
+            <Trans>You will need</Trans>
           </H1>
+          <ul>
+            • Your <b>Application number </b>which can be found at the top of
+            the mailed letter we sent you
+          </ul>
+          <ul>
+            • A <b>valid email address</b> where we can send a confirmation
+            message
+          </ul>
+
           <p>
             <Trans>
-            THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. This is where you have to agree to all of the things that are in here blah blah its the EULA.  Its a whole bunch of everyhthing.  If you agree to all of this then click the button below to get started. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. 
+              THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE
+              HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A
+              PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS
+              IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER.
+              THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE
+              HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A
+              PLACE HOLDER. This is where you have to agree to all of the things
+              that are in here blah blah its the EULA. Its a whole bunch of
+              everyhthing. If you agree to all of this then click the button
+              below to get started. THIS IS A PLACE HOLDER. THIS IS A PLACE
+              HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A
+              PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS
+              IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER.
+              THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE
+              HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A
+              PLACE HOLDER. THIS IS A PLACE HOLDER. THIS IS A PLACE HOLDER. THIS
+              IS A PLACE HOLDER. THIS IS A PLACE HOLDER.
             </Trans>{' '}
           </p>
         </section>
@@ -173,7 +198,7 @@ class LandingPage extends React.Component {
 }
 
 LandingPage.propTypes = {
-   ...matchPropTypes,
+  ...matchPropTypes,
 }
 
 export default LandingPage
