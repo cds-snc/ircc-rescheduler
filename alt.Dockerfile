@@ -1,0 +1,23 @@
+FROM node:lts-alpine
+
+
+ARG PAPER_FILE_NUMBER_PATTERN
+ARG RAZZLE_FLAGS
+ARG RAZZLE_GA_ID
+
+ENV RAZZLE_PAPER_FILE_NUMBER_PATTERN ${PAPER_FILE_NUMBER_PATTERN}
+ENV RAZZLE_FLAGS ${RAZZLE_FLAGS}
+ENV RAZZLE_GA_ID ${RAZZLE_GA_ID}
+ENV RAZZLE_CONNECTION_STRING 'this will be replaced'
+# USER root
+WORKDIR /web
+ADD . .
+
+COPY package.json . 
+COPY yarn.lock . 
+
+RUN yarn install --production
+RUN yarn build
+
+EXPOSE 3000
+ENTRYPOINT [ "yarn", "start" ]

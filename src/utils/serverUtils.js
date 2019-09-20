@@ -124,8 +124,7 @@ export const cspConfig = {
     "'self'",
     'http://localhost:3005/',
     'ws://localhost:3005/',
-    `${process.env.RAZZLE_CONNECTION_STRING}`,
-    `http://server:4001/`,
+    `${process.env.CONNECTION_STRING}`,
   ],
   fontSrc: ["'self'", 'https://fonts.gstatic.com'],
   imgSrc: [
@@ -140,8 +139,7 @@ export const cspConfig = {
     'http://localhost:3005/',
     'https://www.google-analytics.com',
     "'unsafe-inline'",
-    `${process.env.RAZZLE_CONNECTION_STRING}`,
-    `http://server:4001/`,
+    `${process.env.CONNECTION_STRING}`,
   ],
   styleSrc: ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'"],
 }
