@@ -1,5 +1,4 @@
 import express from 'express'
-import http from 'http'
 import cookieParser from 'cookie-parser'
 import { getStoreCookie } from './cookies'
 import { render } from '@jaredpalmer/after'
@@ -39,19 +38,16 @@ server
   .use(bodyParser.urlencoded({ extended: false }))
   // Endpoint for calling SAB database API
   .get('/locations', (req, res) => {
-    let data = ''
     fetch(`http://${apiHost}/locationsbyprov/Ontario`)
       .then(response => response.json())
       .then(chunk => {
-        console.log(`STATUS: ${resp.statusCode}`)
-        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
-        console.log(`BODY: ${chunk}`)
+        console.log(`BODY: ${chunk}`) // eslint-disable-line no-console
         res.status(200).send(chunk)
       })
       .catch(err => {
         console.log(
           'Something went wrong when calling the API. Heres the error: ' + err,
-        )
+        ) // eslint-disable-line no-console
       })
   })
   .get('/clear', (req, res) => {
