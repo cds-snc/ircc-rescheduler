@@ -9,7 +9,7 @@ describe('<Title />', () => {
     const wrapper = shallow(<Title i18n={i18n} />)
     expect(wrapper.find('title').length).toBe(1)
     expect(wrapper.find('title').text()).toEqual(
-      'Page not found — Request a new citizenship appointment',
+      'Page not found — Request an appointment for biometrics',
     )
   })
 
@@ -17,48 +17,48 @@ describe('<Title />', () => {
     const wrapper = shallow(<Title i18n={i18n} path={''} />)
     expect(wrapper.find('title').length).toBe(1)
     expect(wrapper.find('title').text()).toEqual(
-      'Page not found — Request a new citizenship appointment',
+      'Page not found — Request an appointment for biometrics',
     )
   })
 
   const titles = [
     {
       path: '/',
-      title: 'Request a new citizenship appointment',
+      title: 'Request an appointment for biometrics',
     },
     {
       path: '/register',
       title:
-        'Provide some basic information — Request a new citizenship appointment',
+        'Provide some basic information — Request an appointment for biometrics',
     },
     {
       path: '/calendar',
       title:
-        'Select a days you’re available — Request a new citizenship appointment',
+        'Select a days you’re available — Request an appointment for biometrics',
     },
     {
       path: '/review',
-      title: 'Review your request — Request a new citizenship appointment',
+      title: 'Review your request — Request an appointment for biometrics',
     },
     {
       path: '/confirmation',
-      title: 'Request received — Request a new citizenship appointment',
+      title: 'Request received — Request an appointment for biometrics',
     },
     {
       path: '/cancel',
-      title: 'Request cancelled — Request a new citizenship appointment',
+      title: 'Request cancelled — Request an appointment for biometrics',
     },
     {
       path: '/error',
-      title: 'Something went wrong — Request a new citizenship appointment',
+      title: 'Something went wrong — Request an appointment for biometrics',
     },
     {
       path: '/confirmation/:error',
-      title: 'Something went wrong — Request a new citizenship appointment',
+      title: 'Something went wrong — Request an appointment for biometrics',
     },
     {
       path: '/404',
-      title: 'Page not found — Request a new citizenship appointment',
+      title: 'Page not found — Request an appointment for biometrics',
     },
   ]
   titles.map(({ path, title }) => {

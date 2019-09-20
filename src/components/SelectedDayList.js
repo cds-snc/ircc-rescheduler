@@ -13,7 +13,8 @@ export const SelectedDayList = withI18n()(
           <li key={index}>
             <Time date={day} locale={locale} />
             <br />
-            <span>at {selectedTime}</span>
+            <span>at </span>
+            <span>{selectedTime}</span>
           </li>
         ))}
       </ul>
