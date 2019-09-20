@@ -24,6 +24,7 @@ const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
 const server = express()
 const helmet = require('helmet')
 const apiHost = process.env.CONNECTION_STRING
+// eslint-disable-next-line no-console
 console.log(apiHost)
 
 server
