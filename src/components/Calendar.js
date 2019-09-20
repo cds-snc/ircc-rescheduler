@@ -352,9 +352,10 @@ const daySelection = css`
   background: ${theme.colour.greyLight};
   margin-bottom: ${theme.spacing.md};
   padding: ${theme.spacing.lg} ${theme.spacing.lg} 0 ${theme.spacing.lg};
-  width: 20rem;
+  width: 95%;
   height: auto;
   box-shadow: 5px 10px #888888;
+  float: right;
 
   button {
     padding: 0;

@@ -4,7 +4,7 @@ import React from 'react'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { css } from 'emotion'
-import { theme, horizontalPadding } from '../styles'
+import { theme, horizontalPadding, mediaQuery } from '../styles'
 
 const container = css`
   ${horizontalPadding};
@@ -19,6 +19,14 @@ const govuk_header_label = css`
   font-size: ${theme.font.lg};
   font-weight: 400;
   font-style: normal;
+
+  ${mediaQuery.md(css`
+    width: 80%;
+  `)};
+
+  ${mediaQuery.sm(css`
+    width: 100%;
+  `)};
 `
 
 class HeaderDescription extends React.Component {
