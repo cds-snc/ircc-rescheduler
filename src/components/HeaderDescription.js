@@ -4,7 +4,14 @@ import React from 'react'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { css } from 'emotion'
-import { theme } from '../styles'
+import { theme, horizontalPadding } from '../styles'
+
+const container = css`
+  ${horizontalPadding};
+  width: auto;
+  justify-content: space-between;
+  background-color: ${theme.colour.white};
+`
 
 const govuk_header_label = css`
   margin-bottom: 0.15rem;
@@ -12,7 +19,6 @@ const govuk_header_label = css`
   font-size: ${theme.font.lg};
   font-weight: 400;
   font-style: normal;
-  margin-left: 4.17rem;
 `
 
 class HeaderDescription extends React.Component {
@@ -55,9 +61,11 @@ class HeaderDescription extends React.Component {
     // eslint-disable-next-line no-console
     // console.log(this.props.pathName.toString())
     return (
-      <div>
-        <div className={govuk_header_label}>
-          <h1>{pathTitle}</h1>
+      <div className={container}>
+        <div>
+          <div className={govuk_header_label}>
+            <h1>{pathTitle}</h1>
+          </div>
         </div>
       </div>
     )
