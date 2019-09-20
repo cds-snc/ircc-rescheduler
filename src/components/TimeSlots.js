@@ -6,6 +6,11 @@ import { matchPropTypes } from '../components/Title'
 import withContext from '../withContext'
 import moment from 'moment'
 import SelectDropDown from '../components/forms/Select'
+import { css } from 'emotion'
+
+const selectDropDown = css`
+  max-width: 500px;
+`
 
 class TimeSlots extends Component {
   constructor(props) {
@@ -127,7 +132,7 @@ class TimeSlots extends Component {
     const timeSlot = this.removeTimeSlot(mockData)
     console.log(timeSlot)
     return (
-      <div>
+      <div className={selectDropDown}>
         <SelectDropDown
           selName="TimeSlot"
           selId="TimeSlot"

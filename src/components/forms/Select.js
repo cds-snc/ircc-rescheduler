@@ -10,7 +10,8 @@ const govuk_select = css`
   line-height: 1.4;
   border: 3px solid #000000;
   margin-bottom: 2em;
-  width: 200px;
+  width: 95%;
+  max-width: 500px;
   height: 40px;
   select {
     display: none;
