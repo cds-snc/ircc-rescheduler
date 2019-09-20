@@ -1,0 +1,16 @@
+{
+  "presets": [
+    "razzle/babel",
+    "@lingui/babel-preset-react",
+    [
+      "env",
+      {
+        "useBuiltins": true,
+        "targets": {
+          "browsers": ["ie 11"]
+        }
+      }
+    ]
+  ],
+  "plugins": ["emotion","transform-class-properties"]
+}

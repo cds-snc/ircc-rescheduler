@@ -1,0 +1,24 @@
+@font-face {
+  font-family: SourceSans;
+  src: url(/fonts/SourceSansPro-Regular.woff) format('woff');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: SourceSans;
+  src: url(/fonts/SourceSansPro-Bold.woff) format('woff');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: Lato;
+  src: url(/fonts/Lato-Regular.ttf) format('ttf');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: Lato;
+  src: url(/fonts/Lato-Bold.ttf) format('ttf');
+  font-weight: 700;
+  font-display: block;
+}

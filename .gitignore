@@ -1,0 +1,17 @@
+dist
+**/.DS_Store
+node_modules
+# Vim swap files
+*.swp
+*.pem
+.env*
+env.local
+reports
+cypress/screenshots
+cypress/videos
+cypress/reports
+VERSION
+build
+
+# ignore generated translations files
+locale/_build

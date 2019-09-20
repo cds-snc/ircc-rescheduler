@@ -1,0 +1,35 @@
+version: '3.3'
+services: 
+  sab-gui:
+    build:
+      context: ./
+      dockerfile: testing.Dockerfile
+    environment: 
+     - RAZZLE_CONNECTION_STRING='http://sab-database.dev.esdc.online'
+    container_name: sab-gui
+    restart: always
+    ports:
+     - "80:3000"
+    
+
+  e2e:
+    build:
+      context: ./
+      dockerfile: cypress.Dockerfile
+    environment: 
+      - RAZZLE_CONNECTION_STRING=${RAZZLE_CONNECTION_STRING}
+    container_name: cypress
+    depends_on:
+      - sab-gui
+    # note: inside e2e container, the network allows accessing
+    # "web" host under name "web" (in this project it's 'sab-gui' and not web)
+    # so "curl http://web" would return whatever the webserver
+    # in the "web" container is cooking
+    # see https://docs.docker.com/compose/networking/
+    environment:
+      - CYPRESS_baseUrl=http://localhost
+    command: npx cypress run --reporter junit --reporter-options "mochaFile=/cypress/report/test-output-[hash].xml"
+    network_mode: 'host'
+    volumes:
+      - "./cypress/reports:/cypress/report"
+  

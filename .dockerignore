@@ -1,0 +1,13 @@
+.git
+.circleci
+.env*
+docs
+node_modules
+LICENSE
+README.md
+cypress/videos/
+cypress/screenshots/
+cypress/results
+reports
+test
+build

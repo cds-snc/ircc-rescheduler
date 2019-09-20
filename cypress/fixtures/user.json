@@ -1,0 +1,9 @@
+
+{
+"bilNumber": "B123456789012",
+"email": "DTS@example.com",
+"emailIncorrectMatch": "TDS@example.com",
+"emailIncorrectFormat": "cds@example,com",
+"wrongFileNumber": "123456"
+
+}
