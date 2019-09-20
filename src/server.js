@@ -1,4 +1,5 @@
 import express from 'express'
+import http from 'http'
 import cookieParser from 'cookie-parser'
 import { getStoreCookie } from './cookies'
 import { render } from '@jaredpalmer/after'
@@ -19,8 +20,6 @@ import gitHash from './utils/gitHash'
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
   path.join(process.cwd(), 'build', 'assets.json'))
-
-const apiHost = process.env.CONNECTION_STRING
 
 const server = express()
 const helmet = require('helmet')
@@ -58,7 +57,7 @@ server
         // eslint-disable-next-line no-console
         console.log(
           'Something went wrong when calling the API. Heres the error: ' + err,
-        ) // eslint-disable-line no-console
+        )
       })
   })
   .get('/clear', (req, res) => {
