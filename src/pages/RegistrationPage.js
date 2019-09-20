@@ -82,13 +82,13 @@ const forNowSubmitErrorStyles = css`
 const labelNames = id => {
   switch (id) {
     case 'paperFileNumber':
-      return <Trans>BIL file number</Trans>
+      return <Trans>Application number</Trans>
     case 'email':
       return <Trans>Email address</Trans>
     case 'emailConfirm':
         return <Trans>Confirm Email address</Trans>
     case 'accessibility':
-      return <Trans>Do you require accessibility?</Trans>
+      return ''
     case 'privacy':
         return <Trans>Do you require privacy booth?</Trans>  
     case 'explanation':
@@ -155,7 +155,7 @@ class RegistrationPage extends React.Component {
 
       RegistrationPage.errStrings = getFieldErrorStrings(validate)
       // eslint-disable-next-line no-console
-      console.log(RegistrationPage.errStrings)
+  //    console.log(RegistrationPage.errStrings)
     }
     
     return RegistrationPage.errStrings
@@ -348,7 +348,7 @@ class RegistrationPage extends React.Component {
                       />
                       <span id="email-details">
                         <Trans>
-                          Please enter your email address.
+                          This is where we will send a confirmation email when you are done.
                         </Trans>
                       </span>
                     </label>
@@ -371,7 +371,7 @@ class RegistrationPage extends React.Component {
                       />
                       <span id="confirm-email-details">
                         <Trans>
-                          Please re-enter your email for confirmation.
+                          Please re-enter your email address.
                         </Trans>
                       </span>
                     </label>
@@ -391,7 +391,7 @@ class RegistrationPage extends React.Component {
                       component={CheckboxAdapter}
                       name="familyCheck"
                       id="familyCheck"
-                      label={<Trans>Agree</Trans>}
+                      label={<Trans>I need an accessible or private workstation (optional)</Trans>}
                       value="yes"
                       aria-label="accessibility-label"
                     />
@@ -400,7 +400,7 @@ class RegistrationPage extends React.Component {
 
                 {/* Privacy */}
 
-                <div>
+                {/* <div>
                   <FieldSet legendHidden={false} id="privacy-reason">
                     <legend>
                       <span id="privacy-reason-header">{labelNames('privacy')}</span>
@@ -416,14 +416,14 @@ class RegistrationPage extends React.Component {
                       aria-label="privacy-label"
                     />
                   </FieldSet>
-                </div>
+                </div> */}
                 
                 {/*
                Button is disabled if form has been submitted (and is waiting)
               */}
                 <BottomContainer>
                   
-                  <Button id="regButton"
+                  <Button id="nextButton"
                     onClick={() => {
                       this.setState({ submitClicked: true })
                     }}

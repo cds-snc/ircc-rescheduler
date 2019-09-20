@@ -10,7 +10,7 @@ import Validator from 'validatorjs'
 
 describe('Validation', () => {
   it('Gets ar array of field names from Object Keys', () => {
-    expect(getFieldNames(RegistrationFields)[0]).toEqual('email')
+    expect(getFieldNames(RegistrationFields)[0]).toEqual('paperFileNumber')
     expect(getFieldNames(CalendarFields)[0]).toEqual('selectedDays')
   })
 
@@ -119,7 +119,7 @@ describe('Validation', () => {
   })
 
   it('Gets ar array of field names from Object Keys', () => {
-    expect(getFieldNames(RegistrationFields)[0]).toEqual('email')
+    expect(getFieldNames(RegistrationFields)[0]).toEqual('paperFileNumber')
     expect(getFieldNames(CalendarFields)[0]).toEqual('selectedDays')
   })
 

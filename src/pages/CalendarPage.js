@@ -358,7 +358,7 @@ class CalendarPage extends Component {
                   }
                   submit={() => {
                     return (
-                      <Button disabled={submitting}>
+                      <Button id="nextButton" disabled={submitting}>
                         <Trans>Next</Trans>
                         <img src={rightArrow} className={landingArrow} alt="" />
                       </Button>

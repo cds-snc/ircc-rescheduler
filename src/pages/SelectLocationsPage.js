@@ -122,9 +122,9 @@ class SelectlocationsPage extends React.Component {
       this.setState({ pageError: 0 })
       await this.props.context.setStore('selectProvince', values)
       // eslint-disable-next-line no-console
-      console.log(values)
+  //    console.log(values)
       // eslint-disable-next-line no-console
-      console.log(this.props.context.store)
+   //   console.log(this.props.context.store)
       await this.props.history.push('/calendar')
     }
   }

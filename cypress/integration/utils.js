@@ -26,8 +26,9 @@ export const privacyHref = () =>cy.get('#footer div a').eq(4);
 // todo, check the privacy link text once complete
 
 
-export const enterButton = () => cy.get('.css-arysfy-govuk_button-button-mediaQuery-button')
-
+// export const enterButton = () => cy.get('.css-arysfy-govuk_button-button-mediaQuery-button')
+export const enterButton = () => cy.get('button[type="submit"')
+export const nextButton = () => cy.get('#nextButton')
 
 
 //need the link for the terms and conditions

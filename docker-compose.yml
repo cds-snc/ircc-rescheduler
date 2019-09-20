@@ -3,7 +3,7 @@ services:
   sab-gui:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: testing.Dockerfile
     environment: 
      - RAZZLE_CONNECTION_STRING='http://sab-database.dev.esdc.online'
     container_name: sab-gui
@@ -16,6 +16,8 @@ services:
     build:
       context: ./
       dockerfile: cypress.Dockerfile
+    environment: 
+      - RAZZLE_CONNECTION_STRING=${RAZZLE_CONNECTION_STRING}
     container_name: cypress
     depends_on:
       - sab-gui

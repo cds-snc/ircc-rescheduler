@@ -13,7 +13,7 @@ import { Trans } from '@lingui/react'
  *--------------------------------------------*/
 export const errorMessages = {}
 
-errorMessages.emailErrorMessage = <Trans>We need your email address.</Trans>
+errorMessages.emailErrorMessage = <Trans>We need your email address so we can send you a confirmation message.</Trans>
 
 errorMessages.emailInvalidErrorMessage = (
   <Trans>
@@ -23,11 +23,11 @@ errorMessages.emailInvalidErrorMessage = (
 )
 
 errorMessages.emailConfirmErrorMessage = (
-  <Trans>Please re-enter your email address.</Trans>
+  <Trans>We need you to confirm your email address.</Trans>
 )
 
 errorMessages.emailConfirmMatchErrorMessage = (
-  <Trans>Email does not match. Please re-enter matching email.</Trans>
+  <Trans>Your email does not match. Please re-enter your email.</Trans>
 )
 
 errorMessages.emailConfirmInvalidErrorMessage = (
@@ -35,19 +35,19 @@ errorMessages.emailConfirmInvalidErrorMessage = (
 )
 
 errorMessages.paperFileNumberErrorMessage = (
-  <Trans>We need your BIL file number so we can confirm your identity.</Trans>
+  <Trans>We need your Application number so we can confirm your identity.</Trans>
 )
 
 errorMessages.paperFileNumberInvalidErrorMessage = (
-  <Trans>BIL file number requires 1 letter and 12 digits.</Trans>
+  <Trans>The Application number entered is not valid.</Trans>
 )
 
 errorMessages.selectedDaysEmptyErrorMessage = (
-  <Trans>You must select 3 days on the calendar below.</Trans>
+  <Trans>You must select a date from the calendar.</Trans>
 )
 
 errorMessages.selectedDaysCountErrorMessage = (
-  <Trans>You must select 3 days on the calendar below.</Trans>
+  <Trans>You must select a time and date.</Trans>
 )
 
 errorMessages.selectedDaysMinMaxErrorMessage = (
@@ -100,11 +100,12 @@ export const defaultMessages = {
 // }
 
 export const RegistrationFields = {
+  paperFileNumber: 'required|paper_file_number',
   email: `required|email`,
   emailConfirm: 'required|email|same:email',
   familyCheck: 'present',
   familyOption: 'present',
-  paperFileNumber: 'required|paper_file_number',
+  
 }
 
 export const CalendarFields = {
@@ -136,7 +137,7 @@ export const getFieldErrorStrings = validate => {
     mapped[val] = allErrors[val][0] // eslint-disable-line  security/detect-object-injection
   })
   // eslint-disable-next-line no-console
-  console.log('error string')
+//  console.log('error string')
 
   return mapped
 }
