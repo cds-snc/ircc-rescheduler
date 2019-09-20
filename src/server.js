@@ -1,4 +1,5 @@
 import express from 'express'
+import http from 'http'
 import cookieParser from 'cookie-parser'
 import { getStoreCookie } from './cookies'
 import { render } from '@jaredpalmer/after'
@@ -20,10 +21,10 @@ import gitHash from './utils/gitHash'
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
   path.join(process.cwd(), 'build', 'assets.json'))
 
-const apiHost = process.env.CONNECTION_STRING
-
 const server = express()
 const helmet = require('helmet')
+const apiHost = process.env.CONNECTION_STRING
+console.log(apiHost)
 
 server
   .use(helmet()) // sets security-focused headers: https://helmetjs.github.io/
@@ -36,18 +37,27 @@ server
   .use(ensureLocation)
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
-  // Endpoint for calling SAB database API
   .get('/locations', (req, res) => {
-    fetch(`http://${apiHost}/locationsbyprov/Ontario`)
-      .then(response => response.json())
-      .then(chunk => {
-        console.log(`BODY: ${chunk}`) // eslint-disable-line no-console
-        res.status(200).send(chunk)
+    let data = ''
+    http
+      .get(`http://${apiHost}/locationsbyprov/Ontario`, resp => {
+        // eslint-disable-next-line no-console
+        console.log(`STATUS: ${resp.statusCode}`)
+        // eslint-disable-next-line no-console
+        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        resp.on('data', chunk => {
+          // eslint-disable-next-line no-console
+
+          console.log(`BODY: ${chunk}`)
+          data += chunk
+          res.status(200).send(data)
+        })
       })
-      .catch(err => {
+      .on('error', err => {
+        // eslint-disable-next-line no-console
         console.log(
           'Something went wrong when calling the API. Heres the error: ' + err,
-        ) // eslint-disable-line no-console
+        )
       })
   })
   .get('/clear', (req, res) => {
