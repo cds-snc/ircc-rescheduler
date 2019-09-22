@@ -1,4 +1,103 @@
 {
+  "A": {
+    "translation": "Une",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        106
+      ]
+    ]
+  },
+  "valid email address": {
+    "translation": "adresse email",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        108
+      ]
+    ]
+  },
+  "where we can send a confirmation message": {
+    "translation": "où nous pouvons envoyer un message de confirmation",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        110
+      ]
+    ]
+  },
+
+
+  "Your": {
+    "translation": "Votre",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        99
+      ]
+    ]
+  },
+
+  "which can be found at the top of the mailed letter we sent you": {
+    "translation": "qui se trouve en haut de la lettre que nous vous avons envoyée",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        104
+      ]
+    ]
+  },
+
+  "Privacy notice": {
+    "translation": "Avis de confidentialité",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        132
+      ]
+    ]
+  },
+
+  "Next, you": {
+    "translation": "Ensuite, vous",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        126
+      ]
+    ]
+  },
+
+  "select a location, day and time you": {
+    "translation": "sélectionnerez un lieu, le jour et l'heure où vous",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        126
+      ]
+    ]
+  },
+  "re available within the next 30 days.": {
+    "translation": "êtes disponible dans les 30 prochains jours.",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        127
+      ]
+    ]
+  },
+
+
+  "You will need": {
+    "translation": "Tu auras besoin de",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        94
+      ]
+    ]
+  },
+
   "3 days": {
     "translation": "3 jours",
     "origin": [
