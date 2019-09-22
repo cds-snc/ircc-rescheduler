@@ -53,7 +53,8 @@ server
       .on('error', err => {
         // eslint-disable-next-line no-console
         console.log(
-          'Something went wrong when calling the API. Heres the error: ' + err,
+          'Something went wrong when calling the API in locations/province: ' +
+            err.message,
         )
       })
   })
@@ -75,7 +76,31 @@ server
       .on('error', err => {
         // eslint-disable-next-line no-console
         console.log(
-          'Something went wrong when calling the API. Heres the error: ' + err,
+          'Something went wrong when calling the API in locations/province/city: ' +
+            err.message,
+        )
+      })
+  })
+  .get('/appointments/:locationID/:date', (req, res) => {
+    let data = ''
+    let locationID = req.params.locationID
+    let date = req.params.date
+    http
+      .get(`http://${apiHost}/appointments/${locationID}/${date}`, resp => {
+        // eslint-disable-next-line no-console
+        console.log(`STATUS: ${resp.statusCode}`)
+        // eslint-disable-next-line no-console
+        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        resp.on('data', chunk => {
+          data += chunk
+          res.status(200).send(data)
+        })
+      })
+      .on('error', err => {
+        // eslint-disable-next-line no-console
+        console.log(
+          'Something went wrong when calling the API appointments/locationID/city:  ' +
+            err.message,
         )
       })
   })

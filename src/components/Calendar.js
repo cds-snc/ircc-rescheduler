@@ -637,12 +637,7 @@ class Calendar extends Component {
     day = makeGMTDate(day)
 
     let { dayLimit } = this.props
-    // eslint-disable-next-line no-console
-    console.log(this.props)
-
     const selectedDays = this.props.input.value || []
-    // eslint-disable-next-line no-console
-    console.log(selectedDays)
 
     if (selected) {
       this.setState({ daysModified: true })
@@ -696,8 +691,6 @@ class Calendar extends Component {
 
   selectedTime = id => {
     this.props.timeslotSelected(id)
-    // eslint-disable-next-line no-console
-    console.log(this.props.timeslotSelected)
     this.setState({
       timeSelected: id,
     })

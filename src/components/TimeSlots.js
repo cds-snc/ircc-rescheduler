@@ -1,11 +1,10 @@
-/* eslint-disable no-console */
 import React, { Component } from 'react'
 import { contextPropTypes } from '../context'
-// import PropTypes from 'prop-types'
 import { matchPropTypes } from '../components/Title'
 import withContext from '../withContext'
 import moment from 'moment'
 import SelectDropDown from '../components/forms/Select'
+import axios from 'axios'
 
 class TimeSlots extends Component {
   constructor(props) {
@@ -28,24 +27,10 @@ class TimeSlots extends Component {
         } = {},
       } = {},
     } = this.props
-
-    console.log('this is the componentdidmount ')
-
     var newDate = moment(this.props.selectedDay[0]).format('DD-MM-YYYY')
-
-    console.log(newDate)
-
-    // const url = `http://localhost:4011/appointmentsByLocId/${locationId}`
-    const url = `${
-      process.env.RAZZLE_CONNECTION_STRING
-    }/appointments/${locationId}/${newDate}`
-
-    console.log(url)
-
-    // eslint-disable-next-line no-undef
-    const response = await fetch(url)
-    const data = await response.json()
-    this.setState({ appointments: data, loading: true })
+    await axios.get(`/appointments/${locationId}/${newDate}`).then(resp => {
+      this.setState({ appointments: resp.data, loading: true })
+    })
   }
 
   removeTimeSlot(mockData) {
@@ -72,7 +57,6 @@ class TimeSlots extends Component {
     // event.preventDefault()
     this.setState({ selectedId: event.target.value })
     this.props.selectedTimeId(event.target.value)
-    console.log(event)
   }
 
   getTimeStops(start, end) {
@@ -118,14 +102,13 @@ class TimeSlots extends Component {
     }
 
     const openingHour = this.splitTheString(locationHours)
-    console.log(openingHour)
 
     const start = openingHour[0]
     const end = openingHour[1]
 
     const mockData = this.getTimeStops(start, end)
     const timeSlot = this.removeTimeSlot(mockData)
-    console.log(timeSlot)
+
     return (
       <div>
         <SelectDropDown
