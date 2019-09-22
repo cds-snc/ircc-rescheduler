@@ -24,8 +24,6 @@ const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
 const server = express()
 const helmet = require('helmet')
 const apiHost = process.env.CONNECTION_STRING
-// eslint-disable-next-line no-console
-console.log(apiHost)
 
 server
   .use(helmet()) // sets security-focused headers: https://helmetjs.github.io/
@@ -38,17 +36,38 @@ server
   .use(ensureLocation)
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
-  .get('/locations', (req, res) => {
+  .get('/locations/:province', (req, res) => {
     let data = ''
+    let province = req.params.province
     http
-      .get(`http://${apiHost}/locationsbyprov/Ontario`, resp => {
+      .get(`http://${apiHost}/locationsbyprov/${province}`, resp => {
         // eslint-disable-next-line no-console
         console.log(`STATUS: ${resp.statusCode}`)
         // eslint-disable-next-line no-console
         console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
         resp.on('data', chunk => {
-          // eslint-disable-next-line no-console
-          console.log(`BODY: ${chunk}`)
+          data += chunk
+          res.status(200).send(data)
+        })
+      })
+      .on('error', err => {
+        // eslint-disable-next-line no-console
+        console.log(
+          'Something went wrong when calling the API. Heres the error: ' + err,
+        )
+      })
+  })
+  .get('/locations/:province/:city', (req, res) => {
+    let data = ''
+    let province = req.params.province
+    let city = req.params.city || ''
+    http
+      .get(`http://${apiHost}/locationsbyprov/${province}/${city}`, resp => {
+        // eslint-disable-next-line no-console
+        console.log(`STATUS: ${resp.statusCode}`)
+        // eslint-disable-next-line no-console
+        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        resp.on('data', chunk => {
           data += chunk
           res.status(200).send(data)
         })
