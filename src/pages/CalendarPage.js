@@ -138,8 +138,6 @@ class CalendarPage extends Component {
   forceRender(values) {
     // call setState to force a render
     this.setState({ calValues: values })
-    // eslint-disable-next-line no-console
-    console.log(values)
   }
 
   changeMonth(month = this.state.month) {
@@ -206,11 +204,6 @@ class CalendarPage extends Component {
       }
     }
 
-    // eslint-disable-next-line no-console
-    console.log('here1' + values)
-
-    // eslint-disable-next-line no-console
-    console.log(this.props)
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
     if (values.availability && values.availability.length) {
@@ -272,11 +265,6 @@ class CalendarPage extends Component {
 
             const notValid = this.hasNotValid()
             const { availability } = values
-
-            // eslint-disable-next-line no-console
-            console.log(values.selectedDays)
-            // eslint-disable-next-line no-console
-            console.log(this.state.timeValue)
 
             if (submitError && this.validate(values).selectedDays) {
               let valuesLength =
