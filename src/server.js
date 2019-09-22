@@ -1,4 +1,5 @@
 import express from 'express'
+import http from 'http'
 import cookieParser from 'cookie-parser'
 import { getStoreCookie } from './cookies'
 import { render } from '@jaredpalmer/after'
@@ -22,6 +23,7 @@ const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
 
 const server = express()
 const helmet = require('helmet')
+const apiHost = process.env.CONNECTION_STRING
 
 server
   .use(helmet()) // sets security-focused headers: https://helmetjs.github.io/
@@ -34,7 +36,74 @@ server
   .use(ensureLocation)
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
-  //.post('/submit', handleSubmitEmail)
+  .get('/locations/:province', (req, res) => {
+    let data = ''
+    let province = req.params.province
+    http
+      .get(`${apiHost}/locationsbyprov/${province}`, resp => {
+        // eslint-disable-next-line no-console
+        console.log(`STATUS: ${resp.statusCode}`)
+        // eslint-disable-next-line no-console
+        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        resp.on('data', chunk => {
+          data += chunk
+          res.status(200).send(data)
+        })
+      })
+      .on('error', err => {
+        // eslint-disable-next-line no-console
+        console.log(
+          'Something went wrong when calling the API in locations/province: ' +
+            err.message,
+        )
+      })
+  })
+  .get('/locations/:province/:city', (req, res) => {
+    let data = ''
+    let province = req.params.province
+    let city = req.params.city || ''
+    http
+      .get(`${apiHost}/locationsbyprov/${province}/${city}`, resp => {
+        // eslint-disable-next-line no-console
+        console.log(`STATUS: ${resp.statusCode}`)
+        // eslint-disable-next-line no-console
+        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        resp.on('data', chunk => {
+          data += chunk
+          res.status(200).send(data)
+        })
+      })
+      .on('error', err => {
+        // eslint-disable-next-line no-console
+        console.log(
+          'Something went wrong when calling the API in locations/province/city: ' +
+            err.message,
+        )
+      })
+  })
+  .get('/appointments/:locationID/:date', (req, res) => {
+    let data = ''
+    let locationID = req.params.locationID
+    let date = req.params.date
+    http
+      .get(`${apiHost}/appointments/${locationID}/${date}`, resp => {
+        // eslint-disable-next-line no-console
+        console.log(`STATUS: ${resp.statusCode}`)
+        // eslint-disable-next-line no-console
+        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        resp.on('data', chunk => {
+          data += chunk
+          res.status(200).send(data)
+        })
+      })
+      .on('error', err => {
+        // eslint-disable-next-line no-console
+        console.log(
+          'Something went wrong when calling the API appointments/locationID/city:  ' +
+            err.message,
+        )
+      })
+  })
   .get('/clear', (req, res) => {
     let language = getStoreCookie(req.cookies, 'language') || 'en'
     res.clearCookie('store')
