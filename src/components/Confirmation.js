@@ -40,7 +40,7 @@ const Review = ({
       }
     />
     <SummaryRow
-      summaryId={'email address'}
+      summaryId={'email-address'}
       summaryHeader={<Trans>Email address</Trans>}
       summaryBody={email}
       summaryLink={'/register#email-label'}

@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { enterButton, headerImg, langLink, privacyLink, tocLink, aboutCA, sMedia, mobileApp, aboutCAHref, sMediaHref, mobileHref, tocHref, privacyHref,footerImg } from './utils'
+import { headerImg, langLink, privacyLink, tocLink, aboutCA, sMedia, mobileApp, aboutCAHref, sMediaHref, mobileHref, tocHref, privacyHref,footerImg } from './utils'
 
 // Verify Items and functions on the review-page 
 function checkA11y(cy){ 
@@ -10,14 +10,14 @@ function checkA11y(cy){
 }
 describe('should perform functions on the review page', () => {
     beforeEach(() => {
-      cy.visit('/review')
+      cy.visit('/confirmation')
       cy.reload(true)
     })
 
     it('Has no detectable a11y violations on load', () => {
       // Test the page at initial load
       cy.injectAxe()
-      cy.url().should('contains', '/review')
+      cy.url().should('contains', '/confirmation')
       checkA11y(cy)
     })
     it('should go to the landing page and show header image and links ', () => {  
@@ -40,19 +40,22 @@ describe('should perform functions on the review page', () => {
       
        cy.get(footerImg).should('be.visible')
       })
+
     it('should error if any information is not dislayed on the page', () => {  
-        cy.url().should('contains', '/review') 
+        cy.url().should('contains', '/confirmation') 
             //TODO: add more tests on the page text 
        
            })
       it('should show header steps ', () => {  
         cy.get('[role="banner"] > :nth-child(2)').should('be.visible')
-          .and('contain.text', 'Step 4 of 4 – Review your request')
+          .and('contain.text', 'Thank you! Your request has been received.')
          
            })
 
-    it('should show the text options and associated links on the page', () => {  
-        cy.get('#review-header').should('contain', 'Review your request')
+    it('should show the text options and associated links on the page', () => { 
+        // the confirmation number will need to be revisited once it's actually working 
+        cy.get('#confirm-text').should('have.text', 'Confirmation #: A 0')
+
         cy.get('#bilNumber-header').should('contain', 'Application number')
         cy.get('#bilNumber-link > a').should('have.attr', 'href', '/register#paperFileNumber-label')
         cy.get('#email-address-header').should('contain', 'Email address')
@@ -63,9 +66,7 @@ describe('should perform functions on the review page', () => {
         cy.get('#location-link > a').should('have.attr', 'href', '/selectProvince')
         cy.get('#date-header').should('contain', 'Day and time')
         cy.get('#date-link > a').should('have.attr', 'href', '/calendar#selectedDaysBox')
-        cy.get(enterButton).should('be.enabled').and('be.visible')
-        cy.get(enterButton).click()
-        cy.url().should('contain', '/confirmation')
+      
  
            })  
               
