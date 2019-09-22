@@ -41,9 +41,7 @@ class TimeSlots extends Component {
     console.log(newDate)
 
     // const url = `http://localhost:4011/appointmentsByLocId/${locationId}`
-    const url = `${
-      process.env.RAZZLE_CONNECTION_STRING
-    }/appointmentsByLocIdDate/${locationId}/${newDate}`
+    const url = `${process.env.RAZZLE_CONNECTION_STRING}/appointments/${locationId}?day=${newDate}`
 
     console.log(url)
 
