@@ -1,4 +1,115 @@
 {
+
+  "A": {
+    "translation": "A",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        106
+      ]
+    ]
+  },
+
+  "valid email address": {
+    "translation": "valid email address",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        108
+      ]
+    ]
+  },
+
+  "where we can send a confirmation message": {
+    "translation": "where we can send a confirmation message",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        110
+      ]
+    ]
+  },
+
+  "Your": {
+    "translation": "Your",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        99
+      ]
+    ]
+  },
+
+  "which can be found at the top of the mailed letter we sent you": {
+    "translation": "which can be found at the top of the mailed letter we sent you",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        104
+      ]
+    ]
+  },
+  
+  "Privacy notice": {
+    "translation": "Privacy notice",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        132
+      ]
+    ]
+  },
+
+  "Next, you": {
+    "translation": "Next, you",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        126
+      ]
+    ]
+  },
+
+  "select a location, day and time you": {
+    "translation": "select a location, day and time you",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        126
+      ]
+    ]
+  },
+
+  "re available within the next 30 days.": {
+    "translation": "re available within the next 30 days.",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        127
+      ]
+    ]
+  },
+
+  "You will need": {
+    "translation": "You will need",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        94
+      ]
+    ]
+  },
+
+
+
+
+
+
+
+
+
+
+
   "3 days": {
     "translation": "3 days",
     "origin": [
