@@ -4,7 +4,13 @@ import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { css } from 'emotion'
-import { theme, mediaQuery, visuallyhidden, contentClass, arrow } from '../styles'
+import {
+  theme,
+  mediaQuery,
+  visuallyhidden,
+  contentClass,
+  arrow,
+} from '../styles'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import { SelectLocationFields, getFieldNames } from '../validation'
@@ -16,12 +22,9 @@ import Button from '../components/forms/Button'
 import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
 import Loading from '../components/Loading'
 import SelectDropDown from '../components/forms/Select'
-import { ApiFetch } from '../components/ApiFetch'
 import FocusedH1 from '../components/FocusedH1'
 import rightArrow from '../assets/rightArrow.svg'
-
-// import styled from '@emotion/styled'
-//import { buttonStyles } from '../components/forms/Button'
+import axios from 'axios'
 
 /* eslint-disable no-console */
 
@@ -62,8 +65,6 @@ const landingArrow = css`
   margin-left: 4px;
 `
 
-const dbHost = process.env.RAZZLE_CONNECTION_STRING
-
 class SelectlocationsPage extends React.Component {
   constructor(props) {
     super(props)
@@ -103,9 +104,6 @@ class SelectlocationsPage extends React.Component {
 
   // Submit the location, saves in store & cookie and redircets to the calendar page if no errors
   async submit() {
-    // eslint-disable-next-line no-console
-    console.log(this.props)
-
     let values = {
       locationCity: this.state.cityName,
       locationId: this.state.locationNumber,
@@ -121,32 +119,26 @@ class SelectlocationsPage extends React.Component {
     } else {
       this.setState({ pageError: 0 })
       await this.props.context.setStore('selectProvince', values)
-      // eslint-disable-next-line no-console
-  //    console.log(values)
-      // eslint-disable-next-line no-console
-   //   console.log(this.props.context.store)
       await this.props.history.push('/calendar')
     }
   }
 
   // Get the cities within a province
   getProvinceLocations(selectedProvince) {
+    // Ignore Default Value
     if (selectedProvince === '0') {
-      // Ignore Default Value
       return
     }
 
     this.setState({
       loading: true,
     })
-    console.log(this.props.context.store)
-
-    ApiFetch(encodeURI(dbHost + `/locationsbyprov/${selectedProvince}`)).then(
-      locs => {
-        //console.log('Data in getProvince is : ' + JSON.stringify(locs))
+    axios
+      .get(`/locations/${selectedProvince}`)
+      .then(locs => {
         if (locs) {
           this.setState({
-            provLocations: locs,
+            provLocations: locs.data,
             cityLocations: [],
             cityName: null,
             locationNumber: null,
@@ -160,8 +152,8 @@ class SelectlocationsPage extends React.Component {
           this.setState({ pageError: 1 })
           this.selectProvinceError.focus()
         }
-      },
-    )
+      })
+      .catch(err => console.log(err))
   }
 
   // Get the locations within a city
@@ -169,13 +161,9 @@ class SelectlocationsPage extends React.Component {
     this.setState({
       loading: true,
     })
-    ApiFetch(
-      encodeURI(
-        dbHost + `/locationsbyprov/${selectedProvince}/${selectedCity}`,
-      ),
-    ).then(locs => {
+    axios.get(`/locations/${selectedProvince}/${selectedCity}`).then(locs => {
       this.setState({
-        cityLocations: locs,
+        cityLocations: locs.data,
         locationNumber: null,
         locationAddress: null,
         locationHours: null,
@@ -228,9 +216,6 @@ class SelectlocationsPage extends React.Component {
 
     const locationsData = this.state.provLocations
     const cityLocations = this.state.cityLocations
-
-    //console.log('State Data in Province is : ' + JSON.stringify(locationsData))
-    //console.log('State Data in Cities is : ' + JSON.stringify(cityLocations))
 
     return (
       <Layout contentClass={locationsContentClass}>
