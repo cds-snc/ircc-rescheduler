@@ -81,12 +81,12 @@ server
         )
       })
   })
-  .get('/appointments/:locationID/:date', (req, res) => {
+  .get('/appointments/:locationID', (req, res) => {
     let data = ''
     let locationID = req.params.locationID
-    let date = req.params.date
+    let day = req.query.day
     http
-      .get(`${apiHost}/appointments/${locationID}/${date}`, resp => {
+      .get(`${apiHost}/appointments/${locationID}?day=${day}`, resp => {
         // eslint-disable-next-line no-console
         console.log(`STATUS: ${resp.statusCode}`)
         // eslint-disable-next-line no-console
