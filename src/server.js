@@ -40,7 +40,7 @@ server
     let data = ''
     let province = req.params.province
     http
-      .get(`http://${apiHost}/locationsbyprov/${province}`, resp => {
+      .get(`${apiHost}/locationsbyprov/${province}`, resp => {
         // eslint-disable-next-line no-console
         console.log(`STATUS: ${resp.statusCode}`)
         // eslint-disable-next-line no-console
@@ -63,7 +63,7 @@ server
     let province = req.params.province
     let city = req.params.city || ''
     http
-      .get(`http://${apiHost}/locationsbyprov/${province}/${city}`, resp => {
+      .get(`${apiHost}/locationsbyprov/${province}/${city}`, resp => {
         // eslint-disable-next-line no-console
         console.log(`STATUS: ${resp.statusCode}`)
         // eslint-disable-next-line no-console
@@ -86,7 +86,7 @@ server
     let locationID = req.params.locationID
     let date = req.params.date
     http
-      .get(`http://${apiHost}/appointments/${locationID}/${date}`, resp => {
+      .get(`${apiHost}/appointments/${locationID}/${date}`, resp => {
         // eslint-disable-next-line no-console
         console.log(`STATUS: ${resp.statusCode}`)
         // eslint-disable-next-line no-console
