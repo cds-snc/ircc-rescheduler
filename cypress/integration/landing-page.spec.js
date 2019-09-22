@@ -43,12 +43,32 @@ describe('Items shown on the Landing page', () => {
     
      cy.get(footerImg).should('be.visible')
     })
-    it.only('should go to the landing page and show header image and links ', () => {  
+    it('should go to the landing page and steps in header', () => {  
       cy.get('[role="banner"] > :nth-child(2)').should('be.visible')
       .and('contain.text', 'Request an appointment for fingerprints and photo (biometrics)')
    
      })
- 
+
+    it('should verify text on the page', () => {  
+      cy.get('#needed-info').should('contain.text', 'You will need')
+      cy.get('section').should('contain.text', 'Your Application number')
+      cy.get(':nth-child(2) > p').should('contain.text', 'A valid email address')
+      cy.get('.css-q22mxi-CalendarIcon').should('be.visible')
+      // text needs to be update to take out the abreviations
+     // cy.get('#message-container > p').should('have.text', 'Next, you will select a location, day and time you are available with the next 30 days')
+      cy.get('#privacy-notice').should('contain.text', 'Privacy notice')
+      // needs to be updated with actual notice text
+      cy.get('section > :nth-child(5)').should('contain.text', 'Lorem')
+   
+     })
+
+   it('should verify the accept check box', () => {  
+     // verify the box is location on the page and by default not selected
+     // verify error message shown if box not checked
+     // verify that the box can be checked
+   
+     })
+
   it('Start now button take the user to the register page', () => {
     cy.get('main a').should('contain.text', 'Start request')
     cy.get('main a').click({ force: true })

@@ -90,7 +90,7 @@ class LandingPage extends React.Component {
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <section>
-          <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
+          <H1 id='needed-info' style={{ marginBottom: `${theme.spacing.md}` }}>
             <Trans>You will need</Trans>
           </H1>
           <ul className={list}>
@@ -117,8 +117,8 @@ class LandingPage extends React.Component {
             </li>
           </ul>
 
-          <div className={messageContainer}>
-            <div className={iconContainer}>
+          <div id='message-container' className={messageContainer}>
+            <div id='icon-container' className={iconContainer}>
               <CalendarIcon />
             </div>
             <p>
@@ -127,7 +127,7 @@ class LandingPage extends React.Component {
               <Trans>re available within the next 30 days.</Trans>{' '}
             </p>
           </div>
-          <H1>
+          <H1 id='privacy-notice' >
             <Trans>Privacy notice</Trans>
           </H1>
           <p>

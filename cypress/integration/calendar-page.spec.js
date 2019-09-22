@@ -100,7 +100,7 @@ describe('Calendar page functions', () => {
     cy.url().should('contains', '/review')
   })
   // aria-label="Next Month"
-  it('should cilck to show the next month unless the last day is the end of the month', () => {  
+  it('should click to show the next month unless the last day is the end of the month', () => {  
     cy.url().should('contains', '/calendar')
     const thisMonth = Cypress.moment().format('MMMM')
     cy.get('#renderMonthName').should('contain', thisMonth)
