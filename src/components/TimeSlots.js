@@ -5,11 +5,11 @@ import withContext from '../withContext'
 import moment from 'moment'
 import SelectDropDown from '../components/forms/Select'
 import { css } from 'emotion'
+import axios from 'axios'
 
 const selectDropDown = css`
   max-width: 500px;
 `
-import axios from 'axios'
 
 class TimeSlots extends Component {
   constructor(props) {
