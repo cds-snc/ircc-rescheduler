@@ -112,9 +112,9 @@ class Layout extends React.Component {
             <HeaderDescription pathName={this.props.children[0].props.path} />
             <Devider />
             <PageHeader>{this.props.header}</PageHeader>
-            <Link to="/" style={{ marginLeft: `${theme.spacing.xxxl}` }}>
+            {/* <Link to="/" style={{ marginLeft: `${theme.spacing.xxxl}` }}>
               Home
-            </Link>
+            </Link> */}
           </div>
           <main role="main">
             <div
