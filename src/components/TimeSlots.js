@@ -33,7 +33,8 @@ class TimeSlots extends Component {
       } = {},
     } = this.props
     var newDate = moment(this.props.selectedDay[0]).format('DD-MM-YYYY')
-    await axios.get(`/appointments/${locationId}/${newDate}`).then(resp => {
+    await axios.get(`/appointments/${locationId}?day=${newDate}`).then(resp => {
+      console.log(resp)
       this.setState({ appointments: resp.data, loading: true })
     })
   }
