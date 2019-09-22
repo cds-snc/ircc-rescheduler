@@ -407,6 +407,28 @@
       ]
     ]
   },
+
+  "I need an accessible or private workstation": {
+    "translation": "J'ai besoin d'un poste de travail accessible ou privé",
+    "origin": [
+      [
+        "src/components/comfirmation.js",
+        52
+      ]
+    ]
+  },
+
+  "Day and time": {
+    "translation": "Jour et heure",
+    "origin": [
+      [
+        "src/components/comfirmation.js",
+        66
+      ]
+    ]
+  },
+
+
   "Email ne correspond pas. Veuillez saisir à nouveau l'adresse électronique correspondante.": {
     "translation": "Courriel ne correspond pas. Veuillez saisir à nouveau l'adresse électronique correspondante.",
     "origin": [
