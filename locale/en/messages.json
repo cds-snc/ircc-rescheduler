@@ -1,4 +1,23 @@
 {
+  "In order to start your request, you must first read and accept the privacy notice statement.": {
+    "translation": "In order to start your request, you must first read and accept the privacy notice statement.",
+    "origin": [
+      [
+        "src/validation.js",
+        35
+      ]
+    ]
+  },
+  
+    "I have read and accept the privacy policy": {
+      "translation": "I have read and accept the privacy policy",
+      "origin": [
+        [
+          "src/pages/LandingPage.js",
+          380
+        ]
+      ]
+    },
 
   "A": {
     "translation": "A",

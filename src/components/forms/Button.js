@@ -11,14 +11,14 @@ const govuk_button = css`
   display: inline-block;
   padding: 10px 15px 5px;
   border: none;
-  border-radius: 0;
+  border-radius: 8px;
   outline: 1px solid transparent; // keep some button appearance when changing colour settings in browsers
   outline-offset: -1px; // fixes bug in Safari that outline width on focus is not overwritten, is reset to 0 on focus in govuk_template
   -webkit-appearance: none;
 
   // Bottom edge effect
   /* again, I don't have sass variables, so I'm using default colour */
-  box-shadow: 0 2px 0 #003618;
+  // box-shadow: 0 2px 0 #003618;
   /* removed IE8-specific rule */
 
   // Text
@@ -91,12 +91,12 @@ const button = css`
 
   font-family: SourceSans, Helvetica, Arial, sans-serif;
   font-size: ${theme.font.lg};
-  font-weight: 700;
+  font-weight: 500;
   line-height: 2;
   text-align: center;
 
   color: ${theme.colour.white} !important;
-  background-color: ${theme.colour.canadaBlue};
+  background-color: ${theme.colour.lightblue};
   overflow: hidden;
 
   // Size and shape
@@ -109,7 +109,7 @@ const button = css`
 
   &:visited {
     color: ${theme.colour.white} !important;
-    background-color: ${theme.colour.canadaBlue};
+    background-color: ${theme.colour.lightblue};
   }
 
   &:focus {

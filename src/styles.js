@@ -62,6 +62,7 @@ export const theme = {
     visited: '#551A8B',
     canadaBlue: '#2D4157',
     canadaBlueDark: '#26374A',
+    lightblue: '#2572B4',
   },
   font: {
     xs: '0.694rem',
