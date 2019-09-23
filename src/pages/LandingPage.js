@@ -91,7 +91,7 @@ const landingArrow = css`
   margin-left: 4px;
 `
 
-const registrationContentClass = css`
+const landingPageContent = css`
   ${contentClass};
   input[name='paperFileNumber'] {
     margin-bottom: ${theme.spacing.sm};
@@ -246,7 +246,7 @@ class LandingPage extends React.Component {
     }
 
     return (
-      <Layout contentClass={registrationContentClass}>
+      <Layout contentClass={landingPageContent}>
         <Title path={this.props.match.path} />
 
         <FocusedH1 className={visuallyhidden}>
