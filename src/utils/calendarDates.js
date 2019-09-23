@@ -30,6 +30,7 @@ export const toLocale = (date, options, locale) => {
  *--------------------------------------------*/
 
 export const getStartDate = (today = new Date()) => {
+  today.setDate(today.getDate() + 1)
   const date = firstValidDay(undefined, addWeeks(today, offsetStartWeeks))
   return dateToISODateString(date)
 }
