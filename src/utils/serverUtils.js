@@ -117,13 +117,15 @@ export const setRavenContext = (req, res, next) => {
 }
 
 /* Content Security Policy config */
-/* IMPORTANT : Content policy is blocking localhost:3005 so it was added below */
+/* IMPORTANT : Content policy is blocking localhost:${razzlePort} so it was added below */
+
+const razzlePort = parseInt(process.env.PORT) + 1;
 
 export const cspConfig = {
   defaultSrc: [
     "'self'",
-    'http://localhost:3005/',
-    'ws://localhost:3005/',
+    `http://localhost:${razzlePort}/`,
+    `ws://localhost:${razzlePort}/`,
     `${process.env.CONNECTION_STRING}`,
   ],
   fontSrc: ["'self'", 'https://fonts.gstatic.com'],
@@ -131,12 +133,12 @@ export const cspConfig = {
     "'self'",
     'data:',
     'https://www.google-analytics.com',
-    'http://localhost:3005',
+    `http://localhost:${razzlePort}`,
   ],
   scriptSrc: [
     "'self'",
     'https://cdn.ravenjs.com',
-    'http://localhost:3005/',
+    `http://localhost:${razzlePort}/`,
     'https://www.google-analytics.com',
     "'unsafe-inline'",
     `${process.env.CONNECTION_STRING}`,
