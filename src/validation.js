@@ -13,7 +13,11 @@ import { Trans } from '@lingui/react'
  *--------------------------------------------*/
 export const errorMessages = {}
 
-errorMessages.emailErrorMessage = <Trans>We need your email address so we can send you a confirmation message.</Trans>
+errorMessages.emailErrorMessage = (
+  <Trans>
+    We need your email address so we can send you a confirmation message.
+  </Trans>
+)
 
 errorMessages.emailInvalidErrorMessage = (
   <Trans>
@@ -26,6 +30,12 @@ errorMessages.emailConfirmErrorMessage = (
   <Trans>We need you to confirm your email address.</Trans>
 )
 
+errorMessages.policyCheckRequiredWithErrorMessage = (
+  <Trans>
+    In order to start your request, you must first read and accept the privacy
+    notice statement.
+  </Trans>
+)
 errorMessages.emailConfirmMatchErrorMessage = (
   <Trans>Your email does not match. Please re-enter your email.</Trans>
 )
@@ -35,7 +45,9 @@ errorMessages.emailConfirmInvalidErrorMessage = (
 )
 
 errorMessages.paperFileNumberErrorMessage = (
-  <Trans>We need your Application number so we can confirm your identity.</Trans>
+  <Trans>
+    We need your Application number so we can confirm your identity.
+  </Trans>
 )
 
 errorMessages.paperFileNumberInvalidErrorMessage = (
@@ -71,7 +83,7 @@ export const defaultMessages = {
   'required.reason': 'reasonErrorMessage',
   //'required.explanation': 'explanationErrorMessage',
   //'max.explanation': 'explanationMaxErrorMessage',
-  // 'required_with.familyCheck': 'familyCheckRequiredWithErrorMessage',
+  'required.policyCheck': 'policyCheckRequiredWithErrorMessage',
   //'required_with.familyOption': 'familyOptionRequiredWithErrorMessage',
   //'max.familyOption': 'familyOptionMaxErrorMessage',
   'required.selectedDays': 'selectedDaysEmptyErrorMessage',
@@ -105,7 +117,10 @@ export const RegistrationFields = {
   emailConfirm: 'required|email|same:email',
   familyCheck: 'present',
   familyOption: 'present',
-  
+}
+
+export const LandingFields = {
+  policyCheck: 'required|in:value',
 }
 
 export const CalendarFields = {
@@ -137,7 +152,7 @@ export const getFieldErrorStrings = validate => {
     mapped[val] = allErrors[val][0] // eslint-disable-line  security/detect-object-injection
   })
   // eslint-disable-next-line no-console
-//  console.log('error string')
+  //  console.log('error string')
 
   return mapped
 }

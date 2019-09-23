@@ -80,6 +80,7 @@ const govuk_label_pseudo_elements = css`
   input[type='checkbox'] + &::before {
     content: '';
     border: 4px solid;
+    border-radius: 8px;
     background: transparent;
     width: 34px;
     height: 34px;
