@@ -248,64 +248,6 @@ class LandingPage extends React.Component {
     return (
       <Layout contentClass={landingPageContent}>
         <Title path={this.props.match.path} />
-<<<<<<< HEAD
-        <section>
-          <H1 id='needed-info' style={{ marginBottom: `${theme.spacing.md}` }}>
-            <Trans>You will need</Trans>
-          </H1>
-          <ul className={list}>
-            <li>
-              <p>
-                <Trans>Your</Trans>{' '}
-                <b>
-                  <Trans>Application number</Trans>{' '}
-                </b>
-                <Trans>
-                  which can be found at the top of the mailed letter we sent you
-                </Trans>
-              </p>
-            </li>
-
-            <li>
-              <p>
-                <Trans>A</Trans>{' '}
-                <b>
-                  <Trans>valid email address</Trans>
-                </b>{' '}
-                <Trans>where we can send a confirmation message</Trans>
-              </p>
-            </li>
-          </ul>
-
-          <div id='message-container' className={messageContainer}>
-            <div id='icon-container' className={iconContainer}>
-              <CalendarIcon />
-            </div>
-            <p>
-              <Trans>Next, you</Trans>&#39;ll{' '}
-              <Trans>select a location, day and time you</Trans> &#39;
-              <Trans>re available within the next 30 days.</Trans>{' '}
-            </p>
-          </div>
-          <H1 id='privacy-notice' >
-            <Trans>Privacy notice</Trans>
-          </H1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean
-            euismod bibendum laoreet. Proin gravida dolor sit amet lacus
-            accumsan et viverra justo commodo. Proin sodales pulvinar sic
-            tempor. Sociis natoque penatibus et magnis dis parturient montes,
-            nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra
-            vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc.
-          </p>
-        </section>
-
-        <div>
-          <NavLink to="/register" className={buttonStyles}>
-            <Trans>Start request</Trans>
-            <img src={rightArrow} className={landingArrow} alt="" />
-          </NavLink>
-=======
 
         <FocusedH1 className={visuallyhidden}>
           <Trans>First, provide some basic information:</Trans>
@@ -318,7 +260,6 @@ class LandingPage extends React.Component {
         */}
         <div style={{ display: 'none' }}>
           <Radio id="ignore-me" value="ignore-me" />
->>>>>>> master
         </div>
 
         <Form
