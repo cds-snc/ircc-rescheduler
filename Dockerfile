@@ -26,4 +26,5 @@ ENTRYPOINT [ "/bin/sh", "entrypoint.sh" ]
 # COPY --from=builder /web/build /usr/share/nginx/html/
 # # Login as node user
 # EXPOSE 80
+##just a comment
 
