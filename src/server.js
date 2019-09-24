@@ -16,6 +16,7 @@ import {
   cspConfig,
 } from './utils/serverUtils'
 import gitHash from './utils/gitHash'
+import { handleSubmitEmail} from './email/handleSubmitEmail'
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
@@ -36,6 +37,7 @@ server
   .use(ensureLocation)
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
+  .post('/submit', handleSubmitEmail)
   .get('/locations/:province', (req, res) => {
     let data = ''
     let province = req.params.province

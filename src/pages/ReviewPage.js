@@ -14,14 +14,14 @@ import SubmissionForm from '../components/SubmissionForm'
 import { sortSelectedDays } from '../utils/calendarDates'
 import { dateToISODateString } from '../components/Time'
 import FocusedH1 from '../components/FocusedH1'
-import * as NC from 'notifications-node-client'
 
 const contentClass = css`
   p {
     padding-bottom: ${theme.spacing.lg};
   }
 `
-let notifyClient = new NC.NotifyClient('test4-7ca1089d-5825-4d74-a924-eb3559494c30-2e961fc2-5aa8-4a2e-8a21-6f991aad4ee0' )
+
+
 
 class ReviewPage extends React.Component {
   constructor(props) {
