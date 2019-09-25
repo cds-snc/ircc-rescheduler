@@ -14,10 +14,9 @@ const sendNotification = async (params = { email, templateId, options }) => {
   }
 
   try {
-    const response = notifyClient.sendEmail(templateId, email, options);
+    const response = await notifyClient.sendEmail(templateId, email, options);
     return response.body;
   } catch (err) {
-    console.log(err.message);
     return false;
   }
 };

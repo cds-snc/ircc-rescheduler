@@ -41,7 +41,7 @@ const Availability = styled('div')`
   margin-left: ${theme.spacing.lg};
 `
 
-const EmailError = ({ selectedDays }) => {
+const EmailError = () => {
   return (
     <React.Fragment>
       <Reminder>
@@ -51,14 +51,6 @@ const EmailError = ({ selectedDays }) => {
           information
         </Trans>
       </Reminder>
-      <Availability>
-        <div>
-          <strong>
-            <Trans>Availability:</Trans>
-          </strong>
-        </div>
-        <SelectedDayList selectedDays={selectedDays} />
-      </Availability>
     </React.Fragment>
   )
 }
@@ -152,6 +144,13 @@ class ConfirmationPage extends React.Component {
         <FocusedH1 className={visuallyhidden}>
           <Trans>Confirmation</Trans>
         </FocusedH1>
+        {!this.hasEmailError() ? (
+          <p>
+            <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
+          </p>
+        ) : (
+          <EmailError />
+        )} 
 
         <section>
           <H2>Confirmation #: A {this.hashFromData( email, paperFileNumber ).toString()}</H2>
@@ -166,13 +165,6 @@ class ConfirmationPage extends React.Component {
           />
 
           
-          {/* {!this.hasEmailError() ? (
-            <p>
-              <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
-            </p>
-          ) : (
-            <EmailError selectedDays={selectedDays} />
-          )} */}
 
           <H2>
             <Trans>What happens next?</Trans>
