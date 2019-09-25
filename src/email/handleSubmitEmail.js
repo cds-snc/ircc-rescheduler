@@ -5,16 +5,18 @@ import { sendNotification } from './sendmail'
 import { handleMailError, captureMessage } from '../utils/serverUtils'
 
 export const handleSubmitEmail = async (req, res) => {
-  console.log("handling email")
   let input = Object.assign({}, req.body) // make a new object
-  console.log(JSON.stringify(input))
   await sendNotification(
     {
-      email: 'calvinv@gmail.com',
-      templateId: '2ab36df4-3d53-4f70-a09c-7e2022f9aafe',
+      email: input.email,
+      templateId: input.templateId,
       options: {
         personalisation : {
-          first_name: "toot"
+          paperFileNumber: input.paperFileNumber,
+          location: input.location,
+          selectedDay: input.selectedDay,
+          selectedTime: input.selectedTime,
+          accessibility: input.accessibility || "No"
         }
       }
     })  

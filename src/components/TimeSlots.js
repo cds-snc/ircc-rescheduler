@@ -32,10 +32,11 @@ class TimeSlots extends Component {
         } = {},
       } = {},
     } = this.props
+    console.log("dates being called")
     var newDate = moment(this.props.selectedDay[0]).format('DD-MM-YYYY')
-    await axios.get(`/appointments/${locationId}?day=${newDate}`).then(resp => {
-      this.setState({ appointments: resp.data, loading: true })
-    })
+    const resp = await axios.get(`/appointments/${locationId}?day=${newDate}`);
+
+//    this.setState({ appointments: resp.data, loading: true })
   }
 
   removeTimeSlot(mockData) {
