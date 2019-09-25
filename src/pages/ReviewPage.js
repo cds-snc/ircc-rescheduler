@@ -30,7 +30,6 @@ class ReviewPage extends React.Component {
 
   handleSubmit() {
     this.setState({ sending: true })
-    this.props.history.push('/confirmation')
   }
 
   translateReason(reason) {
@@ -90,12 +89,7 @@ class ReviewPage extends React.Component {
         }),
       )
     }
-    // eslint-disable-next-line no-console
-   // console.log(this.props.context.store)
 
-    // eslint-disable-next-line no-console
-  //  console.log(this.props) 
-    
     return (
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
@@ -142,9 +136,9 @@ class ReviewPage extends React.Component {
             email={email}
             paperFileNumber={paperFileNumber}
             accessibility={this.translateReason(familyCheck)}
-            privacy={this.translate(familyOption)}
             location={locationCity + ', ' + locationAddress}
             selectedDays={selectedDays}
+            selectedTime={selectedTime}
             sending={sending}
             onSubmit={this.handleSubmit}
           />
