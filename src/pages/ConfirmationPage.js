@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { H2, theme, visuallyhidden } from '../styles'
 import styled from '@emotion/styled'
 import { css } from 'emotion'
@@ -9,7 +8,6 @@ import Title, { matchPropTypes } from '../components/Title'
 import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import { LongReminder } from '../components/Reminder'
-import { SelectedDayList } from '../components/SelectedDayList'
 import FocusedH1 from '../components/FocusedH1'
 import { sortSelectedDays } from '../utils/calendarDates'
 import { dateToISODateString } from '../components/Time'
@@ -35,13 +33,7 @@ const Reminder = styled(LongReminder)`
   margin-bottom: ${theme.spacing.xl} !important;
 `
 
-const Availability = styled('div')`
-  border-left: 2px solid ${theme.colour.greyLight};
-  padding-left: ${theme.spacing.xl};
-  margin-left: ${theme.spacing.lg};
-`
-
-const EmailError = ({ selectedDays }) => {
+const EmailError = () => {
   return (
     <React.Fragment>
       <Reminder>
@@ -51,20 +43,8 @@ const EmailError = ({ selectedDays }) => {
           information
         </Trans>
       </Reminder>
-      <Availability>
-        <div>
-          <strong>
-            <Trans>Availability:</Trans>
-          </strong>
-        </div>
-        <SelectedDayList selectedDays={selectedDays} />
-      </Availability>
     </React.Fragment>
   )
-}
-
-EmailError.propTypes = {
-  selectedDays: PropTypes.array.isRequired,
 }
 
 class ConfirmationPage extends React.Component {
@@ -152,6 +132,13 @@ class ConfirmationPage extends React.Component {
         <FocusedH1 className={visuallyhidden}>
           <Trans>Confirmation</Trans>
         </FocusedH1>
+        {!this.hasEmailError() ? (
+          <p>
+            <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
+          </p>
+        ) : (
+          <EmailError />
+        )} 
 
         <section>
           <H2 id='confirm-text' >Confirmation #: A {this.hashFromData( email, paperFileNumber ).toString()}</H2>
@@ -166,13 +153,6 @@ class ConfirmationPage extends React.Component {
           />
 
           
-          {/* {!this.hasEmailError() ? (
-            <p>
-              <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
-            </p>
-          ) : (
-            <EmailError selectedDays={selectedDays} />
-          )} */}
 
           <H2 id='reminder-text'>
             <Trans>What happens next?</Trans>

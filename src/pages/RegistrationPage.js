@@ -1,4 +1,3 @@
-
 import React from 'react'
 import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
@@ -10,7 +9,8 @@ import {
   visuallyhidden,
   BottomContainer,
   focusRing,
-  contentClass, arrow, 
+  contentClass,
+  arrow,
 } from '../styles'
 import {
   RegistrationFields,
@@ -22,14 +22,9 @@ import Validator from 'validatorjs'
 import { trimInput, deleteEmptyArrayKeys } from '../utils/cleanInput'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
-import {
-  TextFieldAdapter,
-} from '../components/forms/TextInput'
+import { TextFieldAdapter } from '../components/forms/TextInput'
 import FieldSet from '../components/forms/FieldSet'
-import {
-  Radio,
-  CheckboxAdapter,
-} from '../components/forms/MultipleChoice'
+import { Radio, CheckboxAdapter } from '../components/forms/MultipleChoice'
 import Button from '../components/forms/Button'
 import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
@@ -47,7 +42,7 @@ const registrationContentClass = css`
     margin-bottom: ${theme.spacing.sm};
   }
   input#familyCheck + label::before {
-    border-width: 3px;
+    border-width: 1.5px;
   }
   #familyCheck-error {
     margin-bottom: ${theme.spacing.sm};
@@ -86,11 +81,11 @@ const labelNames = id => {
     case 'email':
       return <Trans>Email address</Trans>
     case 'emailConfirm':
-        return <Trans>Confirm Email address</Trans>
+      return <Trans>Confirm Email address</Trans>
     case 'accessibility':
       return ''
     case 'privacy':
-        return <Trans>Do you require privacy booth?</Trans>  
+      return <Trans>Do you require privacy booth?</Trans>
     case 'explanation':
       return <Trans>Describe why you can’t attend your appointment</Trans>
     case 'familyCheck':
@@ -129,23 +124,19 @@ class RegistrationPage extends React.Component {
         registrationFields.familyCheck = 'accept_anything'
         registrationFields.familyOption = 'accept_anything'
       }
-      
-      
 
       const validate = new Validator(
         trimInput(values),
         registrationFields,
         defaultMessages,
-        
       )
       // if (values.email !== values.emailConfirm){
       //   // eslint-disable-next-line no-console
       //   console.log('error check')
       //   RegistrationPage.errStrings= {emailConfirm : 'emailConfirmInvalidErrorMessage'}
-      //   return RegistrationPage.errStrings  
-      // } 
+      //   return RegistrationPage.errStrings
+      // }
       // eslint-disable-next-line no-console
-     
 
       if (validate.passes()) {
         //values.familyOption = values.familyCheck ? values.familyOption : ''
@@ -155,9 +146,9 @@ class RegistrationPage extends React.Component {
 
       RegistrationPage.errStrings = getFieldErrorStrings(validate)
       // eslint-disable-next-line no-console
-  //    console.log(RegistrationPage.errStrings)
+      //    console.log(RegistrationPage.errStrings)
     }
-    
+
     return RegistrationPage.errStrings
   }
 
@@ -213,10 +204,10 @@ class RegistrationPage extends React.Component {
       }
     }
     // eslint-disable-next-line no-console
-    console.log(this.props.context.store )
+    console.log(this.props.context.store)
     // eslint-disable-next-line no-console
     console.log(values)
-    
+
     // if setStore doesn't exist, nothing gets saved between pages
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
@@ -226,7 +217,7 @@ class RegistrationPage extends React.Component {
   render() {
     let {
       context: { store: { register = {} } = {} } = {},
-      
+
       post = false,
     } = this.props
     let errorsNoJS = {}
@@ -260,7 +251,6 @@ class RegistrationPage extends React.Component {
           render={({ handleSubmit, submitError, submitting, values }) => {
             const notValid = this.hasNotValid()
             const generalMessage = this.generalErrorMessage()
-
 
             submitError =
               Object.keys(errorsNoJS).length && !submitError
@@ -302,7 +292,7 @@ class RegistrationPage extends React.Component {
                     ))}
                   </ErrorList>
                 </div>
-                      {/* Paper file number */}
+                {/* Paper file number */}
                 <div>
                   <Field
                     component={TextFieldAdapter}
@@ -323,15 +313,15 @@ class RegistrationPage extends React.Component {
                       />
                       <span id="paperFileNumber-details">
                         <Trans>
-                          This number is at the top of the mailed letter we
-                          sent you.
+                          This number is at the top of the mailed letter we sent
+                          you.
                         </Trans>
                       </span>
                     </label>
                   </Field>
                 </div>
-                
-                        {/* Email */}
+
+                {/* Email */}
                 <div>
                   <Field component={TextFieldAdapter} name="email" id="email">
                     <label htmlFor="email" id="email-label">
@@ -348,15 +338,20 @@ class RegistrationPage extends React.Component {
                       />
                       <span id="email-details">
                         <Trans>
-                          This is where we will send a confirmation email when you are done.
+                          This is where we will send a confirmation email when
+                          you are done.
                         </Trans>
                       </span>
                     </label>
                   </Field>
                 </div>
-                          {/* Email Confirm*/}
-                 <div>
-                  <Field component={TextFieldAdapter} name="emailConfirm" id="emailConfirm">
+                {/* Email Confirm*/}
+                <div>
+                  <Field
+                    component={TextFieldAdapter}
+                    name="emailConfirm"
+                    id="emailConfirm"
+                  >
                     <label htmlFor="emailConfirm" id="emailConfirm-label">
                       <span id="confirm-email-header">
                         <Trans>Confirm Email address</Trans>
@@ -370,20 +365,19 @@ class RegistrationPage extends React.Component {
                         }
                       />
                       <span id="confirm-email-details">
-                        <Trans>
-                          Please re-enter your email address.
-                        </Trans>
+                        <Trans>Please re-enter your email address.</Trans>
                       </span>
                     </label>
                   </Field>
                 </div>
-                
-              
+
                 {/* Accessibility */}
                 <div>
                   <FieldSet legendHidden={false} id="a11y-reason">
                     <legend>
-                      <span id="a11y-reason-header">{labelNames('accessibility')}</span>
+                      <span id="a11y-reason-header">
+                        {labelNames('accessibility')}
+                      </span>
                     </legend>
 
                     <Field
@@ -391,7 +385,11 @@ class RegistrationPage extends React.Component {
                       component={CheckboxAdapter}
                       name="familyCheck"
                       id="familyCheck"
-                      label={<Trans>I need an accessible or private workstation (optional)</Trans>}
+                      label={
+                        <Trans>
+                          I need an accessible or private workstation (optional)
+                        </Trans>
+                      }
                       value="yes"
                       aria-label="accessibility-label"
                     />
@@ -417,13 +415,13 @@ class RegistrationPage extends React.Component {
                     />
                   </FieldSet>
                 </div> */}
-                
+
                 {/*
                Button is disabled if form has been submitted (and is waiting)
               */}
                 <BottomContainer>
-                  
-                  <Button id="nextButton"
+                  <Button
+                    id="nextButton"
                     onClick={() => {
                       this.setState({ submitClicked: true })
                     }}
