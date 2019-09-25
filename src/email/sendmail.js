@@ -9,7 +9,7 @@ const sendNotification = async (params = { email, templateId, options }) => {
   const { templateId, email, options } = params;
 
   if (!templateId || !email) {
-    console.log("no template ID or email was passed");
+    console.error("no template ID or email was passed");
     return false;
   }
 
@@ -17,6 +17,7 @@ const sendNotification = async (params = { email, templateId, options }) => {
     const response = await notifyClient.sendEmail(templateId, email, options);
     return response.body;
   } catch (err) {
+    console.error(err)
     return false;
   }
 };

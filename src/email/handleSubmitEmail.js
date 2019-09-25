@@ -14,22 +14,21 @@ export const handleSubmitEmail = async (req, res) => {
     const response = await sendNotification({
       email: input.email,
       templateId: input.templateId,
-        options: {
-          personalisation : {
-            paperFileNumber: input.paperFileNumber,
-            location: input.location,
-            selectedDay: input.selectedDay,
-            selectedTime: input.selectedTime,
-            accessibility: input.accessibility || "No"
-          },
-        emailReplyToId: "no-reply-sans-reponse@hrsdc-rhdcc.gc.ca"  
-    }
+      options: {
+        personalisation : {
+          paperFileNumber: input.paperFileNumber,
+          location: input.location,
+          selectedDay: input.selectedDay,
+          selectedTime: input.selectedTime,
+          accessibility: input.accessibility || "No"
+        }
+      }
     }).catch(err => {
       console.error(err)
       return res.redirect('/confirmation/client-request-issue')
     })
-    
-    console.log(`response: ${JSON.parse(JSON.stringify(response))}`)
+
+    //Caught an error earlier in the process 
     if (response === false) {
       return res.redirect('/confirmation/client-request-issue')
     }
@@ -37,7 +36,8 @@ export const handleSubmitEmail = async (req, res) => {
   catch (err) {
     return res.redirect('/error')
   }
-  console.log('going to confirmation page')
   return res.redirect('/confirmation')
   }
+  console.error(`Unknown Email Template ID ${input.templateId || 'empty'}`)
+  return res.redirect('/error')
 }
