@@ -5,6 +5,7 @@ import withContext from '../withContext'
 import { Trans, withI18n } from '@lingui/react'
 import { css } from 'emotion'
 import styled from '@emotion/styled'
+import { GoArrowRight } from 'react-icons/go'
 
 import {
   H1,
@@ -14,7 +15,6 @@ import {
   BottomContainer,
   focusRing,
   contentClass,
-  arrow,
 } from '../styles'
 import {
   LandingFields,
@@ -36,7 +36,7 @@ import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
-import rightArrow from '../assets/rightArrow.svg'
+// import rightArrow from '../assets/rightArrow.svg'
 
 const CalendarIcon = styled.div`
   width: 3.45rem;
@@ -86,9 +86,23 @@ const list = css`
   }
 `
 
-const landingArrow = css`
-  ${arrow};
-  margin-left: 4px;
+const goArrowRight = css`
+  font-size: 24px;
+  vertical-align: middle;
+  left: 9px;
+  height: 1.3rem;
+  width: 1.3rem;
+  bottom: 0.058em;
+  position: relative;
+`
+
+const spacingButton = css`
+  position: relative;
+  top: -8px;
+`
+const spacingChebox = css`
+  position: relative;
+  top: 10px;
 `
 
 const landingPageContent = css`
@@ -97,7 +111,7 @@ const landingPageContent = css`
     margin-bottom: ${theme.spacing.sm};
   }
   input#policyCheck + label::before {
-    border-width: 2px;
+    border-width: 1.5px;
   }
   #policyCheck-error {
     margin-bottom: ${theme.spacing.sm};
@@ -230,6 +244,22 @@ class LandingPage extends React.Component {
     await this.props.history.push(this.redirect)
   }
 
+  changeHandler(event) {
+    // event.preventDefault()
+    this.setState({ selectedId: event.target.value })
+    this.props.selectedTimeId(event.target.value)
+  }
+
+  triggerAddTripState = () => {
+    this.setState({
+      ...this.state,
+      isEmptyState: true,
+      isAddTripState: false,
+    })
+    // eslint-disable-next-line no-console
+    console.log('hello there')
+  }
+
   render() {
     let {
       context: { store: { blank = {} } = {} } = {},
@@ -309,7 +339,6 @@ class LandingPage extends React.Component {
                     ))}
                   </ErrorList>
                 </div>
-
                 <section>
                   <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
                     <Trans>You will need</Trans>
@@ -362,49 +391,66 @@ class LandingPage extends React.Component {
                     sed rhoncus pronin sapien nunc.
                   </p>
                 </section>
-                <br />
-                <div>
+
+                <div className={spacingChebox}>
                   <FieldSet legendHidden={false} id="a11y-policy">
                     <legend>
                       <span id="a11y-policy-header">
                         {labelNames('policy')}
                       </span>
                     </legend>
-
                     <Field
                       type="checkbox"
                       component={CheckboxAdapter}
                       name="policyCheck"
                       id="policyCheck"
+                      onClick={this.triggerAddTripState}
                       label={
                         <Trans>I have read and accept the privacy policy</Trans>
                       }
                       value="yes"
                       aria-label="policy-label"
                     />
-                    <ValidationMessage
-                      id="policy-error"
-                      message={
-                        submitError && this.validate(values).policyCheck
-                          ? this.validate(values).policyCheck
-                          : ''
-                      }
-                    />
+
+                    {this.state.isEmptyState && (
+                      <ValidationMessage
+                        id="policy-error"
+                        message={
+                          submitError && this.validate(values).policyCheck
+                            ? this.validate(values).policyCheck
+                            : ''
+                        }
+                      />
+                    )}
+
+                    {this.state.isAddTripState && (
+                      <ValidationMessage
+                        id="policy-error"
+                        message={
+                          submitError && this.validate(values).policyCheck
+                            ? this.validate(values).policyCheck
+                            : 'sdasd'
+                        }
+                      />
+                    )}
                   </FieldSet>
                 </div>
-
-                <BottomContainer>
-                  <Button
-                    id="Start request"
-                    onClick={() => {
-                      this.setState({ submitClicked: true })
-                    }}
-                    disabled={submitting}
-                  >
-                    <Trans>Start request</Trans>
-                    <img src={rightArrow} className={landingArrow} alt="" />
-                  </Button>
-                </BottomContainer>
+                <div className={spacingButton}>
+                  <BottomContainer>
+                    <Button
+                      id="Start request"
+                      onClick={() => {
+                        this.triggerAddTripState()
+                        this.setState({ submitClicked: true })
+                      }}
+                      disabled={submitting}
+                    >
+                      <Trans>Start request</Trans>
+                      {/* <img src={rightArrow} className={landingArrow} alt="" /> */}
+                      <GoArrowRight className={goArrowRight} />
+                    </Button>
+                  </BottomContainer>
+                </div>
               </form>
             )
           }}
