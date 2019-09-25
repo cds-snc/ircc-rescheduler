@@ -22,7 +22,6 @@ class TimeSlots extends Component {
     this.changeHandler = this.changeHandler.bind(this)
   }
 
-  // eslint-disable-next-line react/no-deprecated
   async componentWillReceiveProps() {
     let {
       context: {
@@ -32,11 +31,6 @@ class TimeSlots extends Component {
         } = {},
       } = {},
     } = this.props
-    console.log("dates being called")
-    var newDate = moment(this.props.selectedDay[0]).format('DD-MM-YYYY')
-    const resp = await axios.get(`/appointments/${locationId}?day=${newDate}`);
-
-//    this.setState({ appointments: resp.data, loading: true })
   }
 
   removeTimeSlot(mockData) {
