@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { H2, theme, visuallyhidden } from '../styles'
 import styled from '@emotion/styled'
 import { css } from 'emotion'
@@ -9,7 +8,6 @@ import Title, { matchPropTypes } from '../components/Title'
 import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import { LongReminder } from '../components/Reminder'
-import { SelectedDayList } from '../components/SelectedDayList'
 import FocusedH1 from '../components/FocusedH1'
 import { sortSelectedDays } from '../utils/calendarDates'
 import { dateToISODateString } from '../components/Time'
@@ -35,12 +33,6 @@ const Reminder = styled(LongReminder)`
   margin-bottom: ${theme.spacing.xl} !important;
 `
 
-const Availability = styled('div')`
-  border-left: 2px solid ${theme.colour.greyLight};
-  padding-left: ${theme.spacing.xl};
-  margin-left: ${theme.spacing.lg};
-`
-
 const EmailError = () => {
   return (
     <React.Fragment>
@@ -53,10 +45,6 @@ const EmailError = () => {
       </Reminder>
     </React.Fragment>
   )
-}
-
-EmailError.propTypes = {
-  selectedDays: PropTypes.array.isRequired,
 }
 
 class ConfirmationPage extends React.Component {
