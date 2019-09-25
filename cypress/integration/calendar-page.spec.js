@@ -66,28 +66,12 @@ describe('Calendar page functions', () => {
         cy.get('.DayPicker-Day--selected').should('be.visible')
         cy.get('#selectedDaysBox').should('contain.text', 'Please select your time slot:')
         cy.get('time').should('contain', todaysDate)
-      // cy.get('select[name="TimeSlot"]').then(($option) => {
-      //   const timepicker = $option.text()
-      //   cy.log(timepicker)
- //  })
-      //   cy.get('select[name="TimeSlot"] > option').then(($option) => {
-      //   const picker = $option[1]
-      //   cy.log(picker)
-
-      // })
+ 
 
 
-//       cy.get('select[name="TimeSlot"] > option:eq(1)').as('time')
-//        cy.get('@time').then((time) => {
-//  const times = time[1]
-//
-//  cy.log(times)
-//}
-
-      // *** DONT FORGET TO REST THE offsetStartWeeks = 0 IN calendarDates.js ***
       // find the first selection object from the list of Time Slot selection objects 
       cy.get('select[name="TimeSlot"] > option:eq(1)').as('firstObject')
-      // now get that object so you can get the time string from it
+      // now get that object to get the time string from it
       cy.get('@firstObject').then(($firstTime) => {
 
         // get the time string from the selected object
@@ -95,34 +79,7 @@ describe('Calendar page functions', () => {
         cy.log('timeString = ' + timeString )
         // select that time slot from the list using the string you found
         cy.get('select[name="TimeSlot"]').select(timeString)
-      }
-      )
-    
-
-   
-    // 
-  //  } 
-      // else {
-      // do something else
-   // }
- // })
-        
-        
-    
-
-        // cy.get(timepicker).each
-        // .select('12:00 am')
-        // .each(function($el, index, $list){
-        //   cy.log($el, index, $list)
-        // })
-   
-      // cy.get('select[name="TimeSlot"]').each(function($option, index, $date){
-      //   cy.log($option, index, $date)
-      // })
-      // cy.get('select[name="TimeSlot"]').select('12:00 am')
-      // cy.get('#TimeSlot').as('timeOption')
-
-      // cy.get("@timeOption").should("contain", '12:00 am')
+      })
 
     })
   
