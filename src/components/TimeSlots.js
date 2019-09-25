@@ -115,7 +115,7 @@ class TimeSlots extends Component {
     const timeSlot = this.removeTimeSlot(mockData)
 
     return (
-      <div className={selectDropDown}>
+      <div id='select-time' className={selectDropDown}>
         <SelectDropDown
           selName="TimeSlot"
           selId="TimeSlot"

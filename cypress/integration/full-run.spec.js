@@ -18,10 +18,9 @@ describe('should perform functions on the review page', () => {
     
   it.only('Should pass the data from register, location and calendar to the review page', () => {
       // check the accept privacy notice box
-
+    cy.get('#policyCheck').click()
       //click to move to the register page
-    cy.get('main a').should('contain.text', 'Start request')
-    cy.get('main a').click({ force: true })
+    cy.get('#start-request').click({ force: true })
     cy.url().should('contain', '/register')
 
     //enter in values on register page

@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import { enterButton, headerImg, langLink, privacyLink, tocLink, aboutCA, sMedia, mobileApp, aboutCAHref, sMediaHref, mobileHref, tocHref, privacyHref,footerImg } from './utils'
 
+
 // Verify Items and functions on the calendar page. 
 
 function checkA11y(cy){ 
@@ -47,21 +48,81 @@ describe('Calendar page functions', () => {
     it('should contain some text', () => {  
      cy.url().should('contains', '/calendar')
      cy.get('#calendar-header').should('contains.text', 'Select a day')
+     cy.get('[role="banner"] > :nth-child(2)').should('be.visible')
+      .and('contain.text', 'Step 3 of 4 – Select a day and time')
     })
 
-    it('should find selectable days', () => {  
+    it.only('should find selectable days', () => {  
       cy.url().should('contains', '/calendar')
       cy.get('#calendar-header').should('contains.text', 'Select a day')
 
       // trying to compare today's actual date with the Day--today
-       const todaysDate = Cypress.moment().format('LL')//('dddd,MMMMDD,YYYY')
+       const todaysDate = Cypress.moment().format('LL')
+      // const todaysDate = Cypress.moment().add(1, 'days').format('LL')
       // cy.get('.DayPicker-Day--today').should(($date) => {
       // expect($date.eq(0)).to.contain(todaysDate)
       // })
-      cy.get('.DayPicker-Day--today').click()
-      cy.get('.DayPicker-Day--selected').should('be.visible')
-      cy.get('.css-ex3iit-daySelection-mediaQuery-daySelection').should('contain.text', 'Please select your time slot:')
-      cy.get('time').should('contain', todaysDate)
+        cy.get('.DayPicker-Day--today').click()
+        cy.get('.DayPicker-Day--selected').should('be.visible')
+        cy.get('#selectedDaysBox').should('contain.text', 'Please select your time slot:')
+        cy.get('time').should('contain', todaysDate)
+      // cy.get('select[name="TimeSlot"]').then(($option) => {
+      //   const timepicker = $option.text()
+      //   cy.log(timepicker)
+ //  })
+      //   cy.get('select[name="TimeSlot"] > option').then(($option) => {
+      //   const picker = $option[1]
+      //   cy.log(picker)
+
+      // })
+
+
+//       cy.get('select[name="TimeSlot"] > option:eq(1)').as('time')
+//        cy.get('@time').then((time) => {
+//  const times = time[1]
+//
+//  cy.log(times)
+//}
+
+      // *** DONT FORGET TO REST THE offsetStartWeeks = 0 IN calendarDates.js ***
+      // find the first selection object from the list of Time Slot selection objects 
+      cy.get('select[name="TimeSlot"] > option:eq(1)').as('firstObject')
+      // now get that object so you can get the time string from it
+      cy.get('@firstObject').then(($firstTime) => {
+
+        // get the time string from the selected object
+        const timeString = $firstTime.text()
+        cy.log('timeString = ' + timeString )
+        // select that time slot from the list using the string you found
+        cy.get('select[name="TimeSlot"]').select(timeString)
+      }
+      )
+    
+
+   
+    // 
+  //  } 
+      // else {
+      // do something else
+   // }
+ // })
+        
+        
+    
+
+        // cy.get(timepicker).each
+        // .select('12:00 am')
+        // .each(function($el, index, $list){
+        //   cy.log($el, index, $list)
+        // })
+   
+      // cy.get('select[name="TimeSlot"]').each(function($option, index, $date){
+      //   cy.log($option, index, $date)
+      // })
+      // cy.get('select[name="TimeSlot"]').select('12:00 am')
+      // cy.get('#TimeSlot').as('timeOption')
+
+      // cy.get("@timeOption").should("contain", '12:00 am')
 
     })
   
@@ -95,6 +156,7 @@ describe('Calendar page functions', () => {
  //   cy.get('.DayPicker-Day--selected').should('be.visible')
     cy.get('time').should('contain', todaysDate)
      // cy.get('[type="checkbox"]').check(['#checkbox_1'])
+     cy.get('#TimeSlot').click()
     cy.get('#checkbox_1').check()
     cy.get(enterButton).click()
     cy.url().should('contains', '/review')
@@ -131,7 +193,7 @@ describe('Calendar page functions', () => {
   //  })
   })
 
-  it.only('should see if there is another month to select', () => {  
+  it('should see if there is another month to select', () => {  
     cy.url().should('contains', '/calendar')
     // find start date of the 30 days.
 

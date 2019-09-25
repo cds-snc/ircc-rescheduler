@@ -311,7 +311,7 @@ class LandingPage extends React.Component {
                 </div>
 
                 <section>
-                  <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
+                  <H1 id='needed-info' style={{ marginBottom: `${theme.spacing.md}` }}>
                     <Trans>You will need</Trans>
                   </H1>
                   <ul className={list}>
@@ -349,7 +349,7 @@ class LandingPage extends React.Component {
                       <Trans>re available within the next 30 days.</Trans>{' '}
                     </p>
                   </div>
-                  <H1>
+                  <H1 id='privacy-notice' >
                     <Trans>Privacy notice</Trans>
                   </H1>
                   <p>
@@ -395,7 +395,7 @@ class LandingPage extends React.Component {
 
                 <BottomContainer>
                   <Button
-                    id="Start request"
+                    id="start-request"
                     onClick={() => {
                       this.setState({ submitClicked: true })
                     }}
