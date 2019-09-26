@@ -268,6 +268,18 @@ class LandingPage extends React.Component {
     } = this.props
     let errorsNoJS = {}
 
+    const requiredStr = (
+      <font color="red">
+        (<Trans>required</Trans>)
+      </font>
+    )
+
+    const policyStr = (
+      <font color="">
+        <Trans>I have read and accept the privacy policy</Trans>
+      </font>
+    )
+
     // if this is a POST, we know for sure they pressed "submit" on this page
     // Otherwise, we would be showing error messages on the initial pageload
     // (because the fields are empty
@@ -406,7 +418,10 @@ class LandingPage extends React.Component {
                       id="policyCheck"
                       onClick={this.triggerAddTripState}
                       label={
-                        <Trans>I have read and accept the privacy policy</Trans>
+                        <Trans>
+                          {policyStr}
+                          <Trans /> {requiredStr}
+                        </Trans>
                       }
                       value="yes"
                       aria-label="policy-label"

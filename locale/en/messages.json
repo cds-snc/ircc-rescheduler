@@ -1,4 +1,15 @@
 {
+
+  "required": {
+    "translation": "required",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        271
+      ]
+    ]
+  },
+
   "In order to start your request, you must first read and accept the privacy notice statement.": {
     "translation": "In order to start your request, you must first read and accept the privacy notice statement.",
     "origin": [

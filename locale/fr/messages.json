@@ -1,5 +1,15 @@
 {
   
+  "required": {
+    "translation": "Champs obligatoires",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        271
+      ]
+    ]
+  },
+
     "In order to start your request, you must first read and accept the privacy notice statement.": {
       "translation": "Pour commencer votre demande, vous devez d'abord lire et accepter la déclaration de confidentialité.",
       "origin": [
