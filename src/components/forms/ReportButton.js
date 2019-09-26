@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { css } from 'emotion'
-import { theme, mediaQuery, incrementColor } from '../../styles'
+import { theme, mediaQuery } from '../../styles'
 
-const govuk_button = css`
+const govuk_reportButton = css`
   /* https://raw.githubusercontent.com/alphagov/govuk_frontend_toolkit/e00b009b2a9722363d3c247838632d8e3673daa9/stylesheets/design-patterns/_buttons.scss */
   background-color: #00823b;
 
@@ -86,21 +86,22 @@ const govuk_button = css`
   /* removed IE8-specific rule */
 `
 
-const button = css`
-  ${govuk_button};
+const reportButton = css`
+  ${govuk_reportButton}; !important;
 
   font-family: SourceSans, Helvetica, Arial, sans-serif;
   font-size: ${theme.font.lg};
   font-weight: 500;
-  line-height: 2;
+  line-height: 1.8;
   text-align: center;
+  border: 0.3px solid black;
 
-  color: ${theme.colour.white} !important;
-  background-color: ${theme.colour.lightblue};
+  color: ${theme.colour.black} !important;
+  background-color: rgba(234, 235, 237, 1);
   overflow: hidden;
 
   // Size and shape
-  padding: ${theme.spacing.xs} ${theme.spacing.lg};
+  padding: 0.3rem 95px !important;
 
   ${mediaQuery.sm(css`
     width: 100%;
@@ -109,7 +110,7 @@ const button = css`
 
   &:visited {
     color: ${theme.colour.white} !important;
-    background-color: ${theme.colour.lightblue};
+    background-color: rgba(234, 235, 237, 1);
   }
 
   &:focus {
@@ -119,31 +120,30 @@ const button = css`
 
   &:hover,
   &:focus {
-    background-color: ${theme.colour.canadaBlueDark};
-    box-shadow: 0 2px 0 ${incrementColor(theme.colour.black, 20)};
+    background-color: rgba(234, 235, 237, 1);
+    box-shadow: rgba(234, 235, 237, 1);
   }
 
   &:active {
     top: 2px;
-    background-color: ${theme.colour.canadaBlueDark};
-    box-shadow: 0 0 0 ${theme.colour.canadaBlueDark};
+    background-color: rgba(234, 235, 237, 1);
   }
 
   &:disabled {
     &:hover {
       cursor: not-allowed;
-      background-color: ${incrementColor(theme.colour.canadaBlueDark, 50)};
+      background-color: rgba(234, 235, 237, 1);
     }
   }
 `
 
-const Button = ({ children, ...props }) => (
-  <button className={button} {...props}>
+const ReportButton = ({ children, ...props }) => (
+  <reportButton className={reportButton} {...props}>
     {children}
-  </button>
+  </reportButton>
 )
-Button.propTypes = {
+ReportButton.propTypes = {
   children: PropTypes.any.isRequired,
 }
 
-export { Button as default, button as buttonStyles }
+export { ReportButton as default, reportButton as reportButtonStyles }
