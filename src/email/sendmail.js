@@ -1,13 +1,13 @@
 import { logError } from "../utils/logger" ;
 import { NotifyClient } from "notifications-node-client";
 
-const key = process.env.API_KEY;
+const key = process.env.NOTIFICATION_API_KEY;
 if (key === '' || typeof key === 'undefined') {
-  throw 'API_KEY environment variable not found'
+  throw 'NOTIFICATION_API_KEY environment variable not found'
 }
-const baseUrl = process.env.API_BASE_URL;
+const baseUrl = process.env.NOTIFICATION_API_BASE_URL;
 if (baseUrl === '' || typeof baseUrl === 'undefined') {
-  throw 'API_BASE_URL environment variable not found'
+  throw 'NOTIFICATION_API_BASE_URL environment variable not found'
 }
 const notifyClient =
   process.env.NODE_ENV != "test" ? new NotifyClient(baseUrl, key) : false;
