@@ -9,15 +9,6 @@ export const getReleaseHash = () => {
     : `${process.env.RAZZLE_STAGE}-${gitHash()}`
 }
 
-export const handleMailError = e => {
-  Raven.captureException(e)
-
-  // eslint-disable-line no-console
-  return {
-    messageId: null,
-    errorMessage: e.message,
-  }
-}
 
 export const gatherFieldErrors = errObj => {
   const errs = Object.keys(errObj).map(key => {

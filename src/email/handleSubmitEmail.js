@@ -1,7 +1,5 @@
-import { CalendarFields, RegistrationFields } from '../validation'
-import Validator from 'validatorjs'
-import { sendNotification } from './sendmail'
-import { handleMailError, captureMessage } from '../utils/serverUtils'
+import { sendNotification } from './sendmail';
+import { logerror } from '../utils/logger';
 
 const CONFIRMATION_EMAIL = 'af563da5-43bd-4b9a-9610-e3990a7f4315'
   
@@ -20,11 +18,11 @@ export const handleSubmitEmail = async (req, res) => {
           location: input.location,
           selectedDay: input.selectedDay,
           selectedTime: input.selectedTime,
-          accessibility: input.accessibility || "No"
-        }
-      }
+          accessibility: input.accessibility || "No",
+        },
+      },
     }).catch(err => {
-      console.error(err)
+      logerror(err)
       return res.redirect('/confirmation/client-request-issue')
     })
 
@@ -38,6 +36,6 @@ export const handleSubmitEmail = async (req, res) => {
   }
   return res.redirect('/confirmation')
   }
-  console.error(`Unknown Email Template ID ${input.templateId || 'empty'}`)
+  logerror(`Unknown Email Template ID ${input.templateId || 'empty'}`)
   return res.redirect('/error')
 }
