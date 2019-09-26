@@ -5,7 +5,6 @@ import withContext from '../withContext'
 import moment from 'moment'
 import SelectDropDown from '../components/forms/Select'
 import { css } from 'emotion'
-import axios from 'axios'
 
 const selectDropDown = css`
   max-width: 500px;
@@ -22,7 +21,7 @@ class TimeSlots extends Component {
     this.changeHandler = this.changeHandler.bind(this)
   }
 
-  async componentWillReceiveProps() {
+  async UNSAFE_componentWillReceiveProps() {
     let {
       context: {
         store: {
