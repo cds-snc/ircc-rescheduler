@@ -153,7 +153,10 @@ class SelectlocationsPage extends React.Component {
           this.selectProvinceError.focus()
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err)
+        this.props.history.push('/error')
+      })
   }
 
   // Get the locations within a city
@@ -172,6 +175,10 @@ class SelectlocationsPage extends React.Component {
         loading: false,
       })
     })
+      .catch(err => {
+        console.log(err)
+        this.props.history.push('/error')
+      })
   }
 
   // Save in State the current Province selected & gets the cities within the province
