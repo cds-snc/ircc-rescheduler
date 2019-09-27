@@ -42,7 +42,13 @@ describe('select provice, city and office page functions', () => {
       
        cy.get(footerImg).should('be.visible')
       })
- 
+
+    it('should contain the header text', () => {  
+        cy.url().should('contains', '/selectProvince')
+        cy.get('[role="banner"] > :nth-child(2)').should('be.visible')
+         .and('contain.text', 'Step 2 of 4 – Select a location')
+       })
+   
 
     it('should click into the province selection dropdown and show Select a City dropdown', () => {  
       cy.injectAxe()
@@ -54,7 +60,7 @@ describe('select provice, city and office page functions', () => {
 
      })
 
-     it.only('should click into the Select a City dropdown and show city and locations and button ', () => {  
+     it('should click into the Select a City dropdown and show city and locations and button ', () => {  
       cy.injectAxe()
       cy.get('select[name="ProvinceList"]').select('Alberta').should('have.value', 'Alberta')
       cy.get('select[name="CitiesList"]').select('Calgary').should('have.value', 'Calgary')
@@ -63,9 +69,9 @@ describe('select provice, city and office page functions', () => {
       cy.get('[for="OfficeList"]').should('contain.text', 'Calgary')
       cy.get(enterButton).should('be.visible')
       cy.get('input[name="OfficeList"]').should('not.be.enabled')
-      cy.get('#14').click()
+      cy.get('#4802').click()
       cy.get('input[name="OfficeList"]').should('be.enabled')
-      cy.get('#14-href > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
+      cy.get('#4802-href > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
        checkA11y(cy)
  
      })
@@ -76,9 +82,9 @@ describe('select provice, city and office page functions', () => {
       cy.get('select[name="CitiesList"]').select('Vancouver')
       cy.get('[for="OfficeList"]').should('contain.text', 'Vancouver')
       cy.get('input[name="OfficeList"]').should('not.be.enabled')
-      cy.get('#5823').click()
+      cy.get('#5001').click()
       cy.get('input[name="OfficeList"]').should('be.enabled')
-      cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
+      cy.get('#5001-href > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
 })
 
 it('should find Alberta and the cities in the dropdown', () => {  
@@ -87,9 +93,9 @@ it('should find Alberta and the cities in the dropdown', () => {
  cy.get('select[name="CitiesList"]').select('Calgary')
  cy.get('[for="OfficeList"]').should('contain.text', 'Calgary')
  cy.get('input[name="OfficeList"]').should('not.be.enabled')
- cy.get('#4802').click()
+ cy.get('#4600').click()
  cy.get('input[name="OfficeList"]').should('be.enabled')
- cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
+ cy.get('#4600-href > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
 })
 
 it('should find Manitoba and the cities in the dropdown', () => {  
@@ -98,9 +104,9 @@ it('should find Manitoba and the cities in the dropdown', () => {
  cy.get('select[name="CitiesList"]').select('Winnipeg')
  cy.get('[for="OfficeList"]').should('contain.text', 'Winnipeg')
  cy.get('input[name="OfficeList"]').should('not.be.enabled')
- cy.get('#4123').click()
+ cy.get('#4122').click()
  cy.get('input[name="OfficeList"]').should('be.enabled')
- cy.get('a > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
+ cy.get('#4122-href > :nth-child(2)').should('have.text', ' ServiceCanada.gc.ca')
 })
 
 it('should find Ontario and the cities in the dropdown', () => {  
@@ -110,11 +116,11 @@ it('should find Ontario and the cities in the dropdown', () => {
  cy.get('select[name="CitiesList"]').select('Ottawa')
  cy.get('[for="OfficeList"]').should('contain.text', 'Ottawa')
  cy.get('input[name="OfficeList"]').should('not.be.enabled')
- cy.get('#3747').click()
+ cy.get('#3006').click()
  cy.get('input[name="OfficeList"]').should('be.enabled')
- cy.get('a > :nth-child(2)').should('contain.text', ' ServiceCanada.gc.ca')
+ cy.get('#3006-href > :nth-child(2)').should('contain.text', ' ServiceCanada.gc.ca')
  cy.get('input[type="radio"]').next().should('not.be.enabled')
- cy.get('#3745').click()
+ cy.get('#3545').click()
  cy.get('input[name="OfficeList"]').should('be.enabled')
  checkA11y(cy)
 })
