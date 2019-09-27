@@ -51,8 +51,8 @@ describe('Items shown on the Landing page', () => {
 
     it('should verify text on the page', () => {  
       cy.get('#needed-info').should('contain.text', 'You will need')
-      cy.get('section').should('contain.text', 'Your Application number')
-      cy.get(':nth-child(2) > p').should('contain.text', 'A valid email address')
+      cy.get('ul>li').eq(0).should('contain.text', 'Your Application number')
+      cy.get('ul>li').eq(1).should('contain.text', 'A valid email address')
       cy.get('.css-q22mxi-CalendarIcon').should('be.visible')
       // text needs to be update to take out the abreviations
      // cy.get('#message-container > p').should('have.text', 'Next, you will select a location, day and time you are available with the next 30 days')

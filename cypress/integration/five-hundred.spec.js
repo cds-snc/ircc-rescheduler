@@ -25,9 +25,8 @@ it('Has no detectable a11y violations on load', () => {
   it('can load 500 page', () => {
     cy.visit('/500')
 // todo update when text added.
-    cy.get('h1')
-      .eq(0)
-      .should('contain', 'Something went wrong.')
+    cy.get('main')
+      .should('contain.text', 'Something went wrong.')
   })
   it('should go to the landing page and show header image and links ', () => {  
     cy.get(headerImg).should('be.visible')
