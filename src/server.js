@@ -58,6 +58,7 @@ server
           'Something went wrong when calling the API in locations/province: ' +
             err.message,
         )
+        res.status(503).send()
       })
   })
   .get('/locations/:province/:city', (req, res) => {
@@ -81,6 +82,7 @@ server
           'Something went wrong when calling the API in locations/province/city: ' +
             err.message,
         )
+        res.status(503).send()
       })
   })
   .get('/appointments/:locationID', (req, res) => {
@@ -104,6 +106,7 @@ server
           'Something went wrong when calling the API appointments/locationID/city:  ' +
             err.message,
         )
+        rres.status(503).send()
       })
   })
   .get('/clear', (req, res) => {
