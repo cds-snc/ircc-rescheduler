@@ -30,6 +30,9 @@ export const toLocale = (date, options, locale) => {
  *--------------------------------------------*/
 
 export const getStartDate = (today = new Date()) => {
+  if (today.getDate() === 21) {
+    console.log('Break here lol')
+  }
   today.setDate(today.getDate() + 1)
   const date = firstValidDay(undefined, addWeeks(today, offsetStartWeeks))
   return dateToISODateString(date)
