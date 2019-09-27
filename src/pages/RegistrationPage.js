@@ -4,6 +4,7 @@ import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { Trans, withI18n } from '@lingui/react'
 import { css } from 'emotion'
+import { GoBackButtonReg } from '../components/forms/GoBackButton'
 import {
   theme,
   visuallyhidden,
@@ -29,7 +30,7 @@ import Button from '../components/forms/Button'
 import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
-import CancelButton from '../components/CancelButton'
+// import CancelButton from '../components/CancelButton'
 import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
@@ -72,6 +73,10 @@ const forNowSubmitErrorStyles = css`
     margin-bottom: ${theme.spacing.lg};
     font-size: ${theme.font.lg};
   }
+`
+
+const buttonSpacing = css`
+  padding-left: 20px;
 `
 
 const labelNames = id => {
@@ -396,30 +401,9 @@ class RegistrationPage extends React.Component {
                   </FieldSet>
                 </div>
 
-                {/* Privacy */}
-
-                {/* <div>
-                  <FieldSet legendHidden={false} id="privacy-reason">
-                    <legend>
-                      <span id="privacy-reason-header">{labelNames('privacy')}</span>
-                    </legend>
-                    
-                    <Field
-                      type="checkbox"
-                      component={CheckboxAdapter}
-                      name="familyOption"
-                      id="familyOption"
-                      label={<Trans>Agree</Trans>}
-                      value="yes"
-                      aria-label="privacy-label"
-                    />
-                  </FieldSet>
-                </div> */}
-
-                {/*
-               Button is disabled if form has been submitted (and is waiting)
-              */}
                 <BottomContainer>
+                  <GoBackButtonReg />
+                  <span className={buttonSpacing}> </span>
                   <Button
                     id="nextButton"
                     onClick={() => {
@@ -430,8 +414,7 @@ class RegistrationPage extends React.Component {
                     <Trans>Next</Trans>
                     <img src={rightArrow} className={landingArrow} alt="" />
                   </Button>
-
-                  <CancelButton />
+                  {/* <CancelButton /> */}
                 </BottomContainer>
               </form>
             )

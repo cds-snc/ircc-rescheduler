@@ -4,7 +4,10 @@ import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { css } from 'emotion'
+import { GoBackButtonSelPrv } from '../components/forms/GoBackButton'
+
 import {
+  BottomContainer,
   theme,
   mediaQuery,
   visuallyhidden,
@@ -410,12 +413,14 @@ class SelectlocationsPage extends React.Component {
                       )}
                     </fieldset>
                   </div>
-
-                  <Button type="submit" value="Submit" onClick={this.submit}>
-                    {' '}
-                    <Trans>Next</Trans>{' '}
-                    <img src={rightArrow} className={landingArrow} alt="" />
-                  </Button>
+                  <BottomContainer>
+                    <GoBackButtonSelPrv />
+                    <Button type="submit" value="Submit" onClick={this.submit}>
+                      {' '}
+                      <Trans>Next</Trans>{' '}
+                      <img src={rightArrow} className={landingArrow} alt="" />
+                    </Button>
+                  </BottomContainer>
                 </React.Fragment>
               )}
 

@@ -14,6 +14,7 @@ import SubmissionForm from '../components/SubmissionForm'
 import { sortSelectedDays } from '../utils/calendarDates'
 import { dateToISODateString } from '../components/Time'
 import FocusedH1 from '../components/FocusedH1'
+import { GoBackButtonReview } from '../components/forms/GoBackButton'
 
 const contentClass = css`
   p {
@@ -36,11 +37,12 @@ class ReviewPage extends React.Component {
   translateReason(reason) {
     if (reason) {
       switch (reason[0]) {
-      case 'yes':
-        return <Trans>Yes</Trans>
-      default:
-        return <Trans>No</Trans>
-    }} else {
+        case 'yes':
+          return <Trans>Yes</Trans>
+        default:
+          return <Trans>No</Trans>
+      }
+    } else {
       return <Trans>No</Trans>
     }
   }
@@ -48,33 +50,24 @@ class ReviewPage extends React.Component {
   translate(reason) {
     if (reason) {
       switch (reason[0]) {
-      case 'yes':
-        return <Trans>Yes</Trans>
-      default:
-        return <Trans>No</Trans>
-    }} else {
+        case 'yes':
+          return <Trans>Yes</Trans>
+        default:
+          return <Trans>No</Trans>
+      }
+    } else {
       return <Trans>No</Trans>
     }
   }
-
-
 
   render() {
     let {
       context: {
         store: {
-          register: {
-            paperFileNumber,
-            email,
-            familyCheck,
-            familyOption,
-          } = {},
+          register: { paperFileNumber, email, familyCheck, familyOption } = {},
 
           calendar: { selectedDays = [], selectedTime } = {},
-          selectProvince: {
-            locationCity,
-            locationAddress,
-          } = {},
+          selectProvince: { locationCity, locationAddress } = {},
         } = {},
       } = {},
     } = this.props
@@ -91,16 +84,16 @@ class ReviewPage extends React.Component {
       )
     }
     // eslint-disable-next-line no-console
-   // console.log(this.props.context.store)
+    // console.log(this.props.context.store)
 
     // eslint-disable-next-line no-console
-  //  console.log(this.props) 
-    
+    //  console.log(this.props)
+
     return (
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
         <TopContainer>
-          <NavLink className="chevron-link" to='/calendar'>
+          <NavLink className="chevron-link" to="/calendar">
             <Chevron dir="left" />
             <Trans>Go back</Trans>
           </NavLink>
@@ -115,7 +108,7 @@ class ReviewPage extends React.Component {
             email={email}
             accessibility={this.translateReason(familyCheck)}
             privacy={this.translateReason(familyOption)}
-            location={locationCity + ', ' + locationAddress} 
+            location={locationCity + ', ' + locationAddress}
             selectedDays={days}
             selectedTime={selectedTime}
           />

@@ -4,7 +4,8 @@ import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { Trans } from '@lingui/react'
 import { css } from 'emotion'
-import { focusRing, arrow } from '../styles'
+import { GoBackButtonCal } from '../components/forms/GoBackButton'
+import { BottomContainer, focusRing, arrow } from '../styles'
 import {
   CalendarFields,
   getFieldNames,
@@ -340,16 +341,24 @@ class CalendarPage extends Component {
                     }
                   />
                 </div>
+
                 <CalBottom
                   availability={
                     availability && availability.length ? true : false
                   }
                   submit={() => {
                     return (
-                      <Button id="nextButton" disabled={submitting}>
-                        <Trans>Next</Trans>
-                        <img src={rightArrow} className={landingArrow} alt="" />
-                      </Button>
+                      <BottomContainer>
+                        <GoBackButtonCal />
+                        <Button id="nextButton" disabled={submitting}>
+                          <Trans>Next</Trans>
+                          <img
+                            src={rightArrow}
+                            className={landingArrow}
+                            alt=""
+                          />
+                        </Button>
+                      </BottomContainer>
                     )
                   }}
                 />

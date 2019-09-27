@@ -5,6 +5,7 @@ import CancelButton from './CancelButton'
 import rightArrow from '../assets/rightArrow.svg'
 import { BottomContainer, arrow } from '../styles'
 import { Trans } from '@lingui/react'
+import { GoBackButtonReview } from '../components/forms/GoBackButton'
 
 const SubmissionForm = props => {
   const { sending, onSubmit } = props
@@ -30,7 +31,7 @@ const SubmissionForm = props => {
           name="availabilityExplanation"
           value={props.availabilityExplanation}
         /> */}
-
+        <GoBackButtonReview />
         <Button type="submit" disabled={sending}>
           <Trans>Send request</Trans>{' '}
           <img src={rightArrow} className={arrow} alt="" />
@@ -42,17 +43,17 @@ const SubmissionForm = props => {
 }
 
 SubmissionForm.propTypes = {
-//  fullName: PropTypes.string,
+  //  fullName: PropTypes.string,
   paperFileNumber: PropTypes.string,
   familyCheck: PropTypes.array,
   familyOption: PropTypes.array,
   email: PropTypes.string,
-//  emailConfirm:PropTypes.string,
-//  reason: PropTypes.string,
+  //  emailConfirm:PropTypes.string,
+  //  reason: PropTypes.string,
   location: PropTypes.string,
-//  explanation: PropTypes.string,
+  //  explanation: PropTypes.string,
   selectedDays: PropTypes.oneOfType([PropTypes.array, PropTypes.string]),
-//  availabilityExplanation: PropTypes.string,
+  //  availabilityExplanation: PropTypes.string,
   sending: PropTypes.bool.isRequired,
   onSubmit: PropTypes.func.isRequired,
 }

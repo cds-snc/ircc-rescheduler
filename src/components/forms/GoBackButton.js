@@ -1,10 +1,9 @@
 import React from 'react'
-
-import { Trans } from '@lingui/react'
 import { css } from 'emotion'
-import { theme, mediaQuery } from '../../styles'
+import { theme, mediaQuery, incrementColor } from '../../styles'
+import { Trans } from '@lingui/react'
 
-const govuk_reportButton = css`
+const govuk_button = css`
   /* https://raw.githubusercontent.com/alphagov/govuk_frontend_toolkit/e00b009b2a9722363d3c247838632d8e3673daa9/stylesheets/design-patterns/_buttons.scss */
   background-color: #00823b;
 
@@ -87,13 +86,13 @@ const govuk_reportButton = css`
   /* removed IE8-specific rule */
 `
 
-const reportButton = css`
-  ${govuk_reportButton}; !important;
+const button = css`
+  ${govuk_button};
 
   font-family: SourceSans, Helvetica, Arial, sans-serif;
   font-size: ${theme.font.lg};
   font-weight: 500;
-  line-height: 1.8;
+  line-height: 2;
   text-align: center;
   border: 0.3px solid black;
 
@@ -102,7 +101,7 @@ const reportButton = css`
   overflow: hidden;
 
   // Size and shape
-  padding: 0.3rem 95px !important;
+  padding: ${theme.spacing.xs} ${theme.spacing.lg};
 
   ${mediaQuery.sm(css`
     width: 100%;
@@ -122,7 +121,7 @@ const reportButton = css`
   &:hover,
   &:focus {
     background-color: rgba(234, 235, 237, 1);
-    box-shadow: rgba(234, 235, 237, 1);
+    box-shadow: 0 2px 0 ${incrementColor(theme.colour.black, 20)};
   }
 
   &:active {
@@ -137,8 +136,29 @@ const reportButton = css`
     }
   }
 `
-export const ReportButton = () => (
-  <a className={reportButton}>
-    <Trans>Report a problem on this page</Trans>
+
+export const GoBackButtonReg = () => (
+  <a href="/" className={button}>
+    <Trans>Previous</Trans>
   </a>
 )
+
+export const GoBackButtonSelPrv = () => (
+  <a href="/register" className={button}>
+    <Trans>Previous</Trans>
+  </a>
+)
+
+export const GoBackButtonCal = () => (
+  <a href="/selectProvince" className={button}>
+    <Trans>Previous</Trans>
+  </a>
+)
+
+export const GoBackButtonReview = () => (
+  <a href="/calendar" className={button}>
+    <Trans>Previous</Trans>
+  </a>
+)
+
+// export default (GoBackButtonReg, GoBackButtonSelPrv, GoBackButtonCal)

@@ -6,7 +6,6 @@ import { Trans, withI18n } from '@lingui/react'
 import { css } from 'emotion'
 import styled from '@emotion/styled'
 import { GoArrowRight } from 'react-icons/go'
-
 import {
   H1,
   mediaQuery,
@@ -29,7 +28,7 @@ import Title, { matchPropTypes } from '../components/Title'
 import FieldSet from '../components/forms/FieldSet'
 import { Radio, CheckboxAdapter } from '../components/forms/MultipleChoice'
 import Button from '../components/forms/Button'
-import ReportButton from '../components/forms/ReportButton'
+import { ReportButton } from '../components/forms/ReportButton'
 import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
@@ -473,9 +472,7 @@ class LandingPage extends React.Component {
         />
         <div className={spacingButton}>
           <BottomContainer>
-            <ReportButton id="Report a problem on this page" onClick={() => {}}>
-              <Trans>Report a problem on this page</Trans>
-            </ReportButton>
+            <ReportButton />
           </BottomContainer>
         </div>
       </Layout>
