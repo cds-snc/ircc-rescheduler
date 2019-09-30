@@ -4,13 +4,11 @@ import CalendarAdapter, { renderDayBoxes } from '../Calendar'
 import {
   getMonthNameAndYear,
   getStartMonth,
-  getStartDate,
   getEnabledDays,
 } from '../../utils/calendarDates'
 import MemoryRouter from 'react-router-dom/MemoryRouter'
 
 import parse from 'date-fns/parse'
-import addMonths from 'date-fns/add_months'
 import addDays from 'date-fns/add_days'
 import format from 'date-fns/format'
 
@@ -132,11 +130,6 @@ describe('<CalendarAdapter />', () => {
       </MemoryRouter>,
     )
     wrapper.find('.DayPicker-NavButton--next').simulate('click')
-
-    const currentMonthYear = getMonthNameAndYear(
-      getStartMonth(new Date()),
-      'en',
-    )
 
     const monthIn30Days = addDays(new Date(), 30)
     const monthYearin30Days = getMonthNameAndYear(monthIn30Days, 'en')
