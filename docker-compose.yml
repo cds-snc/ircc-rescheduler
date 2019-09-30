@@ -4,6 +4,10 @@ services:
     build:
       context: ./
       dockerfile: testing.Dockerfile
+    environment: 
+     - CONNECTION_STRING=http://sab-database.dev.esdc.online
+     - NOTIFICATION_API_BASE_URL=https://api.notification.alpha.canada.ca
+     - NOTIFICATION_API_KEY='caltest-7ca1089d-5825-4d74-a924-eb3559494c30-d7b1cb6f-40c2-465e-8f28-4417cd3d94e8'
     container_name: sab-gui
     restart: always
     ports:

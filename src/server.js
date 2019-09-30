@@ -133,6 +133,7 @@ server
     } catch (error) {
       console.log(error.message, error.stack) // eslint-disable-line no-console
       res.redirect('/error')
+      return
     }
   })
 
