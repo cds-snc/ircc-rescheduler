@@ -13,15 +13,6 @@ stages:
   - stage: Test
     # this job for A11y_Scanning is not yet functional. needs some work. 
     jobs:
-    # - job: A11y_Scanning
-    #   pool:
-    #     vmImage: 'Ubuntu-16.04'  
-    #   steps:
-    #   - script: docker build -t sabgui:pr . && docker run -p 3004:80 -d -t sabgui:pr
-    #     displayName: Build and Run Image for A11y
-    #   - script: docker exec -it sabgui:pr - /bin/sh yarn test:full
-    #     displayName: 'A11y Scanning'
-
     - job: Linting
       pool:
         vmImage: 'Ubuntu-16.04'
@@ -34,6 +25,7 @@ stages:
     # the cypress tests are using docker-compose.yml. compose builds the Dockerfile to build the app and serve it on localhost
     # then the cypress container is built from cypress.Dockerfile and runs the tests against the served app on localhost.
     - job: Cypress_tests
+      dependsOn: Linting
       pool:
         vmImage: 'Ubuntu-16.04'
       steps:
