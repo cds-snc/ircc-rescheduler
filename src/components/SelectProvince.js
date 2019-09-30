@@ -10,6 +10,7 @@ import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
 import { matchPropTypes } from '../components/Title'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
+import { logDebug } from '../utils/logger'
 
 const govuk_select = css`
   font-family: SourceSans, Helvetica, Arial, sans-serif;
@@ -123,19 +124,14 @@ class SelectProvince extends Component {
   }
 
   async handleLocation(selectedCity) {
-    // eslint-disable-next-line no-console
-    console.log(this.props)
-    //console.log('title: ' + this.props.match.path.slice(1))
-    // eslint-disable-next-line no-console
-    console.log(this.props.context.store)
-    // eslint-disable-next-line no-console
+    logDebug(this.props)
+    logDebug(this.props.context.store)
     let values = { selectCity: selectedCity }
-    console.log(values)
+    logDebug(values)
 
     await this.props.context.setStore('selectProvince', values)
 
-    // eslint-disable-next-line no-console
-    console.log(this.props.context.store)
+    logDebug(this.props.context.store)
     await this.props.router.push('/calendar')
   }
 
