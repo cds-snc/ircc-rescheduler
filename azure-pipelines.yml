@@ -9,65 +9,68 @@ trigger:
 pr: 
 - master
 
-# this job for A11y_Scanning is not yet functional. needs some work. 
-jobs:
-# - job: A11y_Scanning
-#   pool:
-#     vmImage: 'Ubuntu-16.04'  
-#   steps:
-#   - script: docker build -t sabgui:pr . && docker run -p 3004:80 -d -t sabgui:pr
-#     displayName: Build and Run Image for A11y
-#   - script: docker exec -it sabgui:pr - /bin/sh yarn test:full
-#     displayName: 'A11y Scanning'
+stages: 
+  - stage: Test
+    # this job for A11y_Scanning is not yet functional. needs some work. 
+    jobs:
+    # - job: A11y_Scanning
+    #   pool:
+    #     vmImage: 'Ubuntu-16.04'  
+    #   steps:
+    #   - script: docker build -t sabgui:pr . && docker run -p 3004:80 -d -t sabgui:pr
+    #     displayName: Build and Run Image for A11y
+    #   - script: docker exec -it sabgui:pr - /bin/sh yarn test:full
+    #     displayName: 'A11y Scanning'
 
-- job: Linting
-  pool:
-    vmImage: 'Ubuntu-16.04'
-  steps: 
-    - script: yarn
-      displayName: Install Packages
-    - script: yarn lint
-      displayName: Linting 
+    - job: Linting
+      pool:
+        vmImage: 'Ubuntu-16.04'
+      steps: 
+        - script: yarn
+          displayName: Install Packages
+        - script: yarn lint
+          displayName: Linting 
 
-# the cypress tests are using docker-compose.yml. compose builds the Dockerfile to build the app and serve it on localhost
-# then the cypress container is built from cypress.Dockerfile and runs the tests against the served app on localhost.
-- job: Cypress_tests
-  pool:
-    vmImage: 'Ubuntu-16.04'
-  steps:
-  - script: docker-compose up --exit-code-from e2e
-    continueOnError: "true"
-    displayName: Running Cypress tests
-  - task: PublishTestResults@2
-    condition: succeededOrFailed()
-    inputs:
-      testRunner: JUnit
-      testResultsFiles: '**/test-output-*.xml' 
-      searchFolder: '$(System.DefaultWorkingDirectory)'
-  
-- job: Publish_Artifact
-  dependsOn: Cypress_tests
-  pool:
-    vmImage: 'Ubuntu-16.04'
-  steps:
-   - task: Docker@2
-     inputs:
-      containerRegistry: 'MTSContainers'
-      repository: 'SAB-GUI'
-      command: 'buildAndPush'
-      Dockerfile: '**/Dockerfile'
-      Tags: |
-        $(Build.BuildId)
-        latest
+    # the cypress tests are using docker-compose.yml. compose builds the Dockerfile to build the app and serve it on localhost
+    # then the cypress container is built from cypress.Dockerfile and runs the tests against the served app on localhost.
+    - job: Cypress_tests
+      pool:
+        vmImage: 'Ubuntu-16.04'
+      steps:
+      - script: docker-compose up --exit-code-from e2e
+        continueOnError: "true"
+        displayName: Running Cypress tests
+      - task: PublishTestResults@2
+        condition: succeededOrFailed()
+        inputs:
+          testRunner: JUnit
+          testResultsFiles: '**/test-output-*.xml' 
+          searchFolder: '$(System.DefaultWorkingDirectory)'
+  - stage: Deploy
+    jobs:
+      - job: Publish_Artifact
+        dependsOn: Cypress_tests
+        pool:
+          vmImage: 'Ubuntu-16.04'
+        steps:
+        - task: Docker@2
+          inputs:
+            containerRegistry: 'MTSContainers'
+            repository: 'SAB-GUI'
+            command: 'buildAndPush'
+            Dockerfile: '**/Dockerfile'
+            Tags: |
+              $(Build.BuildId)
+              latest
 
-- job: Deploy_Jenkins
-  dependsOn: Publish_Artifact
-  steps:
-  - task: JenkinsQueueJob@2
-    inputs:
-      serverEndpoint: 'MTSJenkins'
-      jobName: 'dts-sab'
-      captureConsole: true
-      capturePipeline: true
-      isParameterizedJob: true
-      jobParameters: 'azure_build_number=$(Build.BuildId)'
+      - job: Deploy_Jenkins
+        dependsOn: Publish_Artifact
+        steps:
+        - task: JenkinsQueueJob@2
+          inputs:
+            serverEndpoint: 'MTSJenkins'
+            jobName: 'dts-sab'
+            captureConsole: true
+            capturePipeline: true
+            isParameterizedJob: true
+            jobParameters: 'azure_build_number=$(Build.BuildId)'
