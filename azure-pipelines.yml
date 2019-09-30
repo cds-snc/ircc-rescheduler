@@ -65,7 +65,7 @@ stages:
           testResultsFiles: '**/test-output-*.xml' 
           searchFolder: '$(System.DefaultWorkingDirectory)'
   - stage: Deploy
-    dependsOn: Test, E2E
+    dependsOn: Test | E2E
     condition:  eq(variables['build.sourceBranch'], 'refs/heads/master')
     jobs:
       - job: Publish_Artifact
