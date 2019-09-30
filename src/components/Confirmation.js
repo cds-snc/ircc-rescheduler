@@ -26,10 +26,19 @@ const Review = ({
   accessibility,
   // eslint-disable-next-line react/prop-types
   privacy,
+  hashFromData,
 
   i18n,
 }) => (
   <TableContainer>
+     <SummaryRow
+      summaryId={'hashFromData'}
+      summaryHeader={<Trans>Confirmation #: A {hashFromData}</Trans>}
+      summaryLink={''}
+      summaryLabel={
+        i18n && `${i18n._('Change')} ${i18n._('Confirmation number')}`
+      }
+    />
     <SummaryRow
       summaryId={'bilNumber'}
       summaryHeader={<Trans>Application number</Trans>}
@@ -76,6 +85,7 @@ const Review = ({
 )
 
 Review.propTypes = {
+  hashFromData:PropTypes.number,
   paperFileNumber: PropTypes.string,
   email: PropTypes.string,
   location: PropTypes.string,
