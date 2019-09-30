@@ -151,8 +151,6 @@ export const getFieldErrorStrings = validate => {
   Object.keys(allErrors).forEach(val => {
     mapped[val] = allErrors[val][0] // eslint-disable-line  security/detect-object-injection
   })
-  // eslint-disable-next-line no-console
-  //  console.log('error string')
 
   return mapped
 }
