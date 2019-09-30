@@ -1,18 +1,17 @@
+import { logError, logDebug } from "../utils/logger";
 //
 //  Usage contacts the server
 //
 
 export function ApiFetch(encodedURI) {
-  // eslint-disable-next-line no-console
-  console.log(encodedURI)
+  logDebug(encodedURI)
 
   // eslint-disable-next-line no-undef
   return fetch(encodedURI)
     .then(data => data.json())
     .then(locs => locs)
     .catch(error => {
-      // eslint-disable-next-line no-console
-      console.warn(error)
+      logError(error)
       return null
     })
 }
