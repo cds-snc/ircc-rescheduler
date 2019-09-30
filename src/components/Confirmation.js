@@ -85,7 +85,7 @@ const Review = ({
 )
 
 Review.propTypes = {
-  hashFromData:PropTypes.number,
+  hashFromData:PropTypes.string,
   paperFileNumber: PropTypes.string,
   email: PropTypes.string,
   location: PropTypes.string,
