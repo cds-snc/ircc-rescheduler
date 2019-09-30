@@ -17,6 +17,7 @@ import {
 } from './utils/serverUtils'
 import gitHash from './utils/gitHash'
 import { handleSubmitEmail } from './email/handleSubmitEmail'
+import { logError, logDebug } from './utils/logger'
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
@@ -43,18 +44,15 @@ server
     let province = req.params.province
     http
       .get(`${apiHost}/locationsbyprov/${province}`, resp => {
-        // eslint-disable-next-line no-console
-        console.log(`STATUS: ${resp.statusCode}`)
-        // eslint-disable-next-line no-console
-        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        logDebug(`STATUS: ${resp.statusCode}`)
+        logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
         resp.on('data', chunk => {
           data += chunk
           res.status(200).send(data)
         })
       })
       .on('error', err => {
-        // eslint-disable-next-line no-console
-        console.log(
+        logError(
           'Something went wrong when calling the API in locations/province: ' +
             err.message,
         )
@@ -66,18 +64,15 @@ server
     let city = req.params.city || ''
     http
       .get(`${apiHost}/locationsbyprov/${province}/${city}`, resp => {
-        // eslint-disable-next-line no-console
-        console.log(`STATUS: ${resp.statusCode}`)
-        // eslint-disable-next-line no-console
-        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        logDebug(`STATUS: ${resp.statusCode}`)
+        logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
         resp.on('data', chunk => {
           data += chunk
           res.status(200).send(data)
         })
       })
       .on('error', err => {
-        // eslint-disable-next-line no-console
-        console.log(
+        logError(
           'Something went wrong when calling the API in locations/province/city: ' +
             err.message,
         )
@@ -89,18 +84,15 @@ server
     let day = req.query.day
     http
       .get(`${apiHost}/appointments/${locationID}?day=${day}`, resp => {
-        // eslint-disable-next-line no-console
-        console.log(`STATUS: ${resp.statusCode}`)
-        // eslint-disable-next-line no-console
-        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        logDebug(`STATUS: ${resp.statusCode}`)
+        logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
         resp.on('data', chunk => {
           data += chunk
           res.status(200).send(data)
         })
       })
       .on('error', err => {
-        // eslint-disable-next-line no-console
-        console.log(
+        logError(
           'Something went wrong when calling the API appointments/locationID/city:  ' +
             err.message,
         )

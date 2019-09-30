@@ -72,8 +72,6 @@ class HeaderDescription extends React.Component {
 
   render() {
     const pathTitle = this.pageHeaderTitle(this.props.pathName)
-    // eslint-disable-next-line no-console
-    // console.log(this.props.pathName.toString())
     return (
       <div className={container}>
         <div>
