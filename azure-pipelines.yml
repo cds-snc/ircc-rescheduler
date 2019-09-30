@@ -47,9 +47,9 @@ stages:
           testResultsFiles: '**/test-output-*.xml' 
           searchFolder: '$(System.DefaultWorkingDirectory)'
   - stage: Deploy
+    dependsOn: Test
     jobs:
       - job: Publish_Artifact
-        dependsOn: Cypress_tests
         pool:
           vmImage: 'Ubuntu-16.04'
         steps:
