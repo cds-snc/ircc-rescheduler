@@ -12,7 +12,7 @@ if (baseUrl === '' || typeof baseUrl === 'undefined') {
 const notifyClient =
   process.env.NODE_ENV != "test" ? new NotifyClient(baseUrl, key) : false;
 
-const sendNotification = async (params = { email, templateId, options }) => {
+export const sendNotification = async (params = { email, templateId, options }) => {
   const { templateId, email, options } = params;
 
   if (!templateId || !email) {
@@ -27,9 +27,4 @@ const sendNotification = async (params = { email, templateId, options }) => {
     logError(err)
     return false;
   }
-};
-
-module.exports = {
-  sendNotification,
-  notifyClient,
 };
