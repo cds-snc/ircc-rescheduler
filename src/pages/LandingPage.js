@@ -37,7 +37,7 @@ import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
 // import rightArrow from '../assets/rightArrow.svg'
-import {logDebug} from '../utils/logger'
+//import {logDebug} from '../utils/logger'
 const CalendarIcon = styled.div`
   width: 3.45rem;
   height: 3.25rem;
