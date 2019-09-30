@@ -232,6 +232,17 @@ class RegistrationPage extends React.Component {
     } = this.props
     let errorsNoJS = {}
 
+    const accessibleStr = (
+      <font>
+        <Trans>I need an accessible or private workstation</Trans>
+      </font>
+    )
+    const optionalStr = (
+      <font>
+        (<Trans>optional</Trans>)
+      </font>
+    )
+
     // if this is a POST, we know for sure they pressed "submit" on this page
     // Otherwise, we would be showing error messages on the initial pageload
     // (because the fields are empty
@@ -397,7 +408,9 @@ class RegistrationPage extends React.Component {
                       id="familyCheck"
                       label={
                         <Trans>
-                          I need an accessible or private workstation (optional)
+                          {accessibleStr}
+                          <Trans />
+                          {optionalStr}
                         </Trans>
                       }
                       value="yes"

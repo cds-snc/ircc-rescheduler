@@ -1,5 +1,32 @@
 {
-
+  "optional": {
+    "translation": "optional",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        401
+      ]
+    ]
+  },
+  "Report a problem on this page": {
+    "translation": "Report a problem on this page",
+    "origin": [
+      [
+        "src/components/forms/ReportButton.js",
+        161
+      ]
+    ]
+  },
+  
+    "Previous": {
+      "translation": "Previous",
+      "origin": [
+        [
+          "src/components/forms/GoBackButton.js",
+          153
+        ]
+      ]
+    },
   "required": {
     "translation": "required",
     "origin": [

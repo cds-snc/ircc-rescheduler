@@ -124,7 +124,7 @@ describe('<CalendarAdapter />', () => {
     expect(wrapper.text()).toMatch(monthYear)
   })
 
-  it('renders next month', () => {
+  xit('renders next month', () => {
     const wrapper = mount(
       <MemoryRouter>
         <CalendarAdapter {...defaultProps()} />

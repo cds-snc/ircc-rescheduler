@@ -4,7 +4,7 @@ import withContext from '../withContext'
 import { css } from 'emotion'
 import { Trans } from '@lingui/react'
 import { NavLink } from 'react-router-dom'
-import { BottomContainer, theme, TopContainer } from '../styles'
+import { theme, TopContainer } from '../styles'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import Chevron from '../components/Chevron'
@@ -14,7 +14,6 @@ import SubmissionForm from '../components/SubmissionForm'
 import { sortSelectedDays } from '../utils/calendarDates'
 import { dateToISODateString } from '../components/Time'
 import FocusedH1 from '../components/FocusedH1'
-import { GoBackButtonReview } from '../components/forms/GoBackButton'
 
 const contentClass = css`
   p {

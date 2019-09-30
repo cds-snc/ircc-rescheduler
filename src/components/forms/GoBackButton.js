@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from 'emotion'
-import { theme, mediaQuery, incrementColor } from '../../styles'
+import { theme, mediaQuery } from '../../styles'
 import { Trans } from '@lingui/react'
 
 const govuk_button = css`
