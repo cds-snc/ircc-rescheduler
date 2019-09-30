@@ -48,6 +48,7 @@ stages:
           searchFolder: '$(System.DefaultWorkingDirectory)'
   - stage: Deploy
     dependsOn: Test
+    condition:  eq(variables['build.sourceBranch'], 'refs/heads/master')
     jobs:
       - job: Publish_Artifact
         pool:
