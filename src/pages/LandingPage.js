@@ -256,7 +256,6 @@ class LandingPage extends React.Component {
       isEmptyState: true,
       isAddTripState: false,
     })
-    logDebug('hello there')
   }
 
   render() {
