@@ -106,7 +106,7 @@ server
           'Something went wrong when calling the API appointments/locationID/city:  ' +
             err.message,
         )
-        rres.status(503).send()
+        res.status(503).send()
       })
   })
   .get('/clear', (req, res) => {
