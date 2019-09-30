@@ -6,6 +6,9 @@ name: "New SAB-GUI PR Pipeline"
 trigger:
 - master
 
+pr: 
+- master
+
 # this job for A11y_Scanning is not yet functional. needs some work. 
 jobs:
 # - job: A11y_Scanning
