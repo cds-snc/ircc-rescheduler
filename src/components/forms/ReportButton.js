@@ -90,12 +90,30 @@ const govuk_reportButton = css`
 const reportButton = css`
   ${govuk_reportButton}; !important;
 
+
   font-family: SourceSans, Helvetica, Arial, sans-serif;
   font-size: ${theme.font.lg};
   font-weight: 500;
+  border-width: 0px;
   line-height: 1.8;
   text-align: center;
-  border: 0.3px solid black;
+
+  background: inherit;
+  background-color: rgba(234, 235, 237, 1);
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(220, 222, 225, 1);
+  border-radius: 5px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+
+
+
+
+
+
 
   color: ${theme.colour.black} !important;
   background-color: rgba(234, 235, 237, 1);
@@ -121,9 +139,9 @@ const reportButton = css`
 
   &:hover,
   &:focus {
-    background-color: rgba(234, 235, 237, 1);
-    box-shadow: rgba(234, 235, 237, 1);
+    background-color: rgba(207, 209, 213, 1);
   }
+
 
   &:active {
     top: 2px;

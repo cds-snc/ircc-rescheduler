@@ -22,6 +22,7 @@ const govuk_button = css`
   /* removed IE8-specific rule */
 
   // Text
+
   font-size: 1em; // inherit from parent
   line-height: 1.25;
   text-decoration: none;
@@ -92,9 +93,20 @@ const button = css`
   font-family: SourceSans, Helvetica, Arial, sans-serif;
   font-size: ${theme.font.lg};
   font-weight: 500;
+  border-width: 0px;
   line-height: 2;
   text-align: center;
-  // border: 0.3px solid black;
+
+  background: inherit;
+  background-color: rgba(234, 235, 237, 1);
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(220, 222, 225, 1);
+  border-radius: 5px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 
   color: ${theme.colour.black} !important;
   background-color: rgba(234, 235, 237, 1);
@@ -109,7 +121,7 @@ const button = css`
   `)};
 
   &:visited {
-    color: ${theme.colour.white} !important;
+    color: ${theme.colour.black} !important;
     background-color: rgba(234, 235, 237, 1);
   }
 
@@ -120,19 +132,18 @@ const button = css`
 
   &:hover,
   &:focus {
-    background-color: rgba(234, 235, 237, 1);
-    box-shadow: 0 2px 0 ${incrementColor(theme.colour.black, 20)};
+    background-color: rgba(207, 209, 213, 1);
   }
 
   &:active {
     top: 2px;
-    background-color: rgba(234, 235, 237, 1);
+    border-color: rgba(101, 104, 110, 1);
   }
 
   &:disabled {
     &:hover {
       cursor: not-allowed;
-      background-color: rgba(234, 235, 237, 1);
+      border-color: rgba(101, 104, 110, 1);
     }
   }
 `
