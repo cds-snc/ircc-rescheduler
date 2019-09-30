@@ -35,6 +35,7 @@ import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
 import rightArrow from '../assets/rightArrow.svg'
+import { logDebug } from '../utils/logger'
 
 const registrationContentClass = css`
   ${contentClass};
@@ -130,10 +131,6 @@ class RegistrationPage extends React.Component {
         registrationFields,
         defaultMessages,
       )
-      // if (values.email !== values.emailConfirm){
-      //   RegistrationPage.errStrings= {emailConfirm : 'emailConfirmInvalidErrorMessage'}
-      //   return RegistrationPage.errStrings
-      // }
 
       if (validate.passes()) {
         //values.familyOption = values.familyCheck ? values.familyOption : ''
@@ -143,7 +140,6 @@ class RegistrationPage extends React.Component {
 
       RegistrationPage.errStrings = getFieldErrorStrings(validate)
     }
-
     return RegistrationPage.errStrings
   }
 
