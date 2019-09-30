@@ -256,8 +256,6 @@ class LandingPage extends React.Component {
       isEmptyState: true,
       isAddTripState: false,
     })
-    // eslint-disable-next-line no-console
-    console.log('hello there')
   }
 
   render() {

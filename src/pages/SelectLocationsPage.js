@@ -153,8 +153,7 @@ class SelectlocationsPage extends React.Component {
           this.selectProvinceError.focus()
         }
       })
-      .catch(err => {
-        console.log(err)
+      .catch(function(){
         this.props.history.push('/error')
       })
   }
@@ -175,8 +174,7 @@ class SelectlocationsPage extends React.Component {
         loading: false,
       })
     })
-      .catch(err => {
-        console.log(err)
+      .catch(function(){
         this.props.history.push('/error')
       })
   }
