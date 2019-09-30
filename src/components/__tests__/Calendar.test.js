@@ -11,6 +11,7 @@ import MemoryRouter from 'react-router-dom/MemoryRouter'
 
 import parse from 'date-fns/parse'
 import addMonths from 'date-fns/add_months'
+import addDays from 'date-fns/add_days'
 import format from 'date-fns/format'
 
 const test_location = {
@@ -137,11 +138,19 @@ describe('<CalendarAdapter />', () => {
       'en',
     )
 
-    const nextMonth = addMonths(parse(getStartDate(new Date())), 1)
-    const nextMonthYear = getMonthNameAndYear(nextMonth, 'en')
-
-    expect(wrapper.text()).toMatch(nextMonthYear)
-    expect(wrapper.text()).not.toMatch(currentMonthYear)
+    const monthIn30Days = addDays(new Date(), 30)
+    const monthYearin30Days = getMonthNameAndYear(monthIn30Days, 'en')
+    const monthDifference = monthIn30Days.getMonth() - new Date().getMonth()
+    // Month in 30 days is still this month
+    if (monthDifference === 0) {
+      expect(wrapper.text()).toContain(monthYearin30Days)
+      // Month in 30 days is next month
+    } else {
+      expect(wrapper.text()).toContain(monthYearin30Days)
+      expect(wrapper.text()).not.toContain(
+        getMonthNameAndYear(new Date(), 'en'),
+      )
+    }
   })
 
   it('renders with expected aria attributes and tabindex attributes', () => {
