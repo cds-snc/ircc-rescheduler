@@ -5,6 +5,7 @@ import withContext from '../withContext'
 import { Trans, withI18n } from '@lingui/react'
 import { css } from 'emotion'
 import { GoBackButtonReg } from '../components/forms/GoBackButton'
+import { ReportButton } from '../components/forms/ReportButton'
 import {
   theme,
   visuallyhidden,
@@ -77,6 +78,10 @@ const forNowSubmitErrorStyles = css`
 
 const buttonSpacing = css`
   padding-left: 20px;
+`
+const spacingButton = css`
+  position: relative;
+  top: 2px;
 `
 
 const labelNames = id => {
@@ -420,6 +425,12 @@ class RegistrationPage extends React.Component {
             )
           }}
         />
+
+        <div className={spacingButton}>
+          <BottomContainer>
+            <ReportButton />
+          </BottomContainer>
+        </div>
       </Layout>
     )
   }

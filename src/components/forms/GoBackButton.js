@@ -94,7 +94,7 @@ const button = css`
   font-weight: 500;
   line-height: 2;
   text-align: center;
-  border: 0.3px solid black;
+  // border: 0.3px solid black;
 
   color: ${theme.colour.black} !important;
   background-color: rgba(234, 235, 237, 1);

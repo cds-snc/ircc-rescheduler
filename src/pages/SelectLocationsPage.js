@@ -5,7 +5,7 @@ import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { css } from 'emotion'
 import { GoBackButtonSelPrv } from '../components/forms/GoBackButton'
-
+import { ReportButton } from '../components/forms/ReportButton'
 import {
   BottomContainer,
   theme,
@@ -66,6 +66,13 @@ const clearFix = css`
 const landingArrow = css`
   ${arrow};
   margin-left: 4px;
+`
+const buttonSpacing = css`
+  padding-left: 20px;
+`
+const spacingButton = css`
+  position: relative;
+  top: 2px;
 `
 
 class SelectlocationsPage extends React.Component {
@@ -415,6 +422,7 @@ class SelectlocationsPage extends React.Component {
                   </div>
                   <BottomContainer>
                     <GoBackButtonSelPrv />
+                    <span className={buttonSpacing}> </span>
                     <Button type="submit" value="Submit" onClick={this.submit}>
                       {' '}
                       <Trans>Next</Trans>{' '}
@@ -427,6 +435,12 @@ class SelectlocationsPage extends React.Component {
               <div className={clearFix}>&nbsp;</div>
             </div>
           </section>
+        </div>
+
+        <div className={spacingButton}>
+          <BottomContainer>
+            <ReportButton />
+          </BottomContainer>
         </div>
       </Layout>
     )

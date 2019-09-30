@@ -4,7 +4,7 @@ import withContext from '../withContext'
 import { css } from 'emotion'
 import { Trans } from '@lingui/react'
 import { NavLink } from 'react-router-dom'
-import { theme, TopContainer } from '../styles'
+import { BottomContainer, theme, TopContainer } from '../styles'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import Chevron from '../components/Chevron'
@@ -131,6 +131,7 @@ class ReviewPage extends React.Component {
               </React.Fragment>
             )}
           </Reminder> */}
+
           <SubmissionForm
             email={email}
             paperFileNumber={paperFileNumber}

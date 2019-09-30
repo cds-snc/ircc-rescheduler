@@ -53,14 +53,14 @@ export const CalHeader = ({
   return (
     <div>
       <Title path={path} i18n={i18n} />
-      <TopContainer>
+      {/* <TopContainer>
         <nav>
           <NavLink className="chevron-link" to="/selectProvince">
             <Chevron dir="left" />
             <Trans>Go back</Trans>
           </NavLink>
         </nav>
-      </TopContainer>
+      </TopContainer> */}
 
       <FocusedH1 id="calendar-header" className={calH1}>
         <CalendarH1 familyOption={familyOption} locale={locale} />

@@ -34,9 +34,10 @@ import {
 } from '../utils/calendarDates'
 
 import { CalHeader } from './calendar/CalHeader'
-import { CalBottom } from './calendar/CalBottom'
+// import { CalBottom } from './calendar/CalBottom'
 import CalendarPageNoJS from './CalendarPageNoJS'
 import rightArrow from '../assets/rightArrow.svg'
+import { ReportButton } from '../components/forms/ReportButton'
 
 const DAY_LIMIT = 1
 
@@ -46,6 +47,13 @@ const fullWidth = css`
 const landingArrow = css`
   ${arrow};
   margin-left: 4px;
+`
+const buttonSpacing = css`
+  padding-left: 20px;
+`
+const spacingButton = css`
+  position: relative;
+  top: 35px;
 `
 
 class CalendarPage extends Component {
@@ -341,31 +349,23 @@ class CalendarPage extends Component {
                     }
                   />
                 </div>
-
-                <CalBottom
-                  availability={
-                    availability && availability.length ? true : false
-                  }
-                  submit={() => {
-                    return (
-                      <BottomContainer>
-                        <GoBackButtonCal />
-                        <Button id="nextButton" disabled={submitting}>
-                          <Trans>Next</Trans>
-                          <img
-                            src={rightArrow}
-                            className={landingArrow}
-                            alt=""
-                          />
-                        </Button>
-                      </BottomContainer>
-                    )
-                  }}
-                />
+                <BottomContainer>
+                  <GoBackButtonCal />
+                  <span className={buttonSpacing}> </span>
+                  <Button id="nextButton" disabled={submitting}>
+                    <Trans>Next</Trans>
+                    <img src={rightArrow} className={landingArrow} alt="" />
+                  </Button>
+                </BottomContainer>
               </form>
             )
           }}
         />
+        <div className={spacingButton}>
+          <BottomContainer>
+            <ReportButton />
+          </BottomContainer>
+        </div>
       </Layout>
     )
   }

@@ -1,16 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Button from '../components/forms/Button'
-import CancelButton from './CancelButton'
+// import CancelButton from './CancelButton'
 import rightArrow from '../assets/rightArrow.svg'
 import { BottomContainer, arrow } from '../styles'
 import { Trans } from '@lingui/react'
 import { GoBackButtonReview } from '../components/forms/GoBackButton'
+import { css } from 'emotion'
+
+const buttonSpacing = css`
+  padding-left: 20px;
+`
 
 const SubmissionForm = props => {
   const { sending, onSubmit } = props
   return (
     <BottomContainer>
+      <GoBackButtonReview />
+      <span className={buttonSpacing}> </span>
       <form id="review-form" action="/submit" method="post" onSubmit={onSubmit}>
         {/* <input type="hidden" name="fullName" value={props.fullName} /> */}
         <input
@@ -26,18 +33,14 @@ const SubmissionForm = props => {
         {/* <input type="hidden" name="reason" value={props.reason} /> */}
         <input type="hidden" name="location" value={props.location} />
         <input type="hidden" name="selectedDays" value={props.selectedDays} />
-        {/* <input
-          type="hidden"
-          name="availabilityExplanation"
-          value={props.availabilityExplanation}
-        /> */}
-        <GoBackButtonReview />
+
+        {/* <GoBackButtonReview /> */}
         <Button type="submit" disabled={sending}>
           <Trans>Send request</Trans>{' '}
           <img src={rightArrow} className={arrow} alt="" />
         </Button>
       </form>
-      <CancelButton />
+      {/* <CancelButton /> */}
     </BottomContainer>
   )
 }
