@@ -17,12 +17,15 @@ describe('should perform functions on the review page', () => {
 
     
   it.only('Should pass the data from register, location and calendar to the review page', () => {
+    cy.injectAxe()
+
+  
       // check the accept privacy notice box
     cy.get('#policyCheck').click()
       //click to move to the register page
     cy.get('#start-request').click({ force: true })
     cy.url().should('contain', '/register')
-
+    checkA11y(cy)
     //enter in values on register page
     cy.fixture('user').then(data => {
         cy.get('#paperFileNumber').type(data.bilNumber, { force: true })
@@ -37,20 +40,17 @@ describe('should perform functions on the review page', () => {
     cy.get('#CitiesList').should('contain.text', 'Select a city')
     cy.get('select[name="CitiesList"]').select('Edmonton').should('have.value', 'Edmonton')
     // cy.get('input[type="radio"]').click()
-    cy.get('#13').click()
+    cy.get('#4601').click()
     cy.get(nextButton).click()
     cy.url().should('contain', '/calendar')
   
     //select a date and time
         // compare today's actual date with the Day--today
-         const todaysDate = Cypress.moment().format('LL')//('dddd,MMMMDD,YYYY')
-        cy.get('.DayPicker-Day--today').click()
-     //   cy.get('.DayPicker-Day--selected').should('be.visible')
-        cy.get('time').should('contain', todaysDate)
-         // cy.get('[type="checkbox"]').check(['#checkbox_1'])
-        cy.get('#checkbox_1').check()
-        cy.get(nextButton).click()
-        cy.url().should('contains', '/review')
+    //     const todaysDate = Cypress.moment().format('LL')//('dddd,MMMMDD,YYYY')
+
+       
+    //    cy.get(nextButton).click()
+    //    cy.url().should('contains', '/review')
     
 
     //verify the values appear on the review page
