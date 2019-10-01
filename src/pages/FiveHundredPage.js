@@ -19,7 +19,7 @@ class FiveHundredPage extends React.Component {
       <Layout contentClass={contentClass} contact={false}>
         <Title path={this.props.match.path} />
         <section>
-          <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
+          <H1 id="header" style={{ marginBottom: `${theme.spacing.md}` }}>
             <Trans>Something went wrong.</Trans>
           </H1>
           <p>

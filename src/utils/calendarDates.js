@@ -70,8 +70,7 @@ export const getInitialMonth = (selectedDates, startMonth) => {
    is valid for a location
 */
 export const firstValidDay = (location = getGlobalLocation(), date) => {
-  var i = 0
-  for (i = 0; i <= 7; i++) {
+  for (var i = 0; i <= 7; i++) {
     let plusDay = addDays(date, i)
     //check for valid day for the location
     const month = getShortMonthName(date)
@@ -79,8 +78,6 @@ export const firstValidDay = (location = getGlobalLocation(), date) => {
     if (isValidDayForLocation(location, month, plusDay)) {
       break
     }
-
-    i++
   }
 
   return parse(addDays(date, i))
