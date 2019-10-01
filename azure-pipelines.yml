@@ -23,13 +23,13 @@ stages:
         - script: yarn
           displayName: Install Packages
         - script: yarn lint
-          env:
-            SKIP_SECRET_CHECK: 'TRUE'
-            condition: neq(variables['build.sourceBranch'], 'refs/heads/master')
           condition: always()
           displayName: Linting
         - script: yarn test
           condition: always()
+          env:
+            SKIP_SECRET_CHECK: 'TRUE'
+            condition: neq(variables['build.sourceBranch'], 'refs/heads/master')
           displayName: Run Jest Tests
   - stage: E2E
     dependsOn: Test
