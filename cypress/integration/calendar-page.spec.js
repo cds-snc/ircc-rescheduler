@@ -62,11 +62,11 @@ describe('Calendar page functions', () => {
        cy.log('todays date ' + todaysDate)
        cy.log('tomorrow ' + tomorrowDate)
        // class DayPicker-Day contains today's date - not acutally useful at this point
-    cy.get('.DayPicker-Day').should('contain', todaysDate)
+  // cy.get('.DayPicker-Day').should('contain', todaysDate)
 
            // trying to find all of the available days as they are not disabled
     cy.get('.DayPicker-Day').its('.aria-disabled="false"').then(($firstAvailDayButton) => {
-          const firstAvailDayNum = $firstAvailDayButton.text()
+          const firstAvailDayNum = $firstAvailDayButton.text().trim()
           // firstAvailDayNum shows all of the number in the month
           // click the first available day
           cy.log('availableDayNum ' + firstAvailDayNum)

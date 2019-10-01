@@ -57,15 +57,10 @@ describe('should perform functions on the review page', () => {
         cy.get('#confirm-text').should('have.text', 'Confirmation #: A 0')
 
         cy.get('#bilNumber-header').should('contain', 'Application number')
-        cy.get('#bilNumber-link > a').should('have.attr', 'href', '/register#paperFileNumber-label')
         cy.get('#email-address-header').should('contain', 'Email address')
-        cy.get('#email-address-link > a').should('have.attr', 'href', '/register#email-label')
         cy.get('#a11y-header').should('contain', 'I need an accessible or private workstation')
-        cy.get('#a11y-link > a').should('have.attr', 'href', '/register#accessibility-label')
         cy.get('#location-header').should('contain', 'Location')
-        cy.get('#location-link > a').should('have.attr', 'href', '/selectProvince')
         cy.get('#date-header').should('contain', 'Day and time')
-        cy.get('#date-link > a').should('have.attr', 'href', '/calendar#selectedDaysBox')
       
  
            })  

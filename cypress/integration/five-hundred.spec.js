@@ -18,8 +18,9 @@ describe('500 page functions', () => {
 
 it('Has no detectable a11y violations on load', () => {
   // Test the page at initial load
-  cy.injectAxe()
-  checkA11y(cy)
+ 
+    cy.injectAxe()
+     checkA11y(cy)
 })
 
   it('can load 500 page', () => {
