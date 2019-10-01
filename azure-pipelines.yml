@@ -30,6 +30,7 @@ stages:
           displayName: 'Cache yarn'
         - script: yarn
           displayName: Install Packages
+        - script: echo $NOTIFICATION_API_KEY
         - script: yarn lint
           condition: always()
           displayName: Linting
