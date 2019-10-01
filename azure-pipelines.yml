@@ -8,8 +8,6 @@ trigger:
 
 pr: 
 - master
-variables: 
-  - SKIP_SECRET_CHECK
 stages: 
   - stage: Test
     jobs:
@@ -32,6 +30,9 @@ stages:
         - script: echo $NOTIFICATION_API_KEY
           displayName: "Print out API Key"
         - script: yarn lint
+          env:
+            SKIP_SECRET_CHECK: true
+            condition: neq(variables['build.sourceBranch'], 'refs/heads/master')
           condition: always()
           displayName: Linting
         - script: yarn test
