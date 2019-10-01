@@ -276,7 +276,6 @@ class LandingPage extends React.Component {
     return (
       <Layout contentClass={landingPageContent}>
         <Title path={this.props.match.path} />
-        {/* Change me */}
         <FocusedH1 className={visuallyhidden}>
           <Trans>First, provide some basic information:</Trans>
         </FocusedH1>
