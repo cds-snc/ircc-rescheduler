@@ -43,15 +43,54 @@ describe('Items shown on the Landing page', () => {
     
      cy.get(footerImg).should('be.visible')
     })
-    it.only('should go to the landing page and show header image and links ', () => {  
+    it('should go to the landing page and steps in header', () => {  
       cy.get('[role="banner"] > :nth-child(2)').should('be.visible')
       .and('contain.text', 'Request an appointment for fingerprints and photo (biometrics)')
    
      })
- 
-  it('Start now button take the user to the register page', () => {
-    cy.get('main a').should('contain.text', 'Start request')
-    cy.get('main a').click({ force: true })
+
+    it.skip('should verify text on the page', () => {  
+      cy.get('#needed-info').should('contain.text', 'You will need')
+      cy.get('ul>li').eq(0).should('contain.text', 'Your Application number')
+      cy.get('ul>li').eq(1).should('contain.text', 'A valid email address')
+      //TODO: the icon check is broken when running in docker.
+    //  cy.get('.css-q22mxi-CalendarIcon').should('be.visible')
+      // text needs to be update to take out the abreviations
+     // cy.get('#message-container > p').should('have.text', 'Next, you will select a location, day and time you are available with the next 30 days')
+      cy.get('#privacy-notice').should('contain.text', 'Privacy notice')
+      // needs to be updated with actual notice text
+      cy.get('section > :nth-child(5)').should('contain.text', 'Lorem')
+   
+     })
+
+   it('should verify the Privacy Notice default and errors and seleted state', () => {
+    cy.injectAxe()
+      // verify the box is located on the page and by default not selected
+    cy.get('#policyCheck').should('be.visible').and('not.be.selected')
+    cy.get('#policyCheck-label').should('contain.text', 'I have read and accept the privacy policy')
+     // verify error message shown if box not checked
+     cy.get('#start-request').click({ force: true })
+     cy.get('#submit-error').should('contain.text', 'Some information is missing')
+     cy.get('#submit-error').should('contain.text', 'Please check these sections for errors:')
+     cy.get('li > a').should('be.visible').and('contain.text', 'Policy Check')
+     cy.get('#policy-error').should('contain.text', 'In order to start your request,')     
+     // Privacy policy error link
+     cy.get('li > a').click()
+     cy.window().then(($window) => {
+        expect($window.scrollY).to.be.closeTo(600, 200);
+   })
+     // verify that the box can be checked
+     cy.get('#policyCheck').click()
+     cy.get('#policyCheck').should('be.visible').and('be.checked')
+   //  cy.get('#policy-error').should('not.be.visible')
+       checkA11y(cy)
+     
+     })
+
+  it('should go to register page on accept policy and Start request', () => {
+    cy.get('#policyCheck').click()
+    cy.get('#start-request').should('contain.text', 'Start request')
+    cy.get('#start-request').click({ force: true })
     cy.url().should('contain', '/register')
     })
 })

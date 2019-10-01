@@ -43,7 +43,7 @@ describe('Register page functions', () => {
        cy.get(footerImg).should('be.visible')
       })
 
-      it('should go to the landing page and show header image and links ', () => {  
+      it('should show the header steps ', () => {  
         cy.get('[role="banner"] > :nth-child(2)').should('be.visible')
         .and('contain.text', 'Step 1 of 4 – Enter your information')
      
