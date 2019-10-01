@@ -8,7 +8,8 @@ trigger:
 
 pr: 
 - master
-
+variables: 
+  - SKIP_SECRET_CHECK
 stages: 
   - stage: Test
     jobs:
@@ -23,30 +24,19 @@ stages:
           displayName: 'Install Node.js'
         - task: CacheBeta@0
           inputs:
-            key: |
-              $(Agent.OS)
-              $(Build.SourcesDirectory)/yarn.lock
+            key: $(Agent.OS)$(Build.SourcesDirectory)/yarn.lock
             path: $(Pipeline.Workspace)/.cache/yarn
           displayName: 'Cache yarn'
         - script: yarn
           displayName: Install Packages
         - script: echo $NOTIFICATION_API_KEY
+          displayName: "Print out API Key"
         - script: yarn lint
           condition: always()
           displayName: Linting
         - script: yarn test
           condition: always()
           displayName: Run Jest Tests
-    
-    - job: Linting
-      pool:
-        vmImage: 'Ubuntu-16.04'
-      steps: 
-        - script: yarn
-          displayName: Install Packages
-        - script: yarn lint
-          displayName: Linting
-
   - stage: E2E
     dependsOn: Test
     jobs:
