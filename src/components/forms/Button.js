@@ -95,12 +95,15 @@ const button = css`
   line-height: 2;
   text-align: center;
 
+  border-width: 1px;
+  border-style: solid;
+  border-color: ${theme.colour.lightblue};
   color: ${theme.colour.white} !important;
   background-color: ${theme.colour.lightblue};
   overflow: hidden;
 
   // Size and shape
-  padding: ${theme.spacing.xs} ${theme.spacing.lg};
+  padding: ${theme.spacing.xs} ${theme.spacing.xl};
 
   ${mediaQuery.sm(css`
     width: 100%;

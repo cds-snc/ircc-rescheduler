@@ -23,7 +23,7 @@ const govuk_reportButton = css`
   /* removed IE8-specific rule */
 
   // Text
-  font-size: 1em; // inherit from parent
+  font-size: 16px; // inherit from parent
   line-height: 1.25;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
@@ -91,9 +91,10 @@ const reportButton = css`
   ${govuk_reportButton}; !important;
 
 
+
   font-family: SourceSans, Helvetica, Arial, sans-serif;
   font-size: ${theme.font.lg};
-  font-weight: 500;
+  font-weight: 400;
   border-width: 0px;
   line-height: 1.8;
   text-align: center;
@@ -108,23 +109,24 @@ const reportButton = css`
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+  
 
 
 
 
 
 
-
-  color: ${theme.colour.black} !important;
+  box-shadow: 1px 1px #888888;
+  color: ${theme.colour.blue} !important;
   background-color: rgba(234, 235, 237, 1);
   overflow: hidden;
 
   // Size and shape
-  padding: 0.3rem 95px !important;
+  padding: 0.3rem 95px ;
 
   ${mediaQuery.sm(css`
     width: 100%;
-    padding: ${theme.spacing.sm} ${theme.spacing.lg};
+    padding: 10px 14px;
   `)};
 
   &:visited {

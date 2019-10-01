@@ -5,7 +5,13 @@ import withContext from '../withContext'
 import { Trans } from '@lingui/react'
 import { css } from 'emotion'
 import { GoBackButtonCal } from '../components/forms/GoBackButton'
-import { BottomContainer, focusRing, arrow } from '../styles'
+import {
+  mediaQuery,
+  theme,
+  contentClass,
+  BottomContainer,
+  focusRing,
+} from '../styles'
 import {
   CalendarFields,
   getFieldNames,
@@ -36,17 +42,36 @@ import {
 import { CalHeader } from './calendar/CalHeader'
 // import { CalBottom } from './calendar/CalBottom'
 import CalendarPageNoJS from './CalendarPageNoJS'
-import rightArrow from '../assets/rightArrow.svg'
+import { GoArrowRight } from 'react-icons/go'
 import { ReportButton } from '../components/forms/ReportButton'
 
 const DAY_LIMIT = 1
 
+const calendarContentClass = css`
+  ${contentClass};
+  p {
+    margin-bottom: ${theme.spacing.sm};
+
+    ${mediaQuery.md(css`
+      margin-bottom: ${theme.spacing.lg};
+    `)};
+  }
+  fieldset {
+    border: none;
+  }
+`
+
 const fullWidth = css`
   width: 100% !important;
 `
-const landingArrow = css`
-  ${arrow};
-  margin-left: 4px;
+const goArrowRight = css`
+  font-size: 24px;
+  vertical-align: middle;
+  left: 9px;
+  height: 1.3rem;
+  width: 1.3rem;
+  bottom: 0.058em;
+  position: relative;
 `
 const buttonSpacing = css`
   padding-left: 20px;
@@ -349,14 +374,17 @@ class CalendarPage extends Component {
                     }
                   />
                 </div>
-                <BottomContainer>
-                  <GoBackButtonCal />
-                  <span className={buttonSpacing}> </span>
-                  <Button id="nextButton" disabled={submitting}>
-                    <Trans>Next</Trans>
-                    <img src={rightArrow} className={landingArrow} alt="" />
-                  </Button>
-                </BottomContainer>
+
+                <div className={calendarContentClass}>
+                  <div>
+                    <GoBackButtonCal />
+                    <span className={buttonSpacing}> </span>
+                    <Button id="nextButton" disabled={submitting}>
+                      <Trans>Next</Trans>
+                      <GoArrowRight className={goArrowRight} />
+                    </Button>
+                  </div>
+                </div>
               </form>
             )
           }}

@@ -36,7 +36,6 @@ import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
-// import rightArrow from '../assets/rightArrow.svg'
 
 const CalendarIcon = styled.div`
   width: 3.45rem;
@@ -448,7 +447,7 @@ class LandingPage extends React.Component {
                     )}
                   </FieldSet>
                 </div>
-                <div className={spacingButton}>
+                <div className={landingPageContent}>
                   <BottomContainer>
                     <Button
                       id="Start request"
@@ -459,7 +458,6 @@ class LandingPage extends React.Component {
                       disabled={submitting}
                     >
                       <Trans>Start request</Trans>
-                      {/* <img src={rightArrow} className={landingArrow} alt="" /> */}
                       <GoArrowRight className={goArrowRight} />
                     </Button>
                   </BottomContainer>

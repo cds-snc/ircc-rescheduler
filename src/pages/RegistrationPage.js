@@ -4,6 +4,7 @@ import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { Trans, withI18n } from '@lingui/react'
 import { css } from 'emotion'
+import { GoArrowRight } from 'react-icons/go'
 import { GoBackButtonReg } from '../components/forms/GoBackButton'
 import { ReportButton } from '../components/forms/ReportButton'
 import {
@@ -12,7 +13,6 @@ import {
   BottomContainer,
   focusRing,
   contentClass,
-  arrow,
 } from '../styles'
 import {
   RegistrationFields,
@@ -36,7 +36,6 @@ import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
-import rightArrow from '../assets/rightArrow.svg'
 
 const registrationContentClass = css`
   ${contentClass};
@@ -62,10 +61,6 @@ const registrationContentClass = css`
     padding: ${theme.spacing.xxs} 0;
   }
 `
-const landingArrow = css`
-  ${arrow};
-  margin-left: 4px;
-`
 
 const forNowSubmitErrorStyles = css`
   margin-bottom: 0 !important;
@@ -84,18 +79,21 @@ const spacingButton = css`
   top: 2px;
 `
 
-const container2 = css`
-  place-items: start;
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  margin: 0rem;
-`
-const container3 = css`
-padding: 10px 0px;
-margin: 2px;
-flex: 1;
-min-width 80px;
+// const container2 = css`
+//   place-items: start;
+//   display: flex;
+//   flex-direction: column;
+//   width: 500px;
+//   margin: 0rem;
+// `
+const goArrowRight = css`
+  font-size: 24px;
+  vertical-align: middle;
+  left: 9px;
+  height: 1.3rem;
+  width: 1.3rem;
+  bottom: 0.058em;
+  position: relative;
 `
 
 const labelNames = id => {
@@ -433,7 +431,7 @@ class RegistrationPage extends React.Component {
                   </FieldSet>
                 </div>
 
-                <div className={container2}>
+                <div className={registrationContentClass}>
                   <div>
                     <GoBackButtonReg />
                     <span className={buttonSpacing}> </span>
@@ -445,7 +443,7 @@ class RegistrationPage extends React.Component {
                       disabled={submitting}
                     >
                       <Trans>Next</Trans>
-                      <img src={rightArrow} className={landingArrow} alt="" />
+                      <GoArrowRight className={goArrowRight} />
                     </Button>
                   </div>
                 </div>

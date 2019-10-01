@@ -3,6 +3,17 @@ import { css } from 'emotion'
 import { theme, mediaQuery } from '../../styles'
 import { Trans } from '@lingui/react'
 import { Link } from 'react-router-dom'
+import { GoArrowLeft } from 'react-icons/go'
+
+const goArrowLeft = css`
+  font-size: 24px;
+  vertical-align: middle;
+  right: 9px;
+  height: 1.3rem;
+  width: 1.3rem;
+  bottom: 0.058em;
+  position: relative;
+`
 
 const govuk_button = css`
   /* https://raw.githubusercontent.com/alphagov/govuk_frontend_toolkit/e00b009b2a9722363d3c247838632d8e3673daa9/stylesheets/design-patterns/_buttons.scss */
@@ -152,6 +163,7 @@ const button = css`
 export const GoBackButtonReg = () => (
   <Link to="/">
     <button className={button}>
+      <GoArrowLeft className={goArrowLeft} />
       <Trans>Previous</Trans>
     </button>
   </Link>
@@ -160,6 +172,7 @@ export const GoBackButtonReg = () => (
 export const GoBackButtonSelPrv = () => (
   <Link to="/register">
     <button className={button}>
+      <GoArrowLeft className={goArrowLeft} />
       <Trans>Previous</Trans>
     </button>
   </Link>
@@ -168,6 +181,7 @@ export const GoBackButtonSelPrv = () => (
 export const GoBackButtonCal = () => (
   <Link to="/selectProvince">
     <button className={button}>
+      <GoArrowLeft className={goArrowLeft} />
       <Trans>Previous</Trans>
     </button>
   </Link>
@@ -176,6 +190,7 @@ export const GoBackButtonCal = () => (
 export const GoBackButtonReview = () => (
   <Link to="/calendar">
     <button className={button}>
+      <GoArrowLeft className={goArrowLeft} />
       <Trans>Previous</Trans>
     </button>
   </Link>
