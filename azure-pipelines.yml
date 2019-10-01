@@ -30,12 +30,11 @@ stages:
         - script: yarn test
           condition: always()
           displayName: Run Jest Tests
-  - stage: E2E
-    jobs:
+
     # the cypress tests are using docker-compose.yml. compose builds the Dockerfile to build the app and serve it on localhost
     # then the cypress container is built from cypress.Dockerfile and runs the tests against the served app on localhost.
     - job: Cypress_tests
-      dependsOn: Linting
+      dependsOn: Unit_Testing
       pool:
         vmImage: 'Ubuntu-16.04'
       steps:
