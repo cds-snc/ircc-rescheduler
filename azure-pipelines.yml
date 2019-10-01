@@ -20,18 +20,11 @@ stages:
           inputs:
             versionSpec: '10.x'
           displayName: 'Install Node.js'
-        - task: CacheBeta@0
-          inputs:
-            key: |
-              $(Agent.OS)
-              $(Build.SourcesDirectory)/yarn.lock
-            path: $(Pipeline.Workspace)/.cache/yarn
-          displayName: 'Cache yarn'
         - script: yarn
           displayName: Install Packages
         - script: yarn lint
           env:
-            SKIP_SECRET_CHECK: true
+            SKIP_SECRET_CHECK: 'TRUE'
             condition: neq(variables['build.sourceBranch'], 'refs/heads/master')
           condition: always()
           displayName: Linting
