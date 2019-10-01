@@ -35,7 +35,6 @@ import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
 import rightArrow from '../assets/rightArrow.svg'
-import { logDebug } from '../utils/logger'
 
 const registrationContentClass = css`
   ${contentClass};
@@ -194,8 +193,6 @@ class RegistrationPage extends React.Component {
         [FORM_ERROR]: generalMessage,
       }
     }
-    logDebug(this.props.context.store)
-    logDebug(values)
 
     // if setStore doesn't exist, nothing gets saved between pages
     await this.props.context.setStore(this.props.match.path.slice(1), values)
@@ -392,7 +389,7 @@ class RegistrationPage extends React.Component {
                     <legend>
                       <span id="privacy-reason-header">{labelNames('privacy')}</span>
                     </legend>
-                    
+
                     <Field
                       type="checkbox"
                       component={CheckboxAdapter}
