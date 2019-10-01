@@ -142,7 +142,6 @@ class ConfirmationPage extends React.Component {
         )} 
 
         <section>
-          
           <Confirmation
             hashFromData={this.hashFromData( email, paperFileNumber ).toString()}
             paperFileNumber={paperFileNumber}
@@ -156,7 +155,7 @@ class ConfirmationPage extends React.Component {
 
           
 
-          <H2>
+          <H2 id='reminder-text'>
             <Trans>What happens next?</Trans>
           </H2>
           <p>

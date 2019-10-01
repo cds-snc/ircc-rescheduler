@@ -8,6 +8,7 @@ import {
   checkLocationDays,
   getDaysOfWeekForLocation,
   dateSetFromString,
+  firstValidDay,
 } from '../calendarDates'
 
 // describe('Utilities functions CalendarDates.js', () => {
@@ -110,4 +111,13 @@ it('Handles single date string', () => {
   const set = dateSetFromString('2018-10-03')
   expect(set.has('2018-10-03')).toEqual(true)
 })
-// })
+
+it('Knows not to block the first day after a weekend', () => {
+  const firstValidDayAfterWeekend = firstValidDay(
+    undefined,
+    new Date('Sunday, September 22, 2019'),
+  )
+  expect(firstValidDayAfterWeekend).toEqual(
+    new Date('Monday, September 23, 2019'),
+  )
+})

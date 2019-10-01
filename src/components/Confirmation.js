@@ -45,7 +45,7 @@ const Review = ({
       summaryBody={paperFileNumber}
     />
     <SummaryRow
-      summaryId={'email address'}
+      summaryId={'email-address'}
       summaryHeader={<Trans>Email address</Trans>}
       summaryBody={email}
     />
