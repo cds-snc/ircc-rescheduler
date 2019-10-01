@@ -87,7 +87,7 @@ const list = css`
 `
 
 const goArrowRight = css`
-  font-size: 24px;
+  fontsize: 24px;
   vertical-align: middle;
   left: 9px;
   height: 1.3rem;
@@ -128,7 +128,7 @@ const forNowSubmitErrorStyles = css`
   ${focusRing};
   > span:not(.empty) {
     margin-bottom: ${theme.spacing.lg};
-    font-size: ${theme.font.lg};
+    fontsize: ${theme.font.lg};
   }
 `
 
@@ -340,7 +340,7 @@ class LandingPage extends React.Component {
                   <H2
                     id="needed-info"
                     style={{
-                      'font-size': `${theme.font.xxl}`,
+                      fontSize: `${theme.font.xxl}`,
                       marginBottom: `${theme.spacing.md}`,
                     }}
                   >
@@ -384,7 +384,7 @@ class LandingPage extends React.Component {
                   <H2
                     id="privacy-notice"
                     style={{
-                      'font-size': `${theme.font.xxl}`,
+                      fontSize: `${theme.font.xxl}`,
                     }}
                   >
                     <Trans>Privacy notice</Trans>
