@@ -11,26 +11,29 @@ pr:
 
 stages: 
   - stage: Test
-    # this job for A11y_Scanning is not yet functional. needs some work. 
     jobs:
-    # - job: A11y_Scanning
-    #   pool:
-    #     vmImage: 'Ubuntu-16.04'  
-    #   steps:
-    #   - script: docker build -t sabgui:pr . && docker run -p 3004:80 -d -t sabgui:pr
-    #     displayName: Build and Run Image for A11y
-    #   - script: docker exec -it sabgui:pr - /bin/sh yarn test:full
-    #     displayName: 'A11y Scanning'
-
-    - job: Linting
+    
+    - job: Unit_Testing
       pool:
         vmImage: 'Ubuntu-16.04'
       steps: 
+        - task: NodeTool@0
+          inputs:
+            versionSpec: '10.x'
+          displayName: 'Install Node.js'
         - script: yarn
           displayName: Install Packages
+        - script: yarn build
+          displayName: 'Building project'
         - script: yarn lint
-          displayName: Linting 
-
+          condition: always()
+          displayName: Linting
+        - script: yarn test
+          condition: always()
+          displayName: Run Jest Tests
+  - stage: E2E
+    dependsOn: Test
+    jobs:
     # the cypress tests are using docker-compose.yml. compose builds the Dockerfile to build the app and serve it on localhost
     # then the cypress container is built from cypress.Dockerfile and runs the tests against the served app on localhost.
     - job: Cypress_tests
@@ -47,7 +50,9 @@ stages:
           testResultsFiles: '**/test-output-*.xml' 
           searchFolder: '$(System.DefaultWorkingDirectory)'
   - stage: Deploy
-    dependsOn: Test
+    dependsOn: 
+      - Test 
+      - E2E
     condition:  eq(variables['build.sourceBranch'], 'refs/heads/master')
     jobs:
       - job: Publish_Artifact
