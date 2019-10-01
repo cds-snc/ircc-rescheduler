@@ -84,6 +84,20 @@ const spacingButton = css`
   top: 2px;
 `
 
+const container2 = css`
+  place-items: start;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: 0rem;
+`
+const container3 = css`
+padding: 10px 0px;
+margin: 2px;
+flex: 1;
+min-width 80px;
+`
+
 const labelNames = id => {
   switch (id) {
     case 'paperFileNumber':
@@ -419,21 +433,22 @@ class RegistrationPage extends React.Component {
                   </FieldSet>
                 </div>
 
-                <BottomContainer>
-                  <GoBackButtonReg />
-                  <span className={buttonSpacing}> </span>
-                  <Button
-                    id="nextButton"
-                    onClick={() => {
-                      this.setState({ submitClicked: true })
-                    }}
-                    disabled={submitting}
-                  >
-                    <Trans>Next</Trans>
-                    <img src={rightArrow} className={landingArrow} alt="" />
-                  </Button>
-                  {/* <CancelButton /> */}
-                </BottomContainer>
+                <div className={container2}>
+                  <div>
+                    <GoBackButtonReg />
+                    <span className={buttonSpacing}> </span>
+                    <Button
+                      id="nextButton"
+                      onClick={() => {
+                        this.setState({ submitClicked: true })
+                      }}
+                      disabled={submitting}
+                    >
+                      <Trans>Next</Trans>
+                      <img src={rightArrow} className={landingArrow} alt="" />
+                    </Button>
+                  </div>
+                </div>
               </form>
             )
           }}
