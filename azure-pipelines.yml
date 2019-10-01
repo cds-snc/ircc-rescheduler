@@ -8,6 +8,7 @@ trigger:
 
 pr: 
 - master
+
 stages: 
   - stage: Test
     jobs:
@@ -22,6 +23,8 @@ stages:
           displayName: 'Install Node.js'
         - script: yarn
           displayName: Install Packages
+        - script: yarn build
+          displayName: 'Building project'
         - script: yarn lint
           condition: always()
           displayName: Linting
