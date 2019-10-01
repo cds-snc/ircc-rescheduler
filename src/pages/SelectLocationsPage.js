@@ -136,7 +136,7 @@ class SelectlocationsPage extends React.Component {
     axios
       .get(`/locations/${selectedProvince}`)
       .then(locs => {
-        if (locs) {
+        if (locs && Array.isArray(locs)) {
           this.setState({
             provLocations: locs.data,
             cityLocations: [],
@@ -416,7 +416,12 @@ class SelectlocationsPage extends React.Component {
                     </fieldset>
                   </div>
 
-                  <Button id='nextButton' type="submit" value="Submit" onClick={this.submit}>
+                  <Button
+                    id="nextButton"
+                    type="submit"
+                    value="Submit"
+                    onClick={this.submit}
+                  >
                     {' '}
                     <Trans>Next</Trans>{' '}
                     <img src={rightArrow} className={landingArrow} alt="" />
