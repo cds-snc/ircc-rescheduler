@@ -27,9 +27,6 @@ stages:
           displayName: Linting
         - script: yarn test
           condition: always()
-          env:
-            SKIP_SECRET_CHECK: 'TRUE'
-            condition: neq(variables['build.sourceBranch'], 'refs/heads/master')
           displayName: Run Jest Tests
   - stage: E2E
     dependsOn: Test
