@@ -14,6 +14,7 @@ export const handleSubmitEmail = async (req, res) => {
       templateId: input.templateId,
       options: {
         personalisation : {
+          hashFromData:input.hashFromData,
           paperFileNumber: input.paperFileNumber,
           location: input.location,
           selectedDay: input.selectedDay,

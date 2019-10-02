@@ -18,6 +18,7 @@ const SubmissionForm = props => {
         <input type="hidden" name="selectedDay" value={props.selectedDays} />
         <input type="hidden" name="selectedTime" value={props.selectedTime} />
         <input type="hidden" name="templateId" value="af563da5-43bd-4b9a-9610-e3990a7f4315" />
+        <input type="hidden" name="hashFromData" value={props.hashFromData} />
 
         <Button type="submit" disabled={sending}>
           <Trans>Send request</Trans>{' '}
@@ -30,6 +31,7 @@ const SubmissionForm = props => {
 }
 
 SubmissionForm.propTypes = {
+  hashFromData: PropTypes.string,
   paperFileNumber: PropTypes.string,
   accessibilty: PropTypes.string,
   email: PropTypes.string,

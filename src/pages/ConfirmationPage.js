@@ -70,6 +70,17 @@ class ConfirmationPage extends React.Component {
     }
   }
 
+  hashFromData( email, paperFileNumber ){
+    var hash = 0, i, chr
+    const keys = email+paperFileNumber
+    if (keys.length === 0) return hash;
+    for (i = 0; i < keys.length; i++) {
+      chr   = keys.charCodeAt(i);
+      hash  = ((hash << 5) - hash) + chr;
+      hash |= 0; 
+    }
+    return hash;
+  }
 
   hasEmailError() {
     const { match } = this.props
@@ -80,18 +91,7 @@ class ConfirmationPage extends React.Component {
     return false
   }
 
-  // from: stackoverflow 'generate a hash from string...'
-  hashFromData( email, paperFileNumber ) {
-      var hash = 0, i, chr
-      const keys = email+paperFileNumber
-      if (keys.length === 0) return hash;
-      for (i = 0; i < keys.length; i++) {
-        chr   = keys.charCodeAt(i);
-        hash  = ((hash << 5) - hash) + chr;
-        hash |= 0; 
-      }
-      return hash;
-  }
+ 
 
   render() {
 
@@ -103,6 +103,7 @@ class ConfirmationPage extends React.Component {
             email,
             familyCheck,
             familyOption,
+            // hashFromData,
           } = {},
 
           calendar: { selectedDays = [], selectedTime } = {},
@@ -141,8 +142,8 @@ class ConfirmationPage extends React.Component {
         )} 
 
         <section>
-          <H2 id='confirm-text' >Confirmation #: A {this.hashFromData( email, paperFileNumber ).toString()}</H2>
           <Confirmation
+            hashFromData={this.hashFromData( email, paperFileNumber ).toString()}
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(familyCheck)}
