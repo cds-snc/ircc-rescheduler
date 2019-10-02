@@ -36,6 +36,8 @@ import { CalHeader } from './calendar/CalHeader'
 import { CalBottom } from './calendar/CalBottom'
 import CalendarPageNoJS from './CalendarPageNoJS'
 import rightArrow from '../assets/rightArrow.svg'
+import axios from 'axios'
+import moment from 'moment'
 
 const DAY_LIMIT = 1
 
@@ -99,6 +101,7 @@ class CalendarPage extends Component {
     this.validate = CalendarPage.validate
     this.forceRender = this.forceRender.bind(this)
     this.changeMonth = this.changeMonth.bind(this)
+    this.submitTempAppointment = this.submitTempAppointment.bind(this)
     this.hasNotValid = this.hasNotValid.bind(this)
     this.updateTime = this.updateTime.bind(this)
     this.form = null
@@ -133,7 +136,7 @@ class CalendarPage extends Component {
   }
 
   updateTime(id) {
-    if( id === "0" ) id = "";
+    if (id === '0') id = ''
     this.setState({ timeValue: id })
   }
   forceRender(values) {
@@ -166,6 +169,29 @@ class CalendarPage extends Component {
       headerMonth: getMonthName(month, locale),
       headerNote: dayText,
     })
+  }
+
+  submitTempAppointment() {
+    let values = {
+      ...this.props.context.store,
+    }
+    let date = moment.utc(values.calendar.selectedDays[0])
+    let time = moment.utc(values.calendar.selectedTime, 'hh:mm a')
+    date.set({
+      hour: time.get('hour'),
+      minute: time.get('minute'),
+    })
+    let appointment = {
+      clientEmail: values.register.email,
+      locationId: values.selectProvince.locationId,
+      // TODO: Get bioKit information during selection of timeslot
+      // bioKitId: String,
+      bil: values.register.paperFileNumber,
+      date: date,
+      privateAccessible: false,
+    }
+    // console.log(appointment)
+    return axios.post(`/appointments/temp`, appointment)
   }
 
   async onSubmit(values, event) {
@@ -210,6 +236,16 @@ class CalendarPage extends Component {
     if (values.availability && values.availability.length) {
       await this.props.history.push('/explanation')
     } else {
+      let data = {}
+      await this.submitTempAppointment()
+        .then(resp => {
+          data = resp.data
+          // console.log(typeof data)
+        })
+        .catch(() => {
+          this.props.history.push('/error')
+        })
+      await this.props.context.setStore('tempAppointment', data)
       await this.props.history.push('/review')
     }
   }
