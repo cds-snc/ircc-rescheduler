@@ -34,10 +34,6 @@ const Review = ({
      <SummaryRow
       summaryId={'hashFromData'}
       summaryHeader={<Trans>Confirmation #: A {hashFromData}</Trans>}
-      summaryLink={''}
-      summaryLabel={
-        i18n && `${i18n._('Change')} ${i18n._('Confirmation number')}`
-      }
     />
     <SummaryRow
       summaryId={'bilNumber'}

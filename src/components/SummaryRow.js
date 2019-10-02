@@ -90,7 +90,7 @@ const summaryRowProps = {
   summaryId: PropTypes.string,
   summaryHeader: PropTypes.object.isRequired,
   summaryBody: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  summaryLink: PropTypes.string.isRequired,
+  summaryLink: PropTypes.string,
   summaryLabel: PropTypes.string,
 }
 
