@@ -190,7 +190,6 @@ class CalendarPage extends Component {
       date: date,
       privateAccessible: false,
     }
-    // console.log(appointment)
     return axios.post(`/appointments/temp`, appointment)
   }
 
