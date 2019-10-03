@@ -234,18 +234,27 @@ class CalendarPage extends Component {
     await this.props.context.setStore(this.props.match.path.slice(1), values)
 
     if (values.availability && values.availability.length) {
+      console.log('availability')
       await this.props.history.push('/explanation')
     } else {
-      let data = {}
+      console.log(values)
       await this.submitTempAppointment()
-        .then(resp => {
-          data = resp.data
-          // console.log(typeof data)
+        .then(async resp => {
+          let tempAppointment = resp.data
+          values = {
+            ...values,
+            tempAppointment,
+          }
+          await this.props.context.setStore(
+            this.props.match.path.slice(1),
+            values,
+          )
+          console.log(tempAppointment)
+          console.log(this.props.context.store)
         })
-        .catch(() => {
+        .catch(err => {
           this.props.history.push('/error')
         })
-      await this.props.context.setStore('tempAppointment', data)
       await this.props.history.push('/review')
     }
   }
