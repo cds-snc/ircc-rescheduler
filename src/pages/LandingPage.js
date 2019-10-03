@@ -267,8 +267,8 @@ class LandingPage extends React.Component {
     let errorsNoJS = {}
 
     const requiredStr = (
-      <font color="red">
-        (<Trans>required</Trans>)
+      <font color="red" >
+       <b> (<Trans>required</Trans>)</b>
       </font>
     )
 
