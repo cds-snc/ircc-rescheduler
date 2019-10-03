@@ -4,7 +4,7 @@ import Button from '../components/forms/Button'
 // import CancelButton from './CancelButton'
 import { contentClass, theme, mediaQuery, BottomContainer } from '../styles'
 import { Trans } from '@lingui/react'
-import { GoBackButtonReview } from '../components/forms/GoBackButton'
+
 import { css } from 'emotion'
 import { GoArrowRight } from 'react-icons/go'
 import { ReportButton } from '../components/forms/ReportButton'
@@ -23,9 +23,6 @@ const submissionContentClass = css`
   }
 `
 
-const buttonSpacing = css`
-  padding-left: 20px;
-`
 const goArrowRight = css`
   font-size: 24px;
   vertical-align: middle;
@@ -65,9 +62,6 @@ const SubmissionForm = props => {
           <input type="hidden" name="location" value={props.location} />
           <input type="hidden" name="selectedDays" value={props.selectedDays} />
 
-          {/* <GoBackButtonReview /> */}
-          <GoBackButtonReview />
-          <span className={buttonSpacing}> </span>
           <Button type="submit" disabled={sending}>
             <Trans>Send request</Trans>{' '}
             <GoArrowRight className={goArrowRight} />

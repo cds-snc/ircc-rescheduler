@@ -91,12 +91,7 @@ class ReviewPage extends React.Component {
     return (
       <Layout contentClass={contentClass}>
         <Title path={this.props.match.path} />
-        <TopContainer>
-          <NavLink className="chevron-link" to="/calendar">
-            <Chevron dir="left" />
-            <Trans>Go back</Trans>
-          </NavLink>
-        </TopContainer>
+
         <FocusedH1 id="review-header">
           <Trans>Review your request:</Trans>
         </FocusedH1>
