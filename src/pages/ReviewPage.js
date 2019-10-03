@@ -13,6 +13,7 @@ import { sortSelectedDays } from '../utils/calendarDates'
 import { dateToISODateString } from '../components/Time'
 import FocusedH1 from '../components/FocusedH1'
 import { ReportButton } from '../components/forms/ReportButton'
+import DateModified from '../components/DateModified'
 
 const contentClass = css`
   p {
@@ -141,6 +142,8 @@ class ReviewPage extends React.Component {
             <ReportButton />
           </BottomContainer>
         </div>
+        <div />
+        <DateModified />
       </Layout>
     )
   }

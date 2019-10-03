@@ -38,6 +38,8 @@ import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
 // import rightArrow from '../assets/rightArrow.svg'
 //import {logDebug} from '../utils/logger'
+import DateModified from '../components/DateModified'
+
 const CalendarIcon = styled.div`
   width: 3.45rem;
   height: 3.25rem;
@@ -415,15 +417,16 @@ class LandingPage extends React.Component {
                       onClick={this.triggerAddTripState}
                       label={
                         <span>
-                         {' '}
-                         {policyStr}
-                         <b
-                           style={{
-                             color: `${theme.colour.red}`,
-                           }}
-                         >
-                          {' '} {requiredStr}
-                         </b>
+                          {' '}
+                          {policyStr}
+                          <b
+                            style={{
+                              color: `${theme.colour.red}`,
+                            }}
+                          >
+                            {' '}
+                            {requiredStr}
+                          </b>
                         </span>
                       }
                       value="yes"
@@ -477,6 +480,8 @@ class LandingPage extends React.Component {
             <ReportButton />
           </BottomContainer>
         </div>
+        <div />
+        <DateModified />
       </Layout>
     )
   }

@@ -26,6 +26,7 @@ import SelectDropDown from '../components/forms/Select'
 import FocusedH1 from '../components/FocusedH1'
 import { GoArrowRight } from 'react-icons/go'
 import axios from 'axios'
+import DateModified from '../components/DateModified'
 
 /* eslint-disable no-console */
 
@@ -460,6 +461,7 @@ class SelectlocationsPage extends React.Component {
             <ReportButton />
           </BottomContainer>
         </div>
+        <DateModified />
       </Layout>
     )
   }

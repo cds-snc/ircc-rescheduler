@@ -47,6 +47,8 @@ import { ReportButton } from '../components/forms/ReportButton'
 
 import axios from 'axios'
 import moment from 'moment'
+import rightArrow from '../assets/rightArrow.svg'
+import DateModified from '../components/DateModified'
 
 const DAY_LIMIT = 1
 
@@ -434,6 +436,8 @@ class CalendarPage extends Component {
             <ReportButton />
           </BottomContainer>
         </div>
+        <div />
+        <DateModified />
       </Layout>
     )
   }

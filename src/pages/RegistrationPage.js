@@ -36,6 +36,8 @@ import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
+import rightArrow from '../assets/rightArrow.svg'
+import DateModified from '../components/DateModified'
 
 const registrationContentClass = css`
   ${contentClass};
@@ -377,9 +379,7 @@ class RegistrationPage extends React.Component {
                       id="accessibility"
                       label={
                         <span>
-                          {accessibleStr}
-                          {' '}
-                          {optionalStr}
+                          {accessibleStr} {optionalStr}
                         </span>
                       }
                       value="yes"
@@ -414,6 +414,8 @@ class RegistrationPage extends React.Component {
             <ReportButton />
           </BottomContainer>
         </div>
+        <div />
+        <DateModified />
       </Layout>
     )
   }
