@@ -150,7 +150,7 @@ class SelectlocationsPage extends React.Component {
     axios
       .get(`/locations/${selectedProvince}`)
       .then(locs => {
-        if (locs) {
+        if (locs && Array.isArray(locs)) {
           this.setState({
             provLocations: locs.data,
             cityLocations: [],
@@ -167,7 +167,9 @@ class SelectlocationsPage extends React.Component {
           this.selectProvinceError.focus()
         }
       })
-      .catch(err => console.log(err))
+      .catch(function() {
+        this.props.history.push('/error')
+      })
   }
 
   // Get the locations within a city
@@ -175,17 +177,22 @@ class SelectlocationsPage extends React.Component {
     this.setState({
       loading: true,
     })
-    axios.get(`/locations/${selectedProvince}/${selectedCity}`).then(locs => {
-      this.setState({
-        cityLocations: locs.data,
-        locationNumber: null,
-        locationAddress: null,
-        locationHours: null,
-        biokitNumber: null,
-        pageError: 0,
-        loading: false,
+    axios
+      .get(`/locations/${selectedProvince}/${selectedCity}`)
+      .then(locs => {
+        this.setState({
+          cityLocations: locs.data,
+          locationNumber: null,
+          locationAddress: null,
+          locationHours: null,
+          biokitNumber: null,
+          pageError: 0,
+          loading: false,
+        })
       })
-    })
+      .catch(function() {
+        this.props.history.push('/error')
+      })
   }
 
   // Save in State the current Province selected & gets the cities within the province

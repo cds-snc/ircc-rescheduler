@@ -32,7 +32,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn linter && yarn test"
+      "pre-push": "yarn linter && yarn test",
+      "pre-commit": "yarn linter"
     }
   },
   "dependencies": {
@@ -61,6 +62,7 @@
     "memory-cache": "^0.2.0",
     "moment": "^2.24.0",
     "nodemailer": "^4.7.0",
+    "notifications-node-client": "^4.6.0",
     "prop-types": "^15.6.2",
     "raven": "^2.6.4",
     "razzle": "^2.4.1",
@@ -88,6 +90,7 @@
     "cross-env": "^5.2.0",
     "cypress": "^3.4.1",
     "cypress-axe": "^0.5.1",
+    "dotenv": "^8.1.0",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "eslint": "^5.9.0",

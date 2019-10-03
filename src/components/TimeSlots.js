@@ -5,7 +5,6 @@ import withContext from '../withContext'
 import moment from 'moment'
 import SelectDropDown from '../components/forms/Select'
 import { css } from 'emotion'
-import axios from 'axios'
 
 const selectDropDown = css`
   max-width: 500px;
@@ -22,8 +21,7 @@ class TimeSlots extends Component {
     this.changeHandler = this.changeHandler.bind(this)
   }
 
-  // eslint-disable-next-line react/no-deprecated
-  async componentWillReceiveProps() {
+  async UNSAFE_componentWillReceiveProps() {
     let {
       context: {
         store: {
@@ -32,10 +30,6 @@ class TimeSlots extends Component {
         } = {},
       } = {},
     } = this.props
-    var newDate = moment(this.props.selectedDay[0]).format('DD-MM-YYYY')
-    await axios.get(`/appointments/${locationId}?day=${newDate}`).then(resp => {
-      this.setState({ appointments: resp.data, loading: true })
-    })
   }
 
   removeTimeSlot(mockData) {
@@ -115,7 +109,7 @@ class TimeSlots extends Component {
     const timeSlot = this.removeTimeSlot(mockData)
 
     return (
-      <div className={selectDropDown}>
+      <div id='select-time' className={selectDropDown}>
         <SelectDropDown
           selName="TimeSlot"
           selId="TimeSlot"

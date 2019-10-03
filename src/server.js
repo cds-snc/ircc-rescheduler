@@ -16,6 +16,11 @@ import {
   cspConfig,
 } from './utils/serverUtils'
 import gitHash from './utils/gitHash'
+import { handleSubmitEmail } from './email/handleSubmitEmail'
+import { logError, logDebug } from './utils/logger'
+
+
+checkEnvironmentVariables();
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
@@ -36,26 +41,25 @@ server
   .use(ensureLocation)
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
+  .post('/submit', handleSubmitEmail)
   .get('/locations/:province', (req, res) => {
     let data = ''
     let province = req.params.province
     http
       .get(`${apiHost}/locationsbyprov/${province}`, resp => {
-        // eslint-disable-next-line no-console
-        console.log(`STATUS: ${resp.statusCode}`)
-        // eslint-disable-next-line no-console
-        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        logDebug(`STATUS: ${resp.statusCode}`)
+        logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
         resp.on('data', chunk => {
           data += chunk
           res.status(200).send(data)
         })
       })
       .on('error', err => {
-        // eslint-disable-next-line no-console
-        console.log(
+        logError(
           'Something went wrong when calling the API in locations/province: ' +
             err.message,
         )
+        res.status(503).send()
       })
   })
   .get('/locations/:province/:city', (req, res) => {
@@ -64,21 +68,19 @@ server
     let city = req.params.city || ''
     http
       .get(`${apiHost}/locationsbyprov/${province}/${city}`, resp => {
-        // eslint-disable-next-line no-console
-        console.log(`STATUS: ${resp.statusCode}`)
-        // eslint-disable-next-line no-console
-        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        logDebug(`STATUS: ${resp.statusCode}`)
+        logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
         resp.on('data', chunk => {
           data += chunk
           res.status(200).send(data)
         })
       })
       .on('error', err => {
-        // eslint-disable-next-line no-console
-        console.log(
+        logError(
           'Something went wrong when calling the API in locations/province/city: ' +
             err.message,
         )
+        res.status(503).send()
       })
   })
   .get('/appointments/:locationID', (req, res) => {
@@ -87,21 +89,19 @@ server
     let day = req.query.day
     http
       .get(`${apiHost}/appointments/${locationID}?day=${day}`, resp => {
-        // eslint-disable-next-line no-console
-        console.log(`STATUS: ${resp.statusCode}`)
-        // eslint-disable-next-line no-console
-        console.log(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        logDebug(`STATUS: ${resp.statusCode}`)
+        logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
         resp.on('data', chunk => {
           data += chunk
           res.status(200).send(data)
         })
       })
       .on('error', err => {
-        // eslint-disable-next-line no-console
-        console.log(
+        logError(
           'Something went wrong when calling the API appointments/locationID/city:  ' +
             err.message,
         )
+        res.status(503).send()
       })
   })
   .get('/clear', (req, res) => {
@@ -131,7 +131,22 @@ server
     } catch (error) {
       console.log(error.message, error.stack) // eslint-disable-line no-console
       res.redirect('/error')
+      return
     }
   })
 
 export default server
+
+function checkEnvironmentVariables() { 
+  
+  if (process.env.SKIP_SECRET_CHECK !== 'TRUE') { 
+    const key = process.env.NOTIFICATION_API_KEY;
+    if (key === '' || typeof key === 'undefined') {
+      throw 'NOTIFICATION_API_KEY environment variable not found'
+    }
+  }
+  const baseUrl = process.env.NOTIFICATION_API_BASE_URL;
+  if (baseUrl === '' || typeof baseUrl === 'undefined') {
+    throw 'NOTIFICATION_API_BASE_URL environment variable not found'
+  }
+}

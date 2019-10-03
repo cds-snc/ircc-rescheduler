@@ -26,39 +26,34 @@ const Review = ({
   accessibility,
   // eslint-disable-next-line react/prop-types
   privacy,
+  hashFromData,
 
   i18n,
 }) => (
   <TableContainer>
+     <SummaryRow
+      summaryId={'hashFromData'}
+      summaryHeader={<Trans>Confirmation #: A {hashFromData}</Trans>}
+    />
     <SummaryRow
       summaryId={'bilNumber'}
       summaryHeader={<Trans>Application number</Trans>}
       summaryBody={paperFileNumber}
-      summaryLink={'/register#paperFileNumber-label'}
-      summaryLabel={
-        i18n && `${i18n._('Change')} ${i18n._('Paper file number')}`
-      }
     />
     <SummaryRow
-      summaryId={'email address'}
+      summaryId={'email-address'}
       summaryHeader={<Trans>Email address</Trans>}
       summaryBody={email}
-      summaryLink={'/register#email-label'}
-      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
     />
     <SummaryRow
       summaryId={'a11y'}
       summaryHeader={<Trans>I need an accessible or private workstation</Trans>}
       summaryBody={accessibility}
-      summaryLink={'/register#accessibility-label'}
-      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Accessibility')}`}
     />
     <SummaryRow
       summaryId={'location'}
       summaryHeader={<Trans>Location</Trans>}
       summaryBody={location}
-      summaryLink={'/selectProvince'}
-      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
     />
     <SummaryRow
       summaryId={'date'}
@@ -69,13 +64,12 @@ const Review = ({
           selectedTime={selectedTime}
         />
       }
-      summaryLink={'/calendar#selectedDaysBox'}
-      summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
     />
   </TableContainer>
 )
 
 Review.propTypes = {
+  hashFromData:PropTypes.string,
   paperFileNumber: PropTypes.string,
   email: PropTypes.string,
   location: PropTypes.string,

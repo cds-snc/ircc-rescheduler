@@ -57,6 +57,12 @@ class HeaderDescription extends React.Component {
       case '/cancel':
         pathTitle = <Trans>Cancel an appointment</Trans>
         break
+      case '/500':
+        pathTitle = <Trans>Put 500 text here</Trans>
+        break
+      case '/not-found':
+        pathTitle = <Trans>Put 400 text here</Trans>
+        break
       default:
       // code block
     }
@@ -65,8 +71,6 @@ class HeaderDescription extends React.Component {
 
   render() {
     const pathTitle = this.pageHeaderTitle(this.props.pathName)
-    // eslint-disable-next-line no-console
-    // console.log(this.props.pathName.toString())
     return (
       <div className={container}>
         <div>

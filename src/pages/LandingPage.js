@@ -7,7 +7,7 @@ import { css } from 'emotion'
 import styled from '@emotion/styled'
 import { GoArrowRight } from 'react-icons/go'
 import {
-  H1,
+  H2,
   mediaQuery,
   theme,
   visuallyhidden,
@@ -36,7 +36,6 @@ import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
-
 const CalendarIcon = styled.div`
   width: 3.45rem;
   height: 3.25rem;
@@ -86,7 +85,7 @@ const list = css`
 `
 
 const goArrowRight = css`
-  font-size: 24px;
+  fontsize: 24px;
   vertical-align: middle;
   left: 9px;
   height: 1.3rem;
@@ -127,7 +126,7 @@ const forNowSubmitErrorStyles = css`
   ${focusRing};
   > span:not(.empty) {
     margin-bottom: ${theme.spacing.lg};
-    font-size: ${theme.font.lg};
+    fontsize: ${theme.font.lg};
   }
 `
 
@@ -287,7 +286,6 @@ class LandingPage extends React.Component {
     return (
       <Layout contentClass={landingPageContent}>
         <Title path={this.props.match.path} />
-
         <FocusedH1 className={visuallyhidden}>
           <Trans>First, provide some basic information:</Trans>
         </FocusedH1>
@@ -349,9 +347,15 @@ class LandingPage extends React.Component {
                   </ErrorList>
                 </div>
                 <section>
-                  <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
+                  <H2
+                    id="needed-info"
+                    style={{
+                      fontSize: `${theme.font.xxl}`,
+                      marginBottom: `${theme.spacing.md}`,
+                    }}
+                  >
                     <Trans>You will need</Trans>
-                  </H1>
+                  </H2>
                   <ul className={list}>
                     <li>
                       <p>
@@ -387,9 +391,14 @@ class LandingPage extends React.Component {
                       <Trans>re available within the next 30 days.</Trans>{' '}
                     </p>
                   </div>
-                  <H1>
+                  <H2
+                    id="privacy-notice"
+                    style={{
+                      fontSize: `${theme.font.xxl}`,
+                    }}
+                  >
                     <Trans>Privacy notice</Trans>
-                  </H1>
+                  </H2>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Aenean euismod bibendum laoreet. Proin gravida dolor sit
@@ -450,7 +459,7 @@ class LandingPage extends React.Component {
                 <div className={landingPageContent}>
                   <BottomContainer>
                     <Button
-                      id="Start request"
+                      id="start-request"
                       onClick={() => {
                         this.triggerAddTripState()
                         this.setState({ submitClicked: true })

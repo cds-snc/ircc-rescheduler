@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { BottomContainer, H2, theme, visuallyhidden } from '../styles'
+import { H2, theme, visuallyhidden, BottomContainer } from '../styles'
 import styled from '@emotion/styled'
 import { css } from 'emotion'
 import { Trans } from '@lingui/react'
@@ -9,7 +8,6 @@ import Title, { matchPropTypes } from '../components/Title'
 import withContext from '../withContext'
 import { contextPropTypes } from '../context'
 import { LongReminder } from '../components/Reminder'
-import { SelectedDayList } from '../components/SelectedDayList'
 import FocusedH1 from '../components/FocusedH1'
 import { sortSelectedDays } from '../utils/calendarDates'
 import { dateToISODateString } from '../components/Time'
@@ -34,18 +32,11 @@ const contentClass = css`
 const Reminder = styled(LongReminder)`
   margin-bottom: ${theme.spacing.xl} !important;
 `
-
-const Availability = styled('div')`
-  border-left: 2px solid ${theme.colour.greyLight};
-  padding-left: ${theme.spacing.xl};
-  margin-left: ${theme.spacing.lg};
-`
 const spacingButton = css`
   position: relative;
   top: 2px;
 `
-
-const EmailError = ({ selectedDays }) => {
+const EmailError = () => {
   return (
     <React.Fragment>
       <Reminder>
@@ -55,20 +46,8 @@ const EmailError = ({ selectedDays }) => {
           information
         </Trans>
       </Reminder>
-      <Availability>
-        <div>
-          <strong>
-            <Trans>Availability:</Trans>
-          </strong>
-        </div>
-        <SelectedDayList selectedDays={selectedDays} />
-      </Availability>
     </React.Fragment>
   )
-}
-
-EmailError.propTypes = {
-  selectedDays: PropTypes.array.isRequired,
 }
 
 class ConfirmationPage extends React.Component {
@@ -95,16 +74,6 @@ class ConfirmationPage extends React.Component {
     }
   }
 
-  hasEmailError() {
-    const { match } = this.props
-    if (match.params.error && match.params.error === 'client-request-issue') {
-      return true
-    }
-
-    return false
-  }
-
-  // from: stackoverflow 'generate a hash from string...'
   hashFromData(email, paperFileNumber) {
     var hash = 0,
       i,
@@ -119,11 +88,26 @@ class ConfirmationPage extends React.Component {
     return hash
   }
 
+  hasEmailError() {
+    const { match } = this.props
+    if (match.params.error && match.params.error === 'client-request-issue') {
+      return true
+    }
+
+    return false
+  }
+
   render() {
     let {
       context: {
         store: {
-          register: { paperFileNumber, email, familyCheck, familyOption } = {},
+          register: {
+            paperFileNumber,
+            email,
+            familyCheck,
+            familyOption,
+            // hashFromData,
+          } = {},
 
           calendar: { selectedDays = [], selectedTime } = {},
           selectProvince: { locationCity, locationAddress } = {},
@@ -149,13 +133,17 @@ class ConfirmationPage extends React.Component {
         <FocusedH1 className={visuallyhidden}>
           <Trans>Confirmation</Trans>
         </FocusedH1>
+        {!this.hasEmailError() ? (
+          <p>
+            <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
+          </p>
+        ) : (
+          <EmailError />
+        )}
 
         <section>
-          <H2>
-            Confirmation #: A{' '}
-            {this.hashFromData(email, paperFileNumber).toString()}
-          </H2>
           <Confirmation
+            hashFromData={this.hashFromData(email, paperFileNumber).toString()}
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(familyCheck)}
@@ -169,15 +157,7 @@ class ConfirmationPage extends React.Component {
             selectedTime={selectedTime}
           />
 
-          {/* {!this.hasEmailError() ? (
-            <p>
-              <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
-            </p>
-          ) : (
-            <EmailError selectedDays={selectedDays} />
-          )} */}
-
-          <H2>
+          <H2 id="reminder-text">
             <Trans>What happens next?</Trans>
           </H2>
           <p>

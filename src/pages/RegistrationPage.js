@@ -152,13 +152,6 @@ class RegistrationPage extends React.Component {
         registrationFields,
         defaultMessages,
       )
-      // if (values.email !== values.emailConfirm){
-      //   // eslint-disable-next-line no-console
-      //   console.log('error check')
-      //   RegistrationPage.errStrings= {emailConfirm : 'emailConfirmInvalidErrorMessage'}
-      //   return RegistrationPage.errStrings
-      // }
-      // eslint-disable-next-line no-console
 
       if (validate.passes()) {
         //values.familyOption = values.familyCheck ? values.familyOption : ''
@@ -167,10 +160,7 @@ class RegistrationPage extends React.Component {
       }
 
       RegistrationPage.errStrings = getFieldErrorStrings(validate)
-      // eslint-disable-next-line no-console
-      //    console.log(RegistrationPage.errStrings)
     }
-
     return RegistrationPage.errStrings
   }
 
@@ -225,10 +215,6 @@ class RegistrationPage extends React.Component {
         [FORM_ERROR]: generalMessage,
       }
     }
-    // eslint-disable-next-line no-console
-    console.log(this.props.context.store)
-    // eslint-disable-next-line no-console
-    console.log(values)
 
     // if setStore doesn't exist, nothing gets saved between pages
     await this.props.context.setStore(this.props.match.path.slice(1), values)
