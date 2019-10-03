@@ -153,7 +153,7 @@ class SelectlocationsPage extends React.Component {
           this.selectProvinceError.focus()
         }
       })
-      .catch(function(){
+      .catch(function() {
         this.props.history.push('/error')
       })
   }
@@ -163,18 +163,20 @@ class SelectlocationsPage extends React.Component {
     this.setState({
       loading: true,
     })
-    axios.get(`/locations/${selectedProvince}/${selectedCity}`).then(locs => {
-      this.setState({
-        cityLocations: locs.data,
-        locationNumber: null,
-        locationAddress: null,
-        locationHours: null,
-        biokitNumber: null,
-        pageError: 0,
-        loading: false,
+    axios
+      .get(`/locations/${selectedProvince}/${selectedCity}`)
+      .then(locs => {
+        this.setState({
+          cityLocations: locs.data,
+          locationNumber: null,
+          locationAddress: null,
+          locationHours: null,
+          biokitNumber: null,
+          pageError: 0,
+          loading: false,
+        })
       })
-    })
-      .catch(function(){
+      .catch(function() {
         this.props.history.push('/error')
       })
   }
