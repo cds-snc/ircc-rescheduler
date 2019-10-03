@@ -52,7 +52,7 @@ describe('Calendar page functions', () => {
  // TODO: check for the rest of the text here
     })
 
-    it('should find the first selectable day', () => {  
+    it.only('should find the first selectable day', () => {  
       // make sure we are on the right page
     cy.url().should('contains', '/calendar')
       // Compare today's date with the Day--today
@@ -80,9 +80,9 @@ describe('Calendar page functions', () => {
 
      // selected day should be visible
     cy.get('.DayPicker-Day--selected').should('be.visible')
-    // get the date from the selected day
+  
+    // Find the day that is selected in the calendar and compare with day for timeslots
     cy.get('.DayPicker-Day--selected').as('selectedDay')
-    // Find the day that is selected in the calendar
     cy.get('@selectedDay').then(($available) => {
       // get the value of the selected day .DayPicker-Day--selected
       const dayString = $available.text()
@@ -92,6 +92,14 @@ describe('Calendar page functions', () => {
     })
     // review strings in the #selectedDaysBox
     cy.get('#selectedDaysBox').should('contain.text', 'Please select your time slot:')
+ // get the date string that is shown in the selected day box as 'dateString'
+    cy.get('ul > li .day-box').then(($dateSelected) => {
+      // get the value of the selected day .DayPicker-Day--selected
+      const dateString = $dateSelected.text()
+    cy.log('date selected = ' + dateString )
+    // compare the --selected day to the day shown in the #selectedDaysBox
+    cy.get('time').should('contain', dateString)
+    })
 
   // find the time in the dropdown list
       // find the first selection object from the list of Time Slot selection objects 
