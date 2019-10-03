@@ -136,7 +136,7 @@ class SelectlocationsPage extends React.Component {
     axios
       .get(`/locations/${selectedProvince}`)
       .then(locs => {
-        if (locs && Array.isArray(locs.data)) {
+        if (locs.data && Array.isArray(locs.data)) {
           this.setState({
             provLocations: locs.data,
             cityLocations: [],

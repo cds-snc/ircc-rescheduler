@@ -52,7 +52,7 @@ describe('Calendar page functions', () => {
  // TODO: check for the rest of the text here
     })
 
-    it.only('should find the first selectable day', () => {  
+    it('should find the first selectable day', () => {  
       // make sure we are on the right page
     cy.url().should('contains', '/calendar')
       // Compare today's date with the Day--today
