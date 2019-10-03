@@ -1,13 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Button from '../components/forms/Button'
-// import CancelButton from './CancelButton'
 import { BottomContainer } from '../styles'
 import { Trans } from '@lingui/react'
-
 import { css } from 'emotion'
 import { GoArrowRight } from 'react-icons/go'
-import { ReportButton } from '../components/forms/ReportButton'
 
 const goArrowRight = css`
   font-size: 24px;
@@ -17,10 +14,6 @@ const goArrowRight = css`
   width: 1.3rem;
   bottom: 0.058em;
   position: relative;
-`
-const spacingButton = css`
-  position: relative;
-  top: 25px;
 `
 
 const SubmissionForm = props => {
@@ -49,12 +42,6 @@ const SubmissionForm = props => {
           <Trans>Send request</Trans> <GoArrowRight className={goArrowRight} />
         </Button>
       </form>
-
-      <div className={spacingButton}>
-        <BottomContainer>
-          <ReportButton />
-        </BottomContainer>
-      </div>
     </BottomContainer>
   )
 }

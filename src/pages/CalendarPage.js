@@ -167,7 +167,7 @@ class CalendarPage extends Component {
   }
 
   updateTime(id) {
-    if (id === '0') id = ''
+    if( id === "0" ) id = "";
     this.setState({ timeValue: id })
   }
   forceRender(values) {
