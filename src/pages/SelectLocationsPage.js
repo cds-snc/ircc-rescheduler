@@ -150,7 +150,7 @@ class SelectlocationsPage extends React.Component {
     axios
       .get(`/locations/${selectedProvince}`)
       .then(locs => {
-        if (locs && Array.isArray(locs)) {
+        if (locs.data && Array.isArray(locs.data)) {
           this.setState({
             provLocations: locs.data,
             cityLocations: [],
@@ -436,6 +436,7 @@ class SelectlocationsPage extends React.Component {
                       <GoBackButtonSelPrv />
                       <span className={buttonSpacing}> </span>
                       <Button
+                        id="nextButton"
                         type="submit"
                         value="Submit"
                         onClick={this.submit}

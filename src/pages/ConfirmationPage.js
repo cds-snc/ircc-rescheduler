@@ -74,18 +74,16 @@ class ConfirmationPage extends React.Component {
     }
   }
 
-  hashFromData(email, paperFileNumber) {
-    var hash = 0,
-      i,
-      chr
-    const keys = email + paperFileNumber
-    if (keys.length === 0) return hash
+  hashFromData( email, paperFileNumber ){
+    var hash = 0, i, chr
+    const keys = email+paperFileNumber
+    if (keys.length === 0) return hash;
     for (i = 0; i < keys.length; i++) {
-      chr = keys.charCodeAt(i)
-      hash = (hash << 5) - hash + chr
-      hash |= 0
+      chr   = keys.charCodeAt(i);
+      hash  = ((hash << 5) - hash) + chr;
+      hash |= 0; 
     }
-    return hash
+    return hash;
   }
 
   hasEmailError() {
@@ -96,6 +94,8 @@ class ConfirmationPage extends React.Component {
 
     return false
   }
+
+ 
 
   render() {
     let {
@@ -139,11 +139,11 @@ class ConfirmationPage extends React.Component {
           </p>
         ) : (
           <EmailError />
-        )}
+        )} 
 
         <section>
           <Confirmation
-            hashFromData={this.hashFromData(email, paperFileNumber).toString()}
+            hashFromData={this.hashFromData( email, paperFileNumber ).toString()}
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(familyCheck)}
@@ -157,7 +157,9 @@ class ConfirmationPage extends React.Component {
             selectedTime={selectedTime}
           />
 
-          <H2 id="reminder-text">
+          
+
+          <H2 id='reminder-text'>
             <Trans>What happens next?</Trans>
           </H2>
           <p>

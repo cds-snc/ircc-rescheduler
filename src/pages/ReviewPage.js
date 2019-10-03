@@ -56,20 +56,19 @@ class ReviewPage extends React.Component {
     }
   }
 
-  // from: stackoverflow 'generate a hash from string...'
-  hashFromData(email, paperFileNumber) {
-    var hash = 0,
-      i,
-      chr
-    const keys = email + paperFileNumber
-    if (keys.length === 0) return hash
+     // from: stackoverflow 'generate a hash from string...'
+  hashFromData( email, paperFileNumber ) {
+    var hash = 0, i, chr
+    const keys = email+paperFileNumber
+    if (keys.length === 0) return hash;
     for (i = 0; i < keys.length; i++) {
-      chr = keys.charCodeAt(i)
-      hash = (hash << 5) - hash + chr
-      hash |= 0
+      chr   = keys.charCodeAt(i);
+      hash  = ((hash << 5) - hash) + chr;
+      hash |= 0; 
     }
-    return hash
-  }
+    return hash;
+}
+
 
   render() {
     let {
@@ -110,7 +109,7 @@ class ReviewPage extends React.Component {
 
         <section>
           <Summary
-            hashFromData={this.hashFromData(email, paperFileNumber).toString()}
+          hashFromData={this.hashFromData( email, paperFileNumber ).toString()}
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(familyCheck)}
@@ -140,7 +139,7 @@ class ReviewPage extends React.Component {
           </Reminder> */}
 
           <SubmissionForm
-            hashFromData={this.hashFromData(email, paperFileNumber).toString()}
+          hashFromData={this.hashFromData( email, paperFileNumber ).toString()}
             email={email}
             paperFileNumber={paperFileNumber}
             accessibility={this.translateReason(familyCheck)}

@@ -28,21 +28,13 @@ const SubmissionForm = props => {
   return (
     <BottomContainer>
       <form id="review-form" action="/submit" method="post" onSubmit={onSubmit}>
-        <input
-          type="hidden"
-          name="paperFileNumber"
-          value={props.paperFileNumber}
-        />
+        <input type="hidden" name="paperFileNumber" value={props.paperFileNumber} />
         <input type="hidden" name="accessibilty" value={props.accessibilty} />
         <input type="hidden" name="email" value={props.email} />
         <input type="hidden" name="location" value={props.location} />
         <input type="hidden" name="selectedDay" value={props.selectedDays} />
         <input type="hidden" name="selectedTime" value={props.selectedTime} />
-        <input
-          type="hidden"
-          name="templateId"
-          value="af563da5-43bd-4b9a-9610-e3990a7f4315"
-        />
+        <input type="hidden" name="templateId" value="af563da5-43bd-4b9a-9610-e3990a7f4315" />
         <input type="hidden" name="hashFromData" value={props.hashFromData} />
 
         <Button type="submit" disabled={sending}>
