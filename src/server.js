@@ -105,8 +105,7 @@ server
       })
   })
   .post('/appointments/temp', (req, res) => {
-    let data = req.body
-    let respData = {}
+    let data = JSON.stringify(req.body)
     const options = {
       method: 'POST',
       headers: {
@@ -118,8 +117,7 @@ server
       .request(`${apiHost}/appointments/temp`, options, resp => {
         logDebug(`STATUS: ${resp.statusCode}`)
         logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
-        resp.on('data', chunk => {
-          respData += chunk
+        resp.on('data', respData => {
           res.status(200).send(respData)
         })
       })
