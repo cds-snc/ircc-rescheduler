@@ -11,6 +11,7 @@ function checkA11y(cy){
 describe('select provice, city and office page functions', () => {
     beforeEach(() => {
       cy.visit('/selectProvince')
+      cy.wait(2000)
     })
 
 

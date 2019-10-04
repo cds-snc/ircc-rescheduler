@@ -14,11 +14,10 @@ function checkA11y(cy) {
 describe('should perform functions on the review page', () => {
   beforeEach(() => {
     cy.visit('/')
-    cy.reload(true)
   })
 
 
-  it.only('Should pass the data from register, location and calendar to the review page', () => {
+  it('Should pass the data from register, location and calendar to the review page', () => {
     cy.injectAxe()
 
 
@@ -35,12 +34,15 @@ describe('should perform functions on the review page', () => {
       cy.get('#emailConfirm').type(data.email, { force: true })
       cy.get(nextButton).click()
       cy.url().should('contain', '/selectProvince')
+      cy.wait(2000)
       
     })
     // select a location
     cy.get('#ProvinceList').should('contains.text', 'Select a Province')
     cy.get('select[name="ProvinceList"]').select('Alberta').should('have.value', 'Alberta')
+    cy.wait(2000)
     cy.get('#CitiesList').should('contain.text', 'Select a city')
+    cy.wait(2000)
     cy.get('select[name="CitiesList"]').select('Edmonton').should('have.value', 'Edmonton')
     // cy.get('input[type="radio"]').click()
     cy.get('#4601').click()
