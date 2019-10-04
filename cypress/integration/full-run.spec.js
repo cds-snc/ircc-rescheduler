@@ -35,6 +35,7 @@ describe('should perform functions on the review page', () => {
       cy.get('#emailConfirm').type(data.email, { force: true })
       cy.get(nextButton).click()
       cy.url().should('contain', '/selectProvince')
+      cy.wait(2000)
       
     })
     // select a location
