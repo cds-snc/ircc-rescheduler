@@ -1,9 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { css } from 'emotion'
-import { theme, mediaQuery, incrementColor } from '../../styles'
 
-const govuk_button = css`
+import { Trans } from '@lingui/react'
+import { css } from 'emotion'
+import { theme, mediaQuery } from '../../styles'
+
+const govuk_reportButton = css`
   /* https://raw.githubusercontent.com/alphagov/govuk_frontend_toolkit/e00b009b2a9722363d3c247838632d8e3673daa9/stylesheets/design-patterns/_buttons.scss */
   background-color: #00823b;
 
@@ -22,7 +23,7 @@ const govuk_button = css`
   /* removed IE8-specific rule */
 
   // Text
-  font-size: 1em; // inherit from parent
+  font-size: 16px; // inherit from parent
   line-height: 1.25;
   text-decoration: none;
   -webkit-font-smoothing: antialiased;
@@ -86,33 +87,51 @@ const govuk_button = css`
   /* removed IE8-specific rule */
 `
 
-const button = css`
-  ${govuk_button};
+const reportButton = css`
+  ${govuk_reportButton}; !important;
+
+
 
   font-family: SourceSans, Helvetica, Arial, sans-serif;
   font-size: ${theme.font.lg};
-  font-weight: 500;
-  line-height: 2;
+  font-weight: 400;
+  border-width: 0px;
+  line-height: 1.8;
   text-align: center;
 
+  background: inherit;
+  background-color: rgba(234, 235, 237, 1);
+  box-sizing: border-box;
   border-width: 1px;
   border-style: solid;
-  border-color: ${theme.colour.lightblue};
-  color: ${theme.colour.white} !important;
-  background-color: ${theme.colour.lightblue};
+  border-color: rgba(220, 222, 225, 1);
+  border-radius: 5px;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  
+
+
+
+
+
+
+  box-shadow: 1px 1px #888888;
+  color: ${theme.colour.blue} !important;
+  background-color: rgba(234, 235, 237, 1);
   overflow: hidden;
 
   // Size and shape
-  padding: ${theme.spacing.xs} ${theme.spacing.xl};
+  padding: 0.3rem 95px ;
 
   ${mediaQuery.sm(css`
     width: 100%;
-    padding: ${theme.spacing.sm} ${theme.spacing.lg};
+    padding: 10px 14px;
   `)};
 
   &:visited {
     color: ${theme.colour.white} !important;
-    background-color: ${theme.colour.lightblue};
+    background-color: rgba(234, 235, 237, 1);
   }
 
   &:focus {
@@ -122,31 +141,24 @@ const button = css`
 
   &:hover,
   &:focus {
-    background-color: ${theme.colour.canadaBlueDark};
-    box-shadow: 0 2px 0 ${incrementColor(theme.colour.black, 20)};
+    background-color: rgba(207, 209, 213, 1);
   }
+
 
   &:active {
     top: 2px;
-    background-color: ${theme.colour.canadaBlueDark};
-    box-shadow: 0 0 0 ${theme.colour.canadaBlueDark};
+    background-color: rgba(234, 235, 237, 1);
   }
 
   &:disabled {
     &:hover {
       cursor: not-allowed;
-      background-color: ${incrementColor(theme.colour.canadaBlueDark, 50)};
+      background-color: rgba(234, 235, 237, 1);
     }
   }
 `
-
-const Button = ({ children, ...props }) => (
-  <button className={button} {...props}>
-    {children}
-  </button>
+export const ReportButton = () => (
+  <a className={reportButton}>
+    <Trans>Report a problem on this page</Trans>
+  </a>
 )
-Button.propTypes = {
-  children: PropTypes.any.isRequired,
-}
-
-export { Button as default, button as buttonStyles }

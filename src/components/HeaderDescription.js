@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { Trans } from '@lingui/react'
 import React from 'react'
 import { contextPropTypes } from '../context'
