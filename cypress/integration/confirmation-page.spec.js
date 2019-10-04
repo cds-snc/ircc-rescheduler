@@ -1,14 +1,14 @@
 /* eslint-disable no-undef */
 import { headerImg, langLink, privacyLink, tocLink, aboutCA, sMedia, mobileApp, aboutCAHref, sMediaHref, mobileHref, tocHref, privacyHref,footerImg } from './utils'
 
-// Verify Items and functions on the review-page 
+// Verify Items and functions on the confirmation-page 
 function checkA11y(cy){ 
   cy.checkA11y({
     runonly: {
     type: "tag",
     values: ["wcag2a", "wcag2aa"]}});
 }
-describe('should perform functions on the review page', () => {
+describe('should perform functions on the confirmation page', () => {
     beforeEach(() => {
       cy.visit('/confirmation')
     })
@@ -19,7 +19,7 @@ describe('should perform functions on the review page', () => {
       cy.url().should('contains', '/confirmation')
       checkA11y(cy)
     })
-    it('should go to the landing page and show header image and links ', () => {  
+    it('should go to the page and show header image and links ', () => {  
       cy.get(headerImg).should('be.visible')
       cy.get(langLink).should('be.visible', 'Français')
   
@@ -53,7 +53,7 @@ describe('should perform functions on the review page', () => {
 
     it('should show the text options on the page', () => { 
         // the confirmation number will need to be revisited once it's actually working 
-        cy.get('#hashFromData').should('have.text', 'Confirmation #: A 0')
+        cy.get('#hashFromData-header').should('contain.text', 'Confirmation #: A')
 
         cy.get('#bilNumber-header').should('contain', 'Application number')
         cy.get('#email-address-header').should('contain', 'Email address')
