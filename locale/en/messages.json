@@ -27,8 +27,8 @@
         ]
       ]
     },
-  "required": {
-    "translation": "required",
+  "(Required)": {
+    "translation": "(Required)",
     "origin": [
       [
         "src/pages/LandingPage.js",

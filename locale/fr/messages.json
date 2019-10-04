@@ -29,8 +29,8 @@
     ]
   },
   
-  "required": {
-    "translation": "Champs obligatoires",
+  "(Required)": {
+    "translation": "(Champs obligatoires)",
     "origin": [
       [
         "src/pages/LandingPage.js",

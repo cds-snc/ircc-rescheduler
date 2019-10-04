@@ -266,17 +266,9 @@ class LandingPage extends React.Component {
     } = this.props
     let errorsNoJS = {}
 
-    const requiredStr = (
-      <font color="red" >
-       <b> (<Trans>required</Trans>)</b>
-      </font>
-    )
+    const requiredStr = <Trans>(Required)</Trans>
 
-    const policyStr = (
-      <font color="">
-        <Trans>I have read and accept the privacy policy</Trans>
-      </font>
-    )
+    const policyStr = <Trans>I have read and accept the privacy policy</Trans>
 
     // if this is a POST, we know for sure they pressed "submit" on this page
     // Otherwise, we would be showing error messages on the initial pageload
@@ -427,8 +419,14 @@ class LandingPage extends React.Component {
                       onClick={this.triggerAddTripState}
                       label={
                         <Trans>
-                          {policyStr}
-                          <Trans /> {requiredStr}
+                          {policyStr} <Trans />{' '}
+                          <b
+                            style={{
+                              color: `${theme.colour.red}`,
+                            }}
+                          >
+                            {requiredStr}
+                          </b>
                         </Trans>
                       }
                       value="yes"
