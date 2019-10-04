@@ -1,6 +1,6 @@
 {
-  "optional": {
-    "translation": "optional",
+  "(optional)": {
+    "translation": "(optional)",
     "origin": [
       [
         "src/pages/RegistrationPage.js",

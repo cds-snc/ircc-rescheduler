@@ -231,15 +231,9 @@ class RegistrationPage extends React.Component {
     let errorsNoJS = {}
 
     const accessibleStr = (
-      <font>
-        <Trans>I need an accessible or private workstation</Trans>
-      </font>
+      <Trans>I need an accessible or private workstation</Trans>
     )
-    const optionalStr = (
-      <font>
-        (<Trans>optional</Trans>)
-      </font>
-    )
+    const optionalStr = <Trans>(optional)</Trans>
 
     // if this is a POST, we know for sure they pressed "submit" on this page
     // Otherwise, we would be showing error messages on the initial pageload
@@ -405,11 +399,11 @@ class RegistrationPage extends React.Component {
                       name="familyCheck"
                       id="familyCheck"
                       label={
-                        <Trans>
+                        <span>
                           {accessibleStr}
-                          <Trans />
+                          {' '}
                           {optionalStr}
-                        </Trans>
+                        </span>
                       }
                       value="yes"
                       aria-label="accessibility-label"

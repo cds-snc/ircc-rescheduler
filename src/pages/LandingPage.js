@@ -418,16 +418,17 @@ class LandingPage extends React.Component {
                       id="policyCheck"
                       onClick={this.triggerAddTripState}
                       label={
-                        <Trans>
-                          {policyStr} <Trans />{' '}
-                          <b
-                            style={{
-                              color: `${theme.colour.red}`,
-                            }}
-                          >
-                            {requiredStr}
-                          </b>
-                        </Trans>
+                        <span>
+                         {' '}
+                         {policyStr}
+                         <b
+                           style={{
+                             color: `${theme.colour.red}`,
+                           }}
+                         >
+                          {' '} {requiredStr}
+                         </b>
+                        </span>
                       }
                       value="yes"
                       aria-label="policy-label"
