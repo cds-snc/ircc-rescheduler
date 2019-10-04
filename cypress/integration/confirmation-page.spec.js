@@ -52,9 +52,8 @@ describe('should perform functions on the confirmation page', () => {
            })
 
     it('should show the text options on the page', () => { 
-        // the confirmation number will need to be revisited once it's actually working 
-        cy.get('#hashFromData-header').should('contain.text', 'Confirmation #: A')
-
+        // the confirmation number will need to be revisited once it's actually working
+        cy.get('#hashFromData-header').should('have.text', 'Confirmation #: A 0')
         cy.get('#bilNumber-header').should('contain', 'Application number')
         cy.get('#email-address-header').should('contain', 'Email address')
         cy.get('#a11y-header').should('contain', 'I need an accessible or private workstation')
