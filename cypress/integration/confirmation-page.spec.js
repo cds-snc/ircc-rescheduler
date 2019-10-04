@@ -11,7 +11,6 @@ function checkA11y(cy){
 describe('should perform functions on the review page', () => {
     beforeEach(() => {
       cy.visit('/confirmation')
-      cy.reload(true)
     })
 
     it('Has no detectable a11y violations on load', () => {
@@ -52,7 +51,7 @@ describe('should perform functions on the review page', () => {
          
            })
 
-    it('should show the text options and associated links on the page', () => { 
+    it('should show the text options on the page', () => { 
         // the confirmation number will need to be revisited once it's actually working 
         cy.get('#hashFromData').should('have.text', 'Confirmation #: A 0')
 

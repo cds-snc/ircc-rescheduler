@@ -14,7 +14,6 @@ function checkA11y(cy) {
 describe('should perform functions on the review page', () => {
   beforeEach(() => {
     cy.visit('/')
-    cy.reload(true)
   })
 
 
@@ -41,7 +40,9 @@ describe('should perform functions on the review page', () => {
     // select a location
     cy.get('#ProvinceList').should('contains.text', 'Select a Province')
     cy.get('select[name="ProvinceList"]').select('Alberta').should('have.value', 'Alberta')
+    cy.wait(2000)
     cy.get('#CitiesList').should('contain.text', 'Select a city')
+    cy.wait(2000)
     cy.get('select[name="CitiesList"]').select('Edmonton').should('have.value', 'Edmonton')
     // cy.get('input[type="radio"]').click()
     cy.get('#4601').click()
