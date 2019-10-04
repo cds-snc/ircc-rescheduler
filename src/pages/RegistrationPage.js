@@ -4,13 +4,15 @@ import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { Trans, withI18n } from '@lingui/react'
 import { css } from 'emotion'
+import { GoArrowRight } from 'react-icons/go'
+import { GoBackButtonReg } from '../components/forms/GoBackButton'
+import { ReportButton } from '../components/forms/ReportButton'
 import {
   theme,
   visuallyhidden,
   BottomContainer,
   focusRing,
   contentClass,
-  arrow,
 } from '../styles'
 import {
   RegistrationFields,
@@ -29,12 +31,11 @@ import Button from '../components/forms/Button'
 import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
-import CancelButton from '../components/CancelButton'
+// import CancelButton from '../components/CancelButton'
 import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
-import rightArrow from '../assets/rightArrow.svg'
 
 const registrationContentClass = css`
   ${contentClass};
@@ -60,10 +61,6 @@ const registrationContentClass = css`
     padding: ${theme.spacing.xxs} 0;
   }
 `
-const landingArrow = css`
-  ${arrow};
-  margin-left: 4px;
-`
 
 const forNowSubmitErrorStyles = css`
   margin-bottom: 0 !important;
@@ -72,6 +69,31 @@ const forNowSubmitErrorStyles = css`
     margin-bottom: ${theme.spacing.lg};
     font-size: ${theme.font.lg};
   }
+`
+
+const buttonSpacing = css`
+  padding-left: 20px;
+`
+const spacingButton = css`
+  position: relative;
+  top: 2px;
+`
+
+// const container2 = css`
+//   place-items: start;
+//   display: flex;
+//   flex-direction: column;
+//   width: 500px;
+//   margin: 0rem;
+// `
+const goArrowRight = css`
+  font-size: 24px;
+  vertical-align: middle;
+  left: 9px;
+  height: 1.3rem;
+  width: 1.3rem;
+  bottom: 0.058em;
+  position: relative;
 `
 
 const labelNames = id => {
@@ -207,6 +229,17 @@ class RegistrationPage extends React.Component {
       post = false,
     } = this.props
     let errorsNoJS = {}
+
+    const accessibleStr = (
+      <font>
+        <Trans>I need an accessible or private workstation</Trans>
+      </font>
+    )
+    const optionalStr = (
+      <font>
+        (<Trans>optional</Trans>)
+      </font>
+    )
 
     // if this is a POST, we know for sure they pressed "submit" on this page
     // Otherwise, we would be showing error messages on the initial pageload
@@ -373,7 +406,9 @@ class RegistrationPage extends React.Component {
                       id="familyCheck"
                       label={
                         <Trans>
-                          I need an accessible or private workstation (optional)
+                          {accessibleStr}
+                          <Trans />
+                          {optionalStr}
                         </Trans>
                       }
                       value="yes"
@@ -382,47 +417,32 @@ class RegistrationPage extends React.Component {
                   </FieldSet>
                 </div>
 
-                {/* Privacy */}
-
-                {/* <div>
-                  <FieldSet legendHidden={false} id="privacy-reason">
-                    <legend>
-                      <span id="privacy-reason-header">{labelNames('privacy')}</span>
-                    </legend>
-
-                    <Field
-                      type="checkbox"
-                      component={CheckboxAdapter}
-                      name="familyOption"
-                      id="familyOption"
-                      label={<Trans>Agree</Trans>}
-                      value="yes"
-                      aria-label="privacy-label"
-                    />
-                  </FieldSet>
-                </div> */}
-
-                {/*
-               Button is disabled if form has been submitted (and is waiting)
-              */}
-                <BottomContainer>
-                  <Button
-                    id="nextButton"
-                    onClick={() => {
-                      this.setState({ submitClicked: true })
-                    }}
-                    disabled={submitting}
-                  >
-                    <Trans>Next</Trans>
-                    <img src={rightArrow} className={landingArrow} alt="" />
-                  </Button>
-
-                  <CancelButton />
-                </BottomContainer>
+                <div className={registrationContentClass}>
+                  <div>
+                    <GoBackButtonReg />
+                    <span className={buttonSpacing}> </span>
+                    <Button
+                      id="nextButton"
+                      onClick={() => {
+                        this.setState({ submitClicked: true })
+                      }}
+                      disabled={submitting}
+                    >
+                      <Trans>Next</Trans>
+                      <GoArrowRight className={goArrowRight} />
+                    </Button>
+                  </div>
+                </div>
               </form>
             )
           }}
         />
+
+        <div className={spacingButton}>
+          <BottomContainer>
+            <ReportButton />
+          </BottomContainer>
+        </div>
       </Layout>
     )
   }

@@ -52,9 +52,11 @@ describe('should perform functions on the review page', () => {
          
            })
 
-    it('should show the text options and associated links on the page', () => { 
+    it('should show the text options on the page', () => { 
         // the confirmation number will need to be revisited once it's actually working 
-        cy.get('#hashFromData-header').should('have.text', 'Confirmation #: A 0')
+
+        cy.get('#hashFromData').should('have.text', 'Confirmation #: A 0')
+
 
         cy.get('#bilNumber-header').should('contain', 'Application number')
         cy.get('#email-address-header').should('contain', 'Email address')

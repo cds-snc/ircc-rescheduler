@@ -138,7 +138,7 @@ const cds_multiple_choice = css`
 
   input[type='radio'] + label::before,
   input[type='checkbox'] + label::before {
-    border: 3px solid ${theme.colour.black};
+    border: 3px solid ${theme.colour.gray};
     background-color: ${theme.colour.white};
   }
 

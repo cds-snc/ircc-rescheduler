@@ -4,11 +4,13 @@ import { css } from 'emotion'
 import { theme, mediaQuery } from '../../styles'
 
 const govuk_select = css`
+  border: 0.8px solid ${theme.colour.grey}};
+  border-radius: 5px;
   font-family: SourceSans, Helvetica, Arial, sans-serif;
   font-size: ${theme.font.base};
   background: ${theme.colour.white};
   line-height: 1.4;
-  border: 3px solid #000000;
+
   margin-bottom: 2em;
   width: 95%;
   max-width: 500px;

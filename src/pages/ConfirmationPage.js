@@ -1,5 +1,5 @@
 import React from 'react'
-import { H2, theme, visuallyhidden } from '../styles'
+import { H2, theme, visuallyhidden, BottomContainer } from '../styles'
 import styled from '@emotion/styled'
 import { css } from 'emotion'
 import { Trans } from '@lingui/react'
@@ -12,12 +12,12 @@ import FocusedH1 from '../components/FocusedH1'
 import { sortSelectedDays } from '../utils/calendarDates'
 import { dateToISODateString } from '../components/Time'
 import Confirmation from '../components/Confirmation'
-
+import { ReportButton } from '../components/forms/ReportButton'
 
 const contentClass = css`
   p {
     margin-top: ${theme.spacing.xs};
-    padding-bottom: ${theme.spacing.md}
+    padding-bottom: ${theme.spacing.md};
   }
 
   section {
@@ -32,7 +32,10 @@ const contentClass = css`
 const Reminder = styled(LongReminder)`
   margin-bottom: ${theme.spacing.xl} !important;
 `
-
+const spacingButton = css`
+  position: relative;
+  top: 2px;
+`
 const EmailError = () => {
   return (
     <React.Fragment>
@@ -61,11 +64,12 @@ class ConfirmationPage extends React.Component {
   translateReason(reason) {
     if (reason) {
       switch (reason[0]) {
-      case 'yes':
-        return <Trans>Yes</Trans>
-      default:
-        return <Trans>No</Trans>
-    }} else {
+        case 'yes':
+          return <Trans>Yes</Trans>
+        default:
+          return <Trans>No</Trans>
+      }
+    } else {
       return <Trans>No</Trans>
     }
   }
@@ -94,7 +98,6 @@ class ConfirmationPage extends React.Component {
  
 
   render() {
-
     let {
       context: {
         store: {
@@ -107,10 +110,7 @@ class ConfirmationPage extends React.Component {
           } = {},
 
           calendar: { selectedDays = [], selectedTime } = {},
-          selectProvince: {
-            locationCity,
-            locationAddress,
-          } = {},
+          selectProvince: { locationCity, locationAddress } = {},
         } = {},
       } = {},
     } = this.props
@@ -148,7 +148,11 @@ class ConfirmationPage extends React.Component {
             email={email}
             accessibility={this.translateReason(familyCheck)}
             privacy={this.translateReason(familyOption)}
-            location={ ( locationCity && locationAddress ) ? locationCity + ', ' + locationAddress : '' } 
+            location={
+              locationCity && locationAddress
+                ? locationCity + ', ' + locationAddress
+                : ''
+            }
             selectedDays={days}
             selectedTime={selectedTime}
           />
@@ -167,13 +171,18 @@ class ConfirmationPage extends React.Component {
             </Trans>
 
             <Trans>
-              <i>Lorem ipsum dolor sit amet, 
-                 consectetur adipiscing elit, 
-                 sed do eiusmod tempor incididunt ut 
-                 labore et dolore magna aliqua...</i>
+              <i>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua...
+              </i>
             </Trans>
           </p>
         </section>
+        <div className={spacingButton}>
+          <BottomContainer>
+            <ReportButton />
+          </BottomContainer>
+        </div>
       </Layout>
     )
   }

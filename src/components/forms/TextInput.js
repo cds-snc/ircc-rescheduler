@@ -12,11 +12,11 @@ const placeholder = css`
 const text_input = css`
   font-size: ${theme.font.lg};
   font-family: Helvetica, Arial, sans-serif;
-  border: 1.5px solid ${theme.colour.black}};
+  border: 0.8px solid ${theme.colour.grey}};
   outline: 0;
   padding: ${theme.spacing.xs};
   width: 500px;
-  border-radius: 8px;
+  border-radius: 5px;
 
   &:focus {
     border-radius: 5px;

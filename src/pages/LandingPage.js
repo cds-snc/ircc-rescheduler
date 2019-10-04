@@ -6,7 +6,6 @@ import { Trans, withI18n } from '@lingui/react'
 import { css } from 'emotion'
 import styled from '@emotion/styled'
 import { GoArrowRight } from 'react-icons/go'
-
 import {
   H2,
   mediaQuery,
@@ -29,6 +28,7 @@ import Title, { matchPropTypes } from '../components/Title'
 import FieldSet from '../components/forms/FieldSet'
 import { Radio, CheckboxAdapter } from '../components/forms/MultipleChoice'
 import Button from '../components/forms/Button'
+import { ReportButton } from '../components/forms/ReportButton'
 import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
@@ -98,7 +98,7 @@ const goArrowRight = css`
 
 const spacingButton = css`
   position: relative;
-  top: -8px;
+  top: 2px;
 `
 const spacingChebox = css`
   position: relative;
@@ -266,6 +266,10 @@ class LandingPage extends React.Component {
     } = this.props
     let errorsNoJS = {}
 
+    const requiredStr = <Trans>(Required)</Trans>
+
+    const policyStr = <Trans>I have read and accept the privacy policy</Trans>
+
     // if this is a POST, we know for sure they pressed "submit" on this page
     // Otherwise, we would be showing error messages on the initial pageload
     // (because the fields are empty
@@ -414,7 +418,16 @@ class LandingPage extends React.Component {
                       id="policyCheck"
                       onClick={this.triggerAddTripState}
                       label={
-                        <Trans>I have read and accept the privacy policy</Trans>
+                        <Trans>
+                          {policyStr} <Trans />{' '}
+                          <b
+                            style={{
+                              color: `${theme.colour.red}`,
+                            }}
+                          >
+                            {requiredStr}
+                          </b>
+                        </Trans>
                       }
                       value="yes"
                       aria-label="policy-label"
@@ -443,7 +456,7 @@ class LandingPage extends React.Component {
                     )}
                   </FieldSet>
                 </div>
-                <div className={spacingButton}>
+                <div className={landingPageContent}>
                   <BottomContainer>
                     <Button
                       id="start-request"
@@ -454,7 +467,6 @@ class LandingPage extends React.Component {
                       disabled={submitting}
                     >
                       <Trans>Start request</Trans>
-                      {/* <img src={rightArrow} className={landingArrow} alt="" /> */}
                       <GoArrowRight className={goArrowRight} />
                     </Button>
                   </BottomContainer>
@@ -463,6 +475,11 @@ class LandingPage extends React.Component {
             )
           }}
         />
+        <div className={spacingButton}>
+          <BottomContainer>
+            <ReportButton />
+          </BottomContainer>
+        </div>
       </Layout>
     )
   }
