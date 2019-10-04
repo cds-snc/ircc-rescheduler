@@ -835,9 +835,10 @@ class Calendar extends Component {
             <div id="selectedDaysBox" style={{ display: 'flex' }}>
               <div className={value.length ? triangle : noDates} />
               <div className={value.length ? daySelection : noDates}>
-                <h3
+                <label
                   tabIndex="-1"
                   style={{ outline: 0 }}
+                  htmlFor="TimeSlot"
                   ref={removeDateContainer => {
                     this.removeDateContainer = removeDateContainer
                   }}
@@ -847,7 +848,7 @@ class Calendar extends Component {
                   ) : (
                     <Trans>Select a day:</Trans>
                   )}
-                </h3>
+                </label>
 
                 <ul id="selectedDays-list">
                   {renderDayBoxes({
