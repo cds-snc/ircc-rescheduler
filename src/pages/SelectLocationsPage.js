@@ -107,6 +107,7 @@ class SelectlocationsPage extends React.Component {
     this.fields = SelectlocationsPage.fields
   }
 
+
   static errStrings = {}
 
   static get fields() {

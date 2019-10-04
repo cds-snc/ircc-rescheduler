@@ -164,6 +164,7 @@ class RegistrationPage extends React.Component {
     as it won't exist server-side but than will client-side
     */
     this.setState({ mounted: true })
+   
   }
 
   generalErrorMessage() {
@@ -201,6 +202,7 @@ class RegistrationPage extends React.Component {
 
     await this.props.history.push(this.redirect)
   }
+  
 
   render() {
     let {

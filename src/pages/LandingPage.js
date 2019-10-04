@@ -154,6 +154,7 @@ class LandingPage extends React.Component {
     return '/register'
   }
 
+
   static validate(values, submitted) {
     let landingFields = LandingFields
     deleteEmptyArrayKeys(values)
@@ -204,6 +205,7 @@ class LandingPage extends React.Component {
     as it won't exist server-side but than will client-side
     */
     this.setState({ mounted: true })
+    
   }
 
   generalErrorMessage() {

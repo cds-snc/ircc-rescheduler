@@ -118,6 +118,8 @@ class CalendarPage extends Component {
     return getFieldErrorStrings(validate)
   }
 
+  
+
   static saveAfter(calendar = {}) {
     let kv = {
       key: 'explanation',
@@ -162,6 +164,7 @@ class CalendarPage extends Component {
 
   componentDidMount() {
     this.changeMonth()
+  
   }
 
   /*
