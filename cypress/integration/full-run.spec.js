@@ -114,6 +114,7 @@ describe('should perform functions on the review page', () => {
       cy.get(nextButton).should('be.enabled').and('be.visible')
       cy.wait(2000)
       cy.get(nextButton).click()
+      cy.wait(2000)
       cy.url().should('contains', '/review')
 
       // Verify if all of the entered data appears on the review page. 
