@@ -112,6 +112,7 @@ describe('should perform functions on the review page', () => {
         cy.get('select[name="TimeSlot"]').select(timeString)
       })
       cy.get(nextButton).should('be.enabled').and('be.visible')
+      cy.wait(2000)
       cy.get(nextButton).click()
       cy.url().should('contains', '/review')
 
