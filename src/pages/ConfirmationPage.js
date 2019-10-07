@@ -62,7 +62,7 @@ class ConfirmationPage extends React.Component {
   }
 
   translateReason(reason) {
-    if (reason || reason === 'yes') {
+    if (reason && reason === 'yes') {
       return <Trans>Yes</Trans>
     } else {
       return <Trans>No</Trans>
