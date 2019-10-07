@@ -94,9 +94,7 @@ const labelNames = id => {
     case 'emailConfirm':
       return <Trans>Confirm Email address</Trans>
     case 'accessibility':
-      return 'TODO: Input correct string'
-    case 'privacy':
-      return <Trans>Do you require privacy booth?</Trans>
+      return <Trans>Do you require accessibility?</Trans>
     case 'explanation':
       return <Trans>Describe why you can’t attend your appointment</Trans>
     default:

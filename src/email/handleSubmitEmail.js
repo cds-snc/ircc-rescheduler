@@ -8,8 +8,6 @@ const CONFIRMATION_EMAIL = 'af563da5-43bd-4b9a-9610-e3990a7f4315'
 export const handleSubmitEmail = async (req, res) => {
   let input = Object.assign({}, req.body) // make a new object
   if (input.templateId === CONFIRMATION_EMAIL){
-    console.log("handleSubmitEmail Line 11:"+JSON.stringify(input))
-    console.log("handleSubmitEmail Line 12:"+input.accessibility)
  try {
     const response = await sendNotification({
       email: input.email,
