@@ -23,7 +23,6 @@ const SubmissionForm = props => {
       <form id="review-form" action="/submit" method="post" onSubmit={onSubmit}>
         <input type="hidden" name="paperFileNumber" value={props.paperFileNumber} />
         <input type="hidden" name="accessibility" value={props.accessibility} />
-        <input type="hidden" name="accessibilty" value={props.accessibilty} />
         <input type="hidden" name="email" value={props.email} />
         <input type="hidden" name="location" value={props.location} />
         <input type="hidden" name="selectedDay" value={props.selectedDays} />

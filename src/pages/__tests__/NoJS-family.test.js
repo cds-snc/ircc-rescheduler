@@ -1,17 +1,12 @@
 import {
   baseUrl,
-  clickAndWait,
   isDebugging,
-  user_en,
-  user_fr,
 } from './puppeteer-config'
 
 const puppeteer = require('puppeteer')
 
 let browser
 let page
-
-const fr = false
 
 beforeAll(async () => {
   browser = await puppeteer.launch(isDebugging())

@@ -128,7 +128,7 @@ class ReviewPage extends React.Component {
             hashFromData={this.hashFromData(email, paperFileNumber).toString()}
             email={email}
             paperFileNumber={paperFileNumber}
-            accessibility={accessibility ? accessibility[0] : <trans>No</trans>}
+            accessibility={accessibility ? accessibility[0] : 'No'}
             location={locationCity + ', ' + locationAddress}
             selectedDays={selectedDays}
             selectedTime={selectedTime}
