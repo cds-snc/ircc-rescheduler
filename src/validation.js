@@ -123,6 +123,7 @@ export const LandingFields = {
 export const CalendarFields = {
   selectedDays: 'required|array|date_count',
   selectedTime: 'required',
+  tempAppointment: 'accept_anything',
   availability: 'accept_anything',
 }
 

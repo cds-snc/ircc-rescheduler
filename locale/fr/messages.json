@@ -1,5 +1,44 @@
 {
+  "(optional)": {
+    "translation": "(optionnel)",
+    "origin": [
+      [
+        "src/pages/RegistrationPage.js",
+        401
+      ]
+    ]
+  },
+
+  "Report a problem on this page": {
+    "translation": "Signaler un problème sur cette page",
+    "origin": [
+      [
+        "src/components/forms/ReportButton.js",
+        161
+      ]
+    ]
+  },
+
+  "Previous": {
+    "translation": "précédent",
+    "origin": [
+      [
+        "src/components/forms/GoBackButton.js",
+        153
+      ]
+    ]
+  },
   
+  "(Required)": {
+    "translation": "(Champs obligatoires)",
+    "origin": [
+      [
+        "src/pages/LandingPage.js",
+        271
+      ]
+    ]
+  },
+
     "In order to start your request, you must first read and accept the privacy notice statement.": {
       "translation": "Pour commencer votre demande, vous devez d'abord lire et accepter la déclaration de confidentialité.",
       "origin": [

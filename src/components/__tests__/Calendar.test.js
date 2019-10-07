@@ -257,7 +257,7 @@ describe('<CalendarAdapter />', () => {
     )
 
     expect(wrapper.find('#selectedDays-list .empty.day-box').length).toBe(2)
-    expect(wrapper.find('h3').text()).toEqual('Please select your time slot')
+    expect(wrapper.find('label').text()).toEqual('Please select your time slot')
 
     // clickDate(wrapper, 1)
     // expect(getDateStrings(wrapper)).toEqual(`${day1} ${day2}`)

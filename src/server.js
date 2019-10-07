@@ -19,8 +19,7 @@ import gitHash from './utils/gitHash'
 import { handleSubmitEmail } from './email/handleSubmitEmail'
 import { logError, logDebug } from './utils/logger'
 
-
-checkEnvironmentVariables();
+checkEnvironmentVariables()
 
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
@@ -41,6 +40,7 @@ server
   .use(ensureLocation)
   .use(cookieParser())
   .use(bodyParser.urlencoded({ extended: false }))
+  .use(bodyParser.json())
   .post('/submit', handleSubmitEmail)
   .get('/locations/:province', (req, res) => {
     let data = ''
@@ -104,6 +104,33 @@ server
         res.status(503).send()
       })
   })
+  .post('/appointments/temp', (req, res) => {
+    let data = JSON.stringify(req.body)
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': data.length,
+      },
+    }
+    let postReq = http
+      .request(`${apiHost}/appointments/temp`, options, resp => {
+        logDebug(`STATUS: ${resp.statusCode}`)
+        logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        resp.on('data', respData => {
+          res.status(200).send(respData)
+        })
+      })
+      .on('error', err => {
+        logError(
+          'Something went wrong when calling the API appointments/temp:  ' +
+            err.message,
+        )
+        res.status(503).send()
+      })
+    postReq.write(data)
+    postReq.end()
+  })
   .get('/clear', (req, res) => {
     let language = getStoreCookie(req.cookies, 'language') || 'en'
     res.clearCookie('store')
@@ -137,15 +164,14 @@ server
 
 export default server
 
-function checkEnvironmentVariables() { 
-  
-  if (process.env.SKIP_SECRET_CHECK !== 'TRUE') { 
-    const key = process.env.NOTIFICATION_API_KEY;
+function checkEnvironmentVariables() {
+  if (process.env.SKIP_SECRET_CHECK !== 'TRUE') {
+    const key = process.env.NOTIFICATION_API_KEY
     if (key === '' || typeof key === 'undefined') {
       throw 'NOTIFICATION_API_KEY environment variable not found'
     }
   }
-  const baseUrl = process.env.NOTIFICATION_API_BASE_URL;
+  const baseUrl = process.env.NOTIFICATION_API_BASE_URL
   if (baseUrl === '' || typeof baseUrl === 'undefined') {
     throw 'NOTIFICATION_API_BASE_URL environment variable not found'
   }

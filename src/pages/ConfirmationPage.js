@@ -1,5 +1,5 @@
 import React from 'react'
-import { H2, theme, visuallyhidden } from '../styles'
+import { H2, theme, visuallyhidden, BottomContainer } from '../styles'
 import styled from '@emotion/styled'
 import { css } from 'emotion'
 import { Trans } from '@lingui/react'
@@ -12,12 +12,12 @@ import FocusedH1 from '../components/FocusedH1'
 import { sortSelectedDays } from '../utils/calendarDates'
 import { dateToISODateString } from '../components/Time'
 import Confirmation from '../components/Confirmation'
-
+import { ReportButton } from '../components/forms/ReportButton'
 
 const contentClass = css`
   p {
     margin-top: ${theme.spacing.xs};
-    padding-bottom: ${theme.spacing.md}
+    padding-bottom: ${theme.spacing.md};
   }
 
   section {
@@ -32,7 +32,10 @@ const contentClass = css`
 const Reminder = styled(LongReminder)`
   margin-bottom: ${theme.spacing.xl} !important;
 `
-
+const spacingButton = css`
+  position: relative;
+  top: 2px;
+`
 const EmailError = () => {
   return (
     <React.Fragment>
@@ -66,6 +69,17 @@ class ConfirmationPage extends React.Component {
     }
   }
 
+  hashFromData( email, paperFileNumber ){
+    var hash = 0, i, chr
+    const keys = email+paperFileNumber
+    if (keys.length === 0) return hash;
+    for (i = 0; i < keys.length; i++) {
+      chr   = keys.charCodeAt(i);
+      hash  = ((hash << 5) - hash) + chr;
+      hash |= 0;
+    }
+    return hash;
+  }
 
   hasEmailError() {
     const { match } = this.props
@@ -76,21 +90,9 @@ class ConfirmationPage extends React.Component {
     return false
   }
 
-  // from: stackoverflow 'generate a hash from string...'
-  hashFromData(email, paperFileNumber) {
-    var hash = 0, i, chr
-    const keys = email + paperFileNumber
-    if (keys.length === 0) return hash
-    for (i = 0; i < keys.length; i++) {
-      chr = keys.charCodeAt(i)
-      hash = ((hash << 5) - hash) + chr
-      hash |= 0
-    }
-    return hash
-  }
+
 
   render() {
-
     let {
       context: {
         store: {
@@ -98,13 +100,11 @@ class ConfirmationPage extends React.Component {
             paperFileNumber,
             email,
             accessibility,
+            // hashFromData,
           } = {},
 
           calendar: { selectedDays = [], selectedTime } = {},
-          selectProvince: {
-            locationCity,
-            locationAddress,
-          } = {},
+          selectProvince: { locationCity, locationAddress } = {},
         } = {},
       } = {},
     } = this.props
@@ -136,9 +136,8 @@ class ConfirmationPage extends React.Component {
         )}
 
         <section>
-          <H2 id='confirm-text'>Confirmation #:
-            A {this.hashFromData(email, paperFileNumber).toString()}</H2>
           <Confirmation
+            hashFromData={this.hashFromData( email, paperFileNumber ).toString()}
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(accessibility)}
@@ -160,13 +159,18 @@ class ConfirmationPage extends React.Component {
             </Trans>
 
             <Trans>
-              <i>Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua...</i>
+              <i>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua...
+              </i>
             </Trans>
           </p>
         </section>
+        <div className={spacingButton}>
+          <BottomContainer>
+            <ReportButton />
+          </BottomContainer>
+        </div>
       </Layout>
     )
   }

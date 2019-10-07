@@ -130,7 +130,7 @@ describe('Register page functions', () => {
                 // BIL number click
                 cy.get('ul > :nth-child(3) > a').click()
                 cy.window().then(($window) => {
-                  expect($window.scrollY).to.be.closeTo(721, 200);
+                  expect($window.scrollY).to.be.closeTo(700, 200);
                 })
                 cy.get('#paperFileNumber-error').should('be.visible')
                 checkA11y(cy)

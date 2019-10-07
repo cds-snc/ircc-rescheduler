@@ -1,15 +1,16 @@
-/* eslint-disable no-undef */
 import React from 'react'
 import PropTypes from 'prop-types'
 import { contextPropTypes } from '../context'
 import withContext from '../withContext'
 import { css } from 'emotion'
+import { GoBackButtonSelPrv } from '../components/forms/GoBackButton'
+import { ReportButton } from '../components/forms/ReportButton'
 import {
+  BottomContainer,
   theme,
   mediaQuery,
   visuallyhidden,
   contentClass,
-  arrow,
 } from '../styles'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
@@ -23,7 +24,7 @@ import { FaExternalLinkAlt, FaBuilding, FaClock } from 'react-icons/fa'
 import Loading from '../components/Loading'
 import SelectDropDown from '../components/forms/Select'
 import FocusedH1 from '../components/FocusedH1'
-import rightArrow from '../assets/rightArrow.svg'
+import { GoArrowRight } from 'react-icons/go'
 import axios from 'axios'
 
 /* eslint-disable no-console */
@@ -60,9 +61,22 @@ const clearFix = css`
   clear: both;
   display: table;
 `
-const landingArrow = css`
-  ${arrow};
-  margin-left: 4px;
+
+const buttonSpacing = css`
+  padding-left: 20px;
+`
+const spacingButton = css`
+  position: relative;
+  top: 2px;
+`
+const goArrowRight = css`
+  font-size: 24px;
+  vertical-align: middle;
+  left: 9px;
+  height: 1.3rem;
+  width: 1.3rem;
+  bottom: 0.058em;
+  position: relative;
 `
 
 class SelectlocationsPage extends React.Component {
@@ -136,7 +150,7 @@ class SelectlocationsPage extends React.Component {
     axios
       .get(`/locations/${selectedProvince}`)
       .then(locs => {
-        if (locs) {
+        if (locs.data && Array.isArray(locs.data)) {
           this.setState({
             provLocations: locs.data,
             cityLocations: [],
@@ -153,7 +167,7 @@ class SelectlocationsPage extends React.Component {
           this.selectProvinceError.focus()
         }
       })
-      .catch(function(){
+      .catch(function() {
         this.props.history.push('/error')
       })
   }
@@ -163,18 +177,20 @@ class SelectlocationsPage extends React.Component {
     this.setState({
       loading: true,
     })
-    axios.get(`/locations/${selectedProvince}/${selectedCity}`).then(locs => {
-      this.setState({
-        cityLocations: locs.data,
-        locationNumber: null,
-        locationAddress: null,
-        locationHours: null,
-        biokitNumber: null,
-        pageError: 0,
-        loading: false,
+    axios
+      .get(`/locations/${selectedProvince}/${selectedCity}`)
+      .then(locs => {
+        this.setState({
+          cityLocations: locs.data,
+          locationNumber: null,
+          locationAddress: null,
+          locationHours: null,
+          biokitNumber: null,
+          pageError: 0,
+          loading: false,
+        })
       })
-    })
-      .catch(function(){
+      .catch(function() {
         this.props.history.push('/error')
       })
   }
@@ -415,18 +431,34 @@ class SelectlocationsPage extends React.Component {
                       )}
                     </fieldset>
                   </div>
-
-                  <Button id='nextButton' type="submit" value="Submit" onClick={this.submit}>
-                    {' '}
-                    <Trans>Next</Trans>{' '}
-                    <img src={rightArrow} className={landingArrow} alt="" />
-                  </Button>
+                  <div className={locationsContentClass}>
+                    <div>
+                      <GoBackButtonSelPrv />
+                      <span className={buttonSpacing}> </span>
+                      <Button
+                        id="nextButton"
+                        type="submit"
+                        value="Submit"
+                        onClick={this.submit}
+                      >
+                        {' '}
+                        <Trans>Next</Trans>{' '}
+                        <GoArrowRight className={goArrowRight} />
+                      </Button>
+                    </div>
+                  </div>
                 </React.Fragment>
               )}
 
               <div className={clearFix}>&nbsp;</div>
             </div>
           </section>
+        </div>
+
+        <div className={spacingButton}>
+          <BottomContainer>
+            <ReportButton />
+          </BottomContainer>
         </div>
       </Layout>
     )
