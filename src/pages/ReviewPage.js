@@ -43,14 +43,6 @@ class ReviewPage extends React.Component {
     }
   }
 
-  translate(reason) {
-    if (reason && reason === 'yes') {
-      return <Trans>Yes</Trans>
-    } else {
-      return <Trans>No</Trans>
-    }
-  }
-
   // from: stackoverflow 'generate a hash from string...'
   hashFromData(email, paperFileNumber) {
     var hash = 0,
