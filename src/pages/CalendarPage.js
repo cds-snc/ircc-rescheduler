@@ -40,14 +40,12 @@ import {
 } from '../utils/calendarDates'
 
 import { CalHeader } from './calendar/CalHeader'
-// import { CalBottom } from './calendar/CalBottom'
 import CalendarPageNoJS from './CalendarPageNoJS'
 import { GoArrowRight } from 'react-icons/go'
 import { ReportButton } from '../components/forms/ReportButton'
 
 import axios from 'axios'
 import moment from 'moment'
-import rightArrow from '../assets/rightArrow.svg'
 import DateModified from '../components/DateModified'
 
 const DAY_LIMIT = 1
@@ -118,8 +116,6 @@ class CalendarPage extends Component {
     return getFieldErrorStrings(validate)
   }
 
-  
-
   static saveAfter(calendar = {}) {
     let kv = {
       key: 'explanation',
@@ -164,7 +160,6 @@ class CalendarPage extends Component {
 
   componentDidMount() {
     this.changeMonth()
-  
   }
 
   /*

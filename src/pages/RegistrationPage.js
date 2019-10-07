@@ -31,12 +31,10 @@ import Button from '../components/forms/Button'
 import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
-// import CancelButton from '../components/CancelButton'
 import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
-import rightArrow from '../assets/rightArrow.svg'
 import DateModified from '../components/DateModified'
 
 const registrationContentClass = css`
@@ -164,7 +162,6 @@ class RegistrationPage extends React.Component {
     as it won't exist server-side but than will client-side
     */
     this.setState({ mounted: true })
-   
   }
 
   generalErrorMessage() {
@@ -202,7 +199,6 @@ class RegistrationPage extends React.Component {
 
     await this.props.history.push(this.redirect)
   }
-  
 
   render() {
     let {
