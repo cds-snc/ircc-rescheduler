@@ -122,7 +122,8 @@ class RegistrationPage extends React.Component {
       In JS mode, we will not validate this
       */
       if (windowExists()) {
-       // registrationFields.accessibility = 'accept_anything' //TODO: why?
+        //This is to force allow accessibility to not be required on first page load
+        registrationFields.accessibility = 'accept_anything'
       }
 
       const validate = new Validator(

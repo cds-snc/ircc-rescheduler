@@ -99,7 +99,7 @@ class ReviewPage extends React.Component {
             hashFromData={this.hashFromData(email, paperFileNumber).toString()}
             paperFileNumber={paperFileNumber}
             email={email}
-            accessibility={this.translateReason(accessibility)}
+            accessibility={this.translateReason(accessibility !== undefined ? accessibility[0] : 'No')}
             location={locationCity + ', ' + locationAddress}
             selectedDays={days}
             selectedTime={selectedTime}
@@ -128,7 +128,7 @@ class ReviewPage extends React.Component {
             hashFromData={this.hashFromData(email, paperFileNumber).toString()}
             email={email}
             paperFileNumber={paperFileNumber}
-            accessibility={accessibility ? accessibility[0] : 'No'}
+            accessibility={accessibility !== undefined ? accessibility[0] : 'No'}
             location={locationCity + ', ' + locationAddress}
             selectedDays={selectedDays}
             selectedTime={selectedTime}
