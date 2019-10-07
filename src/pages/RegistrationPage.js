@@ -21,7 +21,7 @@ import {
   getFieldErrorStrings,
 } from '../validation'
 import Validator from 'validatorjs'
-import { trimInput, deleteEmptyArrayKeys } from '../utils/cleanInput'
+import { trimInput } from '../utils/cleanInput'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
 import { TextFieldAdapter } from '../components/forms/TextInput'
@@ -42,24 +42,13 @@ const registrationContentClass = css`
   input[name='paperFileNumber'] {
     margin-bottom: ${theme.spacing.sm};
   }
-  input#familyCheck + label::before {
+  input#accessibility + label::before {
     border-width: 1.5px;
   }
-  #familyCheck-error {
+  #accessibility-error {
     margin-bottom: ${theme.spacing.sm};
   }
-  label[for='familyCheck'],
-  label[for='familyOption'] {
-    display: block;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-  textarea[name='familyOption'] {
-    height: 5.3em;
-  }
-  #familyOption-details {
-    padding: ${theme.spacing.xxs} 0;
-  }
+  label[for='accessibility']
 `
 
 const forNowSubmitErrorStyles = css`
@@ -105,15 +94,9 @@ const labelNames = id => {
     case 'emailConfirm':
       return <Trans>Confirm Email address</Trans>
     case 'accessibility':
-      return ''
-    case 'privacy':
-      return <Trans>Do you require privacy booth?</Trans>
+      return <Trans>Do you require accessibility?</Trans>
     case 'explanation':
       return <Trans>Describe why you can’t attend your appointment</Trans>
-    case 'familyCheck':
-      return <Trans>Reschedule family members</Trans>
-    case 'familyOption':
-      return <Trans>Reschedule family members</Trans>
     default:
       return ''
   }
@@ -132,19 +115,14 @@ class RegistrationPage extends React.Component {
 
   static validate(values, submitted) {
     let registrationFields = RegistrationFields
-    deleteEmptyArrayKeys(values)
+    //deleteEmptyArrayKeys(values) //TODO: What is this
 
     if (submitted || !windowExists()) {
       /*
-      In NoJS mode, we want to return a validation error if someone:
-      - has filled in family members
-      - has not checked the Checkbox
-      So this is the default behaviour
       In JS mode, we will not validate this
       */
       if (windowExists()) {
-        registrationFields.familyCheck = 'accept_anything'
-        registrationFields.familyOption = 'accept_anything'
+       // registrationFields.accessibility = 'accept_anything' //TODO: why?
       }
 
       const validate = new Validator(
@@ -154,7 +132,6 @@ class RegistrationPage extends React.Component {
       )
 
       if (validate.passes()) {
-        //values.familyOption = values.familyCheck ? values.familyOption : ''
         RegistrationPage.errStrings = {}
         return RegistrationPage.errStrings
       }
@@ -264,7 +241,6 @@ class RegistrationPage extends React.Component {
           render={({ handleSubmit, submitError, submitting, values }) => {
             const notValid = this.hasNotValid()
             const generalMessage = this.generalErrorMessage()
-
             submitError =
               Object.keys(errorsNoJS).length && !submitError
                 ? generalMessage
@@ -396,8 +372,8 @@ class RegistrationPage extends React.Component {
                     <Field
                       type="checkbox"
                       component={CheckboxAdapter}
-                      name="familyCheck"
-                      id="familyCheck"
+                      name="accessibility"
+                      id="accessibility"
                       label={
                         <span>
                           {accessibleStr}

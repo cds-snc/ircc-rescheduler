@@ -158,10 +158,6 @@ class LandingPage extends React.Component {
 
     if (submitted || !windowExists()) {
       /*
-      In NoJS mode, we want to return a validation error if someone:
-      - has filled in family members
-      - has not checked the Checkbox
-      So this is the default behaviour
       In JS mode, we will not validate this
       */
       if (windowExists()) {

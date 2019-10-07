@@ -25,7 +25,6 @@ export const user_en = {
   paperFileNumber: '123456',
   reason: 'workOrSchool',
   explanation: 'On business trip!',
-  familyOption: 'Peter',
 }
 
 export const clickAndWait = async (page, selector, duration = 1000) => {

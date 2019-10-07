@@ -36,26 +36,8 @@ class ReviewPage extends React.Component {
   }
 
   translateReason(reason) {
-    if (reason) {
-      switch (reason[0]) {
-        case 'yes':
-          return <Trans>Yes</Trans>
-        default:
-          return <Trans>No</Trans>
-      }
-    } else {
-      return <Trans>No</Trans>
-    }
-  }
-
-  translate(reason) {
-    if (reason) {
-      switch (reason[0]) {
-        case 'yes':
-          return <Trans>Yes</Trans>
-        default:
-          return <Trans>No</Trans>
-      }
+    if (reason && reason === 'yes') {
+      return <Trans>Yes</Trans>
     } else {
       return <Trans>No</Trans>
     }
@@ -83,8 +65,7 @@ class ReviewPage extends React.Component {
           register: {
             paperFileNumber,
             email,
-            familyCheck,
-            familyOption,
+            accessibility,
             // hashFromData,
           } = {},
 
@@ -118,8 +99,7 @@ class ReviewPage extends React.Component {
             hashFromData={this.hashFromData(email, paperFileNumber).toString()}
             paperFileNumber={paperFileNumber}
             email={email}
-            accessibility={this.translateReason(familyCheck)}
-            privacy={this.translateReason(familyOption)}
+            accessibility={this.translateReason(accessibility)}
             location={locationCity + ', ' + locationAddress}
             selectedDays={days}
             selectedTime={selectedTime}
@@ -148,7 +128,7 @@ class ReviewPage extends React.Component {
             hashFromData={this.hashFromData(email, paperFileNumber).toString()}
             email={email}
             paperFileNumber={paperFileNumber}
-            accessibility={this.translateReason(familyCheck)}
+            accessibility={accessibility ? accessibility[0] : 'No'}
             location={locationCity + ', ' + locationAddress}
             selectedDays={selectedDays}
             selectedTime={selectedTime}

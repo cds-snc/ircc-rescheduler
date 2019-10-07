@@ -2,7 +2,7 @@ import { sendNotification } from './sendmail';
 import { logerror } from '../utils/logger';
 
 const CONFIRMATION_EMAIL = 'af563da5-43bd-4b9a-9610-e3990a7f4315'
-  
+
 
 
 export const handleSubmitEmail = async (req, res) => {
@@ -19,7 +19,7 @@ export const handleSubmitEmail = async (req, res) => {
           location: input.location,
           selectedDay: input.selectedDay,
           selectedTime: input.selectedTime,
-          accessibility: input.accessibility || "No",
+          accessibility: input.accessibility.length > 0 ? input.accessibility[0] : 'No',
         },
       },
     }).catch(err => {
@@ -27,11 +27,11 @@ export const handleSubmitEmail = async (req, res) => {
       return res.redirect('/confirmation/client-request-issue')
     })
 
-    //Caught an error earlier in the process 
+    //Caught an error earlier in the process
     if (response === false) {
       return res.redirect('/confirmation/client-request-issue')
     }
-  }  
+  }
   catch (err) {
     return res.redirect('/error')
   }

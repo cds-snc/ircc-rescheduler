@@ -62,13 +62,8 @@ class ConfirmationPage extends React.Component {
   }
 
   translateReason(reason) {
-    if (reason) {
-      switch (reason[0]) {
-        case 'yes':
-          return <Trans>Yes</Trans>
-        default:
-          return <Trans>No</Trans>
-      }
+    if (reason && reason === 'yes') {
+      return <Trans>Yes</Trans>
     } else {
       return <Trans>No</Trans>
     }
@@ -81,7 +76,7 @@ class ConfirmationPage extends React.Component {
     for (i = 0; i < keys.length; i++) {
       chr   = keys.charCodeAt(i);
       hash  = ((hash << 5) - hash) + chr;
-      hash |= 0; 
+      hash |= 0;
     }
     return hash;
   }
@@ -95,7 +90,7 @@ class ConfirmationPage extends React.Component {
     return false
   }
 
- 
+
 
   render() {
     let {
@@ -104,8 +99,7 @@ class ConfirmationPage extends React.Component {
           register: {
             paperFileNumber,
             email,
-            familyCheck,
-            familyOption,
+            accessibility,
             // hashFromData,
           } = {},
 
@@ -129,7 +123,7 @@ class ConfirmationPage extends React.Component {
 
     return (
       <Layout contentClass={contentClass}>
-        <Title path={this.props.match.path} />
+        <Title path={this.props.match.path}/>
         <FocusedH1 className={visuallyhidden}>
           <Trans>Confirmation</Trans>
         </FocusedH1>
@@ -138,36 +132,30 @@ class ConfirmationPage extends React.Component {
             <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
           </p>
         ) : (
-          <EmailError />
-        )} 
+          <EmailError/>
+        )}
 
         <section>
           <Confirmation
             hashFromData={this.hashFromData( email, paperFileNumber ).toString()}
             paperFileNumber={paperFileNumber}
             email={email}
-            accessibility={this.translateReason(familyCheck)}
-            privacy={this.translateReason(familyOption)}
-            location={
-              locationCity && locationAddress
-                ? locationCity + ', ' + locationAddress
-                : ''
-            }
+            accessibility={this.translateReason(accessibility)}
+            location={(locationCity && locationAddress) ? locationCity + ', ' + locationAddress : ''}
             selectedDays={days}
             selectedTime={selectedTime}
           />
 
-          
 
           <H2 id='reminder-text'>
             <Trans>What happens next?</Trans>
           </H2>
           <p>
             <Trans>
-              Remember to bring: <br />
-              1.- Your BIL letter <br />
-              2.- This confirmation number <br />
-              3.- Your immigration papers <br /> <br />
+              Remember to bring: <br/>
+              1.- Your BIL letter <br/>
+              2.- This confirmation number <br/>
+              3.- Your immigration papers <br/> <br/>
             </Trans>
 
             <Trans>

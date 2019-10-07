@@ -1,9 +1,6 @@
 import {
   baseUrl,
-  clickAndWait,
   isDebugging,
-  user_en,
-  user_fr,
 } from './puppeteer-config'
 
 const puppeteer = require('puppeteer')
@@ -11,15 +8,13 @@ const puppeteer = require('puppeteer')
 let browser
 let page
 
-const fr = false
-
 beforeAll(async () => {
   browser = await puppeteer.launch(isDebugging())
   page = await browser.newPage()
   page.setJavaScriptEnabled(false)
   await page.goto(baseUrl)
 })
-
+/* TODO: Replace with Accessibility test?
 describe('NoJS Flow Family Flow All pages', () => {
   it(
     'NoJS mode family checkbox + fill in field',
@@ -97,7 +92,7 @@ describe('NoJS Flow Family Flow All pages', () => {
     200000,
   )
 })
-
+*/
 afterAll(() => {
   if (browser && browser.close) {
     browser.close()
