@@ -122,7 +122,7 @@ class RegistrationPage extends React.Component {
       In JS mode, we will not validate this
       */
       if (windowExists()) {
-       // registrationFields.accessibility = 'accept_anything' //TODO: why?
+        registrationFields.accessibility = 'accept_anything'
       }
 
       const validate = new Validator(
