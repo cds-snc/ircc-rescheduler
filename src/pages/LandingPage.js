@@ -6,6 +6,8 @@ import { Trans, withI18n } from '@lingui/react'
 import { css } from 'emotion'
 import styled from '@emotion/styled'
 import { GoArrowRight } from 'react-icons/go'
+import DateModified from '../components/DateModified'
+
 import {
   H2,
   mediaQuery,
@@ -38,7 +40,6 @@ import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
 // import rightArrow from '../assets/rightArrow.svg'
 //import {logDebug} from '../utils/logger'
-import DateModified from '../components/DateModified'
 
 const CalendarIcon = styled.div`
   width: 3.45rem;
@@ -154,7 +155,6 @@ class LandingPage extends React.Component {
     return '/register'
   }
 
-
   static validate(values, submitted) {
     let landingFields = LandingFields
     deleteEmptyArrayKeys(values)
@@ -205,7 +205,6 @@ class LandingPage extends React.Component {
     as it won't exist server-side but than will client-side
     */
     this.setState({ mounted: true })
-    
   }
 
   generalErrorMessage() {
