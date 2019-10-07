@@ -59,13 +59,9 @@ class ConfirmationPage extends React.Component {
   }
 
   translateReason(reason) {
-    if (reason) {
-      switch (reason[0]) {
-      case 'yes':
-        return <Trans>Yes</Trans>
-      default:
-        return <Trans>No</Trans>
-    }} else {
+    if (reason || reason === 'yes') {
+      return <Trans>Yes</Trans>
+    } else {
       return <Trans>No</Trans>
     }
   }
@@ -81,16 +77,16 @@ class ConfirmationPage extends React.Component {
   }
 
   // from: stackoverflow 'generate a hash from string...'
-  hashFromData( email, paperFileNumber ) {
-      var hash = 0, i, chr
-      const keys = email+paperFileNumber
-      if (keys.length === 0) return hash;
-      for (i = 0; i < keys.length; i++) {
-        chr   = keys.charCodeAt(i);
-        hash  = ((hash << 5) - hash) + chr;
-        hash |= 0; 
-      }
-      return hash;
+  hashFromData(email, paperFileNumber) {
+    var hash = 0, i, chr
+    const keys = email + paperFileNumber
+    if (keys.length === 0) return hash
+    for (i = 0; i < keys.length; i++) {
+      chr = keys.charCodeAt(i)
+      hash = ((hash << 5) - hash) + chr
+      hash |= 0
+    }
+    return hash
   }
 
   render() {
@@ -101,8 +97,7 @@ class ConfirmationPage extends React.Component {
           register: {
             paperFileNumber,
             email,
-            familyCheck,
-            familyOption,
+            accessibility,
           } = {},
 
           calendar: { selectedDays = [], selectedTime } = {},
@@ -128,7 +123,7 @@ class ConfirmationPage extends React.Component {
 
     return (
       <Layout contentClass={contentClass}>
-        <Title path={this.props.match.path} />
+        <Title path={this.props.match.path}/>
         <FocusedH1 className={visuallyhidden}>
           <Trans>Confirmation</Trans>
         </FocusedH1>
@@ -137,39 +132,38 @@ class ConfirmationPage extends React.Component {
             <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
           </p>
         ) : (
-          <EmailError />
-        )} 
+          <EmailError/>
+        )}
 
         <section>
-          <H2 id='confirm-text' >Confirmation #: A {this.hashFromData( email, paperFileNumber ).toString()}</H2>
+          <H2 id='confirm-text'>Confirmation #:
+            A {this.hashFromData(email, paperFileNumber).toString()}</H2>
           <Confirmation
             paperFileNumber={paperFileNumber}
             email={email}
-            accessibility={this.translateReason(familyCheck)}
-            privacy={this.translateReason(familyOption)}
-            location={ ( locationCity && locationAddress ) ? locationCity + ', ' + locationAddress : '' } 
+            accessibility={this.translateReason(accessibility)}
+            location={(locationCity && locationAddress) ? locationCity + ', ' + locationAddress : ''}
             selectedDays={days}
             selectedTime={selectedTime}
           />
 
-          
 
           <H2 id='reminder-text'>
             <Trans>What happens next?</Trans>
           </H2>
           <p>
             <Trans>
-              Remember to bring: <br />
-              1.- Your BIL letter <br />
-              2.- This confirmation number <br />
-              3.- Your immigration papers <br /> <br />
+              Remember to bring: <br/>
+              1.- Your BIL letter <br/>
+              2.- This confirmation number <br/>
+              3.- Your immigration papers <br/> <br/>
             </Trans>
 
             <Trans>
-              <i>Lorem ipsum dolor sit amet, 
-                 consectetur adipiscing elit, 
-                 sed do eiusmod tempor incididunt ut 
-                 labore et dolore magna aliqua...</i>
+              <i>Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua...</i>
             </Trans>
           </p>
         </section>

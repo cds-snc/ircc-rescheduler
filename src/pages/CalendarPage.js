@@ -220,7 +220,6 @@ class CalendarPage extends Component {
         store: {
           calendar = {},
           language: locale = 'en',
-          register: { familyOption } = {},
         } = {},
       } = {},
     } = this.props
@@ -244,7 +243,6 @@ class CalendarPage extends Component {
     return (
       <Layout>
         <CalHeader
-          familyOption={familyOption}
           locale={locale}
           path={this.props.match.path}
           headerMonth={this.state.headerMonth}

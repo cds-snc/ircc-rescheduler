@@ -24,9 +24,6 @@ const Review = ({
   selectedTime,
   // eslint-disable-next-line react/prop-types
   accessibility,
-  // eslint-disable-next-line react/prop-types
-  privacy,
-
   i18n,
 }) => (
   <TableContainer>

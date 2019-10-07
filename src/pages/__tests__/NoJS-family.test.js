@@ -19,7 +19,7 @@ beforeAll(async () => {
   page.setJavaScriptEnabled(false)
   await page.goto(baseUrl)
 })
-
+/* TODO: Replace with Accessibility test?
 describe('NoJS Flow Family Flow All pages', () => {
   it(
     'NoJS mode family checkbox + fill in field',
@@ -97,7 +97,7 @@ describe('NoJS Flow Family Flow All pages', () => {
     200000,
   )
 })
-
+*/
 afterAll(() => {
   if (browser && browser.close) {
     browser.close()
