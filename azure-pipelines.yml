@@ -60,7 +60,7 @@ stages:
             inputs:
               targetType: 'inline'
               displayName: "Define Time"
-              script: 'echo RAZZLE_BUILD_DATE=$(date +%x)'
+              script: 'RAZZLE_BUILD_DATE=$(date +%x) && echo $RAZZLE_BUILD_DATE'
           - task: Docker@2
             inputs:
               containerRegistry: "MTSContainers"
