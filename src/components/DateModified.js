@@ -14,32 +14,11 @@ const container = css`
 class DateModified extends React.Component {
   constructor(props) {
     super(props)
-    const lastDateModifiedString =
-      typeof window === 'undefined' ? '' : document.lastModified
-    this.lastDateModified = new Date(lastDateModifiedString)
-  }
-
-  formatDate(date) {
-    let year, month, day
-    year = date.getFullYear()
-    month = date
-      .getMonth()
-      .toString()
-      .padStart(2, '0')
-    day = date
-      .getDate()
-      .toString()
-      .padStart(2, '0')
-
-    return `${year}-${month}-${day}`
+    this.lastBuildDate = process.env.RAZZLE_BUILD_DATE || 'undefined'
   }
 
   render() {
-    return (
-      <div className={container}>
-        Date modified: {this.formatDate(this.lastDateModified)}
-      </div>
-    )
+    return <div className={container}>Date modified: {this.lastBuildDate}</div>
   }
 }
 
