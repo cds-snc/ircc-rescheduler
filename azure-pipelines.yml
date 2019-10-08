@@ -58,7 +58,7 @@ stages:
         steps:
           - task: Bash@3
             inputs:
-            targetType: 'inline'
+              targetType: 'inline'
               displayName: "Define Time"
               script: 'RAZZLE_BUILD_DATE=$(date +%x)'
           - task: Docker@2
