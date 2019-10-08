@@ -58,8 +58,9 @@ stages:
         steps:
           - task: Bash@3
             inputs:
+            targetType: 'inline'
               displayName: "Define Time"
-              script: "RAZZLE_BUILD_DATE=$(date +%x)"
+              script: 'RAZZLE_BUILD_DATE=$(date +%x)'
           - task: Docker@2
             inputs:
               containerRegistry: "MTSContainers"
