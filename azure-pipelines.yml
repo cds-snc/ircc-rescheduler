@@ -57,9 +57,9 @@ stages:
           vmImage: "Ubuntu-16.04"
         steps:
           - task: Bash@3
-            displayName: "Define Time"
             inputs:
-              script: 'RAZZLE_BUILD_DATE=$(date +%x)'
+              displayName: "Define Time"
+              script: "RAZZLE_BUILD_DATE=$(date +%x)"
           - task: Docker@2
             inputs:
               containerRegistry: "MTSContainers"
