@@ -48,9 +48,9 @@ stages:
               testResultsFiles: "**/test-output-*.xml"
               searchFolder: "$(System.DefaultWorkingDirectory)"
   - stage: Deploy
-    dependsOn:
-      - Test
-    condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
+    # dependsOn:
+    #   - Test
+    # condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
     jobs:
       - job: Publish_Artifact
         pool:
@@ -58,7 +58,9 @@ stages:
         steps:
           - task: Bash@3
             inputs:
-              script: RAZZLE_BUILD_DATE=$(date +%x)
+              targetType: 'inline'
+              displayName: "Define Time"
+              script: 'RAZZLE_BUILD_DATE=$(date +%x) && echo $RAZZLE_BUILD_DATE'
           - task: Docker@2
             inputs:
               containerRegistry: "MTSContainers"
