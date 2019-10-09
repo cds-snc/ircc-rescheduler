@@ -31,11 +31,11 @@ import Button from '../components/forms/Button'
 import { ValidationMessage, ErrorList } from '../components/ErrorMessage'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
-// import CancelButton from '../components/CancelButton'
 import { HashLink } from 'react-router-hash-link'
 import { windowExists } from '../utils/windowExists'
 import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
+import DateModified from '../components/DateModified'
 
 const registrationContentClass = css`
   ${contentClass};
@@ -377,9 +377,7 @@ class RegistrationPage extends React.Component {
                       id="accessibility"
                       label={
                         <span>
-                          {accessibleStr}
-                          {' '}
-                          {optionalStr}
+                          {accessibleStr} {optionalStr}
                         </span>
                       }
                       value="yes"
@@ -414,6 +412,8 @@ class RegistrationPage extends React.Component {
             <ReportButton />
           </BottomContainer>
         </div>
+        <div />
+        <DateModified />
       </Layout>
     )
   }

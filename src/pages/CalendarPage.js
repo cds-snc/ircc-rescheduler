@@ -40,13 +40,13 @@ import {
 } from '../utils/calendarDates'
 
 import { CalHeader } from './calendar/CalHeader'
-// import { CalBottom } from './calendar/CalBottom'
 import CalendarPageNoJS from './CalendarPageNoJS'
 import { GoArrowRight } from 'react-icons/go'
 import { ReportButton } from '../components/forms/ReportButton'
 
 import axios from 'axios'
 import moment from 'moment'
+import DateModified from '../components/DateModified'
 
 const DAY_LIMIT = 1
 
@@ -434,6 +434,8 @@ class CalendarPage extends Component {
             <ReportButton />
           </BottomContainer>
         </div>
+        <div />
+        <DateModified />
       </Layout>
     )
   }
