@@ -2,7 +2,6 @@ import React from 'react'
 import { css } from 'emotion'
 import { theme, mediaQuery } from '../../styles'
 import { Trans } from '@lingui/react'
-import { Link } from 'react-router-dom'
 import { GoArrowLeft } from 'react-icons/go'
 
 const goArrowLeft = css`
@@ -99,7 +98,7 @@ const govuk_button = css`
   /* removed IE8-specific rule */
 `
 
-const button = css`
+const back_button = css`
   ${govuk_button};
 
   font-family: SourceSans, Helvetica, Arial, sans-serif;
@@ -161,39 +160,40 @@ const button = css`
 `
 
 export const GoBackButtonReg = () => (
-  <Link to="/">
-    <button className={button}>
+    <button type="reset"
+            onClick={function(){window.location.replace("/");}}
+            className={back_button} >
       <GoArrowLeft className={goArrowLeft} />
       <Trans>Previous</Trans>
     </button>
-  </Link>
+
 )
 
 export const GoBackButtonSelPrv = () => (
-  <Link to="/register">
-    <button className={button}>
+  <button type="reset"
+          onClick={function(){window.location.replace("/register");}}
+          className={back_button}>
       <GoArrowLeft className={goArrowLeft} />
       <Trans>Previous</Trans>
-    </button>
-  </Link>
+  </button>
 )
 
 export const GoBackButtonCal = () => (
-  <Link to="/selectProvince">
-    <button className={button}>
+  <button type="reset"
+    onClick={function(){window.location.replace("/selectProvince");}}
+    className={back_button}>
       <GoArrowLeft className={goArrowLeft} />
       <Trans>Previous</Trans>
-    </button>
-  </Link>
+  </button>
 )
 
 export const GoBackButtonReview = () => (
-  <Link to="/calendar">
-    <button className={button}>
+  <button type="reset"
+          onClick={function(){window.location.replace("/calendar");}}
+          className={back_button}>
       <GoArrowLeft className={goArrowLeft} />
       <Trans>Previous</Trans>
-    </button>
-  </Link>
+  </button>
 )
 
 // export default (GoBackButtonReg, GoBackButtonSelPrv, GoBackButtonCal)
