@@ -5,8 +5,9 @@ import { css } from 'emotion'
 import { NavLink } from 'react-router-dom'
 import { H1, theme } from '../styles'
 import Layout from '../components/Layout'
-import IRCCAbbr from '../components/IRCCAbbr'
 import Title, { matchPropTypes } from '../components/Title'
+import DateModified from '../components/DateModified'
+import { ReportButton } from '../components/forms/ReportButton'
 
 const contentClass = css`
   p {
@@ -23,14 +24,14 @@ class FourOhFourPage extends React.Component {
         <Title path={this.props.match.path} />
         <section>
           <H1 style={{ marginBottom: `${theme.spacing.md}` }}>
-            <Trans>Page not found.</Trans>
+            <Trans>Something went wrong.</Trans>
           </H1>
           <p>
             <Trans>
-              The page you’re trying to reach doesn’t exist. Please retry the
-              link in the email or letter you received from
+            We are temporarily experiencing technical difficulties.
+            <div>Please try again later. Sorry for any inconvenience.</div>
+            
             </Trans>
-            <IRCCAbbr />.
           </p>
           {/*
           If the page name is not-found use the page as a generic
@@ -43,6 +44,8 @@ class FourOhFourPage extends React.Component {
             </NavLink>
           )}
         </section>
+        <ReportButton />
+        <DateModified /> 
       </Layout>
     )
   }

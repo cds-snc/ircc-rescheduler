@@ -48,9 +48,12 @@ const Title = ({ i18n, path }) => {
     case '/privacy':
       title = `${i18n._('Privacy policy')} ${divider} ${title}`
       break
+    case '/not-found':
+      title = `${i18n._('Page not found.')} ${divider} ${title}`
+      break
     /* random urls (ie, 404 pages) */
-    default:
-      title = `${i18n._('Page not found')} ${divider} ${title}`
+    default :
+      title = `${i18n._('Something went wrong.')} ${divider} ${title}`
       break
   }
 

@@ -58,10 +58,10 @@ class HeaderDescription extends React.Component {
         pathTitle = <Trans>Cancel an appointment</Trans>
         break
       case '/500':
-        pathTitle = <Trans>Put 500 text here</Trans>
+        pathTitle = <Trans>The system is temporarily unavailable.</Trans>
         break
       case '/not-found':
-        pathTitle = <Trans>Put 400 text here</Trans>
+        pathTitle = <Trans>Page not found.</Trans>
         break
       default:
       // code block

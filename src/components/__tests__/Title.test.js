@@ -9,7 +9,7 @@ describe('<Title />', () => {
     const wrapper = shallow(<Title i18n={i18n} />)
     expect(wrapper.find('title').length).toBe(1)
     expect(wrapper.find('title').text()).toEqual(
-      'Page not found — Request an appointment for biometrics',
+      'Something went wrong. — Request an appointment for biometrics',
     )
   })
 
@@ -17,7 +17,7 @@ describe('<Title />', () => {
     const wrapper = shallow(<Title i18n={i18n} path={''} />)
     expect(wrapper.find('title').length).toBe(1)
     expect(wrapper.find('title').text()).toEqual(
-      'Page not found — Request an appointment for biometrics',
+      'Something went wrong. — Request an appointment for biometrics',
     )
   })
 
@@ -58,7 +58,7 @@ describe('<Title />', () => {
     },
     {
       path: '/404',
-      title: 'Page not found — Request an appointment for biometrics',
+      title: 'Something went wrong. — Request an appointment for biometrics',
     },
   ]
   titles.map(({ path, title }) => {
