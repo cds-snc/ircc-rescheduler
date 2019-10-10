@@ -46,6 +46,7 @@ class SelectDropDown extends React.Component {
         id={this.props.selId}
         defaultValue="0"
         onChange={this.props.selOnChange}
+        onClick={this.props.selOnClick}
       >
         <option key="0" value="0">
           {this.props.optName1}
@@ -64,6 +65,7 @@ SelectDropDown.propTypes = {
   selName: PropTypes.string,
   selId: PropTypes.string,
   selOnChange: PropTypes.func,
+  selOnClick: PropTypes.func,
   optName1: PropTypes.string,
   optData: PropTypes.array,
 }
