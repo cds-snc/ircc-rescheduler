@@ -19,6 +19,10 @@ errorMessages.emailErrorMessage = (
   </Trans>
 )
 
+errorMessages.selectedTimeErrorMessage = (
+  <Trans>You must select a time to continue.</Trans>
+)
+
 errorMessages.emailInvalidErrorMessage = (
   <Trans>
     Please make sure you provide a valid email address. For example,
@@ -55,7 +59,7 @@ errorMessages.paperFileNumberInvalidErrorMessage = (
 )
 
 errorMessages.selectedDaysEmptyErrorMessage = (
-  <Trans>You must select a date from the calendar.</Trans>
+  <Trans>Select a day and time on the calendar.</Trans>
 )
 
 errorMessages.selectedDaysCountErrorMessage = (
@@ -87,7 +91,7 @@ export const defaultMessages = {
   //'required_with.familyOption': 'familyOptionRequiredWithErrorMessage',
   //'max.familyOption': 'familyOptionMaxErrorMessage',
   'required.selectedDays': 'selectedDaysEmptyErrorMessage',
-  //'required.explanationPage': 'explanationPageErrorMessage',
+  'required.selectedTime': 'selectedTimeErrorMessage',
   //'max.explanationPage': 'explanationPageMaxErrorMessage',
   in: 'inErrorMessage',
 }
