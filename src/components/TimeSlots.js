@@ -5,6 +5,7 @@ import withContext from '../withContext'
 import moment from 'moment'
 import SelectDropDown from '../components/forms/Select'
 import { css } from 'emotion'
+import axios from 'axios'
 
 const selectDropDown = css`
   max-width: 500px;
@@ -19,6 +20,7 @@ class TimeSlots extends Component {
       selectedDay: [],
     }
     this.changeHandler = this.changeHandler.bind(this)
+    this.getNewestTimeslots = this.getNewestTimeslots.bind(this)
   }
 
   async UNSAFE_componentWillReceiveProps() {
@@ -58,25 +60,27 @@ class TimeSlots extends Component {
     this.props.selectedTimeId(event.target.value)
   }
 
-  getTimeStops(start, end) {
-    var startTime = moment(start, 'hh:mm')
-    var endTime = moment(end, 'hh:mm')
-
-    if (endTime.isBefore(startTime)) {
-      endTime.add(1, 'day')
+  getNewestTimeslots() {
+    let accessible = this.props.context.store.register.accessibility[0]
+      ? true
+      : false
+    let locationId = this.props.context.store.selectProvince.locationId
+    let selectedDay = moment(this.props.selectedDay[0]).format('YYYY-MM-DD')
+    let values = {
+      ...this.props.context.store.calendar,
     }
-
-    var timeStops = []
-
-    while (startTime <= endTime) {
-      timeStops.push({
-        value: new moment(startTime).format('hh:mm a'),
-        name: new moment(startTime).format('hh:mm a'),
+    axios
+      .get(
+        `/appointments/timeslots/${locationId}?day=${selectedDay}&accessible=${accessible}`,
+      )
+      .then(async resp => {
+        let timeSlots = resp.data
+        values = {
+          ...values,
+          timeSlots,
+        }
+        await this.props.context.setStore('calendar', values)
       })
-      startTime.add(15, 'minutes')
-    }
-
-    return timeStops
   }
 
   splitTheString(CommaSepStr) {
@@ -92,29 +96,18 @@ class TimeSlots extends Component {
   }
 
   render() {
-    let {
-      context: { store: { selectProvince: { locationHours } = {} } = {} } = {},
-    } = this.props
-
-    if (!locationHours) {
-      locationHours = '0:00-00:00'
-    }
-
-    const openingHour = this.splitTheString(locationHours)
-
-    const start = openingHour[0]
-    const end = openingHour[1]
-
-    const mockData = this.getTimeStops(start, end)
-    const timeSlot = this.removeTimeSlot(mockData)
+    const timeSlot = this.removeTimeSlot(
+      this.props.context.store.calendar.timeSlots,
+    )
 
     return (
-      <div id='select-time' className={selectDropDown}>
+      <div id="select-time" className={selectDropDown}>
         <SelectDropDown
           selName="TimeSlot"
           selId="TimeSlot"
           optName1="Select a time"
           selOnChange={this.changeHandler}
+          selOnClick={this.getNewestTimeslots}
           optData={timeSlot}
         />
       </div>
