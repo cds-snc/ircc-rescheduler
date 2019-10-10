@@ -22,3 +22,27 @@
   font-weight: 700;
   font-display: block;
 }
+@font-face {
+  font-family: NotoSans;
+  src: url(/fonts/NotoSans-Bold.ttf) format('ttf');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: NotoSans;
+  src: url(/fonts/NotoSans-BoldItalic.ttf) format('ttf');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: NotoSans;
+  src: url(/fonts/NotoSans-Italic.ttf) format('ttf');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: NotoSans;
+  src: url(/fonts/NotoSans-Regular.ttf) format('ttf');
+  font-weight: 400;
+  font-display: block;
+}
