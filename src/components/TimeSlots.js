@@ -18,6 +18,7 @@ class TimeSlots extends Component {
       selectedId: 0,
       appointments: [],
       selectedDay: [],
+      timeSlots: [],
     }
     this.changeHandler = this.changeHandler.bind(this)
     this.getNewestTimeslots = this.getNewestTimeslots.bind(this)
@@ -32,26 +33,6 @@ class TimeSlots extends Component {
         } = {},
       } = {},
     } = this.props
-  }
-
-  removeTimeSlot(mockData) {
-    const dbTimeSlots = this.state.appointments
-    const TimeSlotArray = mockData
-
-    for (var i = 0; i < TimeSlotArray.length; i++) {
-      for (var j = 0; j < dbTimeSlots.length; j++) {
-        if (
-          // eslint-disable-next-line security/detect-object-injection
-          dbTimeSlots[j].time.toString() ===
-          // eslint-disable-next-line security/detect-object-injection
-          TimeSlotArray[i].name.toString()
-        ) {
-          TimeSlotArray.splice(i, 1)
-        }
-      }
-    }
-
-    return TimeSlotArray
   }
 
   changeHandler(event) {
@@ -79,6 +60,7 @@ class TimeSlots extends Component {
           ...values,
           timeSlots,
         }
+        this.setState({ timeSlots: timeSlots })
         await this.props.context.setStore('calendar', values)
       })
   }
@@ -96,10 +78,6 @@ class TimeSlots extends Component {
   }
 
   render() {
-    const timeSlot = this.removeTimeSlot(
-      this.props.context.store.calendar.timeSlots,
-    )
-
     return (
       <div id="select-time" className={selectDropDown}>
         <SelectDropDown
@@ -108,7 +86,7 @@ class TimeSlots extends Component {
           optName1="Select a time"
           selOnChange={this.changeHandler}
           selOnClick={this.getNewestTimeslots}
-          optData={timeSlot}
+          optData={this.state.timeSlots}
         />
       </div>
     )
