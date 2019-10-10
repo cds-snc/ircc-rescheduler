@@ -42,9 +42,11 @@ class TimeSlots extends Component {
   }
 
   getNewestTimeslots() {
-    let accessible = this.props.context.store.register.accessibility[0]
-      ? true
-      : false
+    let userSelection = this.props.context.store.register.accessibility
+    let accessible = true
+    if (!userSelection || userSelection[0] === undefined) {
+      accessible = false
+    }
     let locationId = this.props.context.store.selectProvince.locationId
     let selectedDay = moment(this.props.selectedDay[0]).format('YYYY-MM-DD')
     let values = {
