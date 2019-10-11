@@ -6,6 +6,7 @@ import moment from 'moment'
 import SelectDropDown from '../components/forms/Select'
 import { css } from 'emotion'
 import axios from 'axios'
+import { logError } from '../utils/logger'
 
 const selectDropDown = css`
   max-width: 500px;
@@ -64,6 +65,9 @@ class TimeSlots extends Component {
         }
         this.setState({ timeSlots: timeSlots })
         await this.props.context.setStore('calendar', values)
+      })
+      .catch(err => {
+        logError(err)
       })
   }
 
