@@ -27,7 +27,7 @@ function checkA11y(cy) {
   })
 }
 
-describe('Calendar page functions', () => {
+describe.skip('Calendar page functions', () => {
   beforeEach(() => {
     cy.visit('/calendar')
   })
@@ -90,7 +90,7 @@ describe('Calendar page functions', () => {
     // TODO: check for the rest of the text here
   })
 
-  it.skip('should find the first selectable day', () => {
+  it('should find the first selectable day', () => {
     // make sure we are on the right page
     cy.url().should('contains', '/calendar')
     // Compare today's date with the Day--today
