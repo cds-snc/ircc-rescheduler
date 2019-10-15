@@ -148,7 +148,7 @@ describe.skip('Calendar page functions', () => {
 
     // find the time in the dropdown list
     // find the first selection object from the list of Time Slot selection objects
-    cy.get('select[name="TimeSlot"] > option:eq(1)').as('firstObject')
+    // cy.get('select[name="TimeSlot"] > option:eq(1)').as('firstObject')
     // get that object to get the time string from it
     cy.get('@firstObject').then($firstTime => {
       // get the time string from the selected object
