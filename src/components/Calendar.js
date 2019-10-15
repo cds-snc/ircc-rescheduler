@@ -590,6 +590,7 @@ class Calendar extends Component {
     this.handleDayClick = this.handleDayClick.bind(this)
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
     this.getNewTimeslots = this.getNewTimeslots.bind(this)
+    this.getSafe = this.getSafe.bind(this)
     this.state = {
       errorMessage: null,
       daysOfWeek: false,
@@ -608,6 +609,14 @@ class Calendar extends Component {
     }
   }
 
+  getSafe(fn, defaultVal) {
+    try {
+      return fn()
+    } catch (e) {
+      return defaultVal
+    }
+  }
+
   removeDayOnClickOrKeyPress = day => e => {
     /*
       Remove the selected day from the internal state when
@@ -623,12 +632,18 @@ class Calendar extends Component {
   }
 
   getNewTimeslots(selectedDay) {
-    let userSelection = this.props.context.store.register.accessibility
+    let userSelection = this.getSafe(
+      () => this.props.context.store.register.accessibility,
+      false,
+    )
     let accessible = true
     if (!userSelection || userSelection[0] === undefined) {
       accessible = false
     }
-    let locationId = this.props.context.store.selectProvince.locationId
+    let locationId = this.getSafe(
+      () => this.props.context.store.selectProvince.locationId,
+      '40',
+    )
     let formattedDay = moment(selectedDay).format('YYYY-MM-DD')
     let values = {
       ...this.props.context.store.calendar,
