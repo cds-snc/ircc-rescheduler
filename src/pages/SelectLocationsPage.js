@@ -194,6 +194,9 @@ class SelectlocationsPage extends React.Component {
       })
       .catch(function() {
         this.props.history.push('/error')
+        this.setState({
+          loading: false,
+        })
       })
   }
 
@@ -206,6 +209,9 @@ class SelectlocationsPage extends React.Component {
 
   // Save in State the current city then gets the locations in the city
   handleCityChange(event) {
+    if (this.state.loading === true) {
+      return
+    }
     if (
       event.target.value === 'Sélectionnez une ville' ||
       event.target.value === 'Select a City'
@@ -238,7 +244,14 @@ class SelectlocationsPage extends React.Component {
     let { context: { store: { selectProvince = {} } = {} } = {} } = this.props
 
     const locationsData = this.state.provLocations
-    const cityLocations = this.state.cityLocations
+    let cityLocations;
+    //This check is to stop the page from crashing when theres no data
+    //The page will re-render when the loading is complete
+    if (this.state.cityLocations === undefined || this.state.loading === true){
+      cityLocations = [];
+    } else {
+      cityLocations = this.state.cityLocations;
+    }
 
     return (
       <Layout contentClass={locationsContentClass}>
@@ -350,12 +363,14 @@ class SelectlocationsPage extends React.Component {
                       <legend className={visuallyhidden}>
                         List of offices
                       </legend>
-                      {cityLocations.map(
+                      {
+
+                        cityLocations.map(
                         ({
                           locationId,
                           locationAddress,
                           hours,
-                          biokitAmount,
+                          bioKitAmount,
                         }) => (
                           <div
                             key={locationId}
@@ -366,7 +381,7 @@ class SelectlocationsPage extends React.Component {
                                 locationId,
                                 locationAddress,
                                 hours,
-                                biokitAmount,
+                                bioKitAmount,
                               )
                             }}
                           >
@@ -384,7 +399,7 @@ class SelectlocationsPage extends React.Component {
                                       locationId,
                                       locationAddress,
                                       hours,
-                                      biokitAmount,
+                                      bioKitAmount,
                                     )
                                   }}
                                 >
