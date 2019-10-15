@@ -37,18 +37,6 @@ class TimeSlots extends Component {
     this.props.selectedTimeId(event.target.value)
   }
 
-  splitTheString(CommaSepStr) {
-    var ResultArray = null
-
-    if (CommaSepStr != null) {
-      var SplitChars = '-'
-      if (CommaSepStr.indexOf(SplitChars) >= 0) {
-        ResultArray = CommaSepStr.split(SplitChars)
-      }
-    }
-    return ResultArray
-  }
-
   render() {
     return (
       <div id="select-time" className={selectDropDown}>
