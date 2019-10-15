@@ -39,7 +39,7 @@ describe('Calendar page functions', () => {
     checkA11y(cy)
   })
 
-  it.skip('should go to the landing page and show header image and links ', () => {
+  it('should go to the landing page and show header image and links ', () => {
     cy.get(headerImg).should('be.visible')
     cy.get(langLink).should('be.visible', 'Français')
     cy.get('[role="banner"] > :nth-child(2)')
