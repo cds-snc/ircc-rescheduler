@@ -2,11 +2,8 @@ import React, { Component } from 'react'
 import { contextPropTypes } from '../context'
 import { matchPropTypes } from '../components/Title'
 import withContext from '../withContext'
-import moment from 'moment'
 import SelectDropDown from '../components/forms/Select'
 import { css } from 'emotion'
-import axios from 'axios'
-import { logError } from '../utils/logger'
 
 const selectDropDown = css`
   max-width: 500px;
@@ -19,13 +16,11 @@ class TimeSlots extends Component {
       selectedId: 0,
       appointments: [],
       selectedDay: [],
-      timeSlots: [],
     }
     this.changeHandler = this.changeHandler.bind(this)
-    this.getNewestTimeslots = this.getNewestTimeslots.bind(this)
   }
 
-  async UNSAFE_componentWillReceiveProps() {
+  componentDidUpdate() {
     let {
       context: {
         store: {
@@ -40,35 +35,6 @@ class TimeSlots extends Component {
     // event.preventDefault()
     this.setState({ selectedId: event.target.value })
     this.props.selectedTimeId(event.target.value)
-  }
-
-  getNewestTimeslots() {
-    let userSelection = this.props.context.store.register.accessibility
-    let accessible = true
-    if (!userSelection || userSelection[0] === undefined) {
-      accessible = false
-    }
-    let locationId = this.props.context.store.selectProvince.locationId
-    let selectedDay = moment(this.props.selectedDay[0]).format('YYYY-MM-DD')
-    let values = {
-      ...this.props.context.store.calendar,
-    }
-    axios
-      .get(
-        `/appointments/timeslots/${locationId}?day=${selectedDay}&accessible=${accessible}`,
-      )
-      .then(async resp => {
-        let timeSlots = resp.data
-        values = {
-          ...values,
-          timeSlots,
-        }
-        this.setState({ timeSlots: timeSlots })
-        await this.props.context.setStore('calendar', values)
-      })
-      .catch(err => {
-        logError(err)
-      })
   }
 
   splitTheString(CommaSepStr) {
@@ -91,8 +57,7 @@ class TimeSlots extends Component {
           selId="TimeSlot"
           optName1="Select a time"
           selOnChange={this.changeHandler}
-          selOnClick={this.getNewestTimeslots}
-          optData={this.state.timeSlots}
+          optData={this.props.timeSlots}
         />
       </div>
     )
