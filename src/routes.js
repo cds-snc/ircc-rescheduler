@@ -84,6 +84,11 @@ export default [
     component: withProvider(PrivacyPage),
   },
   {
+    path: '/not-found',
+    exact: true,
+    component: withProvider(FourOhFourPage),
+  },
+  {
     path: '*',
     exact: true,
     component: withProvider(FourOhFourPage),

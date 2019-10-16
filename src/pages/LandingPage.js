@@ -6,6 +6,8 @@ import { Trans, withI18n } from '@lingui/react'
 import { css } from 'emotion'
 import styled from '@emotion/styled'
 import { GoArrowRight } from 'react-icons/go'
+import DateModified from '../components/DateModified'
+
 import {
   H2,
   mediaQuery,
@@ -38,6 +40,7 @@ import { trackRegistrationErrors } from '../utils/analytics'
 import FocusedH1 from '../components/FocusedH1'
 // import rightArrow from '../assets/rightArrow.svg'
 //import {logDebug} from '../utils/logger'
+
 const CalendarIcon = styled.div`
   width: 3.45rem;
   height: 3.25rem;
@@ -158,10 +161,6 @@ class LandingPage extends React.Component {
 
     if (submitted || !windowExists()) {
       /*
-      In NoJS mode, we want to return a validation error if someone:
-      - has filled in family members
-      - has not checked the Checkbox
-      So this is the default behaviour
       In JS mode, we will not validate this
       */
       if (windowExists()) {
@@ -419,15 +418,16 @@ class LandingPage extends React.Component {
                       onClick={this.triggerAddTripState}
                       label={
                         <span>
-                         {' '}
-                         {policyStr}
-                         <b
-                           style={{
-                             color: `${theme.colour.red}`,
-                           }}
-                         >
-                          {' '} {requiredStr}
-                         </b>
+                          {' '}
+                          {policyStr}
+                          <b
+                            style={{
+                              color: `${theme.colour.red}`,
+                            }}
+                          >
+                            {' '}
+                            {requiredStr}
+                          </b>
                         </span>
                       }
                       value="yes"
@@ -481,6 +481,8 @@ class LandingPage extends React.Component {
             <ReportButton />
           </BottomContainer>
         </div>
+        <div />
+        <DateModified />
       </Layout>
     )
   }

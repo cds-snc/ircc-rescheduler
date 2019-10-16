@@ -10,7 +10,6 @@ const defaultProps = {
   paperFileNumber: 'A123467890112',
   email: 'test@test.com',
   accessibility: 'Yes',
-  privacy: 'Yes',
   location: 'Ottawa, 123 Somewhere Street',
   selectedDays: selectedDays,
   selectedTime: '10:00',

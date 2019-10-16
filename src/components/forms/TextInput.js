@@ -11,7 +11,7 @@ const placeholder = css`
 `
 const text_input = css`
   font-size: ${theme.font.lg};
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: NotoSans, Helvetica, Arial, sans-serif;
   border: 0.8px solid ${theme.colour.grey}};
   outline: 0;
   padding: ${theme.spacing.xs};

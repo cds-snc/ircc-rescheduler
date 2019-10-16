@@ -4,8 +4,8 @@ import { css } from 'emotion'
 import { H1, theme } from '../styles'
 import Layout from '../components/Layout'
 import Title, { matchPropTypes } from '../components/Title'
-import IRCCAbbr from '../components/IRCCAbbr'
-import Contact from '../components/Contact'
+import DateModified from '../components/DateModified'
+import { ReportButton } from '../components/forms/ReportButton'
 
 const contentClass = css`
   p {
@@ -24,14 +24,13 @@ class FiveHundredPage extends React.Component {
           </H1>
           <p>
             <Trans>
-              Please try the link in your email or letter again. If you keep
-              seeing this page, please contact
+            We are temporarily experiencing technical difficulties.
+            Please try again later. Sorry for any inconvenience.
             </Trans>{' '}
-            <IRCCAbbr /> <Trans>directly to reschedule your appointment.</Trans>
           </p>
-
-          <Contact phoneFirst={true} showEmail={false} />
         </section>
+        <ReportButton />
+        <DateModified />
       </Layout>
     )
   }

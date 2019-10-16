@@ -13,6 +13,7 @@ import { sortSelectedDays } from '../utils/calendarDates'
 import { dateToISODateString } from '../components/Time'
 import Confirmation from '../components/Confirmation'
 import { ReportButton } from '../components/forms/ReportButton'
+import DateModified from '../components/DateModified'
 
 const contentClass = css`
   p {
@@ -62,28 +63,25 @@ class ConfirmationPage extends React.Component {
   }
 
   translateReason(reason) {
-    if (reason) {
-      switch (reason[0]) {
-        case 'yes':
-          return <Trans>Yes</Trans>
-        default:
-          return <Trans>No</Trans>
-      }
+    if (reason && reason === 'yes') {
+      return <Trans>Yes</Trans>
     } else {
       return <Trans>No</Trans>
     }
   }
 
-  hashFromData( email, paperFileNumber ){
-    var hash = 0, i, chr
-    const keys = email+paperFileNumber
-    if (keys.length === 0) return hash;
+  hashFromData(email, paperFileNumber) {
+    var hash = 0,
+      i,
+      chr
+    const keys = email + paperFileNumber
+    if (keys.length === 0) return hash
     for (i = 0; i < keys.length; i++) {
-      chr   = keys.charCodeAt(i);
-      hash  = ((hash << 5) - hash) + chr;
-      hash |= 0; 
+      chr = keys.charCodeAt(i)
+      hash = (hash << 5) - hash + chr
+      hash |= 0
     }
-    return hash;
+    return hash
   }
 
   hasEmailError() {
@@ -95,8 +93,6 @@ class ConfirmationPage extends React.Component {
     return false
   }
 
- 
-
   render() {
     let {
       context: {
@@ -104,8 +100,7 @@ class ConfirmationPage extends React.Component {
           register: {
             paperFileNumber,
             email,
-            familyCheck,
-            familyOption,
+            accessibility,
             // hashFromData,
           } = {},
 
@@ -129,7 +124,7 @@ class ConfirmationPage extends React.Component {
 
     return (
       <Layout contentClass={contentClass}>
-        <Title path={this.props.match.path} />
+        <Title path={this.props.match.path}/>
         <FocusedH1 className={visuallyhidden}>
           <Trans>Confirmation</Trans>
         </FocusedH1>
@@ -139,35 +134,28 @@ class ConfirmationPage extends React.Component {
           </p>
         ) : (
           <EmailError />
-        )} 
+        )}
 
         <section>
           <Confirmation
-            hashFromData={this.hashFromData( email, paperFileNumber ).toString()}
+            hashFromData={this.hashFromData(email, paperFileNumber).toString()}
             paperFileNumber={paperFileNumber}
             email={email}
-            accessibility={this.translateReason(familyCheck)}
-            privacy={this.translateReason(familyOption)}
-            location={
-              locationCity && locationAddress
-                ? locationCity + ', ' + locationAddress
-                : ''
-            }
+            accessibility={this.translateReason(accessibility)}
+            location={(locationCity && locationAddress) ? locationCity + ', ' + locationAddress : ''}
             selectedDays={days}
             selectedTime={selectedTime}
           />
 
-          
-
-          <H2 id='reminder-text'>
+          <H2 id="reminder-text">
             <Trans>What happens next?</Trans>
           </H2>
           <p>
             <Trans>
-              Remember to bring: <br />
-              1.- Your BIL letter <br />
-              2.- This confirmation number <br />
-              3.- Your immigration papers <br /> <br />
+              Remember to bring: <br/>
+              1.- Your BIL letter <br/>
+              2.- This confirmation number <br/>
+              3.- Your immigration papers <br/> <br/>
             </Trans>
 
             <Trans>
@@ -183,6 +171,8 @@ class ConfirmationPage extends React.Component {
             <ReportButton />
           </BottomContainer>
         </div>
+        <div />
+        <DateModified />
       </Layout>
     )
   }

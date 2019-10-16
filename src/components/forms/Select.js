@@ -50,11 +50,13 @@ class SelectDropDown extends React.Component {
         <option key="0" value="0">
           {this.props.optName1}
         </option>
-        {this.props.optData.map(({ name, value }) => (
-          <option key={value} value={value}>
-            {name}
-          </option>
-        ))}
+        {Array.isArray(this.props.optData)
+          ? this.props.optData.map(({ name, value }) => (
+              <option key={value} value={value}>
+                {name}
+              </option>
+            ))
+          : null}
       </select>
     )
   }

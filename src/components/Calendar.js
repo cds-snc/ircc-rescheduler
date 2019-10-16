@@ -9,6 +9,7 @@ import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import MobileCancel from './MobileCancel'
 import { getDateInfo } from '../utils/linguiUtils'
+import withContext from '../withContext'
 import {
   getStartMonth,
   getEndDate,
@@ -30,6 +31,9 @@ import { windowExists } from '../utils/windowExists'
 // import { CheckboxAdapter } from '../components/forms/MultipleChoice'
 // import { Field } from 'react-final-form'
 import TimeSlots from './TimeSlots'
+import moment from 'moment'
+import axios from 'axios'
+import { logError } from '../utils/logger'
 
 const jiggle = keyframes`
 10%, 60% {
@@ -585,6 +589,8 @@ class Calendar extends Component {
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
+    this.getNewTimeslots = this.getNewTimeslots.bind(this)
+    this.getSafe = this.getSafe.bind(this)
     this.state = {
       errorMessage: null,
       daysOfWeek: false,
@@ -603,6 +609,14 @@ class Calendar extends Component {
     }
   }
 
+  getSafe(fn, defaultVal) {
+    try {
+      return fn()
+    } catch (e) {
+      return defaultVal
+    }
+  }
+
   removeDayOnClickOrKeyPress = day => e => {
     /*
       Remove the selected day from the internal state when
@@ -615,6 +629,41 @@ class Calendar extends Component {
     ) {
       this.handleDayClick(day, { selected: true })
     }
+  }
+
+  getNewTimeslots(selectedDay) {
+    let userSelection = this.getSafe(
+      () => this.props.context.store.register.accessibility,
+      false,
+    )
+    let accessible = true
+    if (!userSelection || userSelection[0] === undefined) {
+      accessible = false
+    }
+    let locationId = this.getSafe(
+      () => this.props.context.store.selectProvince.locationId,
+      '40',
+    )
+    let formattedDay = moment(selectedDay).format('YYYY-MM-DD')
+    let values = {
+      ...this.props.context.store.calendar,
+    }
+    axios
+      .get(
+        `/appointments/timeslots/${locationId}?day=${formattedDay}&accessible=${accessible}`,
+      )
+      .then(async resp => {
+        let timeSlots = resp.data
+        values = {
+          ...values,
+          timeSlots,
+        }
+        await this.setState({ timeSlots: timeSlots })
+        await this.props.context.setStore('calendar', values)
+      })
+      .catch(err => {
+        logError(err)
+      })
   }
 
   /*
@@ -671,6 +720,7 @@ class Calendar extends Component {
 
       // push new day into array of selectedDays
       selectedDays.push(day)
+      this.getNewTimeslots(selectedDays[0])
     } else {
       // If we have already selected this day, unselect it
       const selectedIndex = selectedDays.findIndex(selectedDay =>
@@ -867,6 +917,7 @@ class Calendar extends Component {
                   <TimeSlots
                     selectedTimeId={this.selectedTime}
                     selectedDay={value}
+                    timeSlots={this.state.timeSlots}
                   />
                 </div>
               </div>
@@ -893,5 +944,5 @@ Calendar.propTypes = {
   showAvailability: PropTypes.bool,
 }
 
-const CalendarAdapter = withI18n()(Calendar)
+const CalendarAdapter = withContext(withI18n()(Calendar))
 export { CalendarAdapter as default, renderDayBoxes }

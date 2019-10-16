@@ -46,7 +46,6 @@ export const CalHeader = ({
   path,
   headerMonth = '',
   headerNote = [],
-  familyOption = [],
 }) => {
   return (
     <div>
@@ -61,7 +60,7 @@ export const CalHeader = ({
       </TopContainer> */}
 
       <FocusedH1 id="calendar-header" className={calH1}>
-        <CalendarH1 familyOption={familyOption} locale={locale} />
+        <CalendarH1 locale={locale} />
       </FocusedH1>
 
       {windowExists() && (
@@ -82,5 +81,4 @@ CalHeader.propTypes = {
   path: PropTypes.string.isRequired,
   headerMonth: PropTypes.string,
   headerNote: PropTypes.array,
-  familyOption: PropTypes.array,
 }

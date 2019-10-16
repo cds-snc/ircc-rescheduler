@@ -88,8 +88,6 @@ export const defaultMessages = {
   //'required.explanation': 'explanationErrorMessage',
   //'max.explanation': 'explanationMaxErrorMessage',
   'required.policyCheck': 'policyCheckRequiredWithErrorMessage',
-  //'required_with.familyOption': 'familyOptionRequiredWithErrorMessage',
-  //'max.familyOption': 'familyOptionMaxErrorMessage',
   'required.selectedDays': 'selectedDaysEmptyErrorMessage',
   'required.selectedTime': 'selectedTimeErrorMessage',
   //'max.explanationPage': 'explanationPageMaxErrorMessage',
@@ -119,8 +117,7 @@ export const RegistrationFields = {
   paperFileNumber: 'required|paper_file_number',
   email: `required|email`,
   emailConfirm: 'required|email|same:email',
-  familyCheck: 'present',
-  familyOption: 'present',
+  accessibility: 'present',
 }
 
 export const LandingFields = {
@@ -132,6 +129,7 @@ export const CalendarFields = {
   selectedTime: 'required',
   tempAppointment: 'accept_anything',
   availability: 'accept_anything',
+  timeSlots: 'accept_anything',
 }
 
 export const SelectLocationFields = {
