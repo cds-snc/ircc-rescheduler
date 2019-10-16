@@ -32,7 +32,7 @@ describe('should perform functions on the review page', () => {
     cy.visit('/')
   })
 
-  it.skip('Should pass the data from register, location and calendar to the review page', () => {
+  it('Should pass the data from register, location and calendar to the review page', () => {
     cy.injectAxe()
 
     // check the accept privacy notice box

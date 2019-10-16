@@ -27,7 +27,7 @@ function checkA11y(cy) {
   })
 }
 
-describe.skip('Calendar page functions', () => {
+describe('Calendar page functions', () => {
   beforeEach(() => {
     cy.visit('/calendar')
   })
@@ -85,12 +85,12 @@ describe.skip('Calendar page functions', () => {
   })
 
   // This needs to be updated for the text TBD
-  it('should contain some text', () => {
+  it('should contain Step 3 of 4...', () => {
     cy.get('#calendar-header').should('contains.text', 'Select a day')
     // TODO: check for the rest of the text here
   })
 
-  it('should find the first selectable day', () => {
+  it.only('should find the first selectable day', () => {
     // make sure we are on the right page
     cy.url().should('contains', '/calendar')
     // Compare today's date with the Day--today
