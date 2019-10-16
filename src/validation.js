@@ -125,6 +125,7 @@ export const CalendarFields = {
   selectedTime: 'required',
   tempAppointment: 'accept_anything',
   availability: 'accept_anything',
+  timeSlots: 'accept_anything',
 }
 
 export const SelectLocationFields = {

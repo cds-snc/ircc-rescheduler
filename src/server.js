@@ -110,6 +110,31 @@ server
         res.status(503).send()
       })
   })
+  .get('/appointments/timeslots/:locationId', (req, res) => {
+    let locationId = req.params.locationId
+    let day = req.query.day
+    let accessible = req.query.accessible
+    let data = ''
+    http
+      .get(
+        `${apiHost}/appointments/timeslots/${locationId}?day=${day}&accessible=${accessible}`,
+        resp => {
+          logDebug(`STATUS: ${resp.statusCode}`)
+          logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
+          resp.on('data', chunk => {
+            data += chunk
+            res.status(200).send(data)
+          })
+        },
+      )
+      .on('error', err => {
+        logError(
+          'Something went wrong when calling the API appointments/timeslots:  ' +
+            err.message,
+        )
+        res.status(503).send()
+      })
+  })
   .post('/appointments/temp', (req, res) => {
     let data = JSON.stringify(req.body)
     const options = {
