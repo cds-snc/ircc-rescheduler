@@ -51,6 +51,8 @@ server
         logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
         resp.on('data', chunk => {
           data += chunk
+        })
+        resp.on('end', function() {
           res.status(200).send(data)
         })
       })
@@ -72,6 +74,8 @@ server
         logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
         resp.on('data', chunk => {
           data += chunk
+        })
+        resp.on('end', function() {
           res.status(200).send(data)
         })
       })
@@ -93,6 +97,8 @@ server
         logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
         resp.on('data', chunk => {
           data += chunk
+        })
+        resp.on('end', function() {
           res.status(200).send(data)
         })
       })
