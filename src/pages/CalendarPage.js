@@ -5,6 +5,8 @@ import withContext from '../withContext'
 import { Trans } from '@lingui/react'
 import { css } from 'emotion'
 import { GoBackButtonCal } from '../components/forms/GoBackButton'
+
+import { HashLink } from 'react-router-hash-link'
 import {
   mediaQuery,
   theme,
@@ -29,7 +31,7 @@ import CalendarAdapter from '../components/Calendar'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import { makeGMTDate, dateToISODateString } from '../components/Time'
-import ErrorMessage from '../components/ErrorMessage'
+import { ErrorList } from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
 import { logEvent } from '../utils/analytics'
 import {
@@ -83,6 +85,17 @@ const spacingButton = css`
   position: relative;
   top: 35px;
 `
+
+const labelNames = id => {
+  switch (id) {
+    case 'selectedDays':
+      return <Trans>Select a day</Trans>
+    case 'selectedTime':
+      return <Trans>Select a time</Trans>
+    default:
+      return ''
+  }
+}
 
 class CalendarPage extends Component {
   static get fields() {
@@ -174,6 +187,7 @@ class CalendarPage extends Component {
     if (id === '0') id = ''
     this.setState({ timeValue: id })
   }
+
   forceRender(values) {
     // call setState to force a render
     this.setState({ calValues: values })
@@ -257,11 +271,18 @@ class CalendarPage extends Component {
         `Error: ${values.selectedDays.length} Day(s) selected`,
       )
 
-      const err = errorMessages[submitErrors.selectedDays]
-        ? errorMessages[submitErrors.selectedDays]
-        : submitErrors.selectedDays
-      return {
-        [FORM_ERROR]: err,
+      if (this.validate(values).selectedDays) {
+        const err = errorMessages[submitErrors.selectedDays]
+        return {
+          [FORM_ERROR]: err,
+        }
+      }
+
+      if (this.validate(values).selectedTime) {
+        const err = errorMessages[submitErrors.selectedTime]
+        return {
+          [FORM_ERROR]: err,
+        }
       }
     }
 
@@ -335,37 +356,14 @@ class CalendarPage extends Component {
             errors,
             submitError,
           }) => {
-            let err
-
             const notValid = this.hasNotValid()
             const { availability } = values
 
-            if (submitError && this.validate(values).selectedDays) {
-              let valuesLength =
-                values && values.selectedDays && values.selectedDays.length
-                  ? values.selectedDays.length
-                  : 0
+            let selectedTime = this.state.timeValue
 
-              switch (valuesLength) {
-                case 1:
-                  err = (
-                    <React.Fragment>
-                      {submitError}{' '}
-                      <Trans>Please select 2 more days to continue.</Trans>
-                    </React.Fragment>
-                  )
-                  break
-                case 2:
-                  err = (
-                    <React.Fragment>
-                      {submitError}{' '}
-                      <Trans>Please select 1 more day to continue.</Trans>
-                    </React.Fragment>
-                  )
-                  break
-                default:
-                  err = submitError
-              }
+            values = {
+              ...values,
+              selectedTime,
             }
 
             return (
@@ -393,10 +391,21 @@ class CalendarPage extends Component {
                       this.errorContainer = errorContainer
                     }}
                   >
-                    <ErrorMessage
-                      message={err ? err : null}
-                      id="fewerDays-error"
-                    />
+                    <ErrorList message={submitError || ''}>
+                      {Object.keys(this.validate(values)).map((formId, i) => (
+                        <HashLink
+                          to={
+                            formId === 'reason'
+                              ? '#reason-header'
+                              : `#${formId}-label`
+                          }
+                          key={i}
+                        >
+                          {labelNames(formId) ? labelNames(formId) : formId}
+                          <br />
+                        </HashLink>
+                      ))}
+                    </ErrorList>
                   </div>
                   <Field
                     name="selectedDays"
