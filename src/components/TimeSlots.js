@@ -40,13 +40,23 @@ class TimeSlots extends Component {
   render() {
     return (
       <div id="select-time" className={selectDropDown}>
-        <SelectDropDown
-          selName="TimeSlot"
-          selId="TimeSlot"
-          optName1="Select a time"
-          selOnChange={this.changeHandler}
-          optData={this.props.timeSlots}
-        />
+        {this.props.context.store.language === 'en' ? (
+          <SelectDropDown
+            selName="TimeSlot"
+            selId="TimeSlot"
+            optName1="Select a time"
+            selOnChange={this.changeHandler}
+            optData={this.props.timeSlots}
+          />
+        ) : (
+          <SelectDropDown
+            selName="TimeSlot"
+            selId="TimeSlot"
+            optName1="Sélectionnez une heure"
+            selOnChange={this.changeHandler}
+            optData={this.props.timeSlots}
+          />
+        )}
       </div>
     )
   }

@@ -687,6 +687,7 @@ class Calendar extends Component {
     day = makeGMTDate(day)
 
     let { dayLimit } = this.props
+
     const selectedDays = this.props.input.value || []
 
     if (selected) {
@@ -729,7 +730,7 @@ class Calendar extends Component {
     }
 
     this.props.input.value = selectedDays
-    this.props.input.time = '10:00'
+
     this.props.input.onChange(this.props.input.value)
 
     await this.setState({
@@ -930,6 +931,7 @@ class Calendar extends Component {
 
 Calendar.defaultProps = {
   forceRender: () => {}, //used to for a parent re-render after clicking on a day
+  updateTime: () => {},
   changeMonth: () => {},
   showAvailability: false,
 }
@@ -938,6 +940,7 @@ Calendar.propTypes = {
   ...FieldAdapterPropTypes,
   dayLimit: PropTypes.number.isRequired,
   forceRender: PropTypes.func,
+  updateTime: PropTypes.func,
   showAvailability: PropTypes.bool,
 }
 
