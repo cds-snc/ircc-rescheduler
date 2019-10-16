@@ -103,14 +103,6 @@ class CalendarPage extends Component {
   }
 
   static validate(values) {
-    // eslint-disable-next-line no-console
-    // eslint-disable-next-line no-console
-    console.log(values.selectedTime)
-    if (!values.selectedDays) {
-      values.selectedTime = ''
-    }
-    // eslint-disable-next-line no-console
-    console.log(values.selectedTime)
     // create a cloned object from the original CalendarFields
     let calendarFields = Object.assign({}, CalendarFields)
 
@@ -192,15 +184,10 @@ class CalendarPage extends Component {
   }
 
   updateTime(id) {
-    // eslint-disable-next-line no-console
-    console.log(id)
-
+    if (id === '0') id = ''
     this.setState({ timeValue: id })
-    // eslint-disable-next-line no-console
-    console.log(this.state.timeValue)
-    // eslint-disable-next-line no-console
-    console.log('time here2')
   }
+
   forceRender(values) {
     // call setState to force a render
     this.setState({ calValues: values })
@@ -262,18 +249,6 @@ class CalendarPage extends Component {
     )
 
     let selectedTime = this.state.timeValue
-    // eslint-disable-next-line no-console
-    console.log('time here')
-    // eslint-disable-next-line no-console
-    console.log(selectedTime)
-    // eslint-disable-next-line no-console
-    console.log(selectedDays)
-
-    if (selectedDays === null) {
-      // eslint-disable-next-line no-console
-      console.log('time here')
-      values.selectedTime = ''
-    }
 
     values = {
       ...values,
@@ -385,6 +360,13 @@ class CalendarPage extends Component {
           }) => {
             const notValid = this.hasNotValid()
             const { availability } = values
+
+            let selectedTime = this.state.timeValue
+
+            values = {
+              ...values,
+              selectedTime,
+            }
 
             return (
               <form

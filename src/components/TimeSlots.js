@@ -109,14 +109,24 @@ class TimeSlots extends Component {
     const timeSlot = this.removeTimeSlot(mockData)
 
     return (
-      <div id='select-time' className={selectDropDown}>
-        <SelectDropDown
-          selName="TimeSlot"
-          selId="TimeSlot"
-          optName1="Select a time"
-          selOnChange={this.changeHandler}
-          optData={timeSlot}
-        />
+      <div id="select-time" className={selectDropDown}>
+        {this.props.context.store.language === 'en' ? (
+          <SelectDropDown
+            selName="TimeSlot"
+            selId="TimeSlot"
+            optName1="Select a time"
+            selOnChange={this.changeHandler}
+            optData={timeSlot}
+          />
+        ) : (
+          <SelectDropDown
+            selName="TimeSlot"
+            selId="TimeSlot"
+            optName1="Sélectionnez une heure"
+            selOnChange={this.changeHandler}
+            optData={timeSlot}
+          />
+        )}
       </div>
     )
   }
