@@ -18,17 +18,13 @@ import {
 import gitHash from './utils/gitHash'
 import { handleSubmitEmail } from './email/handleSubmitEmail'
 import { logError, logDebug } from './utils/logger'
-
 checkEnvironmentVariables()
-
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
   path.join(process.cwd(), 'build', 'assets.json'))
-
 const server = express()
 const helmet = require('helmet')
 const apiHost = process.env.CONNECTION_STRING
-
 server
   .use(helmet()) // sets security-focused headers: https://helmetjs.github.io/
   .use(helmet.frameguard({ action: 'deny' })) // Sets "X-Frame-Options: DENY".
@@ -104,6 +100,7 @@ server
         res.status(503).send()
       })
   })
+  
   .post('/appointments/temp', (req, res) => {
     let data = JSON.stringify(req.body)
     const options = {
@@ -137,6 +134,7 @@ server
     res.redirect(`/cancel?language=${language}`)
   })
   .all('/*', async (req, res) => {
+    console.log("all")
     const customRenderer = node => ({
       gitHashString: gitHash(),
       path: req.url,
@@ -151,7 +149,6 @@ server
         customRenderer,
         document: Document,
       })
-
       return res.locals.redirect
         ? res.redirect(res.locals.redirect)
         : res.send(html)
@@ -161,9 +158,7 @@ server
       return
     }
   })
-
 export default server
-
 function checkEnvironmentVariables() {
   if (process.env.SKIP_SECRET_CHECK !== 'TRUE') {
     const key = process.env.NOTIFICATION_API_KEY
@@ -176,3 +171,4 @@ function checkEnvironmentVariables() {
     throw 'NOTIFICATION_API_BASE_URL environment variable not found'
   }
 }
+

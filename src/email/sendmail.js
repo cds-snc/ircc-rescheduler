@@ -8,17 +8,17 @@ const notifyClient =
 
 export const sendNotification = async (params = { email, templateId, options }) => {
   const { templateId, email, options } = params;
-
+ console.log(options)
   if (!templateId || !email) {
     logError("no template ID or email was passed");
     return false;
   }
 
-  try {
-    const response = await notifyClient.sendEmail(templateId, email, options);
-    return response.body;
-  } catch (err) {
-    logError(err)
-    return false;
-  }
+  // try {
+  //   const response = await notifyClient.sendEmail(templateId, email, options);
+  //   return response.body;
+  // } catch (err) {
+  //   logError(err)
+  //   return false;
+  // }
 };

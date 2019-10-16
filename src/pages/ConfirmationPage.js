@@ -70,19 +70,19 @@ class ConfirmationPage extends React.Component {
     }
   }
 
-  hashFromData(email, paperFileNumber) {
-    var hash = 0,
-      i,
-      chr
-    const keys = email + paperFileNumber
-    if (keys.length === 0) return hash
-    for (i = 0; i < keys.length; i++) {
-      chr = keys.charCodeAt(i)
-      hash = (hash << 5) - hash + chr
-      hash |= 0
-    }
-    return hash
-  }
+  // hashFromData(email, paperFileNumber) {
+  //   var hash = 0,
+  //     i,
+  //     chr
+  //   const keys = email + paperFileNumber
+  //   if (keys.length === 0) return hash
+  //   for (i = 0; i < keys.length; i++) {
+  //     chr = keys.charCodeAt(i)
+  //     hash = (hash << 5) - hash + chr
+  //     hash |= 0
+  //   }
+  //   return hash
+  // }
 
   hasEmailError() {
     const { match } = this.props
@@ -101,7 +101,7 @@ class ConfirmationPage extends React.Component {
             paperFileNumber,
             email,
             accessibility,
-            // hashFromData,
+            hashFromData,
           } = {},
 
           calendar: { selectedDays = [], selectedTime } = {},
@@ -138,7 +138,7 @@ class ConfirmationPage extends React.Component {
 
         <section>
           <Confirmation
-            hashFromData={this.hashFromData(email, paperFileNumber).toString()}
+            hashFromData={hashFromData}
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(accessibility)}

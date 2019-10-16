@@ -14,7 +14,6 @@ import { dateToISODateString } from '../components/Time'
 import FocusedH1 from '../components/FocusedH1'
 import { ReportButton } from '../components/forms/ReportButton'
 import DateModified from '../components/DateModified'
-
 const contentClass = css`
   p {
     padding-bottom: ${theme.spacing.lg};
@@ -24,18 +23,15 @@ const spacingButton = css`
   position: relative;
   top: 2px;
 `
-
 class ReviewPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = { sending: false }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-
   handleSubmit() {
     this.setState({ sending: true })
   }
-
   translateReason(reason) {
     if (reason && reason === 'yes') {
       return <Trans>Yes</Trans>
@@ -43,22 +39,20 @@ class ReviewPage extends React.Component {
       return <Trans>No</Trans>
     }
   }
-
-  // from: stackoverflow 'generate a hash from string...'
-  hashFromData(email, paperFileNumber) {
-    var hash = 0,
-      i,
-      chr
-    const keys = email + paperFileNumber
-    if (keys.length === 0) return hash
-    for (i = 0; i < keys.length; i++) {
-      chr = keys.charCodeAt(i)
-      hash = (hash << 5) - hash + chr
-      hash |= 0
-    }
-    return hash
-  }
-
+// from: stackoverflow 'generate a hash from string...'
+// hashFromData(email, paperFileNumber) {
+//   var hash = 0,
+//     i,
+//     chr
+//   const keys = email + paperFileNumber
+//   if (keys.length === 0) return hash
+//   for (i = 0; i < keys.length; i++) {
+//     chr = keys.charCodeAt(i)
+//     hash = (hash << 5) - hash + chr
+//     hash |= 0
+//   }
+//   return hash
+// }
   render() {
     let {
       context: {
@@ -69,17 +63,19 @@ class ReviewPage extends React.Component {
             accessibility,
             // hashFromData,
           } = {},
-
-          calendar: { selectedDays = [], selectedTime } = {},
+          calendar: { selectedDays = [], selectedTime,
+            tempAppointment:{
+              _id
+            } = {}
+          } = {},
           selectProvince: { locationCity, locationAddress } = {},
         } = {},
       } = {},
     } = this.props
-
+    console.log(JSON.stringify(this.props))
+    console.log('ID: ' + _id)
     const { sending } = this.state
-
     let days = []
-
     if (selectedDays) {
       days = sortSelectedDays(
         selectedDays.map(day => {
@@ -89,15 +85,12 @@ class ReviewPage extends React.Component {
     }
     return (
       <Layout contentClass={contentClass}>
-        <Title path={this.props.match.path} />
-
+        <Title path={this.props.match.path}/>
         <FocusedH1 id="review-header">
           <Trans>Review your request:</Trans>
         </FocusedH1>
-
         <section>
           <Summary
-            hashFromData={this.hashFromData(email, paperFileNumber).toString()}
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(accessibility !== undefined ? accessibility[0] : 'No')}
@@ -124,9 +117,8 @@ class ReviewPage extends React.Component {
               </React.Fragment>
             )}
           </Reminder> */}
-
           <SubmissionForm
-            hashFromData={this.hashFromData(email, paperFileNumber).toString()}
+            hashFromData={_id}
             email={email}
             paperFileNumber={paperFileNumber}
             accessibility={accessibility !== undefined ? accessibility[0] : 'No'}
@@ -139,11 +131,11 @@ class ReviewPage extends React.Component {
         </section>
         <div className={spacingButton}>
           <BottomContainer>
-            <ReportButton />
+            <ReportButton/>
           </BottomContainer>
         </div>
-        <div />
-        <DateModified />
+        <div/>
+        <DateModified/>
       </Layout>
     )
   }
@@ -152,5 +144,4 @@ ReviewPage.propTypes = {
   ...contextPropTypes,
   ...matchPropTypes,
 }
-
 export default withContext(ReviewPage)
