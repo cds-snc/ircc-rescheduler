@@ -608,7 +608,7 @@ class Calendar extends Component {
       this.removeDateContainer.focus()
     }
 
-    this.getNewTimeslots(this.props.context.store.calendar.selectedDays[0])
+    this.getNewTimeslots(this.props.month)
   }
 
   getSafe(fn, defaultVal) {
@@ -634,8 +634,6 @@ class Calendar extends Component {
   }
 
   getNewTimeslots(selectedDay) {
-    // eslint-disable-next-line no-console
-    console.log(selectedDay)
     let userSelection = this.getSafe(
       () => this.props.context.store.register.accessibility,
       false,
