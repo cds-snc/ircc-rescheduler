@@ -1,6 +1,6 @@
 import { sendNotification } from './sendmail'
 import { logDebug, logError, logerror } from '../utils/logger'
-import http from "http"
+import http from 'http'
 
 const apiHost = process.env.CONNECTION_STRING
 const CONFIRMATION_EMAIL = 'af563da5-43bd-4b9a-9610-e3990a7f4315'
@@ -16,15 +16,19 @@ export const getEmailConfirm = (documentId, cb) => {
         data += chunk
       })
       resp.on('end', function() {
-        console.log(data)
+        data = JSON.parse(data)
+        // eslint-disable-next-line no-console
+        console.log('here1')
+        console.log(data.confirmation)
         cb(null, data.confirmation)
-        console.log(data)
+        // console.log('here1')
+        // console.log(data)
       })
     })
     .on('error', err => {
       logError(
         'Something went wrong when calling the API appointments/confirmation:  ' +
-        err.message,
+          err.message,
       )
       cb(err)
     })
@@ -32,28 +36,30 @@ export const getEmailConfirm = (documentId, cb) => {
 
 export const handleSubmitEmail = async (req, res) => {
   let input = Object.assign({}, req.body)
-  console.log(input)// make a new object
+  console.log(input) // make a new object
   if (input.templateId === CONFIRMATION_EMAIL) {
-    console.log("before email confirm "+input.hashFromData)
-    getEmailConfirm(input.hashFromData, function(err, confirmation){
-      if (err){
+    console.log('before email confirm ' + input.hashFromData)
+    getEmailConfirm(input.hashFromData, function(err, confirmation) {
+      console.log(confirmation)
+      if (err) {
         console.log(err)
         return res.redirect('/confirmation/client-request-issue')
       }
-      console.log("after email confirm")
-      console.log(confirmation)
+      console.log('after email confirm')
+      console.log(input.hashFromData)
       try {
         const response = sendNotification({
           email: input.email,
           templateId: input.templateId,
           options: {
             personalisation: {
-              hashFromData: input.hashFromData,
+              hashFromData: confirmation,
               paperFileNumber: input.paperFileNumber,
               location: input.location,
               selectedDay: input.selectedDay,
               selectedTime: input.selectedTime,
-              accessibility: input.accessibility.length > 0 ? input.accessibility[0] : 'No',
+              accessibility:
+                input.accessibility.length > 0 ? input.accessibility[0] : 'No',
             },
           },
         }).catch(err => {

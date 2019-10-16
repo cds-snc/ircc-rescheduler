@@ -39,20 +39,20 @@ class ReviewPage extends React.Component {
       return <Trans>No</Trans>
     }
   }
-// from: stackoverflow 'generate a hash from string...'
-// hashFromData(email, paperFileNumber) {
-//   var hash = 0,
-//     i,
-//     chr
-//   const keys = email + paperFileNumber
-//   if (keys.length === 0) return hash
-//   for (i = 0; i < keys.length; i++) {
-//     chr = keys.charCodeAt(i)
-//     hash = (hash << 5) - hash + chr
-//     hash |= 0
-//   }
-//   return hash
-// }
+  // from: stackoverflow 'generate a hash from string...'
+  // hashFromData(email, paperFileNumber) {
+  //   var hash = 0,
+  //     i,
+  //     chr
+  //   const keys = email + paperFileNumber
+  //   if (keys.length === 0) return hash
+  //   for (i = 0; i < keys.length; i++) {
+  //     chr = keys.charCodeAt(i)
+  //     hash = (hash << 5) - hash + chr
+  //     hash |= 0
+  //   }
+  //   return hash
+  // }
   render() {
     let {
       context: {
@@ -63,10 +63,10 @@ class ReviewPage extends React.Component {
             accessibility,
             // hashFromData,
           } = {},
-          calendar: { selectedDays = [], selectedTime,
-            tempAppointment:{
-              _id
-            } = {}
+          calendar: {
+            selectedDays = [],
+            selectedTime,
+            tempAppointment: { _id } = {},
           } = {},
           selectProvince: { locationCity, locationAddress } = {},
         } = {},
@@ -85,7 +85,7 @@ class ReviewPage extends React.Component {
     }
     return (
       <Layout contentClass={contentClass}>
-        <Title path={this.props.match.path}/>
+        <Title path={this.props.match.path} />
         <FocusedH1 id="review-header">
           <Trans>Review your request:</Trans>
         </FocusedH1>
@@ -93,7 +93,9 @@ class ReviewPage extends React.Component {
           <Summary
             paperFileNumber={paperFileNumber}
             email={email}
-            accessibility={this.translateReason(accessibility !== undefined ? accessibility[0] : 'No')}
+            accessibility={this.translateReason(
+              accessibility !== undefined ? accessibility[0] : 'No',
+            )}
             location={locationCity + ', ' + locationAddress}
             selectedDays={days}
             selectedTime={selectedTime}
@@ -121,7 +123,9 @@ class ReviewPage extends React.Component {
             hashFromData={_id}
             email={email}
             paperFileNumber={paperFileNumber}
-            accessibility={accessibility !== undefined ? accessibility[0] : 'No'}
+            accessibility={
+              accessibility !== undefined ? accessibility[0] : 'No'
+            }
             location={locationCity + ', ' + locationAddress}
             selectedDays={selectedDays}
             selectedTime={selectedTime}
@@ -131,11 +135,11 @@ class ReviewPage extends React.Component {
         </section>
         <div className={spacingButton}>
           <BottomContainer>
-            <ReportButton/>
+            <ReportButton />
           </BottomContainer>
         </div>
-        <div/>
-        <DateModified/>
+        <div />
+        <DateModified />
       </Layout>
     )
   }
