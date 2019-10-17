@@ -607,6 +607,8 @@ class Calendar extends Component {
     if (this.oneDatesArePicked && this.props.input.value.length === 1) {
       this.removeDateContainer.focus()
     }
+
+    this.getNewTimeslots(this.props.month)
   }
 
   getSafe(fn, defaultVal) {
