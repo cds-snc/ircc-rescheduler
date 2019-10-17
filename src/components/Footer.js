@@ -69,15 +69,17 @@ const bottomLinks = css`
   column-count: 5;
 
   > * {
-    margin-right: ${theme.spacing.xl};
+    margin-right: ${theme.spacing.md};
 
     ${mediaQuery.md(css`
-      margin-right: ${theme.spacing.lg};
-      column-count: 3;
+      margin-right: ${theme.spacing.md};
+
+      font-size: ${theme.font.xs};
     `)};
 
     ${mediaQuery.sm(css`
       margin-bottom: ${theme.spacing.xs};
+      font-size: ${theme.font.xs};
       column-count: 1;
     `)};
   }
@@ -97,7 +99,7 @@ const bottomLinks = css`
   `)};
 
   ${mediaQuery.sm(css`
-    margin-top: ${theme.spacing.md};
+    margin-top: ${theme.spacing.sm};
   `)};
 `
 
