@@ -29,7 +29,13 @@ function checkA11y(cy) {
 
 describe('Calendar page functions', () => {
   beforeEach(() => {
-    cy.visit('/calendar')
+    // cy.visit('/calendar')
+    cy.visit('/selectProvince')
+    cy.wait(2000)
+    cy.get('select[name="ProvinceList"]').select('Ontario').should('have.value', 'Ontario')
+    cy.get('select[name="CitiesList"]').select('Ottawa')
+    cy.get('#3006').click()
+    cy.get(nextButton).click()
   })
 
   it('Has no detectable a11y violations on load', () => {
@@ -116,9 +122,8 @@ describe('Calendar page functions', () => {
     // cy.get('.DayPicker-Day').should('contain', todaysDate)
 
     // trying to find all of the available days as they are not disabled
-    cy.get('.DayPicker-Day')
-      .its('.aria-disabled="false"')
-      .then($firstAvailDayButton => {
+    cy.get('.DayPicker-Day--isFirstAvailableDay')
+      .its('.aria-disabled="false"').then($firstAvailDayButton => {
         const firstAvailDayNum = $firstAvailDayButton.text().trim()
         // firstAvailDayNum shows all of the number in the month
         // click the first available day
@@ -159,9 +164,34 @@ describe('Calendar page functions', () => {
 
     // find the time in the dropdown list
     // find the first selection object from the list of Time Slot selection objects
-    cy.get('select[name="TimeSlot"] > option:eq(1)').as('firstObject')
+
+// this is just an example
+    // cy.get('.DayPicker-Day--today').then($el => {
+    //   // if the 30 days is within one month no need to click
+    //   if (startMonth === endMonth) {
+    //     cy.get('#renderMonthName > div').should('contain', monthName)
+    //   }
+    //   // click two times if the start is the end of january
+    //   else {
+    //     if (startMonth === 1 && endMonth === 3) {
+    //       cy.get('.DayPicker-NavButton--next').click({ force: true })
+    //       cy.get('.DayPicker-NavButton--next').click({ force: true })
+    //       cy.get('#renderMonthName > div').should('contain', monthName)
+    //     } else {
+    //       cy.get('.DayPicker-NavButton--next').click({ force: true })
+    //       cy.get('#renderMonthName > div').should('contain', monthName)
+    //     }
+    //   }
+    // })
+
+
+
+
+    cy.get('select[name="TimeSlot"]').as('firstObject')
+
     // get that object to get the time string from it
     cy.get('@firstObject').then($firstTime => {
+  
       // get the time string from the selected object
       const timeString = $firstTime.text()
       cy.log('timeString = ' + timeString)
