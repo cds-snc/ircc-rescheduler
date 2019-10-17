@@ -14,6 +14,7 @@ import { dateToISODateString } from '../components/Time'
 import Confirmation from '../components/Confirmation'
 import { ReportButton } from '../components/forms/ReportButton'
 import DateModified from '../components/DateModified'
+import ComfirmNum from '../components/ComfirmNum'
 
 const contentClass = css`
   p {
@@ -124,10 +125,11 @@ class ConfirmationPage extends React.Component {
 
     return (
       <Layout contentClass={contentClass}>
-        <Title path={this.props.match.path}/>
+        <Title path={this.props.match.path} />
         <FocusedH1 className={visuallyhidden}>
           <Trans>Confirmation</Trans>
         </FocusedH1>
+        <ComfirmNum />
         {!this.hasEmailError() ? (
           <p>
             <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
@@ -142,7 +144,11 @@ class ConfirmationPage extends React.Component {
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(accessibility)}
-            location={(locationCity && locationAddress) ? locationCity + ', ' + locationAddress : ''}
+            location={
+              locationCity && locationAddress
+                ? locationCity + ', ' + locationAddress
+                : ''
+            }
             selectedDays={days}
             selectedTime={selectedTime}
           />
@@ -152,10 +158,10 @@ class ConfirmationPage extends React.Component {
           </H2>
           <p>
             <Trans>
-              Remember to bring: <br/>
-              1.- Your BIL letter <br/>
-              2.- This confirmation number <br/>
-              3.- Your immigration papers <br/> <br/>
+              Remember to bring: <br />
+              1.- Your BIL letter <br />
+              2.- This confirmation number <br />
+              3.- Your immigration papers <br /> <br />
             </Trans>
 
             <Trans>
