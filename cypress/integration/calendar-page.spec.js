@@ -86,11 +86,22 @@ describe('Calendar page functions', () => {
 
   // This needs to be updated for the text TBD
   it('should contain Step 3 of 4...', () => {
+    cy.get('[role="banner"] > :nth-child(2)')
+      .should('be.visible')
+      .and('contain.text', 'Step 3 of 4 – Select a day and time')
     cy.get('#calendar-header').should('contains.text', 'Select a day')
     // TODO: check for the rest of the text here
   })
 
   it.only('should find the first selectable day', () => {
+    // A location is needed to retrieve the timeslot information
+    // cy.visit('/selectProvince')
+    // cy.wait(2000)
+    // cy.get('select[name="ProvinceList"]').select('Ontario').should('have.value', 'Ontario')
+    // cy.get('select[name="CitiesList"]').select('Ottawa')
+    // cy.get('#3006').click()
+    // cy.get(nextButton).click()
+
     // make sure we are on the right page
     cy.url().should('contains', '/calendar')
     // Compare today's date with the Day--today
@@ -148,7 +159,7 @@ describe('Calendar page functions', () => {
 
     // find the time in the dropdown list
     // find the first selection object from the list of Time Slot selection objects
-    // cy.get('select[name="TimeSlot"] > option:eq(1)').as('firstObject')
+    cy.get('select[name="TimeSlot"] > option:eq(1)').as('firstObject')
     // get that object to get the time string from it
     cy.get('@firstObject').then($firstTime => {
       // get the time string from the selected object

@@ -500,6 +500,7 @@ const renderDayBoxes = ({
             <Time date={selectedDay} locale={locale} />
           </span>
           <button
+            id="deleteSelectedDate"
             type="button"
             onClick={removeDayOnClickOrKeyPress(selectedDay)}
             onKeyPress={removeDayOnClickOrKeyPress(selectedDay)}
@@ -607,6 +608,7 @@ class Calendar extends Component {
     if (this.oneDatesArePicked && this.props.input.value.length === 1) {
       this.removeDateContainer.focus()
     }
+    this.getNewTimeslots()
   }
 
   getSafe(fn, defaultVal) {
