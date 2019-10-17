@@ -664,7 +664,7 @@ class Calendar extends Component {
         await this.props.context.setStore('calendar', values)
       })
       .catch(err => {
-        logError(err)
+        logError(`Error occured: ${err.message}`)
       })
   }
 
