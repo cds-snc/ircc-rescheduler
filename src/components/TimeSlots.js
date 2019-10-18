@@ -21,14 +21,7 @@ class TimeSlots extends Component {
   }
 
   componentDidUpdate() {
-    let {
-      context: {
-        store: {
-          // eslint-disable-next-line no-unused-vars
-          selectProvince: { locationId, locationBiokitNumber } = {},
-        } = {},
-      } = {},
-    } = this.props
+ this.render()
   }
 
   changeHandler(event) {
