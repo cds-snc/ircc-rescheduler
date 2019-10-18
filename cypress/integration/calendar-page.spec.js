@@ -99,23 +99,14 @@ describe('Calendar page functions', () => {
     // TODO: check for the rest of the text here
   })
 
-  it.only('should find the first selectable day', () => {
-    // A location is needed to retrieve the timeslot information
-    // cy.visit('/selectProvince')
-    // cy.wait(2000)
-    // cy.get('select[name="ProvinceList"]').select('Ontario').should('have.value', 'Ontario')
-    // cy.get('select[name="CitiesList"]').select('Ottawa')
-    // cy.get('#3006').click()
-    // cy.get(nextButton).click()
+  it('should find the first selectable day', () => {
 
     // make sure we are on the right page
     cy.url().should('contains', '/calendar')
     // Compare today's date with the Day--today
     const todaysDate = Cypress.moment().format('DD')
     // next day
-    const tomorrowDate = Cypress.moment()
-      .add(1, 'days')
-      .format('DD')
+    const tomorrowDate = Cypress.moment().add(1, 'days').format('DD')
     cy.log('todays date ' + todaysDate)
     cy.log('tomorrow ' + tomorrowDate)
     // class DayPicker-Day contains today's date - not acutally useful at this point
@@ -164,34 +155,9 @@ describe('Calendar page functions', () => {
 
     // find the time in the dropdown list
     // find the first selection object from the list of Time Slot selection objects
-
-// this is just an example
-    // cy.get('.DayPicker-Day--today').then($el => {
-    //   // if the 30 days is within one month no need to click
-    //   if (startMonth === endMonth) {
-    //     cy.get('#renderMonthName > div').should('contain', monthName)
-    //   }
-    //   // click two times if the start is the end of january
-    //   else {
-    //     if (startMonth === 1 && endMonth === 3) {
-    //       cy.get('.DayPicker-NavButton--next').click({ force: true })
-    //       cy.get('.DayPicker-NavButton--next').click({ force: true })
-    //       cy.get('#renderMonthName > div').should('contain', monthName)
-    //     } else {
-    //       cy.get('.DayPicker-NavButton--next').click({ force: true })
-    //       cy.get('#renderMonthName > div').should('contain', monthName)
-    //     }
-    //   }
-    // })
-
-
-
-
-    cy.get('select[name="TimeSlot"]').as('firstObject')
-
+      cy.get('select[name="TimeSlot"] > option:eq(1)').as('firstObject')
     // get that object to get the time string from it
-    cy.get('@firstObject').then($firstTime => {
-  
+      cy.get('@firstObject').then($firstTime => {
       // get the time string from the selected object
       const timeString = $firstTime.text()
       cy.log('timeString = ' + timeString)
@@ -201,8 +167,8 @@ describe('Calendar page functions', () => {
     cy.get(nextButton)
       .should('be.enabled')
       .and('be.visible')
-    // cy.get(nextButton).click()
-    // cy.url().should('contains', '/review')
+    //  cy.get(nextButton).click()
+    //  cy.url().should('contains', '/review')
   })
 
   it.skip('should count the number of days available for appointments (30)', () => {
@@ -216,53 +182,23 @@ describe('Calendar page functions', () => {
   })
 
   // this one is done in anothe test. the selected day is not today
-  it.skip('should select a time an click enter button', () => {
+  it('should verify errors on the page if no day or time is selected', () => {
     cy.url().should('contains', '/calendar')
     // compare today's actual date with the Day--today
-    const todaysDate = Cypress.moment().format('LL') //('dddd,MMMMDD,YYYY')
-    cy.get('.DayPicker-Day--today').click()
+  //  const todaysDate = Cypress.moment().format('LL') //('dddd,MMMMDD,YYYY')
+  //  cy.get('.DayPicker-Day--today').click()
     //   cy.get('.DayPicker-Day--selected').should('be.visible')
-    cy.get('time').should('contain', todaysDate)
+   // cy.get('time').should('contain', todaysDate)
     // cy.get('[type="checkbox"]').check(['#checkbox_1'])
     cy.get(nextButton).click()
-    cy.url().should('contains', '/review')
-  })
-  // aria-label="Next Month"
-  it.skip('should click to show the next month unless the last day is the end of the month', () => {
-    cy.url().should('contains', '/calendar')
-    const thisMonth = Cypress.moment().format('MMMM')
-    cy.get('#renderMonthName').should('contain', thisMonth)
-    // const thisDay = Cypress.moment().format('DD')
-    cy.get('.DayPicker-Body > :nth-child(1) > [tabindex="0"]').should(
-      'contain',
-      '1',
-    )
-    // make sure the available days span into the next month
+    cy.url().should('not.contain', '/review')
+    cy.get('ul > :nth-child(1) > a').should('contain.text', 'Select a day')
+    cy.get(':nth-child(2) > a').should('contain.text', 'Select a time')
 
-    // if (count <= 30) {
-
-    // cy.get('.DayPicker-NavButton--next').click({ force: true })
-    //   }
-    cy.get('.DayPicker-Body > :nth-child(1) > [tabindex="0"]').then(el => {
-      const count = el.length
-      expect(count + 30).eq(31)
-      cy.get('.DayPicker-Day').should('contain', '31')
-      cy.get('[aria-label="Monday, September 30, 2019"]')
-      // make sure we're on a month that has 3 selectable days
-      // if (count < 3) {
-      //  cy.get('.DayPicker-NavButton--next').click({ force: true })
-    })
-
-    // cy.get('.DayPicker-NavButton--next').click()
-    // const nextMonth = Cypress.moment().add(1, 'month').format('MMMM')
-    // cy.get('#renderMonthName').should('contain', nextMonth)
-    //   cy.get('.DayPicker-Day[aria-disabled=false]').then(el => {
-    //     const count = el.length
-    //     expect(count).eq(30)
-    //  })
   })
 
-  it('should select the next month if 30 days extends', () => {
+
+  it('should select the next month if 30 days extends past current month', () => {
     // find start date of the 30 days.
     const startMonth = Cypress.moment().format('MM')
     cy.log('Start Month = ' + startMonth)
