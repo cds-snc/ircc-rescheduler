@@ -162,6 +162,43 @@ server
     postReq.write(data)
     postReq.end()
   })
+  .delete('/appointments/temp/delete/:documentId', (req, res) => {
+    let domain
+    let port
+    if (apiHost.startsWith('http://localhost')) {
+      domain = apiHost.slice(7, 16)
+      port = apiHost.slice(17)
+    }
+    let id = req.params.documentId
+    let data = ''
+    const options = {
+      method: 'DELETE',
+      hostname: domain,
+      port: port,
+      path: `/appointments/temp/delete/${id}`,
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': Buffer.byteLength(data),
+      },
+    }
+    let deleteReq = http.request(options, resp => {
+      logDebug(`STATUS: ${resp.statusCode}`)
+      logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
+      resp.on('data', chunk => {
+        data += chunk
+        res.status(200).send(data)
+      })
+    })
+    deleteReq.on('error', err => {
+      logError(
+        'Something went wrong when calling the API appointments/temp/delete:  ' +
+          err.message,
+      )
+      res.status(503).send()
+    })
+    deleteReq.write(data)
+    deleteReq.end()
+  })
   .get('/clear', (req, res) => {
     let language = getStoreCookie(req.cookies, 'language') || 'en'
     res.clearCookie('store')
