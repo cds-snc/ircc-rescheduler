@@ -168,6 +168,8 @@ server
     if (apiHost.startsWith('http://localhost')) {
       domain = apiHost.slice(7, 16)
       port = apiHost.slice(17)
+    } else {
+      domain = apiHost
     }
     let id = req.params.documentId
     let data = ''
