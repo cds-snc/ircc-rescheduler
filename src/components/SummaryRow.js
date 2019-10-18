@@ -67,6 +67,8 @@ const SummaryRow = ({
   summaryBody,
   summaryLink,
   summaryLabel,
+  // eslint-disable-next-line react/prop-types
+  linkOnClick,
 }) => (
   <Row id={summaryId}>
     <SummaryHeader>
@@ -75,7 +77,7 @@ const SummaryRow = ({
     </SummaryHeader>
 
     {summaryLink ? (
-      <SummaryLink id={`${summaryId}-link`}>
+      <SummaryLink id={`${summaryId}-link`} onClick={linkOnClick}>
         <NavLink to={summaryLink} aria-label={summaryLabel}>
           <Trans>Change</Trans>
         </NavLink>

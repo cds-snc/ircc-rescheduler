@@ -26,6 +26,8 @@ const Summary = ({
   // eslint-disable-next-line react/prop-types
   accessibility,
   i18n,
+  // eslint-disable-next-line react/prop-types
+  timeDateChangeHandler,
 }) => (
   <TableContainer>
     <SummaryRow
@@ -67,6 +69,7 @@ const Summary = ({
           selectedTime={selectedTime}
         />
       }
+      linkOnClick={timeDateChangeHandler}
       summaryLink={'/calendar#selectedDaysBox'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
     />
