@@ -29,13 +29,8 @@ function checkA11y(cy) {
 
 describe('Calendar page functions', () => {
   beforeEach(() => {
-    // cy.visit('/calendar')
-    cy.visit('/selectProvince')
-    cy.wait(2000)
-    cy.get('select[name="ProvinceList"]').select('Ontario').should('have.value', 'Ontario')
-    cy.get('select[name="CitiesList"]').select('Ottawa')
-    cy.get('#3006').click()
-    cy.get(nextButton).click()
+    cy.visit('/calendar')
+   
   })
 
   it('Has no detectable a11y violations on load', () => {
@@ -45,7 +40,7 @@ describe('Calendar page functions', () => {
     checkA11y(cy)
   })
 
-  it('should go to the landing page and show header image and links ', () => {
+  it('should go to the calendar page and show header image and links ', () => {
     cy.get(headerImg).should('be.visible')
     cy.get(langLink).should('be.visible', 'Français')
     cy.get('[role="banner"] > :nth-child(2)')
@@ -99,10 +94,19 @@ describe('Calendar page functions', () => {
     // TODO: check for the rest of the text here
   })
 
-  it('should find the first selectable day', () => {
+  it('should find the first selectable day and time', () => {
+    // a location is needed to get information about the timeslots
+    cy.visit('/selectProvince')
+    cy.wait(2000)
+    cy.get('select[name="ProvinceList"]').select('Ontario').should('have.value', 'Ontario')
+    cy.get('select[name="CitiesList"]').select('Ottawa')
+    cy.get('#3006').click()
+    cy.get(nextButton).click()
 
-    // make sure we are on the right page
+    // make sure we are now on the right page
     cy.url().should('contains', '/calendar')
+    cy.injectAxe()
+ 
     // Compare today's date with the Day--today
     const todaysDate = Cypress.moment().format('DD')
     // next day
@@ -167,6 +171,7 @@ describe('Calendar page functions', () => {
     cy.get(nextButton)
       .should('be.enabled')
       .and('be.visible')
+      checkA11y(cy)
     //  cy.get(nextButton).click()
     //  cy.url().should('contains', '/review')
   })
@@ -184,12 +189,6 @@ describe('Calendar page functions', () => {
   // this one is done in anothe test. the selected day is not today
   it('should verify errors on the page if no day or time is selected', () => {
     cy.url().should('contains', '/calendar')
-    // compare today's actual date with the Day--today
-  //  const todaysDate = Cypress.moment().format('LL') //('dddd,MMMMDD,YYYY')
-  //  cy.get('.DayPicker-Day--today').click()
-    //   cy.get('.DayPicker-Day--selected').should('be.visible')
-   // cy.get('time').should('contain', todaysDate)
-    // cy.get('[type="checkbox"]').check(['#checkbox_1'])
     cy.get(nextButton).click()
     cy.url().should('not.contain', '/review')
     cy.get('ul > :nth-child(1) > a').should('contain.text', 'Select a day')
