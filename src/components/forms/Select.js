@@ -67,7 +67,7 @@ SelectDropDown.propTypes = {
   selId: PropTypes.string,
   selOnChange: PropTypes.func,
   optName1: PropTypes.string,
-  optData: PropTypes.array,
+  optData: PropTypes.any,
 }
 
 export default SelectDropDown
