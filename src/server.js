@@ -163,25 +163,34 @@ server
     postReq.end()
   })
   .delete('/appointments/temp/delete/:documentId', (req, res) => {
+    let id = req.params.documentId
+    let options
     let domain
-    let port
+    let data = ''
     if (apiHost.startsWith('http://localhost')) {
       domain = apiHost.slice(7, 16)
-      port = apiHost.slice(17)
+      let port = apiHost.slice(17)
+      options = {
+        method: 'DELETE',
+        hostname: domain,
+        port: port,
+        path: `/appointments/temp/delete/${id}`,
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': Buffer.byteLength(data),
+        },
+      }
     } else {
-      domain = apiHost
-    }
-    let id = req.params.documentId
-    let data = ''
-    const options = {
-      method: 'DELETE',
-      hostname: domain,
-      port: port,
-      path: `/appointments/temp/delete/${id}`,
-      headers: {
-        'Content-Type': 'application/json',
-        'Content-Length': Buffer.byteLength(data),
-      },
+      domain = apiHost.slice(7)
+      options = {
+        method: 'DELETE',
+        hostname: domain,
+        path: `/appointments/temp/delete/${id}`,
+        headers: {
+          'Content-Type': 'application/json',
+          'Content-Length': Buffer.byteLength(data),
+        },
+      }
     }
     let deleteReq = http.request(options, resp => {
       logDebug(`STATUS: ${resp.statusCode}`)
