@@ -23,6 +23,7 @@ import {
   notInDateRange,
   isFirstAvailableDay,
   isLastAvailableDay,
+ 
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 
@@ -276,6 +277,16 @@ const dayPickerDefault = css`
       background-color: ${incrementColor(theme.colour.greenDark, 30)};
     }
   }
+
+  .DayPicker-Day--first:(isFirstAvailableDay) {
+    background-color: ${theme.colour.greenDark};
+    color: ${theme.colour.white};
+
+    &:hover {
+      background-color: ${incrementColor(theme.colour.greenDark, 30)};
+    }
+  }
+
 `
 
 const noDates = css`
@@ -495,11 +506,12 @@ const renderDayBoxes = ({
 
     dayBoxes.push(
       selectedDay ? (
-        <li key={i} className={dayBox}>
+        <li  key={i} className={dayBox}>
           <span className="day-box">
             <Time date={selectedDay} locale={locale} />
           </span>
           <button
+            id="deleteSelectedDate"
             type="button"
             onClick={removeDayOnClickOrKeyPress(selectedDay)}
             onKeyPress={removeDayOnClickOrKeyPress(selectedDay)}
@@ -839,7 +851,7 @@ class Calendar extends Component {
             </h2>
           </div>
         ) : null}
-        <div
+        <div  
           className={
             this.oneDatesArePicked ? calendarContainerTop : calendarContainer
           }
@@ -848,6 +860,7 @@ class Calendar extends Component {
             className={css`
               ${weekdayStyles};
             `}
+            modifiers={  {isFirstAvailableDay, isLastAvailableDay} } 
             localeUtils={{ ...LocaleUtils, formatDay }}
             captionElement={renderMonthName}
             locale={locale}
@@ -873,6 +886,7 @@ class Calendar extends Component {
 
               ...getDisabledDays(),
             ]}
+           
             onDayClick={this.handleDayClick}
             selectedDays={value}
             onFocus={() => onFocus(value)}
@@ -882,6 +896,7 @@ class Calendar extends Component {
               tabIndex,
               'aria-labelledby': 'renderMonthName',
               'aria-describedby': 'firstDayString',
+        
             }}
           />
           <div>

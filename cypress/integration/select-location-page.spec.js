@@ -87,7 +87,7 @@ describe('select provice, city and office page functions', () => {
       .and('contain.text', 'Step 2 of 4 – Select a location')
   })
 
-  it.skip('should click into the province selection dropdown and show Select a City dropdown', () => {
+  it('should click into the province selection dropdown and show Select a City dropdown', () => {
     cy.injectAxe()
     cy.get('#ProvinceList').should('contains.text', 'Select a Province')
     checkA11y(cy)
@@ -100,7 +100,7 @@ describe('select provice, city and office page functions', () => {
       .should('have.value', 'Edmonton')
   })
 
-  it.skip('should click into the Select a City dropdown and show city and locations and button ', () => {
+  it('should click into the Select a City dropdown and show city and locations and button ', () => {
     cy.injectAxe()
     cy.get('select[name="ProvinceList"]')
       .select('Alberta')
@@ -122,7 +122,7 @@ describe('select provice, city and office page functions', () => {
     checkA11y(cy)
   })
 
-  it.skip('should find British Columbia and the cities in the dropdown', () => {
+  it('should find British Columbia and the cities in the dropdown', () => {
     // British Columbia - Vancouver
     cy.get('select[name="ProvinceList"]')
       .select('British Columbia')
@@ -138,7 +138,7 @@ describe('select provice, city and office page functions', () => {
     )
   })
 
-  it.skip('should find Alberta and the cities in the dropdown', () => {
+  it('should find Alberta and the cities in the dropdown', () => {
     // Alberta - Edmonton - checked in previous test - Calgary
     cy.get('select[name="ProvinceList"]').select('Alberta')
     cy.get('select[name="CitiesList"]').select('Calgary')
@@ -152,7 +152,7 @@ describe('select provice, city and office page functions', () => {
     )
   })
 
-  it.skip('should find Manitoba and the cities in the dropdown', () => {
+  it('should find Manitoba and the cities in the dropdown', () => {
     // Manitoba - Winnipeg
     cy.get('select[name="ProvinceList"]')
       .select('Manitoba')
@@ -168,7 +168,7 @@ describe('select provice, city and office page functions', () => {
     )
   })
 
-  it.skip('should find Ontario and the cities in the dropdown', () => {
+  it('should find Ontario and the cities in the dropdown', () => {
     cy.injectAxe()
     // Ontario - Ottawa - others
     cy.get('select[name="ProvinceList"]')

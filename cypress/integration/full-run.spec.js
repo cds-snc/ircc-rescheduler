@@ -32,7 +32,7 @@ describe('should perform functions on the review page', () => {
     cy.visit('/')
   })
 
-  it.skip('Should pass the data from register, location and calendar to the review page', () => {
+  it('Should pass the data from register, location and calendar to the review page', () => {
     cy.injectAxe()
 
     // check the accept privacy notice box
@@ -80,7 +80,7 @@ describe('should perform functions on the review page', () => {
     cy.log('tomorrow ' + tomorrowDate)
 
     // trying to find all of the available days as they are not disabled
-    cy.get('.DayPicker-Day')
+    cy.get('.DayPicker-Day--isFirstAvailableDay')
       .its('.aria-disabled="false"')
       .then($firstAvailDayButton => {
         const firstAvailDayNum = $firstAvailDayButton.text().trim()
@@ -126,7 +126,7 @@ describe('should perform functions on the review page', () => {
 
       // find the time in the dropdown list
       // find the first selection object from the list of Time Slot selection objects
-      // cy.get('select[name="TimeSlot"] > option:eq(1)').as('firstObject')
+       cy.get('select[name="TimeSlot"] > option:eq(1)').as('firstObject')
       // get that object to get the time string from it
       cy.get('@firstObject').then($firstTime => {
         // get the time string from the selected object
@@ -141,23 +141,23 @@ describe('should perform functions on the review page', () => {
       cy.wait(2000)
       cy.get(nextButton).click()
       cy.wait(2000)
-      // TODO: find out why the time is not selected in the pipeline
-      // cy.url().should('contains', '/review')
+       
+      cy.url().should('contains', '/review')
 
-      // Verify if all of the entered data appears on the review page.
-      // cy.fixture('user').then(data => {
-      //   cy.get('#bilNumber-body').should('contain', data.bilNumber)
-      //   cy.get('#email-address-body').should('contain', data.email)
-      // })
+     // Verify if all of the entered data appears on the review page.
+      cy.fixture('user').then(data => {
+        cy.get('#bilNumber-body').should('contain', data.bilNumber)
+        cy.get('#email-address-body').should('contain', data.email)
+      })
 
-      // cy.get('#a11y-body').should('contain', 'No')
-      // cy.get('#location-body').should('contain', 'Edmonton')
+      cy.get('#a11y-body').should('contain', 'No')
+      cy.get('#location-body').should('contain', 'Edmonton')
 
-      // cy.get('#date-body').should('contain', dateString)
+      cy.get('#date-body').should('contain', dateString)
 
-      //    cy.get(nextButton).click()
-      //    cy.url().should('contains', '/confirmation')
-
+         cy.get('button[type="submit"]').click()
+         cy.url().should('contains', '/confirmation')
+// TODO:
       //verify the values appear on the review page
     })
   })
