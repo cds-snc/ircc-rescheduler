@@ -100,7 +100,29 @@ server
         res.status(503).send()
       })
   })
-  
+
+  .get('/appointments/:confirm/:documentId', (req, res) => {
+    let data = ''
+    let documentId = req.params.documentId
+
+    http
+      .get(`${apiHost}/appointments/confirm/${documentId}`, resp => {
+        logDebug(`STATUS: ${resp.statusCode}`)
+        logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        resp.on('data', chunk => {
+          data += chunk
+          res.status(200).send(data)
+        })
+      })
+      .on('error', err => {
+        logError(
+          'Something went wrong when calling the API appointments/locationID/city:  ' +
+            err.message,
+        )
+        res.status(503).send()
+      })
+  })
+
   .post('/appointments/temp', (req, res) => {
     let data = JSON.stringify(req.body)
     const options = {
@@ -134,7 +156,7 @@ server
     res.redirect(`/cancel?language=${language}`)
   })
   .all('/*', async (req, res) => {
-    console.log("all")
+    console.log('all')
     const customRenderer = node => ({
       gitHashString: gitHash(),
       path: req.url,
@@ -171,4 +193,3 @@ function checkEnvironmentVariables() {
     throw 'NOTIFICATION_API_BASE_URL environment variable not found'
   }
 }
-
