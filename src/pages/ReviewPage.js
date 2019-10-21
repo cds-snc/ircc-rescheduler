@@ -61,7 +61,8 @@ class ReviewPage extends React.Component {
     return hash
   }
 
-  async deleteTempAppointment() {
+  async deleteTempAppointment(event) {
+    event.preventDefault()
     let tempAppointment = this.props.context.store.calendar.tempAppointment
     return await axios.delete(
       `/appointments/temp/delete/${tempAppointment._id}`,
