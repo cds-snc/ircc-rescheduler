@@ -450,14 +450,11 @@ class CalendarPage extends Component {
         />
         <div className={spacingButton} />
         <div className={calendarContentClass}>
-          <div>
-            <ReportButton />
-            <span className={buttonSpacing}> </span>
-            <DateModified />
-          </div>
-        </div>
+          <ReportButton />
 
-        <div />
+          <div />
+        </div>
+        <DateModified />
       </Layout>
     )
   }
