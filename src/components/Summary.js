@@ -38,6 +38,7 @@ const Summary = ({
       summaryLabel={
         i18n && `${i18n._('Change')} ${i18n._('Paper file number')}`
       }
+      linkOnClick={timeDateChangeHandler}
     />
     <SummaryRow
       summaryId={'email-address'}
@@ -45,6 +46,7 @@ const Summary = ({
       summaryBody={email}
       summaryLink={'/register#email-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Email')}`}
+      linkOnClick={timeDateChangeHandler}
     />
     <SummaryRow
       summaryId={'a11y'}
@@ -52,6 +54,7 @@ const Summary = ({
       summaryBody={accessibility}
       summaryLink={'/register#accessibility-label'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Accessibility')}`}
+      linkOnClick={timeDateChangeHandler}
     />
     <SummaryRow
       summaryId={'location'}
@@ -59,6 +62,7 @@ const Summary = ({
       summaryBody={location}
       summaryLink={'/selectProvince'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Location')}`}
+      linkOnClick={timeDateChangeHandler}
     />
     <SummaryRow
       summaryId={'date'}
@@ -69,9 +73,9 @@ const Summary = ({
           selectedTime={selectedTime}
         />
       }
-      linkOnClick={timeDateChangeHandler}
       summaryLink={'/calendar#selectedDaysBox'}
       summaryLabel={i18n && `${i18n._('Change')} ${i18n._('Availability')}`}
+      linkOnClick={timeDateChangeHandler}
     />
   </TableContainer>
 )
