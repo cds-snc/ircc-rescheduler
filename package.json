@@ -32,7 +32,8 @@
   },
   "husky": {
     "hooks": {
-      
+      "pre-push": "yarn linter && yarn test",
+      "pre-commit": "yarn linter"
     }
   },
   "dependencies": {

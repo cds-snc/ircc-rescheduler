@@ -25,11 +25,6 @@ describe('Server Side Rendering', () => {
     )
   })
 
-  it('renders the review page at /review', async () => {
-    let response = await request(server).get('/review')
-    expect(response.text).toMatch(/Review your request/)
-  })
-
   xit('renders a reassuring confirmation message at /confirmation', async () => {
     let response = await request(server).get('/confirmation')
     expect(response.text).toMatch('Thank you! Your request has been received.')
