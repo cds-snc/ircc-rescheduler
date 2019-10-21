@@ -7,13 +7,7 @@ import { css } from 'emotion'
 import { GoBackButtonCal } from '../components/forms/GoBackButton'
 
 import { HashLink } from 'react-router-hash-link'
-import {
-  mediaQuery,
-  theme,
-  contentClass,
-  BottomContainer,
-  focusRing,
-} from '../styles'
+import { mediaQuery, theme, contentClass, focusRing } from '../styles'
 import {
   CalendarFields,
   getFieldNames,
