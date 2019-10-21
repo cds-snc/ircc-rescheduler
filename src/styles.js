@@ -137,6 +137,11 @@ export const visuallyhiddenMobile = css`
     ${visuallyhidden};
   `)};
 `
+export const visuallyhiddenMobileMedium = css`
+  ${mediaQuery.md(css`
+    ${visuallyhidden};
+  `)};
+`
 
 /* eslint-enable security/detect-object-injection */
 

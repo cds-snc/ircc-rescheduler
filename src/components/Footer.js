@@ -8,7 +8,7 @@ import {
   theme,
   horizontalPadding,
   mediaQuery,
-  visuallyhiddenMobile,
+  visuallyhiddenMobileMedium,
 } from '../styles'
 import Language from './Language'
 import { NavLink } from 'react-router-dom'
@@ -63,19 +63,24 @@ const footer = css`
 
 const bottomLinks = css`
   margin-top: ${theme.spacing.md};
-  font-size: ${theme.font.md};
-  font-size: .875em;
+  font-size: ${theme.font.sm};
+
   display: inline-block;
+  column-count: 5;
 
   > * {
-    margin-right: ${theme.spacing.xl};
+    margin-right: ${theme.spacing.md};
 
     ${mediaQuery.md(css`
       margin-right: ${theme.spacing.md};
+
+      font-size: ${theme.font.xs};
     `)};
 
     ${mediaQuery.sm(css`
       margin-bottom: ${theme.spacing.xs};
+      font-size: ${theme.font.xs};
+      column-count: 1;
     `)};
   }
 
@@ -90,11 +95,11 @@ const bottomLinks = css`
   ${mediaQuery.md(css`
     display: flex;
     margin-top: ${theme.spacing.sm};
-    font-size: ${theme.font.sm};
+    font-size: ${theme.font.xs};
   `)};
 
   ${mediaQuery.sm(css`
-    margin-top: ${theme.spacing.md};
+    margin-top: ${theme.spacing.sm};
   `)};
 `
 
@@ -103,10 +108,10 @@ const TopBar = styled.hr(
     height: '160px',
     border: 'none',
     margin: 0,
-    backgroundImage:`url(${Landscape})`,
-    backgroundRepeat:'no-repeat',
-    backgroundPosition:'right',
-    backgroundColor:"#27374a",
+    backgroundImage: `url(${Landscape})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'right',
+    backgroundColor: '#27374a',
   },
   props => ({ background: props.background }),
 )
@@ -115,61 +120,80 @@ const Footer = ({ contact = true, topBarBackground, i18n }) => (
   <div>
     {topBarBackground ? <TopBar background={topBarBackground} /> : ''}
     <footer id="footer" className={footer}>
-      <div className={bottomLinks}>
+      <div>
+        <ul className={bottomLinks}>
+          <li>
+            {' '}
+            <a href={'https://www.canada.ca/en/government/about.html'}>
+              <Trans>About</Trans>
+              <Language
+                render={language =>
+                  language === 'fr' ? null : (
+                    <span className={visuallyhiddenMobileMedium}>
+                      {' '}
+                      Canada.ca
+                    </span>
+                  )
+                }
+              />
+            </a>
+          </li>
 
+          <li>
+            {' '}
+            <a href={'https://www.canada.ca/en/social.html'}>
+              <Trans>Social</Trans>
+              <Language
+                render={language =>
+                  language === 'fr' ? null : (
+                    <span className={visuallyhiddenMobileMedium}> media</span>
+                  )
+                }
+              />
+            </a>
+          </li>
 
-       <a href={('https://www.canada.ca/en/government/about.html')} >
-        <Trans>About</Trans>
-        <Language
-            render={language =>
-              language === 'fr' ? null : (
-                <span className={visuallyhiddenMobile}> Canada.ca</span>
-              )
-            }
-          />
-       </a>
+          <li>
+            {' '}
+            <a href={'https://www.canada.ca/en/mobile.html'}>
+              <Trans>Mobile</Trans>
+              <Language
+                render={language =>
+                  language === 'fr' ? null : (
+                    <span className={visuallyhiddenMobileMedium}>
+                      {' '}
+                      applications
+                    </span>
+                  )
+                }
+              />
+            </a>
+          </li>
 
+          <li>
+            {' '}
+            <a href={i18n._('https://digital.canada.ca/legal/terms/')}>
+              <Trans>Terms</Trans>
+              <Language
+                render={language =>
+                  language === 'fr' ? null : (
+                    <span className={visuallyhiddenMobileMedium}>
+                      {' '}
+                      and Conditions
+                    </span>
+                  )
+                }
+              />
+            </a>
+          </li>
 
-       <a href={('https://www.canada.ca/en/social.html')} >
-        <Trans>Social</Trans>
-        <Language
-            render={language =>
-              language === 'fr' ? null : (
-                <span className={visuallyhiddenMobile}> media</span>
-              )
-            }
-          />
-       </a>
-      
-
-       <a href={('https://www.canada.ca/en/mobile.html')} >
-        <Trans>Mobile</Trans>
-        <Language
-            render={language =>
-              language === 'fr' ? null : (
-                <span className={visuallyhiddenMobile}> applications</span>
-              )
-            }
-          />
-       </a>
-
-
-        <a href={i18n._('https://digital.canada.ca/legal/terms/')}>
-          <Trans>Terms</Trans>
-          <Language
-            render={language =>
-              language === 'fr' ? null : (
-                <span className={visuallyhiddenMobile}> and Conditions</span>
-              )
-            }
-          />
-        </a>
-
-
-        <NavLink to="/privacy">
-          <Trans>Privacy</Trans>
-        </NavLink>
-
+          <li>
+            {' '}
+            <NavLink to="/privacy">
+              <Trans>Privacy</Trans>
+            </NavLink>{' '}
+          </li>
+        </ul>
       </div>
 
       <div className="svg-container">
