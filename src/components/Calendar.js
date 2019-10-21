@@ -929,14 +929,13 @@ class Calendar extends Component {
                     removeDayAltText:
                       i18n !== undefined ? i18n._('Remove day') : 'Remove day',
                   })}
-                </ul>
-                <div>
                   <TimeSlots
                     selectedTimeId={this.selectedTime}
                     selectedDay={value}
                     timeSlots={this.state.timeSlots}
                   />
-                </div>
+                </ul>
+                <div />
               </div>
             </div>
           </div>
