@@ -72,10 +72,7 @@ class ReviewPage extends React.Component {
         } = {},
       } = {},
     } = this.props
-    // eslint-disable-next-line no-console
-    console.log(this.props)
-    console.log(JSON.stringify(this.props))
-    console.log('ID: ' + _id)
+
     const { sending } = this.state
     let days = []
     if (selectedDays) {

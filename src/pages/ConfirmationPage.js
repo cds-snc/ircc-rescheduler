@@ -59,7 +59,6 @@ class ConfirmationPage extends React.Component {
     this.state = { sending: false, comfirmNum: [] }
     this.handleSubmit = this.handleSubmit.bind(this)
     // eslint-disable-next-line no-console
-    console.log(this.props)
     this.getEmailNum(this.props.context.store.calendar.tempAppointment._id)
   }
 
@@ -76,11 +75,9 @@ class ConfirmationPage extends React.Component {
   }
 
   getEmailNum(documentId) {
-    console.log(documentId)
     axios
       .get(`/appointments/confirm/${documentId}`)
       .then(locs => {
-        console.log(locs)
         this.setState({
           comfirmNum: locs.data.confirmation,
         })
@@ -119,20 +116,11 @@ class ConfirmationPage extends React.Component {
         store: {
           register: { paperFileNumber, email, accessibility } = {},
 
-          calendar: {
-            selectedDays = [],
-            selectedTime,
-            tempAppointment: { _id } = {},
-          } = {},
+          calendar: { selectedDays = [], selectedTime } = {},
           selectProvince: { locationCity, locationAddress } = {},
         } = {},
       } = {},
     } = this.props
-
-    // this.getEmailNum(_id)
-    console.log(_id)
-    console.log(this.state.comfirmNum)
-    // const { sending } = this.state
 
     let days = []
 
