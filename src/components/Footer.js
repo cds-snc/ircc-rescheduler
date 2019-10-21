@@ -187,9 +187,12 @@ const Footer = ({ contact = true, topBarBackground, i18n }) => (
             </a>
           </li>
 
-          <NavLink to="/privacy">
-            <Trans>Privacy</Trans>
-          </NavLink>
+          <li>
+            {' '}
+            <NavLink to="/privacy">
+              <Trans>Privacy</Trans>
+            </NavLink>{' '}
+          </li>
         </ul>
       </div>
 
