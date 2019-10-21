@@ -9,6 +9,7 @@ import ErrorMessage from './ErrorMessage'
 import { theme, mediaQuery, incrementColor, focusRing } from '../styles'
 import MobileCancel from './MobileCancel'
 import { getDateInfo } from '../utils/linguiUtils'
+import withContext from '../withContext'
 import {
   getStartMonth,
   getEndDate,
@@ -22,6 +23,7 @@ import {
   notInDateRange,
   isFirstAvailableDay,
   isLastAvailableDay,
+ 
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 
@@ -30,6 +32,9 @@ import { windowExists } from '../utils/windowExists'
 // import { CheckboxAdapter } from '../components/forms/MultipleChoice'
 // import { Field } from 'react-final-form'
 import TimeSlots from './TimeSlots'
+import moment from 'moment'
+import axios from 'axios'
+import { logError } from '../utils/logger'
 
 const jiggle = keyframes`
 10%, 60% {
@@ -272,6 +277,16 @@ const dayPickerDefault = css`
       background-color: ${incrementColor(theme.colour.greenDark, 30)};
     }
   }
+
+  .DayPicker-Day--first:(isFirstAvailableDay) {
+    background-color: ${theme.colour.greenDark};
+    color: ${theme.colour.white};
+
+    &:hover {
+      background-color: ${incrementColor(theme.colour.greenDark, 30)};
+    }
+  }
+
 `
 
 const noDates = css`
@@ -491,11 +506,12 @@ const renderDayBoxes = ({
 
     dayBoxes.push(
       selectedDay ? (
-        <li key={i} className={dayBox}>
+        <li  key={i} className={dayBox}>
           <span className="day-box">
             <Time date={selectedDay} locale={locale} />
           </span>
           <button
+            id="deleteSelectedDate"
             type="button"
             onClick={removeDayOnClickOrKeyPress(selectedDay)}
             onKeyPress={removeDayOnClickOrKeyPress(selectedDay)}
@@ -585,6 +601,8 @@ class Calendar extends Component {
     super(props)
     this.handleDayClick = this.handleDayClick.bind(this)
     this.removeDayOnClickOrKeyPress = this.removeDayOnClickOrKeyPress.bind(this)
+    this.getNewTimeslots = this.getNewTimeslots.bind(this)
+    this.getSafe = this.getSafe.bind(this)
     this.state = {
       errorMessage: null,
       daysOfWeek: false,
@@ -601,6 +619,16 @@ class Calendar extends Component {
     if (this.oneDatesArePicked && this.props.input.value.length === 1) {
       this.removeDateContainer.focus()
     }
+
+    this.getNewTimeslots(this.props.month)
+  }
+
+  getSafe(fn, defaultVal) {
+    try {
+      return fn()
+    } catch (e) {
+      return defaultVal
+    }
   }
 
   removeDayOnClickOrKeyPress = day => e => {
@@ -615,6 +643,41 @@ class Calendar extends Component {
     ) {
       this.handleDayClick(day, { selected: true })
     }
+  }
+
+  getNewTimeslots(selectedDay) {
+    let userSelection = this.getSafe(
+      () => this.props.context.store.register.accessibility,
+      false,
+    )
+    let accessible = true
+    if (!userSelection || userSelection[0] === undefined) {
+      accessible = false
+    }
+    let locationId = this.getSafe(
+      () => this.props.context.store.selectProvince.locationId,
+      '40',
+    )
+    let formattedDay = moment(selectedDay).format('YYYY-MM-DD')
+    let values = {
+      ...this.props.context.store.calendar,
+    }
+    axios
+      .get(
+        `/appointments/timeslots/${locationId}?day=${formattedDay}&accessible=${accessible}`,
+      )
+      .then(async resp => {
+        let timeSlots = resp.data
+        values = {
+          ...values,
+          timeSlots,
+        }
+        await this.setState({ timeSlots: timeSlots })
+        await this.props.context.setStore('calendar', values)
+      })
+      .catch(err => {
+        logError(`Error occured: ${err.message}`)
+      })
   }
 
   /*
@@ -638,6 +701,7 @@ class Calendar extends Component {
     day = makeGMTDate(day)
 
     let { dayLimit } = this.props
+
     const selectedDays = this.props.input.value || []
 
     if (selected) {
@@ -670,6 +734,7 @@ class Calendar extends Component {
 
       // push new day into array of selectedDays
       selectedDays.push(day)
+      this.getNewTimeslots(selectedDays[0])
     } else {
       // If we have already selected this day, unselect it
       const selectedIndex = selectedDays.findIndex(selectedDay =>
@@ -679,7 +744,7 @@ class Calendar extends Component {
     }
 
     this.props.input.value = selectedDays
-    this.props.input.time = '10:00'
+
     this.props.input.onChange(this.props.input.value)
 
     await this.setState({
@@ -786,7 +851,7 @@ class Calendar extends Component {
             </h2>
           </div>
         ) : null}
-        <div
+        <div  
           className={
             this.oneDatesArePicked ? calendarContainerTop : calendarContainer
           }
@@ -795,6 +860,7 @@ class Calendar extends Component {
             className={css`
               ${weekdayStyles};
             `}
+            modifiers={  {isFirstAvailableDay, isLastAvailableDay} } 
             localeUtils={{ ...LocaleUtils, formatDay }}
             captionElement={renderMonthName}
             locale={locale}
@@ -820,6 +886,7 @@ class Calendar extends Component {
 
               ...getDisabledDays(),
             ]}
+           
             onDayClick={this.handleDayClick}
             selectedDays={value}
             onFocus={() => onFocus(value)}
@@ -829,6 +896,7 @@ class Calendar extends Component {
               tabIndex,
               'aria-labelledby': 'renderMonthName',
               'aria-describedby': 'firstDayString',
+        
             }}
           />
           <div>
@@ -866,6 +934,7 @@ class Calendar extends Component {
                   <TimeSlots
                     selectedTimeId={this.selectedTime}
                     selectedDay={value}
+                    timeSlots={this.state.timeSlots}
                   />
                 </div>
               </div>
@@ -879,6 +948,7 @@ class Calendar extends Component {
 
 Calendar.defaultProps = {
   forceRender: () => {}, //used to for a parent re-render after clicking on a day
+  updateTime: () => {},
   changeMonth: () => {},
   showAvailability: false,
 }
@@ -887,8 +957,9 @@ Calendar.propTypes = {
   ...FieldAdapterPropTypes,
   dayLimit: PropTypes.number.isRequired,
   forceRender: PropTypes.func,
+  updateTime: PropTypes.func,
   showAvailability: PropTypes.bool,
 }
 
-const CalendarAdapter = withI18n()(Calendar)
+const CalendarAdapter = withContext(withI18n()(Calendar))
 export { CalendarAdapter as default, renderDayBoxes }

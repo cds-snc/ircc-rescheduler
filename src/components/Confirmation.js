@@ -28,7 +28,7 @@ const Review = ({
   i18n,
 }) => (
   <TableContainer>
-     <SummaryRow
+    <SummaryRow
       summaryId={'hashFromData'}
       summaryHeader={<Trans>Confirmation #: A {hashFromData}</Trans>}
     />
@@ -66,7 +66,7 @@ const Review = ({
 )
 
 Review.propTypes = {
-  hashFromData:PropTypes.string,
+  hashFromData: PropTypes.string,
   paperFileNumber: PropTypes.string,
   email: PropTypes.string,
   location: PropTypes.string,
