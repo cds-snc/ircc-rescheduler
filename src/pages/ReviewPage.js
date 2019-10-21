@@ -14,6 +14,7 @@ import { dateToISODateString } from '../components/Time'
 import FocusedH1 from '../components/FocusedH1'
 import { ReportButton } from '../components/forms/ReportButton'
 import DateModified from '../components/DateModified'
+import axios from 'axios'
 
 const contentClass = css`
   p {
@@ -30,6 +31,7 @@ class ReviewPage extends React.Component {
     super(props)
     this.state = { sending: false }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.deleteTempAppointment = this.deleteTempAppointment.bind(this)
   }
 
   handleSubmit() {
@@ -57,6 +59,11 @@ class ReviewPage extends React.Component {
       hash |= 0
     }
     return hash
+  }
+
+  deleteTempAppointment() {
+    let tempAppointment = this.props.context.store.calendar.tempAppointment
+    return axios.delete(`/appointments/temp/delete/${tempAppointment._id}`)
   }
 
   render() {
@@ -100,10 +107,13 @@ class ReviewPage extends React.Component {
             hashFromData={this.hashFromData(email, paperFileNumber).toString()}
             paperFileNumber={paperFileNumber}
             email={email}
-            accessibility={this.translateReason(accessibility !== undefined ? accessibility[0] : 'No')}
+            accessibility={this.translateReason(
+              accessibility !== undefined ? accessibility[0] : 'No',
+            )}
             location={locationCity + ', ' + locationAddress}
             selectedDays={days}
             selectedTime={selectedTime}
+            timeDateChangeHandler={this.deleteTempAppointment}
           />
           {/* Note: if updating this text don't forget to update the email templates */}
           {/* <Reminder>
@@ -129,7 +139,9 @@ class ReviewPage extends React.Component {
             hashFromData={this.hashFromData(email, paperFileNumber).toString()}
             email={email}
             paperFileNumber={paperFileNumber}
-            accessibility={accessibility !== undefined ? accessibility[0] : 'No'}
+            accessibility={
+              accessibility !== undefined ? accessibility[0] : 'No'
+            }
             location={locationCity + ', ' + locationAddress}
             selectedDays={selectedDays}
             selectedTime={selectedTime}
