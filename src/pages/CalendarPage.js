@@ -7,13 +7,7 @@ import { css } from 'emotion'
 import { GoBackButtonCal } from '../components/forms/GoBackButton'
 
 import { HashLink } from 'react-router-hash-link'
-import {
-  mediaQuery,
-  theme,
-  contentClass,
-  BottomContainer,
-  focusRing,
-} from '../styles'
+import { mediaQuery, theme, contentClass, focusRing } from '../styles'
 import {
   CalendarFields,
   getFieldNames,
@@ -84,6 +78,10 @@ const buttonSpacing = css`
 const spacingButton = css`
   position: relative;
   top: 35px;
+`
+const spacingButton2 = css`
+  position: relative;
+  top: 10px;
 `
 
 const labelNames = id => {
@@ -451,12 +449,13 @@ class CalendarPage extends Component {
           }}
         />
         <div className={spacingButton}>
-          <BottomContainer>
-            <ReportButton />
-          </BottomContainer>
+          <ReportButton />
+          <div className={spacingButton2}>
+            <DateModified />
+          </div>
         </div>
+
         <div />
-        <DateModified />
       </Layout>
     )
   }
