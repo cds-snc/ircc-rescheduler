@@ -358,7 +358,7 @@ const daySelection = css`
   padding: ${theme.spacing.lg} ${theme.spacing.lg} 0 ${theme.spacing.lg};
   width: 95%;
   height: auto;
-  box-shadow: 5px 10px #888888;
+  box-shadow: none;
   float: right;
 
   button {
@@ -885,7 +885,7 @@ class Calendar extends Component {
             }}
           />
           <div>
-            <div id="selectedDaysBox" style={{ display: 'flex' }}>
+            <div id="selectedDaysBox" style={{ display: 'flex', padding: '5%' }}>
               <div className={value.length ? triangle : noDates} />
               <div className={value.length ? daySelection : noDates}>
                 <label
