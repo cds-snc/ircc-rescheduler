@@ -40,11 +40,17 @@ const baseSVG = css`
 const engSVG = css`
   ${baseSVG};
   width: 400px;
+  ${mediaQuery.sm(css`
+    width: 200.5px;
+  `)};
 `
 
 const frSVG = css`
   ${baseSVG};
   width: 500px;
+  ${mediaQuery.sm(css`
+    width: 200.5px;
+  `)};
 `
 
 const FederalBanner = () => (
