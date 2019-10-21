@@ -149,6 +149,7 @@ class CalendarPage extends Component {
     this.changeMonth = this.changeMonth.bind(this)
     this.submitTempAppointment = this.submitTempAppointment.bind(this)
     this.hasNotValid = this.hasNotValid.bind(this)
+    this.getSafe = this.getSafe.bind(this)
     this.updateTime = this.updateTime.bind(this)
     this.form = null
     this.state = {
@@ -179,6 +180,14 @@ class CalendarPage extends Component {
 
   hasNotValid() {
     return this.props.location.search.indexOf('not-valid') !== -1
+  }
+
+  getSafe(fn, defaultVal) {
+    try {
+      return fn()
+    } catch (e) {
+      return defaultVal
+    }
   }
 
   updateTime(id) {
@@ -222,12 +231,20 @@ class CalendarPage extends Component {
     let values = {
       ...this.props.context.store,
     }
+    let userSelection = this.getSafe(
+      () => this.props.context.store.register.accessibility,
+      false,
+    )
     let date = moment.utc(values.calendar.selectedDays[0])
     let time = moment.utc(values.calendar.selectedTime, 'hh:mm a')
     date.set({
       hour: time.get('hour'),
       minute: time.get('minute'),
     })
+    let accessibility = true
+    if (!userSelection || userSelection[0] === undefined) {
+      accessibility = false
+    }
     let appointment = {
       clientEmail: values.register.email,
       locationId: values.selectProvince.locationId,
@@ -235,7 +252,7 @@ class CalendarPage extends Component {
       // bioKitId: String,
       bil: values.register.paperFileNumber,
       date: date,
-      privateAccessible: false,
+      privateAccessible: accessibility,
     }
     return axios.post(`/appointments/temp`, appointment)
   }
