@@ -79,10 +79,6 @@ const spacingButton = css`
   position: relative;
   top: 35px;
 `
-// const spacingButton2 = css`
-//   position: relative;
-//   top: 10px;
-// `
 
 const labelNames = id => {
   switch (id) {
