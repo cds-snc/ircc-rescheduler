@@ -85,6 +85,10 @@ const spacingButton = css`
   position: relative;
   top: 35px;
 `
+const spacingButton2 = css`
+  position: relative;
+  top: 10px;
+`
 
 const labelNames = id => {
   switch (id) {
@@ -312,12 +316,7 @@ class CalendarPage extends Component {
 
   render() {
     let {
-      context: {
-        store: {
-          calendar = {},
-          language: locale = 'en',
-        } = {},
-      } = {},
+      context: { store: { calendar = {}, language: locale = 'en' } = {} } = {},
     } = this.props
 
     // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
@@ -439,12 +438,13 @@ class CalendarPage extends Component {
           }}
         />
         <div className={spacingButton}>
-          <BottomContainer>
-            <ReportButton />
-          </BottomContainer>
+          <ReportButton />
+          <div className={spacingButton2}>
+            <DateModified />
+          </div>
         </div>
+
         <div />
-        <DateModified />
       </Layout>
     )
   }
