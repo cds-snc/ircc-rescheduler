@@ -106,8 +106,7 @@ server
         res.status(503).send()
       })
   })
-
-  .get('/appointments/:confirm/:documentId', (req, res) => {
+  .get('/appointments/confirm/:documentId', (req, res) => {
     let data = ''
     let documentId = req.params.documentId
 
