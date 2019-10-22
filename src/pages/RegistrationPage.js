@@ -212,6 +212,7 @@ class RegistrationPage extends React.Component {
       <Trans>I need an accessible or private workstation</Trans>
     )
     const optionalStr = <Trans>(optional)</Trans>
+    const requiredStr = <Trans>(Required)</Trans>
 
     // if this is a POST, we know for sure they pressed "submit" on this page
     // Otherwise, we would be showing error messages on the initial pageload
@@ -291,7 +292,24 @@ class RegistrationPage extends React.Component {
                   >
                     <label htmlFor="paperFileNumber" id="paperFileNumber-label">
                       <span id="paperFileNumber-header">
-                        <Trans>Application number</Trans>
+                        <span
+                          style={{
+                            color: `${theme.colour.red}`,
+                          }}
+                        >
+                          {'* '}
+                        </span>
+                        <Trans>Application number</Trans>{' '}
+                        {
+                          <span
+                            style={{
+                              color: `${theme.colour.red}`,
+                            }}
+                          >
+                            {' '}
+                            {requiredStr}
+                          </span>
+                        }
                       </span>
                       <ValidationMessage
                         id="paperFileNumber-error"
@@ -316,7 +334,25 @@ class RegistrationPage extends React.Component {
                   <Field component={TextFieldAdapter} name="email" id="email">
                     <label htmlFor="email" id="email-label">
                       <span id="email-header">
+                        {' '}
+                        <span
+                          style={{
+                            color: `${theme.colour.red}`,
+                          }}
+                        >
+                          {'* '}
+                        </span>
                         <Trans>Email address</Trans>
+                        {
+                          <span
+                            style={{
+                              color: `${theme.colour.red}`,
+                            }}
+                          >
+                            {' '}
+                            {requiredStr}
+                          </span>
+                        }
                       </span>
                       <ValidationMessage
                         id="email-error"
@@ -344,7 +380,24 @@ class RegistrationPage extends React.Component {
                   >
                     <label htmlFor="emailConfirm" id="emailConfirm-label">
                       <span id="confirm-email-header">
+                        <span
+                          style={{
+                            color: `${theme.colour.red}`,
+                          }}
+                        >
+                          {'* '}
+                        </span>
                         <Trans>Confirm Email address</Trans>
+                        {
+                          <span
+                            style={{
+                              color: `${theme.colour.red}`,
+                            }}
+                          >
+                            {' '}
+                            {requiredStr}
+                          </span>
+                        }
                       </span>
                       <ValidationMessage
                         id="email-Confirm-error"
