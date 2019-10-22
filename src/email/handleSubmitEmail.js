@@ -16,7 +16,6 @@ export const getEmailConfirm = (documentId, cb) => {
       })
       resp.on('end', function() {
         data = JSON.parse(data)
-        // eslint-disable-next-line no-console
 
         cb(null, data.confirmation)
       })
