@@ -42,7 +42,30 @@ class ReviewPage extends React.Component {
       return <Trans>No</Trans>
     }
   }
- 
+
+  // from: stackoverflow 'generate a hash from string...'
+  hashFromData(email, paperFileNumber) {
+    var hash = 0,
+      i,
+      chr
+    const keys = email + paperFileNumber
+    if (keys.length === 0) return hash
+    for (i = 0; i < keys.length; i++) {
+      chr = keys.charCodeAt(i)
+      hash = (hash << 5) - hash + chr
+      hash |= 0
+    }
+    return hash
+  }
+
+  async deleteTempAppointment(event) {
+    event.preventDefault()
+    let tempAppointment = this.props.context.store.calendar.tempAppointment
+    return await axios.delete(
+      `/appointments/temp/delete/${tempAppointment._id}`,
+    )
+  }
+
   render() {
     let {
       context: {
