@@ -234,7 +234,6 @@ server
     res.redirect(`/cancel?language=${language}`)
   })
   .all('/*', async (req, res) => {
-    console.log('all')
     const customRenderer = node => ({
       gitHashString: gitHash(),
       path: req.url,
