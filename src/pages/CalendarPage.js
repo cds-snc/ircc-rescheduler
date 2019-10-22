@@ -79,10 +79,6 @@ const spacingButton = css`
   position: relative;
   top: 35px;
 `
-const spacingButton2 = css`
-  position: relative;
-  top: 10px;
-`
 
 const labelNames = id => {
   switch (id) {
@@ -448,14 +444,13 @@ class CalendarPage extends Component {
             )
           }}
         />
-        <div className={spacingButton}>
+        <div className={spacingButton} />
+        <div className={calendarContentClass}>
           <ReportButton />
-          <div className={spacingButton2}>
-            <DateModified />
-          </div>
-        </div>
 
-        <div />
+          <div />
+        </div>
+        <DateModified />
       </Layout>
     )
   }
