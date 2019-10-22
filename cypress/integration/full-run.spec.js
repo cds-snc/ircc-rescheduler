@@ -1,14 +1,30 @@
 /* eslint-disable no-undef */
-import { nextButton, enterButton, headerImg, langLink, privacyLink, tocLink, aboutCA, sMedia, mobileApp, aboutCAHref, sMediaHref, mobileHref, tocHref, privacyHref, footerImg } from './utils'
+import {
+  nextButton,
+  enterButton,
+  headerImg,
+  langLink,
+  privacyLink,
+  tocLink,
+  aboutCA,
+  sMedia,
+  mobileApp,
+  aboutCAHref,
+  sMediaHref,
+  mobileHref,
+  tocHref,
+  privacyHref,
+  footerImg,
+} from './utils'
 
 // Verify Items and functions on the full run page
 function checkA11y(cy) {
   cy.checkA11y({
     runonly: {
-      type: "tag",
-      values: ["wcag2a", "wcag2aa"]
-    }
-  });
+      type: 'tag',
+      values: ['wcag2a', 'wcag2aa'],
+    },
+  })
 }
 
 describe('should perform functions on the review page', () => {
@@ -16,10 +32,8 @@ describe('should perform functions on the review page', () => {
     cy.visit('/')
   })
 
-
   it('Should pass the data from register, location and calendar to the review page', () => {
     cy.injectAxe()
-
 
     // check the accept privacy notice box
     cy.get('#policyCheck').click()
@@ -35,15 +49,18 @@ describe('should perform functions on the review page', () => {
       cy.get(nextButton).click()
       cy.url().should('contain', '/selectProvince')
       cy.wait(2000)
-      
     })
     // select a location
     cy.get('#ProvinceList').should('contains.text', 'Select a Province')
-    cy.get('select[name="ProvinceList"]').select('Alberta').should('have.value', 'Alberta')
+    cy.get('select[name="ProvinceList"]')
+      .select('Alberta')
+      .should('have.value', 'Alberta')
     cy.wait(2000)
     cy.get('#CitiesList').should('contain.text', 'Select a city')
     cy.wait(2000)
-    cy.get('select[name="CitiesList"]').select('Edmonton').should('have.value', 'Edmonton')
+    cy.get('select[name="CitiesList"]')
+      .select('Edmonton')
+      .should('have.value', 'Edmonton')
     // cy.get('input[type="radio"]').click()
     cy.get('#4601').click()
     // need to gather what the location is for 4601
@@ -56,26 +73,30 @@ describe('should perform functions on the review page', () => {
     // Compare today's date with the Day--today
     const todaysDate = Cypress.moment().format('DD')
     // next day
-    const tomorrowDate = Cypress.moment().add(1, 'days').format('DD')
+    const tomorrowDate = Cypress.moment()
+      .add(1, 'days')
+      .format('DD')
     cy.log('todays date ' + todaysDate)
     cy.log('tomorrow ' + tomorrowDate)
 
     // trying to find all of the available days as they are not disabled
-    cy.get('.DayPicker-Day').its('.aria-disabled="false"').then(($firstAvailDayButton) => {
-      const firstAvailDayNum = $firstAvailDayButton.text().trim()
-      // firstAvailDayNum shows all of the number in the month
-      // click the first available day
-      cy.log('availableDayNum ' + firstAvailDayNum)
-      $firstAvailDayButton.click();
-      cy.log($firstAvailDayButton)
-      // day button shows [object Object]
-      cy.log('day button ' + $firstAvailDayButton)
-    })
+    cy.get('.DayPicker-Day--isFirstAvailableDay')
+      .its('.aria-disabled="false"')
+      .then($firstAvailDayButton => {
+        const firstAvailDayNum = $firstAvailDayButton.text().trim()
+        // firstAvailDayNum shows all of the number in the month
+        // click the first available day
+        cy.log('availableDayNum ' + firstAvailDayNum)
+        $firstAvailDayButton.click()
+        cy.log($firstAvailDayButton)
+        // day button shows [object Object]
+        cy.log('day button ' + $firstAvailDayButton)
+      })
     // selected day should be visible
     cy.get('.DayPicker-Day--selected').should('be.visible')
     // get the date string that is shown in the selected day box as 'dateString'
     // this should get the dateString that will be shown in the review page
-    cy.get('ul > li .day-box').then(($dateSelected) => {
+    cy.get('ul > li .day-box').then($dateSelected => {
       // get the calendar day value of the selected day .DayPicker-Day--selected
       const dateString = $dateSelected.text()
       cy.log('date selected = ' + dateString)
@@ -90,7 +111,7 @@ describe('should perform functions on the review page', () => {
       cy.get('.DayPicker-Day--selected').as('selectedDay')
       // Find the day that is selected in the calendar
 
-      cy.get('@selectedDay').then(($available) => {
+      cy.get('@selectedDay').then($available => {
         // get the value of the selected day .DayPicker-Day--selected
         const dayString = $available.text()
         cy.log('dayString = ' + dayString)
@@ -98,51 +119,46 @@ describe('should perform functions on the review page', () => {
         cy.get('time').should('contain', dayString)
       })
       // review strings in the #selectedDaysBox
-      cy.get('#selectedDaysBox').should('contain.text', 'Please select your time slot:')
+      cy.get('#selectedDaysBox').should(
+        'contain.text',
+        'Please select your time slot:',
+      )
 
       // find the time in the dropdown list
-      // find the first selection object from the list of Time Slot selection objects 
-      cy.get('select[name="TimeSlot"] > option:eq(1)').as('firstObject')
+      // find the first selection object from the list of Time Slot selection objects
+       cy.get('select[name="TimeSlot"] > option:eq(1)').as('firstObject')
       // get that object to get the time string from it
-      cy.get('@firstObject').then(($firstTime) => {
+      cy.get('@firstObject').then($firstTime => {
         // get the time string from the selected object
         const timeString = $firstTime.text()
         cy.log('timeString = ' + timeString)
         // select that time slot from the list using the string you found
         cy.get('select[name="TimeSlot"]').select(timeString)
       })
-      cy.get(nextButton).should('be.enabled').and('be.visible')
+      cy.get(nextButton)
+        .should('be.enabled')
+        .and('be.visible')
       cy.wait(2000)
       cy.get(nextButton).click()
       cy.wait(2000)
-      // TODO: find out why the time is not selected in the pipeline
-     // cy.url().should('contains', '/review')
+       
+      cy.url().should('contains', '/review')
 
-      // Verify if all of the entered data appears on the review page. 
-      // cy.fixture('user').then(data => {
-      //   cy.get('#bilNumber-body').should('contain', data.bilNumber)
-      //   cy.get('#email-address-body').should('contain', data.email)
-      // })
+     // Verify if all of the entered data appears on the review page.
+      cy.fixture('user').then(data => {
+        cy.get('#bilNumber-body').should('contain', data.bilNumber)
+        cy.get('#email-address-body').should('contain', data.email)
+      })
 
+      cy.get('#a11y-body').should('contain', 'No')
+      cy.get('#location-body').should('contain', 'Edmonton')
 
-      // cy.get('#a11y-body').should('contain', 'No')
-      // cy.get('#location-body').should('contain', 'Edmonton')
+      cy.get('#date-body').should('contain', dateString)
 
-
-      // cy.get('#date-body').should('contain', dateString)
-
-
-      //    cy.get(nextButton).click()
-      //    cy.url().should('contains', '/confirmation')
-
-
+         cy.get('button[type="submit"]').click()
+         cy.url().should('contains', '/confirmation')
+// TODO:
       //verify the values appear on the review page
-
-
-
-
-
     })
-
   })
 })

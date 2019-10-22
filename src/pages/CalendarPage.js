@@ -5,13 +5,9 @@ import withContext from '../withContext'
 import { Trans } from '@lingui/react'
 import { css } from 'emotion'
 import { GoBackButtonCal } from '../components/forms/GoBackButton'
-import {
-  mediaQuery,
-  theme,
-  contentClass,
-  BottomContainer,
-  focusRing,
-} from '../styles'
+
+import { HashLink } from 'react-router-hash-link'
+import { mediaQuery, theme, contentClass, focusRing } from '../styles'
 import {
   CalendarFields,
   getFieldNames,
@@ -29,7 +25,7 @@ import CalendarAdapter from '../components/Calendar'
 import { Form, Field } from 'react-final-form'
 import { FORM_ERROR } from 'final-form'
 import { makeGMTDate, dateToISODateString } from '../components/Time'
-import ErrorMessage from '../components/ErrorMessage'
+import { ErrorList } from '../components/ErrorMessage'
 import { windowExists } from '../utils/windowExists'
 import { logEvent } from '../utils/analytics'
 import {
@@ -83,6 +79,17 @@ const spacingButton = css`
   position: relative;
   top: 35px;
 `
+
+const labelNames = id => {
+  switch (id) {
+    case 'selectedDays':
+      return <Trans>Select a day</Trans>
+    case 'selectedTime':
+      return <Trans>Select a time</Trans>
+    default:
+      return ''
+  }
+}
 
 class CalendarPage extends Component {
   static get fields() {
@@ -138,6 +145,7 @@ class CalendarPage extends Component {
     this.changeMonth = this.changeMonth.bind(this)
     this.submitTempAppointment = this.submitTempAppointment.bind(this)
     this.hasNotValid = this.hasNotValid.bind(this)
+    this.getSafe = this.getSafe.bind(this)
     this.updateTime = this.updateTime.bind(this)
     this.form = null
     this.state = {
@@ -170,10 +178,19 @@ class CalendarPage extends Component {
     return this.props.location.search.indexOf('not-valid') !== -1
   }
 
+  getSafe(fn, defaultVal) {
+    try {
+      return fn()
+    } catch (e) {
+      return defaultVal
+    }
+  }
+
   updateTime(id) {
     if (id === '0') id = ''
     this.setState({ timeValue: id })
   }
+
   forceRender(values) {
     // call setState to force a render
     this.setState({ calValues: values })
@@ -210,12 +227,20 @@ class CalendarPage extends Component {
     let values = {
       ...this.props.context.store,
     }
+    let userSelection = this.getSafe(
+      () => this.props.context.store.register.accessibility,
+      false,
+    )
     let date = moment.utc(values.calendar.selectedDays[0])
     let time = moment.utc(values.calendar.selectedTime, 'hh:mm a')
     date.set({
       hour: time.get('hour'),
       minute: time.get('minute'),
     })
+    let accessibility = true
+    if (!userSelection || userSelection[0] === undefined) {
+      accessibility = false
+    }
     let appointment = {
       clientEmail: values.register.email,
       locationId: values.selectProvince.locationId,
@@ -223,7 +248,7 @@ class CalendarPage extends Component {
       // bioKitId: String,
       bil: values.register.paperFileNumber,
       date: date,
-      privateAccessible: false,
+      privateAccessible: accessibility,
     }
     return axios.post(`/appointments/temp`, appointment)
   }
@@ -257,11 +282,18 @@ class CalendarPage extends Component {
         `Error: ${values.selectedDays.length} Day(s) selected`,
       )
 
-      const err = errorMessages[submitErrors.selectedDays]
-        ? errorMessages[submitErrors.selectedDays]
-        : submitErrors.selectedDays
-      return {
-        [FORM_ERROR]: err,
+      if (this.validate(values).selectedDays) {
+        const err = errorMessages[submitErrors.selectedDays]
+        return {
+          [FORM_ERROR]: err,
+        }
+      }
+
+      if (this.validate(values).selectedTime) {
+        const err = errorMessages[submitErrors.selectedTime]
+        return {
+          [FORM_ERROR]: err,
+        }
       }
     }
 
@@ -291,12 +323,7 @@ class CalendarPage extends Component {
 
   render() {
     let {
-      context: {
-        store: {
-          calendar = {},
-          language: locale = 'en',
-        } = {},
-      } = {},
+      context: { store: { calendar = {}, language: locale = 'en' } = {} } = {},
     } = this.props
 
     // we aren't going to check for a no-js submission because currently nothing happens when someone presses "review request"
@@ -335,37 +362,14 @@ class CalendarPage extends Component {
             errors,
             submitError,
           }) => {
-            let err
-
             const notValid = this.hasNotValid()
             const { availability } = values
 
-            if (submitError && this.validate(values).selectedDays) {
-              let valuesLength =
-                values && values.selectedDays && values.selectedDays.length
-                  ? values.selectedDays.length
-                  : 0
+            let selectedTime = this.state.timeValue
 
-              switch (valuesLength) {
-                case 1:
-                  err = (
-                    <React.Fragment>
-                      {submitError}{' '}
-                      <Trans>Please select 2 more days to continue.</Trans>
-                    </React.Fragment>
-                  )
-                  break
-                case 2:
-                  err = (
-                    <React.Fragment>
-                      {submitError}{' '}
-                      <Trans>Please select 1 more day to continue.</Trans>
-                    </React.Fragment>
-                  )
-                  break
-                default:
-                  err = submitError
-              }
+            values = {
+              ...values,
+              selectedTime,
             }
 
             return (
@@ -393,10 +397,21 @@ class CalendarPage extends Component {
                       this.errorContainer = errorContainer
                     }}
                   >
-                    <ErrorMessage
-                      message={err ? err : null}
-                      id="fewerDays-error"
-                    />
+                    <ErrorList message={submitError || ''}>
+                      {Object.keys(this.validate(values)).map((formId, i) => (
+                        <HashLink
+                          to={
+                            formId === 'reason'
+                              ? '#reason-header'
+                              : `#${formId}-label`
+                          }
+                          key={i}
+                        >
+                          {labelNames(formId) ? labelNames(formId) : formId}
+                          <br />
+                        </HashLink>
+                      ))}
+                    </ErrorList>
                   </div>
                   <Field
                     name="selectedDays"
@@ -429,12 +444,12 @@ class CalendarPage extends Component {
             )
           }}
         />
-        <div className={spacingButton}>
-          <BottomContainer>
-            <ReportButton />
-          </BottomContainer>
+        <div className={spacingButton} />
+        <div className={calendarContentClass}>
+          <ReportButton />
+
+          <div />
         </div>
-        <div />
         <DateModified />
       </Layout>
     )

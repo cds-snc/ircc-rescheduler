@@ -1,4 +1,43 @@
+
 {
+  "Select a day": {
+    "translation": "Sélectionnez un jour",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        92
+      ]
+    ]
+  },
+
+
+  "Select a time": {
+    "translation": "Sélectionnez une heure",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        94
+      ]
+    ]
+  },
+  "You must select a time to continue.": {
+    "translation": "Vous devez choisir une heure pour continuer.",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        129
+      ]
+    ]
+  },
+  "Select a day and time on the calendar.": {
+    "translation": "Sélectionnez un jour et une heure sur le calendrier",
+    "origin": [
+      [
+        "src/pages/CalendarPage.js",
+        129
+      ]
+    ]
+  },
   "(optional)": {
     "translation": "(optionnel)",
     "origin": [

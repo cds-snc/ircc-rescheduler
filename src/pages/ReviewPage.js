@@ -14,6 +14,8 @@ import { dateToISODateString } from '../components/Time'
 import FocusedH1 from '../components/FocusedH1'
 import { ReportButton } from '../components/forms/ReportButton'
 import DateModified from '../components/DateModified'
+import axios from 'axios'
+
 const contentClass = css`
   p {
     padding-bottom: ${theme.spacing.lg};
@@ -28,6 +30,7 @@ class ReviewPage extends React.Component {
     super(props)
     this.state = { sending: false }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.deleteTempAppointment = this.deleteTempAppointment.bind(this)
   }
   handleSubmit() {
     this.setState({ sending: true })
@@ -53,6 +56,28 @@ class ReviewPage extends React.Component {
   //   }
   //   return hash
   // }
+  hashFromData(email, paperFileNumber) {
+    var hash = 0,
+      i,
+      chr
+    const keys = email + paperFileNumber
+    if (keys.length === 0) return hash
+    for (i = 0; i < keys.length; i++) {
+      chr = keys.charCodeAt(i)
+      hash = (hash << 5) - hash + chr
+      hash |= 0
+    }
+    return hash
+  }
+
+  async deleteTempAppointment(event) {
+    event.preventDefault()
+    let tempAppointment = this.props.context.store.calendar.tempAppointment
+    return await axios.delete(
+      `/appointments/temp/delete/${tempAppointment._id}`,
+    )
+  }
+
   render() {
     let {
       context: {
@@ -98,6 +123,7 @@ class ReviewPage extends React.Component {
             location={locationCity + ', ' + locationAddress}
             selectedDays={days}
             selectedTime={selectedTime}
+            timeDateChangeHandler={this.deleteTempAppointment}
           />
           {/* Note: if updating this text don't forget to update the email templates */}
           {/* <Reminder>
