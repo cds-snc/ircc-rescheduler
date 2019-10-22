@@ -179,7 +179,7 @@ export const horizontalPadding = css`
 export const content = css`
   ${horizontalPadding};
   padding-top: ${theme.spacing.xl};
-  padding-bottom: ${theme.spacing.xxl};
+  padding-bottom: ${theme.spacing.xs};
   width: 100%;
   background-color: ${theme.colour.white};
   box-sizing: border-box;
