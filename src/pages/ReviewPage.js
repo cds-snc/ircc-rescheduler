@@ -42,20 +42,7 @@ class ReviewPage extends React.Component {
       return <Trans>No</Trans>
     }
   }
-  // from: stackoverflow 'generate a hash from string...'
-  // hashFromData(email, paperFileNumber) {
-  //   var hash = 0,
-  //     i,
-  //     chr
-  //   const keys = email + paperFileNumber
-  //   if (keys.length === 0) return hash
-  //   for (i = 0; i < keys.length; i++) {
-  //     chr = keys.charCodeAt(i)
-  //     hash = (hash << 5) - hash + chr
-  //     hash |= 0
-  //   }
-  //   return hash
-  // }
+ 
   render() {
     let {
       context: {
