@@ -56,7 +56,7 @@ const EmailError = () => {
 class ConfirmationPage extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { sending: false, comfirmNum: [] }
+    this.state = { sending: false, confirmNum: '' }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.getEmailNum(this.props.context.store.calendar.tempAppointment._id)
   }
@@ -78,7 +78,7 @@ class ConfirmationPage extends React.Component {
       .get(`/appointments/confirm/${documentId}`)
       .then(conNum => {
         this.setState({
-          comfirmNum: conNum.data.confirmation,
+          confirmNum: conNum.data.confirmation,
         })
       })
       .catch(function() {
@@ -134,7 +134,7 @@ class ConfirmationPage extends React.Component {
 
         <section>
           <Confirmation
-            hashFromData={this.state.comfirmNum}
+            hashFromData={this.state.confirmNum}
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(accessibility)}
