@@ -3,6 +3,7 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
 name: "New SAB-GUI PR Pipeline"
+pool: Default
 trigger:
   - master
 
@@ -13,8 +14,6 @@ stages:
   - stage: Test
     jobs:
       - job: Unit_Testing
-        pool:
-          vmImage: "Ubuntu-16.04"
         steps:
           - task: NodeTool@0
             inputs:
@@ -35,8 +34,6 @@ stages:
       # then the cypress container is built from cypress.Dockerfile and runs the tests against the served app on localhost.
       - job: Cypress_tests
         dependsOn: Unit_Testing
-        pool:
-          vmImage: "Ubuntu-16.04"
         steps:
           - script: docker-compose up --exit-code-from e2e
             continueOnError: "true"
@@ -53,8 +50,6 @@ stages:
     condition: and(succeeded(), eq(variables['build.sourceBranch'], 'refs/heads/master'))
     jobs:
       - job: Publish_Artifact
-        pool:
-          vmImage: "Ubuntu-16.04"
         steps:
           - task: Docker@2
             inputs:
