@@ -15,6 +15,8 @@ import Confirmation from '../components/Confirmation'
 import { ReportButton } from '../components/forms/ReportButton'
 import DateModified from '../components/DateModified'
 
+import axios from 'axios'
+
 const contentClass = css`
   p {
     margin-top: ${theme.spacing.xs};
@@ -54,8 +56,9 @@ const EmailError = () => {
 class ConfirmationPage extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { sending: false }
+    this.state = { sending: false, confirmNum: '' }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.getEmailNum(this.props.context.store.calendar.tempAppointment._id)
   }
 
   handleSubmit() {
@@ -70,18 +73,17 @@ class ConfirmationPage extends React.Component {
     }
   }
 
-  hashFromData(email, paperFileNumber) {
-    var hash = 0,
-      i,
-      chr
-    const keys = email + paperFileNumber
-    if (keys.length === 0) return hash
-    for (i = 0; i < keys.length; i++) {
-      chr = keys.charCodeAt(i)
-      hash = (hash << 5) - hash + chr
-      hash |= 0
-    }
-    return hash
+  getEmailNum(documentId) {
+    axios
+      .get(`/appointments/confirm/${documentId}`)
+      .then(conNum => {
+        this.setState({
+          confirmNum: conNum.data.confirmation,
+        })
+      })
+      .catch(err => {
+        this.props.history.push('/error')
+      })
   }
 
   hasEmailError() {
@@ -97,20 +99,13 @@ class ConfirmationPage extends React.Component {
     let {
       context: {
         store: {
-          register: {
-            paperFileNumber,
-            email,
-            accessibility,
-            // hashFromData,
-          } = {},
+          register: { paperFileNumber, email, accessibility } = {},
 
           calendar: { selectedDays = [], selectedTime } = {},
           selectProvince: { locationCity, locationAddress } = {},
         } = {},
       } = {},
     } = this.props
-
-    // const { sending } = this.state
 
     let days = []
 
@@ -124,10 +119,11 @@ class ConfirmationPage extends React.Component {
 
     return (
       <Layout contentClass={contentClass}>
-        <Title path={this.props.match.path}/>
+        <Title path={this.props.match.path} />
         <FocusedH1 className={visuallyhidden}>
           <Trans>Confirmation</Trans>
         </FocusedH1>
+
         {!this.hasEmailError() ? (
           <p>
             <Trans>We&rsquo;ve sent you a confirmation email.</Trans>
@@ -138,11 +134,15 @@ class ConfirmationPage extends React.Component {
 
         <section>
           <Confirmation
-            hashFromData={this.hashFromData(email, paperFileNumber).toString()}
+            hashFromData={this.state.confirmNum}
             paperFileNumber={paperFileNumber}
             email={email}
             accessibility={this.translateReason(accessibility)}
-            location={(locationCity && locationAddress) ? locationCity + ', ' + locationAddress : ''}
+            location={
+              locationCity && locationAddress
+                ? locationCity + ', ' + locationAddress
+                : ''
+            }
             selectedDays={days}
             selectedTime={selectedTime}
           />
@@ -152,10 +152,10 @@ class ConfirmationPage extends React.Component {
           </H2>
           <p>
             <Trans>
-              Remember to bring: <br/>
-              1.- Your BIL letter <br/>
-              2.- This confirmation number <br/>
-              3.- Your immigration papers <br/> <br/>
+              Remember to bring: <br />
+              1.- Your BIL letter <br />
+              2.- This confirmation number <br />
+              3.- Your immigration papers <br /> <br />
             </Trans>
 
             <Trans>

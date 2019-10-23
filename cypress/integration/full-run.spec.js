@@ -143,6 +143,7 @@ describe('should perform functions on the review page', () => {
       cy.wait(2000)
        
       cy.url().should('contains', '/review')
+   
 
      // Verify if all of the entered data appears on the review page.
       cy.fixture('user').then(data => {
@@ -155,10 +156,38 @@ describe('should perform functions on the review page', () => {
 
       cy.get('#date-body').should('contain', dateString)
 
-         cy.get('button[type="submit"]').click()
-         cy.url().should('contains', '/confirmation')
-// TODO:
+      cy.get('button[type="submit"]').click()
+       // TODO:
       //verify the values appear on the review page
+      // the confirmation number will need to be verified
+      cy.url().should('contains', '/confirmation')
+      cy.get('[role="banner"] > :nth-child(2)').should('be.visible')
+      .and('contain.text', 'Thank you! Your request has been received.')
+      cy.get('#hashFromData-header').should('contains.text', 'Confirmation #: A')
+      cy.get('#bilNumber-header').should('contain', 'Application number')
+      cy.get('#email-address-header').should('contain', 'Email address')
+      cy.get('#a11y-header').should('contain', 'I need an accessible or private workstation')
+      cy.get('#location-header').should('contain', 'Location')
+      cy.get('#date-header').should('contain', 'Day and time')
+
+      // check the header and footer on the confirmation page
+      cy.get(headerImg).should('be.visible')
+      cy.get(langLink).should('be.visible', 'Français')
+      cy.get(aboutCA).should('be.visible').and('contain', 'About Canada.ca')
+      cy.get(sMedia).should('be.visible').and('contain', 'Social media')
+      cy.get(mobileApp).should('be.visible').and('contain', 'Mobile applications')
+      cy.get(tocLink).should('contain', 'Terms and Conditions')
+      cy.get(privacyLink).should('contain', 'Privacy')
+     
+      cy.get(aboutCAHref).should('have.attr', 'href', 'https://www.canada.ca/en/government/about.html')
+      cy.get(sMediaHref).should('have.attr', 'href', 'https://www.canada.ca/en/social.html')
+      cy.get(mobileHref).should('have.attr', 'href', 'https://www.canada.ca/en/mobile.html')
+      cy.get(tocHref).should('have.attr', 'href', 'https://digital.canada.ca/legal/terms/')
+      cy.get(privacyHref).should('have.attr', 'href', '/privacy')
+      
+       cy.get(footerImg).should('be.visible')
+
+   
     })
   })
 })

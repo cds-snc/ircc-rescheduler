@@ -63,6 +63,9 @@ class HeaderDescription extends React.Component {
       case '/not-found':
         pathTitle = <Trans>Page not found.</Trans>
         break
+      case '/error':
+        pathTitle = <Trans>Sorry, something went wrong.</Trans>
+        break
       default:
       // code block
     }

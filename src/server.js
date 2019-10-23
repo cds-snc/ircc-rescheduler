@@ -18,17 +18,13 @@ import {
 import gitHash from './utils/gitHash'
 import { handleSubmitEmail } from './email/handleSubmitEmail'
 import { logError, logDebug } from './utils/logger'
-
 checkEnvironmentVariables()
-
 // eslint-disable-next-line security/detect-non-literal-require
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST ||
   path.join(process.cwd(), 'build', 'assets.json'))
-
 const server = express()
 const helmet = require('helmet')
 const apiHost = process.env.CONNECTION_STRING
-
 server
   .use(helmet()) // sets security-focused headers: https://helmetjs.github.io/
   .use(helmet.frameguard({ action: 'deny' })) // Sets "X-Frame-Options: DENY".
@@ -110,6 +106,27 @@ server
         res.status(503).send()
       })
   })
+  .get('/appointments/confirm/:documentId', (req, res) => {
+    let data = ''
+    let documentId = req.params.documentId
+
+    http
+      .get(`${apiHost}/appointments/confirm/${documentId}`, resp => {
+        logDebug(`STATUS: ${resp.statusCode}`)
+        logDebug(`HEADERS: ${JSON.stringify(resp.headers)}`)
+        resp.on('data', chunk => {
+          data += chunk
+          res.status(200).send(data)
+        })
+      })
+      .on('error', err => {
+        logError(
+          'Something went wrong when calling the API appointments/locationID/city:  ' +
+            err.message,
+        )
+        res.status(503).send()
+      })
+  })
   .get('/appointments/timeslots/:locationId', (req, res) => {
     let locationId = req.params.locationId
     let day = req.query.day
@@ -135,6 +152,7 @@ server
         res.status(503).send()
       })
   })
+
   .post('/appointments/temp', (req, res) => {
     let data = JSON.stringify(req.body)
     const options = {
@@ -230,7 +248,6 @@ server
         customRenderer,
         document: Document,
       })
-
       return res.locals.redirect
         ? res.redirect(res.locals.redirect)
         : res.send(html)
@@ -240,9 +257,7 @@ server
       return
     }
   })
-
 export default server
-
 function checkEnvironmentVariables() {
   if (process.env.SKIP_SECRET_CHECK !== 'TRUE') {
     const key = process.env.NOTIFICATION_API_KEY

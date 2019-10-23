@@ -171,6 +171,7 @@ describe('Calendar page functions', () => {
     cy.get(nextButton)
       .should('be.enabled')
       .and('be.visible')
+     
       checkA11y(cy)
     //  cy.get(nextButton).click()
     //  cy.url().should('contains', '/review')
