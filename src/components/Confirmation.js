@@ -30,8 +30,7 @@ const Review = ({
   <TableContainer>
     <SummaryRow
       summaryId={'hashFromData'}
-      summaryHeader={<Trans>Confirmation #: A </Trans>}
-      summaryBody={hashFromData}
+      summaryHeader={`Confirmation #: A ${hashFromData}`}
     />
     <SummaryRow
       summaryId={'bilNumber'}
