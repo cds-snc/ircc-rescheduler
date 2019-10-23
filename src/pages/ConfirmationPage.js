@@ -81,7 +81,7 @@ class ConfirmationPage extends React.Component {
           confirmNum: conNum.data.confirmation,
         })
       })
-      .catch(function() {
+      .catch(err => {
         this.props.history.push('/error')
       })
   }
