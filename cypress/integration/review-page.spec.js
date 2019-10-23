@@ -64,8 +64,8 @@ describe('should perform functions on the review page', () => {
         cy.get('#date-header').should('contain', 'Day and time')
         cy.get('#date-link > a').should('have.attr', 'href', '/calendar#selectedDaysBox')
         cy.get(enterButton).should('be.enabled').and('be.visible')
-        cy.get(enterButton).click()
-        cy.url().should('contain', '/confirmation')
+        // cy.get(enterButton).click()
+        // cy.url().should('contain', '/confirmation')
  
            })  
               
