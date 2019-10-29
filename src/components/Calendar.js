@@ -23,7 +23,6 @@ import {
   notInDateRange,
   isFirstAvailableDay,
   isLastAvailableDay,
- 
 } from '../utils/calendarDates'
 import parse from 'date-fns/parse'
 
@@ -506,7 +505,7 @@ const renderDayBoxes = ({
 
     dayBoxes.push(
       selectedDay ? (
-        <li  key={i} className={dayBox}>
+        <li key={i} className={dayBox}>
           <span className="day-box">
             <Time date={selectedDay} locale={locale} />
           </span>
@@ -851,7 +850,7 @@ class Calendar extends Component {
             </h2>
           </div>
         ) : null}
-        <div  
+        <div
           className={
             this.oneDatesArePicked ? calendarContainerTop : calendarContainer
           }
@@ -860,7 +859,7 @@ class Calendar extends Component {
             className={css`
               ${weekdayStyles};
             `}
-            modifiers={  {isFirstAvailableDay, isLastAvailableDay} } 
+            modifiers={{ isFirstAvailableDay, isLastAvailableDay }}
             localeUtils={{ ...LocaleUtils, formatDay }}
             captionElement={renderMonthName}
             locale={locale}
@@ -886,7 +885,6 @@ class Calendar extends Component {
 
               ...getDisabledDays(),
             ]}
-           
             onDayClick={this.handleDayClick}
             selectedDays={value}
             onFocus={() => onFocus(value)}
@@ -896,11 +894,13 @@ class Calendar extends Component {
               tabIndex,
               'aria-labelledby': 'renderMonthName',
               'aria-describedby': 'firstDayString',
-        
             }}
           />
           <div>
-            <div id="selectedDaysBox" style={{ display: 'flex', padding: '5%' }}>
+            <div
+              id="selectedDaysBox"
+              style={{ display: 'flex', padding: '5%' }}
+            >
               <div className={value.length ? triangle : noDates} />
               <div className={value.length ? daySelection : noDates}>
                 <label
@@ -929,13 +929,12 @@ class Calendar extends Component {
                     removeDayAltText:
                       i18n !== undefined ? i18n._('Remove day') : 'Remove day',
                   })}
-                
                 </ul>
                 <TimeSlots
-                    selectedTimeId={this.selectedTime}
-                    selectedDay={value}
-                    timeSlots={this.state.timeSlots}
-                  />
+                  selectedTimeId={this.selectedTime}
+                  selectedDay={value}
+                  timeSlots={this.state.timeSlots}
+                />
                 <div />
               </div>
             </div>
